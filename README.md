@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/gisa-riuso-temp/gisa_cmd/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/Ecosistema-GISA/gisa_cmd/blob/main/docs/logo-regione-campania.png">
 </p>
 
 # G U C - Gestione Utenti Centralizzata 
@@ -186,7 +186,7 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si 
 
 Eseguire il seguente comando:
 
-        git clone https://github.com/gisa-riuso-temp/guc
+        git clone https://github.com/Ecosistema-GISA/guc
 
 Sarà creata la directory guc. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
@@ -283,7 +283,7 @@ chown -R tomcat:tomcat /<tomcatDir> .
  
 - Clonare il repository GUC (Vedi paragrafo: 4.3 Riuso per enti di altre regioni) :
 
-git clone https://github.com/gisa-riuso-temp/guc
+git clone https://github.com/Ecosistema-GISA/guc
 
 - Installare le librerie esterne (Vedi paragrafo: Librerie esterne)
 
