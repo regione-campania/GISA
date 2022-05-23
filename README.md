@@ -186,9 +186,9 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si 
 
 Eseguire il seguente comando:
 
-        git clone https://github.com/gisa-riuso-temp/guc_cmd
+        git clone https://github.com/gisa-riuso-temp/guc
 
-Sarà creata la directory guc_cmd. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
+Sarà creata la directory guc. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
 ## **4.3 Librerie esterne**
 
@@ -207,10 +207,10 @@ La configurazione di partenza, modificabile agendo a livello del _build.xml_ sul
  
       tom.dir=/opt/tomcat.build
 
-Nella nostra directory _tomcat.build_ deve essere importato il file tar _guc_cmd/lib/build_lib.tar_ con il comando:
+Nella nostra directory _tomcat.build_ deve essere importato il file tar _guc/lib/build_lib.tar_ con il comando:
 
 ```
-  mv <guc_cmd/lib/build_lib.tar> <BuildLibDir>
+  mv <guc/lib/build_lib.tar> <BuildLibDir>
 ```
 ```
   tar -xvf <BuildLibDir>/build_lib.tar
@@ -239,7 +239,7 @@ Creazione database e import dello schema tramite i seguenti comandi, con _dbuser
 psql -U <dbuser> -h <dbhost> -c "create database guc"
 ```
 
-Posizionarsi nella directory _guc_cmd_ ed eseguire il comando: 
+Posizionarsi nella directory _guc_ ed eseguire il comando: 
 
 ```
 psql -U <dbuser> -h <dbhost> -d guc < database/guc_db_dev.sql
@@ -250,7 +250,7 @@ Sotto la directory _./templates_ sono presenti i file:
 _./templates/application.properties_  
 _./templates/application.propertiesCOLLAUDO_
 
- che vanno configurati ed inseriti sotto la directory _./guc_cmd/guc/src/it/us/web/db/_
+ che vanno configurati ed inseriti sotto la directory _./guc/guc/src/it/us/web/db/_
 
 
 
@@ -283,7 +283,7 @@ chown -R tomcat:tomcat /<tomcatDir> .
  
 - Clonare il repository GUC (Vedi paragrafo: 4.3 Riuso per enti di altre regioni) :
 
-git clone https://github.com/gisa-riuso-temp/guc_cmd
+git clone https://github.com/gisa-riuso-temp/guc
 
 - Installare le librerie esterne (Vedi paragrafo: Librerie esterne)
 
