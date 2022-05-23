@@ -12,7 +12,7 @@ categories:
   - customer-service-and-support
 description:
   it:
-    documentation: 'https://github.com/gisa-riuso-temp/guc_cmd/tree/main/docs'
+    documentation: 'https://github.com/gisa-riuso-temp/guc/tree/main/docs'
     features:
       - Gestione utenti
       - Registrazione utenti
@@ -76,9 +76,6 @@ maintenance:
     - email: gisahelpdesk@usmail.it
       name: U.S. s.r.l.
   contractors:
-    - name: Regione Campania
-      until: '2022-04-14'
-      website: 'http://www.regione.campania.it'
     - name: Istituto Zooprofilattico Sperimentale del Mezzogiorno
       until: '2022-04-14'
       website: 'https://www.izsmportici.it/portale/index.php'
@@ -89,4 +86,4 @@ platforms:
 releaseDate: '2022-02-28'
 softwareType: standalone/web
 softwareVersion: '1.0'
-url: 'https://github.com/gisa-riuso-temp/guc_cmd'
+url: 'https://github.com/gisa-riuso-temp/guc'
