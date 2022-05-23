@@ -68,7 +68,7 @@ maintenance:
       name: U.S. s.r.l.
   contractors:
     - name: Istituto Zooprofilattico Sperimentale del Mezzogiorno
-      until: ''
+      until: '31-12-2025'
       website: 'https://www.izsmportici.it/portale/index.php'
   type: internal
 name: GUC
