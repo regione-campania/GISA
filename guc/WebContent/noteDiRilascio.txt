@@ -1,0 +1,16 @@
+----- Rilascio 11/09/2013 -----
+Disabilitata la jsp per la scelta della nuova gestione ruoli e permessi(RPM)
+Modificato il puntamento al batabase guc su ufficiale
+
+
+----- Rilascio 13/09/2013 -----
+Riabilitata la jsp per la scelta della nuova gestione ruoli e permessi(RPM) (Index.java)
+Modificato il file Can.java per la gestione del bottonne RPM visibile solo all'utente RPM
+Creato utente RPM (password = RPM.tre) sul db (tab utenti) di guc demo
+
+----- Rilascio 25/09/2014 -----
+GUC 2.1
+- gestione tramite dbi
+- reload puntuale
+- gestione campi aggiuntivi per bdu (LLP e Unina)
+- gestione strutture (es. canili, importatori)

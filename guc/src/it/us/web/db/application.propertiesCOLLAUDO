@@ -1,0 +1,35 @@
+
+
+##################################################################
+####		CONFIGURAZIONE ENDPOINT							  ####
+##################################################################
+
+#GISA=endpointAPPGisa
+#CANINA=endpointAPPCanina
+#FELINA=endpointAPPFelina
+#VAM=endpointAPPVam
+#GISA_REPORT=endpointAPPDigemon
+#CANINA_REPORT=endpointAPPCaninaReport
+
+##################################################################
+####		CONFIGURAZIONE TIMEOUT LAST LOGIN				  ####
+##################################################################
+timeout=6
+
+#####################################################################
+####         CONFIGURAZIONE MAIL PEC							#####
+#####################################################################
+mail.smtp.starttls.enable = true
+mail.smtp.auth = true
+mail.smtp.host = sendm.cert.legalmail.it
+mail.smtp.port = 465
+mail.smtp.ssl.enable = true
+username = M3023707
+password = US9560031.1a
+
+## COLLAUDO
+mail.cc = gisadev@usmail.it
+mail.invio.utente=no
+mail.header=[COLLAUDO]
+
+SITO_GISA=https://spid.gisacampania.it
