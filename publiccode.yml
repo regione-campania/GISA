@@ -21,22 +21,13 @@ description:
 
       ** DESCRIZIONE **
 
+    Per tutto l’Ecosistema GISA, fatta eccezione dell’accesso come ospite al sistema di autovalutazione, è prevista una fase di pre-registrazione e registrazione che consente la profilazione dell’utente e lo autorizza all’accesso al sistema dopo l’autenticazione con SPID/CIE. Di seguito il dettaglio:
 
-      GISA è un'applicazione JEE (Java Enterprise Edition) distribuita su 3
+    FASE DI PRE-REGISTRAZIONE: l’utente compila il modulo disponibile on-line
 
-      livelli secondo il pattern Model View Control. Il livello di front-end ,
+    FASE DI REGISTRAZIONE: consiste nella validazione e autorizzazione della richiesta pervenuta da parte del soggetto responsabile dell’utente richiedente che dovrà inviare una mail alla PEC: registrazione.gisa@pec.regione.campania.it
 
-      la “presentation logic”, è implementata lato client ed è basata sugli
-
-      strumenti offerti dal web-browser (XHTML, javascript, css) essenzialmente
-
-      per la gestione dei controlli formali. Il livello intermedio, la
-
-      “application logic”, è realizzato tramite i moduli (servlet) in esecuzione
-
-      sull'application server. Il livello di back-end è costituito dal DBMS
-
-      (Data Base Management System). 
+    Per l’accesso autorizzato e autenticato all’Ecosistema sono necessari i componenti SCA e GUC. L’utente può accedere ai vari sistemi solo tramite SPID/CIE e solo se autorizzato.
 
 
       ** FUNZIONALITA' **
@@ -77,7 +68,7 @@ maintenance:
       name: U.S. s.r.l.
   contractors:
     - name: Istituto Zooprofilattico Sperimentale del Mezzogiorno
-      until: '2022-04-14'
+      until: ''
       website: 'https://www.izsmportici.it/portale/index.php'
   type: internal
 name: GUC
