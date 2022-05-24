@@ -12,7 +12,7 @@ categories:
   - customer-service-and-support
 description:
   it:
-    documentation: 'https://github.com/gisa-riuso-temp/guc/tree/main/docs'
+    documentation: 'https://github.com/EcosistemaGISA/guc/tree/main/docs'
     features:
       - Gestione utenti
       - Registrazione utenti
@@ -77,4 +77,4 @@ platforms:
 releaseDate: '2022-02-28'
 softwareType: standalone/web
 softwareVersion: '1.0'
-url: 'https://github.com/gisa-riuso-temp/guc'
+url: 'https://github.com/EcosistemaGISA/guc'
