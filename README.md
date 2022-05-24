@@ -190,7 +190,7 @@ Eseguire il seguente comando:
 
 Sarà creata la directory guc. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
-## **4.3 Librerie esterne**
+## **4.4 Librerie esterne**
 
 Come tutte le applicazioni complesse, GUC utilizza un elevato numero di librerie in buona parte autocontenute a livello di repository, presenti nel file _build_lib.tar_ nella directory _./lib_.
 
@@ -222,7 +222,7 @@ Nella nostra directory _tomcat.build_ deve essere importato il file tar _guc/lib
   rsync -a --ignore-existing <BuildLibDir>/lib/* <RuntimeLibDir>/lib
 ```
 
-## **4.4 Creazione e import database**
+## **4.5 Creazione e import database**
 
 
 Assicurarsi che nel file di configurazione pg_hba.conf sia correttamente configurato l'accesso dell'IP del nodo Tomcat al database: 
@@ -245,7 +245,7 @@ Posizionarsi nella directory _guc_ ed eseguire il comando:
 psql -U <dbuser> -h <dbhost> -d guc < database/guc_db_dev.sql
 ```
 
-## **4.5 Templates configurazione**
+## **4.6 Templates configurazione**
 Sotto la directory _./templates_ sono presenti i file:  
 _./templates/application.properties_  
 _./templates/application.propertiesCOLLAUDO_
@@ -256,7 +256,7 @@ _./templates/application.propertiesCOLLAUDO_
 
 
 
-## **4.6 Installazione in un ambiente di sviluppo**
+## **4.7 Installazione in un ambiente di sviluppo**
 
 - Eclipse Java EE IDE for Web Developers. Version: Mars.2 Release (4.5.2) Disponibile al seguente indirizzo: https://www.eclipse.org/downloads/packages/release/mars/2/eclipse-ide-java-ee-developers
 
@@ -277,7 +277,7 @@ chown -R tomcat:tomcat /<tomcatDir> .
 
 -  Successivamente continuare con i passi successivi della procedura di produzione.
 
-## **4.7 Installazione in un ambiente di produzione**
+## **4.8 Installazione in un ambiente di produzione**
  
  Prerequisiti:
  
