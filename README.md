@@ -48,7 +48,7 @@ L’***Ecosistema*** ***GISA*** è composto da diversi componenti tra cui:
 - ***Sicurezza e prevenzione sui luoghi di lavoro:*** componente per la gestione delle notifiche relative ai cantieri e alle imprese in ambito della sicurezza sui luoghi di lavoro.
 
 
-![screen](./docs/Aspose.Words.cf9e318a-c0df-40c2-8eee-7557ad70dba9.002.png)
+![screen](./gisa_controlli_ufficiali/docs/Aspose.Words.cf9e318a-c0df-40c2-8eee-7557ad70dba9.002.png)
 
 
 Figura 3. Schema su Piano Regionale Integrato
@@ -101,7 +101,7 @@ Entro giugno 2022 saranno presenti in G.I.S.A. anche le tipologie di utenti dell
 - **Profilo Ispettore non UPG**
 
 
-![screen](./docs/Aspose.Words.cf9e318a-c0df-40c2-8eee-7557ad70dba9.001.png)
+![screen](./gisa_controlli_ufficiali/docs/Aspose.Words.cf9e318a-c0df-40c2-8eee-7557ad70dba9.001.png)
 
 Figura 4. Schematizzazione dei moduli dell’Ecosistema G.I.S.A.
 
