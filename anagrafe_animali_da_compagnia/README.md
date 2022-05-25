@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/{{userName}}/anagrafe_animali_da_compagnia/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/regcampania/GISA/blob/main/anagrafe_animali_da_compagnia/docs/logo-regione-campania.png">
 </p>
 
 # Anagrafe animali da compagnia
@@ -125,7 +125,7 @@ Più precisamente le tipologie di utenti che possono registrarsi in GISA sono le
 
 I Responsabili dei cantieri non necessitano della registrazione all’ecosistema GISA e possono inoltrare la notifica accedendo con SPID/CIE.
 
-Il totale stimato degli attuali utilizzatori è di circa **11.000** utenti (peraltro in continua crescita) distribuiti variamente sui sottosistemi.
+Il totale stimato è di circa **11.000** utenti (peraltro in continua crescita) distribuiti variamente sui sottosistemi.
 
 Entro giugno 2022 saranno presenti in G.I.S.A. anche le tipologie di utenti della prevenzione e sicurezza sui luoghi di lavoro di seguito elencati e la gestione del workflow delle ispezioni sui luoghi di lavoro:
 
@@ -148,7 +148,7 @@ Figura 2. Schematizzazione dei moduli dell’Ecosistema G.I.S.A.
 
 
 <p align="center">
-<img src="https://github.com/{{userName}}/anagrafe_animali_da_compagnia/blob/main/docs/bdu-img.png" width="75%">
+<img src="https://github.com/regcampania/GISA/blob/main/anagrafe_animali_da_compagnia/docs/bdu-img.png" width="75%">
 </p>
 
 
@@ -289,7 +289,14 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si 
 
 Eseguire il seguente comando:
 
-        git clone https://github.com/{{userName}}/anagrafe_animali_da_compagnia
+        git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set anagrafe_animali_da_compagnia
 
 Sarà creata la directory anagrafe_animali_da_compagnia. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
@@ -390,8 +397,15 @@ Prerequisiti:
 
 - Clonare il repository Anagrafe animali da compagnia  (Vedi paragrafo: 4.3 Riuso per enti di altre regioni)  :
 
-   git clone https://github.com/{{userName}}/anagrafe_animali_da_compagnia
-
+ git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set anagrafe_animali_da_compagnia
+		
 - Installare le librerie esterne (Vedi paragrafo: Librerie esterne)
 
 - Creare ed importare database (Vedi paragrafo: Creazione e import database )
