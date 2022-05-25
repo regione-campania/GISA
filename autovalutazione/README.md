@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/regcampania/GISA/autovalutazione/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/regcampania/GISA/blob/main/autovalutazione/docs/logo-regione-campania.png">
 </p>
 
 # AUTOVALUTAZIONE
