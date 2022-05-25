@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/{{userName}}/matrix_reportistica_avanzata/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/regcampania/GISA/blob/main/matrix_reportistica_avanzata/docs/logo-regione-campania.png">
 </p>
 
 # MATRIX & REPORTISTICA AVANZATA
@@ -111,7 +111,7 @@ Più precisamente le tipologie di utenti che possono registrarsi in GISA sono le
 
 I Responsabili dei cantieri non necessitano della registrazione all’ecosistema GISA e possono inoltrare la notifica accedendo con SPID/CIE.
 
-Il totale stimato degli attuali utilizzatori è di circa **11.000** utenti (peraltro in continua crescita) distribuiti variamente sui sottosistemi.
+Il totale stimato è di circa **11.000** utenti (peraltro in continua crescita) distribuiti variamente sui sottosistemi.
 
 Entro giugno 2022 saranno presenti in G.I.S.A. anche le tipologie di utenti della prevenzione e sicurezza sui luoghi di lavoro di seguito elencati e la gestione del workflow delle ispezioni sui luoghi di lavoro:
 
@@ -208,7 +208,7 @@ L'architettura software cioè l'organizzazione di base del sistema, espressa dal
 ![arch 1](./docs/screenshot_5.png)
 
 
-Figura 5. Architettura di entrambi gli applicativi (il processo di allineamento di entrambi i sistemi avviene mediante dbi tramite dblink)
+Figura 5. Architettura di entrambi gli applicativi(il processo di allineamento di entrambi i sistemi avviene mediante dbi tramite dblink)
 
 
 
@@ -258,7 +258,14 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si 
 
 Eseguire il seguente comando:
 
-        git clone https://github.com/{{userName}}/matrix_reportistica_avanzata
+        git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set matrix_reportistica_avanzata
 
 Sarà creata la directory matrix_reportistica_avanzata. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
@@ -340,8 +347,15 @@ Prerequisiti
 
 - Clonare il repository MATRIX – REPORTISTICA AVANZATA (Vedi paragrafo: 4.2 Riuso per enti di altre regioni):
 
-   git clone https://github.com/{{userName}}/matrix_reportistica_avanzata
-
+	git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set matrix_reportistica_avanzata
+		
 - Installare le librerie esterne ed i moduli php necessari (Vedi paragrafo: Librerie esterne)
 
 - Creare ed importare database (Vedi paragrafo: Creazione e import database )
