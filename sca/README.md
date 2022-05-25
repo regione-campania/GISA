@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/{{userName}}/sca/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/regcampania/GISA/blob/main/sca/docs/logo-regione-campania.png">
 </p>
 
 # S C A - Sistema Centralizzato D'Accesso 
@@ -180,7 +180,14 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si 
 
 Eseguire il seguente comando:
 
-        git clone https://github.com/{{userName}}/sca
+        git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set sca
 
 Sarà creata la directory sca. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
@@ -277,7 +284,14 @@ Prerequisiti:
 
 - Clonare il repository SCA (Vedi paragrafo: 4.3 Riuso per enti di altre regioni) :
 
-    git clone https://github.com/{{userName}}/sca
+    git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set sca
 
 - Installare le librerie esterne (Vedi paragrafo: Librerie esterne)
 

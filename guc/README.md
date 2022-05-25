@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/{{userName}}/guc/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/regcampania/GISA/blob/main/guc/docs/logo-regione-campania.png">
 </p>
 
 # G U C - Gestione Utenti Centralizzata 
@@ -186,7 +186,14 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si 
 
 Eseguire il seguente comando:
 
-        git clone https://github.com/{{userName}}/guc
+         git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set guc
 
 Sarà creata la directory guc. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
@@ -283,7 +290,14 @@ chown -R tomcat:tomcat /<tomcatDir> .
  
 - Clonare il repository GUC (Vedi paragrafo: 4.3 Riuso per enti di altre regioni) :
 
-git clone https://github.com/{{userName}}/guc
+ git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set guc
 
 - Installare le librerie esterne (Vedi paragrafo: Librerie esterne)
 

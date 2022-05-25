@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/{{userName}}/autovalutazione/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/regcampania/GISA/blob/main/autovalutazione/docs/logo-regione-campania.png">
 </p>
 
 # AUTOVALUTAZIONE
@@ -43,7 +43,7 @@ verrebbero controllati.
 
 
 <p align="left">
-<img src="https://github.com/{{userName}}/autovalutazione/blob/main/docs/autovalut.png" width="75%">
+<img src="https://github.com/regcampania/GISA/blob/main/autovalutazione/docs/autovalut.png" width="75%">
 </p>
 
 
@@ -57,7 +57,7 @@ Questo strumento è stato riconosciuto come **best-practice** dall'**OCSE - Orga
 Il sistema è in grado di integrarsi e cooperare con tutti i componenti dell’ecosistema GISA (e non solo). 
 Inoltre prevede due livelli di accesso:
 
-  1. **tramite SPID/CIE:** per gli OSA/FBO (food business operator) ovvero coloro che sono già in possesso di una attività.
+  1. **tramite SPID/CIE:** per gli OSA/FBO ovvero coloro che sono già in possesso di una attività
 
   2. **come ospite:** utile a coloro che hanno intenzione di avvicinarsi alle linee di attività del settore alimentare e/o veterinario e che desiderano conoscere le check list su cui verrebbero controllati.
 
@@ -158,7 +158,7 @@ Più precisamente le tipologie di utenti che possono registrarsi in GISA sono le
 
 I Responsabili dei cantieri non necessitano della registrazione all’ecosistema GISA e possono inoltrare la notifica accedendo con SPID/CIE.
 
-Il totale stimato degli attuali utilizzatori è di circa **11.000** utenti (peraltro in continua crescita) distribuiti variamente sui sottosistemi.
+Il totale stimato è di circa **11.000** utenti (peraltro in continua crescita) distribuiti variamente sui sottosistemi.
 
 Entro giugno 2022 saranno presenti in G.I.S.A. anche le tipologie di utenti della prevenzione e sicurezza sui luoghi di lavoro di seguito elencati e la gestione del workflow delle ispezioni sui luoghi di lavoro:
 
@@ -291,7 +291,14 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si 
 
 Eseguire il seguente comando:
 
-        git clone https://github.com/{{userName}}/autovalutazione
+        git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set autovalutazione
 
 Sarà creata la directory autovalutazione. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
@@ -380,7 +387,14 @@ Prerequisiti:
 
 -Clonare il repository AUTOVALUTAZIONE (Vedi paragrafo: 4.3 Riuso per enti di altre regioni):
 
-        git clone https://github.com/{{userName}}/autovalutazione
+        git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set autovalutazione
 
 -Creare ed importare database (Vedi paragrafo: Creazione e import database )
 

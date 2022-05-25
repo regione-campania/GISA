@@ -1,5 +1,5 @@
 ﻿<p align="center">
-<img src="https://github.com/{{userName}}/gisa_controlli_ufficiali/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/regcampania/GISA/blob/main/gisa_controlli_ufficiali/docs/logo-regione-campania.png">
 </p>
 
 
@@ -55,7 +55,7 @@ In ***GISA Controlli Ufficiali*** è implementato l’intero processo di attivaz
 
 
 <p align="center">
-<img src="https://github.com/{{userName}}/gisa_controlli_ufficiali/blob/main/docs/Aspose.Words.cf9e318a-c0df-40c2-8eee-7557ad70dba9.003.png">
+<img src="https://github.com/regcampania/GISA/gisa_controlli_ufficiali/blob/main/docs/Aspose.Words.cf9e318a-c0df-40c2-8eee-7557ad70dba9.003.png">
 </p>
 
 
@@ -76,7 +76,7 @@ informazione da *GISA Controlli Ufficiali* a *SIGLA/LIMS*: il contenuto dei Rapp
 trasferito da *LIMS/SIGLA* e *GISA Controlli Ufficiali*.
 
 <p align="center">
-<img src="https://github.com/{{userName}}/gisa_controlli_ufficiali/blob/main/docs/preaccettazione.png">
+<img src="https://github.com/regcampania/GISA/blob/main/gisa_controlli_ufficiali/docs/preaccettazione.png">
 </p>
 
 
@@ -179,7 +179,7 @@ Più precisamente le tipologie di utenti che possono registrarsi in GISA sono le
 
 I Responsabili dei cantieri non necessitano della registrazione all’ecosistema GISA e possono inoltrare la notifica accedendo con SPID/CIE.
 
-Il totale stimato degli attuali utilizzatori è di circa **11.000** utenti (peraltro in continua crescita) distribuiti variamente sui sottosistemi.
+Il totale stimato è di circa **11.000** utenti (peraltro in continua crescita) distribuiti variamente sui sottosistemi.
 
 Entro giugno 2022 saranno presenti in GISA anche le tipologie di utenti della prevenzione e sicurezza sui luoghi di lavoro di seguito elencati e la gestione del workflow delle ispezioni sui luoghi di lavoro:
 
@@ -579,7 +579,14 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si 
 Eseguire il seguente comando:
 
   ```
-  git clone https://github.com/{{userName}}/gisa_controlli_ufficiali
+  git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set gisa_controlli_ufficiali
   ```
 
 Sarà creata la directory GISA\_nt. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
@@ -686,8 +693,14 @@ Prerequisiti:
 
 - Clonare il repository GISA Controlli Ufficiali (Vedi paragrafo: 4.3 Riuso per enti di altre regioni) :
 
-git clone https://github.com/{{userName}}/gisa_controlli_ufficiali
-
+git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set gisa_controlli_ufficiali
 - Installare le librerie esterne (Vedi paragrafo: Librerie esterne)
 
 - Creare ed importare database (Vedi paragrafo: Creazione e import database)
