@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/{{userName}}/modulo_spid_cie/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/regcampania/GISA/blob/main/modulo_spid_cie/docs/logo-regione-campania.png">
 </p>
 
 # Modulo SPID/CIE 
@@ -160,7 +160,14 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si 
 
 Eseguire il seguente comando:
 
-        git clone https://github.com/{{userName}}/modulo_spid_cie
+        git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set modulo_spid_cie
 
 Sarà creata la directory modulo_spid_cie. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
@@ -247,8 +254,15 @@ Prerequisiti
 
 - Clonare il repository MODULO SPID/CIE  (Vedi paragrafo: 4.2 Riuso per enti di altre regioni) :
 
-        git clone https://github.com/{{userName}}/autovalutazione
-
+	git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set modulo_spid_cie
+		
 - Installare le librerie esterne ed i moduli php necessari (Vedi paragrafo: Librerie esterne)
 
 - Creare ed importare database (Vedi paragrafo: Creazione e import database )
