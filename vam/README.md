@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/{{userName}}/vam/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/regcampania/GISA/blob/main/vam/docs/logo-regione-campania.png">
 </p>
 
 # V A M - Veterinary Activity Management 
@@ -122,7 +122,7 @@ Più precisamente le tipologie di utenti che possono registrarsi in GISA sono le
 
 I Responsabili dei cantieri non necessitano della registrazione all’ecosistema GISA e possono inoltrare la notifica accedendo con SPID/CIE.
 
-Il totale stimato degli attuali utilizzatori è di circa **11.000** utenti (peraltro in continua crescita) distribuiti variamente sui sottosistemi.
+Il totale stimato è di circa **11.000** utenti (peraltro in continua crescita) distribuiti variamente sui sottosistemi.
 
 Entro giugno 2022 saranno presenti in G.I.S.A. anche le tipologie di utenti della prevenzione e sicurezza sui luoghi di lavoro di seguito elencati e la gestione del workflow delle ispezioni sui luoghi di lavoro:
 
@@ -271,7 +271,14 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si 
 
 Eseguire il seguente comando:
 
-        git clone https://github.com/{{userName}}/vam
+        git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set vam
 
 Sarà creata la directory vam. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
@@ -367,7 +374,14 @@ Prerequisiti:
 
 - Clonare il repository VAM (Vedi paragrafo: 4.3 Riuso per enti di altre regioni) :
 
-       git clone https://github.com/{{userName}}/vam
+       git clone \
+		  --depth 1  \
+		  --filter=blob:none  \
+		  --sparse \
+		  https://github.com/regcampania/GISA \
+		;
+		cd GISA
+		git sparse-checkout set vam
 
 - Installare le librerie esterne (Vedi paragrafo: Librerie esterne)
 
