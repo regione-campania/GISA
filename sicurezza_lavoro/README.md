@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/{{userName}}/sicurezza_lavoro/blob/main/docs/logo-regione-campania.png">
+<img src="https://github.com/regcampania/GISA/blob/main/sicurezza_lavoro/docs/logo-regione-campania.png">
 </p>
 
 # Sicurezza e prevenzione sui luoghi di lavoro
@@ -269,7 +269,14 @@ Al fine di avvalersi dei benefici del riuso così come concepito dal **CAD** si c
 
 Eseguire il seguente comando:
 
-        git clone https://github.com/{{userName}}/sicurezza_lavoro
+        git clone \
+			  --depth 1  \
+			  --filter=blob:none  \
+			  --sparse \
+			  https://github.com/regcampania/GISA \
+			;
+			cd GISA
+			git sparse-checkout set sicurezza_lavoro
 
 Sarà creata la directory sicurezza_lavoro. Da qui in avanti si farà riferimento a questa directory chiamandola "directory base".
 
@@ -338,7 +345,14 @@ mkdir environments
 
 - Clonare il repository _SICUREZZA_LAVORO_ (Vedi paragrafo: 4.3 Riuso per enti di altre regioni):
 
-        git clone https://github.com/{{userName}}/sicurezza_lavoro
+        git clone \
+			  --depth 1  \
+			  --filter=blob:none  \
+			  --sparse \
+			  https://github.com/regcampania/GISA \
+			;
+			cd GISA
+			git sparse-checkout set sicurezza_lavoro
 		
 - Installare _Visual_  _Studio_ _Code_ disponibile al seguente indirizzo: https://code.visualstudio.com/ , e importare i due progetti _NodeJsServer_ e _AngularClient_ .
 
@@ -366,7 +380,14 @@ ng serve
 
 - Clonare il repository _SICUREZZA_LAVORO_ (Vedi paragrafo: 4.3 Riuso per enti di altre regioni):
 
-        git clone https://github.com/{{userName}}/sicurezza_lavoro
+        git clone \
+			  --depth 1  \
+			  --filter=blob:none  \
+			  --sparse \
+			  https://github.com/regcampania/GISA \
+			;
+			cd GISA
+			git sparse-checkout set sicurezza_lavoro
 		
 - Creare ed importare database (Vedi paragrafo: Creazione e import database )
 
