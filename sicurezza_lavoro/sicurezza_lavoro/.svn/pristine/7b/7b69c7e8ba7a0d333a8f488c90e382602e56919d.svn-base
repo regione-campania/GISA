@@ -1,0 +1,379 @@
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AnagraficaService } from 'src/app/anagrafica/anagrafica.service';
+import { AppService } from 'src/app/app.service';
+import { Utils } from 'src/app/utils/utils.class';
+import { UserService } from '../../user/user.service';
+declare let Swal: any;
+
+@Component({
+  selector: 'app-notifica',
+  templateUrl: './notifica.component.html',
+  styleUrls: ['./notifica.component.scss'],
+})
+export class NotificaComponent implements OnInit {
+  notice: any;
+  readonly = true;
+  readonlyCantiere = true;
+  noticeForm = this.fb.group({});
+  currNatura: any;
+  anagrafica: any = {
+    comuni: [],
+    comuniCantiere: [],
+    imprese: [],
+    soggettiFisici: [],
+  };
+  role?: any;
+  mobileView = window.innerWidth < 992;
+  navigatorAvailable =
+    window.location.protocol == 'https' ||
+    window.location.href.includes('localhost'); //la funzione di geolocalizzazione è presente solo per siti https o localhost
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private us: UserService,
+    private fb: FormBuilder,
+    public anagraficaService: AnagraficaService,
+    private app: AppService
+  ) {
+    this.app.pageName = 'Nuova Notifica';
+  }
+
+  ngOnInit(): void {
+    this.role = this.us.userRole;
+    this.caricaCantiere(-1);
+    this.anagraficaService
+      .getComuni()
+      .subscribe((c) => (this.anagrafica.comuni = c));
+    this.anagraficaService
+      .getComuniCantiere()
+      .subscribe((c) => (this.anagrafica.comuniCantiere = c));
+    this.anagraficaService
+      .getImprese()
+      .subscribe((imp) => (this.anagrafica.imprese = imp));
+    this.anagraficaService
+      .getSoggettiFisici()
+      .subscribe((sf) => (this.anagrafica.soggettiFisici = sf));
+  }
+
+  caricaCantiere(nuovoStato: any) {
+    //se viene passato il nuovo stato controllo se è un invio, se sì scarico
+    this.route.queryParams.subscribe((params) => {
+      this.readonly = params['mode'] === 'false';
+      this.readonlyCantiere = params['modeCantiere'] === 'false';
+      this.us.getNotificaInfo(params['idNotifica']).subscribe((n) => {
+        console.log(n);
+        //n.cantiere.data_presunta = new Date(n.cantiere.data_presunta).toLocaleDateString();
+        //n.cantiere.data_presunta = Utils.fromDateToLocaleDate(new Date(n.cantiere.data_presunta));
+        if (n.cantiere.data_presunta != null)
+          n.cantiere.data_presunta = n.cantiere.data_presunta.split('T')[0];
+        this.notice = n;
+        this.loadFormValues();
+        if (this.readonly) this.disableForm();
+        if (nuovoStato.scaricabile_stato_prossimo) this.download(true);
+        this.currNatura = n.cantiere.id_natura_opera;
+      });
+    });
+  }
+
+  loadFormValues() {
+    let _n = this.notice;
+    this.noticeForm = this.fb.group({
+      cantiere: this.fb.group(_n.cantiere),
+      cantiere_imprese: this.fb.array(
+        _n.cantiere_imprese.map((imp: any) => this.fb.group(imp))
+      ),
+      persona_ruoli: this.fb.array(
+        _n.persona_ruoli.map((per: any) => this.fb.group(per))
+      ),
+      notifiche_prec: this.fb.array(
+        _n.notifiche_prec.map((prec: any) => this.fb.group(prec))
+      ),
+    });
+  }
+
+  disableForm() {
+    this.noticeForm.disable();
+    /*let timer = setInterval(() => {
+      let form = document.getElementById('notice-form')
+      if (form) {
+        if (form.classList.contains('disabled'))
+          clearInterval(timer)
+        else {
+          form.classList.add('disabled')
+          let inputs = form.querySelectorAll('.form-control, .form-select')
+          inputs.forEach((i: any) => {
+            let span = document.createElement('span')
+            span.innerText = i.value
+            span.className = 'read-only'
+            span.id = i.id
+            i.replaceWith(span)
+          })
+        }
+      }
+    }, 0)*/
+  }
+
+  addImpresa() {
+    let nuovaImpresa: any = {};
+    Object.assign(nuovaImpresa, this.notice.cantiere_imprese[0]); //clono la struttura della prima impresa
+    nuovaImpresa.ragione_sociale = null;
+    nuovaImpresa.partita_iva = null;
+    nuovaImpresa.codice_fiscale = null;
+    let arr = this.noticeForm.controls['cantiere_imprese'] as FormArray;
+    let lastImpresa = arr.value[arr.length - 1];
+    if (
+      (lastImpresa.ragione_sociale == null ||
+        lastImpresa.ragione_sociale.trim() == '') &&
+      (lastImpresa.partita_iva == null ||
+        lastImpresa.partita_iva.trim() == '') &&
+      (lastImpresa.codice_fiscale == null ||
+        lastImpresa.codice_fiscale.trim() == '')
+    ) {
+      Swal.fire({ text: 'Valorizzare impresa precedente!', icon: 'warning' });
+      return;
+    }
+    arr.push(this.fb.group(nuovaImpresa));
+    this.notice.cantiere_imprese.push(nuovaImpresa); //serve per la visualizzazione in UI
+  }
+
+  patchValue(controlPath: any, value: any) {
+    this.noticeForm.get(controlPath)?.patchValue(value);
+  }
+
+  setImpresa(controlPath: any, value: any, key: string) {
+    let imp = this.anagrafica.imprese.find((i: any) => i[key] === value);
+    this.patchValue(controlPath, imp);
+  }
+
+  setRuolo(controlPath: any, value: any) {
+    let r = this.anagrafica.soggettiFisici.find(
+      (s: any) => s['codice_fiscale'] === value
+    );
+    this.patchValue(controlPath, r);
+  }
+
+  setComune(controlPath: any, value: any) {
+    let com = this.anagrafica.comuni.find((c: any) => c['comune'] === value);
+    this.patchValue(controlPath, com);
+  }
+
+  setComuneCantiere(controlPath: any, value: any) {
+    let c = this.anagrafica.comuni.find((c: any) => c['comune'] === value);
+    let com = {
+      id_comune: c.id,
+      comune: value,
+      cod_provincia: c.cod_provincia,
+    };
+    this.patchValue(controlPath, com);
+  }
+
+  setComuneNotificante(controlPath: any, value: any) {
+    let c = this.anagrafica.comuni.find((c: any) => c['comune'] === value);
+    let com = {
+      id_comune_notificante: c.id,
+      comune_notificante: value,
+      cod_provincia_notificante: c.cod_provincia,
+    };
+    this.patchValue(controlPath, com);
+  }
+
+  changeNatura(ev: any) {
+    this.currNatura = ev.target.value;
+  }
+
+  onSubmit(e: any): void {
+    let statoSelezionato = {
+      id_stato: e.submitter.value,
+      stato: e.submitter.innerText,
+    };
+    var msg = null;
+    if (
+      this.noticeForm.get('cantiere')?.value.id_comune == null ||
+      this.anagrafica.comuniCantiere.find(
+        (c: any) =>
+          c['comune'].toUpperCase() ===
+          this.noticeForm.get('cantiere')?.value.comune.trim().toUpperCase()
+      ) == undefined
+    ) {
+      Swal.fire({
+        text: 'Selezionare comune cantiere da lista!',
+        icon: 'warning',
+      });
+      return;
+    }
+    if (
+      this.noticeForm.get('cantiere')?.value.id_comune_notificante == null ||
+      this.anagrafica.comuni.find(
+        (c: any) =>
+          c['comune'].toUpperCase() ===
+          this.noticeForm
+            .get('cantiere')
+            ?.value.comune_notificante.trim()
+            .toUpperCase()
+      ) == undefined
+    ) {
+      Swal.fire({
+        text: 'Selezionare comune notificante da lista!',
+        icon: 'warning',
+      });
+      return;
+    }
+    if (
+      this.noticeForm.get('cantiere')?.value.id_natura_opera == 0 &&
+      (this.noticeForm.get('cantiere')?.value.altro == null ||
+        this.noticeForm.get('cantiere')?.value.altro.trim() == '')
+    ) {
+      Swal.fire({ text: 'Specificare natura opera!', icon: 'warning' });
+      return;
+    }
+    var checkNumbersAlert = '';
+    if (
+      this.noticeForm.get('cantiere')?.value.durata_presunta != null &&
+      isNaN(this.noticeForm.get('cantiere')?.value.durata_presunta)
+    )
+      checkNumbersAlert += 'Durata presunta, ';
+    if (
+      this.noticeForm.get('cantiere')?.value.numero_imprese != null &&
+      isNaN(this.noticeForm.get('cantiere')?.value.numero_imprese)
+    )
+      checkNumbersAlert +=
+        'Numero previsto di imprese e di lavoratori autonomi sul cantiere, ';
+    if (
+      this.noticeForm.get('cantiere')?.value.numero_lavoratori != null &&
+      isNaN(this.noticeForm.get('cantiere')?.value.numero_lavoratori)
+    )
+      checkNumbersAlert += 'Numero presunto dei lavoratori in cantiere, ';
+    if (
+      this.noticeForm.get('cantiere')?.value.ammontare != null &&
+      isNaN(this.noticeForm.get('cantiere')?.value.ammontare)
+    )
+      checkNumbersAlert += 'Ammontare complessivo presunto dei lavori ';
+
+    if (checkNumbersAlert != '') {
+      checkNumbersAlert = `I campi/o ${checkNumbersAlert} devono essere espressi in numeri`;
+      Swal.fire({ text: checkNumbersAlert, icon: 'warning' });
+      return;
+    }
+    let nuovoStato: any;
+    this.notice.stati_successivi.forEach((stato: any) => {
+      if (stato.id_stato_prossimo == statoSelezionato.id_stato)
+        nuovoStato = stato;
+    });
+    if (nuovoStato.msg == null) {
+      this.salvaStato(nuovoStato);
+    } else {
+      Swal.fire({
+        text: nuovoStato.msg,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Conferma',
+        cancelButtonText: 'Annulla',
+      }).then((result: any) => {
+        if (result.value) {
+          this.salvaStato(nuovoStato);
+        }
+      });
+    }
+  }
+
+  salvaStato(nuovoStato: any) {
+    this.noticeForm
+      .get('cantiere')
+      ?.patchValue({
+        id_stato: nuovoStato.id_stato_prossimo,
+        stato: nuovoStato.descr_stato_prossimo,
+      });
+    if (this.noticeForm.get('cantiere')?.value.data_presunta == '')
+      this.noticeForm.get('cantiere')!.value.data_presunta = null;
+    this.us.updateNotifica(this.noticeForm.value).subscribe((res: any) => {
+      //var ret = JSON.parse(res)
+      if (res.esito) {
+        if (res.msg == 'NUOVO ID') {
+          //è un integrazione andata a buon fine, in valore ho l id della nuova bozza da visualizzare
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate(['notifica'], {
+            queryParams: {
+              idNotifica: res.valore,
+              mode: nuovoStato.modificabile_stato_prossimo,
+              modeCantiere: nuovoStato.modificabile_cantiere_stato_prossimo,
+            },
+            skipLocationChange: true,
+          });
+        } else {
+          this.caricaCantiere(nuovoStato);
+          this.indietro();
+        }
+      } else {
+        Swal.fire({ text: res.msg.split(' [')[0], icon: 'warning' });
+      }
+    });
+  }
+
+  download(nuovoPdf: boolean) {
+    Utils.showSpinner(true);
+    let dataToSend = Object.assign({}, this.noticeForm.value); //deep clone 
+    dataToSend.cantiere.data_notifica = Utils.fromISOTimeToLocaleTime(
+      dataToSend.cantiere.data_notifica
+    );
+    dataToSend.cantiere.data_modifica = Utils.fromISOTimeToLocaleDate(
+      dataToSend.cantiere.data_modifica
+    );
+    dataToSend.cantiere.data_presunta = Utils.fromISOTimeToLocaleDate(
+      dataToSend.cantiere.data_presunta
+    );
+    dataToSend.notifiche_prec.forEach((nPrec: any) => {
+      nPrec.data_modifica = Utils.fromISOTimeToLocaleDate(nPrec.data_modifica);
+      nPrec.data_notifica = Utils.fromISOTimeToLocaleTime(nPrec.data_notifica);
+    });
+    this.us.downloadNotifica(dataToSend, nuovoPdf).subscribe(
+      (data) => {
+        Utils.download(
+          data,
+          `${dataToSend.cantiere.cun}_${dataToSend.cantiere.data_notifica}.pdf`
+        );
+        Utils.showSpinner(false);
+      },
+      (err) => {
+        Swal.fire({ text: 'Errore nella generazione del PDF!', icon: 'error' });
+        Utils.showSpinner(false);
+        console.error(err);
+      }
+    );
+  }
+
+  indietro() {
+    this.router.navigate(['user/dashboard'], { relativeTo: this.route.parent });
+  }
+
+  annulla(): void {
+    this.ngOnInit();
+    //window.location.reload();
+  }
+
+  getLocation() {
+    Utils.getLocation().then((value: any) => {
+      let pos = { lat: value.coords.latitude, lng: value.coords.longitude };
+      Swal.fire({
+        text: `Associare le coordinate ${pos.lat}, ${pos.lng} al cantiere?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Conferma',
+        cancelButtonText: 'Non geolocalizzare',
+      }).then((result: any) => {
+        if (result.value) {
+          this.notice.cantiere.lat = pos.lat;
+          this.notice.cantiere.lng = pos.lng;
+          this.patchValue(['cantiere'], pos);
+        } else {
+          this.notice.cantiere.lat = null;
+          this.notice.cantiere.lng = null;
+          this.patchValue(['cantiere'], { lat: null, lng: null });
+        }
+      });
+    });
+  }
+}

@@ -1,0 +1,13 @@
+npm install node
+npm install pg
+npm install express
+npm install nodemailer
+npm install cors
+npm install cookie-session
+npm install express-fileupload
+npm install pzzip
+npm install docxtemplater
+yum install libreoffice
+npm install libreoffice-conver
+npm install supervisor -g
+./run.sh

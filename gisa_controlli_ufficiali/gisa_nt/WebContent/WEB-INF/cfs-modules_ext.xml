@@ -1,0 +1,3481 @@
+<application>
+
+  <!-- Not used yet -->
+  <config>
+    <mainmenu>
+      <layout>horizontal</layout>
+      <long_css on="" off=""/>
+      <short_css on="" off=""/>
+    </mainmenu>
+    <submenu>
+      <layout>horizontal</layout>
+      <long_css on="rs" off="r"/>
+      <short_css on="rs" off="r"/>
+    </submenu>
+  </config>
+  
+  <!-- Modules that appear in main menu, in order -->
+  
+  <!-- Modulo Home Page -->
+  
+  
+  <!-- Modulo Home Page -->
+  <menu>
+    <action name="MyCFS"/>
+    <action name="Login"/>
+    <action name="MyCFSProfile"/>
+    <action name="MyCFSPassword"/>
+    <action name="MyCFSWebdav"/>
+    <action name="MyCFSSettings"/>
+    <action name="MyCFSInbox"/>	
+	 <action name="Messaggi"/>
+    <action name="MyTasks"/>
+    <action name="MyTasksForward"/>
+    <action name="MyActionLists"/>
+    <action name="MyActionContacts"/>
+    <action name="MyActionPlans"/>
+    <action name="Reassignments"/>
+    <action name="BlackBerry"/>
+    <action name="Tree"/>
+    <action name="BloccoCu"/>
+    <action name="CampioniAssociazioneEsiti"/>
+
+    
+    <!-- Aggiunta modulo Ricerca Globale  -->
+    <action name="GlobalSearch"/>
+    <!-- Aggiunta modulo ReportRegione -->
+    <action name="MonitoringReport"/>
+    <!-- Aggiunta modulo Configurazione a caldo -->
+    <action name="HotConfiguration"/>
+    <!-- Aggiunta modulo Messaggio Home Page -->
+    <action name="MessaggioHomePage"/>
+    
+    <page title="Home"/>
+    <permission value="myhomepage-view"/>
+    <long_html value="Home"/>
+    <short_html value="Home"/>
+    <link value="MyCFS.do?command=Home"/>
+    <graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif" rollover=""/>
+
+
+    <submenu name="BloccoCu">
+      <permission value="bloccocu-view"/>
+      <long_html value="Blocco Controlli"/>
+      <short_html value="Blocco Controlli"/>
+      <link value="BloccoCu.do?command=ViewBlocco"/>
+    </submenu>
+    
+     <submenu name="Home">
+      <permission value="myhomepage-view"/>
+      <long_html value="Welcome"/>
+      <short_html value="Welcome"/>
+      <link value="MyCFS.do?command=Home"/>
+    </submenu>
+    
+    <submenu name="MyInbox">
+      <permission value="myhomepage-inbox-view"/>
+      <long_html value="Mailbox"/>
+      <short_html value="Mailbox"/>
+      <link value="MyCFSInbox.do?command=Inbox&amp;return=1"/>
+    </submenu>
+    
+    <submenu name="Comunicazioni Interne">
+      <permission value="myhomepage-messaggi-view"/>
+      <long_html value="Comunicazioni Interne"/>
+      <short_html value="Comunicazioni Interne"/>
+      <link value="Messaggi.do?command=Inbox&amp;return=1"/>
+    </submenu>
+	
+   
+
+    
+    
+    <submenu name="Cambio Utente">
+      <permission value="myhomepage-cambio_utente-view"/>
+      <long_html value="Cambio Utente"/>
+      <short_html value="Cambio Utente"/>
+      <link value="MyCFS.do?command=CambioUtente"/>
+    </submenu>
+    
+    
+    <!-- Aggiunta del sottomenu' al modulo Home -->
+    <submenu name="Ricerca Globale">
+      <permission value="global-search-view"/>
+      <long_html value="Ricerca Globale"/>
+      <short_html value="Ricerca Globale"/>
+      <link value="GlobalSearch.do?command=Dashboard"/>
+    </submenu>
+    
+    
+     <submenu name="Tree">
+      <permission value="tree-view"/>
+      <long_html value="Gestione Strutture di memoria"/>
+      <short_html value="Gestione Strutture di memoria"/>
+      <link value="Tree.do?command=ListTree"/>
+    </submenu>
+    
+   
+     <!-- Aggiunta del sottomenu' al modulo Home -->
+    <submenu name="Report Monitoraggio Utenti">
+      <permission value="monitoring-report-view"/>
+      <long_html value="Report Monitoraggio Utenti"/>
+      <short_html value="Report Monitoraggio Utenti"/>
+      <link value="MonitoringReport.do?command=Dashboard"/>
+    </submenu>
+    
+    <!-- Aggiunta del sottomenu' al modulo Home -->
+    <submenu name="Configurazione a caldo">
+      <permission value="hot-configuration-view"/>
+      <long_html value="Configurazione a caldo"/>
+      <short_html value="Configurazione a caldo"/>
+      <link value="HotConfiguration.do?command=Dashboard"/>
+    </submenu>
+    
+    <!-- Aggiunta del sottomenu' al modulo Home -->
+    <submenu name="Messaggio Home Page">
+      <permission value="hot-configuration-view"/>
+      <long_html value="Messaggio Home Page"/>
+      <short_html value="Messaggio Home Page"/>
+      <link value="MessaggioHomePage.do?command=Dashboard"/>
+    </submenu>
+    
+    <!-- Aggiunta del sottomenu' al modulo Home -->
+    <submenu name="Visibilità Operatori Mod.D">
+      <permission value="operatorisin-view"/>
+      <long_html value="Visibilita' Operatori Mod.D"/>
+      <short_html value="Visibilita' Operatori Mod.D"/>
+      <link value="CampioniReport.do?command=ViewOperatoriSin"/>
+    </submenu>
+    
+    <submenu name="Associazione Matrici Analiti Piani">
+      <permission value="myhomepage-configtree-view"/>
+      <long_html value="Configurazione Piani"/>
+      <short_html value="Configura Piani"/>
+      <link value="MatTree.do?command=ViewAssociazioni"/>
+    </submenu>
+    
+    <submenu name="Associazione Esiti-Campioni">
+      <permission value="associazione_esiti_campioni-view"/>
+      <long_html value="Associazione Esiti-Campioni"/>
+      <short_html value="Associazione Esiti-Campioni"/>
+      <link value="CampioniAssociazioneEsiti.do?command=ToRicerca"/>
+    </submenu>
+    
+    
+  </menu>
+  
+  <menu>
+    <action name="Opu"/>
+     <action name="OpuStab"/>
+    <action name="OpuStabVigilanza"/>
+    <action name="OpuStabCampioni"/>
+   <action name="OpuStabTamponi"/>
+    <action name="OpuStabNonConformita"/>
+      <action name="OpuStabAltreNonConformita"/>
+    <action name="OpuStabSanzioni"/>
+    <action name="OpuStabSequestri"/>
+    <action name="OpuStabFollowup"/>
+    <action name="OpuStabReati"/>
+    <action name="OpuStabDiffida"/>
+    <action name="OpuStabCheckList"/>
+       <action name="OperatoreAction"/>
+      <action name="GestioneDocumenti_Opu"/>
+         <action name="RicercaUnica"/>
+         
+    <page title="Anagrafica Stabilimenti"/>
+    <permission value="opu-view"/>
+    <long_html value="Anagrafica Stabilimenti"/>
+    <short_html value="Anagrafica Stabilimenti"/>
+    <link value="OpuStab.do?command=SearchForm"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+    
+<!--     <submenu name="addopu"> -->
+<!--       <permission value="opu-add"/> -->
+<!--       <long_html value="Nuova Impresa"/> -->
+<!--       <short_html value="Nuova Impresa"/> -->
+<!--       <link value="Opu.do?command=SearchForm"/> -->
+<!--     </submenu> -->
+
+   
+     <submenu name="Ricerca"> 
+       <permission value="opu-view"/> 
+       <long_html value="Ricerca"/> 
+       <short_html value="Ricerca"/> 
+       <link value="OpuStab.do?command=SearchForm"/> 
+     </submenu> 
+    
+<!--      <submenu name="Gestione Richieste"> -->
+<!--       <permission value="opu-view"/> -->
+<!--       <long_html value="Gestione Richieste"/> -->
+<!--       <short_html value="Gestione Richieste"/> -->
+<!--       <link value="OpuStab.do?command=GestioneRichieste"/> -->
+<!--     </submenu> -->
+    
+<!--     <submenu name="ImportStab"> -->
+    <!--  <permission value="opu_import-add"/> -->
+      <!--<long_html value="Importa Stabilimento da vecchia anagrafica"/> -->
+      <!--<short_html value="Importa Stabilimento da vecchia anagrafica"/> -->
+      <!--<link value="OpuStab.do?command=PrepareImport"/> -->
+    <!--</submenu> -->
+    
+<!--        <submenu name="AddReg"> -->
+<!--       <permission value="opu-add"/> -->
+<!--       <long_html value="Aggiungi Stabilimento"/> -->
+<!--       <short_html value="Aggiungi Stabilimento"/> -->
+<!--       <link value="OpuStab.do?command=ToAdd"/> -->
+<!--     </submenu> -->
+    
+<!--      <submenu name="AddRic"> -->
+<!--       <permission value="opu_riconosciuti-add"/> -->
+<!--       <long_html value="Aggiungi Stabilimento Riconosciuto"/> -->
+<!--       <short_html value="Aggiungi Stabilimento Riconosciuto"/> -->
+<!--       <link value="OpuStab.do?command=Add&amp;tipoInserimento=2&amp;stato=3"/> -->
+<!--     </submenu> -->
+    
+<!--        <submenu name="AttScia"> -->
+<!--      <long_html value="Stabilimenti tramite SUAP"/> -->
+<!--       <short_html value="Stabilimenti tramite SUAP"/> -->
+<!--       <link value="OpuStab.do?command=ToAdd&amp;scia=1"/> -->
+<!--     </submenu> -->
+    
+<!--        <submenu name="AttNonScia"> -->
+<!--      <long_html value="Altri stabilimenti (Non SUAP)"/> -->
+<!--       <short_html value="Altri stabilimenti (Non SUAP)"/> -->
+<!--       <link value="OpuStab.do?command=ToAdd&amp;scia=0"/> -->
+<!--     </submenu> -->
+    <submenu name="AllegatoI">
+      <permission value="farmacosorveglianza-farmacosorveglianza-allegatoI-view"/>
+      <long_html value="Allegato I "/>
+      <short_html value="Allegato I"/>
+      <link value="Farmacosorveglianza.do?command=SelectAllegatoI"/>
+    </submenu>
+	
+	<submenu name="AllegatoII">
+      <permission value="farmacosorveglianza-farmacosorveglianza-allegatoII-view"/>
+      <long_html value="Allegato II"/>
+      <short_html value="Allegato II"/>
+      <link value="Farmacosorveglianza.do?command=SelectAllegatoII"/>
+    </submenu>
+  </menu>
+  
+  
+  
+  
+       <menu>
+    <action name="AltriStabilimenti"/>
+    <page title="Altri Stabilimenti"/>
+    <permission value="altri_stabilimenti-view"/>
+    <long_html value="Altri Stabilimenti"/>
+    <short_html value="Altri Stabilimenti"/>
+    <link value="AltriStabilimenti.do?command=Default"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+  </menu> 
+  
+ 
+  
+  
+  
+ <!-- Modulo Programmazione CU -->
+  
+  <!-- <menu>
+   	
+     <action name="Cruscotto"/>
+     <action name="Monitoraggio"/>
+	 
+    
+     <action name="MonitoringReport"/>
+    
+     <action name="HotConfiguration"/>
+     
+    
+     <page title="CU Monitor"/>
+     <permission value="programmazione-programmazione-view"/>
+     <long_html value="Programmazione e Reporting C.U."/>
+     <short_html value="Programmazione e Reporting C.U."/>
+     <link value="Monitoraggio.do?command=Monitoraggio"/>
+     <graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif" rollover=""/>
+
+	<submenu name="Report">
+      <permission value="myhomepage-view"/>
+      <long_html value="Report"/>
+      <short_html value="Report"/>
+      <link value="Monitoraggio.do?command=Monitoraggio"/>
+    </submenu>
+	
+
+	<submenu name="Ricerca Programmazione">
+      <permission value="programmazione-programmazione-view"/>
+      <long_html value="Ricerca Programmazione"/>
+      <short_html value="Ricerca Programmazione"/>
+      <link value="Cruscotto.do?command=Search"/>
+    </submenu>
+    
+    <submenu name="Nuova Programmazione">
+      <permission value="programmazione-programmazione-add"/>
+      <long_html value="Distribuisci Programmazione"/>
+      <short_html value="Distribuisci Programmazione"/>
+      <link value="Cruscotto.do?command=AddProgrammazione"/>
+    </submenu>
+	
+	</menu>-->
+	<!-- OIA -->
+	<menu>
+ 	<action name="Oia"/>
+	<action name="OiaVigilanza"/>
+	<action name="OiaCampioni"/>
+	<action name="OiaTamponi"/>
+	<action name="OiaNonConformita"/>
+	<action name="OiaProvvedimenti"/>
+	<action name="OiaOsservazioni"/>
+
+	<action name="OiaSanzioni"/>
+	<action name="OiaSequestri"/>
+	<action name="OiaReati"/>
+	<action name="OiaFollowup"/>
+ 	<permission value="oia-view"/>
+ 	<page title="Autorita competenti"/>
+    <long_html value="Autorita competenti"/>
+    <short_html value="Autorita competenti"/>
+    <link value="Oia.do?command=SearchForm"/>
+    <graphic width="83" height="36" on="menu-products-on.gif" off="menu-products-off.gif" rollover=""/>    
+    
+ <!--    <submenu name="Organigramma">
+      <permission value="oia-view"/>
+      <long_html value="Organigramma"/>
+      <short_html value="Organigramma"/>
+      <link value="Oia.do"/>
+    </submenu>  --> 
+ </menu> 
+	
+	<!-- Modulo Allerte -->  
+  <menu>
+    <action name="TroubleTicketsAllerte"/>
+    <action name="TroubleTicketsDocumentsAllerte"/>
+     <action name="GestioneDocumenti_Allerte"/>
+    <page title="Allerte"/>
+    <permission value="allerte-view"/>
+    <long_html value="Allerte"/>
+    <short_html value="Allerte"/>
+    <link value="TroubleTicketsAllerte.do?command=Home"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="VisualizzaAllerte">
+      <permission value="allerte-allerte-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="TroubleTicketsAllerte.do?command=Home"/>
+    </submenu> 
+    <submenu name="AggiungiAllerte">
+      <permission value="allerte-allerte-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TroubleTicketsAllerte.do?command=Add"/>
+    </submenu>
+    <submenu name="CercaAllerte">
+      <permission value="allerte-allerte-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TroubleTicketsAllerte.do?command=SearchTicketsForm"/>
+    </submenu>
+    <submenu name="Storico Annuale">
+      <permission value="allerte-allerte-storico-view"/>
+      <long_html value="Storico annuale"/>
+      <short_html value="Storico annuale"/>
+      <link value="TroubleTicketsAllerte.do?command=Storico"/>
+    </submenu>
+	 <submenu name="Visualizza Tutte le Allerte">
+      <permission value="allerte-allerte-cancellate-view"/>
+      <long_html value="Visualizza Tutte le Allerte"/>
+      <short_html value="Visualizza Tutte le Allerte"/>
+      <link value="TroubleTicketsAllerte.do?command=ViewAllerteCancellate"/>
+    </submenu>
+  </menu>
+  
+  <!-- Modulo unità Crisi -->
+   
+   <menu>
+ 	<action name="UnitaCrisi"/>
+ 	<page title="Unita' di Crisi"/>
+ 	<permission value="unitacrisi-view"/>
+    <long_html value="Unita' di Crisi"/>
+    <short_html value="Unita' di Crisi"/>
+    <link value="UnitaCrisi.do"/>
+    <graphic width="83" height="36" on="menu-products-on.gif" off="menu-products-off.gif" rollover=""/>    
+ </menu> 
+  
+  <!-- Modulo Requestor -->
+  <menu>
+    <action name="Requestor"/>
+    <action name="ContactsReq"/>
+    <action name="ContactsPortal"/>
+    <action name="AccountsCalls"/>
+    <action name="RequestorContactsImports"/>
+    <action name="Opportunities"/>
+    <action name="OpportunitiesComponents"/>
+    <action name="AccountOrders"/>
+    <action name="AccountsProducts"/>
+    <action name="RevenueManager"/>
+    <action name="AccountTickets"/>
+    <action name="RequestorDocuments"/>
+    <action name="RequestorDocumentsFolders"/>
+    <action name="AccountsAutoGuide"/>
+    <action name="AccountsPrototype"/>
+    <action name="AccountTicketsDocuments"/>
+    <action name="AccountTicketTasks"/>
+    <action name="AccountTicketFolders"/>
+    <action name="AccountTicketsDocumentsFolders"/>
+    <action name="AccountTicketActionPlans"/>
+    <action name="RequestorContactsCalls"/>
+    <action name="RequestorContactsOpps"/>
+    <action name="RequestorContactsOppComponents"/>
+    <action name="RequestorContactsOppQuotes"/>
+    <action name="AccountsServiceContracts"/>
+    <action name="AccountsAssets"/>
+    <action name="AccountsAssetsServiceContracts"/>
+    <action name="AccountTicketActivityLog"/>
+    <action name="AccountTicketMaintenanceNotes"/>
+    <action name="RequestorQuotes"/>
+    <action name="AccountOrdersProducts"/>
+    <action name="AccountOrdersPayments"/>
+    <action name="RequestorContactsCalls"/>
+    <action name="AccountRelationships"/>
+    <action name="AccountsProjects"/>
+    <action name="RequestorHistory"/>
+    <action name="RequestorContactsHistory"/>
+    <action name="RequestorContactsMessages"/>
+    <action name="RequestorActionPlans"/>
+    <action name="AccountsSharedDocuments"/>
+    <action name="RequestorContactsDocuments"/>
+    <action name="RequestorContactsDocumentsFolders"/>
+    <page title="DIA"/>
+    <permission value="requestor-view"/>
+    <long_html value="DIA"/>
+    <short_html value="DIA"/>
+    <link value="Requestor.do?command=SearchForm"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+    <submenu name="Dashboard">
+      <permission value="requestor-dashboard-view"/>
+      <long_html value="Dashboard"/>
+      <short_html value="Dashboard"/>
+      <link value="Requestor.do?command=Dashboard"/>
+    </submenu>
+
+    <submenu name="Add Account">
+      <permission value="requestor-requestor-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="Requestor.do?command=Add"/>
+    </submenu>
+    
+     <!-- <submenu name="Add Account Opu">
+      <permission value="opu-add"/>
+      <long_html value="Aggiungi Nuova Dia"/>
+      <short_html value="Aggiungi Nuova Dia"/>
+      <link value="Requestor.do?command=AddOpu&amp;idNorma=1"/>
+    </submenu>
+ -->
+    <submenu name="Search Accounts">
+      <permission value="requestor-requestor-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Requestor.do?command=SearchForm"/>
+    </submenu>
+
+    <submenu name="Revenue">
+      <permission value="accounts-accounts-revenue-view"/>
+      <long_html value="Revenue"/>
+      <short_html value="Revenue"/>
+      <link value="RevenueManager.do?command=Dashboard"/>
+    </submenu>
+
+    <submenu name="Imports">
+      <permission value="requestor-requestor-contacts-imports-view"/>
+      <long_html value="Import"/>
+      <short_html value="Import"/>
+      <link value="RequestorContactsImports.do?command=View"/>
+    </submenu>
+   </menu> 
+   
+   
+   
+   <!--  menu>
+    <action name="Opu"/>
+     <action name="OpuStab"/>
+    <action name="OpuStabVigilanza"/>
+    <action name="OpuStabCampioni"/>
+   <action name="OpuStabTamponi"/>
+    <action name="OpuStabNonConformita"/>
+    <action name="OpuStabSanzioni"/>
+    <action name="OpuStabSequestri"/>
+    <action name="OpuStabFollowup"/>
+    <action name="OpuStabReati"/>
+     <action name="OpuStabCheckList"/-->
+     
+    <!-- page title="Anagrafica Imprese"/>
+    <permission value="opu-view"/>
+    <long_html value="Anagrafica Imprese"/>
+    <short_html value="Anagrafica Imprese"/>
+    <link value="Opu.do?command=SearchForm"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/ -->
+
+    
+    <!--submenu name="addopu">
+      <permission value="opu-add"/>
+      <long_html value="Nuova Impresa"/>
+      <short_html value="Nuova Impresa"/>
+      <link value="Opu.do?command=SearchForm"/>
+    </submenu-->
+
+   
+    <!-- submenu name="Ricerca">
+      <permission value="opu-view"/>
+      <long_html value="Ricerca"/>
+      <short_html value="Ricerca"/>
+      <link value="OpuStab.do?command=SearchForm"/>
+    </submenu -->
+   
+  <!--  /menu-->
+   
+  
+  <!-- Modulo Clienti -->
+  <menu>
+    <action name="Accounts"/>
+       <action name="OpuVigilanza"/>
+              <action name="OpuDiffida"/>
+       
+     <action name="DistributoriListImprese"/>
+    <action name="Contacts"/>
+    <action name="ContactsPortal"/>
+    <action name="AccountsCalls"/>
+    <action name="BlackBerryImport"/>
+    <action name="CheckListImprese"/>
+    <action name="AccountContactsImports"/>
+    <action name="Opportunities"/>
+    <action name="OpportunitiesComponents"/>
+    <action name="AccountOrders"/>
+    <action name="AccountsProducts"/>
+    <action name="RevenueManager"/>
+    <action name="AccountTickets"/>
+    <action name="AccountSanzioni"/>
+    <action name="AccountSanzioniDocuments"/>
+    <action name="AccountCampioni"/>
+     <action name="AccountTamponi"/>
+      <action name="AccountReati"/>
+       <action name="AccountFollowup"/>
+        <action name="AccountDiffida"/>
+       <action name="AccountSequestri"/>
+       <action name="AccountNonConformita"/>
+              <action name="AccountAltreNonConformita"/>
+       
+    <action name="AccountCampioniDocuments"/>
+    <action name="AccountCampioniDocumentsFolders"/>
+    <action name="AccountCessazionevariazione"/>
+    <action name="AccountCessazionevariazioneDocuments"/>
+    <action name="AccountCessazionevariazioneDocumentsFolders"/>
+    <action name="AccountVigilanza"/>
+    <action name="AccountVigilanzaDocuments"/>
+    <action name="AccountVigilanzaDocumentsFolders"/>
+    <action name="AccountRichieste"/>
+    <action name="AccountRichiesteDocuments"/>
+    <action name="AccountsDocuments"/>
+    <action name="AccountsDocumentsFolders"/>
+    <action name="AccountsAutoGuide"/>
+    <action name="AccountsPrototype"/>
+    <action name="AccountTicketsDocuments"/>
+    <action name="AccountTicketTasks"/>
+    <action name="AccountTicketFolders"/>
+    <action name="AccountTicketsDocumentsFolders"/>
+    <action name="AccountTicketActionPlans"/>
+    <action name="AccountContactsCalls"/>
+    <action name="AccountContactsOpps"/>
+    <action name="AccountContactsOppComponents"/>
+    <action name="AccountContactsOppQuotes"/>
+    <action name="AccountsServiceContracts"/>
+    <action name="AccountsAssets"/>
+    <action name="AccountsAssetsServiceContracts"/>
+    <action name="AccountsAudit"/>
+    <action name="AccountsContributi"/>
+    <action name="AccountTicketActivityLog"/>
+    <action name="AccountTicketMaintenanceNotes"/>
+    <action name="AccountQuotes"/>
+    <action name="AccountOrdersProducts"/>
+    <action name="AccountOrdersPayments"/>
+    <action name="AccountContactsCalls"/>
+    <action name="AccountRelationships"/>
+    <action name="AccountsProjects"/>
+    <action name="AccountsHistory"/>
+    <action name="AccountContactsHistory"/>
+    <action name="AccountContactsMessages"/>
+    <action name="AccountActionPlans"/>
+    <action name="AccountsProvvedimenti"/>
+    <action name="AccountsSharedDocuments"/>
+    <action name="AccountsContactsDocuments"/>
+    <action name="AccountsContactsDocumentsFolders"/>
+    <action name="CameraCommercio"/>
+     <action name="DistributoriListOpu"/>
+       <action name="ImpresePregresso"/>
+          <action name="Stabilimenti852"/>
+       <action name="Stabilimenti852Vigilanza"/>
+       <action name="Stabilimenti852Campioni"/>
+         <action name="GestioneDocumenti_Stabilimenti852"/>
+    <page title="Stabilimenti Registrati 852"/>
+    <permission value="accounts-view"/>
+    <long_html value="Stabilimenti Registrati 852"/>
+    <short_html value="Stabilimenti Registrati 852"/>
+    <link value="Accounts.do?command=Dashboard"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+    <submenu name="Dashboard">
+      <permission value="accounts-dashboard-view"/>
+      <long_html value="Dashboard"/>
+      <short_html value="Dashboard"/>
+      <link value="Accounts.do?command=Dashboard"/>
+    </submenu>
+
+    <submenu name="Add 852">
+      <permission value="accounts-accounts-add"/>
+      <long_html value="Aggiungi"/>
+      <short_html value="Aggiungi"/>
+      <link value="Accounts.do?command=Add"/>
+    </submenu>
+    
+   <!--  <submenu name="Volture">
+      <permission value="accounts-accounts-add"/>
+      <long_html value="Richieste di Volture"/>
+      <short_html value="Richieste di Volture"/>
+      <link value="OpuCessazionevariazione.do?command=ViewCessazionevariazioneRichieste"/>
+    </submenu>
+    -->
+    
+  
+
+    <submenu name="Search Accounts">
+      <permission value="accounts-accounts-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Accounts.do?command=SearchForm"/>
+    </submenu>
+
+    
+     
+    
+  </menu> 
+  
+   <menu>
+ 	<action name="OsaSearch"/>
+ 	<!-- <action name="ManagePdfModules"/> -->
+ 	<action name="PrintModulesHTML"/>
+ 	<action name="Campioni"/>
+ 	<page title="Prenotazione Campioni SIGLA"/>
+ 	<permission value="stampa-verbali-prelievo-view"/>
+    <long_html value="Prenotazione Campioni SIGLA"/>
+    <short_html value="Prenotazione Campioni SIGLA"/>
+    <link value="OsaSearch.do"/>
+    <graphic width="83" height="36" on="menu-products-on.gif" off="menu-products-off.gif" rollover=""/>
+    
+    <submenu name="Stampa Etichette">
+      <permission value="stampa-verbali-prelievo-view"/>
+      <long_html value="Stampa Etichette"/>
+      <short_html value="Stampa Etichette"/>
+      <link value="PrintModulesHTML.do?command=PrintSelectedEtichette"/>
+    </submenu>
+          
+   </menu> 
+  
+  <menu>
+    <action name="MolluschiBivalvi"/>
+   <action name="Concessionari"/>
+       <action name="MolluschiBivalvi"/>
+              <action name="MolluschiBivalviDocuments"/>
+              <action name="MolluschiBivalviDocumentsFolders"/>
+              <action name="MolluschiBivalviDocuments"/>
+
+    <action name="MolluschiBivalviVigilanza"/>
+    <action name="MolluschiBivalviCampioni"/>
+    <action name="MolluschiBivalviTamponi"/>
+    <action name="MolluschiBivalviNonConformita"/>
+        <action name="MolluschiBivalviAltreNonConformita"/>
+    
+    <action name="MolluschiBivalviSanzioni"/>
+    <action name="MolluschiBivalviSequestri"/>
+     <action name="MolluschiBivalviDiffida"/>
+    <action name="MolluschiBivalviReati"/>
+    <action name="MolluschiBivalviFollowup"/>
+<action name="ChecklistMolluschiBivalvi"/>
+ <action name="GestioneDocumenti_MolluschiBivalvi"/>
+    <page title="Molluschi Bivalvi"/>
+    <permission value="molluschi-molluschi-view"/>
+    <long_html value="Molluschi Bivalvi"/>
+    <short_html value="Molluschi Bivalvi"/>
+    <link value="MolluschiBivalvi.do"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+	
+	<submenu name="Search Accounts">
+      <permission value="molluschi-molluschi-view"/>
+      <long_html value="Ricerca Zone"/>
+      <short_html value="Ricerca Zone"/>
+      <link value="MolluschiBivalvi.do?command=SearchForm"/>
+    </submenu>
+ 
+    <submenu name="Add Account">
+      <permission value="molluschi-molluschi-add"/>
+      <long_html value="Aggiungi Zona di Produzione"/>
+      <short_html value="Aggiungi Zona di Produzione"/>
+      <link value="MolluschiBivalvi.do?command=Add"/>
+    </submenu>
+    <submenu name="Search Accounts">
+      <permission value="concessionari-concessionari-view"/>
+      <long_html value="Ricerca Concessionari"/>
+      <short_html value="Ricerca Concessionari"/>
+      <link value="Concessionari.do?command=SearchForm"/>
+    </submenu>
+	<submenu name="Add Account">
+      <permission value="concessionari-concessionari-add"/>
+      <long_html value="Aggiungi Concessionario"/>
+      <short_html value="Aggiungi Concessionario"/>
+      <link value="Concessionari.do?command=Add"/>
+    </submenu>
+	 <submenu name="Concessioni in Scadenza">
+      <permission value="molluschibivalvi-scadenziario-view"/>
+      <long_html value="Concessioni in Scadenza"/>
+      <short_html value="Concessioni in Scadenza"/>
+      <link value="MolluschiBivalvi.do?command=ListConcessioniScadenza"/>
+    </submenu>
+     <submenu name="Classificazioni in Scadenza">
+      <permission value="molluschibivalvi-scadenziario-view"/>
+      <long_html value="Classificazioni in Scadenza"/>
+      <short_html value="Classificazioni in Scadenza"/>
+      <link value="MolluschiBivalvi.do?command=Search&amp;scadenzario=true"/>
+    </submenu>
+  
+    
+    
+    
+
+    
+  </menu> 
+  
+  <!-- Modulo Stabilimenti -->
+<!--   <menu> -->
+<!--   	<action name="StabilimentiSequestri" /> -->
+<!--   	<action name="StabilimentiNonConformita" /> -->
+<!--   	  	<action name="StabilimentiAltreNonConformita" /> -->
+  	
+<!--   	 <action name="StabilimentiDiffida"/> -->
+<!--   	<action name="StabilimentiNonConformitaDocuments" /> -->
+<!--   	 	<action name="StabilimentiNonConformitaDocumentsFolders" /> -->
+<!--   	<action name="StabilimentiTamponi" /> -->
+<!--   	<action name="StabMerceInOut" /> -->
+<!--     <action name="Stabilimenti"/> -->
+<!--       <action name="CheckListStabilimenti"/> -->
+<!-- <action name="StabilimentiProvvedimenti"/> -->
+<!--     <action name="ContactsStab"/> -->
+<!--     <action name="ContactsPortal"/> -->
+<!--     <action name="AccountsCalls"/> -->
+<!--     <action name="AccountContactsImports"/> -->
+<!--     <action name="Opportunities"/> -->
+<!--     <action name="OpportunitiesComponents"/> -->
+<!--     <action name="AccountOrders"/> -->
+<!--     <action name="AccountsProducts"/> -->
+<!--     <action name="RevenueManager"/> -->
+<!--     <action name="StabilimentiSanzioni"/> -->
+<!--     <action name="StabilimentiSanzioniDocuments"/> -->
+<!--      <action name="StabilimentiSanzioniDocumentsFolders"/> -->
+<!--      <action name="StabilimentiReati"/> -->
+<!--     <action name="StabilimentiReatiDocuments"/> -->
+<!--      <action name="StabilimentiReatiDocumentsFolders"/> -->
+<!--     <action name="StabilimentiCampioni"/> -->
+<!--     <action name="StabilimentiNonConformita"/> -->
+<!--     <action name="StabilimentiNonConformitaDocuments"/> -->
+<!--     <action name="StabilimentiCampioniDocuments"/> -->
+<!--     <action name="StabilimentiCampioniDocumentsFolders"/> -->
+<!--      <action name="StabilimentiNonConformitaDocumentsFolders"/> -->
+<!--     <action name="StabilimentiCessazionevariazione"/> -->
+<!--     <action name="StabilimentiCessazionevariazioneDocuments"/> -->
+<!--     <action name="StabilimentiCessazionevariazioneDocumentsFolders"/> -->
+<!--     <action name="StabilimentiVigilanza"/> -->
+<!--     <action name="StabilimentiFollowup"/> -->
+<!--     <action name="StabilimentiVigilanzaDocuments"/> -->
+<!--     <action name="StabilimentiVigilanzaDocumentsFolders"/> -->
+<!--     <action name="AccountsDocumentsStab"/> -->
+<!--     <action name="AccountsDocumentsFoldersStab"/> -->
+<!--     <action name="AccountsAutoGuide"/> -->
+<!--     <action name="AccountsPrototype"/> -->
+<!--     <action name="AccountContactsCallsStab"/> -->
+<!--     <action name="AccountContactsOppsStab"/> -->
+<!--     <action name="AccountContactsOppComponentsStab"/> -->
+<!--     <action name="AccountContactsOppQuotesStab"/> -->
+<!--     <action name="AccountsServiceContractsStab"/> -->
+<!--     <action name="AccountsAssetsStab"/> -->
+<!--     <action name="AccountQuotesStab"/> -->
+<!--     <action name="AccountOrdersProducts"/> -->
+<!--     <action name="AccountOrdersPayments"/> -->
+<!--     <action name="AccountContactsCallsStab"/> -->
+<!--     <action name="AccountRelationships"/> -->
+<!--     <action name="AccountsProjects"/> -->
+<!--     <action name="AccountsHistoryStab"/> -->
+<!--     <action name="AccountContactsHistoryStab"/> -->
+<!--     <action name="AccountContactsMessagesStab"/> -->
+<!--     <action name="AccountsAuditStab"/> -->
+<!--     <action name="AccountsContributiStab"/> -->
+<!--     <action name="AccountsSharedDocuments"/> -->
+<!--     <action name="AccountsContactsDocumentsStab"/> -->
+<!--     <action name="AccountsContactsDocumentsFoldersStab"/> -->
+<!--     <action name="StabDiarioMacellazione"/> -->
+<!--     <action name="Macellazioni"/> -->
+<!--     <action name="MacellazioniNew"/> -->
+<!--     <action name="MacellazioniDocumenti"/> -->
+<!--     <action name="GestioneDocumenti_Stabilimenti853"/> -->
+<!--     <page title="Stabilimenti Riconosciuti 853"/> -->
+<!--     <permission value="stabilimenti-view"/> -->
+<!--     <long_html value="Stabilimenti Riconosciuti 853"/> -->
+<!--     <short_html value="Stabilimenti Riconosciuti 853"/> -->
+<!--     <link value="Stabilimenti.do?command=Dashboard"/> -->
+<!--     <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/> -->
+
+
+
+
+<!-- <submenu name="scadenzariocondizionati"> -->
+<!--       <permission value="stabilimenti-stabilimenti-view"/> -->
+<!--       <long_html value="Stabilimenti Condizionati in Scadenza"/> -->
+<!--       <short_html value="Stabilimenti Condizionati in Scadenza"/> -->
+<!--       <link value="Stabilimenti.do?command=CondizionatiInScadenza"/> -->
+<!--     </submenu> -->
+<!--     <submenu name="searchmatricola"> -->
+<!--       <permission value="stabilimenti-stabilimenti-searchmatricole-view"/> -->
+<!--       <long_html value="Ricerca Capo"/> -->
+<!--       <short_html value="Ricerca Capo"/> -->
+<!--       <link value="Macellazioni.do?command=Search"/> -->
+<!--     </submenu> -->
+    
+<!--     <submenu name="scadenzariosospesi"> -->
+<!--       <permission value="stabilimenti-stabilimenti-view"/> -->
+<!--       <long_html value="Stabilimenti Sospesi in Scadenza"/> -->
+<!--       <short_html value="Stabilimenti Sospesi in Scadenza"/> -->
+<!--       <link value="Stabilimenti.do?command=SospesoInScadenza"/> -->
+<!--     </submenu> -->
+    
+    
+<!--     <submenu name="Dashboard"> -->
+<!--       <permission value="stabilimenti-dashboard-view"/> -->
+<!--       <long_html value="Dashboard"/> -->
+<!--       <short_html value="Dashboard"/> -->
+<!--       <link value="Stabilimenti.do?command=Dashboard"/> -->
+<!--     </submenu> -->
+	
+<!-- 	 <submenu name="GestioneVisibilita"> -->
+<!-- 	 	 <permission value="stabilimenti-visibilita-stati-view"/> -->
+<!--       <long_html value="Gestione Visibilita Stati"/> -->
+<!--       <short_html value="Gestione Visibilita Stati"/> -->
+<!--       <link value="Stabilimenti.do?command=ViewPermessiVisibilita"/> -->
+<!--     </submenu> -->
+
+<!--     <submenu name="AggiungiIstruttoria"> -->
+<!--       <permission value="stabilimenti-stabilimenti-add"/> -->
+<!--       <long_html value="Aggiungi Istruttoria"/> -->
+<!--       <short_html value="Aggiungi Istruttoria"/> -->
+<!--       <link value="Stabilimenti.do?command=Add&amp;tipoIstruttoria=1"/> -->
+<!--     </submenu> -->
+    
+     
+
+<!--     <submenu name="Search Stabilimento"> -->
+<!--       <permission value="stabilimenti-stabilimenti-view"/> -->
+<!--       <long_html value="Search"/> -->
+<!--       <short_html value="Search"/> -->
+<!--       <link value="Stabilimenti.do?command=SearchForm"/> -->
+<!--     </submenu> -->
+
+<!--     <submenu name="Revenue"> -->
+<!--       <permission value="stabilimenti-stabilimenti-revenue-view"/> -->
+<!--       <long_html value="Revenue"/> -->
+<!--       <short_html value="Revenue"/> -->
+<!--       <link value="RevenueManager.do?command=Dashboard"/> -->
+<!--     </submenu> -->
+
+<!--     <submenu name="Imports"> -->
+<!--       <permission value="stabilimenti-stabilimenti-contacts-imports-view"/> -->
+<!--       <long_html value="Import"/> -->
+<!--       <short_html value="Import"/> -->
+<!--       <link value="AccountContactsImports.do?command=View"/> -->
+<!--     </submenu> -->
+
+<!--     <submenu name="Reports"> -->
+<!--       <permission value="stabilimenti-stabilimenti-reports-view"/> -->
+<!--       <long_html value="Export"/> -->
+<!--       <short_html value="Export"/> -->
+<!--       <link value="Stabilimenti.do?command=Reports"/> -->
+<!--     </submenu> -->
+    
+    
+	
+    
+<!--   </menu>  -->
+  
+   <!-- Modulo Allevamenti -->
+  <menu>
+    <action name="Allevamenti"/>
+     <action name="AllevamentiAudit"/>
+          <action name="CheckListAllevamenti"/>
+
+     
+    <action name="ContactsAllev"/>
+    <action name="EstrazioneAllevamenti"/>
+    <action name="AccountsCalls"/>
+    <action name="Opportunities"/>
+    <action name="OpportunitiesComponents"/>
+    <action name="AccountOrders"/>
+    <action name="AccountsProducts"/>
+    <action name="RevenueManager"/>
+    <action name="AccountsDocumentsAllev"/>
+    <action name="VisualizzaOsmAssociato"/> <!-- maria -->
+    <action name="AccountsDocumentsFoldersAllev"/>
+    <action name="AccountsAutoGuide"/>
+    <action name="AccountsPrototype"/>
+    <action name="AllevamentiCampioni"/>
+    <action name="AllevamentiCampioniDocuments"/>
+    <action name="AllevamentiCampioniDocumentsFolders"/>
+    <action name="AllevamentiVigilanza"/>
+    <action name="AllevamentiVigilanzaDocuments"/>
+    <action name="AllevamentiVigilanzaDocumentsFolders"/>
+    <action name="AllevamentiNonConformita"/>
+        <action name="AllevamentiAltreNonConformita"/>
+    
+    <action name="AllevamentiReati"/>
+    <action name="AccountContactsCallsAllev"/>
+    <action name="AllevamentiProvvedimenti"/>
+    <action name="AccountContactsOppsAllev"/>
+    <action name="AccountContactsOppComponentsAllev"/>
+    <action name="AccountContactsOppQuotesAllev"/>
+    <action name="AccountsServiceContractsAllev"/>
+    <action name="AccountsAuditAllev"/>
+    <action name="AccountQuotesAllev"/>
+    <action name="AccountOrdersProducts"/>
+    <action name="AccountOrdersPayments"/>
+    <action name="AccountContactsCallsAllev"/>
+    <action name="AccountRelationships"/>
+    <action name="AccountsProjects"/>
+    <action name="AccountsHistoryAllev"/>
+    <action name="AccountContactsHistoryAllev"/>
+    <action name="AccountContactsMessagesAllev"/>
+    <!-- <action name="AccountActionPlans"/>-->
+    <action name="AccountsSharedDocuments"/>
+    <action name="AccountsContactsDocumentsAllev"/>
+    <action name="AccountsContactsDocumentsFoldersAllev"/>
+    <action name="AllevamentiSanzioni"/>
+    <action name="AllevamentiSanzioniDocuments"/>
+    <action name="AllevamentiSanzioniDocumentsFolders"/>
+    <action name="AllevamentiTamponi"/>
+    <action name="AllevamentiTamponiDocuments"/>
+    <action name="AllevamentiTamponiDocumentsFolders"/>
+    <action name="AllevamentiSequestri"/>
+     <action name="AllevamentiDiffida"/>
+    <action name="AllevamentiFollowup"/>
+    <action name="Focolai"/>
+    <action name="AccountsContributiAllevamenti"/>
+     <action name="GestioneDocumenti_Allevamenti"/>
+    <page title="Aziende Zootecniche"/>
+    <permission value="allevamenti-view"/>
+    <long_html value="Aziende Zootecniche"/>
+    <short_html value="Aziende Zootecniche"/>
+    <link value="Allevamenti.do?command=Dashboard"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+
+  <submenu name="bdnbareport">
+      <permission value="allevamenti-allevamenti-ba-view"/>
+      <long_html value="Rendicontazione Benessere Animale"/>
+      <short_html value="Rendicontazione Benessere Animale"/>
+      <link value="Allevamenti.do?command=FilterRendicontazioneBa"/>
+    </submenu>
+    
+  <submenu name="bdnba">
+      <permission value="allevamenti-allevamenti-ba-view"/>
+      <long_html value="Invia CU BA"/>
+      <short_html value="Invia CU BA"/>
+      <link value="Allevamenti.do?command=FilterImportBa"/>
+    </submenu>
+    
+     <submenu name="bdnba">
+      <permission value="allevamenti-allevamenti-gmap-view"/>
+      <long_html value="Visualizza Allevamenti con Benessere"/>
+      <short_html value="Visualizza Allevamenti con Benessere"/>
+      <link value="javascript:document.location.reload();window.open('Allevamenti.do?command=LoginOrsa')"/>
+    </submenu>
+    
+     <submenu name="bdnba">
+      <permission value="allevamenti-allevamenti-ba-view"/>
+      <long_html value="Visualizza Allevamenti con Benessere"/>
+      <short_html value="Visualizza Allevamenti con Benessere"/>
+      <link value="Allevamenti.do?command=LoginOrsa"/>
+    </submenu>
+    
+  <!-- <submenu name="bdnbaview">
+      <permission value="allevamenti-allevamenti-ba-view"/>
+      <long_html value="Visualizza Import Benessere Animale"/>
+      <short_html value="Visualizza Import Benessere Animale"/>
+      <link value="Allevamenti.do?command=AllImportRecordsBA"/>
+    </submenu>
+   -->
+    
+    <submenu name="bdnsinview">
+      <permission value="allevamenti-allevamenti-sin-view"/>
+      <long_html value="Visualizza Import Schede SIN"/>
+      <short_html value="Visualizza Import Schede SIN"/>
+      <link value="Allevamenti.do?command=AllImportRecordsSin"/>
+    </submenu>
+    
+    <submenu name="bdnsin">
+      <permission value="allevamenti-allevamenti-sin-view"/>
+      <long_html value="Importa Schede SIN"/>
+      <short_html value="Importa Schede SIN"/>
+      <link value="Allevamenti.do?command=FilterImportSing"/>
+    </submenu>
+
+
+    <submenu name="Dashboard">
+      <permission value="allevamenti-dashboard-view"/>
+      <long_html value="Dashboard"/>
+      <short_html value="Dashboard"/>
+      <link value="Allevamenti.do?command=Dashboard"/>
+    </submenu>
+    
+    
+   
+
+    <submenu name="Add Allevamento">
+      <permission value="allevamenti-bdn-view"/>
+      <long_html value="Cerca in Bdn"/>
+      <short_html value="Cerca in Bdn"/>
+      <link value="Allevamenti.do?command=Add"/>
+    </submenu>
+
+    <submenu name="Search Allevamenti">
+      <permission value="allevamenti-allevamenti-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Allevamenti.do?command=SearchForm"/>
+    </submenu>
+
+    
+  </menu> 
+  
+  <!--  Aggiunta modulo Punto di sbarco -->
+   <menu>
+    <action name="PuntiSbarco"/>
+     <action name="GestioneDocumenti_PuntiSbarco"/>
+    <page title="Punti Di Sbarco"/>
+    <permission value="punti_di_sbarco-view"/>
+    <long_html value="Punti Di Sbarco"/>
+    <short_html value="Punti Di Sbarco"/>
+    <link value="PuntiSbarco.do?command=SearchForm"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+    <submenu name="Ricerca Punto di sbarco">
+      <permission value="punti_di_sbarco-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="PuntiSbarco.do?command=SearchForm"/>
+    </submenu>
+
+   <submenu name="Aggiungi Punto di sbarco">
+      <permission value="punti_di_sbarco-add"/>
+      <long_html value="Aggiungi"/>
+      <short_html value="Aggiungi"/>
+      <link value="PuntiSbarco.do?command=Add"/>
+    </submenu>
+  </menu>
+  
+  <!--  Aggiunta modulo Aziende Agricole -->
+ 
+  
+   <!--  Aggiunta modulo strutture di riproduzione animale -->
+  <menu>
+    <action name="RiproduzioneAnimale"/>
+    <action name="RiproduzioneAnimaleDocuments"/>
+    <action name="RiproduzioneAnimaleDocumentsFolders"/>
+    <action name="RiproduzioneAnimaleDocuments"/>
+    <action name="RiproduzioneAnimaleVigilanza"/>
+    <action name="RiproduzioneAnimaleCampioni"/>
+    <action name="RiproduzioneAnimaleTamponi"/>
+    <action name="RiproduzioneAnimaleNonConformita"/>
+    
+        <action name="RiproduzioneAnimaleAltreNonConformita"/>
+    
+    <action name="RiproduzioneAnimaleSanzioni"/>
+    <action name="RiproduzioneAnimaleSequestri"/>
+     <action name="RiproduzioneAnimaleDiffida"/>
+    <action name="RiproduzioneAnimaleReati"/>
+    <action name="RiproduzioneAnimaleFollowup"/>
+	<action name="ChecklistRiproduzioneAnimale"/>
+     <action name="GestioneDocumenti_RiproduzioneAnimale"/>
+     
+    <page title="Strutture Riproduzione Animale"/>
+    <permission value="riproduzioneanimale-riproduzioneanimale-view"/>
+    <long_html value="Strutture Riproduzione Animale"/>
+    <short_html value="Strutture Riproduzione Animale"/>
+    <link value="RiproduzioneAnimale.do?command=SearchForm"/>
+	<graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+	
+    <submenu name="Ricerca Strutture Riproduzione Animale">
+      <permission value="riproduzioneanimale-riproduzioneanimale-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="RiproduzioneAnimale.do?command=SearchForm"/>
+    </submenu>
+
+   <submenu name="Aggiungi Struttura Riproduzione Animale">
+      <permission value="riproduzioneanimale-riproduzioneanimale-add"/>
+      <long_html value="Aggiungi"/>
+      <short_html value="Aggiungi"/>
+      <link value="RiproduzioneAnimale.do?command=Add"/>
+    </submenu>
+  </menu>
+  
+  <!--  Aggiunta modulo Acque di Rete -->
+  <menu>
+    <action name="AcqueRete"/>
+     <action name="AcqueReteVigilanza"/>
+      <action name="AcqueReteCampioni"/>
+       <action name="AcqueReteTamponi"/>
+<action name="AcqueReteNonConformita"/>
+
+<action name="AcqueReteAltreNonConformita"/>
+
+
+    <action name="AcqueReteDocuments"/>
+    <action name="AcqueReteDocumentsFolders"/>
+       <action name="AcqueReteSanzioni"/>
+       <action name="AcqueReteSequestri"/>
+       <action name="AcqueReteReati"/>
+        <action name="AcqueReteDiffida"/>
+       <action name="AcqueReteFollowup"/>
+
+
+	<action name="AcqueReteProvvedimenti"/>
+	
+	 <action name="GestioneDocumenti_AcqueRete"/>
+	 
+	    <page title="Acque di Rete"/>
+    <permission value="acquedirete-acquedirete-view"/>
+    <long_html value="Acque di Rete"/>
+    <short_html value="Acque di Rete"/>
+    <link value="AcqueRete.do?command=SearchForm"/>
+	<graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+	
+    <submenu name="Ricerca Acque di Rete">
+      <permission value="acquedirete-acquedirete-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="AcqueRete.do?command=SearchForm"/>
+    </submenu>
+
+   <submenu name="Aggiungi Acqua di Rete">
+      <permission value="acquedirete-acquedirete-add"/>
+      <long_html value="Aggiungi"/>
+      <short_html value="Aggiungi"/>
+      <link value="AcqueRete.do?command=Add"/>
+    </submenu>
+  </menu>
+  
+  
+ 
+ <menu>
+   <action name="StabilimentoGestoriAcqueReteNewAction"/>	
+      
+  <page title="Gestori Acque di Rete"/>
+    <permission value="gestoriacquenew-view"/>
+    <long_html value="Gestori Acque di Rete"/>
+    <short_html value="Gestori Acque di Rete"/>
+    <link value="StabilimentoGestoriAcqueReteNewAction.do?command=Default"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+
+	 <submenu name="Dati Gestore Acque">
+	  <permission value="gestoriacquenew-add"/>
+      <long_html value="Dati Gestore Acque"/>
+      <short_html value="Dati Gestore Acque"/>
+      <link value="StabilimentoGestoriAcqueReteNewAction.do?command=PaginaPerListaDatiGestoreAcque"/>
+    </submenu>
+ 
+   
+     <submenu name="Elenco Punti Prelievo">
+      <long_html value="Elenco Punti Prelievo"/>
+      <short_html value="Elenco Punti Prelievo"/>
+      <link value="StabilimentoGestoriAcqueReteNewAction.do?command=PaginaPerListaPuntiPrelievo&amp;indiceChunkPuntiPrelievo=0"/>
+     </submenu>
+    
+     <submenu name="Aggiunta Punti Prelievo">
+      <permission value="gestoriacquenew-add"/>
+      <long_html value="Aggiunta Punti Prelievo"/>
+      <short_html value="Aggiunta Punti Prelievo"/>
+      <link value="StabilimentoGestoriAcqueReteNewAction.do?command=PaginaPerAggiuntaPuntiPrelievoGestoreSpecifico"/>
+    </submenu>
+    
+     <submenu name="Aggiunta Controlli Interni">
+      <permission value="gestoriacquenew-add"/>
+      <long_html value="Aggiunta Controlli Interni"/>
+      <short_html value="Aggiunta Controlli Interni"/>
+      <link value="StabilimentoGestoriAcqueReteNewAction.do?command=PaginaPerAggiuntaControlliGestoreSpecifico"/>
+    </submenu>
+    
+     <submenu name="Import MASSIVO anagrafiche tutti GESTORI">
+      <permission value="gestoriacquenew_importgestorimassivo-view"/>
+      <long_html value="Import MASSIVO anagrafiche tutti GESTORI"/>
+      <short_html value="Import MASSIVO anagrafiche tutti GESTORI"/>
+      <link value="StabilimentoGestoriAcqueReteNewAction.do?command=PaginaPerImportMassivo"/>
+    </submenu>
+    
+    <submenu name="Storico Import">
+      <permission value="gestoriacquenew-add"/>
+      <long_html value="Storico Import"/>
+      <short_html value="Storico Import"/>
+      <link value="StabilimentoGestoriAcqueReteNewAction.do?command=StoricoImport"/>
+    </submenu>
+ 
+    </menu>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Modulo Molluschicoltori  -->
+  <menu>
+    <action name="Molluschicoltori"/>
+    
+    <action name="MollSequestri"/>
+    <action name="MollSequestriDocuments"/>
+    <action name="MollSequestriDocumentsFolders"/>
+    
+    <action name="MollNonConformita"/>
+    <action name="MollNonConformitaDocuments"/>
+    <action name="MollNonConformitaDocumentsFolders"/>
+    
+    <action name="MollTamponi"/>
+    <action name="MollTamponiDocuments"/>
+    <action name="MollTamponiDocumentsFolders"/>
+    
+    <action name="MollSanzioni"/>
+    <action name="MollSanzioniDocuments"/>
+    <action name="MollSanzioniDocumentsFolders"/>
+    
+    <action name="MollReati"/>
+    <action name="MollReatiDocuments"/>
+    <action name="MollReatiDocumentsFolders"/>
+    
+    <action name="MollCampioni"/>
+    <action name="MollCampioniDocuments"/>
+    <action name="MollCampioniDocumentsFolders"/>
+    
+    <action name="MollCessazionevariazione"/>
+    <action name="MollCessazionevariazioneDocuments"/>
+    <action name="MollCessazionevariazioneDocumentsFolders"/>
+  
+    <action name="MollVigilanza"/>
+    <action name="MollVigilanzaDocuments"/>
+    <action name="MollVigilanzaDocumentsFolders"/>
+  
+    <action name="AccountsContactsDocumentsMoll"/>
+    <action name="MollFollowup"/>
+   	<action name="MollAudit"/>
+    <action name="MollMerceOut"/>
+	<action name="BanchiNaturali"/>
+  	<action name="AccountsDocumentsMoll"/>
+  	<action name="AccountsDocumentsFoldersMoll"/>
+    <page title="Molluschicoltura"/>
+    <permission value="moll-view"/>
+    <long_html value="Molluschicoltura"/>
+    <short_html value="Molluschicoltura"/>
+    <link value="Molluschicoltori.do?command=DashboardScelta"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+  </menu> 
+  
+<!-- Modulo Website -->
+  <menu>
+    <action name="Website"/>
+    <action name="PortfolioEditor"/>
+    <action name="PortfolioItemEditor"/>
+    <action name="WebsiteMedia"/>
+    <action name="WebsiteMediaFolders"/>
+    <page title="Website"/>
+    <permission value="website-view"/>
+    <long_html value="Website"/>
+    <short_html value="Website"/>
+    <link value="Website.do"/>
+    <graphic width="83" height="36" on="menu-website-on.gif" off="menu-website-off.gif" rollover=""/>
+
+    <submenu name="Dashboard">
+      <permission value="website-view"/>
+      <long_html value="Dashboard"/>
+      <short_html value="Dashboard"/>
+      <link value="Website.do"/>
+    </submenu>
+  </menu>
+
+  <!-- Modulo Prospect -->
+  <menu>
+    <action name="Sales"/>
+    <action name="SalesImports"/>
+    <page title="Leads"/>
+    <permission value="sales-view"/>
+    <long_html value="Leads"/>
+    <short_html value="Leads"/>
+    <link value="Sales.do?command=Dashboard"/>
+    <graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif" rollover=""/>
+    <submenu name="Dashboard">
+      <permission value="sales-dashboard-view"/>
+      <long_html value="Dashboard"/>
+      <short_html value="Dashboard"/>
+      <link value="Sales.do?command=Dashboard"/>
+    </submenu>
+    <submenu name="Add">
+      <permission value="sales-leads-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="Sales.do?command=Add"/>
+    </submenu>
+    <submenu name="Search">
+      <permission value="sales-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Sales.do?command=SearchForm"/>
+    </submenu>
+    <submenu name="Import">
+      <permission value="sales-import-view"/>
+      <long_html value="Import"/>
+      <short_html value="Import"/>
+      <link value="SalesImports.do?command=View"/>
+    </submenu>
+     <submenu name="Reports">
+      <permission value="sales-reports-view"/>
+      <long_html value="Export"/>
+      <short_html value="Export"/>
+      <link value="Sales.do?command=Reports"/>
+    </submenu>
+<!--
+    <submenu name="Reassign">
+      <permission value="sales-edit"/>
+      <long_html value="Reassign"/>
+      <short_html value="Reassign"/>
+      <link value="Sales.do?command=Reassign"/>
+    </submenu>
+-->
+  </menu>
+
+  <!-- Modulo Contatti -->
+  <menu>
+    <action name="ExternalContacts"/>
+    <action name="ExternalContactsOpps"/>
+    <action name="ExternalContactsOppComponents"/>
+    <action name="ExternalContactsCalls"/>
+    <action name="ExternalContactsCallsForward"/>
+    <action name="ExternalContactsPrototype"/>
+    <action name="ExternalContactsImports"/>
+    <action name="ExternalContactsHistory"/>
+    <action name="ExternalContactsMessages"/>
+    <action name="ExternalContactsDocuments"/>
+    <action name="ExternalContactsDocumentsFolders"/>
+    <page title="Contacts"/>
+    <permission value="contacts-view"/>
+    <long_html value="Contacts"/>
+    <short_html value="Contacts"/>
+    <link value="ExternalContacts.do"/>
+    <graphic width="83" height="36" on="menu-general-contacts-on.gif" off="menu-general-contacts-off.gif" rollover=""/>
+
+    <submenu name="Add Contact">
+      <permission value="contacts-external_contacts-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="ExternalContacts.do?command=Prepare"/>
+    </submenu>
+
+    <submenu name="Search Contacts">
+      <permission value="contacts-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="ExternalContacts.do?command=SearchContactsForm"/>
+    </submenu>
+
+    <submenu name="Imports">
+      <permission value="contacts-external_contacts-imports-view"/>
+      <long_html value="Import"/>
+      <short_html value="Import"/>
+      <link value="ExternalContactsImports.do?command=View"/>
+    </submenu>
+    
+    
+
+    <submenu name="Reports">
+      <permission value="contacts-external_contacts-reports-view"/>
+      <long_html value="Export"/>
+      <short_html value="Export"/>
+      <link value="ExternalContacts.do?command=Reports"/>
+    </submenu>
+  </menu>
+
+  <!-- Modulo Opportunità -->
+  <menu>
+    <action name="Leads"/>
+    <action name="LeadsReports"/>
+    <action name="LeadsCalls"/>
+    <action name="LeadsCallsForward"/>
+    <action name="LeadsComponents"/>
+    <action name="LeadsDocuments"/>
+    <action name="LeadsDocumentsFolders"/>
+    <action name="LeadsPrototype"/>
+    <action name="LeadsQuotes"/>
+    <action name="LeadsFolders"/>
+    <page title="Pipeline"/>
+    <permission value="pipeline-view"/>
+    <long_html value="Pipeline"/>
+    <short_html value="Pipeline"/>
+    <link value="Leads.do?command=Dashboard"/>
+    <graphic width="83" height="36" on="menu-pipeline-on.gif" off="menu-pipeline-off.gif" rollover=""/>
+
+    <submenu name="Dashboard">
+      <permission value="pipeline-dashboard-view"/>
+      <long_html value="Dashboard"/>
+      <short_html value="Dashboard"/>
+      <link value="Leads.do?command=Dashboard"/>
+    </submenu>
+
+    <submenu name="Add Opportunity">
+      <permission value="pipeline-opportunities-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="Leads.do?command=Prepare"/>
+    </submenu>
+
+    <submenu name="Search Opportunities">
+      <permission value="pipeline-opportunities-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Leads.do?command=SearchForm"/>
+    </submenu>
+
+    <submenu name="Reports">
+      <permission value="pipeline-reports-view"/>
+      <long_html value="Export"/>
+      <short_html value="Export"/>
+      <link value="LeadsReports.do?command=Default"/>
+    </submenu>
+  </menu>
+
+  
+  <menu>
+    <action name="ImpiantiMacellazione"/>
+    <action name="Contacts"/>
+    <action name="ContactsPortal"/>
+    <action name="AccountsCalls"/>
+    <action name="AccountContactsImports"/>
+    <action name="Opportunities"/>
+    <action name="OpportunitiesComponents"/>
+    <action name="AccountOrders"/>
+    <action name="AccountsProducts"/>
+    <action name="RevenueManager"/>
+    <action name="AccountTickets"/>
+    <action name="AccountsDocuments"/>
+    <action name="AccountsDocumentsFolders"/>
+    <action name="AccountsAutoGuide"/>
+    <action name="AccountsPrototype"/>
+    <action name="AccountTicketsDocuments"/>
+    <action name="AccountTicketTasks"/>
+    <action name="AccountTicketFolders"/>
+    <action name="AccountTicketsDocumentsFolders"/>
+    <action name="AccountTicketActionPlans"/>
+    <action name="AccountContactsCalls"/>
+    <action name="AccountContactsOpps"/>
+    <action name="AccountContactsOppComponents"/>
+    <action name="AccountContactsOppQuotes"/>
+    <action name="AccountsServiceContracts"/>
+    <action name="AccountsAssets"/>
+    <action name="AccountsAssetsServiceContracts"/>
+    <action name="AccountsContributi"/>
+    <action name="AccountTicketActivityLog"/>
+    <action name="AccountTicketMaintenanceNotes"/>
+    <action name="AccountQuotes"/>
+    <action name="AccountOrdersProducts"/>
+    <action name="AccountOrdersPayments"/>
+    <action name="AccountContactsCalls"/>
+    <action name="AccountRelationships"/>
+    <action name="AccountsProjects"/>
+    <action name="AccountsHistoryImpianti"/>
+    <action name="AccountContactsHistory"/>
+    <action name="AccountContactsMessages"/>
+    <action name="AccountActionPlans"/>
+    <action name="AccountsSharedDocuments"/>
+    <action name="AccountsContactsDocuments"/>
+    <action name="AccountsContactsDocumentsFolders"/>
+    <page title="Impianti Macellazione"/>
+    <permission value="impiantiMacellazione-view"/>
+    <long_html value="Impianti Macellazione"/>
+    <short_html value="Impianti Macellazione"/>
+    <link value="ImpiantiMacellazione.do?command=SearchForm"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+    <!--submenu name="Dashboard">
+      <permission value="impiantiMacellazione-dashboard-view"/>
+      <long_html value="Dashboard"/>
+      <short_html value="Dashboard"/>
+      <link value="ImpiantiMacellazione.do?command=Dashboard"/>
+    </submenu-->
+
+    <submenu name="Add Account">
+      <permission value="impiantiMacellazione-impiantiMacellazione-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="ImpiantiMacellazione.do?command=Add"/>
+    </submenu>
+    
+    <submenu name="Search Accounts">
+      <permission value="impiantiMacellazione-impiantiMacellazione-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="ImpiantiMacellazione.do?command=SearchForm"/>
+    </submenu>
+  </menu> 
+  
+ 
+  <menu>
+  	<action name="OsAnimali" />
+  		<action name="OSAnimaliVigilanza" />
+  		<action name="OSAnimaliCampioni" />
+    <action name="OSAnimaliTamponi" />
+    <action name="OSAnimaliNonConformita" />
+    
+        <action name="OSAnimaliAltreNonConformita" />
+    
+        
+    <action name="OSAnimaliSanzioni" />
+    <action name="OSAnimaliSequestri" />
+     <action name="OSAnimaliDiffida"/>
+    <action name="OSAnimaliReati" />
+    <action name="OSAnimaliFollowup" />
+    <action name="CheckListOsa" />
+     <action name="GestioneDocumenti_OsAnimali"/>
+    <page title="Operatori Sperimentazione Animale"/>
+    <permission value="osa-view"/>
+    <long_html value=" Operatori Sperimentazione Animale"/>
+    <short_html value=" Operatori Sperimentazione Animale"/>
+    <link value="OsAnimali.do?command=Dashboard"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+    
+ <submenu name="Add Operatore">
+      <permission value="osa-osa-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="OsAnimali.do?command=Add"/>
+    </submenu>
+  </menu>
+  
+  
+   
+  <!-- OSM -->  
+  
+  <menu>
+  	<action name="OsmSequestri" />
+  	 <action name="OsmDiffida"/>
+  	<action name="OsmCampioni" />
+  	<action name="OsmNonConformita" />
+  	<action name="OsmNonConformitaDocuments" />
+  	 	<action name="OsmNonConformitaDocumentsFolders" />
+  	<action name="OsmTamponi" />
+  	<action name="OsmMerceInOut" />
+    <action name="Osm"/>
+    <action name="ContactsOsm"/>
+      	<action name="OsmAltreCampioni" />
+    
+    <!-- <action name="ContactsPortal"/>-->
+    <action name="AccountsCalls"/>
+    <!-- <action name="AccountContactsImports"/>-->
+    <action name="Opportunities"/>
+    <action name="OpportunitiesComponents"/>
+    <action name="AccountOrders"/>
+    <action name="AccountsProducts"/>
+    <action name="RevenueManager"/>
+    <action name="OsmProvvedimenti"/>
+    <action name="OsmSanzioni"/>
+    <action name="OsmSanzioniDocuments"/>
+     <action name="OsmSanzioniDocumentsFolders"/>
+     <action name="OsmReati"/>
+    <action name="OsmDocuments"/>
+     <action name="OsmReatiDocumentsFolders"/>
+    <action name="OsmCampioni"/>
+    <action name="OsmNonConformita"/>
+    <action name="OsmNonConformitaDocuments"/>
+    <action name="OsmCampioniDocuments"/>
+    <action name="OsmCampioniDocumentsFolders"/>
+     <action name="OsmNonConformitaDocumentsFolders"/>
+    <action name="OsmCessazionevariazione"/>
+    <action name="OsmCessazionevariazioneDocuments"/>
+    <action name="OsmCessazionevariazioneDocumentsFolders"/>
+    <action name="OsmVigilanza"/>
+    <action name="OsmFollowup"/>
+    <action name="OsmVigilanzaDocuments"/>
+    <action name="OsmVigilanzaDocumentsFolders"/>
+    <action name="AccountsDocumentsOsm"/>
+    <!--<action name="AccountsDocumentsFolders"/>-->
+    <action name="AccountsDocumentsFoldersOsm"/>
+    <action name="AccountsAutoGuide"/>
+    <action name="AccountsPrototype"/>
+    <!--<action name="AccountTicketsDocuments"/>
+    <action name="AccountTicketTasks"/>
+    <action name="AccountTicketFolders"/>
+    <action name="AccountTicketsDocumentsFolders"/>
+    <action name="AccountTicketActionPlans"/>-->
+    <action name="AccountContactsCallsOsm"/>
+    <action name="AccountContactsOppsOsm"/>
+    <action name="AccountContactsOppComponentsOsm"/>
+    <action name="AccountContactsOppQuotesOsm"/>
+    <action name="AccountsServiceContractsOsm"/>
+    <action name="AccountsAssetsOsm"/>
+    <!--  <action name="AccountsAssetsServiceContracts"/>
+    <action name="AccountsAudit"/>
+     <action name="AccountTicketActivityLog"/>
+    <action name="AccountTicketMaintenanceNotes"/>-->
+    <action name="AccountQuotesOsm"/>
+    <action name="AccountOrdersProducts"/>
+    <action name="AccountOrdersPayments"/>
+    <action name="AccountContactsCallsOsm"/>
+    <action name="AccountRelationships"/>
+    <action name="AccountsProjects"/>
+    <action name="AccountsHistoryOsm"/>
+    <action name="AccountContactsHistoryOsm"/>
+    <action name="AccountContactsMessagesOsm"/>
+    <action name="AccountsAuditOsm"/>
+    <action name="AccountsContributiOsm"/>
+    <!-- <action name="AccountActionPlans"/>-->
+    <action name="AccountsSharedDocuments"/>
+    <action name="AccountsContactsDocumentsOsm"/>
+    <action name="AccountsContactsDocumentsFoldersOsm"/>
+    <action name="OsmDiarioMacellazione"/>
+     <action name="OsmRegistratiCampioni"/>
+    <action name="OsmRegistratiProvvedimenti"/>
+         <action name="OsmCessazioneVariazione"/>
+ <action name="OsmRegistratiDiffida"/>
+    <action name="OsmRegistratiSequestri" />
+  	<action name="OsmRegistratiNonConformita" />
+  	
+  	  	<action name="OsmRegistratiAltreNonConformita" />
+  	
+  	  	
+  	<action name="OsmRegistratiNonConformitaDocuments" />
+  	 	<action name="OsmRegistratiNonConformitaDocumentsFolders" />
+  	<action name="OsmRegistratiTamponi" />
+  	<action name="OsmRegistratiMerceInOut" />
+    <action name="OsmRegistrati"/>
+    <action name="ContactsOsmRegistrati"/>
+    <!-- <action name="ContactsPortal"/>-->
+    <action name="AccountsCalls"/>
+    <!-- <action name="AccountContactsImports"/>-->
+    <action name="Opportunities"/>
+    <action name="OpportunitiesComponents"/>
+    <action name="AccountOrders"/>
+    <action name="AccountsProducts"/>
+    <action name="RevenueManager"/>
+    <action name="OsmRegistratiSanzioni"/>
+    <action name="OsmRegistratiSanzioniDocuments"/>
+     <action name="OsmRegistratiSanzioniDocumentsFolders"/>
+     <action name="OsmRegistratiReati"/>
+    <action name="OsmRegistratiDocuments"/>
+     <action name="OsmRegistratiReatiDocumentsFolders"/>
+    <action name="OsmRegistratiCampioni"/>
+    <action name="OsmRegistratiNonConformita"/>
+    <action name="OsmRegistratiNonConformitaDocuments"/>
+    <action name="OsmRegistratiCampioniDocuments"/>
+    <action name="OsmRegistratiCampioniDocumentsFolders"/>
+     <action name="OsmRegistratiNonConformitaDocumentsFolders"/>
+    <action name="OsmRegistratiCessazionevariazione"/>
+    <action name="OsmRegistratiCessazionevariazioneDocuments"/>
+    <action name="OsmRegistratiCessazionevariazioneDocumentsFolders"/>
+    <action name="OsmRegistratiVigilanza"/>
+    <action name="OsmRegistratiFollowup"/>
+    <action name="OsmRegistratiVigilanzaDocuments"/>
+    <action name="OsmRegistratiVigilanzaDocumentsFolders"/>
+    <action name="AccountsDocumentsOsmRegistrati"/>
+    <!--<action name="AccountsDocumentsFolders"/>-->
+    <action name="AccountsDocumentsFoldersOsmRegistrati"/>
+    <action name="VisualizzaAllevamentiAssociati"/> <!-- maria -->
+     <action name="GestioneDocumenti_OSM"/>
+    <page title="OSM"/>
+    <permission value="osm-view"/>
+    <long_html value="OSM"/>
+    <short_html value="OSM"/>
+    <link value="Osm.do?command=DashboardScelta"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+    
+
+  </menu>
+  
+  <menu>
+    <action name="TrasportoAnimali"/>
+     <action name="VeicoliList"/>
+    <action name="ContactsReq"/>
+    <action name="ContactsPortal"/>
+    <action name="AccountsCalls"/>
+    <action name="TrasportoAnimaliContactsImports"/>
+    <action name="Opportunities"/>
+    <action name="OpportunitiesComponents"/>
+    <action name="AccountOrders"/>
+    <action name="TrasportiSanzioni"/>
+        <action name="CheckListTrasporto"/>
+
+    
+    <action name="TrasportiReati"/>
+    <action name="TrasportiFollowup"/>
+    <action name="TrasportiVigilanza"/>
+    <action name="TrasportiNonConformita"/>
+        <action name="TrasportiAltreNonConformita"/>
+    
+        
+        
+    <action name="TrasportiSequestri"/>
+     <action name="TrasportiDiffida"/>
+    <action name="AccountsProducts"/>
+    <action name="RevenueManager"/>
+    <action name="AccountTickets"/>
+    <action name="TrasportoAnimaliDocuments"/>
+    <action name="TrasportoAnimaliDocumentsFolders"/>
+    <action name="AccountsAutoGuide"/>
+    <action name="AccountsPrototype"/>
+    <action name="AccountTicketsDocuments"/>
+    <action name="AccountTicketTasks"/>
+    <action name="AccountTicketFolders"/>
+    <action name="AccountTicketsDocumentsFolders"/>
+    <action name="AccountTicketActionPlans"/>
+    <action name="TrasportoAnimaliContactsCalls"/>
+    <action name="TrasportoAnimaliContactsOpps"/>
+    <action name="TrasportoAnimaliContactsOppComponents"/>
+    <action name="TrasportoAnimaliContactsOppQuotes"/>
+    <action name="AccountsServiceContracts"/>
+    <action name="AccountsAssets"/>
+    <action name="AccountsAssetsServiceContracts"/>
+    <action name="AccountTicketActivityLog"/>
+    <action name="AccountTicketMaintenanceNotes"/>
+    <action name="TrasportoAnimaliQuotes"/>
+    <action name="AccountOrdersProducts"/>
+    <action name="AccountOrdersPayments"/>
+    <action name="TrasportoAnimaliContactsCalls"/>
+    <action name="AccountRelationships"/>
+    <action name="AccountsProjects"/>
+    <action name="TrasportoAnimaliHistory"/>
+    <action name="TrasportoAnimaliContactsHistory"/>
+    <action name="TrasportoAnimaliContactsMessages"/>
+    <action name="TrasportoAnimaliActionPlans"/>
+    <action name="AccountsSharedDocuments"/>
+    <action name="TrasportoAnimaliContactsDocuments"/>
+    <action name="TrasportoAnimaliContactsDocumentsFolders"/>
+     <action name="GestioneDocumenti_TrasportoAnimali"/>
+    <page title="Trasporto Animali"/>
+    <permission value="trasportoanimali-view"/>
+    <long_html value="Trasporto Animali"/>
+    <short_html value="Trasporto Animali"/>
+    <link value="TrasportoAnimali.do?command=SearchForm"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+    <submenu name="Dashboard">
+      <permission value="trasportoanimali-dashboard-view"/>
+      <long_html value="Dashboard"/>
+      <short_html value="Dashboard"/>
+      <link value="TrasportoAnimali.do?command=Dashboard"/>
+    </submenu>
+
+    <submenu name="Add Account">
+      <permission value="trasportoanimali-trasportoanimali-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TrasportoAnimali.do?command=ScegliRichiesta"/>
+    </submenu>
+
+    <submenu name="Search Accounts">
+      <permission value="trasportoanimali-trasportoanimali-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TrasportoAnimali.do?command=SearchForm"/>
+    </submenu>
+
+    <submenu name="Revenue">
+      <permission value="accounts-accounts-revenue-view"/>
+      <long_html value="Revenue"/>
+      <short_html value="Revenue"/>
+      <link value="RevenueManager.do?command=Dashboard"/>
+    </submenu>
+
+    <submenu name="Imports">
+      <permission value="trasportoanimali-trasportoanimali-contacts-imports-view"/>
+      <long_html value="Import"/>
+      <short_html value="Import"/>
+      <link value="TrasportoAnimaliContactsImports.do?command=View"/>
+    </submenu>
+    <submenu name="TrasportoAnimaliRendicontazione">
+    <permission value="trasportoanimali-trasportoanimali-rendicontazioneregione-view"/>
+      <long_html value="Rendicontazione Annuale"/>
+      <short_html value="Rendicontazione Annuale"/>
+      <link value="TrasportoAnimali.do?command=Rendicontazione"/>
+    </submenu>
+    <submenu name="TrasportoAnimaliRendicontazione2">
+    <permission value="trasportoanimali-trasportoanimali-rendicontazioneasl-view"/>
+      <long_html value="Rendicontazione Annuale"/>
+      <short_html value="Rendicontazione Annuale"/>
+      <link value="TrasportoAnimali.do?command=Rendicontazione"/>
+    </submenu>
+   </menu> 
+   
+   <!-- Modulo SOA -->
+   <menu>
+   
+    <action name="SoaDiffida"/>
+  	<action name="SoaSequestri" />
+  	<action name="SoaNonConformita" />
+  	  	<action name="SoaAltreNonConformita" />
+  	
+  	<action name="SoaNonConformitaDocuments" />
+  	 	<action name="SoaNonConformitaDocumentsFolders" />
+  	<action name="SoaTamponi" />
+  	<action name="SoaMerceInOut" />
+    <action name="Soa"/>
+    <action name="ContactsSoa"/>
+    <action name="SoaProvvedimenti"/>
+    <action name="AccountsCalls"/>
+    <action name="Opportunities"/>
+    <action name="OpportunitiesComponents"/>
+    <action name="AccountOrders"/>
+    <action name="AccountsProducts"/>
+    <action name="RevenueManager"/>
+    <action name="SoaSanzioni"/>
+    <action name="SoaSanzioniDocuments"/>
+     <action name="SoaSanzioniDocumentsFolders"/>
+     <action name="SoaReati"/>
+    <action name="SoaReatiDocuments"/>
+     <action name="SoaReatiDocumentsFolders"/>
+    <action name="SoaCampioni"/>
+    <action name="SoaNonConformita"/>
+    <action name="SoaNonConformitaDocuments"/>
+    <action name="SoaCampioniDocuments"/>
+    <action name="SoaCampioniDocumentsFolders"/>
+     <action name="SoaNonConformitaDocumentsFolders"/>
+    <action name="SoaCessazionevariazione"/>
+    <action name="SoaCessazionevariazioneDocuments"/>
+    <action name="SoaCessazionevariazioneDocumentsFolders"/>
+    <action name="SoaVigilanza"/>
+    <action name="SoaFollowup"/>
+    <action name="SoaVigilanzaDocuments"/>
+    <action name="SoaVigilanzaDocumentsFolders"/>
+    <action name="AccountsDocumentsSoa"/>
+    <action name="AccountsDocumentsFoldersSoa"/>
+    <action name="AccountsAutoGuide"/>
+    <action name="AccountsPrototype"/>
+    <action name="AccountContactsCallsSoa"/>
+    <action name="AccountContactsOppsSoa"/>
+    <action name="AccountContactsOppComponentsSoa"/>
+    <action name="AccountContactsOppQuotesSoa"/>
+    <action name="AccountsServiceContractsSoa"/>
+    <action name="AccountsAssetsSoa"/>
+    <action name="AccountQuotesSoa"/>
+    <action name="AccountOrdersProducts"/>
+    <action name="AccountOrdersPayments"/>
+    <action name="AccountContactsCallsSoa"/>
+    <action name="AccountRelationships"/>
+    <action name="AccountsProjects"/>
+    <action name="AccountsHistorySoa"/>
+    <action name="AccountContactsHistorySoa"/>
+    <action name="AccountContactsMessagesSoa"/>
+    <action name="AccountsAuditSoa"/>
+    <action name="AccountsContributiSoa"/>
+    <action name="AccountsSharedDocuments"/>
+    <action name="AccountsContactsDocumentsSoa"/>
+    <action name="AccountsContactsDocumentsFoldersSoa"/>
+    <action name="SoaDiarioMacellazione"/>
+     <action name="GestioneDocumenti_SOA"/>
+    <page title="Soa"/>
+    <permission value="soa-view"/>
+    <long_html value="SOA"/>
+    <short_html value="SOA"/>
+    <link value="Soa.do?command=Dashboard"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+
+
+<submenu name="scadenzariocondizionati">
+      <permission value="soa-soa-view"/>
+      <long_html value="Soa Condizionati in Scadenza"/>
+      <short_html value="Soa Condizionati in Scadenza"/>
+      <link value="Soa.do?command=CondizionatiInScadenza"/>
+    </submenu>
+    
+    <submenu name="scadenzariosospesi">
+      <permission value="soa-soa-view"/>
+      <long_html value="Soa Sospesi in Scadenza"/>
+      <short_html value="Soa Sospesi in Scadenza"/>
+      <link value="Soa.do?command=SospesoInScadenza"/>
+    </submenu>
+	
+	
+	<submenu name="AggiungiIstruttoria">
+      <permission value="soa-soa-add"/>
+      <long_html value="Aggiungi Istruttoria Riconosciuti"/>
+      <short_html value="Aggiungi Istruttoria Riconosciuti"/>
+      <link value="Soa.do?command=Add&amp;tipoSoa=1"/>
+    </submenu>
+    
+    <submenu name="AggiungiIstruttoriaReg">
+      <permission value="soa-soa-add"/>
+      <long_html value="Aggiungi Istruttoria Registrati"/>
+      <short_html value="Aggiungi Istruttoria Registrati"/>
+      <link value="Soa.do?command=Add&amp;tipoSoa=2"/>
+    </submenu>
+    
+	
+    
+
+    <submenu name="Search Soa">
+      <permission value="soa-soa-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Soa.do?command=SearchForm"/>
+    </submenu>
+
+    <submenu name="Revenue">
+      <permission value="soa-soa-revenue-view"/>
+      <long_html value="Revenue"/>
+      <short_html value="Revenue"/>
+      <link value="RevenueManager.do?command=Dashboard"/>
+    </submenu>
+
+    <submenu name="Imports">
+      <permission value="soa-soa-contacts-imports-view"/>
+      <long_html value="Import"/>
+      <short_html value="Import"/>
+      <link value="AccountContactsImports.do?command=View"/>
+    </submenu>
+
+<!--
+    <submenu name="Reports">
+      <permission value="soa-soa-reports-view"/>
+      <long_html value="Export"/>
+      <short_html value="Export"/>
+      <link value="Soa.do?command=Reports"/>
+    </submenu>
+    
+     <submenu name="SoaUpload">
+      <permission value="soa-upload-view"/>
+      <long_html value="Importa Soa da Sintesi"/>
+      <short_html value="Importa Soa da Sintesi"/>
+      <link value="Soa.do?command=SoaUpload"/>
+    </submenu>
+     -->
+  </menu> 
+  
+   <!-- Modulo Operatori 193 -->
+   <menu>
+    <action name="Farmacosorveglianza"/>
+    <action name="FarmacosorveglianzaFar"/>
+    <action name="FarmacosorveglianzaVet"/>
+    <action name="FarmacosorveglianzaPre"/>
+    <action name="FarmacosorveglianzaProvvedimenti"/>
+     <action name="FarmacieSanzioni"/>
+     <action name="FarmacieSequestri"/>
+      <action name="FarmacieDiffida"/>
+     <action name="FarmacieNonConformita"/>
+          <action name="FarmacieAltreNonConformita"/>
+     
+          
+     <action name="FarmacieFollowup"/>
+     <action name="FarmacieReati"/>
+     <action name="FarmacieVigilanza"/>
+     <action name="CheckListFarmacosorveglianza"/>
+      <action name="GestioneDocumenti_Operatori193"/>
+     	
+    <page title="Operatori 193"/>
+    <permission value="farmacosorveglianza-view"/>
+    <long_html value="Operatori 193"/>
+    <short_html value="Operatori 193"/>
+    <link value="Farmacosorveglianza.do?command=SearchFormFcie"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+<!--     <submenu name="AllegatoI"> -->
+<!--       <permission value="farmacosorveglianza-farmacosorveglianza-allegatoI-view"/> -->
+<!--       <long_html value="Allegato I"/> -->
+<!--       <short_html value="Allegato I"/> -->
+<!--       <link value="Farmacosorveglianza.do?command=SelectAllegatoI"/> -->
+<!--     </submenu> -->
+	
+<!-- 	<submenu name="AllegatoII"> -->
+<!--       <permission value="farmacosorveglianza-farmacosorveglianza-allegatoII-view"/> -->
+<!--       <long_html value="Allegato II"/> -->
+<!--       <short_html value="Allegato II"/> -->
+<!--       <link value="Farmacosorveglianza.do?command=SelectAllegatoII"/> -->
+<!--     </submenu> -->
+	
+    <submenu name="Farmacie">
+      <permission value="farmacosorveglianza-farmacosorveglianza-add"/>
+      <long_html value="Aggiungi Operatori 193"/>
+      <short_html value="Aggiungi Operatori 193"/>
+      <link value="Farmacosorveglianza.do?command=AddFcie"/>
+    </submenu>
+  </menu> 
+   
+   
+   <!-- Modulo Parafarmacie / farmacie e ingrossi farmaci -->
+   <menu>
+     <action name="Parafarmacie"/>
+     <action name="ParafarmacieSanzioni"/>
+     <action name="ParafarmacieSequestri"/>
+      <action name="ParafarmacieDiffida"/>
+     <action name="ParafarmacieNonConformita"/>
+          <action name="ParafarmacieAltreNonConformita"/>
+     
+          
+     <action name="ParafarmacieFollowup"/>
+     <action name="ParafarmacieReati"/>
+     <action name="ParafarmacieVigilanza"/>
+     <action name="ParafarmacieProvvedimenti"/>
+     <action name="CheckListParafarmacie"/>
+      <action name="GestioneDocumenti_Farmacie"/>
+	
+    <page title="Farmacie / Grossisti / Parafarmacie"/>
+    <permission value="parafarmacie-parafarmacie-view"/>
+    <long_html value="Farmacie / Grossisti / Parafarmacie"/>
+    <short_html value="Farmacie / Grossisti / Parafarmacie"/>
+    <link value="Parafarmacie.do?command=SearchFormFcie"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+    <submenu name="AllegatoI">
+      <permission value="farmacosorveglianza-farmacosorveglianza-allegatoI-view"/>
+      <long_html value="Allegato I"/>
+      <short_html value="Allegato I"/>
+      <link value="Farmacosorveglianza.do?command=SelectAllegatoI"/>
+    </submenu>
+	
+	<submenu name="AllegatoII">
+      <permission value="farmacosorveglianza-farmacosorveglianza-allegatoII-view"/>
+      <long_html value="Allegato II"/>
+      <short_html value="Allegato II"/>
+      <link value="Farmacosorveglianza.do?command=SelectAllegatoII"/>
+    </submenu>
+    
+	<submenu name="Aggiungi Farmacie / Grossisti / Parafarmacie">
+      <permission value="parafarmacie-parafarmacie-add"/>
+      <long_html value="Aggiungi"/>
+      <short_html value="Aggiungi"/>
+      <link value="Parafarmacie.do?command=AddFcie"/>
+    </submenu>
+  </menu> 
+   
+  
+  
+  <!-- Modulo Laboratori HACCP -->
+  
+  <menu>
+    <action name="LabHaccpCampioni"/>
+ 	<action name="LabHaccpTamponi"/>
+ 	<action name="LabHaccpVigilanza"/>
+ 	<action name="LabHaccpNonConformita"/>
+ 	<action name="LabHaccpSanzioni"/>
+ 	<action name="LabHaccpSequestri"/>
+ 	<action name="LabHaccpReati"/>
+ 	<action name="LabHaccpSequestri"/>
+ 	<action name="LabHaccpFollowup"/>
+    <action name="LaboratoriHACCP"/>
+    <action name="ElencoProveHACCP"/>
+    <action name="LaboratoriHACCPHistory"/>
+    <action name="EstrazioneLabHACCP"/>
+     <action name="GestioneDocumenti_Laboratori"/>
+    <page title="Laboratori HACCP"/>
+    <permission value="laboratori-view"/>
+    <long_html value="Laboratori HACCP"/>
+    <short_html value="Laboratori HACCP"/>
+    <link value="LaboratoriHACCP.do?command=SearchForm"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+    <submenu name="Ricerca Laboratori HACCP">
+      <permission value="laboratori-laboratori-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="LaboratoriHACCP.do?command=SearchForm"/>
+    </submenu>
+
+   <submenu name="Aggiungi Laboratorio HACCP">
+      <permission value="laboratori-laboratori-add"/>
+      <long_html value="Aggiungi"/>
+      <short_html value="Aggiungi"/>
+      <link value="LaboratoriHACCP.do?command=Add"/>
+    </submenu>
+    
+   
+     <submenu name="Modifica Elenco Matrici Laboratori HACCP">
+      <permission value="laboratori-gestioneprove-add"/>
+      <long_html value="Modifica Elenco Matrici Laboratori HACCP"/>
+      <short_html value="Modifica Elenco Matrici Laboratori HACCP"/>
+      <link value="Admin.do?command=ModifyList&amp;table=lookup_matrici_labhaccp&amp;module=114&amp;sublist=1"/>
+    </submenu> 
+    <submenu name="Modifica Elenco Denominazioni Laboratori HACCP">
+      <permission value="laboratori-gestioneprove-add"/>
+      <long_html value="Modifica Elenco Denominazioni Laboratori HACCP"/>
+      <short_html value="Modifica Elenco Denominazioni Laboratori HACCP"/>
+      <link value="Admin.do?command=ModifyList&amp;table=lookup_denominazioni_labhaccp&amp;module=114&amp;sublist=2"/>
+    </submenu> 
+  </menu>
+  <!-- fine -->
+  
+  <!-- Modulo A. I. Equidi  -->
+  <menu>
+  	<action name="AIEquidi" />
+  	<page title="A. I. Equidi" />
+  	<permission value="aiequidi-view" />
+  	<long_html value="A. I. Equidi" />
+  	<short_html value="A. I. Equidi" />
+  	<link value="AIEquidi.do?command=List&amp;filtro=si"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+  </menu>
+  
+
+  
+  <!-- Modulo Banchi Naturali  -->
+ <!--  <menu>
+    <action name="BanchiNaturali"/>
+
+    <page title="Banchi Naturalie"/>
+    <permission value="banco-banco-view"/>
+    <long_html value="Banchi Naturali"/>
+    <short_html value="Banchi Naturali"/>
+    <link value="BanchiNaturali.do?command=Home"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+    <submenu name="Aggiungi">
+      <permission value="banco-add"/>
+      <long_html value="Aggiungi"/>
+      <short_html value="Aggiungi"/>
+      <link value="BanchiNaturali.do?command=Aggiungi"/>
+    </submenu>
+    
+    <submenu name="Cerca">
+      <permission value="banco-view"/>
+      <long_html value="Cerca"/>
+      <short_html value="Cerca"/>
+      <link value="BanchiNaturali.do?command=Home"/>
+    </submenu>
+
+  </menu> 
+  -->
+    <menu>
+    <action name="Abusivismi"/>
+   
+    <action name="ContactsAbus"/>
+    <!-- <action name="ContactsPortal"/>-->
+    <action name="AccountsCalls"/>
+    <!-- <action name="AccountContactsImports"/>-->
+    <action name="Opportunities"/>
+    <action name="OpportunitiesComponents"/>
+    <action name="AccountOrders"/>
+    <action name="AccountsProducts"/>
+    <action name="RevenueManager"/>
+    <action name="AbusivismiSanzioni"/>
+    
+     
+      
+    <action name="AbusivismiSanzioniDocuments"/>
+     <action name="AbusivismiSanzioniDocumentsFolders"/>
+    <action name="AbusivismiCampioni"/>
+    <action name="AbusivismiCampioniDocuments"/>
+    <action name="AbusivismiCampioniDocumentsFolders"/>
+    <!-- action name="AbusivismiCessazionevariazione"/>
+    <action name="AbusivismiCessazionevariazioneDocuments"/>
+    <action name="AbusivismiCessazionevariazioneDocumentsFolders"/-->
+    <action name="AbusivismiVigilanza"/>
+    <action name="AbusivismiVigilanzaDocuments"/>
+    <action name="AbusivismiVigilanzaDocumentsFolders"/>
+    <action name="AccountsDocumentsAbus"/>
+    <!--<action name="AccountsDocumentsFolders"/>-->
+    <action name="AccountsDocumentsFoldersAbus"/>
+    <action name="AccountsAutoGuide"/>
+    <action name="AccountsPrototype"/>
+    <!--<action name="AccountTicketsDocuments"/>
+    <action name="AccountTicketTasks"/>
+    <action name="AccountTicketFolders"/>
+    <action name="AccountTicketsDocumentsFolders"/>
+    <action name="AccountTicketActionPlans"/>-->
+    <action name="AccountContactsCallsAbus"/>
+    <action name="AccountContactsOppsAbus"/>
+    <action name="AccountContactsOppComponentsAbus"/>
+    <action name="AccountContactsOppQuotesAbus"/>
+    <action name="AccountsServiceContractsAbus"/>
+    <action name="AccountsAssetsAbus"/>
+    <!--  <action name="AccountsAssetsServiceContracts"/>
+    <action name="AccountsAudit"/>
+     <action name="AccountTicketActivityLog"/>
+    <action name="AccountTicketMaintenanceNotes"/>-->
+    <action name="AccountQuotesAbus"/>
+    <action name="AccountOrdersProducts"/>
+    <action name="AccountOrdersPayments"/>
+    <action name="AccountContactsCallsAbus"/>
+    <action name="AccountRelationships"/>
+    <action name="AccountsProjects"/>
+    <action name="AccountsHistoryAbus"/>
+    <action name="AccountContactsHistoryAbus"/>
+    <action name="AccountContactsMessagesAbus"/>
+    <action name="AccountsAuditAbus"/>
+    <action name="AccountsContributiAbus"/>
+    <!-- <action name="AccountActionPlans"/>-->
+    <action name="AccountsSharedDocuments"/>
+    <action name="AccountsContactsDocumentsAbus"/>
+    <action name="AccountsContactsDocumentsFoldersAbus"/>
+    <page title="Operatori Abusivi"/>
+    <permission value="abusivismi-view"/>
+    <long_html value="Operatori Abusivi"/>
+    <short_html value="Operatori Abusivi"/>
+    <link value="Abusivismi.do?command=Dashboard"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+    <submenu name="Dashboard">
+      <permission value="abusivismi-dashboard-view"/>
+      <long_html value="Dashboard"/>
+      <short_html value="Dashboard"/>
+      <link value="Abusivismi.do?command=Dashboard"/>
+    </submenu>
+
+    <submenu name="Add Abusivismo">
+      <permission value="abusivismi-abusivismi-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="Abusivismi.do?command=Add"/>
+    </submenu>
+
+    <submenu name="Search Abusivismo">
+      <permission value="abusivismi-abusivismi-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Abusivismi.do?command=SearchForm"/>
+    </submenu>
+
+    <submenu name="Revenue">
+      <permission value="abusivismi-abusivismi-revenue-view"/>
+      <long_html value="Revenue"/>
+      <short_html value="Revenue"/>
+      <link value="RevenueManager.do?command=Dashboard"/>
+    </submenu>
+
+    <submenu name="Imports">
+      <permission value="abusivismi-abusivismi-contacts-imports-view"/>
+      <long_html value="Import"/>
+      <short_html value="Import"/>
+      <link value="AccountContactsImports.do?command=View"/>
+    </submenu>
+
+    <submenu name="Reports">
+      <permission value="abusivismi-abusivismi-reports-view"/>
+      <long_html value="Export"/>
+      <short_html value="Export"/>
+      <link value="Abusivismi.do?command=Reports"/>
+    </submenu>
+  </menu> 
+  
+  <menu>
+ 	<action name="MacroareaIUV"/>
+ 	<action name="CaniPadronali"/>
+	<action name="CaniPadronaliTamponi"/>
+    <action name="CaniPadronaliCampioni"/>
+    <action name="CaniPadronaliReati"/>
+     <action name="IuvValutazioneComportamentale"/>
+
+     <action name="CaniPadronaliDiffida"/>
+    <action name="CaniPadronaliSequestri"/>
+    <action name="CaniPadronaliSanzioni"/>
+    <action name="CaniPadronaliFollowup"/>
+    <action name="ChecklistCaniPadronali"/>
+	<action name="CaniPadronaliVigilanza"/>
+	<action name="CheckListCaniPadronali"/>
+	<action name="Canili"/>
+    <action name="CaniliCampioni"/>
+    <action name="CaniliTamponi"/>
+    <action name="CaniliVigilanza"/>
+    <action name="CaniliNonConformita"/>
+        <action name="CaniliAltreNonConformita"/>
+    
+    <action name="CaniliFollowup"/>
+    <action name="CaniliProvvedimenti"/>
+    <action name="CaniliReati"/>
+    <action name="CaniliSanzioni"/>
+     <action name="CaniliDiffida"/>
+    <action name="CaniliSequestri"/>
+    <action name="CheckListCanili"/>
+    <action name="OperatoriCommerciali"/>
+        <action name="ZoneControllo"/>
+        <action name="ZoneControlloNonConformita"/>
+                <action name="ZoneControlloAltreNonConformita"/>
+        
+        <action name="ZoneControlloVigilanza"/>
+        <action name="ZoneControlloCampioni"/>
+        <action name="ZoneControlloTamponi"/>
+        
+         <action name="Colonie"/>
+                 <action name="ColonieAltreNonConformita"/>
+         
+        <action name="ColonieNonConformita"/>
+        <action name="ColonieVigilanza"/>
+        <action name="ColonieCampioni"/>
+        <action name="ColonieTamponi"/>
+
+    <action name="OperatoriCommercialiCampioni"/>
+    <action name="OperatoriCommercialiProvvedimenti"/>
+    <action name="CaniPadronaliProvvedimenti"/>
+    <action name="OperatoriCommercialiTamponi"/>
+    <action name="OperatoriCommercialiVigilanza"/>
+    <action name="OperatoriCommercialiNonConformita"/>
+        <action name="OperatoriCommercialiAltreNonConformita"/>
+    
+        
+    <action name="OperatoriCommercialiFollowup"/>
+    <action name="OperatoriCommercialiReati"/>
+    <action name="OperatoriCommercialiSanzioni"/>
+    <action name="OperatoriCommercialiSequestri"/>
+     <action name="OperatoriCommecrialiDiffida"/>
+    <action name="CheckListOperatoriCommerciali"/>
+     <action name="GestioneDocumenti_IUV"/>
+ 	<page title="Macroarea I.U.V."/>
+ 	<permission value="macroarea-view"/>
+    <long_html value="Macroarea I.U.V."/>
+    <short_html value="Macroarea I.U.V."/>
+    <link value="MacroareaIUV.do?command=DashboardScelta"/>
+    <graphic width="83" height="36" on="menu-products-on.gif" off="menu-products-off.gif" rollover=""/>  
+     <submenu name="Modulistica">
+      <permission value="modulisticaiuv-view"/>
+      <long_html value="Modulistica"/>
+      <short_html value="Modulistica"/>
+      <link value="MacroareaIUV.do?command=StampaModulistica"/>
+    </submenu>
+    
+    <submenu name="Zone">
+      <permission value="zone-zone-view"/>
+      <long_html value=""/>
+      <short_html value=""/>
+    </submenu>
+    
+    <submenu name="Colonie">
+      <permission value="zone-zone-view"/>
+      <long_html value=""/>
+      <short_html value=""/>
+      <link value=""/>
+    </submenu>
+   
+ </menu> 
+  
+  
+  <!-- Altri operatori -->
+    <menu>
+    	
+	<action name="CheckListOpnonAltrove"/>
+    <action name="OpnonAltroveDocumentsFolders"/>
+    <action name="OpnonAltroveDocuments"/>
+    <action name="OpnonAltrove"/>
+    <action name="OpnonAltroveVigilanza"/>
+     <action name="OpnonAltroveCampioni"/>
+    <action name="OpnonAltroveTamponi"/>
+    <action name="OpnonAltroveNonConformita"/>
+    
+        <action name="OpnonAltroveAltreNonConformita"/>
+    
+        
+    <action name="OpnonAltroveSanzioni"/>
+    <action name="OpnonAltroveSequestri"/>
+     <action name="OpnonAltroveDiffida"/>
+    <action name="OpnonAltroveReati"/>
+    <action name="OpnonAltroveFollowup"/>
+
+		
+	<action name="CheckListOpnonAltrove"/>
+    <action name="OpnonAltroveDocumentsFolders"/>
+    <action name="OpnonAltroveDocuments"/>
+    <action name="OpnonAltrove"/>
+    <action name="OpnonAltroveVigilanza"/>
+     <action name="OpnonAltroveCampioni"/>
+    <action name="OpnonAltroveTamponi"/>
+    <action name="OpnonAltroveNonConformita"/>
+    <action name="OpnonAltroveSanzioni"/>
+    <action name="OpnonAltroveSequestri"/>
+    <action name="OpnonAltroveReati"/>
+    <action name="OpnonAltroveFollowup"/>	
+		
+		
+		<action name="OpnonAltroveProvvedimenti"/>
+		
+    <action name="DistributoriVigilanza"/>
+    <action name="DistributoriCampioni"/>
+    <action name="DistributoriTamponi"/>
+    <action name="DistributoriNonConformita"/>
+        <action name="DistributoriAltreNonConformita"/>
+    
+        
+    <action name="DistributoriSanzioni"/>
+    <action name="DistributoriSequestri"/>
+    <action name="DistributoriReati"/>
+    <action name="Distributori"/>
+    <action name="DistributoriList"/>
+    <action name="DistributoriDocuments"/>
+     <action name="DistributoriDocumentsFolders"/>
+    <action name="DistributoriListFuoriRegione"/>
+    <action name="OperatoriFuoriRegioneProvvedimenti"/>
+     <action name="OperatoriFuoriRegione"/>
+      <action name="OperatoriFuoriRegioneVigilanza"/>
+       <action name="OperatoriFuoriRegioneCampioni"/>
+        <action name="OperatoriFuoriRegioneSanzioni"/>
+         <action name="OperatoriFuoriRegioneTamponi"/>
+          <action name="OperatoriFuoriRegioneSequestri"/>
+           <action name="OperatoriFuoriRegioneDiffida"/>
+           <action name="OperatoriFuoriRegioneReati"/>
+            <action name="OperatoriFuoriRegioneNonConformita"/>
+                        <action name="OperatoriFuoriRegioneAltreNonConformita"/>
+            
+                        
+            <action name="OperatoriFuoriRegioneFollowup"/>
+             <action name="OperatoriFuoriRegioneHistory"/>
+            
+   <action name="EsercentiFuoriRegione"/>         
+    
+    <action name="AbusivismiSequestri"/>
+     <action name="AbusivismiDiffida"/>
+      <action name="AbusivismiNonConformita"/>
+      
+            <action name="AbusivismiAltreNonConformita"/>
+      
+            
+       <action name="AbusivismiReati"/>
+        <action name="AbusivismiTamponi"/>
+        <action name="AbusivismiFollowup"/>
+         <action name="AbusivismiVigilanza"/>
+           <action name="AbusivismiCampioni"/>
+             <action name="AbusivismiSanzioni"/>
+             <action name="AccountsHistoryOperatoriprivati"/>
+              <action name="OperatoriprivatiSequestri"/>
+               <action name="OperatoriprivatiDiffida"/>
+      <action name="OperatoriprivatiNonConformita"/>
+            <action name="OperatoriprivatiAltreNonConformita"/>
+      
+            
+       <action name="OperatoriprivatiReati"/>
+        <action name="OperatoriprivatiTamponi"/>
+         <action name="OperatoriprivatiVigilanza"/>
+         <action name="OperatoriprivatiProvvedimenti"/>
+           <action name="OperatoriprivatiCampioni"/>
+             <action name="OperatoriprivatiSanzioni"/>
+    <action name="OperatoriprivatiFollowup"/>
+    <action name="AccountsDocumentsAbus"/>
+    <action name="AccountsDocumentsFoldersAbus"/>
+    <action name="AccountsDocumentsOperatoriprivati"/>
+    <action name="AccountsDocumentsFoldersOperatoriprivati"/>
+     <action name="DistributoriListFuoriRegione"/>
+     <action name="DistributoriList"/>
+    <action name="AltriOperatori"/>
+    <action name="Abusivismi"/>
+    <action name="Operatoriprivati"/>
+     <action name="GestioneDocumenti_AltriOperatori"/>
+    <page title="Altri Operatori"/>
+    <permission value="altri-view"/>
+    <long_html value="Altri Operatori"/>
+    <short_html value="Altri Operatori"/>
+    <link value="AltriOperatori.do?command=DashboardScelta"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+    <!--<submenu name="Add Abusivismo">
+      <permission value="abusivismi-abusivismi-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="Abusivismi.do?command=Add"/>
+    </submenu>
+
+    <submenu name="Search Abusivismo">
+      <permission value="abusivismi-abusivismi-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Abusivismi.do?command=SearchForm"/>
+    </submenu>-->
+  </menu> 
+  
+  
+  <!-- Modulo Impianti -->
+  <menu>
+ 	<action name="Assets"/>
+ 	<action name="AssetsServiceContracts"/>
+ 	<page title="Assets"/>
+    <permission value="assets-assets-view"/>
+    <long_html value="Assets"/>
+    <short_html value="Assets"/>
+    <link value="Assets.do"/>
+    <graphic width="83" height="36" on="menu-products-on.gif" off="menu-products-off.gif" rollover=""/>
+    
+    <submenu name="Add">
+      <permission value="assets-assets-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="Assets.do?command=Add&amp;parentId=-1"/>
+    </submenu>
+    
+    <submenu name="Search">
+      <permission value=""/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Assets.do?command=SearchForm"/>
+    </submenu>
+ </menu> 
+  
+ <!-- Modulo Contratti -->
+ <menu>
+ 	<action name="ServiceContracts"/>
+ 	<page title="ServiceContracts"/>
+    <permission value="servicecontracts-service-contracts-view"/>
+    <long_html value="ServiceContracts"/>
+    <short_html value="ServiceContracts"/>
+    <link value="ServiceContracts.do"/>
+    <graphic width="83" height="36" on="menu-products-on.gif" off="menu-products-off.gif" rollover=""/>
+    
+    <submenu name="Add">
+      <permission value="servicecontracts-service-contracts-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="ServiceContracts.do?command=Add"/>
+    </submenu>
+    
+    <submenu name="Search">
+      <permission value=""/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="ServiceContracts.do?command=SearchForm"/>
+    </submenu>
+ </menu> 
+ 
+ <!-- Modulo Prodotti --> 
+ <menu>
+    <action name="ProductsCatalog"/>
+    <action name="ProductCatalogs"/>
+    <action name="ProductCatalogImports"/>
+    <action name="ProductCatalogEditor"/>
+    <action name="ProductCategories"/>
+    <action name="ProductCategoryProducts"/>
+    <action name="ProductCatalogOptions"/>
+    <action name="ProductCatalogOptionPricings"/>
+    <action name="ProductCatalogPricings"/>
+    <action name="ProductOptions"/>
+    <action name="ProductOptionPricings"/>
+    <action name="Products"/>
+    <page title="Products"/>
+    <permission value="product-catalog-view"/>
+    <long_html value="Products"/>
+    <short_html value="Products"/>
+    <link value="ProductCatalogEditor.do?command=List"/>
+    <graphic width="83" height="36" on="menu-products-on.gif" off="menu-products-off.gif" rollover=""/>
+
+    <submenu name="View">
+      <permission value="product-catalog-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="ProductCatalogEditor.do?command=List"/>
+    </submenu>
+    
+    <submenu name="Import">
+      <permission value="product-catalog-product-imports-view"/>
+      <long_html value="Import"/>
+      <short_html value="Import"/>
+      <link value="ProductCatalogImports.do?command=View"/>
+    </submenu>
+  </menu>
+  
+  <!-- Modulo AutoGuide -->
+  <menu>
+    <action name="AutoGuide"/>
+    <page title="Auto Guide"/>
+    <permission value="autoguide-view"/>
+    <long_html value="Auto Guide"/>
+    <short_html value="Auto Guide"/>
+    <link value="AutoGuide.do"/>
+    <graphic width="83" height="36" on="menu-autoguide-on.gif" off="menu-autoguide-off.gif" rollover=""/>
+    <submenu name="Auto Guide">
+      <permission value="autoguide-view"/>
+      <long_html value="View Ad Runs"/>
+      <short_html value="View Ad Runs"/>
+      <link value="AutoGuide.do"/>
+    </submenu>
+  </menu>
+
+  <!-- Modulo Offerte -->
+  <menu>
+    <action name="Quotes"/>
+    <action name="QuotesProducts"/>
+    <page title="Quotes"/>
+    <permission value="quotes-view"/>
+    <long_html value="Quotes"/>
+    <short_html value="Quotes"/>
+    <link value="Quotes.do?command=SearchForm"/>
+    <graphic width="83" height="36" on="menu-quotes-on.gif" off="menu-quotes-off.gif" rollover=""/>
+    <submenu name="Add">
+      <permission value="quotes-quotes-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="Quotes.do?command=AddQuoteForm"/>
+    </submenu>
+    <submenu name="Search">
+      <permission value="quotes-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Quotes.do?command=SearchForm"/>
+    </submenu>
+  </menu>
+  
+  <!-- Modulo Orders -->
+  <menu>
+    <action name="Orders"/>
+    <action name="OrdersProducts"/>
+    <action name="OrdersPayments"/>
+    <page title="Orders"/>
+    <permission value="orders-view"/>
+    <long_html value="Orders"/>
+    <short_html value="Orders"/>
+    <link value="Orders.do?command=SearchForm"/>
+    <graphic width="83" height="36" on="menu-orders-on.gif" off="menu-orders-off.gif" rollover=""/>
+<!--
+    <submenu name="Add">
+      <permission value=""/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="Orders.do?command=Add"/>
+    </submenu>
+-->
+    <submenu name="Search">
+      <permission value=""/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="Orders.do?command=SearchForm"/>
+    </submenu>
+<!--
+    <submenu name="View">
+      <permission value=""/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="Orders.do?command=List"/>
+    </submenu>
+-->
+  </menu>
+
+  <!-- Modulo Iniziative Commerciali -->
+  <menu>
+    <action name="CampaignManagerProto"/>
+    <action name="CampaignManager"/>
+    <action name="CampaignManagerGroup"/>
+    <action name="CampaignManagerMessage"/>
+    <action name="CampaignManagerSurvey"/>
+    <action name="CampaignManagerAttachment"/>
+    <action name="CampaignDocuments"/>
+    <action name="CampaignUserGroups"/>
+    <page title="Communications"/>
+    <permission value="campaign-view"/>
+    <long_html value="Communications"/>
+    <short_html value="Communications"/>
+    <link value="CampaignManager.do"/>
+    <graphic width="83" height="36" on="menu-comm-on.gif" off="menu-comm-off.gif" rollover=""/>
+
+    <submenu name="Dashboard">
+      <permission value="campaign-dashboard-view"/>
+      <long_html value="Dashboard"/>
+      <short_html value="Dashboard"/>
+      <link value="CampaignManager.do?command=Dashboard"/>
+    </submenu>
+	
+    <submenu name="Add Campaign">
+      <permission value="campaign-campaigns-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="CampaignManager.do?command=Add"/>
+    </submenu>
+
+    <submenu name="ManageCampaigns">
+      <permission value="campaign-campaigns-view"/>
+      <long_html value="Campaigns"/>
+      <short_html value="Campaigns"/>
+      <link value="CampaignManager.do?command=View"/>
+    </submenu>
+
+    <submenu name="ManageGroups">
+      <permission value="campaign-campaigns-groups-view"/>
+      <long_html value="Groups"/>
+      <short_html value="Groups"/>
+      <link value="CampaignManagerGroup.do?command=View"/>
+    </submenu>
+
+    <submenu name="ManageMessages">
+      <permission value="campaign-campaigns-messages-view"/>
+      <long_html value="Messages"/>
+      <short_html value="Messages"/>
+      <link value="CampaignManagerMessage.do?command=View"/>
+    </submenu>
+
+    <submenu name="ManageSurveys">
+      <permission value="campaign-campaigns-messages-view"/>
+      <long_html value="Attachments"/>
+      <short_html value="Attachments"/>
+      <link value="CampaignManagerAttachment.do"/>
+    </submenu>
+  </menu>
+  
+  <!-- Modulo Progetti -->
+  
+  <menu>
+    <action name="ProjectManagement"/>
+    <action name="ProjectManagementNews"/>
+    <action name="ProjectManagementRequirements"/>
+    <action name="ProjectManagementTeam"/>
+    <action name="ProjectManagementTeamList"/>
+    <action name="ProjectManagementAssignments"/>
+    <action name="ProjectManagementAssignmentsFolder"/>
+    <action name="ProjectManagementIssueCategories"/>
+    <action name="ProjectManagementIssues"/>
+    <action name="ProjectManagementIssueReply"/>
+    <action name="ProjectManagementFiles"/>
+    <action name="ProjectManagementFileFolders"/>
+    <action name="ProjectManagementLists"/>
+    <action name="ProjectManagementListsCategory"/>
+    <action name="ProjectManagementTickets"/>
+    <action name="ProjectManagementSearch"/>
+    <action name="ProjectManagementAccounts"/>
+    <page title="Projects"/>
+    <permission value="projects-view"/>
+    <long_html value="Projects"/>
+    <short_html value="Projects"/>
+
+    <link value="ProjectManagement.do?command=ProjectCenter&amp;section=Issues_Categories&amp;pid=3"/>
+   
+
+    <graphic width="83" height="36" on="menu-project-on.gif" off="menu-project-off.gif" rollover=""/>
+
+
+    <submenu name="EnterpriseView">
+      <permission value="projects-enterprise-view"/>
+      <long_html value="List"/>
+      <short_html value="List"/>
+      <link value="ProjectManagement.do?command=ProjectList"/>
+    </submenu>
+
+    <submenu name="AddProject">
+      <permission value="projects-projects-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="ProjectManagement.do?command=AddProject"/>
+    </submenu>
+
+    <submenu name="SearchProject">
+      <permission value="projects-projects-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="ProjectManagementSearch.do?command=ShowForm"/>
+    </submenu>
+
+  </menu>  
+    
+  <!-- Modulo Ticket -->  
+  <menu>
+    <action name="TroubleTickets"/>
+    <action name="TroubleTicketTasks"/>
+    <action name="TroubleTicketsFolders"/>
+    <action name="TroubleTicketsDocuments"/>
+    <action name="TroubleTicketsDocumentsFolders"/>
+    <action name="TroubleTicketActivityLog"/>
+    <action name="TroubleTicketMaintenanceNotes"/>
+    <action name="TroubleTicketActionPlans"/>
+    <action name="TroubleTicketDefects"/>
+    <action name="KnowledgeBaseManager"/>
+    <page title="Help Desk"/>
+    <permission value="tickets-view"/>
+    <long_html value="Help Desk"/>
+    <short_html value="Help Desk"/>
+    <link value="TroubleTickets.do?command=Home&amp;pagedListInfoId=AllTicketsInfo&amp;pagedListSectionId=AllTicketsInfo"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="ViewTickets">
+      <permission value="tickets-tickets-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="TroubleTickets.do?command=Home"/>
+    </submenu>
+    <submenu name="AddTicket">
+      <permission value="tickets-tickets-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TroubleTickets.do?command=Add"/>
+    </submenu>
+    <submenu name="SearchTickets">
+      <permission value="tickets-tickets-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TroubleTickets.do?command=SearchTicketsForm"/>
+    </submenu>
+    <submenu name="Defects">
+      <permission value="tickets-defects-view"/>
+      <long_html value="Defects"/>
+      <short_html value="Defects"/>
+      <link value="TroubleTicketDefects.do?command=View"/>
+    </submenu>
+    <submenu name="KnowledgeBase">
+      <permission value="tickets-knowledge-base-view"/>
+      <long_html value="Knowledge Base"/>
+      <short_html value="Knowledge Base"/>
+      <link value="KnowledgeBaseManager.do?command=Search"/>
+    </submenu>
+    <submenu name="Reports">
+      <permission value="tickets-reports-view"/>
+      <long_html value="Export"/>
+      <short_html value="Export"/>
+      <link value="TroubleTickets.do?command=Reports"/>
+    </submenu>
+  </menu>
+
+  <!-- Modulo Richieste -->  
+  <menu>
+    <action name="TroubleTickets_asl"/>
+    <action name="TroubleTicketTasks_asl"/>
+    <action name="TroubleTicketsFolders_asl"/>
+    <action name="TroubleTicketsDocuments_asl"/>
+    <action name="TroubleTicketsDocumentsFolders_asl"/>
+    <action name="TroubleTicketActivityLog_asl"/>
+    <action name="TroubleTicketMaintenanceNotes_asl"/>
+    <action name="TroubleTicketActionPlans_asl"/>
+    <action name="TroubleTicketDefects_asl"/>
+    <action name="KnowledgeBaseManager_asl"/>
+    <page title="Richieste"/>
+    <permission value="richiesta-view"/>
+    <long_html value="Richieste"/>
+    <short_html value="Richieste"/>
+    <link value="TroubleTickets_asl.do?command=Home&amp;pagedListInfoId=AllTicketsInfo&amp;pagedListSectionId=AllTicketsInfo"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="VisualizzaRichiesta">
+      <permission value="richiesta-richiesta-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="TroubleTickets_asl.do?command=Home"/>
+    </submenu>
+    <submenu name="AggiungiRichiesta">
+      <permission value="richiesta-richiesta-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TroubleTickets_asl.do?command=ScegliRichiesta"/>
+    </submenu>
+    <submenu name="CercaRichiesta">
+      <permission value="richiesta-richiesta-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TroubleTickets_asl.do?command=SearchTicketsForm"/>
+    </submenu>
+  </menu>
+
+<!-- Modulo Sanzioni -->  
+  <menu>
+    <action name="TroubleTicketsSanzioni"/>
+    <action name="TroubleTicketsFoldersSanzioni"/>
+    <action name="TroubleTicketsDocumentsSanzioni"/>
+    <action name="TroubleTicketsDocumentsFoldersSanzioni"/>
+    <page title="Sanzioni"/>
+    <permission value="sanzioni-view"/>
+    <long_html value="Sanzioni Amministrative"/>
+    <short_html value="Sanzioni Amministrative"/>
+    <link value="TroubleTicketsSanzioni.do?command=Home&amp;pagedListInfoId=AllTicketsInfo&amp;pagedListSectionId=AllTicketsInfo"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="VisualizzaSanzione">
+      <permission value="sanzioni-sanzioni-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="TroubleTicketsSanzioni.do?command=Home"/>
+    </submenu>
+    <submenu name="AggiungiSanzione">
+      <permission value="sanzioni-sanzioni-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TroubleTicketsSanzioni.do?command=Add"/>
+    </submenu>
+    <submenu name="CercaSanzione">
+      <permission value="sanzioni-sanzioni-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TroubleTicketsSanzioni.do?command=SearchTicketsForm"/>
+    </submenu>
+  </menu>
+  
+  
+  
+  <!-- Modulo Altre non conformitai -->  
+  <menu>
+    <action name="TroubleTicketsNonConformita"/>
+    <action name="TroubleTicketsFoldersNonConformita"/>
+    <action name="TroubleTicketsDocumentsNonConformita"/>
+    <action name="TroubleTicketsDocumentsFoldersNonConformita"/>
+    <page title="Non Conformità Rilevate"/>
+    <permission value="nonconformita-view"/>
+    <long_html value="Altre non Conformita"/>
+    <short_html value="Non Conformità Rilevate"/>
+    <link value="TroubleTicketsNonConformita.do?command=Home&amp;pagedListInfoId=AllTicketsInfo&amp;pagedListSectionId=AllTicketsInfo"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="VisualizzaNonConformita">
+      <permission value="nonconformita-nonconformita-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="TroubleTicketsNonConformita.do?command=Home"/>
+    </submenu>
+    <submenu name="AggiungiNonConformita">
+      <permission value="nonconformita-nonconformita-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TroubleTicketsNonConformita.do?command=Add"/>
+    </submenu>
+    <submenu name="CercaNonConformita">
+      <permission value="nonconformita-nonconformita-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TroubleTicketsNonConformita.do?command=SearchTicketsForm"/>
+    </submenu>
+  </menu>
+  
+  
+  
+   <menu>
+    <action name="TroubleTicketsSequestri"/>
+    <action name="TroubleTicketsFoldersSequestri"/>
+    <action name="TroubleTicketsDocumentsSequestri"/>
+    <action name="TroubleTicketsDocumentsFoldersSequestri"/>
+    <page title="Sequestri"/>
+    <permission value="sequestri-view"/>
+    <long_html value="Sequestri"/>
+    <short_html value="Sequestri"/>
+    <link value="TroubleTicketsSequestri.do?command=Home&amp;pagedListInfoId=AllTicketsInfo&amp;pagedListSectionId=AllTicketsInfo"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="VisualizzaSequestro">
+      <permission value="sequestri-sequestri-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="TroubleTicketsSequestri.do?command=Home"/>
+    </submenu>
+    <submenu name="AggiungiSequestro">
+      <permission value="sequestri-sequestri-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TroubleTicketsSequestri.do?command=Add"/>
+    </submenu>
+    <submenu name="CercaSequestro">
+      <permission value="sequestri-sequestri-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TroubleTicketsSequestri.do?command=SearchTicketsForm"/>
+    </submenu>
+  </menu>
+  
+  
+  <!-- modulo note di reato -->
+	
+  <menu>
+    <action name="TroubleTicketsReati"/>
+    <action name="TroubleTicketsFoldersReati"/>
+    <action name="TroubleTicketsDocumentsReati"/>
+    <action name="TroubleTicketsDocumentsFoldersReati"/>
+    <page title="Note di Reato"/>
+    <permission value="reati-view"/>
+    <long_html value="Note di Reato"/>
+    <short_html value="Note di Reato"/>
+    <link value="TroubleTicketsReati.do?command=Home&amp;pagedListInfoId=AllTicketsInfo&amp;pagedListSectionId=AllTicketsInfo"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="VisualizzaReati">
+      <permission value="reati-reati-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="TroubleTicketsReati.do?command=Home"/>
+    </submenu>
+    <submenu name="AggiungiReato">
+      <permission value="reati-reati-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TroubleTicketsReati.do?command=Add"/>
+    </submenu>
+    <submenu name="CercaReato">
+      <permission value="reati-reati-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TroubleTicketsReati.do?command=SearchTicketsForm"/>
+    </submenu>
+  </menu>  
+  
+  
+    
+  <menu>
+  
+    <action name="Statistiche"/>
+    <page title="Statistiche"/>
+    <permission value="statistiche-view"/>
+    <long_html value="Statistiche"/>
+    <short_html value="Statistiche"/>
+    <link value="Statistiche.do"/>
+    <graphic width="83" height="36" on="menu-reports-on.gif" off="menu-reports-off.gif" rollover=""/>
+            
+  </menu>
+ 
+  
+  
+  
+  
+  <!-- Modulo Sanzioni -->  
+  <menu>
+    <action name="TroubleTicketsCampioni"/>
+    <action name="TroubleTicketsFoldersCampioni"/>
+    <action name="TroubleTicketsDocumentsCampioni"/>
+    <action name="TroubleTicketsDocumentsFoldersCampioni"/>
+    <page title="Campioni"/>
+    <permission value="campioni-view"/>
+    <long_html value="Campioni"/>
+    <short_html value="Campioni"/>
+    <link value="TroubleTicketsCampioni.do?command=Home&amp;pagedListInfoId=AllTicketsInfo&amp;pagedListSectionId=AllTicketsInfo"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="VisualizzaSanzione">
+      <permission value="campioni-campioni-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="TroubleTicketsCampioni.do?command=Home"/>
+    </submenu>
+    <submenu name="AggiungiSanzione">
+      <permission value="campioni-campioni-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TroubleTicketsCampioni.do?command=Add"/>
+    </submenu>
+    <submenu name="CercaSanzione">
+      <permission value="campioni-campioni-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TroubleTicketsCampioni.do?command=SearchTicketsForm"/>
+    </submenu>
+  </menu>
+  
+  <!-- modulo Tamponi-->
+   <menu>
+    <action name="TroubleTicketsTamponi"/>
+    <action name="TroubleTicketsFoldersTamponi"/>
+    <action name="TroubleTicketsDocumentsTamponi"/>
+    <action name="TroubleTicketsDocumentsFoldersTamponi"/>
+    <page title="Tamponi"/>
+    <permission value="tamponi-view"/>
+    <long_html value="Tamponi"/>
+    <short_html value="Tamponi"/>
+    <link value="TroubleTicketsTamponi.do?command=Home&amp;pagedListInfoId=AllTicketsInfo&amp;pagedListSectionId=AllTicketsInfo"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="VisualizzaSanzione">
+      <permission value="tamponi-tamponi-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="TroubleTicketsTamponi.do?command=Home"/>
+    </submenu>
+    <submenu name="AggiungiSanzione">
+      <permission value="tamponi-tamponi-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TroubleTicketsTamponi.do?command=Add"/>
+    </submenu>
+    <submenu name="CercaSanzione">
+      <permission value="tamponi-tamponi-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TroubleTicketsTamponi.do?command=SearchTicketsForm"/>
+    </submenu>
+  </menu>
+  
+   <!-- 
+<menu>
+    <action name="TroubleTicketsVigilanza"/>
+    <action name="TroubleTicketsFoldersVigilanza"/>
+    <action name="TroubleTicketsDocumentsVigilanza"/>
+    <action name="TroubleTicketsDocumentsFoldersVigilanza"/>
+    <page title="Controlli Ufficiali"/>
+    <permission value="vigilanza-view"/>
+    <long_html value="Controlli Ufficiali"/>
+    <short_html value="Controlli Ufficiali"/>
+    <link value="TroubleTicketsVigilanza.do?command=Home&amp;pagedListInfoId=AllTicketsInfo&amp;pagedListSectionId=AllTicketsInfo"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="VisualizzaSanzione">
+      <permission value="vigilanza-vigilanza-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="TroubleTicketsVigilanza.do?command=Home"/>
+    </submenu>
+    <submenu name="AggiungiSanzione">
+      <permission value="vigilanza-vigilanza-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="TroubleTicketsVigilanza.do?command=Add"/>
+    </submenu>
+    <submenu name="CercaSanzione">
+      <permission value="vigilanza-vigilanza-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="TroubleTicketsVigilanza.do?command=SearchTicketsForm"/>
+    </submenu>
+  </menu> -->
+  
+  <!-- Modulo Documenti 
+  <menu>
+  	<action name="DocumentManagementAsl"/>
+	<action name="DocumentStoreManagementFilesAsl"/>
+
+    <action name="DocumentManagement"/>
+    <action name="DocumentStoreManagementFiles"/>
+    <action name="DocumentStoreManagementFileFolders"/>
+    <action name="DocumentStoreManagementTeam"/>
+    <action name="DocumentStoreManagementTeamList"/>
+    <action name="DocumentManagementSearch"/>
+    <page title="Documents"/>
+    <permission value="documents-view"/>
+    <long_html value="Documents"/>
+    <short_html value="Documents"/>
+    <link value="DocumentManagement.do"/>
+    <graphic width="83" height="36" on="menu-tickets-on.gif" off="menu-tickets-off.gif" rollover=""/>
+    <submenu name="List">
+      <permission value="documents_documentstore-view"/>
+      <long_html value="List"/>
+      <short_html value="List"/>
+      <link value="DocumentManagement.do"/>
+    </submenu>
+    <submenu name="AddDocumentStore">
+      <permission value="documents_documentstore-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="DocumentManagement.do?command=AddDocumentStore"/>
+    </submenu>
+    <submenu name="Search">
+      <permission value="documents_documentstore-view"/>
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="DocumentManagementSearch.do?command=ShowForm"/>
+    </submenu>
+	<submenu name="reperibilitaasl">
+      <permission value="documents-asl-view"/>
+      <long_html value="Elenco Reperibilita ASL"/>
+      <short_html value="Elenco Reperibilita ASL"/>
+      <link value="DocumentManagementAsl.do"/>
+    </submenu>
+	
+  </menu>
+  -->
+  <!-- Modulo Bacheca Server Documentale -->
+   <menu>
+    <action name="GestioneBacheca"/>
+    <page title="Bacheca"/>
+    <long_html value="Bacheca"/>
+    <short_html value="Bacheca"/>
+    <link value="GestioneBacheca.do"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+     <permission value="documentale_bacheca-view"/>
+     <submenu name="Lista">
+      <permission value="documentale_bacheca-view"/>
+      <long_html value="Lista"/>
+      <short_html value="Lista"/>
+      <link value="GestioneBacheca.do"/>
+      </submenu>
+      <submenu name="Aggiungi">
+      <permission value="documentale_bacheca-add"/>
+      <long_html value="Aggiungi"/>
+      <short_html value="Aggiungi"/>
+      <link value="GestioneBacheca.do?command=AddArchivio"/>
+    </submenu>
+    <submenu name="Ricerca">
+      <permission value="documentale_bacheca-view"/>
+      <long_html value="Ricerca"/>
+      <short_html value="Ricerca"/>
+      <link value="GestioneBacheca.do?command=RicercaInArchivio"/>
+    </submenu>
+	<submenu name="Elenco Reperibilita ASL">
+      <permission value="documentale_bacheca_asl-view"/>
+      <long_html value="Elenco Reperibilita ASL"/>
+      <short_html value="Elenco Reperibilita ASL"/>
+      <link value="GestioneBacheca.do?command=ListaReperibilitaAsl&amp;storeId=-1"/>
+    </submenu>
+
+    
+  </menu>
+  
+  <!-- Modulo Net App -->
+  <menu>
+    <action name="NetworkApplications"/>
+    <action name="NetworkApplicationsImports"/>
+    <permission value="netapps_expiration_contracts-view"/>
+    <page title="Net App"/>
+    <long_html value="Net App"/>
+    <short_html value="Net App"/>
+    <link value="NetworkApplications.do?"/>
+    <graphic width="83" height="36" on="menu-netapps-on.gif" off="menu-netapps-off.gif" rollover=""/>
+    <submenu name="netApps.search">
+      <long_html value="Search"/>
+      <short_html value="Search"/>
+      <link value="NetworkApplications.do?command=SearchForm"/>
+    </submenu>
+    <submenu name="netApps.import">
+      <long_html value="Import"/>
+      <short_html value="Import"/>
+      <link value="NetworkApplicationsImports.do?command=View"/>
+    </submenu>
+  </menu>
+  
+   <!-- Modulo Impiegati -->
+  <menu>
+    <action name="CompanyDirectory"/>
+    <action name="CompanyDirectoryProjects"/>
+    <page title="Employees"/>
+    <permission value="employees-view"/>
+    <long_html value="Employees"/>
+    <short_html value="Employees"/>
+    <link value="CompanyDirectory.do?command=ListEmployees"/>
+    <graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif" rollover=""/>
+    <submenu name="Internal Contacts">
+      <permission value="contacts-internal_contacts-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="CompanyDirectory.do?command=ListEmployees"/>
+    </submenu>
+    <submenu name="Add Internal Contacts">
+      <permission value="contacts-internal_contacts-add"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="CompanyDirectory.do?command=Prepare"/>
+    </submenu>
+  </menu>
+
+  <!-- Modulo Report -->
+  <menu>
+    <action name="Reports"/>
+    <page title="Reports"/>
+    <permission value="reports-view"/>
+    <long_html value="Reports"/>
+    <short_html value="Reports"/>
+    <link value="Reports.do"/>
+    <graphic width="83" height="36" on="menu-reports-on.gif" off="menu-reports-off.gif" rollover=""/>
+    <submenu name="reports.queue">
+      <permission value="reports-view"/>
+      <long_html value="View"/>
+      <short_html value="View"/>
+      <link value="Reports.do?command=ViewQueue"/>
+    </submenu>
+    <submenu name="reports.run">
+      <permission value="reports-view"/>
+      <long_html value="Add"/>
+      <short_html value="Add"/>
+      <link value="Reports.do?command=RunReport"/>
+    </submenu>
+  </menu> 
+  <!-- Modulo ReportXLS -->
+  <menu>
+    <action name="ReportXLS"/>
+    <page title="ReportXLS"/>
+    <permission value="reportXLS-view"/>
+    <long_html value="ReportXLS"/>
+    <short_html value="ReportXLS"/>
+    <link value="ReportXLS.do?command=Elenco"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+
+	<submenu name="Elenco">
+      <permission value="reportXLS-view"/>
+      <long_html value="Elenco"/>
+      <short_html value="Elenco"/>
+      <link value="ReportXLS.do?command=Elenco"/>
+    </submenu>
+    <submenu name="Aggiungi">
+      <permission value="reportXLS-add"/>
+      <long_html value="Aggiungi"/>
+      <short_html value="Aggiungi"/>
+      <link value="ReportXLS.do?command=Aggiungi"/>
+    </submenu>
+
+    <submenu name="Esegui">
+      <permission value="reportXLS-add"/>
+      <long_html value="Esegui"/>
+      <short_html value="Esegui"/>
+      <link value="ReportXLS.do?command=Esegui"/>
+    </submenu>
+
+    
+   </menu> 
+  
+  <!-- Modulo Storico -->
+  <menu>
+ 	<action name="Storico"/>
+ 	<page title="Storico Operazioni"/>
+    <permission value="storico-view"/>
+    <long_html value="Storico Operazioni"/>
+    <short_html value="Storico Operazioni"/>
+    <link value="Storico.do"/>
+    <graphic width="83" height="36" on="menu-products-on.gif" off="menu-products-off.gif" rollover=""/>
+    
+    <submenu name="Cerca">
+      <permission value="storico-view"/>
+      <long_html value="Cerca"/>
+      <short_html value="Cerca"/>
+      <link value="Storico.do"/>
+    </submenu>
+    
+ </menu> 
+
+ 
+ 
+
+  
+ 
+<menu> 
+
+    
+    <page title="Registro delle Ordinanze"/>
+    <permission value="regordinanze-view"/>
+    <long_html value="Registro delle Ordinanze"/>
+    <short_html value="Registro delle Ordinanze"/>
+    <link value="RegistroOrdinanze.do"/>
+    <graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif" rollover=""/>
+<action name="RegistroOrdinanze"/>
+  </menu>
+  
+ 
+  
+  
+   <menu>
+  	    <page title="Reportistica"/>
+  		<permission value="link-reportistica-view"/>
+  		<long_html value="Reportistica"/>
+    	<short_html value="Reportistica"/>
+    	<link value="javascript:document.location.reload();window.open('digemonoffline.jsp')"/>
+    	<graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif" rollover=""/>
+    	<action name="Reportistica"/>
+  </menu>
+
+   
+   
+    <menu>
+  
+  <action name="ApicolturaAttivita"/>
+    <action name="ApicolturaApiari"/>
+  <action name="ApicolturaMovimentazioni"/>
+        
+    
+    <page title="Apicoltura"/>
+    <permission value="apicoltura-view"/>
+    <long_html value="Apicoltura"/>
+    <short_html value="Apicoltura"/>
+    <link value="ApicolturaAttivita.do?command=Home"/>
+	<graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+	
+
+<!--    <submenu name="Aggiungi"> -->
+<!--       <permission value="apicoltura-add"/> -->
+<!--       <long_html value="Aggiungi Anagrafica Attivita Apicoltura"/> -->
+<!--       <short_html value="Aggiungi Anagrafica Attivita Apicoltura"/> -->
+<!--       <link value="ApicolturaAttivita.do?command=Add"/> -->
+<!--    </submenu> -->
+   
+   <submenu name="Estrazione attivita apicoltura">
+      <long_html value="Estrazione attivita apicoltura"/>
+      <short_html value="Estrazione attivita apicoltura"/>
+      <link value="ApicolturaAttivita.do?command=EstrazioneAttivita"/>
+   </submenu>
+   
+   
+   
+   
+      
+  </menu>
+  
+     <menu>
+  
+    <action name="DelegaAction"/>
+    
+    <page title="GestioneDeleghe"/>
+    <permission value="apicoltura-gestione-deleghe-view"/>
+    <long_html value="Gestione Deleghe"/>
+    <short_html value="Gestione Deleghe"/>
+    <link value="DelegaAction.do?command=List"/>
+	<graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+	
+ 
+	
+	
+   
+  </menu>
+  
+  
+  
+   <menu>
+    <action name="MyCFSInbox"/>
+     <action name="GestioneBacheca"/>
+    <page title="Info"/>
+      <permission value="documentale_bacheca_apiari-view"/>
+    <long_html value="Info"/>
+    <short_html value="Info"/>
+    <link value="GestioneBacheca.do?command=ListaApiari&amp;storeId=-1"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+      <submenu name="Bacheca">
+      <permission value="documentale_bacheca_apiari-view"/>
+      <long_html value="Bacheca"/>
+      <short_html value="Bacheca"/>
+      <link value="GestioneBacheca.do?command=ListaApiari&amp;storeId=-1"/>
+    </submenu>
+      <submenu name="MyInbox">
+      <permission value="myhomepage-inbox-view"/>
+      <long_html value="Mailbox"/>
+      <short_html value="Mailbox"/>
+      <link value="MyCFSInbox.do?command=Inbox&amp;return=1"/>
+    </submenu>
+    
+  </menu>
+  
+  
+      
+    
+   
+  
+  
+  <!--  modulo registro trasgressori --> 
+   <menu>
+    <action name="RegistroTrasgressori"/>
+      <action name="GestioneDocumenti_RegistroTrasgressori"/>   
+     <permission value="registro_trasgressori-view"/>
+    <page title="Registro Trasgressori"/>
+    <long_html value="Registro Trasgressori"/>
+    <short_html value="Registro Trasgressori"/>
+    <link value="RegistroTrasgressori.do"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+    <submenu name="Registro Sanzioni Amministrative">
+      <permission value="registro_trasgressori-view"/>
+      <long_html value="Registro Sanzioni Amministrative"/>
+      <short_html value="Registro Sanzioni Amministrative"/>
+      <link value="RegistroTrasgressori.do?command=RegistroSanzioni"/>
+    </submenu>
+    <submenu name="Ricerca">
+      <permission value="registro_trasgressori-view"/>
+      <long_html value="Ricerca"/>
+      <short_html value="Ricerca"/>
+      <link value="RegistroTrasgressori.do?command=PrepareRicerca"/>
+    </submenu>
+    <submenu name="Archivio">
+      <permission value="registro_trasgressori-view"/>
+      <long_html value="Archivio"/>
+      <short_html value="Archivio"/>
+      <link value="RegistroTrasgressori.do?command=RegistroSanzioniArchivio"/>
+    </submenu>
+    </menu>
+    
+   
+   
+   
+  
+       <!--  fine modulo registro trasgressori --> 
+       
+       
+    </application>

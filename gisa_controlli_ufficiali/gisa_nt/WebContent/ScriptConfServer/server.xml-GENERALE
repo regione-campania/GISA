@@ -1,0 +1,419 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<Server port="8005" shutdown="SHUTDOWN">
+  <!--APR library loader. Documentation at /docs/apr.html -->
+  <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
+  <!--Initialize Jasper prior to webapps are loaded. Documentation at /docs/jasper-howto.html -->
+  <Listener className="org.apache.catalina.core.JasperListener" />
+  <!-- Prevent memory leaks due to use of particular java/javax APIs-->
+  <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
+  <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+  <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+
+  <GlobalNamingResources>
+  	
+ <Resource 
+ 	name="UserDatabase" auth="Container"
+  type="org.apache.catalina.UserDatabase"
+  description="User database that can be updated and saved"
+  factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+  pathname="conf/tomcat-users.xml" 
+  />
+
+<!-- RIFERIMENTO SERVER GUC - SCA UFFICIALE -->
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/bduS"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/bdu" 
+ 	username="postgres"
+ 	maxActive="10"
+	minIdle="2"
+	validationInterval="30000"
+	maxWait="3000"
+	initialSize="2"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/gisaS"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/gisa" 
+ 	username="postgres"
+ 	maxActive="10"
+	minIdle="2"
+	validationInterval="30000"
+	maxWait="3000"
+	initialSize="2"
+	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/gisa_extS"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/gisa" 
+ 	username="postgres"
+ 	maxActive="10"
+	minIdle="2"
+	validationInterval="30000"
+	maxWait="3000"
+initialSize="2"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/importatori"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/importatori" 
+ 	username="postgres"
+ 	maxActive="10"
+	minIdle="2"
+	validationInterval="30000"
+	maxWait="3000"
+initialSize="2"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	validationQuery="SELECT 1"
+ 	/>
+	
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/vamS"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/vam" 
+ 	username="postgres"
+ 	maxActive="10"
+	minIdle="2"
+	validationInterval="30000"
+	maxWait="3000"
+initialSize="2"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	validationQuery="SELECT 1"
+ 	/>
+	
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/guc"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/guc" 
+ 	username="postgres"
+ 	maxActive="10"
+	minIdle="2"
+	validationInterval="30000"
+	maxWait="3000"
+initialSize="2"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/digemon"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://151.12.13.139:5432/digemon_u" 
+ 	username="postgres"
+ 	maxActive="10"
+	minIdle="2"
+	validationInterval="30000"
+	maxWait="3000"
+ 	initialSize="2"
+timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/storico"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/storico" 
+ 	username="postgres"
+ 	maxActive="10"
+	minIdle="2"
+	validationInterval="30000"
+	maxWait="3000"
+ 	initialSize="2"
+timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/documentale"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/documentale" 
+ 	username="postgres"
+ 	maxActive="50"
+	minIdle="2"
+	validationInterval="30000"
+	maxWait="3000"
+ 	initialSize="2"
+timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+
+<!-- FINE -->
+
+<!-- RIFERIMENTO SERVER GISA UFFICIALE -->
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/bduS"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/bdu" 
+ 	username="postgres"
+ 	maxActive="5"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	maxWait="3000" minEvictableIdleTimeMillis="6000" minIdle="2"
+ 	testOnBorrow="true" testOnReturn="false" testWhileIdle="false"
+ 	validationInterval="30000"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/gisaM"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/gisa" 
+ 	username="postgres"
+ 	maxActive="100"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="180"
+ 	logAbandoned="true"
+ 	jmxEnabled="true"
+ 	testOnBorrow="true" testOnReturn="false" testWhileIdle="true"
+ 	maxWait="40000" minEvictableIdleTimeMillis="6000" minIdle="10"
+ 	validationInterval="40000"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/gisa_extM"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/gisa" 
+ 	username="postgres"
+ 	maxActive="50"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	testOnBorrow="true" testOnReturn="false" testWhileIdle="true"
+ 	maxWait="3000" minEvictableIdleTimeMillis="6000" minIdle="5"
+ 	validationInterval="40000"
+ 	validationQuery="SELECT 1"
+ 	/>
+ 
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/storico"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/storico" 
+ 	username="postgres"
+ 	maxActive="10"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	testOnBorrow="true" testOnReturn="false" testWhileIdle="true"
+ 	maxWait="3000" minEvictableIdleTimeMillis="6000" minIdle="2"
+ 	validationInterval="30000"
+ 	validationQuery="SELECT 1"
+ 	/>
+<!-- FINE -->
+
+<!-- RIFERIMENTO SERVER BDU - VAM UFFICIALE -->
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/bduM"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/bdu" 
+ 	username="postgres"
+  minIdle="8"
+  initialSize="8" 	
+  maxWait="10000"
+ 	maxActive="100"
+ 	maxIdle="50"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	testOnBorrow="true" testOnReturn="false" testWhileIdle="true"
+ 	minEvictableIdleTimeMillis="30000"
+ 	validationInterval="30000"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/vamM"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/vam" 
+ 	username="postgres"
+ 	minIdle="10"
+  initialSize="10" 
+  maxWait="10000"	
+ 	maxActive="50"
+ 	maxIdle="10"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	testOnBorrow="true" testOnReturn="false" testWhileIdle="true"
+ 	minEvictableIdleTimeMillis="30000"
+ 	validationInterval="30000"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/importatori"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/importatori" 
+ 	username="postgres"
+ 	maxWait="10000"
+ 	maxActive="10"
+ 	maxIdle="5"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	minIdle="3"
+ 	initialSize="3"
+ 	testOnBorrow="true" testOnReturn="false" testWhileIdle="true"
+ 	minEvictableIdleTimeMillis="30000"
+ 	validationInterval="30000"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/gisaS"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/gisa" 
+ 	username="postgres"
+ 	maxWait="10000"
+ 	maxActive="10"
+ 	maxIdle="5"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	minIdle="3"
+ 	initialSize="3"
+ 	testOnBorrow="true" testOnReturn="false" testWhileIdle="true"
+ 	minEvictableIdleTimeMillis="30000"
+ 	validationInterval="30000"
+ 	validationQuery="SELECT 1"
+ 	/>
+	
+<Resource 
+	type="javax.sql.DataSource"
+ 	name="jdbc/storico"
+ 	factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+ 	driverClassName="org.postgresql.Driver"
+ 	url="jdbc:postgresql://192.168.2.195:5432/storico" 
+ 	username="postgres"
+ 	maxWait="10000"
+ 	maxActive="10"
+ 	maxIdle="10"
+ 	timeBetweenEvictionRunsMillis="3000"
+  removeAbandoned="true"
+  removeAbandonedTimeout="150"
+ 	logAbandoned="true"
+ 	minIdle="3"
+ 	initialSize="3"
+ 	testOnBorrow="true" testOnReturn="false" testWhileIdle="true"
+ 	minEvictableIdleTimeMillis="30000"
+ 	validationInterval="30000"
+ 	validationQuery="SELECT 1"
+ 	/>
+
+<!-- FINE -->
+
+
+
+ </GlobalNamingResources>
+
+  <Service name="Catalina">
+
+
+    <Connector port="80" protocol="HTTP/1.1"
+               connectionTimeout="30000"  maxHttpHeaderSize="65535" maxPostSize="10485760" 
+               redirectPort="7443" URIEncoding="UTF-8"  />
+
+    <Engine name="Catalina" defaultHost="localhost">
+
+
+      <Realm className="org.apache.catalina.realm.LockOutRealm">
+        <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+               resourceName="UserDatabase"/>
+      </Realm>
+
+      <Host name="localhost"  appBase="webapps"
+            unpackWARs="true" autoDeploy="true">
+
+
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log." suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+
+
+      </Host>
+    </Engine>
+  </Service>
+</Server>

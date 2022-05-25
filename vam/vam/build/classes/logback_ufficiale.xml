@@ -1,0 +1,55 @@
+<configuration>
+  <appender name="FILE_INFO" class="ch.qos.logback.core.FileAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default --> 
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level> 
+       <onMatch>ACCEPT</onMatch> 
+      <onMismatch>DENY</onMismatch>     
+    </filter> 
+    <file>/usr/VAM_Info.log</file>
+    <encoder>
+      <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>   
+  
+  <appender name="FILE_ERROR" class="ch.qos.logback.core.FileAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default --> 
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level> 
+       <onMatch>ACCEPT</onMatch> 
+      <onMismatch>DENY</onMismatch>     
+    </filter> 
+    <file>/usr/VAM_Info.log</file>
+    <encoder>
+      <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>  
+  
+  <appender name="STDOUT" class="ch.qos.logback.core.FileAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default --> 
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level> 
+       <onMatch>ACCEPT</onMatch> 
+      <onMismatch>DENY</onMismatch>     
+    </filter> 
+    <file>/usr/VAM_Info.log</file>
+    <encoder>
+      <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>   
+
+ <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+    <appender-ref ref="FILE_INFO" />      
+  </root>
+  
+  <root level="ERROR">
+    <appender-ref ref="FILE_ERROR" />      
+  </root>
+		
+     
+  
+</configuration>

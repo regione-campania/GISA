@@ -1,0 +1,114 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="stampa_verbali_prelievo"></a>
+<h3 id="stampa_verbali_prelievo">Prenotazione Campioni SIGLA</h3>
+
+Per la condivisione dei dati sui campioni tra GISA-SIGLA sono stati gestiti i seguenti scenari:</p>
+<ul>
+<ul>
+<ul>
+<li>CASO 1: inserimento controllo ufficiale in GISA e generazione (con stampa) del verbale di prelievo.</li>
+<li>CASO 2: generazione (e stampa) del verbale da GISA prenotando il campione.</li>
+</ul>
+Il caso 1 gia' presente in GISA mentre il caso 2 possibile testarlo in ambiente DEMO seguendo la guida, riportata in questo documento. Tramite il cavaliere apposito Prenotazione Campioni SIGLA, lutente puscegliere loperatore presso cui andra' ad eseguire il campione e simularne l'inserimento in GISA. Il campione, inserito in questa fase, senza essere agganciato ad alcun controllo ufficiale, risulta nello stato prenotato e lutente potra' recuperarlo successivamente, quando dispone di tutti i dettagli necessari per agganciarlo definitivamente al controllo e vorra' sistemare le sue pratiche cartacee.</ul>
+</ul>
+<p><br /><br /><u>PASSO 1: RICERCA OPERATORE</u><br /><br /></p>
+<ul>
+<ul>Posizionarsi sul modulo Prenotazione Campioni SIGLA e ricercare l'operatore a cui si vuole associare il campione.</ul>
+</ul>
+<p><br /><br /><u>PASSO 2: CREARE CAMPIONE FITTIZIO</u></p>
+<ul>
+<ul>
+<ul>
+<li>Selezionare il modulo di interesse desiderato (obbligatorio)</li>
+<li>Selezionare il modulo di interesse desiderato (obbligatorio)</li>
+<li>Inserire le informazioni relative al campione (facoltative)</li>
+<li>Click su Prenota Campione</li>
+<li>&nbsp;</li>
+</ul>
+In tale scenario il numero del verbale viene generato automaticamente dal sistema ed assegnato al campione. Per quanto riguarda la scelta dei Tipi di Analisi, nel caso in cui esse non siano inserite o differiscano dal modulo di interesse</ul>
+</ul>
+<p></p>
+<ul>
+<ul>(es. si vuole fare un esame batteriologico, ma si vuole stampare un verbale di prelievo chimico), verra' visualizzato un messaggio che avvertira' dell' "anomalia". comunque possibile continuare con l'operazione.</ul>
+</ul>
+<p><br /><br /><img src="./images/pren1.png" /><br clear="LEFT" /><br /><br /><u>PASSO 3: STAMPA VERBALE</u></p>
+<ul>
+<ul>Dopo aver prenotato il campione si viene rimandati al riepilogo dei dati inseriti.</ul>
+</ul>
+<p><br /><br /><img src="./images/pren2.png" /><br clear="LEFT" /><br /><br /></p>
+<ul>
+<ul>In tale schermata possibile procedere alla stampa del verbale (bottone Stampa Verbale) che conterra' le informazioni inserite in fase di prenotazione come ad esempio la Motivazione, la Matrice, ecc.</ul>
+</ul>
+<p><br /><br /></p>
+<h2>ASSOCIAZIONE CAMPIONE PRENOTATO AD UN CONTROLLO UFFICIALE</h2>
+<p><br /><br /><u>PASSO 1: RICERCA OPERATORE</u><br /><br /></p>
+<ul>
+<ul>Selezionare il cavaliere di interesse (es. Stabilimenti Registrati 852) e ricercare l'operatore desiderato.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Nella schermata di dettaglio presente un nuovo elemento nel menu laterale, Campioni Prenotati. Con la selezione di tale elemento verra' visualizzato l'elenco dei campioni fittizi, prenotati per quell'operatore e che possono essere associati ad un controllo ufficiale.</ul>
+</ul>
+<p><br /><br /><img src="./images/pren3.png" /><br clear="LEFT" /><br /><br /><u>PASSO 2: ASSOCIA CAMPIONE FITTIZIO</u><br /><br /></p>
+<ul>
+<ul>Nella schermata dei campioni prenotati possibile procedere all'associazione selettiva dei campioni a determinati controlli ufficiali.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Esistono vincoli per l'associazione del campione al controllo ufficiale. Infatti se per un campione in fase di prenotazione non stata specificata la motivazione, possibile associare tale campione a tutti i controlli ufficiali aperti, ovviamente relativi all'operatore selezionato.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Invece nel caso in cui durante la fase di prenotazione stata specificata una motivazione, gli scenari possibili sono 2 :
+<ul>
+<li>possibile associare il campione esistono controlli con la stessa motivazione.</li>
+<li>non possibile associare il campione non esistono controlli con la stessa motivazione.</li>
+</ul>
+Qualora si decida di associare un campione X ad un controllo Y bastera' selezionare il Controllo Ufficiale dall'insieme delle possibile scelte (menu a tendina), spuntare la checkbox di Azione associata e cliccare su Importa dati selezionati; verra' mostrato quindi l'elenco dei campioni prenotati aggiornato.</ul>
+</ul>
+<p><br /><br /><img src="./images/pren4.png" /><br clear="LEFT" /><br /><br /><u>PASSO 3: COMPLETA DATI DEL CAMPIONE</u><br /><br /></p>
+<ul>
+<ul>
+<ul>
+<li>Selezionare il controllo ufficiale di riferimento</li>
+<li>Entrare nel dettaglio del campione desiderato</li>
+<li>Click su Completa Campione</li>
+<li>Inserire le informazioni necessarie</li>
+<li>Click su Aggiorna</li>
+</ul>
+Durante tale fase il campo Motivazione comprende oltre alle motivazioni relative al controllo ufficiale i casi di : Classificazione, Sospetta Contaminazione, Sospetta Malattia Infettiva/Parassitaria, Sospetto Presenza N.C., Sospetto Trattamento Farmacologico.</ul>
+</ul>
+<p><br /><br /></p>
+<h2>GENERAZIONE AUTOMATICA NUMERO VERBALE</h2>
+<p><br /><br /></p>
+<ul>
+<ul>Se ad un controllo ufficiale viene aggiunto un campione che non proviene dal contesto SIGLA ora possibile far generare al sistema il numero del verbale.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>La generazione automatica del numero verbale possibile sfruttarla solo se tra i Tipi di Analisi vi almeno un'analisi di tipo Batteriologico o Chimico.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Per procedere in tal senso :
+<ul>
+<li>Ricercare l'operatore di interesse</li>
+<li>Entrare nella schermata di dettaglio del controllo ufficiale desiderato</li>
+<li>Click su Inserisci Campione</li>
+<li>Inserire le informazioni necessarie</li>
+<li>Selezionare Genera Numero Verbale se si desidera un numero di verbale automatico oppure Inserisci Numero Verbale se si desidera specificare il numero del verbale in maniera autonoma.</li>
+</ul>
+Nella figura sottostante, riportato un esempio della gestione del numero del verbale.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Selezionando la checkbox Genera Verbale Prelievo verra' generato in automatico il numero del verbale mentre selezionando Inserisci Verbale Prelievo possibile specificare, nella casella sottostante, il numero del verbale.</ul>
+</ul>
+<p><br /><br /><img src="./images/pren5.png" /></p>

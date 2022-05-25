@@ -1,0 +1,39 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="gestioneVariazione"></a>
+<h3 id="gestioneVariazione">Variazione Stato Stabilimento / Linee</h3>
+
+La funzione di Variazione Stato &egrave; disponibile a partire dal dettaglio della nuova anagrafica. Nel caso lo stabilimento presenti ancora linee da aggiornare alla nuova master list, non sarà mostrato.<br/><br/>
+
+<img src="./images/variazione_bottone.png" width="734" height="430" /><br/><br/>
+
+Al clic del bottone, una finestra elencherà le linee produttive dello stabilimento riconducibili alla <u>norma 852</u>, le uniche sulle quali è permessa la variazione.<br/><br/>
+
+<img src="./images/variazione_aggiunta.png" width="734" height="430" /><br/><br/>
+
+La mascherà consentirà di indicare, per ogni linea produttiva:
+
+<ul>
+<li>Operazione di variazione</li>
+<li>Data di variazione</li>
+<li>CU di riferimento (facoltativo)</li> 
+</ul>
+
+
+<strong>Flusso</strong><br/><br/>
+
+Il flusso gestito è il seguente:
+
+<table border="1">
+<tr><th>Stato linea</th> <th> Operazione </th> <th> Stato linea aggiornato </th></tr>
+<tr><td>Attivo</td> <td> <ul><li>Sospensione volontaria</li> <li> Sospensione forzata</li> <li> Sospensione d'ufficio</li></ul></td> <td> Sospeso</td></tr>
+<tr><td>Sospeso</td> <td> <ul><li>Riattivazione <br/>(CU obbligatorio)</li></ul> </td> <td>Attivo</td>
+</table>
+
+Al termine di ogni operazione di variazione, lo stato stabilimento sarà ricalcolato per essere coerente con lo stato delle sue linee produttive.

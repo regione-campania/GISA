@@ -1,0 +1,55 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="osm_home"></a>
+<h3 id="osm_home">OSM</h3>
+
+L'acronimo OSM identifica gli Operatori del Settore dei Mangimi. In GISA sono gestiti due tipologie di OSM:</p>
+<ul>
+<li>OSM RICONOSCIUTI, la cui lista viene periodicamente pubblicata dalla Regione Campania.</li>
+<li>OSM REGISTRATI - PRODUTTORI PRIMARI, secondo il R.E. 183/2005 gestiti dalle ASL.</li>
+</ul>
+<br/>Nota: la ricerca avviene dal cavaliere generico "Anagrafica Stabilimenti".<br/>
+<img src="./images/Fig2_ricercaAnagrafica.png" /></p>
+<p>Una volta selezionato lo stabilimento di interesse,&nbsp; &egrave; possibile effettuare le seguenti operazioni:</p>
+<ul>
+<li>gestire i CU sia per i riconosciuti che per i registrati a carico dell'ASL</li>
+<li>effettuare il trasferimento in Anagrafica stabilimenti a carico dell'ASL per la parte registrata e dell'HD e Funzionari Regionali per la parte riconosciuta</li>
+<li>eliminare lo stabilimento a carico dell'ASL, oltre che dell'HD, e solo nel caso di assenza CU</li>
+<li>Cessazione OSA a carico del personale ASL</li>
+</ul>
+<p><br /><img src="./images/osm2.png" /><br clear="LEFT" /><br /></p>
+<p>NOTA: La funzione di "CESSAZIONE OSA" &egrave; disponibile solo se lo stato dello stabilimento &egrave; ATTIVO. Per i dettagli sul funzionamento si rimanda al paragrafo "CESSAZIONE OSA" nel capitolo "Stabilimenti Registrati 852".</p>
+
+<strong>Cooperazione applicativa</strong><br/>
+Per gli utenti abilitati, dalla pagina di dettaglio di uno stabilimento con linee OSM (Mangimistica), e' disponibile il bottone "Gestione invio OSM".<br/>
+<img src="./images/invio_osm1.PNG" /></p>
+Tramite la popup e' possibile inviare a SINVSA l'anagrafica OSM per inserirla o aggiornarla sulla banca dati nazionale.<br/>
+Si ricorda che un OSM e' formato dalle seguenti componenti:
+<ol>
+<li>Persona fisica</li>
+<li>Sede Legale</li>
+<li>Sede Operativa *</li>
+<li>Impresa</li>
+<li>Attivita'
+<ul>
+<li>Coppia Macroarea/Aggregazione</li>
+<li>Dettaglio linea produttiva</li>
+</ul>
+</li>
+</ol>
+In caso di invio positivo, la riga viene colorata di verde. In caso contrario, la riga viene colorata di giallo e viene mostrato l'errore.<br/>
+L'utente dovrà aggiornare i dati (es. "codice fiscale impresa mancante") tramite le funzionalita' a sua disposizione, oppure contattare l'Help Desk.<br/>
+* In caso di invio OK di questa componente, verra' restituito da SINVSA anche il CUN il quale verra' associato definitivamente all'anagrafica OSM.<br/>
+<img src="./images/invio_osm2.PNG" /></p>
+In fase di aggiunta controllo ufficiale viene verificato se :
+<ul>
+<li>L'OSM risulta inviato correttamente in SINVSA (tutte le sue componenti sono verdi - esito OK)</li>
+<li>Ci sono state modifiche successive alla data dell'ultimpo invio</li>
+</ul>
+Se l'OSM non risulta inviato oppure risulta modificato dopo l'ultimo invio, l'aggiunta del CU viene impedita e un messaggio raccomanda all'utente di procedere all'invio per sbloccarla.<br/>

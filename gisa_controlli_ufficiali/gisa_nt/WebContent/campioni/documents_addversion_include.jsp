@@ -1,0 +1,95 @@
+<%--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.--%>
+<%-- 
+  - Copyright(c) 2004 Dark Horse Ventures LLC (http://www.centriccrm.com/) All
+  - rights reserved. This material cannot be distributed without written
+  - permission from Dark Horse Ventures LLC. Permission to use, copy, and modify
+  - this material for internal use is hereby granted, provided that the above
+  - copyright notice and this permission notice appear in all copies. DARK HORSE
+  - VENTURES LLC MAKES NO REPRESENTATIONS AND EXTENDS NO WARRANTIES, EXPRESS OR
+  - IMPLIED, WITH RESPECT TO THE SOFTWARE, INCLUDING, BUT NOT LIMITED TO, THE
+  - IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ANY PARTICULAR
+  - PURPOSE, AND THE WARRANTY AGAINST INFRINGEMENT OF PATENTS OR OTHER
+  - INTELLECTUAL PROPERTY RIGHTS. THE SOFTWARE IS PROVIDED "AS IS", AND IN NO
+  - EVENT SHALL DARK HORSE VENTURES LLC OR ANY OF ITS AFFILIATES BE LIABLE FOR
+  - ANY DAMAGES, INCLUDING ANY LOST PROFITS OR OTHER INCIDENTAL OR CONSEQUENTIAL
+  - DAMAGES RELATING TO THE SOFTWARE.
+  - 
+  - Version: $Id: documents_addversion_include.jsp 11310 2005-04-13 20:05:00Z mrajkowski $
+  - Description: 
+  --%>
+<script language="JavaScript">
+  function checkFileForm(form) {
+    if (form.dosubmit.value == "false") {
+      return true;
+    }
+    var formTest = true;
+    var messageText = "";
+    if (form.subject.value == "") {
+      messageText += label("Subject.required", "- Subject is required\r\n");
+      formTest = false;
+    }
+    if (form.id<%= TicketDetails.getId() %>.value.length < 5) {
+      messageText += label("file.required", "- File is required\r\n");
+      formTest = false;
+    }
+    if (formTest == false) {
+      messageText = label("File.not.submitted", "The file could not be submitted.          \r\nPlease verify the following items:\r\n\r\n") + messageText;
+      form.dosubmit.value = "true";
+      alert(messageText);
+      return false;
+    } else {
+      if (form.upload.value != label("button.pleasewait","Please Wait...")) {
+        form.upload.value=label("button.pleasewait","Please Wait...");
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+</script>
+<table cellpadding="4" cellspacing="0" width="100%" class="details">
+  <tr>
+    <th colspan="2">
+      <img border="0" src="images/file.gif" align="absmiddle"><b><dhv:label name="accounts.accounts_documents_upload_version.UploadNewVersionDocument">Upload a New Version of Document</dhv:label></b>
+    </th>
+  </tr>
+  <tr class="containerBody">
+    <td class="formLabel">
+      <dhv:label name="accounts.accounts_contacts_calls_details_include.Subject">Subject</dhv:label>
+    </td>
+    <td>
+      <input type="hidden" name="folderId" value="<%= (String)request.getAttribute("folderId") %>">
+      <input type="text" name="subject" size="59" maxlength="255" value="<%= FileItem.getSubject() %>"><font color="red">*</font>
+    </td>
+  </tr>
+  <tr class="containerBody">
+    <td class="formLabel">
+      <dhv:label name="contacts.companydirectory_confirm_importupload.File">File</dhv:label>
+    </td>
+    <td>
+      <dhv:label name="accounts.accounts_documents_upload_version.CurrentVersion">Current Version</dhv:label>:<br>
+       &nbsp;&nbsp;
+       <strong><%= FileItem.getVersion() %></strong><br>
+       <dhv:label name="accounts.accounts_documents_upload_version.NewVersion">New Version</dhv:label>: <br>
+       &nbsp;&nbsp;
+       <strong><%= FileItem.getVersionNextMajor() %></strong><br>
+       <input type="hidden" value="<%= FileItem.getVersionNextMajor() %>" name="versionId">
+    </td>
+  </tr>
+  <tr class="containerBody">
+    <td class="formLabel">
+      <dhv:label name="contacts.companydirectory_confirm_importupload.File">File</dhv:label>
+    </td>
+    <td>
+      <input type="file" name="id<%= TicketDetails.getId() %>" size="45">
+    </td>
+  </tr>
+</table>
+

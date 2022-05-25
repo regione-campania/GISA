@@ -1,0 +1,4 @@
+Nome Classe: StampaPdf
+
+rev.: rev_1 | data: 2011_11_24 | auth.: Rita Mele | desc.: Modifiche nel metodo relativo alla stampa del modello 5 per risoluzione ticket 2941 del 24/11
+

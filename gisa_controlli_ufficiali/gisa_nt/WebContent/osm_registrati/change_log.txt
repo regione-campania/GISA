@@ -1,0 +1,3 @@
+vigilanza_details_attivita_ispettiva_rilascio_autorizzazzioni.jsp | GIUSEPPE BALZANO | 21/11/2011
+Ho aggiunto alla lista delle attività svolte i campioni inb quanto mancavano.
+La vecchia pagina è stata rinominata con rev_1

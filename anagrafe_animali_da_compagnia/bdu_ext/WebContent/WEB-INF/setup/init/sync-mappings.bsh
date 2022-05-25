@@ -1,0 +1,126 @@
+/*
+ *  Copyright(c) 2006 Concursive Corporation (http://www.concursive.com/) All
+ *  rights reserved. This material cannot be distributed without written
+ *  permission from Concursive Corporation. Permission to use, copy, and modify
+ *  this material for internal use is hereby granted, provided that the above
+ *  copyright notice and this permission notice appear in all copies. CONCURSIVE
+ *  CORPORATION MAKES NO REPRESENTATIONS AND EXTENDS NO WARRANTIES, EXPRESS OR
+ *  IMPLIED, WITH RESPECT TO THE SOFTWARE, INCLUDING, BUT NOT LIMITED TO, THE
+ *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ANY PARTICULAR
+ *  PURPOSE, AND THE WARRANTY AGAINST INFRINGEMENT OF PATENTS OR OTHER
+ *  INTELLECTUAL PROPERTY RIGHTS. THE SOFTWARE IS PROVIDED "AS IS", AND IN NO
+ *  EVENT SHALL CONCURSIVE CORPORATION OR ANY OF ITS AFFILIATES BE LIABLE FOR
+ *  ANY DAMAGES, INCLUDING ANY LOST PROFITS OR OTHER INCIDENTAL OR CONSEQUENTIAL
+ *  DAMAGES RELATING TO THE SOFTWARE.
+ */
+/*
+  Parses the import-mappings.xml file and adds sync table mappings so
+  that centric objects can be accessed using http-xml api
+*/
+
+import java.net.URL;
+import java.sql.*;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.aspcfs.utils.XMLUtils;
+import org.aspcfs.modules.service.base.SyncTable;
+import org.aspcfs.modules.service.base.SyncSystem;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+// Determine a safe URL for accessing the file resource
+URL mapFileURL = new URL(prefsURL.toString() + "cfs/transfer/import-mappings.xml");
+if ("file".equals(mapFileURL.getProtocol())) {
+  File file = new File(mapFileURL.getPath());
+  if (!file.exists()) {
+    mapFileURL = new URL(prefsURL.toString() + "import-mappings.xml");
+  }
+}
+
+void insertLookupMapping(Connection db, String id) {
+  SyncTable baseMap = new SyncTable();
+  baseMap.setSystemId(systemId);
+  baseMap.setName(id);
+  baseMap.setMappedClassName("org.aspcfs.utils.web.LookupElement");
+  baseMap.insert(db);
+  print("Added Mapping-> ID: " + id + ", CLASS: org.aspcfs.utils.web.LookupElement");
+
+  SyncTable listMap = new SyncTable();
+  listMap.setSystemId(systemId);
+  listMap.setName(id + "List");
+  listMap.setMappedClassName("org.aspcfs.utils.web.LookupList");
+  listMap.insert(db);
+  print("Added Mapping-> ID: " + id + "List, CLASS: org.aspcfs.utils.web.LookupList");
+}
+
+void insertCustomLookupMapping(Connection db, String id) {
+  SyncTable baseMap = new SyncTable();
+  baseMap.setSystemId(systemId);
+  baseMap.setName(id);
+  baseMap.setMappedClassName("org.aspcfs.utils.web.CustomLookupElement");
+  baseMap.insert(db);
+  print("Added Mapping-> ID: " + id + ", CLASS: org.aspcfs.utils.web.CustomLookupElement");
+
+  SyncTable listMap = new SyncTable();
+  listMap.setSystemId(systemId);
+  listMap.setName(id + "List");
+  listMap.setMappedClassName("org.aspcfs.utils.web.CustomLookupList");
+  listMap.insert(db);
+  print("Added Mapping-> ID: " + id + "List, CLASS: org.aspcfs.utils.web.CustomLookupList");
+}
+
+
+int systemId = SyncSystem.getSystemId(db, "CFSHttpXMLWriter");
+print("System: " + systemId);
+XMLUtils xml = new XMLUtils(mapFileURL);
+
+ArrayList mapElements = new ArrayList();
+XMLUtils.getAllChildren(xml.getFirstChild("mappings"), "map", mapElements);
+
+Iterator mapItems = mapElements.iterator();
+while (mapItems.hasNext()) {
+  //Get the map node
+  Element mapping = (Element) mapItems.next();
+
+  String id = (String) mapping.getAttribute("id");
+  String className = (String) mapping.getAttribute("class");
+
+  if (!SyncTable.hasMapping(db, id)) {
+    if (className.equals("org.aspcfs.utils.web.LookupList")) {
+      insertLookupMapping(db, id);
+    } else if (className.equals("org.aspcfs.utils.web.CustomLookupList")) {
+      insertCustomLookupMapping(db, id);
+    } else {
+      SyncTable baseMap = new SyncTable();
+      baseMap.setSystemId(systemId);
+      baseMap.setName(id);
+      baseMap.setMappedClassName(className);
+      //all base objects should have getId() and setId()
+      baseMap.setKey("id");
+      baseMap.insert(db);
+      print("Added Mapping-> ID: " + id + ", CLASS: " + className);
+
+      SyncTable listMap = new SyncTable();
+      listMap.setSystemId(systemId);
+      listMap.setName(id + "List");
+      listMap.setMappedClassName(className + "List");
+      //check for special cases
+      if (id.equals("requirementMapItem")) {
+        listMap.setMappedClassName("com.zeroio.iteam.base.RequirementMapList");
+      } else if (id.equals("activeSurveyAnswerItem")) {
+        listMap.setMappedClassName("org.aspcfs.modules.communications.base.ActiveSurveyAnswerItemList");
+      } else if (id.equals("projectFilesThumbnail") || id.equals("instantCampaign")) {
+        //No list class
+        continue;
+      } else if (id.equals("compileSyncData") || id.equals("processSyncPackageDownload")) {
+        //CustomActionHandlers
+        continue;
+      }
+      listMap.insert(db);
+      print("Added Mapping-> ID: " + id + "List, CLASS: " + className + "List");
+    }
+  }
+}

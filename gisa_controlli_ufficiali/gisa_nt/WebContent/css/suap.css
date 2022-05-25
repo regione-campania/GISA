@@ -1,0 +1,66 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+@CHARSET "ISO-8859-1";
+
+BODY { 
+/*    background-color: yellow; */
+   }
+
+/*
+input[type="text"] {
+    border: 2px solid rgb(173, 204, 204);
+    height: 31px;
+    width: 223px;
+    box-shadow: 0 0 27px rgb(204, 204, 204) inset;
+    transition: 500ms all ease;
+    padding: 3px 3px 3px 3px;
+}
+
+input[type="text"]:hover,
+input[type="text"]:focus {
+    width: 260px;
+    transition: 500ms all ease;
+    background-size: 25px 25px;
+    background-position: 96% 62%;
+    padding: 3px 32px 3px 3px;
+}
+*/
+
+.intestazioneSuap{
+	text-align:right;
+	 font-size: 10px;
+	 font-family:  Arial, Helvetica, sans-serif;
+	 text-shadow: 0 0 2px #fff; /* Firefox 3.5+, Opera 9+, Safari 1+, Chrome, IE10 */
+filter: progid:DXImageTransform.Microsoft.Glow(Color=#ffffff,Strength=1); /* IE<10 */
+}
+
+/* .highlight{ */
+/* 	background-color: #FFFF00; */
+/* } */
+
+.immagineSfondo {
+/*background-color: #ffffff;*/
+background-color: #eee;
+background-image:url(../images/suap/suapintestazione2.png);
+background-repeat: no-repeat;
+background-position: top center;
+width:auto;
+height: 150px;
+}
+
+.headerSuap{
+	position:fixed;
+	display: block;
+	width:100%;
+	  z-index:3;
+}
+
+ .margine {
+    padding: 15px;
+}

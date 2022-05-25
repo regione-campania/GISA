@@ -1,0 +1,39 @@
+import { ComponentRef, Directive, ElementRef, Input, OnInit, ViewContainerRef } from "@angular/core";
+import { ATablePaginatorComponent } from "./a-table-paginator/a-table-paginator.component";
+
+@Directive({
+    selector: 'table[aSmartTable]'
+})
+export class ASmartTableDirective implements OnInit {
+
+    table: HTMLTableElement
+    
+    @Input('paginator') includePaginator: boolean = false
+    paginatorComponent?: ComponentRef<ATablePaginatorComponent>
+    
+    constructor(private elementRef: ElementRef, private viewContainer: ViewContainerRef) {
+        this.table = this.elementRef.nativeElement
+    }
+
+    ngOnInit(): void {
+        if(this.includePaginator) {
+            this._addPaginator()
+        }
+    }
+
+    private _initPaginator() {
+        this.paginatorComponent = this.viewContainer.createComponent(ATablePaginatorComponent)
+        this.paginatorComponent.instance.table = this.table
+    }
+
+    private _addPaginator() {
+        this._initPaginator()
+        const wrapper = document.createElement('tr')
+        const th = document.createElement('th')
+        wrapper.className = 'paginator-wrapper'
+        th.setAttribute('colspan', '100')
+        th.appendChild(this.paginatorComponent?.location.nativeElement)
+        wrapper.appendChild(th)
+        this.table.tHead?.insertBefore(wrapper, this.table.tHead.firstChild)
+    }
+}

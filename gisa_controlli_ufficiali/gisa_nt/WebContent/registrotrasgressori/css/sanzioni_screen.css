@@ -1,0 +1,50 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+
+.tableScheda {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tableScheda tr {
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+.tableScheda th,
+.tableScheda td {
+  padding: .625em;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.25em;
+  line-height: 2.25;
+  text-transform: uppercase;
+  border: 1px solid black;
+  
+}
+
+.tableScheda th {
+  font-size: 1.25em;
+  letter-spacing: .1em;
+    background-color: #f8f8f8;
+  }
+
+
+.boxOrigineDocumento {
+ 	display:none;
+	
+}
+.boxIdDocumento {
+	 	display:none;
+
+}

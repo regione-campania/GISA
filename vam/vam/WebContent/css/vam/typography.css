@@ -1,0 +1,327 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+/** Fonts, sizes and minor blocks settings */
+body {
+    font-size: 76%;
+    font-family:Trebuchet MS,Verdana,Helvetica,Arial,san-serif;
+    line-height: 1.4;
+}
+
+address,blockquote,form,ul,ol,dl{
+    margin: 0.3em 1em;
+}
+
+label {
+    margin: 0.3em 0.3em 0.3em 0;
+}
+
+#emailForm label {
+    padding-left: 1em;
+}
+
+.moduletable ul.menu
+, .moduletable ul.menu ul
+, .moduletable {
+    margin-bottom: 1em;
+    padding: 0;
+}
+
+.moduletable ul.menu li, .moduletable-footer li {
+    list-style-type: none;
+}
+
+.moduletable-footer li {
+	display: inline;
+	padding: 1em;
+	font-weight: bold;
+}
+
+.moduletable_menu h3, .moduletable h3{
+	font-size:110%;
+	font-weight:bold;
+	padding:1px 0pt 1px 15px;
+	margin: 0;
+	margin-right:15px;
+
+
+}
+
+.moduletable p {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
+.menu a
+, .mostread a
+, .latestnews a{
+    display: block;
+    text-decoration:none;
+    padding:1px 0pt 1px 15px;
+    margin: 1px 0;
+}
+
+a.contentpagetitle {
+	text-decoration: none;
+
+
+	color: inherit;
+}
+
+/* Footer */
+
+div#footer{
+	clear:both;
+	height:46px;
+
+	text-align:center;
+}
+
+div#footer .padding{
+    padding: 0;
+    margin-top: 2em;
+}
+
+div#footer div.moduletable-footer{
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+/** Images */
+.banneritem img {
+    vertical-align: bottom;
+}
+
+.blog img {
+    margin: 0.5em;
+    overflow: hidden;
+}
+
+.buttonheading img,
+.blog a img  {
+    border: none;
+    margin: 0;
+}
+
+div.blog_more {
+    clear: both;
+}
+
+.blog_more li, .latestnews li, .mostread li{
+    list-style-type: none;
+}
+
+div#accessibility-links input{
+    border: solid 1px gray;
+    background: white;
+    color: #000044;
+    font-weight: bold;
+}
+
+.author, .createdate, .modifydate {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* Search */
+#mod_search_searchword {
+    width: 140px;
+    font-size:inherit;
+}
+
+div.pageslinks {
+	text-align: center;
+	margin-top: 1em;
+	padding: 0.25em;
+	clear: both;
+        font-weight: bold;
+}
+
+div.pagescounter {
+	text-align: center;
+	margin-bottom: 1em;
+	padding: 0.25em;
+        clear: both;
+        font-weight: bold;
+}
+
+div.searchresult {
+	margin-bottom: 1em;
+}
+
+
+form#searchForm, form#searchForm label,  form#searchForm input {
+	margin: 0;
+}
+
+form#searchForm div {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+div.contentpaneopen ul, div.contentpaneopen ul {
+    margin: 1.5em;
+}
+
+ul.menu
+, ul.mostread
+, ul.latestnews {
+	padding: 0;
+	margin:0;
+}
+
+
+/* Top */
+body.white #top {
+	border-bottom:1px solid #CCCCCC;
+	/*height:42px;*/
+/*	margin:2px 2px 1px;*/
+	padding-bottom:2px;
+	background-color:#388538;
+	background-image:url("../../../images/stories/custom/testata.jpg");
+	background-repeat:no-repeat;
+	text-align:right;
+}
+body.black #top {
+	border-bottom:1px solid #CCCCCC;
+	/*height:42px;*/
+/*	margin:2px 2px 1px;*/
+	padding-bottom:2px;
+	background-color:black;
+	background-image:url("../../../images/stories/custom/testata_2.jpg");
+	background-repeat:no-repeat;
+	text-align:right;
+}
+
+div#menu-top .moduletable {
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+
+div#menu-top .padding, div#footer .padding{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+div#menu-top a {
+    font-weight: bold;
+    text-decoration:none;
+}
+
+div#menu-top a {
+	padding: 0.25em 1em;
+}
+
+
+ul.menu-nav li {
+    list-style-type: none;
+    display: inline;
+}
+
+ul.menu-nav {
+	margin:0;
+	padding: 0.25em;
+}
+
+/** Banner */
+#banner .moduletable {
+	margin-bottom: 4px;
+}
+
+/** Titles and so */
+.contentheading h1 {
+	font-weight:bold;
+	margin:5px 0pt;
+	padding:0px 0px 5px;
+}
+
+div.buttonheading {
+	margin-bottom: 1em;
+}
+
+a.readon {
+	padding: 0.3em;
+	padding-left: 0;
+}
+
+div.column_separator .yvComment {
+	padding-left:4%;
+	margin-bottom: 1em;
+}
+
+div.poll div {
+	padding: 0.2em 1em;
+}
+
+#pollform {
+	margin:1px 0;
+}
+
+/* Forms */
+
+fieldset {
+	padding: 1em;
+	border: solid 2px gray;
+}
+
+legend {
+	padding: 1em;
+	font-weight: bold;
+}
+
+a img {
+	border: none;
+}
+
+/* Content tables */
+.contentpane table td
+,.contentpane table th
+{
+	padding: 0.25em;
+}
+
+/* Link view*/
+a.category {
+    font-weight: bold;
+}
+
+span.description {
+    margin-left: 1em;
+}
+/* Fix poll fieldset */
+.poll fieldset {
+    border: none;
+    margin:0;
+    padding:0;
+}
+
+/* Page navigation */
+div.pagenav {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	padding: 0.75em;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* The ugly fix */
+legend.poll-title {
+    display:none;
+}

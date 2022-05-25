@@ -1,0 +1,4699 @@
+<application>
+  <!-- Submenu used in the Accounts module -->
+  
+  
+  
+  
+    <container name="apiari">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${ragioneSociale}</label>
+    </properties>
+    <submenu name="Scheda Apiario">
+      <long_html value="Scheda Apiario"/>
+      <permission value="apicoltura-view"/>
+      <link value="ApicolturaApiari.do?command=Details&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    
+    
+     <submenu name="schedaoperatore">
+      <long_html value="Scheda Impresa"/>
+      <permission value="apicoltura-view"/>
+      <link value="ApicolturaAttivita.do?command=Details&amp;stabId=${stabId}"/>
+    </submenu>
+    
+      <submenu name="storico movimenti">
+      <long_html value="Elenco Movimentazioni"/>
+      <permission value="apicoltura-view"/>
+      <link value="ApicolturaMovimentazioni.do?command=Search&amp;stabId=${stabId}"/>
+    </submenu>
+    
+         <submenu name="storico variazioni">
+      <long_html value="Storico variazioni"/>
+      <permission value="apicoltura-view"/>
+      <link value="ApicolturaApiari.do?command=SearchFormVariazioni&amp;stabId=${stabId}"/>
+    </submenu>
+     
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="apicoltura-vigilanza-view"/>
+      <link value="ApicolturaApiari.do?command=ViewVigilanza&amp;stabId=${stabId}"/>
+    </submenu>
+  
+      
+    
+     
+    </container>
+    
+   <container name="gestoreopu">
+	
+    	<properties>
+     		 <icon>images/icons/stock_account-16.gif</icon>
+<label>${operatore}.${ragioneSociale} - ${numero_registrazione}</label>
+    	</properties>
+    	
+    	 <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+     <link value="OpuStab.do?command=Details&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    
+      
+	<submenu name="Gestione Mobile">
+	 <long_html value="Gestione autoveicoli e distributori automatici" />
+	 <permission value="opu-gestione-mobile-view" />
+	<link value="OpuStab.do?command=GestioneMobile&amp;stabId=${stabId}" />
+	</submenu>
+	
+	
+	<submenu name="Gestione Prodotti">
+	 <long_html value="Gestione Prodotti" />
+	 <permission value="opu-gestione-prodotti-soa-view" />
+	<link value="OpuStab.do?command=GestioneProdotti&amp;stabId=${stabId}" />
+	</submenu>
+	
+    </container>
+   
+    <container name="buffer">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="Scheda">
+      <long_html value="Scheda Buffer"/>
+      <permission value=""/>
+      <link value="Buffer.do?command=Details&amp;id=${id}"/>
+    </submenu>
+    </container>
+  
+   <container name="asl">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label></label>
+    </properties>
+  <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="oia-oia-vigilanza-view"/>
+      <link value="OiaVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Oia.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}"/>
+    </submenu>
+    
+  
+		
+   </container>
+  
+    <container name="accountsstab">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Stabilimenti.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+   
+   
+    <submenu name="folders">
+      <long_html value="Folders"/>
+      <permission value="stabilimenti-stabilimenti-folders-view"/>
+      <link value="Stabilimenti.do?command=FolderList&amp;orgId=${orgId}"/>
+    </submenu>
+    <submenu name="contacts">
+      <long_html value="Contacts"/>
+      <permission value="stabilimenti-stabilimenti-contacts-view"/>
+      <link value="Contacts.do?command=View&amp;orgId=${orgId}"/>
+    </submenu>
+   
+        <submenu name="vigilanza">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-add"/>
+      <link value="StabilimentiVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu> 
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-view"/>
+      <link value="Stabilimenti.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+    
+  
+		
+    <submenu name="relationships">
+      <long_html value="Relationships"/>
+      <permission value="stabilimenti-stabilimenti-relationships-view"/>
+      <link value="StabilimentiRelationships.do?command=View&amp;orgId=${orgId}"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documents"/>
+      <permission value="stabilimenti-stabilimenti-documents-view"/>
+      <link value="StabilimentiDocuments.do?command=View&amp;orgId=${orgId}"/>
+    </submenu>
+    <submenu name="documentStore">
+      <long_html value="Document Stores"/>
+      <permission value="stabilimenti-stabilimenti-shareddocuments-view"/>
+      <link value="StabilimentiSharedDocuments.do?command=List&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="cessazionevariazione">
+      <long_html value="Cessazione/Variazione Attività"/>
+      <permission value="stabilimenti-stabilimenti-cessazionevariazione-view"/>
+      <link value="Stabilimenti.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+    </submenu>
+    </container>
+  
+  <container name="accountsosm">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Osm.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="osm-osm-vigilanza-view"/>
+      <link value="OsmVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu> 
+    
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="osm-osm-vigilanza-view"/>
+      <link value="Osm.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+    
+   
+		
+    <submenu name="documents">
+      <long_html value="Documents"/>
+      <permission value="osm-osm-documents-view"/>
+      <link value="OsmDocuments.do?command=View&amp;orgId=${orgId}"/>
+    </submenu>
+    <submenu name="documentStore">
+      <long_html value="Document Stores"/>
+      <permission value="osm-osm-shareddocuments-view"/>
+      <link value="OsmSharedDocuments.do?command=List&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="cessazionevariazione">
+      <long_html value="Cessazione/Variazione Attività"/>
+      <permission value="osm-osm-cessazionevariazione-view"/>
+      <link value="Osm.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+    </submenu>
+  </container>
+  
+  
+  <container name="osmregistrati">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmRegistrati.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+  
+    <submenu name="folders">
+      <long_html value="Folders"/>
+      <permission value="osm-osm-folders-view"/>
+      <link value="OsmRegistrati.do?command=FolderList&amp;orgId=${orgId}"/>
+    </submenu>
+ 
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="osm-osm-vigilanza-view"/>
+      <link value="OsmRegistrati.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+  
+  	
+<!--   	 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="osm-osm-diffide-view"/> -->
+<!--       <link value="OsmDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+		
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=osmRegistrati"/>
+    </submenu>
+  
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=osmregistrati" />
+		</submenu>
+    <submenu name="documentStore">
+      <long_html value="Document Stores"/>
+      <permission value="osmregistrati-osmregistrati-shareddocuments-view"/>
+      <link value="OsmSharedDocuments.do?command=List&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="cessazionevariazione">
+      <long_html value="Volture"/>
+      <permission value="osmregistrati-osmregistrati-cessazionevariazione-view"/>
+      <link value="OsmRegistrati.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=osmregistrati" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=osmregistrati')" />
+	</submenu>
+	
+	
+  </container>
+ 
+  <container name="distributori">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Distributori.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="folders">
+      <long_html value="Folders"/>
+      <permission value="distributori-distributori-folders-view"/>
+      <link value="Distributori.do?command=FolderList&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="distributori-distributori-vigilanza-view"/>
+      <link value="Distributori.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+
+    <submenu name="documents">
+      <long_html value="Documents"/>
+      <permission value="distributori-distributori-documents-view"/>
+      <link value="DistributoriDocuments.do?command=View&amp;orgId=${orgId}"/>
+    </submenu>
+    <submenu name="documentStore">
+      <long_html value="Document Stores"/>
+      <permission value="distributori-distributori-shareddocuments-view"/>
+      <link value="AccountsSharedDocuments.do?command=List&amp;orgId=${orgId}"/>
+    </submenu>
+  
+  </container>
+  
+  
+  
+  
+  <container name="distributoridettaglio">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Distributori.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    
+   <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="distributori-distributori-vigilanza-view"/>
+      <link value="DistributoriVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+      
+    </submenu>
+   
+   
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="distributori-distributori-vigilanza-view"/>
+      <link value="Distributori.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+      
+    </submenu>
+   
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}"/>
+    </submenu>
+   
+   
+  </container>
+  
+  <container name="impiantiMacellazione">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="ImpiantiMacellazione.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+  </container>
+  <container name="operatoriregione">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Dettaglio"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegione.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegioneVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegione.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+    
+<!--      <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value=""/> -->
+<!--       <link value="OperatoriFuoriRegioneDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+    
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=operatoriregione"/>
+    </submenu>
+  <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=operatoriregione" />
+		</submenu>
+  </container>
+  
+  <container name="operatoriregioneT">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Dettaglio"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegione.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+
+    <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegioneVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="operatoriregione-operatoriregione-vigilanza-view"/>
+      <link value="OperatoriFuoriRegione.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+ 
+    
+  </container>
+  
+  
+   <container name="accounts">
+     <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+     </properties>
+    <submenu name="Scheda">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Accounts.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+   
+   
+    <submenu name="folders">
+      <long_html value="Folders"/>
+      <permission value="accounts-accounts-folders-view"/>
+      <link value="Accounts.do?command=FolderList&amp;orgId=${orgId}"/>
+    </submenu>
+    
+  <submenu name="history">
+      <long_html value="Note"/>
+      <permission value="accounts-accounts-history-view"/>
+      <link value="AccountsHistory.do?command=View&amp;orgId=${orgId}"/>
+    </submenu>
+   
+   <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="accounts-accounts-vigilanza-add"/>
+      <link value="AccountVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu> 
+  
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="accounts-accounts-vigilanza-view"/>
+      <link value="Accounts.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+     <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_Stabilimenti852.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=accounts" />
+		</submenu>
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=accounts"/>
+    </submenu>
+    
+   
+<!--      <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value=""/> -->
+<!--       <link value="AccountDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  
+    <!-- submenu name="documents">
+      <long_html value="Documents"/>
+      <permission value="accounts-accounts-documents-view"/>
+      <link value="AccountsDocuments.do?command=View&amp;orgId=${orgId}"/>
+    </submenu-->
+    
+     <submenu name="documents">
+      <long_html value="Documents"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=accounts"/>
+    </submenu>
+    
+    <submenu name="documentStore">
+      <long_html value="Document Stores"/>
+      <permission value="accounts-accounts-shareddocuments-view"/>
+      <link value="AccountsSharedDocuments.do?command=List&amp;orgId=${orgId}"/>
+    </submenu>
+   
+   
+    <submenu name="cessazionevariazione">
+      <long_html value="Volture"/>
+      <permission value="accounts-accounts-cessazionevariazione-view"/>
+      <link value="Accounts.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+     
+    </submenu>
+    
+   <!-- <submenu name="storico">
+    
+      <long_html value="Storico"/>
+      <permission value="storico-view"/>
+      <link value="javascript:window.open('Storico.do?command=CercaOperazioniPerIdOggetto&amp;idOggetto=${orgId}&amp;searchcodetipo_selezionato=2', '', 'WIDTH=700,HEIGHT=425,RESIZABLE=yes,SCROLLBARS=yes,STATUS=0,LEFT=350,TOP=212,screenX=350,screenY=212')"/> 
+    </submenu>
+    -->
+    
+    <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=accounts" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=accounts')" />
+	</submenu>
+	
+  </container>
+  
+  
+  
+  
+  <container name="distributoristabilimenti852opu">
+     <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${ragioneSociale}</label>
+     </properties>
+    <submenu name="Scheda">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+     <link value="Distributori.do?command=DetailsOpu&amp;stabId=${stabId}"/>
+    </submenu>
+   
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="accounts-accounts-vigilanza-view"/>
+      <link value="Distributori852.do?command=ViewVigilanzaDistributori&amp;stabId=${stabId}"/>
+    </submenu>
+   
+  
+
+    
+
+    
+    
+   <!-- <submenu name="storico">
+    
+      <long_html value="Storico"/>
+      <permission value="storico-view"/>
+      <link value="javascript:window.open('Storico.do?command=CercaOperazioniPerIdOggetto&amp;idOggetto=${orgId}&amp;searchcodetipo_selezionato=2', '', 'WIDTH=700,HEIGHT=425,RESIZABLE=yes,SCROLLBARS=yes,STATUS=0,LEFT=350,TOP=212,screenX=350,screenY=212')"/> 
+    </submenu>
+    -->
+    
+  </container>
+  
+   <container name="stabilimenti852opu">
+     <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${ragioneSociale}</label>
+     </properties>
+    <submenu name="Scheda">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+     <link value="Stabilimenti852.do?command=Details&amp;stabId=${stabId}"/>
+    </submenu>
+   
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="accounts-accounts-vigilanza-view"/>
+      <link value="Stabilimenti852.do?command=ViewVigilanza&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    
+     <submenu name="variazioneslimpresa">
+      <long_html value="Variazione Sede Legale Impresa"/>
+      <permission value=""/>
+      <link value="Stabilimenti852.do?command=ModifyImpresa&amp;tipoVariazione=1&amp;stabId=${stabId}"/>
+     
+    </submenu>
+    
+      <submenu name="variazionesfimpresa">
+      <long_html value="Variazione Soggetto Fisico Impresa"/>
+      <permission value=""/>
+       <link value="Stabilimenti852.do?command=ModifyImpresa&amp;tipoVariazione=2&amp;stabId=${stabId}"/>
+     
+    </submenu>
+    
+      <submenu name="variazioneLineeProuttive">
+      <long_html value="Variazione Linee Attivita"/>
+      <permission value=""/>
+       <link value="Stabilimenti852.do?command=ModifyLineaProduttiva&amp;popup=true&amp;tipoSelezione=multipla&amp;stabId=${stabId}"/>
+     
+    </submenu>   	
+     	
+   
+    <submenu name="cessazionevariazione">
+      <long_html value="Volture"/>
+      <permission value="accounts-accounts-cessazionevariazione-view"/>
+      <link value="Stabilimenti852.do?command=ViewCessazionevariazione&amp;stabId=${stabId}"/>
+     
+    </submenu>
+
+    
+
+    
+   <!-- <submenu name="storico">
+    
+      <long_html value="Storico"/>
+      <permission value="storico-view"/>
+      <link value="javascript:window.open('Storico.do?command=CercaOperazioniPerIdOggetto&amp;idOggetto=${orgId}&amp;searchcodetipo_selezionato=2', '', 'WIDTH=700,HEIGHT=425,RESIZABLE=yes,SCROLLBARS=yes,STATUS=0,LEFT=350,TOP=212,screenX=350,screenY=212')"/> 
+    </submenu>
+    -->
+    
+  </container>
+  
+  
+ 
+  
+  <container name="osa">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsAnimali.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+     <submenu name="vigilanzaadd">
+        	<long_html value="Aggiungi Controllo Ufficiale"/>
+      		<permission value="osa-osa-vigilanza-add"/>
+      		<link value="OSAnimaliVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    	</submenu>
+     <submenu name="vigilanza">
+        	<long_html value="Controlli Ufficiali"/>
+      		<permission value="osa-osa-vigilanza-view"/>
+      		<link value="OSAnimaliVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+   <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=osa"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=osa"/>
+    </submenu>
+  <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_OsAnimali.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=osa" />
+		</submenu>
+<!--      <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="osa-osa-diffide-view"/> -->
+<!--       <link value="OSAnimaliDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+    
+      <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=osa" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=osa')" />
+	</submenu>
+	
+  </container>
+  
+  
+  <container name="operatorinonaltrove">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OpnonAltrove.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="vigilanzaadd">
+        	<long_html value="Aggiungi Controllo Ufficiale"/>
+      		<permission value="operatorinonaltrove-operatorinonaltrove-vigilanza-add"/>
+      		<link value="OpnonAltroveVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    	</submenu>
+     <submenu name="vigilanza">
+        	<long_html value="Controlli Ufficiali"/>
+      		<permission value="operatorinonaltrove-operatorinonaltrove-vigilanza-view"/>
+      		<link value="OpnonAltrove.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+   <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=operatorinonaltrove"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=operatorinonaltrove"/>
+    </submenu>
+  <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_AltriOperatori.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=operatorinoaltrove" />
+		</submenu>
+<!--      <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="accounts-accounts-diffide-view"/> -->
+<!--       <link value="OpnonAltrovetDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+    
+      <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=operatorinoaltrove" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=operatorinoaltrove')" />
+	</submenu>
+	
+  </container>
+  
+   <container name="imbarcazioni">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Imbarcazioni.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="vigilanzaadd">
+        	<long_html value="Aggiungi Controllo Ufficiale"/>
+      		<permission value="imbarcazioni-imbarcazioni-vigilanza-add"/>
+      		<link value="ImbarcazioniVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    	</submenu>
+     <submenu name="vigilanza">
+        	<long_html value="Controlli Ufficiali"/>
+      		<permission value="imbarcazioni-imbarcazioni-vigilanza-view"/>
+      		<link value="Imbarcazioni.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+   <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=imbarcazioni"/>
+    </submenu>   
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=imbarcazioni"/>
+    </submenu>
+  <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=imbarcazioni" />
+		</submenu>
+    
+    <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=imbarcazioni" />
+	</submenu>
+    
+     <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=imbarcazioni')" />
+	</submenu>
+	
+  </container>
+  
+  <container name="impiantiMacellazione">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="ImpiantiMacellazione.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+  </container>
+
+
+<container name="molluschibivalvisenzacu">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+	 <submenu name="details">
+      <long_html value="scheda"/>
+      <permission value=""/>
+      <link value="MolluschiBivalvi.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+   
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=molluschibivalvi"/>
+    </submenu>
+     <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=molluschibivalvi"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_MolluschiBivalvi.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=molluschibivalvi" />
+		</submenu>
+    <submenu name="historyclassificazione">
+      <long_html value="Storia Classificazioni"/>
+      <permission value="molluschibivalvi-history-classificazioni-view"/>
+      <link value="MolluschiBivalvi.do?command=HistoryClassificazioni&amp;idZona=${orgId}"/>
+    </submenu>
+    
+    <submenu name="historyconcessioni">
+      <long_html value="Storia Concessioni"/>
+      <permission value="molluschibivalvi-history-classificazioni-view"/>
+      <link value="MolluschiBivalvi.do?command=HistoryConcessioni&amp;idZona=${orgId}"/>
+    </submenu>
+    
+  
+
+    
+  </container>
+
+<container name="molluschibivalvi">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+	 <submenu name="details">
+      <long_html value="scheda"/>
+      <permission value=""/>
+      <link value="MolluschiBivalvi.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+	  <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="molluschibivalvi-vigilanza-add"/>
+      <link value="MolluschiBivalviVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+	 
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="molluschibivalvi-vigilanza-view"/>
+      <link value="MolluschiBivalvi.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=molluschibivalvi"/>
+    </submenu>
+     <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=molluschibivalvi"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_MolluschiBivalvi.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=molluschibivalvi" />
+		</submenu>
+    <submenu name="historyclassificazione">
+      <long_html value="Storia Classificazioni"/>
+      <permission value="molluschibivalvi-history-classificazioni-view"/>
+      <link value="MolluschiBivalvi.do?command=HistoryClassificazioni&amp;idZona=${orgId}"/>
+    </submenu>
+    
+    <submenu name="historyconcessioni">
+      <long_html value="Storia Concessioni"/>
+      <permission value="molluschibivalvi-history-classificazioni-view"/>
+      <link value="MolluschiBivalvi.do?command=HistoryConcessioni&amp;idZona=${orgId}"/>
+    </submenu>
+    
+     <submenu name="campionilist">
+      <long_html value="Lista Campioni"/>
+      <permission value="molluschibivalvi-campioni-globali-view"/>
+      <link value="MolluschiBivalvi.do?command=ViewCampioni&amp;idZona=${orgId}"/>
+    </submenu>
+    
+<!--     <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="molluschibivalvi-diffide-view"/> -->
+<!--       <link value="MolluschiBivalviDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+    
+     <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=molluschibivalvi" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=molluschibivalvi')" />
+	</submenu>
+	
+  </container>
+  
+  <container name="banchi_naturali">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="Scheda">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="BanchiNaturali.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value=""/>
+
+   <!--    <permission value="moll-moll-vigilanza-view"/>-->
+      <link value="BanchiNaturali.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+     <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <!-- <permission value="moll-moll-contacts-documents-view"/>-->
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}"/>
+    </submenu>
+    
+  </container>
+  
+  
+   <container name="molltamponi">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="MollTamponi.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    <!-- <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="moll-moll-tamponi-documents-view"/>
+      <link value="MollTamponiDocuments.do?command=View&amp;tId=${id}"/>
+    </submenu> -->
+  </container>
+  
+   <container name="mollvigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="MollVigilanza.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   <!-- <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="moll-moll-vigilanza-documents-view"/>
+      <link value="MollVigilanzaDocuments.do?command=View&amp;tId=${id}"/>
+    </submenu>-->
+   
+  </container>
+   
+   <container name="mollnonconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="MollNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    <!-- <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="moll-moll-nonconformita-documents-view"/>
+      <link value="MollNonConformitaDocuments.do?command=View&amp;tId=${id}"/>
+    </submenu>-->
+  </container>
+  
+    <container name="mollreati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="MollReati.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  <!--  <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="moll-moll-reati-documents-view"/>
+      <link value="MollReatiDocuments.do?command=View&amp;tId=${id}"/>
+    </submenu>-->
+  </container>
+  
+  <container name="mollcessazionevariazione">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="MollCessazionevariazione.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="moll-moll-cessazionevariazione-documents-view"/>
+      <link value="MollCessazionevariazioneDocuments.do?command=View&amp;tId=${id}"/>
+    </submenu>
+  </container>
+  
+  
+   <container name="mollfollowup">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="MollFollowup.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  </container>
+
+  
+  
+
+  <container name="farmacosorveglianza">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber}  ${name}</label>
+    </properties>
+    
+   <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Farmacosorveglianza.do?command=DetailsFcie&amp;idFarmacia=${orgId}"/>
+    </submenu>
+    
+      <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="farmacie-farmacie-vigilanza-add"/>
+      <link value="FarmacieVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="farmacie-farmacie-vigilanza-view"/>
+      <link value="FarmacieVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+   
+	<submenu name="campioniprenotati">
+      	<long_html value="Campioni Prenotati"/>
+      	<permission value="accounts-accounts-campioniprenotati-view"/>
+      	<link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=farmacosorveglianza"/>
+    </submenu>
+	 <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=farmacosorveglianza"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_Operatori193.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=farmacosorveglianza" />
+		</submenu>
+<!-- 		 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="farmacie-farmacie-diffide-view"/> -->
+<!--       <link value="FarmacieDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+
+
+ <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=farmacosorveglianza" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=farmacosorveglianza')" />
+	</submenu>
+	
+  </container>
+  
+  
+    
+    <container name="parafarmacie">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber}  ${name}</label>
+    </properties>
+    
+      <submenu name="scheda">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Parafarmacie.do?command=DetailsFcie&amp;orgId=${orgId}"/>
+    </submenu>
+    
+      
+         <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="parafarmacie-parafarmacie-vigilanza-add"/>
+      <link value="ParafarmacieVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+         
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="parafarmacie-parafarmacie-vigilanza-view"/>
+      <link value="ParafarmacieVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+    
+	<submenu name="campioniprenotati">
+    	<long_html value="Campioni Prenotati"/>
+    	<permission value="accounts-accounts-campioniprenotati-view"/>
+    	<link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=parafarmacie"/>
+    </submenu>
+     <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=parafarmacie"/>
+    </submenu>
+	  <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_Farmacie.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=parafarmacie" />
+		</submenu>
+		
+<!-- 		 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="parafarmacie-parafarmacie-diffide-view"/> -->
+<!--       <link value="ParafarmacieDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+
+	 <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=parafarmacie" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=parafarmacie')" />
+	</submenu>
+	
+  </container>
+ 
+
+	<container name="laboratorihaccp">
+    	<properties>
+     		 <icon>images/icons/stock_account-16.gif</icon>
+     		 <label>${accountNumber}  ${name}</label>
+    	</properties>
+    	<submenu name="details">
+      		<long_html value="Scheda"/>
+      		<permission value=""/>
+      		<link value="LaboratoriHACCP.do?command=Details&amp;orgId=${orgId}"/>
+      	</submenu>
+    	<submenu name="vigilanza">
+        	<long_html value="Controlli Ufficiali"/>
+      		<permission value="laboratorihaccp-laboratorihaccp-vigilanza-view"/>
+      		<link value="LabHaccpVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+    	<submenu name="campioniprenotati">
+      		<long_html value="Campioni Prenotati"/>
+      		<permission value="accounts-accounts-campioniprenotati-view"/>
+      		<link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=laboratorihaccp"/>
+    	</submenu>
+      	<submenu name="documents">
+      		<long_html value="Documenti"/>
+      		<permission value="laboratori-laboratori-documents-view"/>
+      		<link value="LaboratoriHACCPDocuments.do?command=View&amp;tId=${id}"/>
+    	</submenu>
+    	  <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_Laboratori.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=laboratorihaccp" />
+		</submenu>
+    	<submenu name="Storico">
+      		<long_html value="Storico"/>
+      		<permission value="laboratori-laboratori-storico-view"/>
+      		<!-- <link value="LaboratoriHACCPHistory.do?command=StoricoProve&amp;orgId=${orgId}"/> -->
+      		<link value="LaboratoriHACCPHistory.do?command=Storico&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+    	 <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=laboratorihaccp" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=laboratorihaccp')" />
+	</submenu>
+	
+    </container>
+
+	
+	<container name="punti_di_sbarco">
+    	<properties>
+     		 <icon>images/icons/stock_account-16.gif</icon>
+     		 <label>${name}</label>
+    	</properties>
+    	<submenu name="details">
+      		<long_html value="Scheda"/>
+      		<permission value=""/>
+      		<link value="PuntiSbarco.do?command=Details&amp;orgId=${orgId}"/>
+      	</submenu>
+      	
+    	<submenu name="vigilanzaadd">
+        	<long_html value="Aggiungi Controllo Ufficiale"/>
+      		<permission value="punti_di_sbarco-vigilanza-add"/>
+      		<link value="PuntiSbarcoVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+      	<submenu name="vigilanza">
+        	<long_html value="Controlli Ufficiali"/>
+      		<permission value="punti_di_sbarco-vigilanza-view"/>
+      		<link value="PuntiSbarcoVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    	</submenu>
+    
+    	<submenu name="campioniprenotati">
+      		<long_html value="Campioni Prenotati"/>
+      		<permission value="accounts-accounts-campioniprenotati-view"/>
+      		<link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=punti_di_sbarco"/>
+    	</submenu>
+    	<submenu name="documents">
+     	 	<long_html value="Documenti"/>
+      		<permission value="documentale_documents-view"/>
+      		<link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=punti_di_sbarco"/>
+   	 	</submenu>
+    	  	  <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_PuntiSbarco.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=punti_di_sbarco" />
+		</submenu>
+		
+<!-- 		 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="punti_di_sbarco-diffida-view"/> -->
+<!--       <link value="PuntiSbarcoDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+
+ <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=punti_di_sbarco" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=punti_di_sbarco')" />
+	</submenu>
+	
+    </container>
+     
+    
+    <container name="zonecontrollo">
+    	<properties>
+     		 <icon>images/icons/stock_account-16.gif</icon>
+     		 <label>${name}</label>
+    	</properties>
+    	<submenu name="details">
+      		<long_html value="Scheda"/>
+      		<permission value=""/>
+      		<link value="ZoneControllo.do?command=Details&amp;orgId=${orgId}"/>
+      	</submenu>
+      	
+    	<submenu name="vigilanzaadd">
+        	<long_html value="Aggiungi Controllo Ufficiale"/>
+      		<permission value="zonecontrollo-vigilanza-add"/>
+      		<link value="ZoneControlloVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+      	<submenu name="vigilanza">
+        	<long_html value="Controlli Ufficiali"/>
+      		<permission value="zonecontrollo-vigilanza-view"/>
+      		<link value="ZoneControlloVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+<!--     	  	 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value=""/> -->
+<!--       <link value="ZoneControllotDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+    </container>
+	
+	<container name="suap">
+    	<properties>
+     		 <icon>images/icons/stock_account-16.gif</icon>
+<label>${operatore}.${ragioneSociale} - ${numero_registrazione}</label>
+    	</properties>
+    	 <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+     <link value="OpuStab.do?command=Details&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    	  <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="opu-vigilanza-add"/>
+      <link value="OpuStabVigilanza.do?command=Add&amp;orgId=${stabId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="opu-vigilanza-view"/>
+      <link value="OpuStab.do?command=ViewVigilanza&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    <submenu name="Allegati">
+     	 	<long_html value="Allegati"/>
+      		<permission value="documentale_documents-view"/>
+      		<link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;stabId=${stabId}&amp;op=suap"/>
+   	</submenu>
+    
+    <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link value="GestioneDocumenti_Opu.do?command=ListaDocumenti&amp;stabId=${stabId}&amp;op=suap" />
+	</submenu> 
+    	 
+    <submenu name="Gestione Mobile">
+	 <long_html value="Gestione autoveicoli / distributori automatici / Prodotti" />
+	 <permission value="opu-gestione-mobile-view" />
+	<link value="OpuStab.do?command=GestioneMobile&amp;stabId=${stabId}" />
+	</submenu>
+	
+    
+	<submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${stabId}&amp;riferimentoIdNomeTab=opu_stabilimento&amp;op=suap" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${stabId}&amp;riferimentoIdNomeTab=opu_stabilimento&amp;op=suap')" />
+	</submenu>
+	
+    </container>
+	
+	
+  <container name="gestioneanagrafica">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+	<label>${name} ${operatore}.${ragioneSociale}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="GestioneAnagraficaAction.do?command=Details&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    <submenu name="storicopratiche">
+      <long_html value="Storico Pratiche amministrative"/>
+      <permission value="gestioneanagrafica-storicopratiche-view"/>
+      <link value="GestionePraticheAction.do?command=StoricoPratiche&amp;stabId=${stabId}"/>
+    </submenu>
+    
+     <submenu name="modifiche">
+      <long_html value="Storico Operazioni Stabilimento"/>
+      <permission value="gestioneanagrafica-storicomodifiche-view"/>
+      <link value="GestioneAnagraficaAction.do?command=StoricoOperazioni&amp;stabId=${stabId}"/>
+    </submenu>
+   
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="opu-vigilanza-add"/>
+      <link value="OpuStabVigilanza.do?command=Add&amp;orgId=${stabId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="opu-vigilanza-view"/>
+      <link value="OpuStab.do?command=ViewVigilanza&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    <submenu name="Gestione Dati Aggiuntivi">
+	 	<long_html value="Gestione Dati Aggiuntivi" />
+	 	<permission value="gestioneanagrafica-gestioneanagrafica-datiaggiuntivi-view" />
+		<link value="GestioneAnagraficaAction.do?command=GestioneMobile&amp;stabId=${stabId}" />
+	</submenu>
+    
+    
+    <submenu name="Allegati">
+      <long_html value="Allegati"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;stabId=${stabId}&amp;op=gestioneanagrafica"/>
+    </submenu> 
+    
+    
+     <submenu name="Documenti PDF">
+		<long_html value="Archivio Stampe" />
+		<permission value="server_documentale-view" />
+		<link value="GestioneDocumenti_GestioneAnagrafica.do?command=ListaDocumenti&amp;stabId=${stabId}&amp;op=gestioneanagrafica" />
+	 </submenu>
+	 
+	<submenu name="Gestione Richieste Errata Corrige">
+		<long_html value="Gestione Richieste Errata Corrige" />
+		<permission value="richieste_errata_corrige-view" />
+		<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${stabId}&amp;riferimentoIdNomeTab=opu_stabilimento&amp;op=gestioneanagrafica" />
+	</submenu>
+	
+	<submenu name="Aggiungi Richiesta Errata Corrige">
+		<long_html value="Aggiungi Richiesta Errata Corrige" />
+	 	<permission value="richieste_errata_corrige-view" />
+		<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${stabId}&amp;riferimentoIdNomeTab=opu_stabilimento&amp;op=gestioneanagrafica')" />
+	</submenu>
+ 
+  </container>
+  
+  <container name="gestioneanagraficanoscia">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+	<label>${name} ${operatore}.${ragioneSociale}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="GestioneAnagraficaAction.do?command=Details&amp;stabId=${stabId}"/>
+    </submenu>
+    
+     <submenu name="modifiche">
+      <long_html value="Storico Operazioni Stabilimento"/>
+      <permission value="gestioneanagrafica-storicomodifiche-view"/>
+      <link value="GestioneAnagraficaAction.do?command=StoricoOperazioni&amp;stabId=${stabId}"/>
+    </submenu>
+   
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="opu-vigilanza-add"/>
+      <link value="OpuStabVigilanza.do?command=Add&amp;orgId=${stabId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="opu-vigilanza-view"/>
+      <link value="OpuStab.do?command=ViewVigilanza&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    <submenu name="Gestione Dati Aggiuntivi">
+	 	<long_html value="Gestione Dati Aggiuntivi" />
+	 	<permission value="gestioneanagrafica-gestioneanagrafica-datiaggiuntivi-view" />
+		<link value="GestioneAnagraficaAction.do?command=GestioneMobile&amp;stabId=${stabId}" />
+	</submenu>
+    
+    
+    <submenu name="Allegati">
+      <long_html value="Allegati"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;stabId=${stabId}&amp;op=gestioneanagraficanoscia"/>
+    </submenu> 
+    
+    
+     <submenu name="Documenti PDF">
+		<long_html value="Archivio Stampe" />
+		<permission value="server_documentale-view" />
+		<link value="GestioneDocumenti_GestioneAnagrafica.do?command=ListaDocumenti&amp;stabId=${stabId}&amp;op=gestioneanagraficanoscia" />
+	 </submenu>
+	 
+	 <submenu name="Gestione Richieste Errata Corrige">
+		<long_html value="Gestione Richieste Errata Corrige" />
+		<permission value="richieste_errata_corrige-view" />
+		<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${stabId}&amp;riferimentoIdNomeTab=opu_stabilimento&amp;op=gestioneanagraficanoscia" />
+	</submenu>
+	
+	<submenu name="Aggiungi Richiesta Errata Corrige">
+		<long_html value="Aggiungi Richiesta Errata Corrige" />
+	 	<permission value="richieste_errata_corrige-view" />
+		<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${stabId}&amp;riferimentoIdNomeTab=opu_stabilimento&amp;op=gestioneanagraficanoscia')" />
+	</submenu>
+ 
+  </container>	
+	
+	
+	<container name="aziendeagricoleopu">
+    	<properties>
+     		 <icon>images/icons/stock_account-16.gif</icon>
+<label>${operatore}.${ragioneSociale} - ${numero_registrazione}</label>
+    	</properties>
+    	 <submenu name="Scheda">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+     <link value="AziendeAgricoleOpuStab.do?command=Details&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    	   <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="accounts-accounts-vigilanza-add"/>
+      <link value="AziendeAgricoleOpuStabVigilanza.do?command=Add&amp;orgId=${stabId}"/>
+    </submenu>
+    
+   
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="accounts-accounts-vigilanza-view"/>
+      <link value="AziendeAgricoleOpuStab.do?command=ViewVigilanza&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    
+    
+    
+      	<submenu name="documents">
+     	 	<long_html value="Documenti"/>
+      		<permission value="documentale_documents-view"/>
+      		<link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;stabId=${stabId}&amp;op=aziendeagricoleopu"/>
+   	 	</submenu>
+    	  	  <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_AziendeAgricole.do?command=ListaDocumenti&amp;stabId=${stabId}&amp;op=aziendeagricoleopu" />
+		</submenu> 
+
+    
+<!--      <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value=""/> -->
+<!--       <link value="AziendeAgricoleOpuStabDiffida.do?command=ViewDiffideOsa&amp;stabId=${stabId}"/> -->
+<!--     </submenu>	 -->
+    
+ 	    
+      </container>
+	
+	<container name="aziendeagricole">
+    	<properties>
+     		 <icon>images/icons/stock_account-16.gif</icon>
+     		 <label>${name}</label>
+    	</properties>
+    	<submenu name="details">
+      		<long_html value="Scheda"/>
+      		<permission value=""/>
+      		<link value="AziendeAgricole.do?command=Details&amp;orgId=${orgId}"/>
+      	</submenu>
+      	<submenu name="vigilanza">
+        	<long_html value="Controlli Ufficiali"/>
+      		<permission value="aziendeagricole-vigilanza-view"/>
+      		<link value="AziendeAgricoleVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+    	<submenu name="campioniprenotati">
+      		<long_html value="Campioni Prenotati"/>
+      		<permission value="accounts-accounts-campioniprenotati-view"/>
+      		<link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=aziendeagricole"/>
+    	</submenu>
+    	<submenu name="documents">
+     	 	<long_html value="Documenti"/>
+      		<permission value="documentale_documents-view"/>
+      		<link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=aziendeagricole"/>
+   	 	</submenu>
+    	  	  <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_AziendeAgricole.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=aziendeagricole" />
+		</submenu>
+<!-- 		 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value=""/> -->
+<!--       <link value="AziendeAgricoleDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+    </container>
+	
+	<container name="acquedirete">
+    	<properties>
+     		 <icon>images/icons/stock_account-16.gif</icon>
+     		 <label>${name}</label>
+    	</properties>
+    	<submenu name="details">
+      		<long_html value="Scheda"/>
+      		<permission value=""/>
+      		<link value="AcqueRete.do?command=Details&amp;orgId=${orgId}"/>
+      	</submenu>
+      	
+    		<submenu name="vigilanzaadd">
+        	<long_html value="Aggiungi Controllo Ufficiale"/>
+      		<permission value="acquedirete-vigilanza-add"/>
+      		<link value="AcqueReteVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+      	<submenu name="vigilanza">
+        	<long_html value="Controlli Ufficiali"/>
+      		<permission value="acquedirete-vigilanza-view"/>
+      		<link value="AcqueReteVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+    	<submenu name="documents">
+     	 	<long_html value="Documenti"/>
+      		<permission value="documentale_documents-view"/>
+      		<link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=acquedirete"/>
+   	 	</submenu>
+   	 	
+   	 	 <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_AcqueRete.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=acquedirete" />
+		</submenu>
+    	  	
+<!--     	  	 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="acquedirete-diffida-view"/> -->
+<!--       <link value="AcqueReteDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+
+	 <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=acquedirete" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=acquedirete')" />
+	</submenu>
+	
+    </container>
+    
+     <!-- PER LA NUOVA GESTIONE GESTORI ACQUE RETE -->
+    
+      <container name="puntodiprelievodetail_container">
+	    <properties>
+	     <icon>images/icons/stock_account-16.gif</icon>
+	      <label>Punto Prelievo </label>
+	    </properties>
+	    
+	     <submenu name="Scheda Punto Di Prelievo">
+	      <long_html value="Scheda Punto Prelievo"/>
+	      <permission value="gestoriacquenew-view"/>
+	      <link value="StabilimentoGestoriAcqueReteNewAction.do?command=PuntoPrelievoDetail&amp;idPuntoPrelievo=${idPuntoPrelievo}"/>
+	    </submenu>   
+	    
+	      <submenu name="Scheda Controlli Interni"> 
+	      <long_html value="Scheda Controlli Interni"/>
+	      <permission value="gestoriacquenew-view"/>
+	      <link value="StabilimentoGestoriAcqueReteNewAction.do?command=ListControlliInterniPuntoPrelievo&amp;idPuntoPrelievo=${idPuntoPrelievo}"/>
+	    </submenu>   
+	     
+    </container>  
+    
+    
+    <container name="datigestoreacque_detail">
+	    <properties>
+	     <icon>images/icons/stock_account-16.gif</icon>
+	      <label>Gestori Acque Rete</label>
+	    </properties>
+	    
+	     <submenu name="Scheda Gestore Acque">
+	      <long_html value="Scheda Gestore Acque"/>
+	      <permission value="gestoriacquenew-view"/>
+	      <link value="StabilimentoGestoriAcqueReteNewAction.do?command=PaginaPerListaDatiGestoreAcque"/>
+	    </submenu>   
+    </container>
+    
+    
+	
+	<container name="riproduzioneanimale">
+    	<properties>
+     		 <icon>images/icons/stock_account-16.gif</icon>
+     		 <label>${name}</label>
+    	</properties>
+    	<submenu name="details">
+      		<long_html value="Scheda"/>
+      		<permission value=""/>
+      		<link value="RiproduzioneAnimale.do?command=Details&amp;orgId=${orgId}"/>
+      	</submenu>
+      	
+    		<submenu name="vigilanzaadd">
+        	<long_html value="Aggiungi Controllo Ufficiale"/>
+      		<permission value="riproduzioneanimale-vigilanza-add"/>
+      		<link value="RiproduzioneAnimaleVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+      	<submenu name="vigilanza">
+        	<long_html value="Controlli Ufficiali"/>
+      		<permission value="riproduzioneanimale-vigilanza-view"/>
+      		<link value="RiproduzioneAnimaleVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    	</submenu>
+    	
+    	<submenu name="campioniprenotati">
+	      	<long_html value="Campioni Prenotati"/>
+	    	<permission value="accounts-accounts-campioniprenotati-view"/>
+	 	    <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=riproduzioneanimale"/>
+	    </submenu>
+    	<submenu name="documents">
+     	 	<long_html value="Documenti"/>
+      		<permission value="documentale_documents-view"/>
+      		<link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=riproduzioneanimale"/>
+   	 	</submenu>
+    	  	  <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_RiproduzioneAnimale.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=riproduzioneanimale" />
+		</submenu>
+<!-- 		 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="riproduzioneanimale-riproduzioneanimale-diffida-view"/> -->
+<!--       <link value="RiproduzioneAnimaleDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+    
+    	 <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=riproduzioneanimale" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=riproduzioneanimale')" />
+	</submenu>
+     
+    </container>
+
+
+  <!-- Submenu used in the Contacts module -->
+  <container name="contacts">
+    <properties>
+      <icon>images/icons/stock_bcard-16.gif</icon>
+      <label>${nameFull} ${orgName}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="ExternalContacts.do?command=ContactDetails&amp;id=${id}"/>
+    </submenu>
+   
+    <submenu name="folders">
+      <long_html value="Folders"/>
+      <permission value="contacts-external_contacts-folders-view"/>
+      <link value="ExternalContacts.do?command=FolderList&amp;contactId=${id}"/>
+    </submenu>
+    
+    <!--
+    <submenu name="relationships">
+      <long_html value="Relationships"/>
+      <permission value="demo-view"/>
+      <link value="ExternalContactsPrototype.do?module=ExternalContacts&amp;include=contacts/companydirectory_relationships_view.jsp&amp;contactId=${id}"/>
+    </submenu>
+    -->
+  </container>
+  
+  <!-- Submenu used in the Contacts module -->
+  <container name="calls">
+    <properties>
+      <icon>images/icons/stock_bcard-16.gif</icon>
+      <label>${nameFull} ${orgName}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Activities"/>
+      <permission value="contacts-external_contacts-calls-view"/>
+      <link value="ExternalContactsCalls.do?command=View&amp;contactId=${id}"/>
+    </submenu>
+  </container>
+  
+  <container name="acqua">
+    <properties>
+      <icon>images/icons/stock_bcard-16.gif</icon>
+      <label>Acque Classificate</label>
+    </properties>
+  </container>
+  
+  <container name="banco">
+    <properties>
+      <icon>images/icons/stock_bcard-16.gif</icon>
+      <label>Banco Naturale</label>
+    </properties>
+  </container>
+  
+  <!-- Submenu used in the Employees module -->
+  <container name="employees">
+    <properties>
+      <icon>images/icons/stock_bcard-16.gif</icon>
+      <label>${nameFull}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="CompanyDirectory.do?command=EmployeeDetails&amp;empid=${id}"/>
+    </submenu>
+    <submenu name="folders">
+      <long_html value="Folders"/>
+      <permission value="contacts-internal_contacts-folders-view"/> 
+      <link value="CompanyDirectory.do?command=FolderList&amp;empid=${id}"/>
+    </submenu>
+    <submenu name="projects">
+      <long_html value="Projects"/>
+      <permission value="contacts-internal_contacts-projects-view"/>
+      <link value="CompanyDirectoryProjects.do?command=List&amp;empid=${id}"/>
+    </submenu>
+  </container>
+    
+  <!-- Submenu used in the Account Contacts module -->
+  <container name="accountscontacts">
+    <properties>
+      <icon>images/icons/stock_bcard-16.gif</icon>
+      <label>${nameFull}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value="accounts-accounts-contacts-view"/>
+      <link value="Contacts.do?command=Details&amp;id=${id}"/>
+    </submenu>
+   
+    <submenu name="folders">
+      <long_html value="Folders"/>
+      <permission value="accounts-accounts-contacts-folders-view"/>
+      <link value="Contacts.do?command=FolderList&amp;contactId=${id}"/>
+    </submenu>
+   
+    <submenu name="documents">
+      <long_html value="Documents"/>
+      <permission value="accounts-accounts-contacts-documents-view"/>
+      <link value="AccountsContactsDocuments.do?command=View&amp;contactId=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  <!-- Submenu used in the Allev Contacts module -->
+  <container name="accountscontactsallev">
+    <properties>
+      <icon>images/icons/stock_bcard-16.gif</icon>
+      <label>${nameFull}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value="allevamenti-allevamenti-contacts-view"/>
+      <link value="ContactsAllev.do?command=Details&amp;id=${id}"/>
+    </submenu>
+  
+    <submenu name="Cartelle">
+      <long_html value="Cartelle"/>
+      <permission value="allevamenti-allevamenti-contacts-folders-view"/>
+      <link value="ContactsAllev.do?command=FolderList&amp;contactId=${id}"/>
+    </submenu>
+   <submenu name="calls">
+      <long_html value="Attività"/>
+      <permission value="allevamenti-allevamenti-contacts-calls-view"/>
+      <link value="AccountContactsCallsAllev.do?command=View&amp;contactId=${id}"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="allevamenti-allevamenti-contacts-documents-view"/>
+      <link value="AccountsContactsDocumentsAllev.do?command=View&amp;contactId=${id}"/>
+    </submenu>
+  </container>
+  
+   <container name="accountscontactsstab">
+    <properties>
+      <icon>images/icons/stock_bcard-16.gif</icon>
+      <label>${nameFull}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value="stabilimenti-stabilimenti-contacts-view"/>
+      <link value="ContactsStab.do?command=Details&amp;id=${id}"/>
+    </submenu>
+    
+    <submenu name="Cartelle">
+      <long_html value="Cartelle"/>
+      <permission value="stabilimenti-stabilimenti-contacts-folders-view"/>
+      <link value="ContactsStab.do?command=FolderList&amp;contactId=${id}"/>
+    </submenu>
+   <submenu name="calls">
+      <long_html value="Attività"/>
+      <permission value="stabilimenti-stabilimenti-contacts-calls-view"/>
+      <link value="AccountContactsCallsStab.do?command=View&amp;contactId=${id}"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="stabilimenti-stabilimenti-contacts-documents-view"/>
+      <link value="AccountsContactsDocumentsStab.do?command=View&amp;contactId=${id}"/>
+    </submenu>
+  </container>
+  
+  <container name="accountscontactsabus">
+    <properties>
+      <icon>images/icons/stock_bcard-16.gif</icon>
+      <label>${nameFull}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value="abusivismi-abusivismi-contacts-view"/>
+      <link value="ContactsAbus.do?command=Details&amp;id=${id}"/>
+    </submenu>
+   
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="abusivismi-abusivismi-contacts-documents-view"/>
+      <link value="AccountsContactsDocumentsAbus.do?command=View&amp;contactId=${id}"/>
+    </submenu>
+  </container>
+
+  <!-- Submenu used in the Account Contacts module -->
+  <container name="accountcontactopportunities">
+    <properties>
+      <icon>images/icons/stock_form-currency-field-16.gif</icon>
+      <label>${description}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value="accounts-accounts-contacts-opportunities-view"/>
+      <link value="AccountContactsOpps.do?command=DetailsOpp&amp;headerId=${headerId}&amp;orgId=${orgId}&amp;contactId=${contactId}"/>
+    </submenu>
+    <submenu name="quotes">
+      <long_html value="Quotes"/>
+      <permission value="accounts-accounts-contacts-opportunities-quotes-view"/>
+      <link value="AccountContactsOppQuotes.do?command=View&amp;headerId=${headerId}&amp;orgId=${orgId}&amp;contactId=${contactId}"/>
+    </submenu>
+    <submenu name="folders">
+      <long_html value="Folders"/>
+      <permission value="accounts-accounts-contacts-opps-folders-view"/>
+      <link value="AccountContactsOpps.do?command=FolderList&amp;headerId=${headerId}&amp;orgId=${orgId}&amp;contactId=${contactId}"/>
+    </submenu>
+  </container>
+
+ 
+  <!-- Submenu used in the Opportunities (Pipeline) module -->
+ 
+  
+ 
+   <!-- aggiunto da d.dauria -->
+    <container name="allerte">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value="allerte-allerte-view"/>
+      <link value="TroubleTicketsAllerte.do?command=Details&amp;id=${id}"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+       <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;ticketId=${id}&amp;op=allerte"/>
+        </submenu>
+          <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_Allerte.do?command=ListaDocumenti&amp;tId=${id}&amp;ticketId=${id}&amp;op=allerte" />
+		</submenu>
+	<submenu name="history">
+      <long_html value="History"/>
+      <permission value="allerte-allerte-history-view"/>
+      <link value="TroubleTicketsAllerte.do?command=HistoryAllerta&amp;tId=${id}"/>
+    </submenu>
+  </container>
+  
+  <!-- Submenu used in the TroubleTickets module -->
+  <container name="accountstickets">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountTickets.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  
+    <submenu name="folders">
+      <long_html value="Folders"/>
+      <permission value="accounts-accounts-tickets-folders-view"/>
+      <link value="AccountTicketFolders.do?command=FolderList&amp;ticketId=${id}"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documents"/>
+      <permission value="accounts-accounts-tickets-documents-view"/>
+      <link value="AccountTicketsDocuments.do?command=View&amp;tId=${id}"/>
+    </submenu>
+    <submenu name="actionplans">
+      <long_html value="Action Plans"/>
+      <permission value="accounts-action-plans-view"/>
+      <link value="AccountTicketActionPlans.do?command=List&amp;ticketId=${id}"/>
+    </submenu>
+  </container>
+  
+  <!-- Submenu used in the TroubleTickets module -->
+  <container name="accountsrichieste">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountRichieste.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+  
+   <container name="stabilimentirichieste">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountRichieste.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+   <container name="accountscessazionevariazione">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountCessazionevariazione.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+    <!-- <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="accounts-accounts-cessazionevariazione-documents-view"/>
+      <link value="AccountCessazionevariazioneDocuments.do?command=View&amp;tId=${id}"/>
+    </submenu>
+     -->
+  </container>
+  
+   <container name="stabilimenticessazionevariazione">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="StabilimentiCessazionevariazione.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    
+  </container>
+
+<container name="accountssanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  <container name="stabilimentissanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="StabilimentiSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+  <container name="distributorisanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="DistributoriSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    
+  </container>
+  
+  <container name="osmsanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+ 
+  </container>
+  
+   <container name="osmregistratiSanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmRegistratiSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  <container name="accountssequestri">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountSequestri.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+  <container name="allevamentisequestri">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AllevamentiSequestri.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  
+  
+   <container name="allevamentifollowup">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AllevamentiFollowup.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    
+    
+  </container>
+  
+  
+  
+  <container name="distributorisequestri">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="DistributoriSequestri.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  </container>
+  
+  
+  <container name="stabilimentisequestri">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="StabilimentiSequestri.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  <container name="osmsequestri">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmSequestri.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+ 
+  </container>
+  
+    <container name="osmregistratiSequestri">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmRegistratiSequestri.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  
+  
+  <container name="accountsnonconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+   
+    
+  </container>
+  
+  
+   <container name="allevamentinonconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AllevamentiNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+    
+  </container>
+  
+  <container name="trasportisanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="TrasportiSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+   <container name="trasportinonconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="TrasportiNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+ 
+  </container>
+  
+  
+  
+   <container name="trasportifollowup">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="TrasportiFollowup.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="osmfollowup">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmFollowup.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+
+  
+   <container name="accountsfollowup">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountFollowup.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+   <container name="trasportisequestri">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="TrasportiSequestri.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+ 
+  </container>
+  
+   <container name="trasportireati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="TrasportiReati.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  
+  <container name="trasportononconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="TrasportiNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+   <container name="distributorinonconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="DistributoriNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="stabilimentinonconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="StabilimentiNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+  <container name="accountsreati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountReati.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+  
+  <container name="allevamentireati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AllevamentiReati.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="distributorireati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="DistributoriReati.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="stabilimentireati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="StabilimentiReati.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  
+  
+  
+   <container name="operatorifuoriregionetamponi">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegioneTamponi.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+
+  </container>
+  
+  
+  
+   <container name="operatorifuoriregionenonconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegioneNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+   <container name="operatorifuoriregionesanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegioneSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+   <container name="operatorifuoriregionesequestri">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegioneSequestri.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+   <container name="operatorifuoriregionereati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegioneReati.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+   <container name="operatorifuoriregionefollowup">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegioneFollowup.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+   
+  </container>
+  
+  
+  
+  <container name="operatorifuoriregionecampioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegioneCampioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  </container>
+  
+  <container name="accountscampioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountCampioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+ 
+  </container>
+  
+  
+   <container name="accountstamponi">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountTamponi.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+  
+  <container name="allevamentitamponi">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AllevamentiTamponi.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+  <container name="distributoricampioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="DistributoriCampioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  </container>
+  
+  
+   <container name="distributoritamponi">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="DistributoriTamponi.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  
+  
+  <container name="stabilimentitamponi">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="StabilimentiTamponi.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  
+  <container name="accountsvigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountVigilanza.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+   
+   
+    <container name="operatorifuoriregionevigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriFuoriRegioneVigilanza.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+   <container name="trasportovigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+   
+  </container>
+  
+  <container name="osmvigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmVigilanza.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="osmregistratiVigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmRegistratiVigilanza.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=osmRegistrati"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=osmRegistrati" />
+		</submenu>
+  <!--  <submenu name="history">
+      <long_html value="Storia"/>
+      <permission value="osm-osm-vigilanza-history-view"/>
+      <link value="OsmRegistratiVigilanza.do?command=ViewHistory&amp;id=${id}"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="osm-osm-vigilanza-documents-view"/>
+      <link value="OsmRegistratiVigilanzaDocuments.do?command=View&amp;tId=${id}"/>
+    </submenu>-->
+    
+    	 <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=osmRegistrati" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=osmRegistrati')" />
+	</submenu>
+	
+  </container>
+  
+  
+  
+  <container name="abusivi">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Aggiungi"/>
+      <permission value=""/>
+      <link value="Abusivismi.do?command=Add"/>
+    </submenu>
+    <submenu name="history">
+      <long_html value="Ricerca"/>
+      <permission value=""/>
+      <link value="Abusivismi.do?command=SearchForm"/>
+    </submenu>
+  </container>
+  
+  <container name="operatoriprivati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Aggiungi"/>
+      <permission value=""/>
+      <link value="Operatoriprivati.do?command=Add"/>
+    </submenu>
+    <submenu name="history">
+      <long_html value="Ricerca"/>
+      <permission value=""/>
+      <link value="Operatoriprivati.do?command=SearchForm"/>
+    </submenu>
+  </container>
+  
+  
+  
+  <container name="distributorivigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="DistributoriVigilanza.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  </container>
+  
+  
+  <container name="osmcampioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmCampioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+   <container name="osmregistratiCampioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmRegistratiCampioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  
+  
+  
+  
+  
+  
+  
+  <container name="stabilimenticampioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="StabilimentiCampioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  <container name="abusivismicampioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AbusivismiCampioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="operatoriprivaticampioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriprivatiCampioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  <container name="stabilimentivigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="StabilimentiVigilanza.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+
+  </container>
+  
+  <container name="abusivismivigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AbusivismiVigilanza.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    
+  </container>
+  
+  <container name="operatoriprivativigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriprivatiVigilanza.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    
+  </container>
+  
+<container name="allevamenticampioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AllevamentiCampioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    
+    
+  </container>
+  
+  <container name="allevamentivigilanza">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AllevamentiVigilanza.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+    
+  </container>
+
+<container name="stabilimentisanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="StabilimentiSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="abusivismisanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AbusivismiSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="operatoriprivatisanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriprivatiSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  <!-- aggiunto da d.dauria -->
+  <container name="allevamentisanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AllevamentiSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+
+  <!-- Submenus used in the Netapp Module -->
+  <container name="netapps">
+    <separator value=" | "/>
+    <long_css on="containerOn" off="containerOff"/>
+    <short_css on="containerOn" off="containerOff"/>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value="netapps_expiration_contracts-view"/>
+      <link value="NetworkApplications.do?command=View&amp;expirationId=${expirationId}"/>
+    </submenu>
+    <submenu name="history">
+      <long_html value="History"/>
+      <permission value="netapps_expiration_contracts-view"/>
+      <link value="NetworkApplications.do?command=ViewHistory&amp;expirationId=${expirationId}"/>
+    </submenu>
+  </container>
+  
+  <!-- Submenu used in the Auto Guide section of the Accounts module -->
+  
+  
+  
+  <!-- Submenu used in the Users module -->
+  <container name="users">
+    <properties>
+      <label>${cognome} ${nome}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Details"/>
+      <permission value="admin-users-view"/>
+      <link value="Users.do?command=UserDetails&amp;id=${id}"/>
+    </submenu>
+    <submenu name="history">
+      <long_html value="Login History"/>
+      <permission value="admin-users-view"/>
+      <link value="Users.do?command=ViewLog&amp;id=${id}"/>
+    </submenu>
+    <submenu name="viewpoints">
+      <long_html value="Viewpoints"/>
+      <permission value="admin-users-view"/>
+      <link value="Viewpoints.do?command=ListViewpoints&amp;userId=${id}"/>
+    </submenu>
+    <submenu name="groups">
+      <long_html value="Groups"/>
+      <permission value="admin-users-view"/>
+      <link value="UserGroups.do?command=GroupList&amp;userId=${id}"/>
+    </submenu>
+  </container>
+
+  <!-- Submenu -->
+  <container name="categories">
+    <submenu name="active categories">
+      <long_html value="Active Categories"/>
+      <permission value="admin-view"/>
+      <link value="AdminCategories.do?command=ViewActive&amp;moduleId=${moduleId}&amp;constantId=${constantId}&amp;siteId=${siteId}&amp;popup=${popup}"/>
+    </submenu>
+    <submenu name="draft categories">
+      <long_html value="Draft Categories"/>
+      <permission value="admin-view"/>
+      <link value="AdminCategories.do?command=View&amp;moduleId=${moduleId}&amp;constantId=${constantId}&amp;siteId=${siteId}&amp;popup=${popup}"/>
+    </submenu>
+  </container>
+  
+  <!-- Submenu in Pipeline Management Reports -->
+  
+  
+   <container name="requestoropu">
+     <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${ragioneSociale}</label>
+     </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+     <link value="Requestor.do?command=DetailsOpu&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    </container>
+  
+  <!-- Submenu used in the Requestor module -->
+  <container name="requestor">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Requestor.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+       
+    
+     <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=requestor"/>
+    </submenu>
+    
+  </container>
+  
+  
+  
+  
+  
+  <!-- Submenu used in the Allevamenti module -->
+  <container name="allevamenti">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Allevamenti.do?command=Details&amp;orgId=${orgId}&amp;codice_azienda=${codice_azienda}"/>
+    </submenu>
+    
+     <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=allevamenti"/>
+    </submenu>
+    
+       <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_Allevamenti.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=allevamenti" />
+		</submenu>
+		
+      <submenu name="focolai">
+      <long_html value="Focolai"/>
+      <permission value="allevamenti-allevamenti-focolai-view"/>
+      <link value="Focolai.do?command=Home&amp;orgId=${orgId}"/>
+    </submenu>
+    
+        <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="allevamenti-allevamenti-vigilanza-add"/>
+      <link value="AllevamentiVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+        
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="allevamenti-allevamenti-vigilanza-view"/>
+      <link value="Allevamenti.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=allevamenti"/>
+    </submenu>
+    
+	<submenu name="registrazione183">
+      <long_html value="Registrazione 183"/>
+      <permission value="allevamenti-associazioneosmregistrati-view"/>      
+      <link value="VisualizzaOsmAssociato.do?command=View&amp;orgId=${orgId}"/>
+    </submenu>
+    <!-- Submenu per l'interrogazione WS BDN -->
+
+<!--      <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="allevamenti-allevamenti-diffida-view"/> -->
+<!--       <link value="AllevamentiDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=allevamenti" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=allevamenti')" />
+	</submenu>
+	
+  </container>
+  
+  
+  
+  <!-- Submenu used in the Canili module -->
+  <container name="canili">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Canili.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="canili-vigilanza-add"/>
+      <link value="CaniliVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="canili-vigilanza-view"/>
+      <link value="Canili.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="campioniprenotati">
+      	<long_html value="Campioni Prenotati"/>
+      	<permission value="accounts-accounts-campioniprenotati-view"/>
+      	<link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=canili"/>
+    </submenu>
+	<submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=canili"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_AltriOperatori.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=canili" />
+		</submenu>
+<!-- 		 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="canili-diffida-view"/> -->
+<!--       <link value="CaniliDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  </container>
+    
+  
+  
+  <container name="colonie">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Colonie.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="colonie-vigilanza-add"/>
+      <link value="ColonieVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="colonie-vigilanza-view"/>
+      <link value="Colonie.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=colonie"/>
+    </submenu>
+     <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_IUV.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=colonie" />
+		</submenu>
+<!-- 		 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="colonie-diffida-view"/> -->
+<!--       <link value="ColonieDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  </container>
+  
+  
+  <!-- Submenu used in the Operatori Commerciali module -->
+  <container name="operatori_commerciali">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OperatoriCommerciali.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+      <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="operatori-commerciali-vigilanza-add"/>
+      <link value="OperatoriCommercialiVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="operatori-commerciali-vigilanza-view"/>
+      <link value="OperatoriCommerciali.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+  
+    <submenu name="campioniprenotati">
+      	<long_html value="Campioni Prenotati"/>
+      	<permission value="accounts-accounts-campioniprenotati-view"/>
+      	<link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=operatori_commerciali"/>
+    </submenu>
+   
+	<submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=operatori_commerciali"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_IUV.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=operatori_commerciali" />
+		</submenu>
+<!-- 		 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="operatori-commerciali-diffida-view"/> -->
+<!--       <link value="OperatoriCommercialiDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  </container>
+ 
+  
+  <container name="stabilimenti">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Stabilimenti.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+	
+    <submenu name="history">
+      <long_html value="Storico"/>
+      <permission value="stabilimenti-stabilimenti-history-view"/>
+         <link value="Stabilimenti.do?command=ListaStoricoModifiche&amp;orgId=${orgId}"/>
+    </submenu> 
+        
+    
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-add"/>
+      <link value="StabilimentiVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-view"/>
+      <link value="Stabilimenti.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+ 
+     <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=stabilimenti"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=stabilimenti"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_Stabilimenti853.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=stabilimenti" />
+		</submenu>
+   
+    <!--<submenu name="cessazionevariazione">
+      <long_html value="Cessazione/Variazione Attività"/>
+      <permission value="stabilimenti-stabilimenti-cessazionevariazione-view"/>
+      <link value="Stabilimenti.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+    </submenu>-->
+    <submenu name="merce_in_out">
+    	<long_html value="Merce in Ingresso/Uscita" />
+    	<permission value="stabilimenti-stabilimenti-merce_in_out-view" />
+    	<link value="StabMerceInOut.do?command=List&amp;orgId=${orgId}" />
+    </submenu>
+    <submenu name="diario_macellazione">
+      <long_html value="Diario di Macellazione"/>
+      <permission value="stabilimenti-stabilimenti-diario-view"/>
+      <link value="StabDiarioMacellazione.do?command=List&amp;orgId=${orgId}"/>
+    </submenu>
+    
+   <submenu name="cessazionevariazione">
+      <long_html value="Cambio Ragione Sociale/ Legale Rappresentante"/>
+      <permission value="stabilimenti-stabilimenti-cessazionevariazione-view"/>
+      <link value="Stabilimenti.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+    </submenu>
+    		    
+<!--     		     <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="stabilimenti-stabilimenti-diffida-view"/> -->
+<!--       <link value="StabilimentiDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  </container>
+  
+  
+  
+  <container name="stabilimenti_controllo_doc">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Stabilimenti.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+   
+     <submenu name="controllodocumentale">
+      <long_html value="Controllo Documentale"/>
+      <permission value="stabilimenti-stabilimenti-controllo-documentale-view"/>
+      <link value="Stabilimenti.do?command=ViewControlloDocumentale&amp;orgId=${orgId}"/>
+    </submenu>
+  
+     
+        <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-add"/>
+      <link value="StabilimentiVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-view"/>
+      <link value="Stabilimenti.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+ 
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=stabilimenti"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=stabilimenti"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=stabilimenti" />
+		</submenu>
+     <submenu name="history">
+      <long_html value="Storico"/>
+      <permission value="stabilimenti-stabilimenti-history-view"/>
+      <link value="Stabilimenti.do?command=ListaStoricoModifiche&amp;orgId=${orgId}"/>
+    </submenu> 
+    
+    
+   <submenu name="cessazionevariazione">
+      <long_html value="Cambio Ragione Sociale/ Legale Rappresentante"/>
+      <permission value="stabilimenti-stabilimenti-cessazionevariazione-view"/>
+      <link value="Stabilimenti.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+     
+    </submenu>
+        
+  </container>
+  
+  
+  <container name="soa_controllo_doc">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Soa.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+   
+     <submenu name="controllodocumentale">
+      <long_html value="Controllo Documentale"/>
+      <permission value="soa-soa-controllo-documentale-view"/>
+      <link value="Soa.do?command=ViewControlloDocumentale&amp;orgId=${orgId}"/>
+    </submenu>
+        
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="soa-soa-vigilanza-add"/>
+      <link value="SoaVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="soa-soa-vigilanza-view"/>
+      <link value="Soa.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+  
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    
+   <submenu name="cessazionevariazione">
+      <long_html value="Volture"/>
+      <permission value="soa-soa-cessazionevariazione-view"/>
+      <link value="Soa.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+     
+    </submenu>
+        
+<!--          <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="soa-soa-diffida-view"/> -->
+<!--       <link value="SoaDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  </container>
+  
+  
+  
+    <container name="stabilimenti_macellazioni_ungulati">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Stabilimenti.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="history">
+      <long_html value="Storico"/>
+      <permission value="stabilimenti-stabilimenti-history-view"/>
+      <link value="Stabilimenti.do?command=ListaStoricoModifiche&amp;orgId=${orgId}"/>
+    </submenu> 
+        
+    
+        <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-add"/>
+      <link value="StabilimentiVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-view"/>
+      <link value="Stabilimenti.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+
+	
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=stabilimenti_macellazioni_ungulati"/>
+    </submenu>
+   
+     <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_Stabilimenti853.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=stabilimenti_macellazioni_ungulati" />
+		</submenu>
+   
+	<submenu name="cessazionevariazione">
+      <long_html value="Volture"/>
+      <permission value="stabilimenti-stabilimenti-cessazionevariazione-view"/>
+      <link value="Stabilimenti.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+     
+    </submenu>
+	
+    <submenu name="merce_in_out">
+    	<long_html value="Merce in Ingresso/Uscita" />
+    	<permission value="stabilimenti-stabilimenti-merce_in_out-view" />
+    	<link value="StabMerceInOut.do?command=List&amp;orgId=${orgId}" />
+    </submenu>
+    <submenu name="diario_macellazione">
+      <long_html value="Diario di Macellazione"/>
+      <permission value="stabilimenti-stabilimenti-diario-view"/>
+      <link value="StabDiarioMacellazione.do?command=List&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="macellazioni">
+      <long_html value="Macellazioni"/>
+      <permission value="stabilimenti-stabilimenti-macellazioni-view"/>
+      <link value="Macellazioni.do?command=ListTipi&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="stampe_moduli">
+      <long_html value="Stampe Moduli Macellazione"/>
+      <permission value="stabilimenti-stabilimenti-stampe-moduli-view"/>
+      <link value="Macellazioni.do?command=ToStampeModuli&amp;orgId=${orgId}"/>
+    </submenu>
+    
+<!--     	 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="stabilimenti-stabilimenti-diffida-view"/> -->
+<!--       <link value="StabilimentiDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+    
+  </container>
+  
+  
+  <container name="stabilimenti_macellazioni_ungulati_controllo_doc">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Stabilimenti.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+   
+    
+      <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-add"/>
+      <link value="StabilimentiVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+        
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-view"/>
+      <link value="Stabilimenti.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="controllodocumentale">
+      <long_html value="Controllo Documentale"/>
+      <permission value="stabilimenti-stabilimenti-controllo-documentale-view"/>
+      <link value="Stabilimenti.do?command=ViewControlloDocumentale&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="macellazioni">
+      <long_html value="Macellazioni Ungulati"/>
+      <permission value="stabilimenti-stabilimenti-macellazioni-view"/>
+      <link value="Macellazioni.do?command=List&amp;orgId=${orgId}"/>
+    </submenu>
+    
+   
+    
+  </container>
+  
+  
+  <container name="osmRegistrati">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmRegistrati.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    
+       <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="osmregistrati-osmregistrati-vigilanza-add"/>
+      <link value="OsmRegistratiVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="osmregistrati-osmregistrati-vigilanza-view"/>
+      <link value="OsmRegistrati.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=osmRegistrati"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=osmRegistrati"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_OSM.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=osmRegistrati" />
+		</submenu>
+   
+    <submenu name="allevamenti_associati">
+      <long_html value="Azienda Zootecnica"/>
+      <permission value="osmregistrati-associazioneaziendazootecnica-view"/>      
+      <link value="VisualizzaAllevamentiAssociati.do?command=View&amp;orgId=${orgId}"/>
+    </submenu>
+    
+<!--     <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="osmregistrati-osmregistrati-diffida-view"/> -->
+<!--       <link value="OsmRegistratiDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  </container>
+  
+   
+  
+  <container name="osm">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Osm.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+      <submenu name="vigilanzaadd">
+      <long_html value="AggiungiControllo Ufficiale"/>
+      <permission value="osm-osm-vigilanza-add"/>
+      <link value="OsmVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+  
+      
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="osm-osm-vigilanza-view"/>
+      <link value="Osm.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+  
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=osm"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=osm"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_OSM.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=osm" />
+		</submenu>
+   
+<!--      <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="osm-osm-diffida-view"/> -->
+<!--       <link value="OsmDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  </container>
+  
+  
+  
+  <container name="abusivismi">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Abusivismi.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="abusivismi-abusivismi-vigilanza-add"/>
+      <link value="AbusivismiVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+   
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="abusivismi-abusivismi-vigilanza-view"/>
+      <link value="Abusivismi.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=abusivismi"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=abusivismi"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_AltriOperatori.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=abusivismi" />
+		</submenu>
+    
+    <submenu name="storico">
+      <!--long_html value="Cessazione/Variazione Attività"/-->
+      <long_html value="Storico"/>
+      <permission value="storico-view"/>
+      <link value="javascript:window.open('Storico.do?command=CercaOperazioniPerIdOggetto&amp;idOggetto=${orgId}&amp;searchcodetipo_selezionato=6', '', 'WIDTH=700,HEIGHT=425,RESIZABLE=yes,SCROLLBARS=yes,STATUS=0,LEFT=350,TOP=212,screenX=350,screenY=212')"/> 
+    </submenu>
+<!--      <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="abusivismi-abusivismi-diffida-view"/> -->
+<!--       <link value="AbusivismiDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+   
+  </container>
+  
+  <container name="operatoriprivati">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Operatoriprivati.do?command=Details&amp;altId=${altId}"/>
+    </submenu>
+   
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="operatoriprivati-operatoriprivati-vigilanza-add"/>
+      <link value="OperatoriprivatiVigilanza.do?command=Add&amp;altId=${altId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="operatoriprivati-operatoriprivati-vigilanza-view"/>
+      <link value="Operatoriprivati.do?command=ViewVigilanza&amp;altId=${altId}"/>
+    </submenu>
+ 
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;altId=${altId}&amp;op=operatoriprivati"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;altId=${altId}&amp;op=operatoriprivati"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_AltriOperatori.do?command=ListaDocumenti&amp;altId=${altId}&amp;op=operatoriprivati" />
+		</submenu>
+<!--   <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="operatoriprivati-operatoriprivati-diffida-view"/> -->
+<!--       <link value="OperatoriprivatiDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+ 
+  </container>
+  
+   
+  
+  <container name="distributori">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Distributori.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="distributori-distributori-vigilanza-view"/>
+      <link value="DistributoriVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+      
+    </submenu>
+   
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="distributori-distributori-vigilanza-view"/>
+      <link value="Distributori.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}"/>
+    </submenu>
+    
+ 
+  </container>
+  
+  
+  
+  
+  
+    <!-- Submenu used in the Trasporto Animali module -->
+  <container name="trasportoanimali">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="TrasportoAnimali.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+  
+     <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=trasportoanimali"/>
+    </submenu>
+    
+       <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="trasporti-trasporti-vigilanza-add"/>
+      <link value="TrasportiVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="trasporti-trasporti-vigilanza-view"/>
+      <link value="TrasportoAnimali.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=trasportoanimali"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_TrasportoAnimali.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=trasportoanimali" />
+		</submenu>
+<!-- 		 <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="trasporti-trasporti-diffida-view"/> -->
+<!--       <link value="TrasportoAnimaliDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  </container>
+  
+  
+  <!-- //////////////// -->
+      <container name="accountssoa">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber} - ${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Soa.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="soa-soa-vigilanza-add"/>
+      <link value="SoaVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="soa-soa-vigilanza-view"/>
+      <link value="Soa.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="documents">
+      <long_html value="Documents"/>
+      <permission value="soa-soa-documents-view"/>
+      <link value="SoaDocuments.do?command=View&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="cessazionevariazione">
+      <long_html value="Cessazione/Variazione Attività"/>
+      <permission value="soa-soa-cessazionevariazione-view"/>
+      <link value="Soa.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+    </submenu>
+  </container>
+  
+  <container name="soa">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Soa.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+   
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="soa-soa-vigilanza-add"/>
+      <link value="SoaVigilanza.do?command=Add&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="soa-soa-vigilanza-view"/>
+      <link value="Soa.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="campioniprenotati">
+      <long_html value="Campioni Prenotati"/>
+      <permission value="accounts-accounts-campioniprenotati-view"/>
+      <link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=soa"/>
+    </submenu>
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}&amp;op=soa"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_SOA.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=soa" />
+		</submenu>
+    
+    <submenu name="merce_in_out">
+    	<long_html value="Merce in Ingresso/Uscita" />
+    	<permission value="soa-soa-merce_in_out-view" />
+    	<link value="SoaMerceInOut.do?command=List&amp;orgId=${orgId}" />
+    </submenu>
+    <submenu name="diario_macellazione">
+      <long_html value="Diario di Macellazione"/>
+      <permission value="soa-soa-diario-view"/>
+      <link value="SoaDiarioMacellazione.do?command=List&amp;orgId=${orgId}"/>
+    </submenu>
+       <submenu name="cessazionevariazione">
+      <long_html value="Volture"/>
+      <permission value="soa-soa-cessazionevariazione-view"/>
+      <link value="Soa.do?command=ViewCessazionevariazione&amp;orgId=${orgId}"/>
+     
+    </submenu>
+	
+    <submenu name="macellazioni">
+      <long_html value="Macellazioni"/>
+      <permission value="soa-soa-macellazioni-view"/>
+      <link value="Macellazioni.do?command=List&amp;orgId=${orgId}"/>
+    </submenu>
+<!--      <submenu name="Elenco Diffide"> -->
+<!--       <long_html value="Elenco Diffide"/> -->
+<!--       <permission value="so-soa-diffida-view"/> -->
+<!--       <link value="SoaDiffida.do?command=ViewDiffideOsa&amp;orgId=${orgId}"/> -->
+<!--     </submenu> -->
+  </container>
+  
+     
+    <container name="soasequestri">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="SoaSequestri.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+   <container name="accountscontactssoa">
+    <properties>
+      <icon>images/icons/stock_bcard-16.gif</icon>
+      <label>${nameFull}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value="soa-soa-contacts-view"/>
+      <link value="ContactsSoa.do?command=Details&amp;id=${id}"/>
+    </submenu>
+    
+   
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="soa-soa-contacts-documents-view"/>
+      <link value="AccountsContactsDocumentsSoa.do?command=View&amp;contactId=${id}"/>
+    </submenu>
+  </container>
+  
+    
+  
+   <container name="soacessazionevariazione">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="SoaCessazionevariazione.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="soa-soa-cessazionevariazione-documents-view"/>
+      <link value="SoaCessazionevariazioneDocuments.do?command=View&amp;tId=${id}"/>
+    </submenu>
+  </container>
+
+   <container name="soanonconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="SoaNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  <container name="osmnonconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="osmregistratiNonconformita">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmRegistratiNonConformita.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="osmreati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmReati.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+    <container name="osmregistratiReati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmRegistratiReati.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    
+  </container>
+  
+  <container name="soareati">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="SoaReati.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+   <container name="soatamponi">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="SoaTamponi.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+   
+  </container>
+  
+  <container name="osmtamponi">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmTamponi.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+  <container name="osmregistratiTamponi">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="OsmRegistratiTamponi.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+   <container name="soacampioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="SoaCampioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+    
+  </container>
+
+  <container name="soasanzioni">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="SoaSanzioni.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  
+  </container>
+  
+ 
+  
+    <container name="esercentifuoriregione">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="EsercentiFuoriRegione.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+
+
+
+
+  </container>
+  
+  
+   <container name="rappresentantelegalestabilimento">
+    <properties>
+      <icon>images/icons/stock_macro-organizer-16.gif</icon>
+      <label># ${paddedId}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AccountRappresentanteLegale.do?command=TicketDetails&amp;id=${id}"/>
+    </submenu>
+  </container>
+  
+  
+  <container name="operatori_mercati_ittici">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="Stabilimenti.do?command=DetailsOperatoriMercatiIttici&amp;orgId=${orgId}"/>
+    </submenu>
+    
+    <submenu name="history">
+      <long_html value="Storico"/>
+      <permission value="stabilimenti-stabilimenti-history-view"/>
+      <link value="Stabilimenti.do?command=ListaStoricoModifiche&amp;orgId=${orgId}"/>
+    </submenu> 
+        
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="stabilimenti-stabilimenti-vigilanza-view"/>
+      <link value="Stabilimenti.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+   
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}"/>
+    </submenu>
+    
+  
+        
+  </container>
+  
+   <container name="banchinaturali">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${ragioneSociale}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="AcqueClassificate.do?command=Home&amp;orgId=${orgId}"/>
+    </submenu>
+      
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="accounts-accounts-vigilanza-view"/>
+      <link value="BanchiVigilanza.do?command=ViewVigilanza&amp;orgId=${orgId}"/>
+    </submenu>
+  
+    <submenu name="documents">
+      <long_html value="Documenti"/>
+      <permission value="documentale_documents-view"/>
+      <link value="GestioneAllegatiUpload.do?command=ListaAllegati&amp;orgId=${orgId}"/>
+    </submenu>
+    </container>
+  
+    <container name="canipadronali">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber}  ${name}</label>
+    </properties>
+	
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="canipadronali-vigilanza-view"/>
+      <link value="CaniPadronaliVigilanza.do?command=SearchVigilanza&amp;searchidControllo=&amp;searchdataControllo=&amp;searchmicrochip="/>
+    </submenu>
+    
+    <submenu name="campioniprenotati">
+      	<long_html value="Campioni Prenotati"/>
+      	<permission value="accounts-accounts-campioniprenotati-view"/>
+      	<link value="Campioni.do?command=ViewElencoCampioniPrenotati&amp;orgId=${orgId}&amp;op=canipadronali"/>
+    </submenu>
+      <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti.do?command=ListaDocumenti&amp;orgId=${orgId}&amp;op=canipadronali" />
+		</submenu>
+		
+			 <submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=canipadronali" />
+	</submenu>
+	
+	 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${orgId}&amp;riferimentoIdNomeTab=organization&amp;op=canipadronali')" />
+	</submenu>
+	
+  </container>
+  
+  <container name="canilicampioni">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber}  ${name}</label>
+    </properties>
+	
+    
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="canili-vigilanza-add"/>
+      <link value="CaniliVigilanza.do?command=Add&amp;idCampione=${idCampione}"/>
+    </submenu>
+    
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="canili-vigilanza-view"/>
+      <link value="Canili.do?command=ViewVigilanza&amp;idCampione=${idCampione}"/>
+    </submenu>
+ 
+    <submenu name="valutazione">
+      <long_html value="Valutazione Comportamentale e Benessere animale"/>
+      <permission value=""/>
+      <link value="IuvValutazioneComportamentale.do?command=ToViewValutazione&amp;idCampione=${idCampione}"/>
+    </submenu>
+    
+  </container>
+  
+  <container name="canipadronalicampioni">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber}  ${name}</label>
+    </properties>
+	
+     <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="canipadronali-vigilanza-view"/>
+      <link value="CaniPadronaliVigilanza.do?command=SearchVigilanza&amp;searchidControllo=&amp;searchdataControllo=&amp;searchmicrochip="/>
+    </submenu>
+
+    <submenu name="valutazione">
+      <long_html value="Valutazione Comportamentale e Benessere animale"/>
+      <permission value=""/>
+      <link value="IuvValutazioneComportamentale.do?command=ToViewValutazione&amp;idCampione=${idCampione}"/>
+    </submenu>
+    
+  </container>
+  
+  
+  <container name="valutazionemacroarea">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${accountNumber}  ${name}</label>
+    </properties>
+	
+    <submenu name="campione">
+      <long_html value="torna al campione"/>
+      <permission value=""/>
+      <link value="IuvValutazioneComportamentale.do?command=ToViewCampione&amp;idCampione=${idCampione}"/>
+    </submenu>
+    
+  </container>
+  
+  <!-- ANAGRAFICA -->
+    <container name="anagrafica">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${ragioneSociale}</label>
+    </properties>
+       
+       <submenu name="operatore">
+      <long_html value="Scheda Operatore"/>
+      <permission value="canipadronali-vigilanza-view"/>
+      <link value="OperatoreAction.do?command=Details&amp;opId=${idOp}"/>
+    </submenu>
+    
+     <submenu name="raggruppamenti">
+      <long_html value="Visualizza Vecchi Operatori"/>
+      <permission value="canipadronali-vigilanza-view"/>
+      <link value="javascript:window.open('OperatoreAction.do?command=ViewRaggroppamenti&amp;opId=${idOp}', '', 'WIDTH=700,HEIGHT=425,RESIZABLE=yes,SCROLLBARS=yes,STATUS=0,LEFT=350,TOP=212,screenX=350,screenY=212')"/>
+    </submenu>
+    
+    
+    
+     
+    
+  </container>
+  
+  
+      <container name="anagraficaaimpresadd">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>AGGIUNGI DATI IMPRESA</label>
+    </properties>
+       
+     
+    
+    
+    
+    
+     
+    
+  </container>
+  
+      <container name="soggetto">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${cognome} ${nome}</label>
+    </properties>
+  </container>
+  
+  
+  <container name="sede">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${cap}</label>
+    </properties>
+  </container>
+  
+  <container name="opu">
+     <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      
+      <label>${operatore}.${ragioneSociale} - ${numero_registrazione}</label>
+     </properties>
+    <submenu name="details">
+      <long_html value="Anagrafica Impresa"/>
+      <permission value="opu-view"/>
+     <link value="OpuStab.do?command=Details&amp;stabId=${stabId}"/>
+    </submenu>
+   
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="opu-vigilanza-view"/>
+      <link value="OpuStab.do?command=ViewVigilanza&amp;stabId=${stabId}"/>
+    </submenu>
+    
+    
+     <submenu name="variazioneslimpresa">
+      <long_html value="Variazione Sede Legale"/>
+      <permission value="opu-edit"/>
+      <link value="OpuStab.do?command=ModifyImpresa&amp;tipoVariazione=1&amp;stabId=${stabId}"/>
+     
+    </submenu>
+    
+      <submenu name="variazionesfimpresa">
+      <long_html value="Variazione Soggetto Fisico"/>
+      <permission value="opu-edit"/>
+       <link value="OpuStab.do?command=ModifyImpresa&amp;tipoVariazione=2&amp;stabId=${stabId}"/>
+     
+    </submenu>
+    
+      <submenu name="variazioneLineeProuttive">
+      <long_html value="Variazione Linee Attivita"/>
+      <permission value="opu-edit"/>
+       <link value="OpuStab.do?command=ModifyLineaProduttiva&amp;popup=true&amp;tipoSelezione=multipla&amp;stabId=${stabId}"/>
+     
+    </submenu>   	
+     	
+   
+   
+ 
+    
+    
+  </container>
+  
+   <!-- ANAGRAFICA -->
+    <container name="anagrafica">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${ragioneSociale}</label>
+    </properties>
+       
+       <submenu name="operatore">
+      <long_html value="Scheda Impresa"/>
+      <permission value="canipadronali-vigilanza-view"/>
+      <link value="OperatoreAction.do?command=Details&amp;stabId=${stabId}"/>
+    </submenu>
+        <submenu name="dia">
+      <long_html value="Dia"/>
+      <permission value="accounts-accounts-cessazionevariazione-view"/>
+      <link value="OperatoreAction.do?command=ViewDia&amp;stabId=${stabId}"/>
+     
+    </submenu>
+         <submenu name="volture">
+      <long_html value="Richieste Approvazione Volture"/>
+      <permission value="accounts-accounts-cessazionevariazione-view"/>
+      <link value="OpuCessazionevariazione.do?command=ViewCessazionevariazioneRichieste&amp;stabId=${stabId}"/>
+     
+    </submenu>
+    
+     <submenu name="raggruppamenti">
+      <long_html value="Visualizza Vecchi Operatori"/>
+      <permission value="accounts-accounts-cessazionevariazione-view"/>
+      <link value="javascript:location.reload();window.open('OperatoreAction.do?command=ViewRaggroppamenti&amp;stabId=${stabId}', '', 'WIDTH=700,HEIGHT=425,RESIZABLE=yes,SCROLLBARS=yes,STATUS=0,LEFT=350,TOP=212,screenX=350,screenY=212')"/>
+    </submenu>
+    
+    
+  </container>
+  
+      <container name="soggetto">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${cognome} ${nome}</label>
+    </properties>
+  </container>
+  
+   <container name="registrotrasgressori">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>Registro trasgressori</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Scheda"/>
+      <permission value=""/>
+      <link value="RegistroTrasgressori.do"/>
+    </submenu>
+    <submenu name="Documenti PDF">
+			<long_html value="Documenti PDF" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_RegistroTrasgressori.do?command=ListaDocumentiTrasgressori&amp;op=registrotrasgressori" />
+		</submenu>
+    
+    
+  </container>
+  
+     <container name="inviocuba">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>Invio CU BA</label>
+    </properties>
+    <submenu name="Invia">
+      <long_html value="Invia"/>
+      <permission value=""/>
+      <link value="Allevamenti.do?command=FilterImportBa"/>
+    </submenu>
+    <submenu name="Report Invii BA">
+			<long_html value="Report Invii BA" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_Allevamenti.do?command=ListaDocumentiInvioCUBA&amp;op=inviocuba" />
+		</submenu>
+      <submenu name="Report Invii B11">
+			<long_html value="Report Invii B11" />
+			<permission value="server_documentale-view" />
+			<link
+				value="GestioneDocumenti_Allevamenti.do?command=ListaDocumentiInvioCUB11&amp;op=inviocuba" />
+		</submenu>
+    
+  </container>
+  
+  <container name="sintesis">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${ragioneSociale}</label>
+    </properties>
+    
+      <submenu name="Scheda">
+      <long_html value="Scheda"/>
+  <permission value=""/>
+      <link value="StabilimentoSintesisAction.do?command=Details&amp;altId=${altId}"/>
+    </submenu>   
+    
+     <submenu name="Storico">
+      <long_html value="Storico"/>
+      <permission value="sintesis-storico-view"/>
+      <link value="StabilimentoSintesisAction.do?command=StoricoStabilimento&amp;altId=${altId}"/>
+    </submenu>  
+    
+     <submenu name="vigilanzaadd">
+      <long_html value="Aggiungi Controllo Ufficiale"/>
+      <permission value="sintesis-sintesis-vigilanza-add"/>
+      <link value="StabilimentoSintesisActionVigilanza.do?command=Add&amp;altId=${altId}"/>
+    </submenu>
+    
+    <submenu name="vigilanza">
+      <long_html value="Controlli Ufficiali"/>
+      <permission value="sintesis-sintesis-vigilanza-view"/>
+      <link value="StabilimentoSintesisAction.do?command=ViewVigilanza&amp;altId=${altId}"/>
+    </submenu>
+  
+<!--        <submenu name="Elenco Stabilimenti"> -->
+<!--       <long_html value="Elenco Stabilimenti"/> -->
+<!--       <permission value="sintesis-view"/> -->
+<!--       <link value="StabilimentoSintesisAction.do?command=ListaStabilimenti"/> -->
+<!--     </submenu>    -->
+
+<submenu name="Gestione Richieste Errata Corrige">
+	 <long_html value="Gestione Richieste Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="GestioneRichiesteErrataCorrige.do?command=GestioneRichiesteErrataCorrige&amp;riferimentoId=${altId}&amp;riferimentoIdNomeTab=sintesis_stabilimento&amp;op=sintesis" />
+	</submenu>
+	
+		 <submenu name="Aggiungi Richiesta Errata Corrige">
+	 <long_html value="Aggiungi Richiesta Errata Corrige" />
+	 <permission value="richieste_errata_corrige-view" />
+	<link value="javascript:openNewErrataCorrige('GestioneRichiesteErrataCorrige.do?command=NuovaRichiestaErrataCorrige&amp;riferimentoId=${altId}&amp;riferimentoIdNomeTab=sintesis_stabilimento&amp;op=sintesis')" />
+	</submenu>
+     
+    </container>
+  
+</application>

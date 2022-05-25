@@ -1,0 +1,383 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+
+<!-- ATTENDERE PREGO -->
+<script src="../javascript/jquery-1.8.2.js"></script>
+<script src="../javascript/jquery-ui.js"></script>
+<script src='../javascript/modalWindow.js'></script>
+<link rel="stylesheet" type="text/css" href="../css/modalWindow.css"></link>
+<DIV ID='modalWindow' CLASS='unlocked'><P CLASS='wait'>Attendere il completamento dell'operazione...</P></DIV>
+
+<script type="text/javascript">
+		loadModalWindowCustom('<div style="color:red; font-size: 40px;">Attendere il caricamento... </div>');
+		
+		$(document).ready(function() {
+		      // Initialize Smart Wizard
+		      opener.loadModalWindow();
+		      
+		      loadModalWindowUnlock();
+		  }); 
+</script>
+<!-- FINE ATTENDERE PREGO -->
+
+
+
+<!-- calcola CAP widget DV2018 -->
+
+<meta charset="utf-8" />
+<html>
+<link rel="stylesheet" href="js/awesomplete.css" />
+
+<script src="js/awesomplete.js"></script>
+    
+<style>
+button  {
+  font-family: Helvetica;
+  font-weight:bold;
+  border-radius:4px;
+  width:300px;
+  padding:.35em ;
+  color:#444;
+  border:1px solid #dc8;
+  background-color:#faF6E0;
+}  
+
+input[type="text"] {
+ 	font-family: Helvetica;
+	background: transparent;
+    color:#444;
+    width:300px;
+	text-transform:uppercase
+}
+
+</style>
+
+<body bgcolor='#ffffe6'>
+<form id='frmAddr'>
+
+<input type="text" id="comuni" placeholder="Comune" required  autofocus /><br/>
+<input type="text" id="napoli"  style="visibility:hidden; " placeholder="Strade del Comune di Napoli" /><br/>
+ <input type="text" id="top"  placeholder="DUG (VIA, PIAZZA, ...)" required /><br/>
+ <input type="text" id="via" placeholder="DUF (GARIBALDI, MAZZINI, ... )"  required /><br/>
+ <input type="text" id="civ" placeholder="Civico"  required /><br/>
+<input type="text" id='cap'  placeholder="CAP" required readonly /><br/>
+<button type="submit" > Prosegui </button> <br/>
+<button type="button" id="btnReset"> Reset </button> <br/>
+Per approfondimenti sul DUG e DUF consultare il capitolo 34 del documento scaricabile <a target="_new" href="note_stradario.pdf">qui</a>
+</form>
+
+</body style="bakcground-color:'#eee';">
+</html>
+
+<!-- Parametro versione serve solo per far scaricare la versione nuova al client -->
+<script src="js/napoli.js?versione=5"></script>
+<script src="js/comuni2.js?versione=1"></script>
+<script src="js/topon.js?versione=1"></script>
+
+<script>
+
+let urlParamsInput = new URLSearchParams(window.location.search);
+var aslInput = urlParamsInput.get('asl');
+var aslExcludeInput = urlParamsInput.get('aslExclude');
+aslInput = convertAsl(aslInput);
+aslExcludeInput = convertAsl(aslExcludeInput);
+
+"use strict";
+
+//-- call-back interface data
+
+let addrAll = {
+    comune: "",
+    top: "",
+    via: "",
+    civ: "",
+    cap: "",
+    prov: "",
+    asl: ""
+}
+
+
+//--- general event managers
+window.onunload = function (e) {
+	let urlParams = new URLSearchParams(window.location.search);
+	let callback = urlParams.get('callbackName');
+	
+	try {
+		opener.wrapper(callback,addrAll); 
+	} catch(error) {
+		alert(error);
+	}
+};
+
+var listaComuni;
+
+function init(){
+
+    document.getElementById('frmAddr').reset();
+	document.getElementById('comuni').readOnly = false;
+	document.getElementById('top').readOnly = false;
+
+	setTimeout("document.getElementById('comuni').focus();", 200);  
+	let urlParams = new URLSearchParams(window.location.search);
+	let comune = urlParams.get('comune').toUpperCase();
+	addrAll.comune=comune;
+	var regione = urlParams.get('regione');
+	var asl = urlParams.get('asl');
+	var aslExclude = urlParams.get('aslExclude');
+	
+	asl = convertAsl(asl);
+	aslExclude = convertAsl(aslExclude);
+	
+	listaComuni= listaComuniAll;
+	
+	if(regione == "CAMPANIA")
+	{
+		listaComuni= listaComuniAll.filter(filterCamp);
+	}
+	else if(regione == "FUORI REGIONE")
+	{
+		listaComuni= listaComuniAll.filter(filterFuoriRegione);
+	}
+	
+	
+	//Filtro asl da non applicare se passo il comune perchè tanto sarà bloccato lo stesso sul comune
+	if (comune=='') 
+	{
+		listaComuni= (asl != "") ? listaComuni.filter(filterAsl) : listaComuni; 
+		listaComuni= (aslExclude != "") ? listaComuni.filter(filterExcludeAsl) : listaComuni; 
+	}
+	
+	var comuni = document.getElementById("comuni");
+	new Awesomplete(comuni, { list: listaComuni});
+	
+	var toponmi = document.getElementById("top");
+	new Awesomplete(toponmi, { list: listaToponimiAll});
+	
+	var napoli = document.getElementById("napoli");
+	new Awesomplete(napoli, { list: stradeNapoli});
+	
+	if (comune.length) {
+		document.getElementById('comuni').value=getFullVal(listaComuni, comune);
+		document.getElementById('comuni').readOnly=true
+		if (comune == 'NAPOLI') {
+			setTimeout(comuneNapoli, 100);
+		} else {
+			var v=getFullVal(listaComuni, comune);
+			
+			var ar=v.split('|');
+			document.getElementById('cap').value=ar[1];
+			addrAll.prov=ar[2].toUpperCase();		
+		}
+	}
+	
+}
+
+
+function clear()
+{
+	let urlParams = new URLSearchParams(window.location.search);
+	let comune = urlParams.get('comune').toUpperCase();
+	
+	if (comune.length==0) 
+	{		
+			document.getElementById('comuni').value='';
+			document.getElementById('comuni').readOnly=false;
+			document.getElementById('cap').value='';
+	}
+	
+	document.getElementById('napoli').value='';
+	document.getElementById('napoli').readOnly=false;
+	document.getElementById('top').readOnly=false;
+	document.getElementById('top').value='';
+	document.getElementById('via').value='';
+	document.getElementById('via').readOnly=false;
+	document.getElementById('civ').value='';
+}
+
+window.onload=init;
+
+//--- general event helper functions
+
+document.getElementById('frmAddr').addEventListener('submit', function () {
+	// fill return data oject with gui vals
+
+    var ar=document.getElementById('comuni').value.split('|');
+    addrAll.comune=ar[0].toUpperCase();  
+	addrAll.prov=ar[2].toUpperCase();	
+    addrAll.top=document.getElementById('top').value;
+    addrAll.via=document.getElementById('via').value.trim();
+    addrAll.civ=document.getElementById('civ').value.trim();
+    addrAll.cap=document.getElementById('cap').value;
+    addrAll.asl=ar[3];
+    
+    self.close();
+    return false;
+});
+
+document.getElementById('btnReset').addEventListener('click', clear);
+
+//--- awesomplete event managers
+
+document.getElementById('comuni').addEventListener('awesomplete-selectcomplete',function(){
+  //manageComuni(this.value); 
+  manageComuni(this.value); 
+});  
+
+document.getElementById('comuni').addEventListener('blur',function(){
+  //manageComuni(this.value); 
+	if(listaComuni.indexOf(this.value) == -1) {
+		this.value='';
+		this.focus();
+	}  
+});  
+
+document.getElementById('napoli').addEventListener('blur',function(){
+	  //manageComuni(this.value);
+		if(stradeNapoli.indexOf(this.value) == -1) {
+			this.value='';
+			this.focus();
+		}  
+		else
+		{
+			document.getElementById('napoli').readOnly =true;	
+		}
+	});
+	
+document.getElementById('top').addEventListener('blur',function(){
+		if(listaToponimiAll.indexOf(this.value) == -1) {
+			this.value='';
+			this.focus();
+		}  
+		else
+		{
+			document.getElementById('top').readOnly =true;	
+		}
+	});
+
+document.getElementById('napoli').addEventListener('awesomplete-selectcomplete',function(){
+  manageNapoli(this.value); 
+}); 
+
+document.getElementById('top').addEventListener('awesomplete-selectcomplete',function(){
+		document.getElementById('via').focus();
+	}); 
+
+
+//---- awesomplete event helper functions
+
+function manageComuni(v) {
+
+    var ar=v.split('|');
+    var comune=ar[0].toUpperCase();
+
+    if (comune == 'NAPOLI') {
+		comuneNapoli() 
+    }  else {
+        document.getElementById('top').focus();
+        document.getElementById('napoli').style.visibility='hidden';
+        document.getElementById('napoli').required=false;
+        document.getElementById('via').readOnly =false;
+        document.getElementById('top').readOnly =false;
+        document.getElementById('cap').value=ar[1];
+    }  
+	
+	document.getElementById('comuni').readOnly =true;
+
+}
+
+function manageNapoli(v) {
+
+    var ar=v.split('|');
+
+    document.getElementById('cap').value=ar[2];
+    document.getElementById('top').readOnly =true;
+    document.getElementById('top').value =ar[1];
+    document.getElementById('via').readOnly =true;
+    document.getElementById('via').value =ar[0];
+    document.getElementById('civ').focus();
+    
+}
+
+//--- general functions 
+
+function comuneNapoli() {
+
+// gui setting for napoli
+
+		document.getElementById('napoli').style.visibility='visible';
+		document.getElementById('napoli').required=true;
+		document.getElementById('via').readOnly =true;
+		document.getElementById('top').readOnly =true;
+		document.getElementById('napoli').focus();
+}
+
+function getFullVal(lista, partialVal) {
+//return full element comune|cap|prov from listaCOmuni using comune
+	for (var index = 0; index < lista.length; index++) {
+		var res = lista[index].split("|");
+		if (res[0].localeCompare(partialVal)==0) {
+			return lista[index];
+		}
+	}
+	
+	for (var index = 0; index < lista.length; index++) {
+		if (lista[index].indexOf(partialVal) == 0) 
+			return lista[index];
+	}
+	return '';
+}
+
+function filterCamp(v) {
+// array filter for Campania 
+	
+	var ar=v.split('|');
+	return (ar[2]=='NA' || ar[2]=='AV' || ar[2]=='BN' || ar[2]=='CE' || ar[2]=='SA' ) ;		 
+	
+}
+
+function filterFuoriRegione(v) {
+	// array filter for Fuori Regione
+		
+		var ar=v.split('|');
+		return (ar[2]!='NA' && ar[2]!='AV' && ar[2]!='BN' && ar[2]!='CE' && ar[2]!='SA' ) ;		 
+		
+	}
+
+function filterAsl(v) {
+		
+		var ar=v.split('|');
+		return (ar[3]==aslInput ) ;		 
+		
+	}
+	
+function filterExcludeAsl(v) {
+		
+		var ar=v.split('|');
+		return (ar[3]!=aslExcludeInput ) ;		 
+		
+	}
+	
+	
+	function convertAsl(asl)
+	{
+		var siglaAsl = "";
+		switch (asl) 
+		{
+			case '201': siglaAsl = "AV"; break;
+			case '202': siglaAsl = "BN"; break;
+			case '203': siglaAsl = "CE"; break;
+			case '204': siglaAsl = "NA1C"; break;
+			case '205': siglaAsl = "NA2N"; break;
+			case '206': siglaAsl = "NA3S"; break;
+			case '207': siglaAsl = "SA"; break;
+		}
+		return siglaAsl;
+	}
+
+</script>

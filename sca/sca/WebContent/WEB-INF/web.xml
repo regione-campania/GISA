@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+  <display-name>sca</display-name>
+  <context-param>
+    <param-name>tempfile.dir</param-name>
+    <param-value>gucimportutenti</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>Dispatcher</servlet-name>
+    <servlet-class>it.us.web.servlet.Dispatcher</servlet-class>
+  </servlet>
+  
+  <servlet>
+      <servlet-name>CronScheduler</servlet-name>
+      <servlet-class>it.us.web.servlet.CronSchedulerServlet</servlet-class>
+      <load-on-startup>5</load-on-startup>
+ </servlet>
+  
+  <servlet>
+  	<description>
+  	Bootstrap Servlet</description>
+  	<display-name>
+  	Bootstrap</display-name>
+  	<servlet-name>Bootstrap</servlet-name>
+  	<servlet-class>it.us.web.servlet.Bootstrap</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Dispatcher</servlet-name>
+    <url-pattern>*.us</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+    <!-- crypt/decrypt servlet -->
+  <servlet>
+  	<servlet-name>cryptdecrypt</servlet-name>
+  	<servlet-class>crypto.nuova.gestione.SCAAesServlet</servlet-class>
+  </servlet>
+    
+    
+    
+  <servlet-mapping>
+  	<servlet-name>cryptdecrypt</servlet-name>
+  	<url-pattern>/aesservlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+   <servlet-mapping>
+  	<servlet-name>CronScheduler</servlet-name>
+  	<url-pattern>/CronScheduler</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Bootstrap</servlet-name>
+  	<url-pattern>/Bootstrap</url-pattern>
+  </servlet-mapping>
+  
+  <session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>
+  
+  <listener>
+  	<listener-class>it.us.web.tiles.Listener</listener-class>
+  </listener>
+    <listener>
+    <listener-class>it.us.web.listener.SessionListener</listener-class>
+  </listener>
+   <listener>
+  	<listener-class>it.us.web.listener.FileLocationContextListener</listener-class>
+  </listener>
+  <welcome-file-list>
+  	<welcome-file>indexSca.jsp</welcome-file>
+  </welcome-file-list>
+  
+</web-app>

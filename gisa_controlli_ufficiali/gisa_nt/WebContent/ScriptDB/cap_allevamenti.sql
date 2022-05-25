@@ -1,0 +1,4 @@
+alter table comuni1 add column reverse_cap text;
+update comuni1 set reverse_cap = cap;
+update comuni1 set reverse_cap = '80121,80123,80134,80132,80137,80143,80128,80144,80131,80146,80127,80129,80147,80122,80125,80126,80145,80138,80141,80139,80142,80133,80135,80136,80124' where id = 5279;
+

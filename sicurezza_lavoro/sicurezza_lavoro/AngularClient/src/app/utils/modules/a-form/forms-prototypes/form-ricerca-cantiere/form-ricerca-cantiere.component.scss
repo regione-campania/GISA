@@ -1,0 +1,10 @@
+/* #aggiungi-impresa {
+    display: block;
+    height: 100%;
+    transition: .5s ease-in-out;
+    &:not(.visible) {
+        display: none;
+        height: 0;
+    }
+    h4 {display: none;}
+} */

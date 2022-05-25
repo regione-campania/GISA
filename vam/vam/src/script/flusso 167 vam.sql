@@ -1,0 +1,1 @@
+﻿insert into lookup_accettazione_attivita_esterna values(4,'Sospetto Peste Suina Africana',true,true)

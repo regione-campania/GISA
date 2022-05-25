@@ -1,0 +1,20 @@
+<dwr>
+    <allow>
+        <create creator="new" javascript="Test">
+            <param name="class" value="it.us.web.util.dwr.vam.accettazione.Test"/>
+        </create>
+        <create creator="new" javascript="TestBdr">
+            <param name="class" value="it.us.web.util.dwr.vam.bdr.Test"/>
+        </create>
+        <create creator="new" javascript="TestDimissioni">
+            <param name="class" value="it.us.web.util.dwr.vam.cc.dimissioni.Test"/>
+        </create>
+        <create creator="new" javascript="TestAutopsie">
+            <param name="class" value="it.us.web.util.dwr.vam.cc.autopsie.Test"/>
+        </create>
+        <filter class="it.us.web.util.dwr.SessionFilter"/>
+    	<convert converter="exception" match="org.directwebremoting.impl.LoginRequiredException" >
+     		<param name="include" value="message,lineNumber"/>
+    	</convert>
+    </allow>
+</dwr> 

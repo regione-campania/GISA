@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+ <!-- transip -->
+
+
+<Context>
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+<Manager pathname="" />
+
+
+<!-- RIFERIMENTO CONTEXT GUC - SCA UFFICIALE -->
+<ResourceLink global="jdbc/gisaS" name="jdbc/gisaS" type="javax.sql.DataSource"/> 
+<!-- <ResourceLink global="jdbc/gisRO" name="jdbc/gisaRO" type="javax.sql.DataSource"/> -->
+<ResourceLink global="jdbc/gisa_extS" name="jdbc/gisa_extS" type="javax.sql.DataSource"/>
+<!-- <ResourceLink global="jdbc/gisa_extRO" name="jdbc/gisa_extRO" type="javax.sql.DataSource"/> -->
+<ResourceLink global="jdbc/bduS" name="jdbc/bduS" type="javax.sql.DataSource"/> 
+<ResourceLink global="jdbc/storico" name="jdbc/storico" type="javax.sql.DataSource"/>
+<ResourceLink global="jdbc/importatori" name="jdbc/importatori" type="javax.sql.DataSource"/> 
+<ResourceLink global="jdbc/vamS" name="jdbc/vamS" type="javax.sql.DataSource"/> 
+<ResourceLink global="jdbc/guc" name="jdbc/guc" type="javax.sql.DataSource"/> 
+<ResourceLink global="jdbc/documentale" name="jdbc/documentale" type="javax.sql.DataSource"/> 
+
+<ResourceLink global="jdbc/digemon" name="jdbc/digemon" type="javax.sql.DataSource"/>
+<!-- FINE -->
+
+<!-- RIFERIMENTO CONTEXT GISA UFFICIALE -->
+<ResourceLink global="jdbc/gisaM" name="jdbc/gisaM" type="javax.sql.DataSource"/> 
+<ResourceLink global="jdbc/gisa_extM" name="jdbc/gisa_extM" type="javax.sql.DataSource"/>
+
+<ResourceLink global="jdbc/bduS" name="jdbc/bduS" type="javax.sql.DataSource"/> 
+<ResourceLink global="jdbc/storico" name="jdbc/storico" type="javax.sql.DataSource"/>
+<!-- FINE -->
+
+<!-- RIFERIMENTO CONTEXT BDU - VAM UFFICIALE -->
+<ResourceLink global="jdbc/bduM" name="jdbc/bduM" type="javax.sql.DataSource"/>
+<ResourceLink global="jdbc/vamM" name="jdbc/vamM" type="javax.sql.DataSource"/>
+<ResourceLink global="jdbc/importatori" name="jdbc/importatori" type="javax.sql.DataSource"/>
+<ResourceLink global="jdbc/gisaS" name="jdbc/gisaS" type="javax.sql.DataSource"/>
+<ResourceLink global="jdbc/storico" name="jdbc/storico" type="javax.sql.DataSource"/>
+<!-- FINE -->
+
+
+
+
+</Context>

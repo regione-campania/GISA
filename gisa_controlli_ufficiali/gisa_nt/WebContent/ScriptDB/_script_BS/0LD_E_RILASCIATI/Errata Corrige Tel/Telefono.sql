@@ -1,0 +1,1 @@
+alter table richieste_errata_corrige add column telefono text;

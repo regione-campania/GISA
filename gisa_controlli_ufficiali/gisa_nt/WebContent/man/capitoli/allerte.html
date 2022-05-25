@@ -1,0 +1,65 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="allerte_new"></a>
+<h3 id="allerte_new">Allerte</h3>
+
+Il presente modulo e' stato definito per permettere la gestione in ambito regionale del sistema di allerta, al fine di garantire la tutela della salute pubblica. Si possono riassumere vari casi per cui vengono create le allerte adottando le misure piu' opportune:</p>
+<ul>
+<li>segnalazioni in arrivo: allerta originati al di fuori della ASL, che riguardano alimenti non prodotti ma distribuiti nel territorio di competenza della ASL;</li>
+<li>segnalazioni in arrivo: allerta originati al di fuori della ASL, che riguardano alimenti prodotti nel territorio di competenza della ASL;</li>
+<li>segnalazioni in partenza dalla ASL: attivazione del sistema di allerta per riscontri di "frode tossica o di prodotti alimentari nocivi o pericolosi per la salute pubblica";</li>
+<li>segnalazioni in partenza dalla ASL: irregolarita' analitiche che, in base ai rilievi epidemiologici e/o alle informazioni disponibili, non costituiscono un pericolo per la salute pubblica.</li>
+</ul>
+<p style="text-align: justify;">Le segnalazioni possono pervenire alla Regione dal Ministero della Salute, da altre Regioni o da altre ASL. Possono riguardare un prodotto, confezionato da una ditta avente sede nel territorio di competenza della ASL, oppure che risulta essere stato distribuito nel territorio della ASL. In particolare, in GISA e' presente la possibilita' di creare una allerta e, a seconda delle ASL coinvolte, vengono stabiliti i controlli da effettuare.<br /><br /><br /><br /></p>
+<h3>Il sistema gestisce un flusso di attivazione allerte che puo' essere diviso in flusso seguito dalla Regione e flusso seguito dalla ASL:</h3>
+<p style="text-align: justify;"><b>La Regione:</b></p>
+<ul>
+<ul>
+<li>Riceve la segnalazione dell'allerta</li>
+- Scenario 1: da SIAN o veterinari ASL Regione- Scenario 2: da una ASL fuori regione- Scenario 3: dal Ministero- Scenario 4: dalla Comunita' europea
+<li>Il coordinatore regionale attiva l'allerta in GISA. La chiudera' in seguito a riscontro da parte delle ASL. La chiusura puo' essere "forzata" anche se non sono stati eseguiti i controlli richiesti.</li>
+<li>In seguito alla chiusura dell'allerta, potra' esser scaricato l'allegato F (modulo di riepilogo notizie relativo a tutte le ASL allertate)</li>
+</ul>
+</ul>
+<p style="text-align: justify;"><br /><b>La ASL:</b></p>
+<ul>
+<li>I servizi delle ASL sono allertati per il territorio di competenza o per le imprese che operano sul territorio dicompetenza delle ASL</li>
+<li>Il supervisore instrada e fa eseguire nell'organizzazione interna i controlli ufficiali pianificati dalla Regione fino al completamento previsto.</li>
+<li>chiude la lista di distribuzione per la propria ASL in caso di controlli completati.</li>
+<li>La chiusura fa in modo che possa essere scaricato anche l'allegato F (modulo di riepilogo notizie liste di distribuzione della propria ASL)</li>
+<li>Il sistema avvisera' il coordinatore regionale della chiusura.</li>
+</ul>
+<p style="text-align: justify;"></p>
+<h2>Inserimento allerta</h2>
+<p style="text-align: justify;">Aprendo la pagina del cavaliere "allerta" sia per l'utente Regione che per l'utente ASL, si visualizza subito l'elenco delle proprie allerte.<br /><br />Per la <b>Regione</b> si vedranno in alto i tasti: <br />visualizza - aggiungi - ricerca- storico annuale - visualizza tutte le allerte -<br /><br />Cliccando sul tasto "Aggiungi" e' possibile inserire una nuova allerta.<br /><br /><img src="./images/Allerta_1.png" width="650" height="350" align="BOTTOM" /><br clear="LEFT" />I campi che si dovranno compilare sono tra gli altri:</p>
+<ul>
+<li>La lista di distribuzione (per ogni allerta deve essere aperta una lista di distribuzione nella quale e' possibile selezionare l'Asl di riferimento e la relativa impresa/stabilimento)</li>
+<li>La tipologia di allerte (se in entrata o in uscita)</li>
+<li>La data di apertura (come campo obbligatorio)</li>
+<li>La notifica e il numero di notifica</li>
+<li>La matrice e le analisi (che si inseriscono facendo aprire un menu' ad albero e cliccando sul tasto "+" fino all'ultima fase di inserimento)</li>
+<li>Campi relativi all'oggetto della allerta (sono tutti campi obbligatori )</li>
+<li>Completato l'inserimento dei dati possiamo cliccare su "Inserisci" e visualizzare il dettaglio.</li>
+<li>La chiusura dell'allerta, fa in modo che possa essere scaricato anche l'allegato F (modulo di riepilogo notizie liste di distribuzione della propria ASL)</li>
+</ul>
+<p style="text-align: justify;"><br /><br />Solo la <b>Regione</b> potra' fare una "Ripianificazione" dei CU, assegnando nuovi controlli alle varie ASL, cliccando sul tasto <b>"RIPIANIFICA"</b>.<br /><img src="./images/Allerte_ripianifica.png" width="650" height="350" align="BOTTOM" /><br img="" src="images/Allerte_ripianifica.png" align="BOTTOM" width="500" height="250" border="0" clear="LEFT" /><br clear="LEFT" />In questo caso dovra' aprire una nuova lista di distribuzione ed assegnarla alla ASL di competenza.<img src="./images/Lista di distribuzione.png" width="650" height="350" align="BOTTOM" /><br img="" src="images/Lista di distribuzione.png" align="BOTTOM" width="500" height="250" border="0" clear="LEFT" /><br clear="LEFT" /><br />Per la <b>ASL</b> l'utente potra' visualizzare nell'elenco delle allerte, quelle che la Regione ha aperto per la propria competenza.<br /> Si vedranno in alto i tasti: "visualizza" - "ricerca"<br /><br /><img src="./images/Allerte_ASL.png" width="650" height="350" align="BOTTOM" /><br img="" src="images/Allerte_ASL.png" align="BOTTOM" width="500" height="250" border="0" clear="LEFT" /><br clear="LEFT" />Digitando su una allerta, i campi che si visualizzeranno, sono quelli compilati dall'utente regione:</p>
+<ul>
+<li>La lista di distribuzione (nella quale sono riepilogati i dati realtivi alla impresa da controllare, la data di inizio e chiusura allerte e una o piu' ASL coinvolte)<u> L'utente ASL deve andare nel cavaliere "anagrafica stabilimenti" per ricercare l'impresa segnalata che deve essere sottoposta a controllo ufficiale di tipo "sistema allarme rapido". </u> &gt; (nel cavaliere anagrafica stabilimenti bisogna ricercare l'impresa, cliccare sul tasto "aggiungi controllo ufficiale" , inserire come tecnica di controllo "ispezione semplice" , e selezionare nel "motivo attivita' " il "sistema allarme rapido")</li>
+</ul>
+<p style="text-align: justify;"><img src="./images/Isp semplice.png" width="650" height="350" align="BOTTOM" /><br img="" src="images/Isp semplice.png" align="BOTTOM" width="500" height="250" border="0" clear="LEFT" /><br clear="LEFT" /></p>
+<ul>
+<li>La scheda della lista di distribuzione (in questo campo sono segnalati i controlli aperti e che devono essere gestiti dalla ASL. Ogni controllo effettuato viene scalato dal numero di C.U. evidenziati fino a quando non saranno completati. "SOLO" in questo momento la lista potra' essere chiusa)</li>
+</ul>
+<p style="text-align: justify;"><img src="./images/Allerte_CU.png" width="650" height="350" align="BOTTOM" /><br img="" src="images/Allerte_CU.png" align="BOTTOM" width="500" height="250" border="0" clear="LEFT" /><br clear="LEFT" /></p>
+<ul>
+<li>La chiusura dell'allerta, fa in modo che possa essere scaricato anche l'allegato F (modulo di riepilogo notizie liste di distribuzione della propria ASL).</li>
+</ul>
+<p style="text-align: justify;"><img src="./images/All_F.png" width="650" height="350" align="BOTTOM" /><br img="" src="images/All_F.png" align="BOTTOM" width="500" height="250" border="0" clear="LEFT" /><br clear="LEFT" /><br />La <b>ASL</b> puo' fare una particolare ripianificazione dell'allerte: puo' utilizzare il tasto "Modifica" sulla Allerte ancora aperte e cliccare sul tasto <b>"MODIFICA CU"</b>Si aprira' una nuova pagine nella quale sara' possibile variare solo il numero di Controlli Ufficiali che erano stati assegnati.<br /><br /><img src="./images/Modifica.png" width="650" height="350" align="BOTTOM" /><br img="" src="images/Modifica.png" align="BOTTOM" width="500" height="250" border="0" clear="LEFT" /><br clear="LEFT" /><br /><br /><br /><a name="buffer"></a></p>
+
+

@@ -1,0 +1,591 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+
+input { 
+    text-align: right; 
+}
+
+div.tooltip {
+        overflow: auto;
+        position: absolute;
+        text-align: center;
+        /*width: 100px;					
+        height: 40px;*/
+        padding: 2px;
+        id: tooltip;
+        font: 12px sans-serif;
+        background: lightsteelblue;
+        border: 0px;
+        border-radius: 8px;
+        pointer-events: none;
+		z-index: 100
+    }
+
+.bigText {
+    height:30px;
+}
+
+.node_s rect {
+  cursor: pointer;
+  fill: #fff;
+  fill-opacity: 0.5;
+  stroke: #3182bd;
+  stroke-width: 1.5px;
+}
+
+.node_s text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+input.input-box { 
+	background: #E8E8E8	; 
+	  pointer-events: none;
+	  font-size:11px;
+	-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+}
+
+
+.link {
+  fill: none;
+  opacity: 0;
+  stroke: #9ecae1;
+  stroke-width: 1.5px;
+}
+	
+body {
+	overflow-x: auto;
+}
+
+.mod4 {
+	padding:2px;
+    border: 1px solid lightgray;
+	position: fixed;
+	float: top;
+	left: 540px;
+	top:45px;
+	margin-right: 5px;
+	margin-top : 10px;
+	width: 800px;	
+	overflow-y: auto;
+	overflow-x: auto;
+}
+
+
+</style>
+
+
+<body onbeforeunload="return myFunction()">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<script src="../js/sidebar.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/sidebar.css"/>
+<span style="font-size:20px;cursor:pointer" class="menu" onclick="openNav()">&#9776; Menu</span>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a id="matrixRef" href="../tree.php">Matrix</a>
+  <a id="modRef" href="index.html">Modello 4</a>
+</div>
+<div style="margin-left: 100px;"> INSERIMENTO CARICHI DI LAVORO 2022 </div>
+
+<button onclick="window.open('video/', '_blank', 'location=yes,height=600,width=800,scrollbars=yes,status=yes');"
+	 style="position: absolute; right: 0; z-index:999; margin-right: 90px; ">Guida</button>
+<button onclick="sheet()" style="position: absolute; right: 0; z-index:999; margin-right: 20px; ">Esporta</button> 
+<div id="lockdiv" style="opacity: 0; margin-right: 150px; float: right;">
+	<button onclick="blocca(1)" style="z-index:999; ">Blocca</button> 
+	<button onclick="blocca(0)" style="z-index:999; ">Sblocca</button> 
+
+	<select id="lock" style=" z-index:999;">
+		<option id="s201" value="201">Av</option>
+		<option id="s202" value="202">Bn</option>
+		<option id="s203" value="203">Ce</option>
+		<option id="s204" value="204">Na1</option>
+		<option id="s205" value="205">Na2</option>
+		<option id="s206" value="206">Na3</option>
+		<option id="s207" value="207">Sa</option>
+	</select>
+	<button onclick="window.open('../avvisi/?sistema=Modello4', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">Avvisi</button>
+</div>
+
+<div id="avvisi"></div>
+
+<script>
+
+$('#avvisi').load("../avvisi/modal.php?sistema=Modello4");
+
+function blocca(d){
+	var toLock = d3.select("#lock").property("value");
+	var asl = d3.select('#lock option:checked').text().replace('[BLOCCATA]','');
+	console.log(toLock);
+
+	$.ajax({
+        url: "lock_asl.php?id=" + toLock + "&unlock="+d,
+        type: "get",
+        success: function (response) {
+			if(d == 0)
+				alert("Inserimento carichi di lavoro per " + asl + " sbloccato!");
+			else 
+				alert("Inserimento carichi di lavoro per " + asl + " bloccato!");
+			getLocks();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+}
+
+function getLocks(){
+	d3.json("lock.php", function (error, data_l) {
+		if (error)
+			throw error;
+		console.log(data_l)
+		for(i=0; i< data_l.data.length; i++){
+			if(data_l.data[i].is_locked =='t'){
+				console.log(d3.select('#s'+data_l.data[i].asl).text());
+				d3.select('#s'+data_l.data[i].asl).text(d3.select('#s'+data_l.data[i].asl).text().replace(' [BLOCCATA]','') + " [BLOCCATA]") ;
+			}else{
+				d3.select('#s'+data_l.data[i].asl).text(d3.select('#s'+data_l.data[i].asl).text().replace(' [BLOCCATA]',''))
+			}
+		}
+
+	})
+}
+
+getLocks();
+
+
+id_s = null; //id struttura cliccata
+
+function getUrlVars() {
+	var vars = {};
+	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+			vars[key] = value;
+		});
+	return vars;
+}
+
+function getUrlParam(parameter, defaultvalue) {
+	var urlparameter = defaultvalue;
+	if (window.location.href.indexOf(parameter) > -1) {
+		urlparameter = getUrlVars()[parameter];
+	}
+	return urlparameter;
+}
+ID_ASL = getUrlParam("id_asl", null);
+console.log("DEBUG TREE_ASL" + ID_ASL);
+if(ID_ASL == null)
+	d3.select("#lockdiv").style("opacity", 1);
+
+if(ID_ASL != null || ID_ASL != 'null')
+	document.getElementById("modRef").href="index.html?id_asl="+ID_ASL; 
+
+
+function sheet(){
+	console.log("extraxt " + ID_ASL);
+	if(ID_ASL != null){
+		location.href='sheet.php?id_asl='+ID_ASL;
+	}
+	else{
+		var idToExtract = d3.select("#lock").property("value");
+		console.log(idToExtract);
+		//sleep(1);
+		location.href='sheet.php?id_asl='+idToExtract
+	}
+}
+
+var once = true;
+var once_text = true;
+var once_rect = true;
+
+var stutture_length_glob = null;
+var target_glob = null;
+var clicked = null;
+var old_clicked_s;
+var pianiRect;
+
+var margin = {
+	top: 40,
+	right: 20,
+	bottom: 30,
+	left: 0
+},
+width = 800,
+barHeight = 20,
+barWidth = (width - margin.left - margin.right) * 0.58
+barWidth = 400;
+tagetNodeW = 48;
+
+var i = 0,
+duration = 400,
+root_s;
+
+newValuesGlob = [];
+
+var diagonal = d3.linkHorizontal()
+	.x(function (d) {
+		return d.y;
+	})
+	.y(function (d) {
+		return d.x;
+	});
+
+
+var svg_s = d3.select("body").append("svg")
+	.attr("id","asl")
+	.attr("width", width) // + margin.left + margin.right)
+	.append("g")
+	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg_s.append("text")
+	.text("UPS")
+	.style("font-family", "sans-serif")
+	.style("font-size","11px")
+	.style("font-weight", "bold")
+	.style("text-anchor", "middle")
+	.attr("x", barWidth+(tagetNodeW/2))
+	.attr("y",-15);
+
+svg_s.append("text")
+	.text("UBA")
+	.style("font-family", "sans-serif")
+	.style("font-size","11px")
+	.style("font-weight", "bold")
+	.style("text-anchor", "middle")
+	.attr("x", barWidth+tagetNodeW+(tagetNodeW/2))
+	.attr("y",-15);
+
+d3.select("body").append("text").text("").style("font-family", "sans-serif")
+	.style("font-size","16px")
+	.style("font-weight", "bold")
+	.style("width", "9999px")
+	.style("text-overflow", "ellipsis")
+	.style("position", "fixed")
+	.style("left", "540px")
+	.style("top", "10px")
+	.attr("id", "path");
+
+var div = d3.select("body").append("div")
+	.attr("class", "tooltip")
+	.style("opacity", 0);
+
+var mod4 = d3.select("body").append("div")
+	.attr("class", "mod4")
+	.attr("id","mod4")
+	.style("opacity", 0);
+
+console.log("tree_all_asl_json.php?id_asl=" + ID_ASL);
+d3.json("tree_all_asl_json.php?id_asl=" + ID_ASL, function (error, data_s) {
+	if (error)
+		throw error;
+
+	var _json = JSON.parse(data_s);
+	dataGlob = _json;
+
+	root_s = d3.hierarchy(dataGlob);
+	root_s.x0 = 0;
+	root_s.y0 = 0;
+
+	//console.log(root_s)
+	//console.log("nodi")
+	var nodes_s = root_s.descendants();
+
+	console.log(nodes_s);
+
+	for (i = 1; i < nodes_s.length; i++) {
+		nodes_s[i]._children = nodes_s[i].children;
+		nodes_s[i].children = null;
+	}
+	update_s(root_s);
+	//updateTree();
+});
+
+function update_s(source) {
+
+	var nodes_s = root_s.descendants();
+
+	var height = Math.max(500, nodes_s.length * barHeight + margin.top + margin.bottom);
+
+	d3.select("svg#asl").transition()
+	.duration(duration)
+	.attr("height", height);
+
+	d3.select(self.frameElement).transition()
+	.duration(duration)
+	.style("height", height + "px");
+
+	var index = -1;
+	root_s.eachBefore(function (n) {
+		n.x = ++index * barHeight;
+		n.y = n.depth * 10;
+	});
+	// Update the nodes�
+	var node_s = svg_s.selectAll(".node_s")
+		.data(nodes_s, function (d) {
+			return d.id /*|| (d.id = ++i)*/;
+		});
+
+	var nodeEnter_s = node_s.enter().append("g")
+		.attr("class", "node_s")
+		.attr("transform", function (d) {
+			return "translate(" + source.y0 + "," + source.x0 + ")";
+		})
+		.style("opacity", 0)
+
+
+	nodeEnter_s.append("rect")
+		.attr("y", -barHeight / 2)
+		.attr("height", barHeight)
+		.attr("width", barWidth)
+		.attr("id_struttura", function (d) {
+			return d.data.id_struttura;
+		})
+		.attr("nome", function (d) {
+			return d.data.descrizione_breve;
+		})
+		.attr("is_sanita_animale", function (d) {
+			return d.data.sanita_animale;
+		})
+		.attr("livello", function (d) {
+			return d.data.livello;
+		})
+		.on("click", click_s)
+		.on("mouseover", function (d) {
+			if (d.data.descrizione_breve.length >= 90) {
+				div.transition()
+				.style("opacity", .9);
+
+				div.html(d.data.descrizione_breve)
+				.style("left", (d3.event.pageX) + "px")
+				.style("top", (d3.event.pageY - 28) + "px");
+			}
+		})
+		.on("mouseout", function (d) {
+			div.transition()
+			.style("opacity", 0);
+		});
+
+	upsNode = nodeEnter_s.append("rect")
+		.attr("y", -barHeight / 2)
+		.attr("x", barWidth)
+		.attr("height", barHeight)
+		.attr("width", tagetNodeW)
+		.style("fill", "white")
+	
+	uubaNode = nodeEnter_s.append("rect")
+		.attr("y", -barHeight / 2)
+		.attr("x", tagetNodeW+barWidth)
+		.attr("height", barHeight)
+		.attr("width", tagetNodeW)
+		.style("fill", "white")
+
+	nodeEnter_s.append("text")
+	.attr("dy", 3.5)
+	.attr("dx", 0.5)
+	.style("overflow", "hidden")
+	.style("font-size", "9px")
+	.text(function (d) {
+		if (d.data.descrizione_breve.length < 70)
+			return d.data.descrizione_breve.toUpperCase();
+		return d.data.descrizione_breve.substring(0, 70).toUpperCase() + '...';
+	})
+
+	ups =  nodeEnter_s.append("text")
+      .attr("dy", 3.5)
+      .attr("dx", barWidth + (tagetNodeW/2)+ tagetNodeW/2 -1)
+	  .style("text-anchor", "end")
+	  .style("font-size","9px")
+	  .attr("id", function(d){return "ups"+d.data.id_struttura})
+	  .text(function(d) { 
+		  return d.data.ups; });
+
+	uba =  nodeEnter_s.append("text")
+      .attr("dy", 3.5)
+      .attr("dx", barWidth + (tagetNodeW)+ tagetNodeW -1)
+	  .style("text-anchor", "end")
+	  .style("font-size","9px")
+	  .attr("id", function(d){return "uba"+d.data.id_struttura})
+	  .text(function(d) { 
+		  return d.data.uba; });
+
+	// Transition nodes to their new position.
+	nodeEnter_s.transition()
+	.duration(duration)
+	.attr("transform", function (d) {
+		return "translate(" + d.y + "," + d.x + ")";
+	})
+	.style("opacity", 1);
+
+	node_s.transition()
+	.duration(duration)
+	.attr("transform", function (d) {
+		return "translate(" + d.y + "," + d.x + ")";
+	})
+	.style("opacity", 1)
+	.select("rect")
+
+	// Transition exiting nodes to the parent's new position.
+	node_s.exit().transition()
+	.duration(duration)
+	.attr("transform", function (d) {
+		return "translate(" + source.y + "," + source.x + ")";
+	})
+	.style("opacity", 0)
+	.remove();
+
+	// Stash the old positions for transition.
+	root_s.each(function (d) {
+		d.x0 = d.x;
+		d.y0 = d.y;
+	});
+	d3.select("div#loader").style("display", "none");
+	if('data' in newValuesGlob)
+		drawNewValues(newValuesGlob);
+}
+
+// Toggle children on click.
+CHANGED = false;
+CHANGED_FATTORI =false;
+SHOW_UBA = false;
+function click_s(d) {
+	if(CHANGED_FATTORI){
+		if (!confirm('STAI CAMBIANDO STRUTTURA SENZA SALVARE, DOPO AVER CAMBIATO I FATTORI! SEI SICURO?')) {
+			return;
+		}else{
+			CHANGED_FATTORI = false;
+		}
+	}
+
+	if(CHANGED){
+		if (!confirm('STAI CAMBIANDO STRUTTURA SENZA SALVARE! SEI SICURO?')) {
+			return;
+		}else{
+			CHANGED = false;
+		}
+	}
+	if (typeof old_clicked_s != "undefined")
+		old_clicked_s.style("fill", old_color_s);
+
+	struttura = d3.select(this).attr("id_struttura");
+	var nome = d3.select(this).attr("nome");
+	console.log(nome);
+	if(d3.select(this).attr("livello") == 2 || d3.select(this).attr("livello") == 3)
+		d3.select("#path").text(nome)
+	else{
+		d3.select("#path").text("")
+	}
+
+	console.log(d3.select(this).attr("is_sanita_animale"));
+	if(d3.select(this).attr("is_sanita_animale") == 't')
+		SHOW_UBA = true;
+	else
+		SHOW_UBA = false;
+
+	if (typeof d.data.children != "undefined") {
+		if (d.children) {
+			d._children = d.children;
+			d.children = null;
+		} else {
+			d.children = d._children;
+			d._children = null;
+		}
+		update_s(d);
+		d3.select("#mod4").transition().duration(500).style("opacity", 0);
+
+	}else{
+		//window.open("mod4.html?id="+struttura)
+		d3.select("#mod4").transition().duration(500).style("opacity", 0);
+		setTimeout(function(d){
+		d3.select("#table").remove();
+		$('#mod4').load("mod4.php?id="+struttura);
+			d3.select("#mod4").transition().duration(700).style("opacity", 1);
+		},500)
+
+	}
+
+	old_clicked_s = d3.select(this);
+	old_color_s = d3.select(this).style("fill");
+
+	d3.select(this).style("fill", "blue");
+
+	console.log(d3.select(this));
+	console.log("Hai cliccato la struttura: " + d3.select(this).attr("id_struttura"));
+
+	
+
+	id_s = struttura;
+	if('data' in newValuesGlob)
+		drawNewValues(newValuesGlob);
+	//dim3.text(d3.select(this).attr("struttura"));
+
+}
+
+
+function getNewValues(){
+	console.log("new_values_json.php?&id_struttura=" + ID_ASL);
+	console.log("ottengo nuovi valori");
+	d3.json("new_values_json.php?&id_struttura=" + ID_ASL, function (error, data_new) {
+	if (error)
+		throw error;
+	var _json = data_new;
+	newValuesGlob = _json;
+	drawNewValues(_json);
+
+	})
+}
+
+function drawNewValues(_json){
+	setTimeout(function(d){
+		console.log("disegno nuovi valori");
+		console.log(_json);
+	_json['data'].forEach(function(el){
+		d3.select("text#ups"+el.id_struttura).text(el.ups);
+		d3.select("text#uba"+el.id_struttura).text(el.uba);
+
+	})
+	}, 500)
+}
+
+var once = false;
+
+function color(d) {
+	return d._children ? "orange" : d.children ? "orange" : "yellow";
+}
+
+function onlyUnique(value, index, self) {
+	return self.indexOf(value) === index;
+}
+
+function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+$(document).ready(function() {
+    window.onbeforeunload = askConfirm;
+});
+
+function askConfirm() {
+    if (CHANGED || CHANGED_FATTORI) {
+        // Put your custom message here 
+        return "Your unsaved data will be lost."; 
+    }
+}
+
+</script>
+
+
+

@@ -1,0 +1,84 @@
+<application>
+
+  <!-- Not used yet -->
+  <config>
+    <mainmenu>
+      <layout>horizontal</layout>
+      <long_css on="" off=""/>
+      <short_css on="" off=""/>
+    </mainmenu>
+    <submenu>
+      <layout>horizontal</layout>
+      <long_css on="rs" off="r"/>
+      <short_css on="rs" off="r"/>
+    </submenu>
+  </config>
+  
+  <!-- Modules that appear in main menu, in order -->
+  <menu>
+    <action name="MyCFS"/>
+    <action name="MyCFSProfile"/>
+    <action name="MyCFSPassword"/>
+    <action name="MyCFSWebdav"/>
+    <action name="MyCFSSettings"/>
+    <action name="MyCFSInbox"/>
+    <action name="MyTasks"/>
+    <action name="MyTasksForward"/>
+    <action name="MyActionLists"/>
+    <action name="MyActionContacts"/>
+    <action name="MyActionPlans"/>
+    <action name="PartiteCommerciali"/>
+    <page title="Gestione partite commerciali"/>
+    <permission value="myhomepage-view"/>
+    <long_html value="Gestione partite commerciali"/>
+    <short_html value="Gestione partite commerciali"/>
+    <link value="MyCFS.do?command=Home"/>
+    <graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif" rollover=""/>
+
+
+		<submenu name="Visualizza partite commerciali">
+			<permission value="partite-commerciali-view" />
+			<long_html value="Visualizza prenotifiche" />
+			<short_html value="Visualizza prenotifiche" />
+			<link value="PartiteCommerciali.do?command=ListaPartite" />
+		</submenu>
+	
+
+
+  
+   
+  </menu>
+  
+<menu>
+    <action name="ListaConvocazioneAction"/>
+    <page title="Convocazioni DNA"/>
+   <permission value="lista_convocazione-view"/>
+    <long_html value="Convocazioni DNA"/>
+    <short_html value="Convocazioni DNA"/>
+    <link value="ListaConvocazioneAction.do?command=List"/>
+    <graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif" rollover=""/>
+
+		<submenu name="Carica nuova lista di convocazione">
+			<permission value="lista_convocazione-add" />
+			<long_html value="Carica nuova lista di convocazione" />
+			<short_html value="Carica nuova lista di convocazione" />
+			<link value="ListaConvocazioneAction.do?command=Add" />
+		</submenu>
+	
+	  <submenu name="Gestione liste di convocazione">
+		<permission value="lista_convocazione-view" /> 
+			<long_html value="Gestione liste di convocazione" />
+			<short_html value="Gestione liste di convocazione" />
+			<link value="ListaConvocazioneAction.do?command=List" />
+	</submenu>
+
+  
+   
+  </menu>
+  
+   
+
+  
+ 
+</application>
+  

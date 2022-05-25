@@ -1,0 +1,124 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="acquedirete"></a>
+<h3 id="acquedirete">Acque di rete</h3>
+<h2>Premessa</h2>
+
+E' disponibile in GISA la gestione dei controlli sulle acque di rete (ovvero sui punti di prelievo presenti sul territorio regionale raggruppati per comune), raggiungibili tramite l'apposito cavaliere.<br/>
+I controlli in questo cavaliere saranno limitati a:<br/><br/>
+
+<ul>
+<li>PIANO B42_A/B42_B PIANO DI MONITORAGGIO ACQUE DESTINATE AL CONSUMO UMANO</li>
+</ul>
+
+</li>
+</ul>
+
+  
+<br/><br/>
+Le funzionalita' disponibili saranno:</p>
+<ul>
+<li>ricerca/inserimento/modifica anagrafica pdp</li>
+<li>gestione controlli ufficiali versione semplificata (sola gestione controlli e campioni)</li>
+</ul>
+
+<h2>Accesso al modulo</h2>
+
+Il modulo e' accessibile dal cavaliere 'Acque di rete'. <br />
+<img src="./images/acque.png" width="1050" /><br clear="left" /><br /> 
+
+Entrando nel modulo la prima pagina visualizzata sara' quella di ricerca da cui sara' possibile ricercare un punto di prelievo - PDP - per l'attribuzione dei controlli effettuati e qualora non risulti in banca dati sara' possibile aggiungerlo mediante la funzione "Aggiungi" (link in alto a sinistra). <br /><br />
+
+<h2>Inserimento Punti di Prelievo</h2>
+
+Qualora un pdp non sia gia' presente in GISA lo si potra' inserire (mediante la funzione "Aggiungi" (link in alto a sinistra) compilando i seguenti campi:
+
+<ul>
+<li>ASL* (sara' gia' settata di default)</li>
+<li>denominazione*</li>
+<li>tipologia* </li>
+<li>ente gestore* </li>
+<li>stato*</li>
+<li>comune*</li>
+<li>indirizzo*</li>
+</ul>
+
+Saranno obbligatori tutti i campi contrassegnati da *. <br/>
+Inoltre, in fase di inserimento, il sistema attribuira' un identificativo univoco con la seguente convenzione: <br/><br/>
+
+<center><i>codiceistatcomune + codice codifica tipologia PDP + progressivo</i></center>
+
+<br/><br/> 
+
+Gli stessi campi saranno contenuti anche nella maschera di modifica. <br />
+<img src="./images/acque_2.png" width="1050" /><br clear="left" /><br /> 
+
+Entrando nel modulo, la prima pagina visualizzata sara' quella di ricerca da cui sara' possibile ricercare un punto di prelievo - PDP - per l'attribuzione dei controlli effettuati e qualora non risulti in banca dati, sara' possibile aggiungerlo mediante la funzione "Aggiungi" (link in alto a sinistra). <br /><br />
+<p></p>
+<h2>Gestione Controlli Ufficiali</h2>
+<p></p>
+Una volta acceduto alla scheda di dettaglio sara' possibile accedere alla gestione controlli ufficiali. <br/>
+Si tratta in ogni caso di un controllo di tipo Ispezione semplice con oggetto del controllo Igiene degli alimenti. <br/>
+<img src="./images/acque_3.png" width="1050" /><br clear="left" /><br /><br /> 
+Vengono gestite le seguenti informazioni:</p>
+<ul>
+<li>temperatura acqua</li>
+<li>cloro residuo</li>
+<li>ora prelievo</li>
+<li>protocollo di routine</li>
+<li>protocollo di verifica</li>
+<li>protocollo di replica(MICROBIOLOGICO)</li>
+<li>protocollo di replica(CHIMICO)</li>
+<li>radioattività</li>
+<li>ricerca fitosanitari</li>
+<li>altro</li>
+</ul>
+
+<br/>
+<b>La selezione del protocollo e' possibile solo in seguito alla selezione del piano di monitoraggio</b><br/>
+In caso di selezione piano B42_A, ogni checkbox ad eccezione di "Radioattivita'" sara' selezionabile.<br/>
+In caso di selezione piano B42_B, la checkbox "Radioattivita'" sara' selezionata automaticamente e non deselezionabile.<br/>
+<br /><img src="./images/acque_4.png" width="1050" /><br clear="left" /><br />
+<img src="./images/acquedirete_pdp.png" width="1050" /><br clear="left" /><br /><br /><br /> 
+In fase di inserimento del controllo ufficiale (quando si clicca sul bottone "Inserisci") il sistema automaticamente crea un campione. <br />
+<br />
+<img src="./images/acque_6.png" width="1050" /><br clear="left" /><br /><br /> 
+Per il campione il sistema setta in automatico:</p>
+<ul>
+<li>Motivo campione: piano B42</li>
+<li>Matrice: acqua potabile</li>
+<li>Tipo analisi: il protocollo (routine, verifica, replica) specificato in fase di inserimento controllo.L'utente dovra' inserire solo l'esito del campione</li>
+</ul>
+
+In fase di inserimento esito campione, in caso di esito "Esito non conforme", il sistema proporrà la voce "Motivazione non conformita'".
+
+<br /><br />
+<img src="./images/acque_7.png" width="1050" /><br clear="left" /><br /><br /></p>
+
+<h2>Gestione Preaccettazione</h2>
+Per associare un codice preaccettazione ad un campione generato automaticamente in seguito all'inserimento di un controllo ufficiale, bisogner&agrave;:<br/><br/>
+
+- Generare un codice preaccettazione sull'anagrafica di riferimento, facendo attenzione a selezionare il laboratorio ARPAC.<br/>
+
+<img src="./images/preacc_acque_genera1.png" width="1050" /><br clear="left" /><br /><br />
+<img src="./images/preacc_acque_genera2.png" width="1050" /><br clear="left" /><br /><br />
+
+- Accedere al dettaglio del campione ed indicare il codice preaccettazione da associare tra quelli precedentemente generati.
+
+<img src="./images/preacc_acque_associa1.png" width="1050" /><br clear="left" /><br /><br />
+
+Confermando la scelta, il codice preaccettazione sar&agrave; associato a campione e riportato sia nel dettaglio che nel verbale<br/><br/>
+
+<img src="./images/preacc_acque_associa2.png" width="1050" /><br clear="left" /><br /><br />
+<img src="./images/preacc_acque_associa3.png" width="1050" /><br clear="left" /><br /><br />
+
+<b>Nota:</b> In caso di preaccettazione, non è disponibile la funzione di modifica del controllo ufficiale. In caso di necessità contattare il servizio Help Desk.<br/>
+
+<h2>Gestione Verbale di Prelievo</h2>
+<p>Dal dettaglio di ciascun campione e' possibile stampare il verbale di prelievo cumulativo. Nel verbale sono presenti alcuni campi editabili (quelli di colore azzurro). <br /><br /><br /></p>

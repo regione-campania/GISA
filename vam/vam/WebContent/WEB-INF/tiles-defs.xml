@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+  <definition name="default" template="/jsp/template/default.jsp" >
+    <put-attribute name="header"	value="/jsp/template/default/header.jsp" />
+    <put-attribute name="menu"		value="/jsp/template/default/menu.jsp" />
+    <put-attribute name="footer"	value="/jsp/template/default/footer.jsp" />
+  </definition>
+  
+  <definition name="upload" template="/jsp/template/upload.jsp" >
+    <put-attribute name="header"	value="/jsp/template/default/header.jsp" />
+    <put-attribute name="menu"		value="/jsp/template/default/menu.jsp" />
+    <put-attribute name="footer"	value="/jsp/template/default/footer.jsp" />
+  </definition>
+  
+  <definition name="popup" template="/jsp/template/popup.jsp" >
+    <put-attribute name="header"	value="/jsp/template/popup/header.jsp" />
+  </definition>
+  
+  <definition name="uploadPopup" template="/jsp/template/uploadPopup.jsp" >
+    <put-attribute name="header"	value="/jsp/template/popup/header.jsp" />
+  </definition>
+  
+  <definition name="uploadImgIstopatologicoCcPopup" template="/jsp/template/uploadImgIstopatologicoCcPopup.jsp" >
+    <put-attribute name="header"	value="/jsp/template/popup/header.jsp" />
+  </definition>
+  
+  <definition name="public" template="/jsp/template/public.jsp" >
+    <put-attribute name="header"	value="/jsp/template/public/header.jsp" />
+    <put-attribute name="menu"		value="/jsp/template/public/menu.jsp" />
+    <put-attribute name="footer"	value="/jsp/template/public/footer.jsp" />
+  </definition>
+  
+  <definition name="sinantropi_default" template="/jsp/template/sinantropi_default.jsp" >
+    <put-attribute name="header"	value="/jsp/template/sinantropi_default/header.jsp" />
+    <put-attribute name="menu"		value="/jsp/template/sinantropi_default/menu.jsp" />
+    <put-attribute name="footer"	value="/jsp/template/sinantropi_default/footer.jsp" />
+  </definition>
+  
+  <definition name="sinantropi_default_marini" template="/jsp/template/sinantropi_default_marini.jsp" >
+    <put-attribute name="header"	value="/jsp/template/sinantropi_default/header.jsp" />
+    <put-attribute name="menu"		value="/jsp/template/sinantropi_default/menu.jsp" />
+    <put-attribute name="footer"	value="/jsp/template/sinantropi_default/footer.jsp" />
+  </definition>
+  
+  <definition name="sinantropi_default_zoo" template="/jsp/template/sinantropi_default_zoo.jsp" >
+    <put-attribute name="header"	value="/jsp/template/sinantropi_default/header.jsp" />
+    <put-attribute name="menu"		value="/jsp/template/sinantropi_default/menu.jsp" />
+    <put-attribute name="footer"	value="/jsp/template/sinantropi_default/footer.jsp" />
+  </definition>
+  
+  <definition name="sinantropi_public" template="/jsp/template/sinantropi_public.jsp" >
+    <put-attribute name="header"	value="/jsp/template/sinantropi_public/header.jsp" />
+    <put-attribute name="menu"		value="/jsp/template/sinantropi_public/menu.jsp" />
+    <put-attribute name="footer"	value="/jsp/template/sinantropi_public/footer.jsp" />
+  </definition>
+  
+  <definition name="sinantropi_popup" template="/jsp/template/sinantropi_popup.jsp" >
+    <put-attribute name="header"	value="/jsp/template/sinantropi_popup/header.jsp" />   
+    <put-attribute name="footer"	value="/jsp/template/sinantropi_popup/footer.jsp" />
+  </definition>
+  
+  <definition name="sinantropi_popup_marini" template="/jsp/template/sinantropi_popup_marini.jsp" >
+    <put-attribute name="header"	value="/jsp/template/sinantropi_popup/header.jsp" />   
+    <put-attribute name="footer"	value="/jsp/template/sinantropi_popup/footer.jsp" />
+  </definition>
+  
+  <definition name="sinantropi_popup_zoo" template="/jsp/template/sinantropi_popup_zoo.jsp" >
+    <put-attribute name="header"	value="/jsp/template/sinantropi_popup/header.jsp" />   
+    <put-attribute name="footer"	value="/jsp/template/sinantropi_popup/footer.jsp" />
+  </definition>
+  
+  <definition name="homePageSinantropi" template="/jsp/template/homePageSinantropi.jsp" >    
+  </definition>
+  
+  <definition name="homePageVAM" template="/jsp/template/homePageVAM.jsp" >    
+  </definition>
+  
+</tiles-definitions>

@@ -1,0 +1,321 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>GISA SPEED TEST</title>
+</head>
+<body>
+<script type="text/javascript" src="../javascript/jquery-1.6.1.js"></script>
+<script>
+var ipaddress ="" ;
+
+$.getJSON("http://jsonip.appspot.com?callback=?",
+
+function (data) {
+
+  ipaddress= data.ip;
+
+});
+
+
+
+function get_browser(){
+    var N=navigator.appName, ua=navigator.userAgent, tem;
+    var M=ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+    if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
+    M=M? [M[1], M[2]]: [N, navigator.appVersion, '-?'];
+    return M[0];
+    }
+    
+function get_browser_version(){
+    var N=navigator.appName, ua=navigator.userAgent, tem;
+    var M=ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+    if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
+    M=M? [M[1], M[2]]: [N, navigator.appVersion, '-?'];
+    return M[1];
+    }
+    
+    
+function AjaxGET()
+{
+	var xhReq = createXMLHttpRequest();
+	var busy = false;
+	var responseFunction = null;
+	var response = null;
+ 
+	function createXMLHttpRequest( ) {
+		try { return new ActiveXObject("Msxml2.XMLHTTP"); } catch (e) {}
+		try { return new ActiveXObject("Microsoft.XMLHTTP"); } catch (e) {}
+		try { return new XMLHttpRequest( ); } catch(e) {}
+		
+		return null;
+	}
+ 
+	this.getData = function(URL,onResponse)
+	{
+		if (!busy){
+			busy = true;
+			xhReq.open("GET", URL, false);
+			xhReq.onreadystatechange = respFunction;
+			responseFunction = onResponse;
+			xhReq.send(null);
+		}
+	}
+ 
+	this.getResponse = function()
+	{
+		return response;
+	}
+ 
+	function respFunction()
+	{
+		if (xhReq.readyState == 4 && xhReq.status == 200){
+			response = xhReq.responseText;
+			busy = false;
+			responseFunction();
+		}
+	}
+ 
+	this.isBusy = function()
+	{
+		return busy;	
+	}
+}
+ 
+function AjaxPOST()
+{
+	var xhReq = createXMLHttpRequest();
+	var busy = false;
+	var responseFunction = null;
+	var response = null;
+ 
+	function createXMLHttpRequest( ) {
+		try { return new ActiveXObject("Msxml2.XMLHTTP"); } catch (e) {}
+		try { return new ActiveXObject("Microsoft.XMLHTTP"); } catch (e) {}
+		try { return new XMLHttpRequest( ); } catch(e) {}
+		return null;
+	}
+ 
+	this.getData = function(URL,data,onResponse)
+	{
+		if ( xhReq != null ){
+			if (!busy){			
+				response = '';
+				busy = true;
+				responseFunction = onResponse;
+				xhReq.open("POST", URL, false);
+				xhReq.onreadystatechange = respFunction;
+				try {
+					xhReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					xhReq.setRequestHeader("Content-length", data.length);
+					xhReq.setRequestHeader("Connection", "close");
+				}
+				catch(e) {
+					return false;
+				}
+				xhReq.send(data);
+				return true;
+			}
+			return true;
+		}
+		return false;
+	}
+ 
+	this.getResponse = function()
+	{
+		return response;
+	}
+ 
+	function respFunction()
+	{
+		if (xhReq.readyState == 4 && xhReq.status == 200){
+			response = xhReq.responseText;
+			busy = false;
+			responseFunction();
+		}
+	}
+ 
+	this.isBusy = function()
+	{
+		return busy;	
+	}
+}
+ 
+var body = "" ; 
+var downloader = new AjaxGET();
+var uploader = new AjaxPOST();
+
+var sommabyteDownload = 0  ;
+var sommatimeDownload = 0;
+
+var sommabyteUpload = 0;
+var sommatimeUpload = 0;
+
+var indiceU = 0 ;
+var indiceD = 0 ;
+
+var dataDownload = new Array();
+var indice = 0 ;
+function testDownload(filepath) {
+	console.log("Start Download");
+	var start = new Date();
+	downloader.getData(filepath, function() {
+		var elapsed = (new Date()).getTime() - start.getTime();
+		console.log("End Download");
+		sommabyteDownload = sommabyteDownload+downloader.getResponse().length ;
+		sommatimeDownload = sommatimeDownload+ elapsed ;
+		dataDownload[indice]=downloader.getResponse();
+		indice =indice +1;
+	
+		speedAVG = Math.round((sommabyteDownload/sommatimeDownload) * (1000 / 1024)) + " Kbytes/s";
+		document.getElementById('download').innerHTML=speedAVG;
+		
+	});
+}
+
+
+function upload()
+{
+	testUpload(downloaderIn.getResponse());
+	return ;
+	
+	}
+	
+function testUpload(data) {
+	data = "&data=" + data;
+	var start = new Date();
+	console.log("Start Upload");
+	r = Math.random(); ;
+	uploader.getData("dlspeed.jsp?"+r, data , function() {
+		
+		console.log("End Upload");
+		var elapsed = (new Date()).getTime() - start.getTime();
+		sommabyteUpload= sommabyteUpload+ data.length ;
+		sommatimeUpload = sommatimeUpload+ elapsed ;
+		speedAVG = Math.round((sommabyteUpload/sommatimeUpload) * (1000 / 1024)) + " Kbytes/s";
+		document.getElementById('upload').innerHTML=speedAVG;
+	
+	});
+}
+
+function calcolaMedia(arr)
+{
+
+	sum =0 ;
+	for (i=0;i<arr.length;i++)
+		{
+		sum=sum+arr[i];
+		}
+	return sum/arr.length ; 
+}
+
+
+</script>  
+ 
+ <table width="100%">
+ <tr style="background-image: url('../images/tabs/new_bg_inactive_menu.gif')"><th>GISA - Test di Velocita</th></tr>
+ </table>
+ <br/> <br/>
+<table align="center" border="2" width="100%"	>
+<tr><th>Date</th><td id="data">[Data di esecuzione del Test]</td></tr>
+
+<tr><th>Browser</th><td id="browser">[Browser che stai utilizzando]</td></tr>
+<tr><th>Browser Version</th><td id="browserversion">[Versione del Browser che stai utilizzando]</td></tr>
+<tr><th>Ip Address</th><td id="ipaddress">[Indirizzo Ip con cui navighi]</td></tr>
+<tr><th>Server Address</th><td id="serveraddress">[Indirizzo Ip con cui navighi]</td></tr>
+<tr><th>Velocita in Download</th><td id="download">[Velocita di Download]</td></tr>
+<tr><th>Velocita in Upload</th><td id="upload">[Velocita di Upload]</td></tr>
+
+</table> 
+<table align="center" >
+<tr><th colspan="2" id = "esito">&nbsp;</th></tr>
+<tr><td colspan="2"> <input type = "button" id="startbutton" 
+onclick="this.value='Attendere Test in Corso..';this.disabled='true';startTest()" value = "Start"/>
+</td></tr>
+</table> 
+
+<script>
+
+var downloaderIn ;
+function startTest()
+{
+	body = "" ;
+	
+	document.getElementById('data').innerHTML=new Date();
+	document.getElementById('browser').innerHTML=get_browser();
+	document.getElementById('browserversion').innerHTML=get_browser_version();	
+	document.getElementById('ipaddress').innerHTML=  ipaddress; 
+	document.getElementById('serveraddress').innerHTML=  document.location; 
+	
+	body += "<br/>Data Test : "+document.getElementById('data').innerHTML ;
+	body += "<br/>Browser   : "+document.getElementById('browser').innerHTML ;
+	body += "<br/>Browser Version   : "+document.getElementById('browserversion').innerHTML ;
+	body += "<br/>Ip Address   : "+document.getElementById('ipaddress').innerHTML ;
+	body += "<br/>Server Url   : "+document.location ;
+
+var arrfile = new Array();
+arrfile[0]="dlfile/data_100k.txt";
+arrfile[1]="dlfile/data_100k.txt";
+arrfile[2]="dlfile/data_1600k.txt";
+for (var i=0;i<arrfile.length;i++)
+{
+	r = Math.random(); 
+	document.getElementById('startbutton').value='Download File '+parseInt(i+1);
+	testDownload(arrfile[i]+'?'+r);
+
+}	
+
+
+/*
+downloaderIn = new AjaxGET();
+for (var i=0;i<arrfile.length;i++)
+{	
+	 r = Math.random(); ;
+	 
+	 downloaderIn.getData(arrfile[i]+'?'+r, upload);
+}*/
+for (var i=0;i<dataDownload.length;i++)
+{	
+	 
+	document.getElementById('startbutton').value='Upload File '+parseInt(i+1);
+	 testUpload(dataDownload[i]);
+}
+
+
+dataDownload
+
+body += "<br/>Velocita in Upload   : "+document.getElementById('upload').innerHTML ;
+body += "<br/>Velocita in Download   : "+document.getElementById('download').innerHTML ;
+
+document.getElementById('esito').innerHTML="<font color='green'>Test Eseguito con Successo</font>";
+document.getElementById('startbutton').disabled='';
+document.getElementById('startbutton').value='Close';
+document.getElementById('startbutton').onclick= function () {  close(); }
+
+
+$.ajax({
+    url : "../MyCFS.do?command=SendSpeedTest&body="+body,
+    success : function (data,stato) {
+        
+    },
+    error : function (richiesta,stato,errori) {
+        alert("E' evvenuto un errore. Il stato della chiamata: "+stato);
+    }
+});
+
+}
+
+
+</script>
+
+</body>
+</html>

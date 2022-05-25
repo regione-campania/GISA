@@ -1,0 +1,182 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="sintesis"></a>
+<h3 id="sintesis">Gestione Anagrafiche SINTESIS</h3>
+<h2>Premessa</h2>
+
+Il cavaliere "Gestione Anagrafiche SINTESIS" e' visualizzabile solo dai ruoli preposti alla gestione delle pratiche e viene alimentato e gestito tramite l'import di un file strutturato opportunamente. 
+Nel file, ogni riga (record) corrispondera' a una pratica da inserire nel sistema.<br/><br/>
+
+<img src="./images/sintesis/excel.png"/><br clear="left" /><br />
+
+Occorre distinguere i due concetti: 
+<ul>
+<li>Stabilimento: uno stabilimento processato correttamente, presente in anagrafica, su cui possono essere aggiunti i controlli ufficiali. Consultabile da "Elenco Stabilimenti".</li>
+<li>Pratica: un record proveniente del file, che per qualche motivo non ha dato origine a un'anagrafica e che richiede un intervento da parte dell'utente. Consultabile da "Pratiche".</li>
+</ul>
+
+
+<h2>Caricamento del file e generazione delle pratiche</h2>
+
+<img src="./images/sintesis/importa.png"/><br clear="left" /><br />
+
+Nella fase di import occorre specificare: 
+
+<ul>
+<li>Un file excel proveniente da SINTESIS</li>
+<li>La data cui quel file si riferisce</li>
+</ul> 
+
+Una volta cliccato "Conferma e invia file", tutti i record presenti saranno importati nel cavaliere, tra le pratiche da completare.<br/>
+Verranno effettuati i seguenti controlli:
+
+<ul>
+<li>Controllo sul file: Se lo stesso file e' stato gia' importato in precedenza, l'import viene impedito.</li>
+<li>Controllo sul singolo record: se il singolo record e' gia' stato importato in precedenza, anche tramite un altro file, solo l'import di quel record viene impedito, per non generare duplicati.</li>
+</ul>
+
+Tutti i record che supereranno il controllo di univocita' verranno convertiti dapprima in pratiche, processati immediatamente, e daranno origine ad un inserimento o una modifica in anagrafica (stabilimento) a meno di eccezioni.<br/>
+Un'eccezione puo' nascere a causa di:
+<ul>
+<li>Linea Master List non correttamente mappata automaticamente dal sistema</li>
+<li>Cambio di stato sede operativa / stato linea produttiva non consentito dal flusso degli stati</li>
+</ul>
+
+Il risultato dell'import sara':<br/>
+<b>Prima riga verde: </b> Numero di pratiche che hanno superato il controllo di univocita';<br/>
+<b>Riga verde: </b> Pratica che ha superato il controllo di univocita' ed ha generato un inserimento/modifica tra gli stabilimenti;<br/>
+<b>Riga arancione: </b> Pratica che NON ha superato il controllo di univocita';<br/>
+<b>Riga rossa: </b> Pratica che ha superato il controllo di univocita' ma non ha generato un inserimento/modifica tra gli stabilimenti per un errore;<br/><br/>
+
+I cambiamenti di stato permessi sono: <br/><br/>
+
+<strong>Stato sede operativa</strong><br/>
+(NON ESISTENTE) -> ANAGRAFE<br/>
+ANAGRAFE -> ATTIVO, REVOCATO, CESSATO<br/>
+ATTIVO -> CANCELLATO, REVOCATO, CESSATO<br/>
+
+<strong>Stato linea attivita'</strong><br/>
+AUTORIZZATA -> CANCELLATA, REVOCATA, SOSPESA<br/>
+IN DOMANDA -> AUTORIZZATA, CANCELLATA, RESPINTA<br/>
+SOSPESA -> AUTORIZZATA<br/><br/>
+
+Per processare questi casi, occorre selezionare la singola pratica e:
+
+<ul>
+<li>Caso linea non mappata: Indicare la linea produttiva corretta tramite il bottone "Modifica" nella sezione dell'attivita'</li>
+<li>Cambio stato non consentito: Procedere con l'inserimento in anagrafica ("Salva e continua") ed utilizzare il bottone "Ignora l'errore e processa in GISA"</li>
+</ul>
+
+<img src="./images/sintesis/listapratiche.png"><br clear="left" /><br />
+
+<img src="./images/sintesis/completarichiesta.png" /><br clear="left" /><br />
+
+Nel dettaglio di una pratica da validare, saranno presenti i seguenti bottoni:
+
+<ul>
+<li>Visualizza origine dati: Verra' mostrato il record del file che ha generato la pratica</li>
+<li>Modifica linea produttiva: Il sistema tentera' automaticamente di mappare la linea indicata nel record con la Master List vigente. In ogni caso, sara' possibile modificarla manualmente prima di procedere oltre.</li>
+<li>Rifiuta: La pratica verra' rifiutata e resa non processabile</li>
+<li>Salva: Saranno salvati i valori inseriti, senza processare il record in anagrafica</li>
+<li>Salva e continua: Saranno salvati i valori inseriti, e si processera' il record per convertirlo in anagrafica</li>
+</ul>
+
+Siccome lo scopo del modulo e' quello di rispecchiare la situazione in SINTESIS, non sono previsti controlli bloccanti in fase di inserimento in anagrafica ad eccezione dei due citati.<br/>
+
+<img src="./images/sintesis/validazione.png" /><br clear="left" /><br />
+
+<h2>Anagrafica</h2>
+Gli stabilimenti possono essere consultati nella sezione "Elenco Stabilimenti".<br/>
+I dati provenienti da SINTESIS possono essere completati con informazioni relative all'impresa, tramite il bottone "Modifica dati impresa" presente nel dettaglio disponibile all'HD. NOTA: questa stessa operazione puo' essere eseguita anche quando la pratica non e' ancora diventata uno stabilimento. <br/>
+
+<h2>Gestione Prodotti</h2>
+
+Per le linee che nella master list li prevedono, e' disponibile la gestione dei prodotti. <br/>
+<img src="./images/sintesis/lineaprodotti.png" /><br clear="left" /><br />
+<img src="./images/sintesis/prodotti.png" /><br clear="left" /><br />
+
+<h2>Gestione Operatori Mercato</h2>
+
+Per "Mercato" si intende uno Stabilimento Riconosciuto 853 con almeno una delle due linee:<br/><br/>
+
+PRODUZIONE E TRASFORMAZIONE DI ALIMENTI IN STABILIMENTI RICONOSCIUTI AI SENSI DEL REG (CE) 853/2004->8 - PRODOTTI DELLA PESCA->WM MERCATO ALL'INGROSSO<br/><br/>
+PRODUZIONE E TRASFORMAZIONE DI ALIMENTI IN STABILIMENTI RICONOSCIUTI AI SENSI DEL REG (CE) 853/2004->0 - ATTIVITA' GENERALI->WM MERCATO ALL'INGROSSO<br/><br/>
+
+Cliccando sul bottone "Operatori" accanto alla linea, i ruoli predisposti (ORSA, Responsabili Strutture Complesse, Medico Veterinario, Medico Veterinario - Responsabile Struttura Semplice, Medico Veterinario - Responsabile Struttura Complessa) possono gestire un massimo di 30 box per linea.<br/><br/>
+
+<img src="./images/sintesis/bottonemercato.PNG" /> <br/><br/>
+
+<img src="./images/sintesis/operazionimercato.PNG" /><br/>
+
+Box vuoto<br/>
+E' possibile associare un "Operatore al Mercato". L'operatore puo' essere ricercato in GISA (tra gli stabilimenti 852 fissi attivi) o inserito ex novo da parte dell'utente. In entrambi i casi la linea associata all'operatore al mercato sara' "Operatore Mercato" e la sua sede operativa coincidera' con quella del mercato.<br/><br/>
+
+Box pieno<br/>
+E' possibile cessare l'operatore presente oppure eliminarlo, liberando il box.<br/><br/>
+
+Storico<br/>
+Per ogni box e' possibile consultare lo storico degli operatori al mercato.<br/><br/>
+
+<img src="./images/sintesis/storicooperatori.PNG" /><br/>
+
+In fase di controllo ufficiale, nel caso di selezione della linea con operatori al mercato, sara' possibile selezionare uno o più operatori del mercato sottoposti a controllo.<br/>
+<img src="./images/sintesis/cuoperatori.PNG" /><br/>
+In fase di non conformita', invece, sara' possibile selezionare uno degli operatori indicati nel controllo.<br/><br/>
+
+<h2>Gestione Automezzi</h2>
+
+Per le linee SOA TRASPORTO, ossia <br/>
+
+<ul>
+<li>SOTTOPRODOTTI DI ORIGINE ANIMALE E PRODOTTI DERIVATI NON DESTINATI AL CONSUMO UMANO->SECTION XIII - Altri operatori registrati - Cat. 1->TRANS TRASPORTATORI</li>
+<li>SOTTOPRODOTTI DI ORIGINE ANIMALE E PRODOTTI DERIVATI NON DESTINATI AL CONSUMO UMANO->SECTION XIII - Altri operatori registrati - Cat. 2->TRANS TRASPORTATORI</li>
+<li>SOTTOPRODOTTI DI ORIGINE ANIMALE E PRODOTTI DERIVATI NON DESTINATI AL CONSUMO UMANO->SECTION XIII - Altri operatori registrati - Cat. 3->TRANS TRASPORTATORI</li>
+</ul>
+
+E' disponibile la gestione degli automezzi. <br/>
+
+<img src="./images/sintesis/automezzi.png" /> <br/>
+<img src="./images/sintesis/automezzi_lista.png" /><br/> 
+
+Tramite il bottone "Automezzi", l'utente puo' accedere alla lista degli automezzi configurati sulla linea. <br/>
+Per ogni automezzo sono disponibili, per i ruoli abilitati, le seguenti operazioni:<br/>
+
+<ul>
+<li>Visualizza: Mostra dettaglio della scheda</li>
+<li>Stampa: Stampa il certificato di accompagnamento</li>
+<li>Modifica: Modifica i dati dell'automezzo (Ad eccezione degli identificativi)</li>
+<li>Dismetti: Dismetti l'automezzo. L'automezzo non apparira' più in lista, nè sarà possibile aggiungerlo nei controlli ufficiali. Tuttavia sarà disponibile nel dettaglio dei CU nei quali è già stato inserito. Inoltre, modificare un CU su un automezzo dismesso obblighera' l'utente a modificare anche l'automezzo soggetto a controllo.</li>
+<li>Elimina: Elimina l'automezzo. Questa funzione non e' possibile se sull'automezzo e' stato inserito almeno un CU.</li>
+</ul>
+
+E' inoltre disponibile il bottone:
+<ul>
+<li>Aggiungi nuovo: Inserisce un nuovo automezzo sulla linea</li>
+</ul>
+
+<b>Numero identificativo</b><br/>
+Il numero identificativo viene generato automaticamente all'inserimento di un nuovo automezzo, non e' modificabile ed è formato da<br/>
+<i>Codice ASL Stabilimento</i> + <i>Progressivo per asl a 10 cifre</i> <br/>
+(ES. NA2N0000000002)<br/>
+
+<b>Targa</b><br/>
+La targa e' l'unico campo obbligatorio in fase di inserimento. Non e' modificabile successivamente e non e' possibile inserirne una gia' presente su un'altra linea.<br/>
+
+<b>Ricerca</b><br/>
+Nel cavaliere "Anagrafica stabilimenti" e' possibile ricercare gli automezzi appena inseriti mediante i campi "targa" e "numero identificativo".<br/>
+
+<img src="./images/sintesis/automezzi_cerca.png" /><br/> 
+
+<b>Controlli ufficiali</b><br/>
+In fase di aggiunta controllo ufficiale, selezionando una delle linee configurate come linea sottoposta a controllo sarà proposta la lista degli automezzi attualmente attivi (non cancellati, non dismessi).<br/>
+In fase di modifica controllo ufficiale, l'automezzo soggetto a controllo sara' modificabile. La modifica di un CU originariamente inserito su un automezzo dismesso obbliga l'utente a scegliere un automezzo attualmente attivo.<br/>
+In fase di dettaglio controllo ufficiale, l'automezzo soggetto a controllo viene mostrato a video anche se dismesso.<br/><br/>
+
+<img src="./images/sintesis/automezzi_cu.png" /><br/> 
+

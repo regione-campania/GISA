@@ -1,0 +1,147 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<meta charset="utf-8" />
+<html>
+<link rel="stylesheet" href="css/easy-autocomplete.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery.easy-autocomplete.min.js"></script>
+
+
+<body bgcolor='#ffffe6'>
+<center>
+<form id='frmAddr' onsubmit="doSubmit()">
+
+<input type="text" id="provincia" class="rcorners" placeholder="Provincia" readonly/><br><br>
+
+<input type="text" id="comuni" class="rcorners" placeholder="Comune" readonly /><br><br>
+
+<input type="text" id="napoli"  style="visibility:hidden; " placeholder="Strade del Comune di Napoli" class="rcorners"  autocomplete="off"/>
+
+<input type="text"   id="top"  placeholder="Toponimo" required /><br>
+
+<input type="text" id="via" placeholder="Indirizzo" class="rcorners" required autocomplete="off"/><br><br>
+
+<input type="text" id="civ" placeholder="Civico"  class="rcorners" pattern="^[A-Za-z0-9\-\s,\/]*$" required autocomplete="off"/><br><br>
+
+<input type="text" id='cap'  placeholder="CAP" class="rcorners" required onkeydown="return false;" autocomplete="off"/><br><br>
+
+<button type="submit" > Prosegui </button> <br>
+</center>
+<input type="hidden" id="provinciaId" />
+<input type="hidden" id="comuneId" />
+<input type="hidden" id="topId" />
+
+</form>
+
+
+</body style="bakcground-color:'#eee';">
+</html>
+
+<script src="js/gestioneIndirizziNapoli.js"></script>
+<!-- <script src="js/province.js"></script>
+<script src="js/comuni.js"></script> -->
+<script src="js/toponimi.js"></script>
+<script src="js/via.js"></script>
+<script src="resources/idToponimi.js"></script>
+
+
+
+<script>
+
+/* "use strict"; */
+let inputParams = new URLSearchParams(window.location.search);
+var toponimo = sessionStorage.getItem("toponimo");
+var via = sessionStorage.getItem("via");
+var civico = sessionStorage.getItem("civico");
+var comune = sessionStorage.getItem("comune");
+var cap = sessionStorage.getItem("cap");
+var prov = sessionStorage.getItem("prov");
+var toponimoId = sessionStorage.getItem("topId");
+var comuneId = sessionStorage.getItem("comuneId");
+var provinciaId = sessionStorage.getItem("provinciaId")
+
+
+document.getElementById('comuneId').value = inputParams.get('idcomunein');
+document.getElementById('provinciaId').value = inputParams.get('idprovinciain');
+
+var listacomuniprovincia = "";
+var comune_passato = "";
+listacomuniprovincia = "GetComuneByProvincia.do?command=Search&provincia.code=" + $("#provinciaId").val();
+
+
+var request = $.ajax({
+	url : listacomuniprovincia,
+	dataType : "json",
+	async: false
+});
+
+
+request.done(function(result) {
+	
+	for(var i=0; i < result.length; i++){
+		if(result[i].id == $("#comuneId").val()){
+				comune_passato = result[i];
+				if(document.getElementById('comuneId').value == '5279'){
+					document.getElementById('provincia').value = comune_passato.provincia.description;
+					document.getElementById('comuni').value = comune_passato.nome;
+					$("#napoli").css({"visibility":"visible"});
+					$("#top").prop('disabled', true);
+					$("#via").attr('readonly','readonly');
+					$("#cap").css({"visibility":"hidden"});
+				  	$("#top").css({"visibility":"hidden"});
+				  	$("#via").css({"visibility":"hidden"});
+				} else {
+					document.getElementById('cap').value = comune_passato.cap;
+					document.getElementById('provincia').value = comune_passato.provincia.description;
+					document.getElementById('comuni').value = comune_passato.nome;	
+				}
+			}
+		}
+});
+request.fail(function(jqXHR, textStatus) {
+	console.log('Error');
+	
+});
+
+
+window.onunload = function (e) {
+	opener.callback(toponimo, toponimoId, via, civico, comune, comuneId, cap, prov,provinciaId,addrAll);
+};
+	
+
+let addrAll = {
+	    comune: "",
+	    comuneId: "",
+	    top: "",
+	    topId:"",
+	    via: "",
+	    civ: "",
+	    cap: "",
+	    provincia:"",
+	    provinciaId:""
+	}
+
+function doSubmit() {
+	
+	addrAll.comune=document.getElementById('comuni').value;
+    addrAll.top=document.getElementById('top').value;
+    addrAll.via=document.getElementById('via').value;
+    addrAll.civ=document.getElementById('civ').value;
+    addrAll.cap=document.getElementById('cap').value;
+    addrAll.provincia=document.getElementById('provincia').value;
+    addrAll.comuneId=document.getElementById('comuneId').value;
+    addrAll.topId=document.getElementById('topId').value;
+    addrAll.provinciaId=document.getElementById('provinciaId').value;
+    
+    self.close();
+    return false;
+}
+
+</script>

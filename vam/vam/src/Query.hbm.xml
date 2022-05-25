@@ -1,0 +1,414 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping
+   PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<!-- Query VAM -->
+	
+	<query name="GetUtente">
+			<![CDATA[
+	   		from BUtente ut where ut.username = :username			
+	   		]]>
+	</query>
+	
+	<query name="GetAnimaleByIdentificativo">
+			<![CDATA[
+	   		from Animale a where (a.identificativo = :identificativo or a.tatuaggio = :identificativo) and a.trashedDate is null
+	   		]]>
+	</query>
+	
+	
+	<query name="GetStruttureRicovero">
+			<![CDATA[
+	   		from StrutturaClinica sc where 
+	   				sc.lookupTipiStruttura.id IN (select lts.id from LookupTipiStruttura lts where lts.diRicovero = true)
+	   			AND
+	   				sc.clinica.id = 
+	   					(select c.id from Clinica c where c.id =
+	   						(select u.clinica from BUtente u where u.id= :idUtente ))
+	   		]]>
+	</query>
+	
+	
+	
+	<query name="GetAnimaleById">
+			<![CDATA[
+	   		from Animale a where a.id = :id and a.trashedDate is null
+	   		]]>
+	</query>
+	
+	<query name="GetAnamnesi">
+			<![CDATA[
+	   		from CartellaClinica cc where cc.accettazione.id IN
+	   			(select acc.id from Accettazione acc where acc.animale.id IN
+	   				(select a.id from Animale a where (a.identificativo = :idAnimale or a.tatuaggio = :idAnimale)  and a.trashedDate is null ))	   			 
+	   		]]>
+	</query>
+	
+	<query name="GetLookupOrganoTipoEsito_EsitoNullo">
+			<![CDATA[
+	   		from LookupAutopsiaOrganiTipiEsamiEsiti t where 
+	   				t.lookupOrganiAutopsia.id = :idOrgano and t.lookupAutopsiaTipiEsami.id = :idTipo and esito is null 
+	   		]]>
+	</query>
+	
+	<query name="LookupAutopsiaOrganiTipiEsamiEsiti_OrganoEnabled">
+			<![CDATA[
+	   		from LookupAutopsiaOrganiTipiEsamiEsiti t where 
+	   				t.lookupOrganiAutopsia.enabled = true and
+	   				t.esito is not null
+	   		]]>
+	</query>
+	
+	
+	
+	<query name="GetStrutturePrenotabili">
+			<![CDATA[
+	   		from StrutturaClinica sc where 
+	   				sc.lookupTipiStruttura.id IN (select lts.id from LookupTipiStruttura lts where lts.diRicovero = false)
+	   			AND
+	   				sc.clinica.id = 
+	   					(select c.id from Clinica c where c.id =
+	   						(select u.clinica from BUtente u where u.id= :idUtente ))
+	   		]]>
+	</query>
+	
+	
+
+	<query name="GetCCByIdCane">
+			<![CDATA[
+	   		from CartellaClinica cc where cc.accettazione.id  IN ( select acc.id from Accettazione acc where acc.animale.id = :idAnimale and data_chiusura is null) 			
+	   		]]>
+	</query>
+	
+	<query name="GetCCByIdCane2">
+			<![CDATA[
+	   		from CartellaClinica cc where cc.accettazione.id  IN ( select acc.id from Accettazione acc where acc.animale.id = :idAnimale) 			
+	   		]]>
+	</query>
+
+	
+	
+	<query name="GetCCByClinica_IntervalloDate">
+			<![CDATA[
+	   		from CartellaClinica cc where cc.enteredBy IN
+	   			(select user.id from BUtente user where user.clinica= :idClinica ) and cc.dataApertura >= :dataInizio and 
+	   			cc.dataApertura <= :dataFine 
+	   			ORDER BY cc.id desc
+	   			limit 1
+	   		]]>
+	</query>
+	
+	
+	
+	<query name="GetDiagnosiByCC">
+			<![CDATA[
+	   		from Diagnosi d where d.cartellaClinica.id = :idCartellaClinica
+	   		ORDER BY d.dataDiagnosi desc
+	   		]]>
+	</query>
+	
+	<query name="GetRickettsiosiByCC">
+			<![CDATA[
+	   		from Rickettsiosi r where r.cartellaClinica.id = :idCartellaClinica
+	   		ORDER BY r.dataRichiesta desc
+	   		]]>
+	</query>
+	
+	<query name="GetLeishmaniosiByCC">
+			<![CDATA[
+	   		from Leishmaniosi l where l.cartellaClinica.id = :idCartellaClinica
+	   		ORDER BY l.dataPrelievoLeishmaniosi desc	   		
+	   		]]>
+	</query>
+	
+	<query name="GetEhrlichiosiByCC">
+			<![CDATA[
+	   		from Ehrlichiosi e where e.cartellaClinica.id = :idCartellaClinica
+	   		ORDER BY e.dataRichiesta desc
+	   		]]>
+	</query>
+		
+	<query name="GetEsameIstopatologicoByNumero">
+			<![CDATA[
+	   		from EsameIstopatologico e where e.numero = :numeroEsame	   		
+	   		]]>
+	</query>
+	
+	<query name="GetEsamiIstopatologiciWithDiagnosi">
+			<![CDATA[
+	   		from EsameIstopatologico e where e.tipoDiagnosi.id = 1	 and e.trashedDate is null  		
+	   		]]>
+	</query>	
+	
+	<query name="GetTerapieDegenzaByCC">
+			<![CDATA[
+	   		from TerapiaDegenza td where td.cartellaClinica.id = :idCartellaClinica
+	   		ORDER BY td.data desc
+	   		]]>
+	</query>
+	
+	<query name="GetTerapieDegenzaByCCFarmacologica">
+			<![CDATA[
+	   		from TerapiaDegenza td where td.cartellaClinica.id = :idCartellaClinica and
+	   		                             td.tipo = 'Farmacologica'
+	   		ORDER BY td.data desc
+	   		]]>
+	</query>
+	
+	<query name="GetTerapieDegenzaByCCAltra">
+			<![CDATA[
+	   		from TerapiaDegenza td where td.cartellaClinica.id = :idCartellaClinica and
+	   		                             td.tipo = 'Altra'
+	   		ORDER BY td.data desc
+	   		]]>
+	</query>
+	
+	<query name="GetTerapieAssegnate">
+			<![CDATA[
+	   		from TerapiaAssegnata ta where ta.terapiaDegenza.id = :idTerapiaDegenza
+	   		ORDER BY ta.data desc
+	   		]]>
+	</query>
+	
+	<query name="GetTerapieEffettuate">
+			<![CDATA[
+	   		from TerapiaEffettuata te where te.terapiaAssegnata.id = :idTerapiaAssegnata
+	   		ORDER BY te.data desc
+	   		]]>
+	</query>
+	
+	<query name="GetTerapieEffettuateByData">
+			<![CDATA[
+	   		from TerapiaEffettuata te 
+	   		where te.data > :dataEffettuazioniFrom and 
+	   		      te.data < :dataEffettuazioniTo and
+	   		      te.terapiaAssegnata.terapiaDegenza.id = :idTerapiaDegenza and 
+	   		      te.terapiaAssegnata.trashedDate is null	   				
+	   		ORDER BY te.data desc 	     			
+	   		]]>
+	</query>
+	
+	<query name="GetBookingsByClinica">
+			<![CDATA[
+	   		from BookingClinica bc where bc.clinica= :idClinica 
+	   			and bc.trashedDate is null	  	   			
+	   		]]>
+	</query>
+	
+	<query name="GetBookingsByStrutturaClinica">
+			<![CDATA[
+	   		from BookingClinica bc where bc.strutturaClinica= :idStrutturaClinica 
+	   			and bc.trashedDate is null	  	   			
+	   		]]>
+	</query>
+	
+	<query name="GetFarmaciByClinica">
+			<![CDATA[
+	   		from MagazzinoFarmaci mf where mf.clinica= :idClinica 
+	   			and mf.trashedDate is null	
+	   			and mf.quantita > 0  	   			
+	   		]]>
+	</query>
+	
+	<query name="CheckFarmacoInClinica">
+			<![CDATA[
+	   		from MagazzinoFarmaci mf where mf.clinica= :idClinica 
+	   			and mf.lookupFarmaci.id= :idFarmaco
+	   				and mf.lookupTipiFarmaco = :idTipoFarmaco 
+	   					and mf.trashedDate is null	  	   			
+	   		]]>
+	</query>
+	
+	<query name="GetArticoliSanitariByClinica">
+			<![CDATA[
+	   		from MagazzinoArticoliSanitari m where m.clinica= :idClinica 
+	   			and m.trashedDate is null	  	   			
+	   		]]>
+	</query>
+	
+	<query name="CheckArticoloSanitarioInClinica">
+			<![CDATA[
+	   		from MagazzinoArticoliSanitari m where m.clinica= :idClinica 
+	   			and m.lookupArticoliSanitari.id= :idArticoloSanitario
+	   					and m.trashedDate is null	  	   			
+	   		]]>
+	</query>
+	
+	<query name="GetMangimiByClinica">
+			<![CDATA[
+	   		from MagazzinoMangimi m where m.clinica= :idClinica 
+	   			and m.trashedDate is null	  	   			
+	   		]]>
+	</query>
+	
+	<query name="CheckMangimeInClinica">
+			<![CDATA[
+	   		from MagazzinoMangimi m where m.clinica= :idClinica 
+	   			and m.tipoAnimale.id   = :idTipoAnimale
+	   			and m.etaAnimale.id    = :idEtaAnimale
+	   			and m.lookupMangimi.id = :idMangime
+	   			and m.trashedDate is null	  	   			
+	   		]]>
+	</query>
+	
+	
+	<!-- Query SINAGR -->	
+	
+	<query name="GetSinantropoByNumeroAutomatico">
+			<![CDATA[
+	   		from Sinantropo s where s.zoo = :zoo and s.marini = :marini and s.sinantropo = :sinantropo and s.numeroAutomatico = :numeroSinantropo	   		
+	   		]]>
+	</query>
+	
+	<query name="GetSinantropoByNumeroAutomaticoGenerale">
+			<![CDATA[
+	   		from Sinantropo s where s.numeroAutomatico = :numeroSinantropo	   		
+	   		]]>
+	</query>
+	
+	<query name="GetSinantropoByCodiceIspraGenerale">
+			<![CDATA[
+	   		from Sinantropo s where s.codiceIspra = :numeroSinantropo	   		
+	   		]]>
+	</query>
+	
+	<query name="GetSinantropoByCodiceIspra">
+			<![CDATA[
+	   		from Sinantropo s where s.zoo = :zoo and s.marini = :marini and s.sinantropo = :sinantropo and s.codiceIspra = :numeroSinantropo	   		
+	   		]]>
+	</query>
+	
+	<query name="GetSinantropoByMc">
+			<![CDATA[
+	   		from Sinantropo s where s.zoo = :zoo and s.marini = :marini and s.sinantropo = :sinantropo and s.mc = :mc	   		
+	   		]]>
+	</query>
+	
+	<query name="GetSinantropoByMcGenerale">
+			<![CDATA[
+	   		from Sinantropo s where s.mc = :mc	   		
+	   		]]>
+	</query>
+	
+	<query name="GetSinantropoByNumeroUfficialeGenerale">
+			<![CDATA[
+	   		from Sinantropo s where s.numeroUfficiale = :numeroSinantropo	   		
+	   		]]>
+	</query>
+	
+	<query name="GetSinantropoByNumeroUfficiale">
+			<![CDATA[
+	   		from Sinantropo s where s.zoo = :zoo and s.marini = :marini and s.sinantropo = :sinantropo and s.numeroUfficiale = :numeroSinantropo	   		
+	   		]]>
+	</query>
+	
+	<query name="GetSinantropiByClinica">
+			<![CDATA[
+	   		from Sinantropo s where 
+   				s.zoo = :zoo and s.marini = :marini and s.sinantropo = :sinantropo and s.enteredBy IN
+   					(select user.id from BUtente user where user.clinica= :idClinica )   			   		
+	   		]]>
+	</query>
+	
+	<query name="GetAutopsiaOrganoPatologiaFromAutopsia">
+			<![CDATA[
+	   		from AutopsiaOrganoPatologie aop where 
+   				aop.autopsia.id = :idAutopsia
+   			ORDER BY aop.lookupOrganiAutopsia.level 		 			   		
+	   		]]>
+	</query>
+	
+	<query name="GetFascicoloSanitarioByClinica">
+			<![CDATA[
+	   		from FascicoloSanitario fs where id IN
+	   			(
+	   			 select cc.fascicoloSanitario.id 
+	   			 from CartellaClinica cc 
+	   			 where cc.enteredBy IN
+	   				(
+	   				 select user.id 
+	   				 from BUtenteAll user 
+	   				 where user.clinica= :idClinica 
+	   		    	) 
+	   			)	
+	   		order by fs.id desc		 			   		
+	   		]]>
+	</query>
+	
+	<query name="AnimaleRicoverato">
+			<![CDATA[
+	   		from CartellaClinica c 
+	   		where (
+	   		           (
+	   		             fascicoloSanitario.dataChiusura >= :data or 
+	   		             fascicoloSanitario.dataChiusura is null
+	   		           ) 
+	   		           and 
+	   		           fascicoloSanitario.dataApertura <= :data  
+	   		      ) 
+	   		      and
+	   			 ( accettazione.animale.identificativo = :mc or accettazione.animale.tatuaggio = :mc )  and accettazione.animale.trashedDate is null and trashedDate is null	
+	   		order by c.dataApertura desc
+	   		]]>
+	</query>
+	
+	<query name="AnimaleRicoveratoOggi">
+			<![CDATA[
+	   		from CartellaClinica c 
+	   		where (
+	   		           fascicoloSanitario.dataChiusura is null
+	   		      ) 
+	   		      and
+	   			 ( accettazione.animale.identificativo = :mc or accettazione.animale.tatuaggio = :mc) and trashedDate is null	and dataChiusura is null
+	   		order by c.dataApertura desc
+	   		]]>
+	</query>
+	
+	<!-- query name="GetCaneByMc">
+			<![CDATA[
+	   		from Cane c 
+	   		where c.mc = :mc
+	   		]]>
+	</query-->
+	
+	<!-- query name="GetGattoByMc">
+			<![CDATA[
+	   		from Gatto g 
+	   		where g.mc = :mc
+	   		]]>
+	</query-->
+	
+	<!-- query name="GetProprietarioGatto">
+			<![CDATA[
+	   		from ProprietarioGatto p where p.id IN
+	   			(select g.proprietario.id from Gatto g where g.id = :idGatto)
+	   		]]>
+	</query>
+	
+	<query name="GetProprietarioCane">
+			<![CDATA[
+	   		from ProprietarioCane p where p.id IN
+	   			(select c.proprietario.id from Cane c where c.id = :idCane)
+	   		]]>
+	</query>
+	
+	<query name="GetProprietarioAslCane">
+			<![CDATA[
+	   		from LookupAsl a where a.id =(
+		   		select pc.asl.id from ProprietarioCane pc where pc.id IN
+		   			(select c.proprietario.id from Cane c where c.id = :idCane))
+	   		]]>
+	</query>
+	
+	<query name="GetProprietarioAslGatto">
+			<![CDATA[
+	   		from LookupAsl a where a.id IN (
+		   		select pg.asl.id from ProprietarioGatto pg where pg.id IN
+		   			(select g.proprietario.id from Gatto g where g.id = :idGatto))
+	   		]]>
+	</query-->
+	
+</hibernate-mapping>

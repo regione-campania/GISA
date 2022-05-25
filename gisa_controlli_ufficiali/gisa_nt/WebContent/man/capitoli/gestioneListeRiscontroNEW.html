@@ -1,0 +1,149 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<h2>Gestione Liste di riscontro sul Benessere Animale per i controlli a partire dal 05/03/2021 </h2>
+<p></p>
+<p style="text-align: justify;">A partire dal 5 Marzo del 2021, con la nuova gestione delle checklist del benessere animale, comunemente note come liste di Riscontro, queste ultime risultano associate ai singoli 
+sottopiani e non alla specie dell'allevamento. Vale a dire che il sottopiano indicato dall'utente in fase di inserimento controllo ufficiale, stabilirà quali checklist 
+saranno disponibili per la compilazione, a prescindere dalla specie allevata nell'allevamento.<br> 
+Nel sistema GISA sono previste le seguenti nuove checklist:
+<ul>
+<li>ALLEGATO GALLUS (formato 2018)</li>
+<li>ALLEGATO BROILER (formato 2018)</li>
+<li>ALLEGATO BOVINI BUFALINI (formato 2020)</li>
+<li>ALLEGATO VITELLI (formato 2021)</li>
+<li>ALLEGATO SUINI (formato 2019)</li>
+<li>ALLEGATO ALTRE SPECIE (formato 2018)</li>
+</ul>
+e di seguito è riportata l'associazione sottopiano selezionato-checklist disponibile.
+<p><br /><img src="./images/TABELLA1.png" /><br />
+</p>
+La nuova checklist vitelli, l'unica che presenta il formato 2021, si presenta in una struttura domanda/risposta simile alle altre checklist già sviluppate, 
+mentre varia l'intestazione che sarà gestita come segue:<br>
+<u> Informazioni allevamento </u>: L'unico campo obbligatorio sarà "Presenza di dichiarazione di conformità" in caso di risposta SI alla domanda "I vitelli sono stabulati in aree dove esistono impianti elettrici?"<br>
+<u> NUMERO CAPI PRESENTI IN BDN</u> : sarà consentito inserire campi numerici.<br>
+<u> PREAVVISO:</u> sarà recuperato dal controllo ufficiale come nelle altre checklst.<br>
+<u> ELEMENTO DI VERIFICA</u> : la gestione sarà la stessa delle altre checklist. <br/>
+<u> PROVVEDIMENTI ADOTTATI</u> : la gestione sarà la stessa delle altre checklist.<br/>
+
+<p style="text-align: justify;">In GISA, cavaliere "Aziende Zootecniche", dopo aver aggiunto un controllo ufficiale in piano di monitoraggio legato al benessere animale, 
+e' possibile :</p>
+<ul>
+<li>Compilare le liste di riscontro del benessere</li>
+<li>Salvare in banca dati le liste di riscontro del benessere</li>
+<li>Stampare le liste di riscontro del benessere</li>
+<li>Inviare le liste di riscontro alla BDN</li>
+</ul>
+
+<p style="text-align: justify;">Con particolare riferimento all'ultimo punto, si precisa che l'invio non sarà più per l'intero CU ma sarà per singola Checklist. 
+Saranno presenti un bottone "Invia Checklist in BDN" per ogni checklist presente nel controllo ufficiale. Ogni checklist avrà il proprio esito o stato (OK/KO) 
+con un eventuale errore restituito dalla BDN, come mostrato nella figura sottostante:
+<br /><br /><img src="./images/invio_checklist_multiple.png" /><br /><br /><br /> 
+</p>
+
+<p style="text-align: justify;">
+Si ricorda inoltre che per chiudere un CU sul benessere animale, il sistema GISA richiede la presenza di almeno una checklist salvata definitivamente. <br>
+Dopo la chiusura, la checklist non sara' piu' modificabile. In caso di invio Checklist con esito KO, il sistema GISA procede a riaprire la Checklist 
+che ha causato il KO. Il CU resta nello stato chiuso, e restano chiuse eventuali altre Checklist. Nel caso in cui in un CU fossero presenti almeno una checklist del 
+benessere ed almeno una di sicurezza alimentare sarà necessario chiuderne una per ogni tipo per chiudere l'intero CU.
+</p>
+
+<a name="inviob26"></a>
+<h2> Invio Checklist ATTO B26</h2><br/>
+L'invio dei controlli ufficiali per atto B26 alla BDN è subordinato a:<br/>
+- inserimento controllo ufficiale su stabilimenti di tipo  azienda zootecnica e controllo ufficiale di tipo: ispezione semplice-> b26 - PIANO DI MONITORAGGIO CONDIZIONALITA' CGO4 E CGO9 (EX ATTO B11) >> b26 - N.ISPEZIONI 
+- compilazione checklist (accessibile dal dettaglio controllo ufficiale mediante apposito link)<br/><br/>
+
+Inserimento di un controllo per benessere animale<br/>
+L'inserimento del controllo ufficiale avviene in modo standard. Ci sono pero' dei campi obbligatori in piu' da compilare e sono:<br/>
+- CONDIZIONALITA ATTO B11 - rintracciabilità e sicurezza alimentare 	 [SI|NO] presettato a SI<br/>
+- E' stata consegnata una copia della presente checklist all'allevatore? [SI|NO] <br/>
+- Effettuato Preavviso [nessun preavviso|telefono|telegramma|Altro]<br/><br/>
+
+Compilazione checklist<br/>
+Dal dettaglio del controllo ufficiale sia in caso di esito controllo FAVOREVOLE che SFAVOREVOLE occorre compilare la checklist.<br/><br/>
+
+CAMPI OBBLIGATORI IN CASO DI ESITO FAVOREVOLE(tutti quelli evidenziati in giallo)<br/><br/>
+<ul>
+<li>Appartenente al Campione Condizionalita'?</li>
+<li>Selezionare i criteri utilizzati per la selezione dell'allevamento sottoposto a controllo :</li>
+<ul><li>Altre indagini degli organi di polizia giudiziaria</li>
+<li>Cambiamenti della situazione aziendale</li>
+<li>Comunicazione dei dati dell'azienda all'Autorità competente</li>
+<li>Implicazioni per la salute umana e animale, precedenti focolai</li>
+<li>Indagine relativa all'igiene degli allevamenti</li>
+<li>Indagine relativa alle frodi comunitarie</li>
+<li>Infrazioni riscontrate negli anni precedenti</li>
+<li>Numero di animali</li>
+<li>Segnalazione di irregolarità da impianto di macellazione</li>
+<li>Variazioni dell'entità dei premi</li>
+<li>Altro criterio di rischio ritenuto rilevante dall'Autorità competente, indicare quale</li>
+<li>Casuale (Random)</li>
+<li>(*)Specificare il criterio di rischio ritenuto rilevante dall'Autorità competente</li></ul>
+
+<li>Numero capi presenti in BDN (sulla base delle registrazioni effettuate nel sistema)</li> 	
+<li>Numero capi effettivamente presenti in allevamento</li>
+<li>Numero dei capi controllati [non può essere maggiore del numero capi presenti in allevamento]</li>
+<li>ESITO DEL CONTROLLO PER LA SICUREZZA ALIMENTARE:</li>
+<li>Data primo controllo in loco</li>
+<li>Nome e cognome del detentore/proprietario/altro responsabile dell'azienda presente</li>
+<li>Nome e cognome del controllore</li></ul>
+
+<br/>
+
+NON VA COMPILATA LA LISTA DELLE DOMANDE PER CUI NON SARA’ VISUALIZZATA. <br/><br/>
+
+CAMPI OBBLIGATORI IN CASO DI ESITO SFAVOREVOLE<br/>
+<ul>
+<ul>
+<li>Appartenente al Campione Condizionalita'?</li>
+<li>Selezionare i criteri utilizzati per la selezione dell'allevamento sottoposto a controllo :</li>
+<ul><li>Altre indagini degli organi di polizia giudiziaria</li>
+<li>Cambiamenti della situazione aziendale</li>
+<li>Comunicazione dei dati dell'azienda all'Autorità competente</li>
+<li>Implicazioni per la salute umana e animale, precedenti focolai</li>
+<li>Indagine relativa all'igiene degli allevamenti</li>
+<li>Indagine relativa alle frodi comunitarie</li>
+<li>Infrazioni riscontrate negli anni precedenti</li>
+<li>Numero di animali</li>
+<li>Segnalazione di irregolarità da impianto di macellazione</li>
+<li>Variazioni dell'entità dei premi</li>
+<li>Altro criterio di rischio ritenuto rilevante dall'Autorità competente, indicare quale</li>
+<li>Casuale (Random)</li>
+<li>(*)Specificare il criterio di rischio ritenuto rilevante dall'Autorità competente</li></ul>
+
+<li>Numero capi presenti in BDN (sulla base delle registrazioni effettuate nel sistema)</li> 	
+<li>Numero capi effettivamente presenti in allevamento</li>
+<li>Numero dei capi controllati [non può essere maggiore del numero capi presenti in allevamento]</li>
+<li>ESITO DEL CONTROLLO PER LA SICUREZZA ALIMENTARE:</li>
+<li>Data primo controllo in loco</li>
+<li>Nome e cognome del detentore/proprietario/altro responsabile dell'azienda presente</li>
+<li>Nome e cognome del controllore</li>
+<li>Intenzionalità per Sicurezza Alimentare</li>
+<li>Intenzionalità per TSE</li></ul>
+
+VA COMPILATA LA LISTA DELLE DOMANDE. <br/> 
+- Nel caso in cui almeno una domanda è  N.A. occorre compilare il campo NOTE.<br/><br/>
+
+In caso di “Riscontro di non conformità di tipo BA, IR o SV” : SI diventa obbligatorio specificare almeno una tra le seguenti evidenze: <br/>
+<ul><li>Evidenze Benessere Animale:</li> 
+<li>Evidenze Identificazione e Registrazione:</li>
+<li>Evidenze Sostanze Vietate:</li></ul> 
+Si tratta di campi di testo in cui l’utente dovrà obbligatoriamente scrivere gli elementi di non conformità.<br/><br/>
+
+Se alla domanda “SONO STATE ASSEGNATE PRESCRIZIONI PER LA SICUREZZA ALIMENTARE?” Si risponde SI è obbligatorio specificare quali nel relativo campo note.<br/>  
+Se alla domanda “SONO STATE ASSEGNATE PRESCRIZIONI PER TSE?” Si risponde SI è obbligatorio specificare quali nel relativo campo note.<br/> 
+Nella sezione VERIFICA ESECUZIONE PRESCRIZIONI / AZIONI CORRETTIVE SICUREZZA ALIMENTARE:<br/>
+<ul>
+<li>1. se si compila almeno uno dei campi della sezione PRESCRIZIONI ESEGUITE PER LA SICUREZZA ALIMENTARE occorre compilarli tutti altrimenti vanno lasciati tutti vuoti</li> 
+<li>2. se si compila almeno uno dei campi della sezione PRESCRIZIONI ESEGUITE PER LE TSE  occorre compilarli tutti altrimenti vanno lasciati tutti vuoti.</li></ul>
+
+La funzione di "Invio al ministero" e' disponibile dopo la chiusura del controllo.<br/><br/>
+
+<mark>Attenzione! In caso di dati erroneamente inseriti il sistema procederà alla riapertura automatica della checklist per consentire la correzione dei dati. La comunicazione verrà fornita dalle autorità competenti.</mark>
+<br/>

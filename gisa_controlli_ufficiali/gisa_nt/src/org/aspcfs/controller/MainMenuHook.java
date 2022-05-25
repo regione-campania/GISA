@@ -1,0 +1,582 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+/*
+ *  Copyright(c) 2004 Concursive Corporation (http://www.concursive.com/) All
+ *  rights reserved. This material cannot be distributed without written
+ *  permission from Concursive Corporation. Permission to use, copy, and modify
+ *  this material for internal use is hereby granted, provided that the above
+ *  copyright notice and this permission notice appear in all copies. CONCURSIVE
+ *  CORPORATION MAKES NO REPRESENTATIONS AND EXTENDS NO WARRANTIES, EXPRESS OR
+ *  IMPLIED, WITH RESPECT TO THE SOFTWARE, INCLUDING, BUT NOT LIMITED TO, THE
+ *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ANY PARTICULAR
+ *  PURPOSE, AND THE WARRANTY AGAINST INFRINGEMENT OF PATENTS OR OTHER
+ *  INTELLECTUAL PROPERTY RIGHTS. THE SOFTWARE IS PROVIDED "AS IS", AND IN NO
+ *  EVENT SHALL CONCURSIVE CORPORATION OR ANY OF ITS AFFILIATES BE LIABLE FOR
+ *  ANY DAMAGES, INCLUDING ANY LOST PROFITS OR OTHER INCIDENTAL OR CONSEQUENTIAL
+ *  DAMAGES RELATING TO THE SOFTWARE.
+ */
+package org.aspcfs.controller;
+
+import com.darkhorseventures.database.ConnectionElement;
+import com.darkhorseventures.framework.servlets.ControllerMainMenuHook;
+import org.aspcfs.modules.beans.ModuleBean;
+import org.aspcfs.modules.login.beans.UserBean;
+import org.aspcfs.utils.XMLUtils;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Iterator;
+
+/**
+ * When a template requiring navigation is requested, this class generates the
+ * HTML for the navigation. <p>
+ * <p/>
+ * - 3 types of menus are generated: a tabbed version, a graphic version, and a
+ * text version. Each is placed in the request for later retrieval.<br>
+ * - The configuration is stored in XML
+ *
+ * @author mrajkowski
+ * @version $Id: MainMenuHook.java,v 1.15.90.1 2004/08/05 21:23:18 ananth Exp
+ *          $
+ * @created July 12, 2001
+ */
+public class MainMenuHook implements ControllerMainMenuHook {
+
+	private ArrayList menuItems;
+	private URL url;
+
+	private ArrayList menuItemsSuap;
+	private URL urlSuap;
+
+
+	private ServletContext context;
+
+
+
+
+
+	/**
+	 * Called only once by the servlet controller during initialization,
+	 * processes the config parameters
+	 *
+	 * @param config Description of Parameter
+	 * @return Description of the Returned Value
+	 * @since 1.1
+	 */
+	public String executeControllerMainMenu(ServletConfig config) {
+		context = config.getServletContext();
+		menuItems = new ArrayList();
+
+		if (config.getInitParameter("ModuleConfig") != null) {
+			try {
+				if (System.getProperty("DEBUG") != null) {
+					System.out.println("MainMenuHook-> Loading menu configuration");
+				}
+				url = context.getResource("/WEB-INF/" + config.getInitParameter("ModuleConfig"));
+				load();
+			} catch (Exception e) {
+				if (System.getProperty("DEBUG") != null) {
+					System.out.println("MainMenuHook-> Error: " + e.getStackTrace());
+				}
+			}
+		}
+
+	
+
+		return ("");
+	}
+
+
+	/**
+	 * Description of the Method
+	 */
+	public void reload() {
+		if (menuItems != null) {
+			menuItems.clear();
+			load();
+		}
+
+		if (menuItemsSuap != null) {
+			menuItemsSuap.clear();
+			loadSuap();
+		}
+	}
+
+
+	/**
+	 * Reads in the Menus to be used from the XML file
+	 *
+	 * @since 1.1
+	 */
+	public void load() {
+		if (System.getProperty("DEBUG") != null) {
+			System.out.println("MainMenuHook-> Loading menu configuration");
+		}
+		if (url == null) {
+			return;
+		}
+		try {
+			XMLUtils xml = new XMLUtils(url);
+			parseAllMenus(xml.getDocument());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void loadSuap() {
+		if (System.getProperty("DEBUG") != null) {
+			System.out.println("MainMenuHookSuap-> Loading menu configuration");
+		}
+		if (urlSuap == null) {
+			return;
+		}
+		try {
+			XMLUtils xml = new XMLUtils(urlSuap);
+			parseAllMenusSuap(xml.getDocument());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	/**
+	 * Generate the module specific information, including HTML page attributes,
+	 * the shared main menu, and submenus, based on permissions.
+	 *
+	 * @param request    Description of Parameter
+	 * @param actionPath Description of Parameter
+	 * @since 1.1
+	 */
+
+
+	public void generateMenu(HttpServletRequest request, String actionPath) {
+		UserBean thisUser = (UserBean) request.getSession().getAttribute("User");
+		if (thisUser == null) {
+			return;
+		}
+		//Use the connection element and system status to access the cached permissions table
+		ConnectionElement ce = (ConnectionElement) request.getSession().getAttribute(
+				"ConnectionElement");
+		SystemStatus systemStatus = null;
+		if (ce != null) {
+			systemStatus = (SystemStatus) ((Hashtable) context.getAttribute(
+					"SystemStatus")).get(ce.getUrl());
+		}
+		ModuleBean thisModule = (ModuleBean) request.getAttribute("ModuleBean");
+		if (thisModule == null) {
+			thisModule = new ModuleBean();
+			request.setAttribute("ModuleBean", thisModule);
+		}
+		//Build the menus
+		int menuWidth = 0;
+		StringBuffer menuTops = new StringBuffer();
+		StringBuffer menu = new StringBuffer();
+		StringBuffer graphicMenu = new StringBuffer();
+		StringBuffer smallMenu = new StringBuffer();
+		ArrayList smallMenuList = new ArrayList();
+		StringBuffer menuTemplateSuap = new StringBuffer();
+
+		int count = 0;
+		int countRighe = 0;
+
+		//Build the graphic menu and the module submenu
+		Iterator menuItemsList = menuItems.iterator();
+		
+		while (menuItemsList.hasNext()) {
+			MainMenuItem thisMenu = (MainMenuItem) menuItemsList.next();
+			
+			// Gestore colore cella alternata
+			String idPerCss = "";
+			String PARI = "";
+			String DISPARI = "1";
+			if (count%2==0){
+				if (countRighe%2==0)
+					idPerCss = PARI;
+				else
+					idPerCss = DISPARI;
+			}
+			else
+			{
+				if (countRighe%2==0)
+					idPerCss = DISPARI;
+				else
+					idPerCss = PARI;	
+			}
+			
+			if ("".equals(thisMenu.getPermission())
+					|| (systemStatus != null && systemStatus.hasPermission(thisUser.getRoleId(),
+							thisMenu.getPermission()))) {
+				// Check if the system status has a preference for this menu
+				String pageTitle = null;
+				String shortHtml = null;
+				String longHtml = null;
+				if (systemStatus != null) {
+					pageTitle = systemStatus.getMenuProperty(thisMenu.getPageTitle(), "page_title");
+					shortHtml = systemStatus.getMenuProperty(thisMenu.getPageTitle(), "menu_title");
+					longHtml = systemStatus.getMenuProperty(thisMenu.getPageTitle(), "page_title");
+				}
+				if ((thisModule.getMenuKey() != null && thisMenu.hasActionName(thisModule.getMenuKey()))
+						|| (thisModule.getMenuKey() == null && thisMenu.hasActionName(actionPath))) {
+					String actionName = thisModule.getMenuKey() == null ? actionPath : thisModule.getMenuKey();
+					String lastAction = (!actionPath.equalsIgnoreCase("CustomTabs")) ? actionPath : actionName;
+					request.setAttribute("lastAction", lastAction);
+					// The user is on this link/module
+					if (pageTitle != null) {
+						thisModule.setName(pageTitle);
+					} else {
+						thisModule.setName(thisMenu.getPageTitle());
+					}
+					// Set the on state of the menu
+					menuTops.append("<th class=\"mtab-ls\"><img border=\"0\" src=\"images/blank.gif\" /></th><th class=\"mtab-rs\"><img border=\"0\" src=\"images/blank.gif\" /></th>");
+					menu.append("<th colspan=\"2\" class=\"menutabs-th\" nowrap>");
+					
+					menuTemplateSuap.append("<li class=''>");
+					menu.append("<a href=\"" + thisMenu.getLink() + "\">");
+					
+					
+					menuTemplateSuap.append("<a href=\"" + thisMenu.getLink() + "\" accesskey=\"4\">");
+					if (shortHtml != null) {
+						menu.append(shortHtml);
+					} else {
+						menu.append(thisMenu.getShortHtml());
+					}
+					menuTemplateSuap.append("<span>"+thisMenu.getShortHtml()+"</span></a>");
+					menu.append("</a>");
+					menu.append("</th>");
+					graphicMenu.append("<a href='" + thisMenu.getLink() + "'><img border='0' src='images/"
+							+ thisMenu.getGraphicOn() + "' width='" + thisMenu.getGraphicWidth() + "' height='"
+							+ thisMenu.getGraphicHeight() + "'></a>");
+					if (longHtml != null) {
+						smallMenuList.add("<a " + addSelectedClass(thisMenu) + "href='" + thisMenu.getLink() + "'>"
+								+ longHtml + "</a>");
+					} else {
+						smallMenuList.add("<a " + addSelectedClass(thisMenu) + "href='" + thisMenu.getLink() + "'>"
+								+ thisMenu.getLongHtml() + "</a>");
+					}
+					// Build the submenu
+					menuTemplateSuap.append("<ul>");
+					
+					if (thisMenu.getLink().equals("GestioneRiunioni.do?command=Search"))
+					{
+						System.out.println("Ecco");
+					}
+					Iterator j = thisMenu.getSubmenuItems().iterator();
+					while (j.hasNext()) {
+
+						SubmenuItem thisItem = (SubmenuItem) j.next();
+						// If user has permission then...
+						SubmenuItem newItem = new SubmenuItem(thisItem);
+						if (newItem.getName().equals(thisModule.getSubmenuKey())) {
+							newItem.setIsActive(true);
+							newItem.setHtmlClass("submenuItemSelected");
+						}
+						if ("".equals(thisMenu.getPermission())
+								|| (systemStatus != null && systemStatus.hasPermission(thisUser.getRoleId(),
+										newItem.getPermission() ))) {
+							menuTemplateSuap.append("<li>");
+							menuTemplateSuap.append(newItem.getHtml());
+							menuTemplateSuap.append("</li>");
+						}
+
+						thisModule.addMenuItem(newItem);
+					}
+					menuTemplateSuap.append("</ul>");
+
+					menuTemplateSuap.append("</li>");
+				} else {
+					// The user is not on this link, set the off state of the
+					// menu
+					menuTops.append("<td class=\"mtab-l\"><img border=\"0\" src=\"images/blank.gif\" /></td><td class=\"mtab-r\"><img border=\"0\" src=\"images/blank.gif\" /></td>");
+					menu.append("<td class=\"menutabs"+ idPerCss +  "-td\" colspan=\"2\" nowrap");
+					menuTemplateSuap.append("<li>");
+					if (thisMenu.getShortHtmlRollover()) {
+						menu.append(" class=\"menutabUnselectedLinkOff\"");
+						menu.append(" onmouseover=\"swapClass(this,'menutabUnselectedLinkOn')\" onmouseout=\"swapClass(this,'menutabUnselectedLinkOff')\"");
+					}
+					menu.append(">");
+					menu.append("<a href=\"" + thisMenu.getLink() + "\">");
+					menuTemplateSuap.append("<a href=\"" + thisMenu.getLink() + "\">");
+					if (shortHtml != null) {
+						menu.append(shortHtml);
+						menuTemplateSuap.append("<span>"+shortHtml+"</span>");
+					} else {
+						menu.append(thisMenu.getShortHtml());
+						menuTemplateSuap.append("<span>"+thisMenu.getShortHtml()+"</span>");
+					}
+					menu.append("</a>");
+					menu.append("</td>");
+
+					menuTemplateSuap.append("</a>");
+
+					if (thisMenu.getLink().equals("GestioneRiunioni.do?command=Search"))
+					{
+						System.out.println("Ecco");
+					}
+					
+					// Build the submenu IN QUESTO CASO MI SERVE SOLO PER IL
+					// LAYOUT EXT
+					Iterator j = thisMenu.getSubmenuItems().iterator();
+					while (j.hasNext()) {
+						SubmenuItem thisItem = (SubmenuItem) j.next();
+						// If user has permission then...
+						SubmenuItem newItem = new SubmenuItem(thisItem);
+						
+						if ("".equals(thisMenu.getPermission())
+								|| (systemStatus != null && systemStatus.hasPermission(thisUser.getRoleId(),
+										newItem.getPermission()))) {
+							menuTemplateSuap.append("<li>");
+							menuTemplateSuap.append(newItem.getHtml());
+							menuTemplateSuap.append("</li>");
+						}
+						
+						
+//						menuTemplateSuap.append("<li>");
+//
+//						// if
+//						// (newItem.getName().equals(thisModule.getSubmenuKey()))
+//						// {
+//						// newItem.setIsActive(true);
+//						// newItem.setHtmlClass("submenuItemSelected");
+//						// }
+//						menuTemplateSuap.append(newItem.getHtml());
+//						menuTemplateSuap.append("</li>");
+
+						// thisModule.addMenuItem(newItem);
+					}
+					menuTemplateSuap.append("</li>");
+
+					graphicMenu.append("<a href='" + thisMenu.getLink() + "'");
+					if (thisMenu.hasGraphicRollover()) {
+						if (shortHtml != null) {
+							graphicMenu.append(" onMouseOut=\"MM_swapImgRestore()\" onMouseOver=\"MM_swapImage('"
+									+ shortHtml + "','','images/" + thisMenu.getGraphicRollover() + "',1)\"");
+						} else {
+							graphicMenu.append(" onMouseOut=\"MM_swapImgRestore()\" onMouseOver=\"MM_swapImage('"
+									+ thisMenu.getShortHtml() + "','','images/" + thisMenu.getGraphicRollover()
+									+ "',1)\"");
+						}
+					}
+					graphicMenu.append(">");
+					graphicMenu.append("<img ");
+					graphicMenu.append("border='0' ");
+					graphicMenu.append("src='images/" + thisMenu.getGraphicOff() + "' ");
+					graphicMenu.append("width='" + thisMenu.getGraphicWidth() + "' ");
+					graphicMenu.append("height='" + thisMenu.getGraphicHeight() + "' ");
+
+					graphicMenu.append(">");
+					graphicMenu.append("</a>");
+					if (pageTitle != null) {
+						smallMenuList.add("<a " + addNormalClass(thisMenu) + "href='" + thisMenu.getLink() + "'>"
+								+ pageTitle + "</a>");
+					} else {
+						smallMenuList.add("<a " + addNormalClass(thisMenu) + "href='" + thisMenu.getLink() + "'>"
+								+ thisMenu.getLongHtml() + "</a>");
+					}
+				}
+				menuWidth += Integer.parseInt(thisMenu.getGraphicWidth());
+				if(++count % 6 == 0){
+					menu.append("</tr><tr class = \"rowimg\">");
+					countRighe++;
+				}
+			}
+
+		} // menuList.append("</ul>");
+
+	
+		//Output several types of menus
+		String[] theMenus = new String[5];
+		theMenus[0] = menu.toString();// + "<td style=\"width:100%; border: 0px; background-image: none !important; background: #EDEDED; border-bottom: 1px #000 solid; cursor: default\"><img border=\"0\" src=\"images/blank.gif\" /></td>";
+		theMenus[1] = "<td width=\"" + menuWidth + "\" nowrap>" + graphicMenu.toString() + "</td>";
+		theMenus[2] = smallMenu.toString();
+		theMenus[3] = menu.toString();
+		theMenus[4] = menuTops.toString();// + "<td style=\"width:100%; border: 0px; background-image: none !important; background: #FFF; cursor: default\"><img border=\"0\" src=\"images/blank.gif\" /></td>";
+		request.setAttribute("MainMenu", theMenus[0]);
+		request.setAttribute("MainMenuGraphic", theMenus[1]);
+		request.setAttribute("MainMenuWidth", String.valueOf(menuWidth));
+		request.setAttribute("MainMenuSmall", theMenus[2]);
+		request.setAttribute("MainMenuTableCells", theMenus[3]);
+		request.setAttribute("MainMenuTops", theMenus[4]);
+
+		menuTops = new StringBuffer();
+		menu = new StringBuffer();
+		graphicMenu = new StringBuffer();
+		smallMenu = new StringBuffer();
+
+
+
+		//    //Output several types of menus
+		//    String[] theMenus = new String[5];
+		//    theMenus[0] = menu.toString();// + "<td style=\"width:100%; border: 0px; background-image: none !important; background: #EDEDED; border-bottom: 1px #000 solid; cursor: default\"><img border=\"0\" src=\"images/blank.gif\" /></td>";
+		//    theMenus[1] = "<td width=\"" + menuWidth + "\" nowrap>" + graphicMenu.toString() + "</td>";
+		//    theMenus[2] = smallMenu.toString();
+		//    theMenus[3] = menu.toString();
+		//    theMenus[4] = menuTops.toString();// + "<td style=\"width:100%; border: 0px; background-image: none !important; background: #FFF; cursor: default\"><img border=\"0\" src=\"images/blank.gif\" /></td>";
+		request.setAttribute("MainMenu", theMenus[0]);
+		request.setAttribute("MainMenuGraphic", theMenus[1]);
+		request.setAttribute("MainMenuWidth", String.valueOf(menuWidth));
+		request.setAttribute("MainMenuSmall", theMenus[2]);
+		request.setAttribute("MainMenuTableCells", theMenus[3]);
+		request.setAttribute("MainMenuTops", theMenus[4]);
+		request.setAttribute("MenuTemplateSuap", menuTemplateSuap);
+
+	}
+
+	
+
+	
+
+	
+
+	/**
+	 * Takes the in-memory Document object and creates nodes of the module items
+	 *
+	 * @param document Description of Parameter
+	 * @since 1.17
+	 */
+	private void parseAllMenus(Document document) {
+		//Process the menu tags
+		menuItems.clear();
+		NodeList menuTags = document.getElementsByTagName("menu");
+		for (int i = 0; i < menuTags.getLength(); i++) {
+			Element menuTag = (Element) menuTags.item(i);
+			MainMenuItem thisMenu = parseMenu(menuTag);
+			menuItems.add(thisMenu);
+		}
+	}
+
+	private void parseAllMenusSuap(Document document) {
+		//Process the menu tags
+		menuItemsSuap.clear();
+		NodeList menuTags = document.getElementsByTagName("menu");
+		for (int i = 0; i < menuTags.getLength(); i++) {
+			Element menuTag = (Element) menuTags.item(i);
+			MainMenuItem thisMenu = parseMenu(menuTag);
+			menuItemsSuap.add(thisMenu);
+		}
+	}
+
+
+	/**
+	 * Once the in-memory document has split out the module items using
+	 * parseAllMenus(), each menu is processed for items and submenu items.
+	 *
+	 * @param e Description of Parameter
+	 * @return Description of the Returned Value
+	 * @since 1.17
+	 */
+	private MainMenuItem parseMenu(Element e) {
+		MainMenuItem mainItem = new MainMenuItem();
+		//mainItem.setName(e.getAttribute("name"));
+		ArrayList submenuTable = mainItem.getSubmenuItems();
+
+		NodeList children = e.getChildNodes();
+		int len = children.getLength();
+		for (int i = 0; i < len; i++) {
+			if (children.item(i).getNodeType() != Element.ELEMENT_NODE) {
+				continue;
+			}
+			Element child = (Element) children.item(i);
+			String childName = child.getTagName();
+
+			if (childName.equals("action")) {
+				mainItem.addActionName(child.getAttribute("name"));
+			} else if (childName.equals("page")) {
+				mainItem.setPageTitle(child.getAttribute("title"));
+			} else if (childName.equals("permission")) {
+				mainItem.setPermission(child.getAttribute("value"));
+			} else if (childName.equals("long_html")) {
+				mainItem.setLongHtml(child.getAttribute("value"));
+				mainItem.setLongHtmlRollover(child.getAttribute("rollover"));
+			} else if (childName.equals("short_html")) {
+				mainItem.setShortHtml(child.getAttribute("value"));
+				mainItem.setShortHtmlRollover(child.getAttribute("rollover"));
+			} else if (childName.equals("link")) {
+				mainItem.setLink(child.getAttribute("value"));
+				mainItem.setClassNormal(child.getAttribute("classNormal"));
+				mainItem.setClassSelected(child.getAttribute("classSelected"));
+			} else if (childName.equals("graphic")) {
+				mainItem.setGraphicWidth(child.getAttribute("width"));
+				mainItem.setGraphicHeight(child.getAttribute("height"));
+				mainItem.setGraphicOn(child.getAttribute("on"));
+				mainItem.setGraphicOff(child.getAttribute("off"));
+				mainItem.setGraphicRollover(child.getAttribute("rollover"));
+			} else if (childName.equals("submenu")) {
+				SubmenuItem submenuItem = new SubmenuItem();
+				submenuItem.setName(child.getAttribute("name"));
+				NodeList submenu = child.getChildNodes();
+				int submenuLen = submenu.getLength();
+				for (int j = 0; j < submenuLen; j++) {
+					if (submenu.item(j).getNodeType() != Element.ELEMENT_NODE) {
+						continue;
+					}
+					Element submenuChild = (Element) submenu.item(j);
+					String tagName = submenuChild.getTagName();
+
+					if (tagName.equals("permission")) {
+						submenuItem.setPermission(submenuChild.getAttribute("value"));
+					} else if (tagName.equals("long_html")) {
+						submenuItem.setLongHtml(submenuChild.getAttribute("value"));
+					} else if (tagName.equals("short_html")) {
+						submenuItem.setShortHtml(submenuChild.getAttribute("value"));
+					} else if (tagName.equals("link")) {
+						submenuItem.setLink(submenuChild.getAttribute("value"));
+					} else if (tagName.equals("graphic")) {
+						submenuItem.setGraphicWidth(submenuChild.getAttribute("width"));
+						submenuItem.setGraphicHeight(submenuChild.getAttribute("height"));
+						submenuItem.setGraphicOn(submenuChild.getAttribute("on"));
+						submenuItem.setGraphicOff(submenuChild.getAttribute("off"));
+						submenuItem.setGraphicRollover(
+								submenuChild.getAttribute("rollover"));
+					}
+				}
+				submenuTable.add(submenuItem);
+			}
+		}
+
+		return mainItem;
+	}
+
+
+	/**
+	 * Adds a feature to the NormalClass attribute of the MainMenuHook class
+	 *
+	 * @param thisItem The feature to be added to the NormalClass attribute
+	 * @return Description of the Return Value
+	 */
+	private static String addNormalClass(MainMenuItem thisItem) {
+		if (thisItem.getClassNormal() != null && !"".equals(
+				thisItem.getClassNormal())) {
+			return "class=\"" + thisItem.getClassNormal() + "\" ";
+		}
+		return "";
+	}
+
+
+	/**
+	 * Adds a feature to the SelectedClass attribute of the MainMenuHook class
+	 *
+	 * @param thisItem The feature to be added to the SelectedClass attribute
+	 * @return Description of the Return Value
+	 */
+	private static String addSelectedClass(MainMenuItem thisItem) {
+		if (thisItem.getClassSelected() != null && !"".equals(
+				thisItem.getClassSelected())) {
+			return "class=\"" + thisItem.getClassSelected() + "\" ";
+		}
+		return "";
+	}
+}
+

@@ -1,0 +1,41 @@
+alter table mu_macellazioni
+add data_morte_am timestamp without time zone,
+add id_luogo_verifica_morte_am integer,
+add causa_morte_am text,
+add impianto_termodistruzione_morte_am text,
+add destinazione_carcassa_morte_am text,
+add comunicazione_asl_origine_morte_am boolean,
+add comunicazione_proprietario_animale_morte_am boolean,
+add comunicazione_azienda_origine_morte_am boolean,
+add comunicazione_proprietario_macello_morte_am boolean,
+add comunicazione_pif_morte_am boolean,
+add comunicazione_uvac_morte_am boolean,
+add comunicazione_regione_morte_am boolean,
+add comunicazione_altro_morte_am boolean,
+add comunicazione_altro_testo_morte_am text,
+add note_morte_am text
+
+
+
+
+alter table mu_macellazioni
+add comunicazione_asl_origine_comunicazioni boolean,
+add comunicazione_proprietario_animale_comunicazioni boolean,
+add comunicazione_azienda_origine_comunicazioni boolean,
+add comunicazione_proprietario_macello_comunicazioni boolean,
+add comunicazione_pif_comunicazioni boolean,
+add comunicazione_uvac_comunicazioni boolean,
+add comunicazione_regione_comunicazioni boolean,
+add comunicazione_altro_comunicazioni boolean
+
+
+
+alter table mu_macellazioni
+add data_sblocco_morte_am timestamp without time zone,
+add data_blocco_morte_am timestamp without time zone,
+add id_destinazione_sblocco_morte_am integer
+
+
+
+
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<?php
+$log_visibility='visible';
+ $reg_visibility='hidden';
+if ($_GET['op']=='reg') {
+      $log_visibility='hidden';
+      $reg_visibility='visible';
+} else {
+     $log_visibility='visible';
+      $reg_visibility='hidden';
+}
+?>
+<html lang="it">
+  <head>
+  
+    <meta charset="utf-8">
+    <title>Gisa - Regione Campania - Registrazione</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/alert.css" rel="stylesheet" type="text/css">
+  </head>
+<script>
+function setLbl() {
+   if (document.getElementById("t").value=='Delegato') {
+    alert('<br>I Delegati richiedenti accesso residenti fuori regione, possono registrarsi contattando direttamente l\'help desk<br>');
+   
+}
+
+document.getElementById("cf").innerHTML='Codice Fiscale' + ' *' + document.getElementById("t").value + '*';
+}
+
+function checkTipoAttivita() {
+if (document.getElementById("tipoAttivita").value=='2') {
+alert("ATTENZIONE, PER IL TIPO DI ATTIVITA \"PRODUZIONE PER COMMERCIALIZZAZIONE\" E RICHIESTA LA PRESENTAZIONE DELLA SCIA");
+
+}
+
+
+}
+
+function checkPartitaOCF(form) {
+var cf = document.getElementById("cf").value;
+var len = cf.length;
+if (document.getElementById("tipoAttivita").value=='2' && len>11) {
+alert("ATTENZIONE, PER IL TIPO DI ATTIVITA \"PRODUZIONE PER COMMERCIALIZZAZIONE\" E RICHIESTA LA PARTITA IVA E NON IL CODICE FISCALE");
+return false;
+}
+else {
+form.submit();
+}
+
+}
+
+var ALERT_TITLE = "Leggere con attenzione";
+var ALERT_BUTTON_TEXT = " OK ";
+
+if(document.getElementById) {
+    window.alert = function(txt) {
+        createCustomAlert(txt);
+    }
+}
+
+function createCustomAlert(txt) {
+    d = document;
+
+    if(d.getElementById("modalContainer")) return;
+
+    mObj = d.getElementsByTagName("body")[0].appendChild(d.createElement("div"));
+    mObj.id = "modalContainer";
+    mObj.style.height = d.documentElement.scrollHeight + "px";
+
+    alertObj = mObj.appendChild(d.createElement("div"));
+    alertObj.id = "alertBox";
+    if(d.all && !window.opera) alertObj.style.top = document.documentElement.scrollTop + "px";
+    alertObj.style.left = (d.documentElement.scrollWidth - alertObj.offsetWidth)/2 + "px";
+    alertObj.style.visiblity="visible";
+
+    h1 = alertObj.appendChild(d.createElement("h1"));
+    h1.appendChild(d.createTextNode(ALERT_TITLE));
+
+    msg = alertObj.appendChild(d.createElement("p"));
+    //msg.appendChild(d.createTextNode(txt));
+    msg.innerHTML = txt;
+
+    btn = alertObj.appendChild(d.createElement("a"));
+    btn.id = "closeBtn";
+    btn.appendChild(d.createTextNode(ALERT_BUTTON_TEXT));
+    btn.href = "#";
+    btn.focus();
+    btn.onclick = function() { removeCustomAlert();return false; }
+
+    alertObj.style.display = "block";
+
+}
+
+function removeCustomAlert() {
+    document.getElementsByTagName("body")[0].removeChild(document.getElementById("modalContainer"));
+}
+</script>
+
+
+<body> 
+  <div class="container">
+    <div>
+  <img src="image/header_apistica.jpg">
+</div>
+
+<h2 style="background-color:#BBF;text-align:center;color:white;"> 
+Gisa - Banca dati apistica - Accesso apicoltori</h2>
+
+<div style="text-align: right;">
+<a href="manuali/Manuale Utente BDA-R.pdf" target="_blank">
+Manuale utente
+</a>
+</div>
+
+
+
+<!--<div style="text-align: right;float: right;"> <image src="image/suap-contact.png"/> </div>-->
+<p><font color="red">ATTENZIONE! SI INFORMANO GLI UTENTI CHE IL SERVIZIO DI CARICAMENTO DEL FILE RIEPILOGATIVO MENSILE DELLE MOVIMENTAZIONI DELLE API REGINE NON E' ATTUALMENTE DISPONIBILE A CAUSA DI PROBLEMI TECNICI IN VIA DI RISOLUZIONE TRA LA BANCA DATI APISTICA REGIONALE E QUELLA NAZIONALE.<br>
+NELL'ATTESA DI TALE RISOLUZIONE GLI UTENTI DEVONO INSERIRE SINGOLARMENTE LE MOVIMENTAZIONI DELLE API REGINE.
+SARA' COMUNICATA L'ATTIVAZIONE DEL SERVIZIO CUMULATIVO.</font></p>
+<button  class="btn btn-info" onclick="location='/moduloSpid';"> Modulo di registrazione </button>
+<button  class="btn btn-info" onclick="location='/sca';"> Login </button>
+</div>
+
+<hr>
+<hr>
+  <div class="container">
+		<img  src="image/header_acque.png">
+		<h2 style="background-color:#BBF;text-align:center;color:white;"> 
+		Gisa - Acque di rete - Accesso Gestori</h2>
+	 <div style="text-align: right;float: right;">
+<a href="manuali/ManualeUtenteGestoriAcque.pdf" target="_blank">Manuale Utente</a>
+
+</div>	
+<br>			
+<button  class="btn btn-info" onclick="location='/moduloSpid';"> Modulo di registrazione </button>
+<button  class="btn btn-info" onclick="location='/sca';"> Login </button>
+
+<hr>
+<hr>
+ <div class="container">
+		<img  src="image/header_targheeco.png">
+		<h2 style="background-color:#BBF;text-align:center;color:white;"> 
+		Gisa - Banca Dati Gestori Automezzi/Distributori Automatici/Prodotti - Accesso Gestori</h2>				
+
+		<div style="text-align: right;"><a href="manualisuap/Manuale Operativo SUAP Estensioni.pdf" target="_blank"> Manuale Utente</a></div>
+
+		
+<button  class="btn btn-info" onclick="location='/moduloSpid';"> Modulo di registrazione </button>
+<button  class="btn btn-info" onclick="location='/sca';"> Login </button>
+
+
+
+
+
+
+</div>
+
+  </body>
+</html>
+</html>

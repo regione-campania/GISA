@@ -1,0 +1,57 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<div class="main-content" id="lista-macchinari">
+    <div class="table-wrapper" *ngIf="macchine">
+        <table class="table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="wrapper">
+                            <span class="label">Data</span>
+                            <a-table-filter type="date"></a-table-filter>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="wrapper">
+                            <span class="label">Tipologia</span>
+                            <a-table-filter type="text"></a-table-filter>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="wrapper">
+                            <span class="label">Modello</span>
+                            <a-table-filter type="text"></a-table-filter>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="wrapper">
+                            <span class="label">Costruttore</span>
+                            <a-table-filter type="text"></a-table-filter>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="wrapper">
+                            <span class="label">Mandatario</span>
+                            <a-table-filter type="text"></a-table-filter>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of macchine">
+                    <td>{{m.data_inserimento}}</td>
+                    <td>{{m.descr_tipo_macchina}}</td>
+                    <td>{{m.modello}}</td>
+                    <td>{{m.descr_costruttore}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

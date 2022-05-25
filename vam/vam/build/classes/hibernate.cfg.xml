@@ -1,0 +1,204 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Mappings -->
+<!--		<property name="hbm2ddl.auto">update</property>-->
+<!--		<property name="hbm2ddl.auto">create-drop</property>-->
+		<property name="hbm2ddl.auto"></property>
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.connection.datasource">java:comp/env/jdbc/vamM</property>
+		
+		<mapping class="org.talos.model.Capability"/>
+		<mapping class="org.talos.model.Category"/>
+		<mapping class="org.talos.model.GroupPermission"/>
+		<mapping class="org.talos.model.Permission"/>
+		<mapping class="org.talos.model.SecureObject"/>
+		<mapping class="org.talos.model.SimplePermission"/>
+		<mapping class="org.talos.model.Subject"/>
+		
+		<mapping class="it.us.web.bean.BFunzione"/>
+		<mapping class="it.us.web.bean.HGui"/>
+		<mapping class="it.us.web.bean.HRuolo"/>
+		<mapping class="it.us.web.bean.HSubfunzione"/>
+		
+		<mapping class="it.us.web.bean.BUtente"/>
+		<mapping class="it.us.web.bean.BUtenteAll"/>
+		<mapping class="it.us.web.bean.SuperUtenteAll"/>
+		<mapping class="it.us.web.bean.SuperUtente"/>
+		<mapping class="it.us.web.bean.UtentiOperazioni"/>
+		<mapping class="it.us.web.bean.UtentiOperazioniModifiche"/>
+		
+		<mapping class="it.us.web.bean.vam.Accettazione"/>
+		<mapping class="it.us.web.bean.vam.Animale"/>
+		<mapping class="it.us.web.bean.vam.AttivitaBdr"/>
+		<mapping class="it.us.web.bean.vam.CartellaClinica"/>
+		<mapping class="it.us.web.bean.vam.Clinica"/>
+		<mapping class="it.us.web.bean.vam.Ecg"/>
+		<mapping class="it.us.web.bean.vam.EcoCuore"/>
+		
+		<mapping class="it.us.web.bean.vam.Tac"/>
+		<mapping class="it.us.web.bean.vam.Rx"/>
+
+		<mapping class="it.us.web.bean.vam.TipoIntervento"/>
+		<mapping class="it.us.web.bean.vam.EcoCuoreEsito"/>
+		<mapping class="it.us.web.bean.vam.EsameCoprologico"/>		
+		<mapping class="it.us.web.bean.vam.EsameObiettivo"/>
+		<mapping class="it.us.web.bean.vam.EsameObiettivoEsito"/>
+		<mapping class="it.us.web.bean.vam.EsameObiettivoSintoPatologia"/>		
+		<mapping class="it.us.web.bean.vam.EsameObiettivoPatologieCongenite"/>			
+		<mapping class="it.us.web.bean.vam.EsameSangue"/>		
+		<mapping class="it.us.web.bean.vam.EsameUrine"/>
+		<mapping class="it.us.web.bean.vam.OperazioneChirurgica"/>		
+		<mapping class="it.us.web.bean.vam.Sterilizzazione"/>
+		<mapping class="it.us.web.bean.vam.StrutturaClinica"/>		
+		<mapping class="it.us.web.bean.vam.Diagnosi"/>
+		<mapping class="it.us.web.bean.vam.DiagnosiEffettuate"/>
+		<mapping class="it.us.web.bean.vam.EcoAddome"/>
+		<mapping class="it.us.web.bean.vam.EcoAddomeEsito"/>
+		<mapping class="it.us.web.bean.vam.Febbre"/>
+		<mapping class="it.us.web.bean.vam.Autopsia"/>
+		<mapping class="it.us.web.bean.vam.Immagine"/>
+		<mapping class="it.us.web.bean.vam.AutopsiaCMF"/>
+		<mapping class="it.us.web.bean.vam.AutopsiaOrganoPatologie"/>
+		<mapping class="it.us.web.bean.vam.AutopsiaOrganiTipiEsamiEsiti"/>
+		<mapping class="it.us.web.bean.vam.Ticket"/>		
+		<mapping class="it.us.web.bean.vam.Rickettsiosi"/>
+		<mapping class="it.us.web.bean.vam.Leishmaniosi"/>
+		<mapping class="it.us.web.bean.vam.Ehrlichiosi"/>
+		<mapping class="it.us.web.bean.vam.EsameIstopatologico"/>
+		<mapping class="it.us.web.bean.vam.DiarioClinico"/>
+		<mapping class="it.us.web.bean.vam.DiarioClinicoTipoEO"/>
+		<mapping class="it.us.web.bean.vam.DiarioClinicoEsitoEO"/>
+		<mapping class="it.us.web.bean.vam.TerapiaDegenza"/>
+		<mapping class="it.us.web.bean.vam.TerapiaAssegnata"/>
+		<mapping class="it.us.web.bean.vam.TerapiaEffettuata"/>
+		<mapping class="it.us.web.bean.vam.Trasferimento"/>
+		<mapping class="it.us.web.bean.vam.BookingClinica"/>
+		<mapping class="it.us.web.bean.vam.MagazzinoFarmaci"/>		
+		<mapping class="it.us.web.bean.vam.CaricoFarmaco"/>
+		<mapping class="it.us.web.bean.vam.ScaricoFarmaco"/>
+		<mapping class="it.us.web.bean.vam.MagazzinoArticoliSanitari"/>		
+		<mapping class="it.us.web.bean.vam.CaricoArticoloSanitario"/>
+		<mapping class="it.us.web.bean.vam.ScaricoArticoloSanitario"/>
+		<mapping class="it.us.web.bean.vam.MagazzinoMangimi"/>		
+		<mapping class="it.us.web.bean.vam.CaricoMangime"/>
+		<mapping class="it.us.web.bean.vam.ScaricoMangime"/>				
+		<mapping class="it.us.web.bean.vam.Rabbia"/>	
+		<mapping class="it.us.web.bean.vam.Toxoplasmosi"/>	
+		<mapping class="it.us.web.bean.vam.Fip"/>
+		<mapping class="it.us.web.bean.vam.Fiv"/>
+		<mapping class="it.us.web.bean.vam.Felv"/>	
+		<mapping class="it.us.web.bean.vam.FascicoloSanitario"/>	
+		<mapping class="it.us.web.bean.vam.EsameCitologico"/>	
+		<mapping class="it.us.web.bean.vam.CodaServiziBdr"/>
+		<mapping class="it.us.web.bean.vam.CodaServiziBdrTentativi"/>
+		<mapping class="it.us.web.bean.vam.StoricoAnagraficaAnimale"/>
+		
+		<mapping class="it.us.web.bean.vam.lookup.LookupAsl"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupTipologiaAltroInterventoChirurgico"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupAssociazioni"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupComuni"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupProvince"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameObiettivoEsito"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameObiettivoSintomi"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameObiettivoApparati"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameObiettivoTipo"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameObiettivoInsorgenzaSintomi"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameObiettivoPeriodoInsorgenzaSintomi"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupOperazioniAccettazione"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupOperazioniAccettazioneCondizionate"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupOperazioniChirurgiche"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupSpecie"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupRazze"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupMantelli"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupTaglie"/>	
+		
+		<mapping class="it.us.web.bean.vam.lookup.LookupAutopsiaSalaSettoria"/>
+			
+		<mapping class="it.us.web.bean.vam.lookup.LookupTipiRichiedente"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupTipiStruttura"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupDiagnosi"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupAritmie"/>		
+		<mapping class="it.us.web.bean.vam.lookup.LookupEcoAddomeTipo"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEcoAddomeReferti"/>		
+	    <mapping class="it.us.web.bean.vam.lookup.LookupAutopsiaModalitaConservazione"/>
+	    <mapping class="it.us.web.bean.vam.lookup.LookupAutopsiaFenomeniCadaverici"/>
+	    <mapping class="it.us.web.bean.vam.lookup.LookupAutopsiaEsitiEsami"/>
+	    <mapping class="it.us.web.bean.vam.lookup.LookupCMF"/>
+	    <mapping class="it.us.web.bean.vam.lookup.LookupCMI"/>
+	    <mapping class="it.us.web.bean.vam.lookup.LookupAutopsiaOrgani"/>
+	    <mapping class="it.us.web.bean.vam.lookup.LookupAutopsiaOrganiTipiEsamiEsiti"/>
+	    <mapping class="it.us.web.bean.vam.lookup.LookupAutopsiaPatologiePrevalenti"/>
+	    <mapping class="it.us.web.bean.vam.lookup.LookupAutopsiaTipiEsami"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEcoCuoreTipo"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEcoCuoreAnomalia"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEcoCuoreDiagnosi"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupSoglieEsami"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupTickets"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupAlimentazioni"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupHabitat"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupFerite"/>		
+		<mapping class="it.us.web.bean.vam.lookup.LookupEhrlichiosiEsiti"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupLeishmaniosiEsiti"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupRickettsiosiEsiti"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameIstopatologicoTipoPrelievo"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameIstopatologicoTumore"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameIstopatologicoTumoriPrecedenti"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameIstopatologicoInteressamentoLinfonodale"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameIstopatologicoSedeLesione"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameIstopatologicoWhoUmana"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameIstopatologicoTipoDiagnosi"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameCoprologicoElminti"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameCoprologicoProtozoi"/>		
+		<mapping class="it.us.web.bean.vam.lookup.LookupFarmaci"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupMangimi"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupArticoliSanitari"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEtaAnimale"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupTipoAnimale"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupModalitaSomministrazioneFarmaci"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupVieSomministrazioneFarmaci"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupTipiFarmaco"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupDestinazioneAnimale"/>		
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsitoRabbia"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupTipoPrelievoToxoplasmosi"/>	
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameUrinePresenze"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameUrineColore"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEventoAperturaCc"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameCitologicoTipoPrelievo"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupEsameCitologicoDiagnosi"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupTipoTrasferimento"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupPersonaleInterno"/>
+		<mapping class="it.us.web.bean.vam.lookup.LookupAccettazioneAttivitaEsterna"/>
+		
+		
+		<!-- Classi dei Sinantropi -->
+		<mapping class="it.us.web.bean.sinantropi.Sinantropo"/>
+		<mapping class="it.us.web.bean.sinantropi.Detenzioni"/>
+		<mapping class="it.us.web.bean.sinantropi.Catture"/>
+		<mapping class="it.us.web.bean.sinantropi.Reimmissioni"/>
+		
+		<mapping class="it.us.web.bean.sinantropi.lookup.LookupSpecieSinantropi"/>
+		<mapping class="it.us.web.bean.sinantropi.lookup.LookupTipiDocumento"/>
+		<mapping class="it.us.web.bean.sinantropi.lookup.LookupDetentori"/>
+		<mapping class="it.us.web.bean.sinantropi.lookup.LookupSinantropiEta"/>
+		
+		
+		<!-- Bean di sincronizzazione con Canina/Felina -->
+		<mapping class="it.us.web.bean.remoteBean.Cane"/>
+		<mapping class="it.us.web.bean.remoteBean.Gatto"/>
+		<mapping class="it.us.web.bean.remoteBean.Colonia"/>
+		<mapping class="it.us.web.bean.remoteBean.ProprietarioCane"/>
+		<mapping class="it.us.web.bean.remoteBean.ProprietarioGatto"/>
+		<mapping class="it.us.web.bean.remoteBean.RegistrazioniCanina"/>
+		<mapping class="it.us.web.bean.remoteBean.RegistrazioniFelina"/>
+		<mapping class="it.us.web.bean.remoteBean.Registrazioni"/>
+		
+		<!-- Mapping files -->
+        <mapping resource="Query.hbm.xml"/>
+        <mapping resource="View.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>

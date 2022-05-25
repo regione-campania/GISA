@@ -1,0 +1,1064 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET client_encoding = 'SQL_ASCII';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- Name: access_user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE access_user_id_seq
+    START WITH 0
+    INCREMENT BY 1
+    MINVALUE 0
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.access_user_id_seq OWNER TO postgres;
+
+--
+-- Name: access_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('access_user_id_seq', 2, true);
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: access; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE access (
+    user_id integer DEFAULT nextval('access_user_id_seq'::regclass) NOT NULL,
+    username character varying(80) NOT NULL,
+    password character varying(80),
+    contact_id integer DEFAULT (-1),
+    role_id integer DEFAULT (-1),
+    manager_id integer DEFAULT (-1),
+    startofday integer DEFAULT 8,
+    endofday integer DEFAULT 18,
+    locale character varying(255),
+    timezone character varying(255) DEFAULT 'America/New_York'::character varying,
+    last_ip character varying(30),
+    last_login timestamp(3) without time zone DEFAULT now() NOT NULL,
+    enteredby integer NOT NULL,
+    entered timestamp(3) without time zone DEFAULT now() NOT NULL,
+    modifiedby integer NOT NULL,
+    modified timestamp(3) without time zone DEFAULT now() NOT NULL,
+    expires timestamp(3) without time zone DEFAULT NULL::timestamp without time zone,
+    alias integer DEFAULT (-1),
+    assistant integer DEFAULT (-1),
+    enabled boolean DEFAULT true NOT NULL,
+    currency character varying(5),
+    language character varying(20),
+    webdav_password character varying(80),
+    hidden boolean DEFAULT false,
+    site_id integer,
+    allow_webdav_access boolean DEFAULT true NOT NULL,
+    allow_httpapi_access boolean DEFAULT true NOT NULL,
+    temp_password character varying(80),
+    temp_webdav_password character varying(80)
+);
+
+
+ALTER TABLE public.access OWNER TO postgres;
+
+--
+-- Name: access_log; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE access_log (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    username character varying(80) NOT NULL,
+    ip character varying(30),
+    entered timestamp(3) without time zone DEFAULT now() NOT NULL,
+    browser character varying(255)
+);
+
+
+ALTER TABLE public.access_log OWNER TO postgres;
+
+--
+-- Name: access_log_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE access_log_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.access_log_id_seq OWNER TO postgres;
+
+--
+-- Name: access_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE access_log_id_seq OWNED BY access_log.id;
+
+
+--
+-- Name: access_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('access_log_id_seq', 6, true);
+
+
+--
+-- Name: contact; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE contact (
+    contact_id integer NOT NULL,
+    user_id integer,
+    org_id integer,
+    company character varying(255),
+    title character varying(80),
+    department integer,
+    super integer,
+    namesalutation character varying(80),
+    namelast character varying(80) NOT NULL,
+    namefirst character varying(80) NOT NULL,
+    namemiddle character varying(80),
+    namesuffix character varying(80),
+    assistant integer,
+    birthdate date,
+    notes text,
+    site integer,
+    locale integer,
+    employee_id character varying(80),
+    employmenttype integer,
+    startofday character varying(10),
+    endofday character varying(10),
+    entered timestamp(3) without time zone DEFAULT now() NOT NULL,
+    enteredby integer NOT NULL,
+    modified timestamp(3) without time zone DEFAULT now() NOT NULL,
+    modifiedby integer NOT NULL,
+    enabled boolean DEFAULT true,
+    owner integer,
+    custom1 integer DEFAULT (-1),
+    url character varying(100),
+    primary_contact boolean DEFAULT false,
+    employee boolean DEFAULT false NOT NULL,
+    org_name character varying(255),
+    access_type integer,
+    status_id integer,
+    import_id integer,
+    information_update_date timestamp(3) without time zone DEFAULT now(),
+    lead boolean DEFAULT false,
+    lead_status integer,
+    source integer,
+    rating integer,
+    comments character varying(255),
+    conversion_date timestamp(3) without time zone,
+    additional_names character varying(255),
+    nickname character varying(80),
+    role character varying(255),
+    trashed_date timestamp(3) without time zone,
+    secret_word character varying(255),
+    account_number character varying(50),
+    revenue double precision,
+    industry_temp_code integer,
+    potential double precision,
+    no_email boolean DEFAULT false,
+    no_mail boolean DEFAULT false,
+    no_phone boolean DEFAULT false,
+    no_textmessage boolean DEFAULT false,
+    no_im boolean DEFAULT false,
+    no_fax boolean DEFAULT false,
+    site_id integer,
+    assigned_date timestamp(3) without time zone,
+    lead_trashed_date timestamp(3) without time zone,
+    employees integer,
+    duns_type character varying(300),
+    duns_number character varying(30),
+    business_name_two character varying(300),
+    sic_code integer,
+    year_started integer,
+    sic_description character varying(300),
+    stage integer
+);
+
+
+ALTER TABLE public.contact OWNER TO postgres;
+
+--
+-- Name: contact_address; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE contact_address (
+    address_id integer NOT NULL,
+    contact_id integer,
+    address_type integer,
+    addrline1 character varying(80),
+    addrline2 character varying(80),
+    addrline3 character varying(80),
+    city character varying(80),
+    state character varying(80),
+    country character varying(80),
+    postalcode character varying(12),
+    entered timestamp(3) without time zone DEFAULT now() NOT NULL,
+    enteredby integer NOT NULL,
+    modified timestamp(3) without time zone DEFAULT now() NOT NULL,
+    modifiedby integer NOT NULL,
+    primary_address boolean DEFAULT false NOT NULL,
+    addrline4 character varying(80),
+    county character varying(80),
+    latitude double precision DEFAULT 0,
+    longitude double precision DEFAULT 0
+);
+
+
+ALTER TABLE public.contact_address OWNER TO postgres;
+
+--
+-- Name: contact_address_address_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE contact_address_address_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.contact_address_address_id_seq OWNER TO postgres;
+
+--
+-- Name: contact_address_address_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE contact_address_address_id_seq OWNED BY contact_address.address_id;
+
+
+--
+-- Name: contact_address_address_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('contact_address_address_id_seq', 2, true);
+
+
+--
+-- Name: contact_contact_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE contact_contact_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.contact_contact_id_seq OWNER TO postgres;
+
+--
+-- Name: contact_contact_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE contact_contact_id_seq OWNED BY contact.contact_id;
+
+
+--
+-- Name: contact_contact_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('contact_contact_id_seq', 2, true);
+
+
+--
+-- Name: lookup_site_id; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE lookup_site_id (
+    code integer NOT NULL,
+    description character varying(300) NOT NULL,
+    short_description character varying(300),
+    default_item boolean DEFAULT false,
+    level integer DEFAULT 0,
+    enabled boolean DEFAULT true,
+    entered timestamp(3) without time zone DEFAULT now() NOT NULL,
+    modified timestamp(3) without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE public.lookup_site_id OWNER TO postgres;
+
+--
+-- Name: lookup_site_id_code_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE lookup_site_id_code_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.lookup_site_id_code_seq OWNER TO postgres;
+
+--
+-- Name: lookup_site_id_code_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE lookup_site_id_code_seq OWNED BY lookup_site_id.code;
+
+
+--
+-- Name: lookup_site_id_code_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('lookup_site_id_code_seq', 1, false);
+
+
+--
+-- Name: permission; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE permission (
+    permission_id integer NOT NULL,
+    category_id integer NOT NULL,
+    permission character varying(80) NOT NULL,
+    permission_view boolean DEFAULT false NOT NULL,
+    permission_add boolean DEFAULT false NOT NULL,
+    permission_edit boolean DEFAULT false NOT NULL,
+    permission_delete boolean DEFAULT false NOT NULL,
+    description character varying(255) DEFAULT ''::character varying NOT NULL,
+    level integer DEFAULT 0 NOT NULL,
+    enabled boolean DEFAULT true NOT NULL,
+    active boolean DEFAULT true NOT NULL,
+    viewpoints boolean DEFAULT false,
+    permission_offline_view boolean DEFAULT false NOT NULL,
+    permission_offline_add boolean DEFAULT false NOT NULL,
+    permission_offline_edit boolean DEFAULT false NOT NULL,
+    permission_offline_delete boolean DEFAULT false NOT NULL,
+    entered timestamp(3) without time zone DEFAULT now() NOT NULL,
+    modified timestamp(3) without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE public.permission OWNER TO postgres;
+
+--
+-- Name: permission_cate_category_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE permission_cate_category_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.permission_cate_category_id_seq OWNER TO postgres;
+
+--
+-- Name: permission_cate_category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('permission_cate_category_id_seq', 3, true);
+
+
+--
+-- Name: permission_category; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE permission_category (
+    category_id integer DEFAULT nextval('permission_cate_category_id_seq'::regclass) NOT NULL,
+    category character varying(80),
+    description character varying(255),
+    level integer DEFAULT 0 NOT NULL,
+    enabled boolean DEFAULT true NOT NULL,
+    active boolean DEFAULT true NOT NULL,
+    folders boolean DEFAULT false NOT NULL,
+    lookups boolean DEFAULT false NOT NULL,
+    viewpoints boolean DEFAULT false,
+    categories boolean DEFAULT false NOT NULL,
+    scheduled_events boolean DEFAULT false NOT NULL,
+    object_events boolean DEFAULT false NOT NULL,
+    reports boolean DEFAULT false NOT NULL,
+    webdav boolean DEFAULT false NOT NULL,
+    logos boolean DEFAULT false NOT NULL,
+    constant integer NOT NULL,
+    action_plans boolean DEFAULT false NOT NULL,
+    custom_list_views boolean DEFAULT false NOT NULL,
+    entered timestamp(3) without time zone DEFAULT now() NOT NULL,
+    modified timestamp(3) without time zone DEFAULT now() NOT NULL,
+    dashboards boolean DEFAULT false NOT NULL,
+    customtabs boolean DEFAULT false NOT NULL,
+    email_accounts boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE public.permission_category OWNER TO postgres;
+
+--
+-- Name: permission_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE permission_permission_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.permission_permission_id_seq OWNER TO postgres;
+
+--
+-- Name: permission_permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE permission_permission_id_seq OWNED BY permission.permission_id;
+
+
+--
+-- Name: permission_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('permission_permission_id_seq', 5, true);
+
+
+--
+-- Name: role; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE role (
+    role_id integer NOT NULL,
+    role character varying(80) NOT NULL,
+    description character varying(255) DEFAULT ''::character varying NOT NULL,
+    enteredby integer NOT NULL,
+    entered timestamp(3) without time zone DEFAULT now() NOT NULL,
+    modifiedby integer NOT NULL,
+    modified timestamp(3) without time zone DEFAULT now() NOT NULL,
+    enabled boolean DEFAULT true NOT NULL,
+    role_type integer
+);
+
+
+ALTER TABLE public.role OWNER TO postgres;
+
+--
+-- Name: role_permission; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE role_permission (
+    id integer NOT NULL,
+    role_id integer NOT NULL,
+    permission_id integer NOT NULL,
+    role_view boolean DEFAULT false NOT NULL,
+    role_add boolean DEFAULT false NOT NULL,
+    role_edit boolean DEFAULT false NOT NULL,
+    role_delete boolean DEFAULT false NOT NULL,
+    role_offline_view boolean DEFAULT false NOT NULL,
+    role_offline_add boolean DEFAULT false NOT NULL,
+    role_offline_edit boolean DEFAULT false NOT NULL,
+    role_offline_delete boolean DEFAULT false NOT NULL,
+    entered timestamp(3) without time zone DEFAULT now() NOT NULL,
+    modified timestamp(3) without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE public.role_permission OWNER TO postgres;
+
+--
+-- Name: role_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE role_permission_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.role_permission_id_seq OWNER TO postgres;
+
+--
+-- Name: role_permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE role_permission_id_seq OWNED BY role_permission.id;
+
+
+--
+-- Name: role_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('role_permission_id_seq', 10, true);
+
+
+--
+-- Name: role_role_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE role_role_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.role_role_id_seq OWNER TO postgres;
+
+--
+-- Name: role_role_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE role_role_id_seq OWNED BY role.role_id;
+
+
+--
+-- Name: role_role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('role_role_id_seq', 3, true);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE access_log ALTER COLUMN id SET DEFAULT nextval('access_log_id_seq'::regclass);
+
+
+--
+-- Name: contact_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE contact ALTER COLUMN contact_id SET DEFAULT nextval('contact_contact_id_seq'::regclass);
+
+
+--
+-- Name: address_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE contact_address ALTER COLUMN address_id SET DEFAULT nextval('contact_address_address_id_seq'::regclass);
+
+
+--
+-- Name: code; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE lookup_site_id ALTER COLUMN code SET DEFAULT nextval('lookup_site_id_code_seq'::regclass);
+
+
+--
+-- Name: permission_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE permission ALTER COLUMN permission_id SET DEFAULT nextval('permission_permission_id_seq'::regclass);
+
+
+--
+-- Name: role_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE role ALTER COLUMN role_id SET DEFAULT nextval('role_role_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE role_permission ALTER COLUMN id SET DEFAULT nextval('role_permission_id_seq'::regclass);
+
+
+--
+-- Data for Name: access; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY access (user_id, username, password, contact_id, role_id, manager_id, startofday, endofday, locale, timezone, last_ip, last_login, enteredby, entered, modifiedby, modified, expires, alias, assistant, enabled, currency, language, webdav_password, hidden, site_id, allow_webdav_access, allow_httpapi_access, temp_password, temp_webdav_password) FROM stdin;
+2	admin	4b0271172332df765b4912c0b4367367	2	2	-1	8	18	\N	America/New_York	127.0.0.1	2013-06-06 15:08:58.51	-1	2013-06-06 14:50:33.085	-1	2013-06-06 15:08:58.51	\N	-1	-1	t	\N	\N	\N	f	\N	t	t	\N	\N
+\.
+
+
+--
+-- Data for Name: access_log; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY access_log (id, user_id, username, ip, entered, browser) FROM stdin;
+2	2	admin	127.0.0.1	2013-06-06 14:57:49.214	
+3	2	admin	127.0.0.1	2013-06-06 14:59:30.009	
+4	2	admin	127.0.0.1	2013-06-06 15:00:35.713	
+5	2	admin	127.0.0.1	2013-06-06 15:03:03.275	
+6	2	admin	127.0.0.1	2013-06-06 15:08:58.537	
+\.
+
+
+--
+-- Data for Name: contact; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY contact (contact_id, user_id, org_id, company, title, department, super, namesalutation, namelast, namefirst, namemiddle, namesuffix, assistant, birthdate, notes, site, locale, employee_id, employmenttype, startofday, endofday, entered, enteredby, modified, modifiedby, enabled, owner, custom1, url, primary_contact, employee, org_name, access_type, status_id, import_id, information_update_date, lead, lead_status, source, rating, comments, conversion_date, additional_names, nickname, role, trashed_date, secret_word, account_number, revenue, industry_temp_code, potential, no_email, no_mail, no_phone, no_textmessage, no_im, no_fax, site_id, assigned_date, lead_trashed_date, employees, duns_type, duns_number, business_name_two, sic_code, year_started, sic_description, stage) FROM stdin;
+2	2	\N	\N	\N	\N	\N	\N	Amministratore	Sistema	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2013-06-06 14:51:39.301	1	2013-06-06 14:51:39.301	1	t	-1	-1	\N	f	f	\N	\N	\N	\N	2013-06-06 14:51:39.301	f	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	f	f	f	f	f	f	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: contact_address; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY contact_address (address_id, contact_id, address_type, addrline1, addrline2, addrline3, city, state, country, postalcode, entered, enteredby, modified, modifiedby, primary_address, addrline4, county, latitude, longitude) FROM stdin;
+2	2	\N	via porzio	\N	\N	napoli	na	\N	\N	2013-06-06 14:52:18.173	2	2013-06-06 14:52:18.173	2	f	\N	\N	0	0
+\.
+
+
+--
+-- Data for Name: lookup_site_id; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY lookup_site_id (code, description, short_description, default_item, level, enabled, entered, modified) FROM stdin;
+\.
+
+
+--
+-- Data for Name: permission; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY permission (permission_id, category_id, permission, permission_view, permission_add, permission_edit, permission_delete, description, level, enabled, active, viewpoints, permission_offline_view, permission_offline_add, permission_offline_edit, permission_offline_delete, entered, modified) FROM stdin;
+1	1	admin	t	f	f	f	Accesso al modulo Amministrazione	10	t	t	f	f	f	f	f	2011-10-10 15:41:45.306	2011-10-10 15:41:45.306
+2	1	admin-roles	t	t	t	t	Ruoli	30	t	t	f	f	f	f	f	2011-10-10 15:41:45.306	2011-10-10 15:41:45.306
+3	2	myhomepage	t	f	f	f	Accesso alla mia pagina principale	10	t	t	f	f	f	f	f	2011-10-10 15:41:45.306	2011-10-10 15:41:45.306
+4	2	myhomepage-dashboard	t	f	f	f	Vedi pannello delle Performance	20	t	t	f	f	f	f	f	2011-10-10 15:41:45.306	2011-10-10 15:41:45.306
+\.
+
+
+--
+-- Data for Name: permission_category; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY permission_category (category_id, category, description, level, enabled, active, folders, lookups, viewpoints, categories, scheduled_events, object_events, reports, webdav, logos, constant, action_plans, custom_list_views, entered, modified, dashboards, customtabs, email_accounts) FROM stdin;
+1	Amministratore	\N	1	t	t	f	f	f	f	f	f	f	f	f	1	f	f	2013-06-06 15:07:26.971	2013-06-06 15:07:26.971	f	f	f
+2	La mia Home Page	\N	2	t	t	f	f	f	f	f	f	f	f	f	2	f	f	2013-06-06 15:07:51.379	2013-06-06 15:07:51.379	f	f	f
+\.
+
+
+--
+-- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY role (role_id, role, description, enteredby, entered, modifiedby, modified, enabled, role_type) FROM stdin;
+3	test	test	2	2013-06-06 15:06:09.889	2	2013-06-06 15:06:09.889	t	0
+2	Amministratore	Effettua Manutenzione del Sistema	2	2013-06-06 14:57:29.732	2	2013-06-06 15:09:19.85	t	0
+\.
+
+
+--
+-- Data for Name: role_permission; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY role_permission (id, role_id, permission_id, role_view, role_add, role_edit, role_delete, role_offline_view, role_offline_add, role_offline_edit, role_offline_delete, entered, modified) FROM stdin;
+7	2	4	t	f	f	f	f	f	f	f	2013-06-06 15:09:19.85	2013-06-06 15:09:19.85
+8	2	3	t	f	f	f	f	f	f	f	2013-06-06 15:09:19.85	2013-06-06 15:09:19.85
+9	2	2	t	t	t	t	f	f	f	f	2013-06-06 15:09:19.85	2013-06-06 15:09:19.85
+10	2	1	t	t	t	t	f	f	f	f	2013-06-06 15:10:05.291	2013-06-06 15:10:05.291
+\.
+
+
+--
+-- Name: access_log_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY access_log
+    ADD CONSTRAINT access_log_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: access_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY access
+    ADD CONSTRAINT access_pkey PRIMARY KEY (user_id);
+
+
+--
+-- Name: contact_address_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY contact_address
+    ADD CONSTRAINT contact_address_pkey PRIMARY KEY (address_id);
+
+
+--
+-- Name: contact_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY contact
+    ADD CONSTRAINT contact_pkey PRIMARY KEY (contact_id);
+
+
+--
+-- Name: lookup_site_id_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY lookup_site_id
+    ADD CONSTRAINT lookup_site_id_pkey PRIMARY KEY (code);
+
+
+--
+-- Name: permission_category_constant_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY permission_category
+    ADD CONSTRAINT permission_category_constant_key UNIQUE (constant);
+
+
+--
+-- Name: permission_category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY permission_category
+    ADD CONSTRAINT permission_category_pkey PRIMARY KEY (category_id);
+
+
+--
+-- Name: permission_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY permission
+    ADD CONSTRAINT permission_pkey PRIMARY KEY (permission_id);
+
+
+--
+-- Name: role_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY role_permission
+    ADD CONSTRAINT role_permission_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: role_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY role
+    ADD CONSTRAINT role_pkey PRIMARY KEY (role_id);
+
+
+--
+-- Name: contact_access_type; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_access_type ON contact USING btree (access_type);
+
+
+--
+-- Name: contact_address_contact_id_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_address_contact_id_idx ON contact_address USING btree (contact_id);
+
+
+--
+-- Name: contact_address_postalcode_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_address_postalcode_idx ON contact_address USING btree (postalcode);
+
+
+--
+-- Name: contact_address_prim_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_address_prim_idx ON contact_address USING btree (primary_address);
+
+
+--
+-- Name: contact_assistant; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_assistant ON contact USING btree (assistant);
+
+
+--
+-- Name: contact_city_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_city_idx ON contact_address USING btree (city);
+
+
+--
+-- Name: contact_department; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_department ON contact USING btree (department);
+
+
+--
+-- Name: contact_employee_id; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_employee_id ON contact USING btree (employee_id);
+
+
+--
+-- Name: contact_entered; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_entered ON contact USING btree (entered);
+
+
+--
+-- Name: contact_enteredby; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_enteredby ON contact USING btree (enteredby);
+
+
+--
+-- Name: contact_import_id_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_import_id_idx ON contact USING btree (import_id);
+
+
+--
+-- Name: contact_industry_temp_code; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_industry_temp_code ON contact USING btree (industry_temp_code);
+
+
+--
+-- Name: contact_islead_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_islead_idx ON contact USING btree (lead) WHERE (lead = true);
+
+
+--
+-- Name: contact_modifiedby; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_modifiedby ON contact USING btree (modifiedby);
+
+
+--
+-- Name: contact_org_id; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_org_id ON contact USING btree (org_id);
+
+
+--
+-- Name: contact_org_id_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_org_id_idx ON contact USING btree (org_id) WHERE ((org_id IS NOT NULL) AND (org_id > 0));
+
+
+--
+-- Name: contact_owner; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_owner ON contact USING btree (owner);
+
+
+--
+-- Name: contact_rating; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_rating ON contact USING btree (rating);
+
+
+--
+-- Name: contact_site_id; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_site_id ON contact USING btree (site_id);
+
+
+--
+-- Name: contact_source; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_source ON contact USING btree (source);
+
+
+--
+-- Name: contact_stage_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_stage_idx ON contact USING btree (stage);
+
+
+--
+-- Name: contact_super; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_super ON contact USING btree (super);
+
+
+--
+-- Name: contact_user_id; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_user_id ON contact USING btree (user_id);
+
+
+--
+-- Name: contact_user_id_idx; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contact_user_id_idx ON contact USING btree (user_id);
+
+
+--
+-- Name: contactlist_company; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contactlist_company ON contact USING btree (company, namelast, namefirst);
+
+
+--
+-- Name: contactlist_namecompany; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX contactlist_namecompany ON contact USING btree (namelast, namefirst, company);
+
+
+--
+-- Name: access_log_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY access_log
+    ADD CONSTRAINT access_log_user_id_fkey FOREIGN KEY (user_id) REFERENCES access(user_id);
+
+
+--
+-- Name: access_site_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY access
+    ADD CONSTRAINT access_site_id_fkey FOREIGN KEY (site_id) REFERENCES lookup_site_id(code);
+
+
+--
+-- Name: contact_address_contact_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY contact_address
+    ADD CONSTRAINT contact_address_contact_id_fkey FOREIGN KEY (contact_id) REFERENCES contact(contact_id);
+
+
+--
+-- Name: contact_address_enteredby_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY contact_address
+    ADD CONSTRAINT contact_address_enteredby_fkey FOREIGN KEY (enteredby) REFERENCES access(user_id);
+
+
+--
+-- Name: contact_address_modifiedby_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY contact_address
+    ADD CONSTRAINT contact_address_modifiedby_fkey FOREIGN KEY (modifiedby) REFERENCES access(user_id);
+
+
+--
+-- Name: contact_super_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY contact
+    ADD CONSTRAINT contact_super_fkey FOREIGN KEY (super) REFERENCES contact(contact_id);
+
+
+--
+-- Name: contact_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY contact
+    ADD CONSTRAINT contact_user_id_fkey FOREIGN KEY (user_id) REFERENCES access(user_id);
+
+
+--
+-- Name: permission_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY permission
+    ADD CONSTRAINT permission_category_id_fkey FOREIGN KEY (category_id) REFERENCES permission_category(category_id);
+
+
+--
+-- Name: role_enteredby_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY role
+    ADD CONSTRAINT role_enteredby_fkey FOREIGN KEY (enteredby) REFERENCES access(user_id);
+
+
+--
+-- Name: role_modifiedby_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY role
+    ADD CONSTRAINT role_modifiedby_fkey FOREIGN KEY (modifiedby) REFERENCES access(user_id);
+
+
+--
+-- Name: role_permission_permission_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY role_permission
+    ADD CONSTRAINT role_permission_permission_id_fkey FOREIGN KEY (permission_id) REFERENCES permission(permission_id);
+
+
+--
+-- Name: role_permission_role_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY role_permission
+    ADD CONSTRAINT role_permission_role_id_fkey FOREIGN KEY (role_id) REFERENCES role(role_id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

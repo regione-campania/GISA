@@ -1,0 +1,71 @@
+<%--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.--%>
+<%-- 
+  - Copyright(c) 2004 Concursive Corporation (http://www.concursive.com/) All
+  - rights reserved. This material cannot be distributed without written
+  - permission from Concursive Corporation. Permission to use, copy, and modify
+  - this material for internal use is hereby granted, provided that the above
+  - copyright notice and this permission notice appear in all copies. CONCURSIVE
+  - CORPORATION MAKES NO REPRESENTATIONS AND EXTENDS NO WARRANTIES, EXPRESS OR
+  - IMPLIED, WITH RESPECT TO THE SOFTWARE, INCLUDING, BUT NOT LIMITED TO, THE
+  - IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ANY PARTICULAR
+  - PURPOSE, AND THE WARRANTY AGAINST INFRINGEMENT OF PATENTS OR OTHER
+  - INTELLECTUAL PROPERTY RIGHTS. THE SOFTWARE IS PROVIDED "AS IS", AND IN NO
+  - EVENT SHALL CONCURSIVE CORPORATION OR ANY OF ITS AFFILIATES BE LIABLE FOR
+  - ANY DAMAGES, INCLUDING ANY LOST PROFITS OR OTHER INCIDENTAL OR CONSEQUENTIAL
+  - DAMAGES RELATING TO THE SOFTWARE.
+  - 
+  - Version: $Id: welcome.jsp 24333 2007-12-09 14:51:22Z srinivasar@cybage.com $
+  - Description:
+  --%>
+<%@ taglib uri="/WEB-INF/dhv-taglib.tld" prefix="dhv" %>
+<jsp:useBean id="APP_VERSION" class="java.lang.String" scope="application"/>
+<jsp:useBean id="found" class="java.lang.String" scope="request"/>
+<%@ include file="../initPage.jsp" %>
+<script language="JavaScript">
+  function checkForm(form) {
+    <dhv:evaluate if="<%= hasText(APP_VERSION) %>">
+    if (form.doReg[0].checked == 0 && form.doReg[1].checked == 0 && form.doReg[2].checked == 0) {
+      alert(label("check.registration.option","Please select a registration option to continue"));
+      return false;
+    }
+    </dhv:evaluate>
+    return true;
+  }
+</script>
+<form name="register" action="Setup.do?command=Register" method="post" onSubmit="return checkForm(this)">
+<table border="0" width="100%">
+  <tr class="sectionTitle">
+    <th><dhv:label name="setup.welcomeToCentricCRM.label">Welcome to Concourse Suite Community Edition</dhv:label></th>
+  </tr>
+  <tr>
+    <td>
+      <dhv:label name="setup.welcome.setupProcessGuide.notes">In order to begin using Concourse Suite Community Edition, the setup process will guide you through several steps.<br /><br />Although installation can be completed in just a few minutes, you will have the option at any time during the setup to continue at a later time.<br /></dhv:label><br />
+<dhv:evaluate if="<%= hasText(APP_VERSION) %>">
+      <dhv:label name="setup.welcome.setupProcessGuide.text">Registering this application with Concursive Corporation is required before installation, whether you already have a license or not, so we have made the registration process very simple.<br /><ul><li>An internet connection is required before continuing</li><li>The freely available version of Concourse Suite Community Edition will entitle this system to a maximum of five (5) users</li><li>You must agree to the Concourse Suite Community Edition License Agreement</li><li>The Concourse Suite Community Edition administrator will receive information about software updates as they become available</li></ul></dhv:label>
+    </td>
+  </tr>
+  <tr class="sectionTitle">
+    <th><dhv:label name="setup.registration">Registration</dhv:label></th>
+  </tr>
+  <tr>
+    <td nowrap>
+      <input type="radio" name="doReg" value="need" <%= !"true".equals(found) ? "checked" : "" %> />
+      <dhv:label name="setup.requestNewLicense.text">Request a <b>new</b> license for this installation<br /></dhv:label>
+      <input type="radio" name="doReg" value="have" <%= !"true".equals(found) ? "disabled" : "checked" %> />
+      <dhv:evaluate if='<%= !"true".equals(found) %>'><font color="#888888"></dhv:evaluate><dhv:label name="setup.continueSetupFromPreviousSession.text">Continue setup from a previously started session</dhv:label><dhv:evaluate if='<%= !"true".equals(found) %>'></font></dhv:evaluate><br />
+      <input type="radio" name="doReg" value="restore" />
+      <dhv:label name="setup.restoreBackup">Restore an existing backup<br /></dhv:label>
+      <br />
+</dhv:evaluate>
+      <input type="submit" value="<dhv:label name="button.continueR">Continue ></dhv:label>"/>
+    </td>
+  </tr>
+</table>
+</form>

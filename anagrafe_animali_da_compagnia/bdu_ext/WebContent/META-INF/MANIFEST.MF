@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: Concursive Corporation
+Comment: Concourse Suite Community Edition Web Application binary edit
+ ion Thu Feb 10 13:00:00 EST 2005
+Implementation-Title: Concourse Suite Community Edition
+Implementation-Version: 3.0
+Implementation-Vendor: Concursive Corporation
+Implementation-URL: http://www.concursive.com
+

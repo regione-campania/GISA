@@ -1,0 +1,129 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+@CHARSET "ISO-8859-1";
+
+@page { size: landscape;
+ 	margin: 5px 30px 1px 30px;
+
+  @bottom-center {
+    content: counter(page) " su " counter(pages);
+}
+}
+body {
+  margin:0; 
+	padding:0; 
+	line-height: 0.8em; 
+	word-spacing:1px; 
+	letter-spacing:0.2px; 
+	font-size:11px;
+  	color:#000000; 
+  	font-family:  Arial, Helvetica, sans-serif;
+}
+.documentaleNonStampare {
+    display:none;
+ }
+ .documentaleStampare {
+   display: block !important;
+ }
+ th {
+    font-family:Arial;
+    color:black;
+   border: 1px solid black;
+   background-color : #9BC4E2;
+}
+
+thead {
+    display:table-header-group;
+}
+
+tbody {
+    display:table-row-group;
+}
+ 
+td {
+	  page-break-inside: avoid;
+	  text-align:center;
+	  word-wrap:break-word;
+	  border: 1px solid black;
+	}
+table { 
+            -fs-table-paginate: paginate;
+            border-spacing: 0;
+            table-layout:fixed; width:100%;
+             word-wrap:break-word;
+                        
+        }
+        
+        
+.row0{
+	
+}
+.row1{
+	background-color : #F0F0F0;
+}
+.green {
+	background-color : #00CC33;
+}
+.orange {
+	background-color : #ffb973;
+}
+       
+ .boxOrigineDocumento {
+ 	left: 5px;
+	width: 300px;
+	height: 15px;
+	top: 30px;
+	margin-top: 1px;
+	text-align: left;
+	padding-top: 1px;
+	font-size: 11px;
+	
+}
+.boxIdDocumento {
+	left: 5px;
+	border: 0.5px solid black;
+	width: 150px;
+	height: 25px;
+	margin-top: 1px;
+	text-align: center;
+	padding-top: 1px;
+	font-size: 11px;
+}
+
+
+
+.editField{
+  background-color : #CCCCFF;
+  border-top-style:none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color:#000000;
+  border-bottom-style:solid;
+}
+
+
+
+
+.layout{
+  border-top-style:none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color:#000000;
+  background-color : transparent;
+}
+
+
+.annullata1 {
+	 background-image: url('images/annullato_stampa.png');
+     background-repeat: repeat-x;
+}
+.annullata2 {
+	background-color : #ff0000 !important;
+}
+

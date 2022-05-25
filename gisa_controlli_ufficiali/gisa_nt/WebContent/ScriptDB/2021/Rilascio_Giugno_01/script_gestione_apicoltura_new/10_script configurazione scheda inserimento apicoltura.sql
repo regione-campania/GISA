@@ -1,0 +1,2 @@
+﻿insert into schema_anagrafica(codice_univoco_ml, id_gruppo_template, id_campo_configuratore, campo_esteso, enabled, data_scadenza)
+select 'SCIA-APICOLTURA' as codice_univoco_ml, id_gruppo_template, id_campo_configuratore, campo_esteso, enabled, data_scadenza from schema_anagrafica where codice_univoco_ml ilike 'SCIA-MOBILE';

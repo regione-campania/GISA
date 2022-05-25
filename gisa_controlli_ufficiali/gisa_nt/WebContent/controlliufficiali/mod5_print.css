@@ -1,0 +1,143 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+@page { 
+ 	margin: 0.5cm;
+
+  @bottom-center {
+    content: counter(page) " su " counter(pages);
+}
+}
+body {
+    font-size: 15px;
+}
+DIV[class="Sect"] {
+ text-align:justify;
+ margin-bottom:0px;
+ margin-top:0px;
+ margin-right:0px;
+ text-indent:0px;
+ direction:ltr
+}
+
+span.checkedItem{
+font-size: 15px;
+}
+
+span.checkedItem:before {
+content: '[x]';
+font-size:13px;
+font-weight: bold;
+}
+
+span.NocheckedItem:before {
+content: '[  ]';
+font-size:13px;
+font-weight: bold;
+}
+
+TABLE
+{
+border-collapse:collapse;
+}
+
+div.fine {
+	page-break-after: always;
+}
+
+TABLE, TD, TH, LI, P, UL, OL, TEXTAREA, INPUT, SELECT, A {
+    color: #000000;
+    font-family: 'serif', 'Times New Roman', serif;
+    font-size: 15px; 
+    text-align:justify;
+}
+
+TD, TH{
+border:1px solid black;
+}
+
+P.main {
+ font-family:'serif', 'Times New Roman'; 
+ font-size:15px; 
+ font-style:normal;
+ text-align:justify;
+}
+
+.textDim{
+  width: 600px; height: 101px;
+  background: #FFFFFF;
+  border-style: solid;
+  border-color: #000000;
+}
+
+.textDim2{
+  width: 600px; height: 101px;
+  background: #FFFFFF;
+  border-style: solid;
+  border-color: #000000;
+  resize:none;
+}
+
+.editField{
+  background-color : #CCCCFF;
+  border-top-style:none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color:#000000;
+  border-bottom-style:solid;
+}
+
+.layout{
+  border-top-style:none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color:#000000;
+ text-decoration:underline
+  }
+P.underline{text-decoration:underline;}
+h3 {text-decoration:underline; text-align:center;}
+
+
+IMG {
+ text-align:left;
+ vertical-align:top;
+ margin-bottom:0px;
+ margin-top:0px;
+ margin-right:0px;
+ margin-left:0px;
+ direction:ltr
+}
+
+.buttonClass {
+	background-color:#d5cfd6;
+	border-radius:6px;
+	border:1px solid #ffffff;
+	display:none;
+	color:#000000;
+    font-family: serif','Times New Roman;
+	font-size:16px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+}
+.boxIdDocumento {
+	position: relative;
+	top: 1px;
+	left: 5px;
+	border: 0.5px solid black;
+	width: 60px;
+	height: 20px;
+	margin-top: 0px;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 8px;
+}
+.boxOrigineDocumento {
+	text-align: left;
+	font-size: 9px;
+}

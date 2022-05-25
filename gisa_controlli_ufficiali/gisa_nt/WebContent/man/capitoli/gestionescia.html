@@ -1,0 +1,85 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="SCIAgestione"></a>
+<h3 id="SCIAgestione">Pratiche SUAP</h3>
+Per inserire uno stabilimento in GISA si clicca sul cavaliere PRATICHE SUAP e si accede al link "Gestione SCIA". 
+<br>Si visualizzer&agrave; la seguente pagina:
+<p style="padding-left: 30px;"><img src="./images/scia_03.png" width="1061" height="300" />
+<br clear="left" /><br /></p>
+<p style="padding-left: 30px; text-align: justify;"><b>
+Se lo stabilimento gi&agrave; esiste in GISA bisogna utilizzare la funzione di import presente nei cavalieri contrassegnati da *.<br />
+Cliccando sul bottone "GESTIONE SCIA ATT. FISSE" sara' possibile inserire uno stabilimento che ha le linee di attivita' del tipo "CON SEDE FISSA".<br /> 
+Cliccando sul bottone "GESTIONE SCIA ATT. MOBILI" verranno filtrate automaticamente le linee di attivita' del tipo "SENZA SEDE FISSA".<br />
+Cliccando sul bottone "GESTIONE SCIA APICOLTURA" verranno filtrate automaticamente le linee di attivita' del tipo "APICOLTURA". 
+In entrambi i casi, al clic sul bottone, si avvia una popup (come in figura), dove viene richiesto di specificare la data di inizio attivit&agrave; e di selezionare il comune per cui si intende operare (Il campo comune si riferisce allo stabilimento).
+In caso di impresa mobile il comune si riferira' all'impresa.<br/> 
+Nel caso di impresa mobile di tipo individuale, in cui non e' previsto ne' lo stabilimento ne' la sede legale, il comune sara' quello di residenza del legale rappresentante. <br />
+<img src="./images/scia6.png" /><br clear="left" /><br />
+</p> 
+<u>Inserimento nuovo stabilimento</u>
+<br>Di seguito i passi guidati per l'inserimento. Per inserire gli indirizzi cliccare nella casella di testo del comune e compilare i dati nella popup che si apre.<br />
+PASSO 1: Selezionare il tipo di impresa e cliccare il bottone "Avanti":
+<p style="padding-left: 30px;"><img src="./images/scia_1.png" width="1050" /><br clear="left" /><br />
+PASSO 2: Inserire i dati impresa e del rappresentante legale. Cliccare su "Avanti".</p>
+<p style="padding-left: 30px;"><img src="./images/scia5.png" width="1322" height="738" /><br clear="left" /><br /> 
+PASSO 3: Inserire i dati dello stabilimento. Se il carattere dell'attivita' e' "TEMPORANEO", verra' richiesto di specificare la data di Inizio e Fine attivita'. <br/>
+La data di inizio attivita' non puo' essere antecedente a un mese dalla data odierna.<br/>
+Cliccare su "Avanti".</p>
+<p style="padding-left: 30px;"><img src="./images/scia7.png" width="1050" /><br clear="left" /> 
+PASSO 4: Selezionare una o piu' linee di attivita'. Tutte le linee sono recuperate dalla Master List. 
+Se l'attivit&agrave; &egrave; fissa, &egrave; possibile specificare pi&ugrave; di una linea di attivita&grave;. 
+Se si tratta di attivit&agrave; &egrave; mobile o di apicoltura, sar&agrave; possibile specificarne una sola.<br>
+Cliccare su "Avanti".</p>
+<p style="padding-left: 30px;"><img src="./images/scia8.png" width="1050" /><br clear="left" />
+Cliccando su "Salva Pratica" si completera' l'inserimento. <br /></p><br /><br />
+
+NOTA BENE :  indipendentemente dal tipo di SCIA dovra' essere specificato l'indirizzo principale dello stabilimento(SEDE OPERATIVA). Le eventuali informazioni su altri altri indirizzi, rimangono negli allegati amministrativi alla SCIA.<br><br>
+
+<u>Eccezioni e casi particolari</u><br/>
+FARMACI VETERINARI	-> MEDICO VETERINARIO MUNITO DI SCORTA DI FARMACI VETERINARI PER ATTIVITA' ZOOIATRICA	-> MEDICO VETERINARIO MUNITO DI SCORTA DI FARMACI VETERINARI PER ATTIVITA' ZOOIATRICA<br/>
+Per questa linea, il sistema impedira' l'inserimento di duplicati per partita IVA. Nel caso in cui, all'atto dell'inserimento pratica, il sistema riveli gia' una pratica in itinere o un'anagrafica (non cessata) con la stessa partita IVA e la stessa linea, l'inserimento sara' impedito.<br/><br/>
+Gestione "Strutture veterinarie pubbliche" <br/>
+In caso di selezione del tipo impresa "Struttura veterinaria pubblica" viene mostrata una scheda di inserimento anagrafica in cui non saranno presenti tutti i campi attualmente previsti tranne i dati del legale rappresentante. <br/>
+Inoltre, nel caso di "Struttura veterinaria pubblica" l’utente ha la possibilità di inserire più volte la stessa partita IVA per ragioni sociali e sedi stabilimento diverse.<br/>
+La linea di attività è selezionata tra le seguenti possibili:<br/>
+    • STRUTTURE VETERINARIE - AMBULATORIO VETERINARIO - PUBBLICO<br/>
+    • STRUTTURE VETERINARIE - CLINICA VETERINARIA - CASA DI CURA VETERINARIA - PUBBLICO<br/>
+    • STRUTTURE VETERINARIE - OSPEDALE VETERINARIO - PUBBLICO<br/>
+Per ogni stabilimento è possibile selezionare una solo linea di attività tra quelle sopra citate.<br/>
+Nella scheda di dettaglio degli stabilimenti con quel tipo impresa viene mostrata la dicitura "Direttore Generale ASL:" seguita dall’ASL dello stabilimento.<br/>
+<br/><br/>
+
+<u>Validazione</u>
+<p style="padding-left: 30px;">Una volta provveduto all'inserimento, il nuovo stabilimento sar&agrave; visibile nella lista delle "PRATICHE SUAP"
+Si potra' ricercarlo attraverso la P.IVA, la denominazione, il Comune e cliccare sul tasto "APRI SCHEDA"</p>
+<p style="padding-left: 30px;"><img src="./images/apri_e_valida.png" width="1050" /><br clear="left" /><br />
+Si aprira' la scheda con il bottone "PROSEGUI" sul quale bisogna cliccare per completare il trasferimento dell'anagrafica.<br>
+<p>Per ogni linea sar&agrave; possibile indicare un CODICE NAZIONALE. L'inserimento del codice sar&agrave; invece obbligatorio nei casi in cui esso &egrave; previsto dalla Master List. <br/> </p>
+Una piccola eccezione durante il processo di validazione &egrave; rappresentata dall'attivit&agrave; di apicoltura. Dopo aver inserito l'attivit&agrave;:
+<ul>  
+<li>Esiste una pratica da validare e per cui &egrave; necessario un CUN. Il messaggio che verr &agrave; mostrato all'utente sar &agrave; il seguente:</li>
+<p style="padding-left: 30px;"><img src="./images/validapicoltura.png" width="1050" /><br clear="left" />
+<li>L'attivita' di apicoltura viene propagata anche in BDAR.</li>
+<li>Contemporaneamente il sistema invia all'utente apicoltore/suo delegato le credenziali di accesso alla BDAR dalla quale e' visibile la scheda relativa all'attivita' di apicoltura inserita.</li>
+<li>L'apicoltore o suo delegato completa la scheda inserendo tutti i dettagli relativi ai propri apiari, si pone in attesa dell'attribuzione del CUN e parte la notifica all'ASL</li>
+<li>Facendo seguito alla notifica, l'ASL di competenza valida la scheda in BDAR sincronizzando i dati con la BDA-N e attribuendo il CUN. In GISA tale operazione pu&ograve; essere effettuata da 
+APICOLTURA -> GESTIONE RICHIESTE -> RICERCA ATTIVITA' -> VALIDA</li>
+<p style="padding-left: 30px;"><img src="./images/validapicolturasl.png" width="1050" /><br clear="left" />
+<li>L'ASL di competenza valida la SCIA trascrivendo il CUN e attribuendo il numero di registrazione CUN.</li>
+</ul>
+</p>
+<p style="padding-left: 30px;">Se il trasferimento in Anagrafica stabilimenti non va a buon fine, sara' evidenziato il motivo di tale problema con il colore "rosso" dopo aver premuto il bottone .<br /> 
+Sara' necessario "chiudere e ricaricare la scheda"&nbsp; per completare l'operazione. <br /> La linea di attivita' sara' adesso di colore verde.</p>
+<p style="padding-left: 30px;"><img src="./images/Valid_colorVerde.png" width="1055" height="535" /></p>
+<p style="padding-left: 30px;">NON si visualizzera' piu' il tasto "PROSEGUI" nella scheda.</p>
+<p style="padding-left: 30px;">Da questo momento lo stabilimento sara' ricercabile in "Anagrafica Stabilimenti" e sar&agrave; univocamente associato ad un numero di registrazione.</p>
+<p style="padding-left: 30px;">Anche le linee di attivit&agrave; saranno identificate dal numero di registrazione . <br />
+<a name="Apicoltura"></a><a name="apiari"></a></p>
+<p style="padding-left: 30px;"><img src="./images/Num_registraz.png" width="1050" height="427" /></p>
+<p style="padding-left: 30px;"></p>

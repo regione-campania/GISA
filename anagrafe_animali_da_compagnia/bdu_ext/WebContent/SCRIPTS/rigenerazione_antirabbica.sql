@@ -1,0 +1,2 @@
+﻿insert into role_permission(permission_id,role_id,role_view,role_add,role_edit,role_delete,role_offline_view,role_offline_edit,role_offline_add,role_offline_delete,entered,modified) values(581,5,true,true,false,false,false,false,false,false,now(),now());
+insert into role_permission(permission_id,role_id,role_view,role_add,role_edit,role_delete,role_offline_view,role_offline_edit,role_offline_add,role_offline_delete,entered,modified) values(581,6,true,true,false,false,false,false,false,false,now(),now());

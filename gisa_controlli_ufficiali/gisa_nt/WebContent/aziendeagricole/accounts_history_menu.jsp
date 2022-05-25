@@ -1,0 +1,337 @@
+<%--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.--%>
+<%-- 
+  - Copyright(c) 2004 Dark Horse Ventures LLC (http://www.centriccrm.com/) All
+  - rights reserved. This material cannot be distributed without written
+  - permission from Dark Horse Ventures LLC. Permission to use, copy, and modify
+  - this material for internal use is hereby granted, provided that the above
+  - copyright notice and this permission notice appear in all copies. DARK HORSE
+  - VENTURES LLC MAKES NO REPRESENTATIONS AND EXTENDS NO WARRANTIES, EXPRESS OR
+  - IMPLIED, WITH RESPECT TO THE SOFTWARE, INCLUDING, BUT NOT LIMITED TO, THE
+  - IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ANY PARTICULAR
+  - PURPOSE, AND THE WARRANTY AGAINST INFRINGEMENT OF PATENTS OR OTHER
+  - INTELLECTUAL PROPERTY RIGHTS. THE SOFTWARE IS PROVIDED "AS IS", AND IN NO
+  - EVENT SHALL DARK HORSE VENTURES LLC OR ANY OF ITS AFFILIATES BE LIABLE FOR
+  - ANY DAMAGES, INCLUDING ANY LOST PROFITS OR OTHER INCIDENTAL OR CONSEQUENTIAL
+  - DAMAGES RELATING TO THE SOFTWARE.
+  - 
+  - Version: $Id: accounts_history_menu.jsp 16897 2006-10-31 21:01:49Z matt $
+  - Description:
+  --%>
+<%@ taglib uri="/WEB-INF/dhv-taglib.tld" prefix="dhv" %>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="javascript/popURL.js"></SCRIPT>
+<script language="javascript">
+  var thisHistoryId = -1;
+  var thisContactId = -1;
+  var thisOrgId = -1;
+  var thisObjectId = -1;
+  var thisItemId = -1;
+  var urlDetails = "";
+  var urlModify = "";
+  var isPopup = false;
+  var thisCanView = false;
+  var thisCanModify = false;
+  var thisCanDelete = false;
+  var menu_init = false;
+  //Set the action parameters for clicked item
+  function displayMenu(loc, id, historyId, orgId, contactId, objectId, itemId, canView, canModify, canDelete) {
+    thisHistoryId = historyId;
+    thisOrgId = orgId;
+    thisContactId = contactId;
+    thisObjectId = objectId;
+    thisItemId = itemId;
+    thisCanView = canView;
+    thisCanModify = canModify;
+    thisCanDelete = canDelete;
+    if (!menu_init) {
+      menu_init = true;
+      new ypSlideOutMenu("menuAccountHistory", "down", 0, 0, 170, getHeight("menuAccountHistoryTable"));
+    }
+    if (thisObjectId == '<%= OrganizationHistory.NOTE %>') {
+      hideSpan('menuViewAccountHistoryObject');
+      if (thisCanModify) {
+        showSpan('menuEditAccountHistoryObject');
+      } else {
+        hideSpan('menuEditAccountHistoryObject');
+      }
+      if (thisCanDelete) {
+        showSpan('menuDeleteAccountHistoryObject');
+      } else {
+        hideSpan('menuDeleteAccountHistoryObject');
+      }
+      if (thisOrgId != -1) {
+        urlModify = 'AziendeAgricoleHistory.do?command=ModifyNote&id='+ thisHistoryId +'&orgId='+ thisOrgId +'&popup=true';
+      } else {
+        urlModify = 'ExternalContactsHistory.do?command=ModifyNote&id='+ thisHistoryId +'&contactId='+ thisContactId +'&popup=true';
+      }
+      if (thisOrgId != -1) {
+        urlDelete = 'AziendeAgricoleHistory.do?command=DeleteNote&id='+ thisHistoryId +'<%= isPopup(request)?"&popup=true":"" %>&orgId='+ thisOrgId;
+      } else {
+        urlDelete = 'AziendeAgricoleContactsHistory.do?command=DeleteNote&id='+ thisHistoryId +'<%= isPopup(request)?"&popup=true":"" %>&contactId='+ thisContactId;
+      }
+      isPopup = true;
+      } else if(thisObjectId == '<%= OrganizationHistory.COMPLETE_ACTIVITY %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      if (thisCanModify) {
+        showSpan('menuEditAccountHistoryObject');
+      } else {
+        hideSpan('menuEditAccountHistoryObject');
+      }
+      if(thisContactId!=-1){
+      urlDetails = 'AziendeAgricoleContactsCalls.do?command=Details&contactId='+thisContactId+'&id='+ thisItemId+'&trailSource=accounts';
+      urlModify = 'AziendeAgricoleContactsCalls.do?command=Modify&contactId='+thisContactId+'&id='+ thisItemId;
+      }
+      else{
+      urlDetails = 'AziendeAgricoleCalls.do?command=Details&orgId='+thisOrgId+'&id='+ thisItemId+'&trailSource=accounts';
+      urlModify = 'AziendeAgricoleCalls.do?command=Modify&orgId='+thisOrgId+'&id='+ thisItemId;
+      
+      }
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.CANCELED_ACTIVITY %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      hideSpan('menuEditAccountHistoryObject');
+      if(thisContactId!=-1){
+      urlDetails = 'AziendeAgricoleContactsCalls.do?command=Details&contactId='+thisContactId+'&id='+ thisItemId+'&trailSource=accounts';
+      }
+      else
+      {
+      urlDetails = 'AziendeAgricoleCalls.do?command=Details&orgId='+thisOrgId+'&id='+ thisItemId+'&trailSource=accounts';
+      }
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.CFSNOTE %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      hideSpan('menuEditAccountHistoryObject');
+      urlDetails = 'MyCFSInbox.do?command=CFSNoteDetails&listView=sent&id='+thisItemId;
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.CAMPAIGN %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      hideSpan('menuEditAccountHistoryObject');
+      urlDetails = 'Contacts.do?command=MessageDetails&id='+ thisItemId +'&contactId='+ thisContactId;
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.TICKET %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      if (thisCanModify) {
+        showSpan('menuEditAccountHistoryObject');
+      } else {
+        hideSpan('menuEditAccountHistoryObject');
+      }
+      urlDetails = 'AziendeAgricoleTickets.do?command=TicketDetails&id='+ thisItemId;
+      urlModify = 'AziendeAgricoleTickets.do?command=ModifyTicket&id='+ thisItemId;
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.TASK %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      if (thisCanModify) {
+        showSpan('menuEditAccountHistoryObject');
+      } else {
+        hideSpan('menuEditAccountHistoryObject');
+      }
+      urlDetails = 'MyTasks.do?command=Details&id='+ thisItemId;
+      urlModify = 'MyTasks.do?command=Modify&id='+ thisItemId;
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.QUOTE %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      if (thisCanModify) {
+        showSpan('menuEditAccountHistoryObject');
+      } else {
+        hideSpan('menuEditAccountHistoryObject');
+      }
+      urlDetails = 'AziendeAgricoleQuotes.do?command=Details&quoteId='+ thisItemId;
+      urlModify = 'AziendeAgricoleQuotes.do?command=ModifyForm&quoteId='+ thisItemId;
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.OPPORTUNITY %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      if (thisCanModify) {
+        showSpan('menuEditAccountHistoryObject');
+      } else {
+        hideSpan('menuEditAccountHistoryObject');
+      }
+      if (thisOrgId != -1) {
+        urlDetails = 'OpportunitiesComponents.do?command=DetailsComponent&id='+thisItemId+'&orgId='+thisOrgId;
+        urlModify = 'OpportunitiesComponents.do?command=ModifyComponent&id='+thisItemId+'&orgId='+thisOrgId;
+      } else {
+        urlDetails = 'OpportunitiesComponents.do?command=DetailsComponent&id='+thisItemId+'&contactId='+thisContactId;
+        urlModify = 'OpportunitiesComponents.do?command=ModifyComponent&id='+thisItemId+'&contactId='+thisContactId;
+      }
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.ACCOUNT_DOCUMENT %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      hideSpan('menuEditAccountHistoryObject');
+      urlDetails = 'AziendeAgricoleDocuments.do?command=Details&orgId='+thisOrgId+'&fid='+thisItemId;
+      urlModify = '';
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.SERVICE_CONTRACT %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      if (thisCanModify) {
+        showSpan('menuEditAccountHistoryObject');
+      } else {
+        hideSpan('menuEditAccountHistoryObject');
+      }
+      //Problem with contacts as orgId is required.
+      if (thisOrgId != -1) {
+        urlDetails = 'AziendeAgricoleServiceContracts.do?command=View&id='+thisItemId+'&orgId='+thisOrgId;
+        urlModify = 'AziendeAgricoleServiceContracts.do?command=Modify&id='+thisItemId+'&orgId='+thisOrgId;
+      } else {
+        urlDetails = 'AziendeAgricoleServiceContracts.do?command=View&id='+thisItemId+'&contactId='+thisContactId;
+        urlModify = 'AziendeAgricoleServiceContracts.do?command=Modify&id='+thisItemId+'&contactId='+thisContactId;
+      }
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.RELATIONSHIP %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      hideSpan('menuEditAccountHistoryObject');
+      urlDetails = 'AziendeAgricoleRelationships.do?command=View&orgId='+thisOrgId;
+      urlModify = '';
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.PROJECT %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewAccountHistoryObject');
+      } else {
+        hideSpan('menuViewAccountHistoryObject');
+      }
+      hideSpan('menuEditAccountHistoryObject');
+      urlDetails = 'ProjectManagement.do?command=ProjectCenter&section=Details&pid='+thisItemId;
+      urlModify = 'ProjectManagement.do?command=ModifyProject&pid='+thisItemId+'&return=ProjectCenter';
+      isPopup = false;
+    } else if(thisObjectId == '<%= OrganizationHistory.ASSET %>') {
+      hideSpan('menuDeleteAccountHistoryObject');
+      if (thisCanView) {
+        showSpan('menuViewContactHistoryObject');
+      } else {
+        hideSpan('menuViewContactHistoryObject');
+      }
+      if (thisCanModify) {
+        showSpan('menuEditContactHistoryObject');
+      } else {
+        hideSpan('menuEditContactHistoryObject');
+      }
+      //Problem with contacts as orgId is required.
+      if (thisContactId != -1) {
+        urlDetails = 'AziendeAgricoleAssets.do?command=View&orgId=&id='+thisItemId+'&contactId='+thisContactId;
+        urlModify = 'AziendeAgricoleAssets.do?command=Modify&id='+thisItemId+'&contactId='+thisContactId;
+      } else {
+        urlDetails = 'AziendeAgricoleAssets.do?command=View&orgId=&id='+thisItemId+'&orgId='+thisOrgId;
+        urlModify = 'AziendeAgricoleAssets.do?command=Modify&id='+thisItemId+'&orgId='+thisOrgId;
+      }
+      isPopup = false;
+    } else {
+      hideSpan('menuViewAccountHistoryObject');
+      hideSpan('menuEditAccountHistoryObject');
+      hideSpan('menuDeleteAccountHistoryObject');
+      isPopup = false;
+    }
+    return ypSlideOutMenu.displayDropMenu(id, loc);
+  }
+  //Menu link functions
+  function details() {
+    if (isPopup) {
+      popURL(urlDetails, 'ContactHistory', 600, 300, true, true);
+    } else {
+      window.location.href = urlDetails+'<%= isPopup(request)?"&popup=true":"" %>';
+    }
+  }
+
+  function modify() {
+    if (isPopup) {
+      popURL(urlModify, 'ContactHistory', 600, 300, true, true);
+    } else {
+      window.location.href = urlModify+'<%= isPopup(request)?"&popup=true":"" %>';
+    }
+  }
+
+  function deleteObject() {
+    if (confirm(label('confirm.delete.item','Are you sure you want to remove this item?'))) {
+      window.location.href = urlDelete;
+    }
+  }
+</script>
+<div id="menuAccountHistoryContainer" class="menu">
+  <div id="menuAccountHistoryContent">
+    <table id="menuAccountHistoryTable" class="pulldown" width="170" cellspacing="0">
+      <tr id="menuViewAccountHistoryObject" onmouseover="cmOver(this)" onmouseout="cmOut(this)" onclick="details()">
+        <th>
+          <img src="images/icons/stock_zoom-page-16.gif" border="0" align="absmiddle" height="16" width="16"/>
+        </th>
+        <td width="100%">
+          <dhv:label name="accounts.accounts_calls_list_menu.ViewDetails">View Details</dhv:label>
+        </td>
+      </tr>
+      <tr id="menuEditAccountHistoryObject" onmouseover="cmOver(this)" onmouseout="cmOut(this)" onclick="modify()">
+        <th>
+          <img src="images/icons/stock_edit-16.gif" border="0" align="absmiddle" height="16" width="16"/>
+        </th>
+        <td width="100%">
+          Modifica
+        </td>
+      </tr>
+      <tr id="menuDeleteAccountHistoryObject" onmouseover="cmOver(this)" onmouseout="cmOut(this)" onclick="deleteObject();">
+        <th>
+          <img src="images/icons/stock_delete-16.gif" border="0" align="absmiddle" height="16" width="16"/>
+        </th>
+        <td width="100%">
+          <dhv:label name="global.button.delete">Delete</dhv:label>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

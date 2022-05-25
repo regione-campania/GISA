@@ -1,0 +1,8 @@
+**/.svn
+guc**/*properties/application.properties*
+**/*.pdf
+**/*.doc
+**/*.docx
+**/tmp_img
+
+**/pets_clinic_01.gif

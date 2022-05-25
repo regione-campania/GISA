@@ -1,0 +1,4 @@
+Nome Classe: Campioni
+
+rev.: rev1 | data: 22/11/2011 | auth.: Balzano Giuseppe | desc.: Metodo executeCommandUpdateTicket , ho aggiunto un controllo se il microchipcanili e' diverso da null.
+

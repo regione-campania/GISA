@@ -1,0 +1,38 @@
+update organization set impianto = 2  ,codice_impianto =2 where org_id = 10759;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10760;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10761;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10762;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10763;
+update organization set impianto = 2  ,codice_impianto =2 where org_id = 10764;
+update organization set impianto = 1  ,codice_impianto =1 where org_id = 10765;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10766;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10767;
+update organization set impianto = 1  ,codice_impianto =1 where org_id = 10768;
+update organization set impianto = 1  ,codice_impianto =1 where org_id = 10769;
+update organization set impianto = 5  ,codice_impianto =5 where org_id = 10770;
+update organization set impianto = 1  ,codice_impianto =1 where org_id = 10771;
+update organization set impianto = 2  ,codice_impianto =2 where org_id = 10772;
+update organization set impianto = 1  ,codice_impianto =1 where org_id = 10773;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10774;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10775;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10776;
+update organization set impianto = 1  ,codice_impianto =1 where org_id = 10777;
+update organization set impianto = 1  ,codice_impianto =1 where org_id = 10778;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10779;
+update organization set impianto = 1  ,codice_impianto =1 where org_id = 10780;
+update organization set impianto = 6  ,codice_impianto =6 where org_id = 10781;
+update organization set impianto = 2  ,codice_impianto =2 where org_id = 10782;
+update organization set impianto = 3  ,codice_impianto =3 where org_id = 10783;
+update organization set impianto = 4  ,codice_impianto =4 where org_id = 10784;
+update organization set impianto = 1  ,codice_impianto =1 where org_id = 10785;
+update organization set impianto = 5  ,codice_impianto =5 where org_id = 10786;
+update organization set impianto = 2  ,codice_impianto =2 where org_id = 10787;
+update organization set impianto = 2  ,codice_impianto =2 where org_id = 10788;
+update organization set impianto = 2  ,codice_impianto =2 where org_id = 10789;
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                

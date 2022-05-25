@@ -1,0 +1,162 @@
+<root>
+  
+<endpoint name="Gisa" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_host>endpointDBGisa</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>hywfas.tre</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+		<db_host>endpointDBGisa</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>hywfas.tre</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);
+		</query>
+	</operation>
+	
+</endpoint>
+<endpoint name="webgis" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_datasource>jdbc/webgis</db_datasource>
+		<db_host>dbWEBGISL</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+		<db_datasource>jdbc/webgis</db_datasource>
+		<db_host>dbWEBGISL</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);
+		</query>
+	</operation>
+	
+</endpoint>
+<endpoint name="Gisa_ext" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_host>endpointDBGisa_ext</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>hywfas.tre</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente_ext();
+		</query>
+	</operation>
+	
+   <operation name="CheckEnableUtente" type="Sql">
+		<db_host>endpointDBGisa_ext</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>hywfas.tre</db_pwd>
+		<query>
+			select * from dbi_check_last_login_ext(?,?::timestamp);
+		</query>
+	</operation>
+</endpoint>
+
+<endpoint name="Digemon" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_host>endpointDBDigemon</db_host>
+		<db_name>DiGeMon</db_name>
+		<db_user>admin</db_user>
+		<db_pwd>admin</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+			<db_host>endpointDBDigemon</db_host>
+		<db_name>DiGeMon</db_name>
+		<db_user>admin</db_user>
+		<db_pwd>admin</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);
+		</query>
+	</operation>
+
+</endpoint>
+
+<endpoint name="Importatori" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_host>endpointDBImportatore</db_host>
+		<db_name>importatori</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>hywfas.tre</db_pwd>
+		<query>
+		select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+		<db_host>endpointDBImportatore</db_host>
+		<db_name>importatori</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>hywfas.tre</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);
+		</query>
+	</operation>
+</endpoint>
+
+<endpoint name="bdu" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_host>endpointDBBdu</db_host>
+		<db_name>bdu</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>hywfas.tre</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+		<db_host>endpointDBBdu</db_host>
+		<db_name>bdu</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>hywfas.tre</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);
+		</query>
+	</operation>
+
+</endpoint>
+
+<endpoint name="Vam" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_host>endpointDBVam</db_host>
+		<db_name>vam</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>hywfas.tre</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+		<db_host>endpointDBVam</db_host>
+		<db_name>vam</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>hywfas.tre</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);		
+		</query>
+	</operation>
+
+</endpoint>
+
+</root> 

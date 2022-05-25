@@ -1,0 +1,3 @@
+Nome Classe: Organization
+
+rev.: rev1 | data: 2011_11_24 | auth.: Rita Mele | desc.: Aggiunta di alcuni metodi per la gestione della rendicontazione annuale

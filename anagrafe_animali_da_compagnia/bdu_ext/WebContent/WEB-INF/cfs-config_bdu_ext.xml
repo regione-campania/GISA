@@ -1,0 +1,253 @@
+<mvc-app>
+
+  
+  <action name="Login" class="org.aspcfs.modules.login.actions.Login">
+    <bean name="LoginBean" class="org.aspcfs.modules.login.beans.LoginBean"
+          scope="request"/>
+    <forward name="LoginOK" resource="/MyCFS.do?command=Home"/>
+    <forward name="LoginVerifyOK" resource="/mycfs/mycfs_verify.jsp"
+             layout="style"/>
+    <forward name="LoginRetry" resource="/Login.do?command=Default"/>
+    <forward name="OfflineLoginERROR" resource="/errors/error_offline_login.jsp"
+             layout="centric"/>
+    <forward name="LicenseError" resource="/errors/error_license.jsp"
+             layout="centric"/>
+    <forward name="LoginConfirmBypassed"
+			resource="/Login.do?command=LoginConfirm&amp;override=yes" />
+    <forward name="CustomerPortalLoginOK"
+             resource="/Accounts.do?command=Search"/>
+    <forward name="ProductsPortalLoginOK" resource="/MyCFS.do?command=Home"/>
+    <forward name="PerformUpgradeOK" resource="/Upgrade.do?command=Check"/>
+    <forward name="IndexPageOK" resource="/indexPage.jsp"/>
+    <forward name="RedirectURL" resource="/redirect.jsp"/>
+    <forward name="ChangePasswordOK" resource="/website/change_password.jsp"/>
+    <forward name="ForgotPasswordOK" resource="/forgot_password.jsp"/>
+    <forward name="PasswordGeneratedOK" resource="/password_confirmation.jsp"/>
+     <forward name="HomeOK" resource="/PartiteCommerciali.do?command=ListaPartite"/>
+  </action>
+
+
+<action name="Admin" class="org.aspcfs.modules.admin.actions.Admin">
+    <forward name="HomeOK" resource="/admin/admin.jsp" layout="ext"/>
+    <forward name="ConfigurationOK" resource="/admin/admin_configuration.jsp"
+             layout="ext"/>
+    <forward name="EditListsOK" resource="/admin/admin_editlists.jsp"
+             layout="ext"/>
+    <forward name="ModifyListOK" resource="/admin/admin_modifylist.jsp"
+             layout="ext"/>
+    <forward name="UpdateListOK" resource="/admin/admin_editlists.jsp"
+             layout="ext"/>
+    <forward name="ConfigDetailsOK" resource="/admin/admin_configdetails.jsp"
+             layout="ext"/>
+    <forward name="UsageOK" resource="/admin/admin_usage.jsp" layout="ext"/>
+    <forward name="WorkflowOK" resource="/admin/admin_workflow_list.jsp"
+             layout="ext"/>
+    <forward name="WorkflowDetailsOK"
+             resource="/admin/admin_workflow_details.jsp" layout="ext"/>
+  </action>
+  
+  <!-- MyCFS Module -->
+  <action name="MyCFS" class="org.aspcfs.modules.mycfs.actions.MyCFS">
+    
+<!--     <forward name="HomeOK" resource="/PartiteCommerciali.do?command=ListaPartite" /> -->
+<!--      <forward name="HomeOK" resource="/ListaConvocazioneAction.do?command=List" /> -->
+     <forward name="Home_3OK" resource="/PartiteCommerciali.do?command=ListaPartite"/>
+      <forward name="Home_8OK" resource="/ListaConvocazioneAction.do?command=List"/>
+      <forward name="Home_11OK" resource="/PartiteCommerciali.do?command=ListaPartite"/>
+    <forward name="HomePrelievoDNAOK" resource="/ListaConvocazioneAction.do?command=List"/>
+    
+   
+
+  </action>
+  
+  <action name="Roles" class="org.aspcfs.modules.admin.actions.Roles">
+    <bean name="Role" class="org.aspcfs.modules.admin.base.Role"
+          scope="request"/>
+    <forward name="ListRolesOK" resource="/admin/admin_listroles.jsp"
+             layout="ext"/>
+    <forward name="RoleInsertFormOK" resource="/admin/admin_roleinsertform.jsp"
+             layout="ext"/>
+    <forward name="RoleAddOK" resource="/Roles.do?command=ListRoles"/>
+    <forward name="RoleDetailsOK" resource="/admin/admin_roledetails.jsp"
+             layout="ext"/>
+    <forward name="RoleDetailsModifyOK" resource="/admin/admin_roledetails.jsp"
+             layout="ext"/>
+    <forward name="RoleUpdateOK" resource="/Roles.do?command=ListRoles"/>
+    <forward name="DeleteOK" resource="/dialogcloseandreload.jsp"
+             layout="style"/>
+    <forward name="ConfirmDeleteOK" resource="/dialog.jsp"/>
+  </action>
+  
+ 
+
+  <action name="Setup" class="org.aspcfs.modules.setup.actions.Setup">
+    <bean name="registration"
+          class="org.aspcfs.modules.setup.beans.RegistrationBean"
+          scope="request"/>
+    <forward name="SetupOK" resource="/setup/language.jsp" layout="centric"/>
+    <forward name="WelcomeOK" resource="/setup/welcome.jsp" layout="centric"/>
+    <forward name="SetupHaveRegOK" resource="/setup/validate.jsp"
+             layout="centric"/>
+    <forward name="SetupNeedRegOK" resource="/setup/register.jsp"
+             layout="centric"/>
+    <forward name="SendRegERROR" resource="/setup/register.jsp"
+             layout="centric"/>
+    <forward name="SubmitRegistrationOK" resource="/setup/submitted.jsp"
+             layout="centric"/>
+    <forward name="SubmitProcessOK"
+             resource="/service/system_process_packet.jsp"/>
+    <forward name="ValidateRETRY" resource="/setup/validate.jsp"
+             layout="centric"/>
+    <forward name="ValidateOK" resource="/setup/validate_success.jsp"
+             layout="centric"/>
+    <forward name="SkipRegistrationOK"
+             resource="/SetupDirectory.do?command=ConfigureDirectoryCheck"/>
+  </action>
+  <action name="SetupDirectory" class="org.aspcfs.modules.setup.actions.Setup">
+    <forward name="ConfigureDirectoryCheckOK"
+             resource="/setup/configure_directory.jsp" layout="centric"/>
+    <forward name="ConfigureDirectoryERROR"
+             resource="/setup/configure_directory.jsp" layout="centric"/>
+    <forward name="ConfigureDirectoryConfirmOK"
+             resource="/setup/configure_directory_confirm.jsp"
+             layout="centric"/>
+    <forward name="ConfigureDirectoryOK"
+             resource="/SetupDirectory.do?command=ConfigureDirectoryFinalize"/>
+    <forward name="ConfigureDirectoryCompleteOK"
+             resource="/setup/configure_directory_success.jsp"
+             layout="centric"/>
+  </action>
+  <action name="SetupDatabase" class="org.aspcfs.modules.setup.actions.Setup">
+    <bean name="database" class="org.aspcfs.modules.setup.beans.DatabaseBean"
+          scope="request"/>
+    <forward name="ConfigureDatabaseCheckOK"
+             resource="/setup/configure_database.jsp" layout="centric"/>
+    <forward name="ConfigureDatabaseERROR"
+             resource="/setup/configure_database.jsp" layout="centric"/>
+    <forward name="ConfigureDatabaseConfirmOK"
+             resource="/setup/configure_database_confirm.jsp" layout="centric"/>
+    <forward name="ConfigureDatabaseOK"
+             resource="/setup/configure_database_success.jsp" layout="centric"/>
+    <forward name="ConfigureDatabaseCreateOK"
+             resource="/setup/configure_database_create_success.jsp"
+             layout="centric"/>
+    <forward name="ConfigureDatabaseCreateERROR"
+             resource="/SetupDatabase.do?command=ConfigureDatabaseCheck"/>
+    <forward name="ConfigureDatabaseRestoreERROR"
+             resource="/SetupDatabase.do?command=ConfigureDatabaseCheck"/>
+  </action>
+  <action name="SetupServerDetails"
+          class="org.aspcfs.modules.setup.actions.Setup">
+    <bean name="server" class="org.aspcfs.modules.setup.beans.ServerBean"
+          scope="request"/>
+    <forward name="ConfigureServerCheckOK"
+             resource="/setup/configure_server.jsp" layout="centric"/>
+    <forward name="ConfigureServerERROR" resource="/setup/configure_server.jsp"
+             layout="centric"/>
+    <forward name="ConfigureServerConfirmOK"
+             resource="/setup/configure_server_confirm.jsp" layout="centric"/>
+    <forward name="ConfigureServerOK"
+             resource="/setup/configure_server_success.jsp" layout="centric"/>
+    <forward name="SendMailOK"
+             resource="/setup/configure_server_mail_success.jsp"
+             layout="style"/>
+    <forward name="SendMailERROR"
+             resource="/setup/configure_server_mail_error.jsp" layout="style"/>
+    <forward name="LDAPLoginOK"
+             resource="/setup/configure_server_ldap_success.jsp"
+             layout="style"/>
+    <forward name="LDAPLoginERROR"
+             resource="/setup/configure_server_ldap_error.jsp" layout="style"/>
+  </action>
+  <action name="SetupUser" class="org.aspcfs.modules.setup.actions.Setup">
+    <bean name="user" class="org.aspcfs.modules.setup.beans.UserSetupBean"
+          scope="request"/>
+    <forward name="ConfigureUserCheckOK" resource="/setup/configure_user.jsp"
+             layout="centric"/>
+    <forward name="ConfigureUserERROR" resource="/setup/configure_user.jsp"
+             layout="centric"/>
+    <forward name="ConfigureUserOK" resource="/setup/configure_user_success.jsp"
+             layout="centric"/>
+    <forward name="ConfigureUserDatabaseERROR"
+             resource="/SetupDatabase.do?command=ConfigureDatabaseCheck"/>
+  </action>
+ 
+ 
+ <action name="OperatoreAction" class="org.aspcfs.modules.opu_ext.actions.OperatoreAction">
+		<bean name="Operatore" class="org.aspcfs.modules.opu_ext.base.Operatore"
+			scope="request" />
+		<bean name="Stabilimento" class="org.aspcfs.modules.opu_ext.base.Stabilimento"
+			scope="request" />
+		<forward name="InsertOK" resource="/OperatoreAction.do?command=Dashboard"
+			layout="ext" />
+		<forward name="SearchOK" resource="/opu_ext/operatore_search.jsp"
+			layout="ext" />
+		<forward name="ListOK" resource="/opu_ext/operatori_list.jsp"
+			layout="ext" />
+		<forward name="DetailsOperatoreOK" resource="/opu_ext/operatore_details.jsp"
+			layout="ext" />
+	</action>
+	
+	<action name="PartiteCommerciali"
+		class="org.aspcfs.modules.partitecommerciali_ext.actions.PartiteCommerciali">
+		<bean name="PartitaCommerciale"
+			class="org.aspcfs.modules.partitecommerciali_ext.base.PartitaCommerciale"
+			scope="request" />
+		<bean name="Animale" class="org.aspcfs.modules.anagrafe_animali_ext.base.Animale"
+			scope="request" />
+		<bean name="Cane" class="org.aspcfs.modules.anagrafe_animali_ext.base.Cane"
+			scope="request" />
+		<bean name="Gatto" class="org.aspcfs.modules.anagrafe_animali_ext.base.Gatto"
+			scope="request" />
+		<bean name="Evento" class="org.aspcfs.modules.registrazioniAnimali.base.Evento"
+			scope="request" />
+		<bean name="EventoRegistrazioneBDU"
+			class="org.aspcfs.modules.registrazioniAnimali.base.EventoRegistrazioneBDU"
+			scope="request" />
+		<bean name="EventoRilascioPassaporto"
+			class="org.aspcfs.modules.registrazioniAnimali.base.EventoRilascioPassaporto"
+			scope="request" />
+		<bean name="EventoRegistrazioneEsitoControlliCommerciali"
+			class="org.aspcfs.modules.registrazioniAnimali.base.EventoRegistrazioneEsitoControlliCommerciali"
+			scope="request" />
+		<forward name="AddOK" resource="/partite_commerciali_ext/partita_aggiungi.jsp"
+			layout="ext" />
+
+		<forward name="DetailsOK" resource="/partite_commerciali_ext/partita_dettagli.jsp"
+			layout="ext" />
+		<forward name="InsertOK" resource="/PartiteCommerciali.do?command=DettagliPartita" />
+		<forward name="InsertDettagliOK"
+			resource="/partite_commerciali_ext/partita_aggiungi_dettagli.jsp" layout="ext" />
+		<forward name="ListPopupOK" resource="/partite_commerciali_ext/animale_list.jsp"
+			layout="style" />
+		<forward name="ListOK" resource="/partite_commerciali_ext/animale_list.jsp"
+			layout="ext" />
+		<forward name="ListPartiteOK" resource="/partite_commerciali_ext/partite_list.jsp"
+			layout="ext" />
+		<forward name="AddAnimaleOK" resource="/partite_commerciali_ext/animale_add_a_partita.jsp"
+			layout="ext" />
+		<forward name="ClosePopupOK" resource="/partite_commerciali_ext/close_popup_vincolati.jsp"
+			layout="ext" />
+		<forward name="liberaSenzaVincoloOK" resource="/partite_commerciali_ext/aggiungi_controlli.jsp"
+			layout="ext" />
+
+	</action>
+	
+	
+<action name="ListaConvocazioneAction" class="org.aspcfs.modules.DNA.actions.ListaConvocazioneAction">
+<bean name="ListaConvocazione" class="org.aspcfs.modules.DNA.base.ListaConvocazione"
+			scope="request" />
+<bean name="ConvocazioneTemporale" class="org.aspcfs.modules.DNA.base.ConvocazioneTemporale"
+			scope="request" />
+    <forward name="PrepareAddListaOK" resource="/DNA/new_lista_convocazione.jsp" layout="ext"/>
+    <forward name="DetailsStatoOK" resource="/DNA/dettaglio_import.jsp" layout="ext"/>
+    <forward name="ListOk" resource="/DNA/lista_convocazioni.jsp" layout="ext"/>
+    <forward name="DetailsListaOK" resource="/DNA/dettaglio_convocazione_lista_convocati.jsp" layout="ext"/>
+    <forward name="DetailsListaConvocazioniOK" resource="/DNA/dettaglio_convocazione_lista_convocazioni.jsp" layout="ext"/>
+    <forward name="DetailsListaConvocazioneTemporaleOK" resource="/DNA/dettaglio_convocazione_temporale_lista_convocati.jsp" layout="ext"/>
+    
+    
+  </action>
+	
+ 
+</mvc-app>

@@ -1,0 +1,958 @@
+[
+    {
+        "name": "FRAZIONE",
+        "value": 22
+    },
+    {
+        "name": "LARGHETTO",
+        "value": 58
+    },
+    {
+        "name": "LARGO",
+        "value": 62
+    },
+    {
+        "name": "TRAVERSA",
+        "value": 76
+    },
+    {
+        "name": "CALATA",
+        "value": 81
+    },
+    {
+        "name": "PONTILE",
+        "value": 3
+    },
+    {
+        "name": "VIA",
+        "value": 100
+    },
+    {
+        "name": "LUNGOMARE",
+        "value": 106
+    },
+    {
+        "name": "VIALE",
+        "value": 128
+    },
+    {
+        "name": "VICO",
+        "value": 136
+    },
+    {
+        "name": "VICOLETTO",
+        "value": 140
+    },
+    {
+        "name": "SALITA",
+        "value": 143
+    },
+    {
+        "name": "VICOLO",
+        "value": 144
+    },
+    {
+        "name": "CONTRADA",
+        "value": 153
+    },
+    {
+        "name": "CORSO",
+        "value": 157
+    },
+    {
+        "name": "PIAZZA",
+        "value": 194
+    },
+    {
+        "name": "PIAZZALE",
+        "value": 198
+    },
+    {
+        "name": "DISCESA",
+        "value": 204
+    },
+    {
+        "name": "PIAZZETTA",
+        "value": 205
+    },
+    {
+        "name": "STRADA",
+        "value": 215
+    },
+    {
+        "name": "STRADA COMUNALE",
+        "value": 4
+    },
+    {
+        "name": "VIA COMUNALE",
+        "value": 104
+    },
+    {
+        "name": "LOCALITA'",
+        "value": 74
+    },
+    {
+        "name": "ANGIPORTO",
+        "value": 17
+    },
+    {
+        "name": "STRADA VICINALE",
+        "value": 28
+    },
+    {
+        "name": "GALLERIA",
+        "value": 30
+    },
+    {
+        "name": "PROLUNGAMENTO",
+        "value": 31
+    },
+    {
+        "name": "GIARDINI",
+        "value": 34
+    },
+    {
+        "name": "GRADINI",
+        "value": 38
+    },
+    {
+        "name": "BANCHINA",
+        "value": 41
+    },
+    {
+        "name": "GRADONI",
+        "value": 42
+    },
+    {
+        "name": "STRADONE",
+        "value": 44
+    },
+    {
+        "name": "RAMPA",
+        "value": 51
+    },
+    {
+        "name": "STRETTOLA",
+        "value": 56
+    },
+    {
+        "name": "RAMPE",
+        "value": 59
+    },
+    {
+        "name": "SUPPORTICO",
+        "value": 60
+    },
+    {
+        "name": "TRAVERSA PRIVATA",
+        "value": 84
+    },
+    {
+        "name": "VARCO",
+        "value": 96
+    },
+    {
+        "name": "VIA NUOVA",
+        "value": 108
+    },
+    {
+        "name": "VIA PRIVATA",
+        "value": 112
+    },
+    {
+        "name": "RUA",
+        "value": 115
+    },
+    {
+        "name": "VIA PROVINCIALE",
+        "value": 116
+    },
+    {
+        "name": "VIA VECCHIA",
+        "value": 120
+    },
+    {
+        "name": "VIA VICINALE",
+        "value": 124
+    },
+    {
+        "name": "CAVALCAVIA",
+        "value": 129
+    },
+    {
+        "name": "VIALE PRIVATO",
+        "value": 132
+    },
+    {
+        "name": "CAVONE",
+        "value": 137
+    },
+    {
+        "name": "MOLO",
+        "value": 142
+    },
+    {
+        "name": "SBARCATOIO",
+        "value": 155
+    },
+    {
+        "name": "PARCO",
+        "value": 158
+    },
+    {
+        "name": "SCALA",
+        "value": 159
+    },
+    {
+        "name": "SCALE",
+        "value": 167
+    },
+    {
+        "name": "PENDINO",
+        "value": 178
+    },
+    {
+        "name": "PENNINATA",
+        "value": 182
+    },
+    {
+        "name": "CUPA",
+        "value": 189
+    },
+    {
+        "name": "CUPA VICINALE",
+        "value": 193
+    },
+    {
+        "name": "EMICICLO",
+        "value": 207
+    },
+    {
+        "name": "STAZIONE",
+        "value": 212
+    },
+    {
+        "name": "FONDACO",
+        "value": 213
+    },
+    {
+        "name": "TRAVERSA II PRIVATA",
+        "value": 216
+    },
+    {
+        "name": "SALITA DELLA",
+        "value": 217
+    },
+    {
+        "name": "VICOLETTO DEL",
+        "value": 218
+    },
+    {
+        "name": "PIAZZA DELL'",
+        "value": 219
+    },
+    {
+        "name": "STRADA DELLA",
+        "value": 220
+    },
+    {
+        "name": "TRAVERSA II",
+        "value": 221
+    },
+    {
+        "name": "VIA A",
+        "value": 222
+    },
+    {
+        "name": "VIALE II",
+        "value": 223
+    },
+    {
+        "name": "STRADA COMUNALE DELL'",
+        "value": 224
+    },
+    {
+        "name": "VIA NUOVA DI",
+        "value": 225
+    },
+    {
+        "name": "VIA PRIVATA DEL",
+        "value": 226
+    },
+    {
+        "name": "VICOLETTO DELLE",
+        "value": 227
+    },
+    {
+        "name": "SALITA DEI",
+        "value": 228
+    },
+    {
+        "name": "TRAVERSA IV DI CORSO",
+        "value": 229
+    },
+    {
+        "name": "VIALE DELLA",
+        "value": 230
+    },
+    {
+        "name": "GRADINI DEI",
+        "value": 231
+    },
+    {
+        "name": "STRADA COMUNALE CUPA",
+        "value": 232
+    },
+    {
+        "name": "FONDACO DEL",
+        "value": 233
+    },
+    {
+        "name": "VICO II",
+        "value": 234
+    },
+    {
+        "name": "GRADINI DELLE",
+        "value": 235
+    },
+    {
+        "name": "VICOLETTO III",
+        "value": 236
+    },
+    {
+        "name": "GRADONI DI",
+        "value": 237
+    },
+    {
+        "name": "VICO STRETTO",
+        "value": 238
+    },
+    {
+        "name": "TRAVERSA III CUPA",
+        "value": 239
+    },
+    {
+        "name": "VIA VICINALE PER",
+        "value": 240
+    },
+    {
+        "name": "CUPA VICINALE DELL'",
+        "value": 241
+    },
+    {
+        "name": "SALITA DEL",
+        "value": 242
+    },
+    {
+        "name": "RAMPE DELLE",
+        "value": 243
+    },
+    {
+        "name": "VIA VICINALE DEI",
+        "value": 244
+    },
+    {
+        "name": "VIA VECCHIA DI",
+        "value": 245
+    },
+    {
+        "name": "VICOLETTO DEI",
+        "value": 246
+    },
+    {
+        "name": "CUPA VICINALE DEI",
+        "value": 247
+    },
+    {
+        "name": "VARCO DEL",
+        "value": 248
+    },
+    {
+        "name": "ANGIPORTO DEI",
+        "value": 249
+    },
+    {
+        "name": "VICO STORTO DEL",
+        "value": 250
+    },
+    {
+        "name": "VICO IX",
+        "value": 251
+    },
+    {
+        "name": "CAVONE DELLE",
+        "value": 252
+    },
+    {
+        "name": "VICOLETTO II DEL",
+        "value": 253
+    },
+    {
+        "name": "RIVIERA DI",
+        "value": 254
+    },
+    {
+        "name": "VICO III DEL",
+        "value": 255
+    },
+    {
+        "name": "RAMPA DEL",
+        "value": 256
+    },
+    {
+        "name": "VIA COMUNALE VECCHIA DI",
+        "value": 257
+    },
+    {
+        "name": "VIALE DEL",
+        "value": 258
+    },
+    {
+        "name": "VICOLETTO DELLA",
+        "value": 259
+    },
+    {
+        "name": "VICO DETTO",
+        "value": 260
+    },
+    {
+        "name": "VIA AL",
+        "value": 261
+    },
+    {
+        "name": "VICO VIII",
+        "value": 262
+    },
+    {
+        "name": "VICOLETTO IV",
+        "value": 263
+    },
+    {
+        "name": "VIA DEI",
+        "value": 264
+    },
+    {
+        "name": "SCALETTA",
+        "value": 265
+    },
+    {
+        "name": "STRADA VICINALE CUPA",
+        "value": 266
+    },
+    {
+        "name": "STRADA COMUNALE DETTA",
+        "value": 267
+    },
+    {
+        "name": "GRADINI DEL",
+        "value": 268
+    },
+    {
+        "name": "VICO X",
+        "value": 269
+    },
+    {
+        "name": "VIA NUOVA DELLE",
+        "value": 270
+    },
+    {
+        "name": "TRAVERSA PRIVATA DEI",
+        "value": 271
+    },
+    {
+        "name": "VIALE DELLE",
+        "value": 272
+    },
+    {
+        "name": "SALITA DI",
+        "value": 273
+    },
+    {
+        "name": "VICO DEL",
+        "value": 274
+    },
+    {
+        "name": "TRAVERSA IV DI VIA",
+        "value": 275
+    },
+    {
+        "name": "VICO III",
+        "value": 276
+    },
+    {
+        "name": "TRAVERSA I VECCHIA",
+        "value": 277
+    },
+    {
+        "name": "TRAVERSA V DI VIA",
+        "value": 278
+    },
+    {
+        "name": "VICO II DEI",
+        "value": 279
+    },
+    {
+        "name": "TRAVERSA II DI VIA PROVINCIALE",
+        "value": 280
+    },
+    {
+        "name": "VIA DELLO",
+        "value": 281
+    },
+    {
+        "name": "FOSSATO",
+        "value": 282
+    },
+    {
+        "name": "LARGO PRIVATO",
+        "value": 283
+    },
+    {
+        "name": "VICO II DEL",
+        "value": 284
+    },
+    {
+        "name": "SALITA DELLO",
+        "value": 285
+    },
+    {
+        "name": "PROLUNGAMENTO DI VIA",
+        "value": 286
+    },
+    {
+        "name": "VICO I DEI",
+        "value": 287
+    },
+    {
+        "name": "CUPA DELLA",
+        "value": 288
+    },
+    {
+        "name": "TRAVERSA III",
+        "value": 289
+    },
+    {
+        "name": "LARGO DELLE",
+        "value": 290
+    },
+    {
+        "name": "TRAVERSA DELLA",
+        "value": 291
+    },
+    {
+        "name": "VICO I DELLA",
+        "value": 292
+    },
+    {
+        "name": "PIAZZA DEI",
+        "value": 293
+    },
+    {
+        "name": "TRAVERSA II CUPA",
+        "value": 294
+    },
+    {
+        "name": "PIAZZETTA DELLA",
+        "value": 295
+    },
+    {
+        "name": "TRAVERSA V",
+        "value": 296
+    },
+    {
+        "name": "VIA I",
+        "value": 297
+    },
+    {
+        "name": "VIA DELLE",
+        "value": 298
+    },
+    {
+        "name": "VIA DELLA",
+        "value": 299
+    },
+    {
+        "name": "STRADA COMUNALE DEI",
+        "value": 300
+    },
+    {
+        "name": "VIA NUOVA DETTA",
+        "value": 301
+    },
+    {
+        "name": "TRAVERSA I CUPA",
+        "value": 302
+    },
+    {
+        "name": "PIAZZA DEL",
+        "value": 303
+    },
+    {
+        "name": "VANELLA",
+        "value": 304
+    },
+    {
+        "name": "VICOLETTO III DEL",
+        "value": 305
+    },
+    {
+        "name": "VICO DELLA",
+        "value": 306
+    },
+    {
+        "name": "TRAVERSA DI VIA NUOVA",
+        "value": 307
+    },
+    {
+        "name": "PIAZZETTA DI",
+        "value": 308
+    },
+    {
+        "name": "VIALE DELL'",
+        "value": 309
+    },
+    {
+        "name": "STRADA DI",
+        "value": 310
+    },
+    {
+        "name": "VIOTTOLO",
+        "value": 311
+    },
+    {
+        "name": "TRAVERSA I DELL'",
+        "value": 312
+    },
+    {
+        "name": "VIA LE",
+        "value": 313
+    },
+    {
+        "name": "RAMPE DELLA",
+        "value": 314
+    },
+    {
+        "name": "MOLO DEL",
+        "value": 315
+    },
+    {
+        "name": "VICO NUOVO DELLA",
+        "value": 316
+    },
+    {
+        "name": "TRAVERSA I DI VIA",
+        "value": 317
+    },
+    {
+        "name": "CUPA DELLE",
+        "value": 318
+    },
+    {
+        "name": "VICO I",
+        "value": 319
+    },
+    {
+        "name": "TONDO DI",
+        "value": 320
+    },
+    {
+        "name": "RAMPE DEL",
+        "value": 321
+    },
+    {
+        "name": "VICO VII",
+        "value": 322
+    },
+    {
+        "name": "VIA PROVINCIALE DELLE",
+        "value": 323
+    },
+    {
+        "name": "TRAVERSA VI",
+        "value": 324
+    },
+    {
+        "name": "VIA DETTA",
+        "value": 325
+    },
+    {
+        "name": "VIA IL",
+        "value": 326
+    },
+    {
+        "name": "TRAVERSA III PRIVATA",
+        "value": 327
+    },
+    {
+        "name": "TRAVERSA II DI VIA",
+        "value": 328
+    },
+    {
+        "name": "VIA VICINALE DELL'",
+        "value": 329
+    },
+    {
+        "name": "VIA DELL'",
+        "value": 330
+    },
+    {
+        "name": "VALLONE DEI",
+        "value": 331
+    },
+    {
+        "name": "VICO STORTO",
+        "value": 332
+    },
+    {
+        "name": "VICOLETTO II DELLE",
+        "value": 333
+    },
+    {
+        "name": "TRAVERSA DELLE",
+        "value": 334
+    },
+    {
+        "name": "TRAVERSA II DETTA",
+        "value": 335
+    },
+    {
+        "name": "VICOLETTO I",
+        "value": 336
+    },
+    {
+        "name": "VICO ROTTO A",
+        "value": 337
+    },
+    {
+        "name": "TRAVERSA I PRIVATA",
+        "value": 338
+    },
+    {
+        "name": "PIAZZA DEGLI",
+        "value": 339
+    },
+    {
+        "name": "LARGO PROPRIO DI",
+        "value": 340
+    },
+    {
+        "name": "CUPA DEL",
+        "value": 341
+    },
+    {
+        "name": "TRAVERSA DI",
+        "value": 342
+    },
+    {
+        "name": "STRADA COMUNALE DEL",
+        "value": 343
+    },
+    {
+        "name": "VICOLETTO I DEL",
+        "value": 344
+    },
+    {
+        "name": "VIALE DEGLI",
+        "value": 345
+    },
+    {
+        "name": "VIA COMUNALE DELLE",
+        "value": 346
+    },
+    {
+        "name": "VIA FUORI PORTA",
+        "value": 347
+    },
+    {
+        "name": "VIA NUOVA DEL",
+        "value": 348
+    },
+    {
+        "name": "VICO DELLE",
+        "value": 349
+    },
+    {
+        "name": "PIAZZA DELLA",
+        "value": 350
+    },
+    {
+        "name": "VICOLETTO II",
+        "value": 351
+    },
+    {
+        "name": "TRAVERSA IV",
+        "value": 352
+    },
+    {
+        "name": "VIALE DELLO",
+        "value": 353
+    },
+    {
+        "name": "CALATA DELLA",
+        "value": 354
+    },
+    {
+        "name": "VICOLETTO DETTO",
+        "value": 355
+    },
+    {
+        "name": "VICO VI",
+        "value": 356
+    },
+    {
+        "name": "VICO IV",
+        "value": 357
+    },
+    {
+        "name": "VIALE IL",
+        "value": 358
+    },
+    {
+        "name": "VICO II DELLA",
+        "value": 359
+    },
+    {
+        "name": "VIA PRIVATA DELLE",
+        "value": 360
+    },
+    {
+        "name": "VICO LUNGO DEL",
+        "value": 361
+    },
+    {
+        "name": "VICO DEGLI",
+        "value": 362
+    },
+    {
+        "name": "PIAZZETTA DEI",
+        "value": 363
+    },
+    {
+        "name": "LARGO DEL",
+        "value": 364
+    },
+    {
+        "name": "VICO DI",
+        "value": 365
+    },
+    {
+        "name": "STRADA COMUNALE CUPA DELL'",
+        "value": 366
+    },
+    {
+        "name": "VIALE DI",
+        "value": 367
+    },
+    {
+        "name": "VIALE DEI",
+        "value": 368
+    },
+    {
+        "name": "CALATA DEI",
+        "value": 369
+    },
+    {
+        "name": "VICO DEI",
+        "value": 370
+    },
+    {
+        "name": "VIA COMUNALE DEL",
+        "value": 371
+    },
+    {
+        "name": "TRAVERSA IV CUPA",
+        "value": 372
+    },
+    {
+        "name": "DISCESA DEL",
+        "value": 373
+    },
+    {
+        "name": "VICO LUNGO",
+        "value": 374
+    },
+    {
+        "name": "VICOLETTO I DELLE",
+        "value": 375
+    },
+    {
+        "name": "STRADA DEL",
+        "value": 376
+    },
+    {
+        "name": "TRAVERSA III DI VIA",
+        "value": 377
+    },
+    {
+        "name": "PIAZZETTA DEL",
+        "value": 378
+    },
+    {
+        "name": "VIA DEGLI",
+        "value": 379
+    },
+    {
+        "name": "VIA GRANDE DEGLI",
+        "value": 380
+    },
+    {
+        "name": "VIA II DETTA",
+        "value": 381
+    },
+    {
+        "name": "GRADINI DELLA",
+        "value": 382
+    },
+    {
+        "name": "VIA DEL",
+        "value": 383
+    },
+    {
+        "name": "VICOLETTO PRIVATO",
+        "value": 384
+    },
+    {
+        "name": "CUPA DEGLI",
+        "value": 385
+    },
+    {
+        "name": "VIA DI",
+        "value": 386
+    },
+    {
+        "name": "VIA VECCHIA COMUNALE",
+        "value": 387
+    },
+    {
+        "name": "STRADA VICINALE CUPA DEL",
+        "value": 388
+    },
+    {
+        "name": "TRAVERSA II VECCHIA",
+        "value": 389
+    },
+    {
+        "name": "VIA LA",
+        "value": 390
+    },
+    {
+        "name": "TRAVERSA II PRIVATA DELL'",
+        "value": 391
+    },
+    {
+        "name": "VICO DELLO",
+        "value": 392
+    },
+    {
+        "name": "TRAVERSA I CUPA DEL",
+        "value": 393
+    },
+    {
+        "name": "LARGO DEI",
+        "value": 394
+    },
+    {
+        "name": "TRAVERSA I",
+        "value": 395
+    }
+]

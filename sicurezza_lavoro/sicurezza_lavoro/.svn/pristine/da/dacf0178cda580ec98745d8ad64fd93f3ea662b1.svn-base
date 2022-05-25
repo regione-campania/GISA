@@ -1,0 +1,14 @@
+@mixin button-outline($color) {
+    color: $color;
+    background-color: white;
+    border-color: $color;
+    &:hover,
+    &:active {
+        color: white;
+        background-color: $color;
+        border-color: $color;
+    }
+    &:focus {
+        box-shadow: 0 0 0 0.17rem change-color($color: $color, $alpha: 0.3);
+    }
+}

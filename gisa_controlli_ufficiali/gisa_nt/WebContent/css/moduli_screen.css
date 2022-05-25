@@ -1,0 +1,175 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+span.checkedItem{
+font-size: 12pt;
+}
+
+span.bordo {
+	border: 1px solid;
+	width: 560px;	
+}
+
+span.checkedItem:before {
+content: '\2611';
+font-size:12pt;
+font-weight: bold;
+}
+
+span.NocheckedRadio:before {
+content: '\2609';
+font-size:12pt;
+font-weight: bold;
+}
+
+span.NocheckedItem:before {
+content: '\2610';
+font-size:12pt;
+font-weight: bold;
+}
+
+TABLE {
+    border-collapse: collapse;
+}
+TABLE, TD, TH, LI, P, UL, OL, TEXTAREA, INPUT, SELECT, A {
+    color: #000000;
+    font-family: 'serif','Times New Roman',serif;
+    font-size: 12pt;
+    text-align: justify;
+}
+
+.tableClass {
+    color: #ff0000;
+    font-family: 'serif', 'Times New Roman', serif;
+    font-size: 10pt; 
+   
+}
+P.main {
+    font-family: 'serif','Times New Roman';
+    font-size: 12pt;	
+    font-style: normal;
+    text-align: justify;
+}
+
+
+.textDim {
+    background: none repeat scroll 0 0 #CCCCFF;
+    border-color: #000000;
+    border-style: solid;
+    height: 101px;
+    width: 600px;
+}
+.textDim2 {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #000000;
+    border-style: solid;
+    height: 101px;
+    resize: none;
+    width: 600px;
+}
+.editField {
+    background-color: #CCCCFF;
+    border-bottom-color: #000000;
+    border-left: medium none;
+    border-right: medium none;
+    border-style: none none solid;
+    border-width: thin;
+     text-transform:uppercase;
+}
+
+.editField_fac {
+    background-color: #FFFFCC;
+    border-bottom-color: #000000;
+    border-left: medium none;
+    border-right: medium none;
+    border-style: none none solid;
+     border-width: thin;
+      text-transform:uppercase;
+}
+
+.layout {
+    border-bottom-color: #000000;
+    border-left: medium none;
+    border-right: medium none;
+    border-style: none none solid;
+     border-width: thin;
+      text-transform:uppercase;
+}
+P.underline {
+    text-decoration: underline;
+}
+h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+tr.colorcell {
+  background-color: #E8E8E8; 
+  color: black;
+}
+
+.buttonClass {
+    background-color: #D5CFD6;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 0 0 #FFFFFF inset;
+    color: #000000;
+    display: inline-block;
+    font-family:  'serif','Times New Roman',serif;;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 #FFFFFF;
+}
+input.css-checkbox[type="checkbox"] {
+    border: 0 none;
+    clip: rect(0px, 0px, 0px, 0px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+input.css-checkbox.lrg[type="checkbox"] + label.css-label.lrg {
+    background-position: 0 0px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 22px;
+    vertical-align: middle;
+}
+input.css-checkbox.lrg[type="checkbox"]:checked + label.css-label.lrg {
+    /*background-position: 0 -20px;*/
+    background-position: 0 -20px;
+}
+.vlad {
+    background-image: url("http://csscheckbox.com/checkboxes/vlad.png");
+}
+
+.header {
+  border-collapse: collapse;
+
+}
+
+.button2
+{
+    background:#eeeeee;
+    color:#000000;
+    font-size:12px;
+    text-align:center;
+  
+   }
+
+.documentaleStampare {
+    display:none !important;
+ }

@@ -1,0 +1,34 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<main id="nuova-ispezione" *ngIf="nuovaIspezione">
+  <div class="container box-3d d-block p-3">
+    <form (submit)="onSubmit($event)">
+      <div class="row tabs-container">
+        <div class="col-lg tab persistent">
+          <div class="tab-content">
+            <h4>Ispezione</h4>
+            <form-ispezione #formIspezione [data]="nuovaIspezione"></form-ispezione>
+            <button class="btn btn-outline-blue d-block ms-auto mt-3">Invia</button>
+          </div>
+        </div>
+        <div class="col-lg tab">
+          <div class="tab-content" @formCantiereTrigger
+            *ngIf=" formIspezione.form.get('ispezione.cantiere_o_impresa')!.value === 'Cantiere'; else elseBlock">
+            <form-ricerca-cantiere #formRicercaCantiere></form-ricerca-cantiere>
+          </div>
+          <ng-template #elseBlock>
+            <div class="tab-content" @formImpresaTrigger>
+              <form-ricerca-impresa #formRicercaImpresa header="Impresa Ispezionata"></form-ricerca-impresa>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

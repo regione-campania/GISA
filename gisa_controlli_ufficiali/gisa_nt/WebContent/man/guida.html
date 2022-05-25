@@ -1,0 +1,526 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Guida Utente</title>
+<link rel="alternate" type="application/rss+xml" title="frittt.com" href="feed/index.html">
+<link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet"
+        type="text/css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/prettify.css">
+</head>
+<body>
+<div class="wrapper">
+<nav>
+ 
+  	<div class="pull-left">
+    	<h1><a href="javascript:"><img src="img/icon.png" alt="Free Documentation Template Icon" /> <span>DocWeb</span></a></h1>
+    </div>
+    
+    <!-- div class="pull-right">
+    	<a href="http://frittt.com/free-documentation-html-template-docweb" target="_blank" class="btn btn-download"><img src="img/download.png" width="25" alt="Download Free Documentation Template" /> Download Now</a>
+    </div -->
+
+</nav>
+<header>
+  <div class="container">
+    <h2 class="lone-header">Guida Utente</h2>
+  </div>
+</header>
+<section>
+  <div class="container">
+    <ul class="docs-nav">
+      <li><strong>Indice</strong></li>
+      <li><a href="#mycfs" class="cc-active">Home</a></li>
+      <li><a href="#opu" class="cc-active">Anagrafica Stabilimenti</a></li>
+      <li class="separator"></li>
+      <li><strong>Customization</strong></li>
+      <li><a href="#view_type" class="cc-active">View Type</a></li>
+      <li><a href="#animation_style" class="cc-active">Animation Styles</a></li>
+      <li><a href="#bars_text" class="cc-active">Bars Text</a></li>
+      <li><a href="#vote_counter" class="cc-active">Vote Counter</a></li>
+      <li><a href="#rating_icons" class="cc-active">Rating Icons</a></li>
+      <li><a href="#rating_titles" class="cc-active">Rating Titles</a></li>
+      <li><a href="#bar_colors" class="cc-active">Bar Colors</a></li>
+    </ul>
+    <div class="docs-content">
+    <a name="mycfs"></a>
+      <h3 id="mycfs">Home</h3>
+      <h1>La pagina che viene visualizzata all'atto dell'accesso al sistema.</h1>
+</br></br>
+
+<h2><span style="font-size: 14pt;"><strong>Scadenzario Controlli Ufficiali</strong></span></h2>
+<p style="text-align: justify;">Nella sezione home tramite il pulsante "Scadenziario controlli ufficiali" e' possibile visualizzare la lista dei controlli ufficiali aperti, chiusi e quelli in sorveglianza che stanno per scadere o che sono gia' scaduti. <br /> Attenzione! Nel caso in cui il pulsante lampeggia sara' possibile visualizzare anche la lista dei controlli che stanno per essere chiusi da ufficio. La chiusura da ufficio avviene nel caso in cui l'utente non avesse provveduto alla chiusura del controllo entro un mese dalla data di inserimento. Riepilogando, nello scadenzario presente l'elenco di tutti i controlli ufficiali inseriti dall'operatore loggato nel sistema, che si trovano nei seguenti stati:</p>
+<ul>
+<li>Controlli aperti</li>
+<li>Controlli chiusi</li>
+<li>Controlli (in sorveglianza) in scadenza</li>
+</ul>
+<p>Inoltre, solo coloro che hanno il ruolo "VETERINARI RESPONSABILI STRUTTURA" potranno visualizzare, cliccando sull'apposito pulsante "Controlli Unita' Operative", i 100 controlli ufficiali pivecchi aperti ed in sorveglianza, effettuati dall'asl a cui l'utente appartiene: nel dettaglio sara' riportata anche la colonna relativa all'Unita' Operativa. <br /><br /></p>
+<h2>Controlli Aperti</h2>
+<p>Nella lista dei controlli aperti sono riportati tutti i controlli ufficiali inseriti dall'utente loggato nel sistema, che si trovano nello stato aperto. I controlli fanno riferimento agli stabilimenti (Imprese, Stabilimenti, ecc...) la cui attivita' non e' nello stato cessato o sospeso. Per ogni controllo aperto viene indicato se ci sono attivita' presenti. <br /><br /></p>
+<h2>Controlli Chiusi</h2>
+<p>Nella lista dei controlli chiusi sono riportati tutti i controlli ufficiali con almeno un followup (Altri Followup), inseriti sempre dall'utente loggato nel sistema, che si trovano nello stato chiuso e la cui data di inizio attivita' ricade nell'ultimo mese a partire dalla data di odierna. I controlli fanno sempre riferimento agli stabilimenti (Imprese ,Stabilimenti,ecc...) la cui attivita' non e' nello stato cessato o sospeso. Esempio : <br /><br /> Cu : 15022 <br /> Data Inizio : 25/03/2012 <br /> Data corrente : 31/03/2012 <br /> Stato : chiuso <br /> Altri Followup : SI <br /><br /> Siccome la data inizio controllo e' compresa tra il 21/02/2012 e il 31/03/2012 il controllo viene visualizzato nello scadenzario. <br /> ----------------------------------------------- <br /> Cu : 15022 <br /> Data Inizio : 25/03/2012 <br /> Data corrente : 30/04/2012 <br /> Stato : chiuso <br /> Altri Followup : SI <br /><br /> Siccome la data inizio controllo non e' compresa tra il 31/03/2012 e il 31/03/2012 il controllo non viene visualizzato nello scadenzario. <br /><br /></p>
+<h2>Controlli (in sorveglianza) in scadenza</h2>
+<p>Nella lista dei controlli in scadenza sono riportati tutti i controlli ufficiali di tipo Sorveglianza per i quali e' stata aggiornata la categoria di rischio, e la cui data prossimo controllo (assegnata dopo aver aggiornato la categoria di rischio) e' precedente alla data attuale (Controlli Scaduti), o e' compresa tra la data attuale e tre mesi successivi rispetto alla data attuale. Esempio: <br /><br /> Cu : 15025 <br /> Tipo Cu : Sorveglianza <br /> Data Inizio : 25/03/2008 <br /> Prossimo Cu : 27/03/2012 <br /> Data corrente : 31/03/2012 <br /><br /> Nel caso in cui la data del prossimo controllo e' precedente alla data attuale il controllo verra' visualizzato nello stato: Scaduto. <br /> ----------------------------------------------- <br /> Cu : 15025 <br /> Tipo Cu : Sorveglianza <br /> Data Inizio : 25/03/2008 <br /> Prossimo Cu : 27/04/2012 <br /> Data corrente : 31/03/2012 <br /><br /> Nel caso in cui, la data del controllo successivo ricade in un periodo temporale maggiore dei tre mesi dalla data attuale (tra il 31/03/2012 e il 31/06/2012) il controllo verra' visualizzato nello stato: Controllo prossimo alla scadenza. <br /> ----------------------------------------------- <br /> Cu : 15025 <br /> Tipo Cu : Sorveglianza <br /> Data Inizio : 25/03/2008 <br /> Prossimo Cu : 27/08/2012 <br /> Data corrente : 31/03/2012 <br /><br /> Siccome la data del prossimo controllo va oltre il 31/06/2012 il controllo non verra' visualizzato nello scadenzario <br /><br /></p>
+<h2>Chiusura D'Ufficio</h2>
+<p>Cliccando sul bottone "Controlli che verranno chiusi d'Ufficio" verranno visualizzati tutti i controlli inseriti, dall'utente loggato nel sistema, che si trovano nello stato aperto e per cui non sono stati inseriti campioni e/o tamponi, o che sono stati inseriti ma risultano chiusi. I controlli visualizzati sono tutti quelli per cui e' trascorsa una settimana dalla data di inserimento e il sistema indica la data in cui provvedera' a chiuderli automaticamente, ovvero dopo un mese dalla data di inserimento. Nel caso in cui il controllo abbia una non conformita' associata , il sistema provvedera' a chiudere anche la non conformita' con i followup associati.</p>
+
+<h2>Ricerca Globale</h2>
+<p>Tale funzionalit&agrave; utilizza un motore di ricerca per visualizzare le imprese tramite i controlli ufficiali o i campioni.</p>
+<p><img src="images/Ricerca Globale.png" width="953" height="345" /></p>
+<p>I dati che possono aiutare nella ricerca sono: ASL, stato operatore (non cancellati/cancellati), tipo attivit&agrave; (campioni/controlli ufficiali/sanzioni/sequestri/notizie di reato ed altri folllowup), numero controllo ufficiale e numero di verbale. Si apre una ulteriore finestra di ricerca a secondo delle voci dell'attivit&agrave;.</p>
+<p>La ricerca porta ad un elenco dove &egrave; possibile evincere gi&agrave; a prima vista, alcune notizie.</p>
+<p><img src="images/ricerca_globale.png" width="961" height="314" /></p>
+<p>Se si digita sul numero di identificativo controlli/campione, si apre la finestra relativa all'impresa nel cavaliere corrispondente.</p>
+<p><a name="campioni_associazione_esiti"></a></p>
+<h2>Associazione Esiti-Campioni</h2>
+<p>Tra le funzionalita' presenti nella sezione Home, e' disponibile "Associazione Esiti-Campioni". Tale funzionalita' permettera' di ricercare i campioni senza esito presenti su capi e/o partite per i quali e' stato stampato l'articolo 17. I filtri di ricerca presenti nella maschera sono i seguenti:</p>
+<ul>
+<li>Numero matricola/partita: [campo di testo libero]</li>
+<li>Data macellazione: [campo data]</li>
+</ul>
+<p><br /><img src="images/associacampione1.PNG" width="1050" /><br clear="left" /><br /> Effettuata la ricerca il sistema mostrer&agrave;&nbsp; i campioni senza esito trovati, ovviamente in base ai filtri opportunamente specificati.</p>
+<p>I campi visualizzati saranno:</p>
+<ul>
+<li>Tipo macellazione: (Bovini | Ovicaprini)</li>
+<li>Numero matricola/partita</li>
+<li>Numero seduta</li>
+<li>Data Macellazione</li>
+<li>Impresa</li>
+<li>Motivo campione</li>
+<li>Matrice</li>
+<li>Tipo analisi</li>
+<li>Molecole/a agente etiologico</li>
+<li>Esito</li>
+<li>Data Esito</li>
+</ul>
+<p><br /><img src="images/associacampione2.PNG" width="1050" /><br clear="left" /><br /> Mostrati i risultati, a questo punto l'utente potr&agrave; attribuire al campione scelto un "esito" e una "data esito" e potra' associarlo al campione mediante il bottone ASSOCIA, presente nella maschera.<br />L'esito registrato sara' visibile nel dettaglio del campione inserito in Visita Post Mortem (VPM) per il capo/partita ricercata.<br /><br /></p>
+<h2>Configura piani</h2>
+<p></p>
+<p style="text-align: justify;">Dopo aver effettuato il login, dal cavaliere Home &egrave; disponibile un link dal nome Configura Piani a partire dal quale lutente potra' associare, per ciascun piano, le matrici e gli analiti. <br /> Tale operazione &egrave; possibile dopo aver cliccato rispettivamente su ANALITI e MATRICI, nella colonna di configurazione a seconda di quello che si vuole configurare.<br /><br /><img src="images/blocchi1.png" width="1050" /></p>
+<p style="text-align: justify;">Dopo aver cliccato su uno dei due link, apparira' una popup contenente la lista delle matrici e degli analiti, secondo una struttura gerarchica. Cliccando su "Espandi", saranno visibili tutte le componenti che appartengono ad un particolare tipo di matrice o di analita. Il quadratino affianco al nome servir&agrave; per selezionare le voci al particolare piano/sottopiano per cui si sta lavorando.<br /><br /><img src="images/blocchi2.png" /><br clear="left" /><br />Per salvare la configurazione, &egrave; necessario cliccare l'apposito bottone "Salva configurazione".</p>
+<p><br /><img src="images/blocchi2_1.png" /><br clear="left" /><br /> Dopo aver associato i blocchi dei piani di monitoraggio di interesse dal pannello sopra descritto, sara' possibile a questo punto constatare gli effetti della configurazione nell'aggiunta di un campione presso uno stabilimento.</p>
+<ol>
+<li>Si ricerca lo stabilimento di interesse</li>
+<li>Si inserisce un controllo ufficiale (in piano di monitoraggio di interesse)</li>
+<li>Si inserisce un campione che ha come motivazione del campionamento (o quesito diagnostico) il piano stesso.</li>
+<li>Si seleziona/no la/e matrice/i cliccand sull'apposito link "Seleziona matrice" e nel caso in cui &egrave; stata effettuata la configurazione delle matrici per il piano indicato nello step 3, il sistema mostrer&agrave; nella finestra (popup) SOLO le voci associate al piano in fase di configurazione. Viceversa saranno elencate tutte</li>
+</ol>
+<p><img src="images/blocchi3.png" width="1050" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5. Si seleziona/no lo/gli analita/i cliccando sull'apposito link "Seleziona analiti" e nel caso in cui &egrave; stata effettuata la configurazione per il piano indicatnello step 3, il sistema mostrer&agrave; nella finestra (popup) SOLO le voci associate al piano in fase di configurazione. Viceversa saranno elencati tutti<br /><br /><img src="images/blocchi4.png" width="1050" /></p>
+<div class="fine" style="height: 50px;">&nbsp;NOTA: la configurazione delle matrici e degli analiti &egrave; possibile SOLO per i PIANI DI MONITORAGGIO e non per gli alti motivi di ispezioni quali Sospetta Presenza, allarme rapido, classificazione, etc).</div>
+<!-- Fine HOME -->
+        <br><br> <br><br>
+        
+<a name="opu"></a>
+<h3 id="opu">Anagrafica Stabilimenti</h3>
+<p>In questo cavaliere e' possibile ricercare qualsiasi tipologia di stabilimento/Operatore sottoposto a controllo inserito nel Sistema.</p>
+<p>Le prime operazioni che si possono effettuare sono:</p>
+<ul>
+<li>Ricerca</li>
+<li><a name="Recupero"></a>Aggiungi Stabilimento Pregresso<s></s></li>
+</ul>
+<p><img src="images/Home.png" width="1050" height="344" /></p>
+<p><span style="font-size: 14pt;"><strong>RICERCA</strong></span></p>
+<p style="text-align: justify;"><a name="#anagraficastabilimentiRicerca"></a></p>
+<p>Nella pagina di apertura l'utente avr&agrave; la possibilita di eseguire due tipi di ricerche:</p>
+<ul>
+<li><span style="text-decoration: underline;"><strong>Ricerca Rapida</strong></span>: in quest'area vi e'&nbsp; la possibilita'&nbsp; di filtrare per i campi principali che costituiscono l'anagrafica di uno stabilimento come:
+<ul>
+<li>Norma di Riferimento: rappresenta il regolamento secondo cui &egrave; classificata un'attivita produttiva. Come valori del campo Norma ci sono quelle previste dal Ministero (Reg Ce 852/04, Reg Ce 183/05-Osm, Reg Ce 853/04, Reg Ce 1069/09-Soa e Reg Ce 193/06- Farmacosorveglianza) e quelle previste dal sistema Gisa per poter classificare tutti gli altri tipi di Stabiliment/Operatori soggetti a Controlli ufficiali (Esempio. Aziende zootecniche, Operatori privati,Zone di Molluschicoltura). La scelta di incudere Norme non previste dal Ministero &egrave; data dal fatto di mettere a disposizione dell'utente un punto unico di ricerca delle anagrafiche del sistema.</li>
+<li>Cerca In : tipo di ricerca che l'utente vuole eseguire. Tramite questo campo se valorizzato, l'utente pu&ograve; ricercare le anagrafiche di un particolare tipo come:
+<ul>
+<li>PRATICHE IN ITINERE: esegue la ricerca solo nelle pratiche SCIA inserite dall'utente ASL o provenienti dal SUAP che si trovano nello stato In Itinere o Respinto,</li>
+<li>VECCHIA ANAGRAFICA OPERATORI NON SOGGETTI A SCIA: Esegue la ricerca SOLO nelle anagrafiche che fanno parte del cavaliere "Altri stabilimenti" (Es. Molluschicoltura,Operatori,Privati Abusivi..) o di tutti gli altri cavalieri diversi da Anagrafica Stabilimenti (Stabilimenti 852, Stabilimenti 853,Canili,Colonie,OSM)</li>
+</ul>
+</li>
+<li>NUOVA ANAGRAFICA: Esegue la ricerca SOLO degli stabilimenti che sono stati inseriti tramite una SCIA o come PREGRESSO, inteso sia come trasferimento in Anagrafica Stabilimenti o come aggiunta di uno preSCIA.</li>
+</ul>
+</li>
+<li><span style="text-decoration: underline;">STABILIMENTI ARCHIVIATI:</span> esegue la ricerca SOLO degli stabilimenti che si trovano nel cavaliere Stabilimenti Archiviati.</li>
+<li><span style="text-decoration: underline;">ASL:</span> asl di competenza dello stabilimento</li>
+<li><span style="text-decoration: underline;">Nome/Ditta/Ragione Sociale</span>: denominazione dello stabilimento</li>
+<li><span style="text-decoration: underline;">Descrizione Attivit&agrave; Produttiva:</span> attivit&agrave; produttiva svolta nello stabilimento. Non occorre indicare l'intera descrizione della linea di attivit&agrave; ma basta indicare le parole chiave che la descrivono.</li>
+</ul>
+<p style="text-align: justify;"><img src="images/Fig1_ricercaAnagrafica.png" width="750" height="220" /></p>
+<ul>
+<li><span style="text-decoration: underline;"><strong>Ricerca Avanzata</strong>:</span> questa maschera consente di specificare pi&ugrave; filtri di ricerca rispetto a quella precedente. I filtri sono raggruppati nel seguente modo:
+<ul>
+<li><span style="text-decoration: underline;">Ricerca Per Norma di Riferimento/Descrizione attivit&agrave;</span>: oltre i filtri di ricerca specificati in precedenza, consente di poter ricerca uno stabilimento mediante il Numero di riconoscimento o Codice Azienda</li>
+<li><span style="text-decoration: underline;">Ricerca per Impresa:</span> consente di ricercare uno stabilimento tramite la denominazione e partita iva</li>
+<li><span style="text-decoration: underline;">Ricerca per Stabilimento (Sede Operativa):</span> consente di ricercare uno stabilimento tramite la sede produttiva</li>
+<li><span style="text-decoration: underline;">Ricerca Per Altri Campi:</span> consente di specificare come filtri di ricerca il tipo di attivit&agrave; mobile. Selezionando il tipo di attivit&agrave; mobile, il sistema mostrer&agrave; il campo targa in modo da poter cercare un determinato autoveicolo. Oltre al tipo di attivita &egrave; possibile ricercare tutte le Anagrafiche che sono state sottoposte a Controlli Ufficiali per una particolare Allerta<img src="images/Fig2_ricercaAnagrafica.png" width="900" height="402" /></li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p></p>
+<p>Qualora non vengano specificati Filtri di ricerca, il sistema mostrer&agrave; la lista di tutte le Anagrafiche presenti nel sistema, 10 per volta.</p>
+<p>(Nota) : La ricerca proporr&agrave; lo stabilimento tante volte quante solo le attivit&agrave; produttive che svolge.</p>
+<p id="scarica_xml_anag">Ai ruoli HD, &egrave; associato il permesso per scaricare le anagrafiche in formato XML partendo dagli stabilimenti presenti nella lista dei risultati ricerca, tramite il bottone <b>SCARICA IN FORMATO XML</b> (presente in alto/basso a destra). Cliccando sul bottone viene scaricato un archivio contenente un file .xml per ciascuno degli stabilimenti, ed un file .xml riepilogativo di tutti i risultati dalla ricerca.</p>
+<p><img src="images/xml_anag.png" width="900" height="120" /></p>
+<p></p>
+<p><span style="font-size: 14pt;"><strong>IMPORTA IN ANAGRAFICA STABILIMENTI</strong></span></p>
+<p>L'operazione di trasferimento di uno stabilimento in nuova anagrafica pu&ograve; essere fatta SOLO dagli utenti HD, fatta eccezione per gli OSM, i SOA e gli 853, questi ultimi due a carico dei funzionari regionali.</p>
+<p><img src="images/importAnag.png" width="1050" height="316" /></p>
+<p>Cliccando sul bottone Importa in Anagrafica Stabilimenti, verr&agrave; presentata all'utente la maschera da compilare con i dati mancanti.</p>
+<p></p>
+<p><img src="images/Stab_pregresso.png" width="1050" height="441" /></p>
+<p></p>
+<p>Completando la compilazione (baster&agrave; proseguire digitando sul tasto "avanti") si prosegue con le schermate relative alle linee di attivit&agrave;: anche in questo caso ci sar&agrave; un aiuto in quanto si potranno leggere le linee di attivit&agrave;&nbsp; "Vecchie" (se esistenti) ed inserire le linee "Nuove".</p>
+<p><img src="images/Linee.png" width="1050" height="341" /></p>
+<p style="text-align: justify;"><b>NOTA: Con il termine "LINEA VECCHIA" si vuole indicare l'attivita' dello stabilimento da importare secondo la classificazione PRE-MASTER LIST (es. ATECO per gli 852, CATEGORIA E IMPIANTO per gli 853 etc...), mentre con "LINEA NUOVA" si vuole indicare la linea di attivit classificata secondo la Master List.</b></p>
+<p>Si salveranno i dati dell'impresa cliccando su "Salva Pratica" e da questo momento l'impresa sar&agrave; riportata nel cavaliere "Anagrafica Stabilimenti"</p>
+<p></p>
+<p><a name="importSceltaFrequente"></a><strong>Usa scelta piu' frequente</strong></p>
+<p><img src="images/sceltaPiuFrequente.png" width="1050" height="200" /></p>
+<p style="text-align: justify;">Spuntando l'opzione "Usa scelta piu' frequente", utilizzando l'apposito checkbox associato a ciascuna linea vecchia, &egrave; possibile visualizzare il candidato (o i candidati) che pi&ugrave; frequentemente sono stati assegnati a quella vecchia linea, per guidare l'utente alla scelta migliore. Per ciascuna linea vecchia pu&ograve; essere selezionato un unico candidato. Il suggerimento si ferma al terzo livello della Master List, quindi nel caso in cui fosse necessario proseguire con l'attivit&agrave; specifica, all'utente verr&agrave; presentata tale possibilit&agrave;.</p>
+<p><span style="font-size: 14pt;"><strong>AGGIUNGI STABILIMENTO PREGRESSO</strong></span></p>
+<p>Questa funzione deve essere utilizzata nei seguenti casi :</p>
+<ul>
+<li>Angrafare uno Stabilimento non presente nel sistema, la cui data inizio attivit&agrave; &egrave; precedente la data di entrata in vigore della Normativa 318/11</li>
+<li>Anagrafare una Nuova Attivit&agrave; produttiva presso uno Stabilimento presente nel sistema, la cui data inizio attivit&agrave; &egrave; precedente all'entrata in vigore della Normativa 318/11</li>
+</ul>
+<p><img src="images/Stabilimento Pregresso.png" width="1050" height="485" /></p>
+<p></p>
+<p>L'utente deve compilare la form proprosta nell'immagine precedente. Dopo aver digitato una partita iva valida, il sistema verificher&agrave; l'esistenza dell'impresa. Nel caso in cui esiste una impresa con la partita iva inserita, l'utente sar&agrave; obbligato a selezonarla.</p>
+<p>Selezionando l'impresa verranno autocompilati i dati della maschera riguardante:</p>
+<ul>
+<li>DATI IMPRESA</li>
+<li>DATI TITOLARE/LEGALE RAPPRESENTANTE</li>
+<li>DATI SEDE LEGALE</li>
+</ul>
+<p>In caso di ATTIVITA' FISSA, la verifica dell'esistenza dello stabilimento viene fatta tramite la coppia Partita IVA e SEDE STABILIMENTO (Comune e indirizzo. La di a meno di 6 caratteri).</p>
+<p>In caso di ATTIVITA' MOBILE, la verifica dell'esistenza dell'impresa avviene tramite la coppia PARTITA IVA e linee di attivit&agrave;.</p>
+<p>Dopo aver inserito i dati dello stabilimento, cliccando sul tasto AVANTI presente in basso a destra, l'utente dovr&agrave; indicare le attivit&agrave; produttive svolte nello stabilimento. Si distinguono due scenari:</p>
+<ul>
+<li>ATTIVITA' FISSA: l'utente potr&agrave; specificare pi&ugrave; linee di attivit&agrave;.</li>
+<li>ATTIVITA' MOBILE: l'utente potr&agrave; indicare una SOLA attivit&agrave; produttiva.</li>
+</ul>
+<p>Qualora esistano degli attributi aggiuntivi alla linea di attivit&agrave; specificata, il sistema richieder&agrave; di compilarli come dati obbligatori. Attualmente le linee di attivit&agrave; che lo prevedono sono entrambe afferenti alla macroarea IUV:</p>
+<ul>
+<li>Canile/pensione</li>
+<li>Vendita di animali Ingrosso o Dettaglio</li>
+</ul>
+<p>I campi proposti dal sistema sono :</p>
+<ul>
+<li>Data Autorizzazione</li>
+<li>Numero Autorizzazione</li>
+<li>Nome Referente</li>
+<li>Cognome referente</li>
+<li>Codice Fiscale Referente</li>
+<li>Specie animali (nel caso di attivit&agrave; produttiva di tipo Vendita di animali)</li>
+</ul>
+<p>Cliccando sul pulsante Salva pratica, il sistema salver&agrave; i dati inseriti e lo stabilimento sar&agrave; ricercabile dal cavaliere Anagrafica Stabilimenti.L'utente visualizzer&agrave; uno dei seguenti messaggi in base all'elaborazione del sistema:</p>
+<ul>
+<li><span style="color: #ff0000;"><b>Inserimento Avvenuto con Successo</b></span>: lo stabilimento o l'attivia produttiva &egrave; stata inserita con successo.</li>
+<li><span style="color: #ff0000;"><b>Attenzione Controllare di aver Inserito tutti i Campi</b>:</span> non sono stati compilati i campi obbligatori.</li>
+<li><b><span style="color: #ff0000;">Attenzione Esiste una impresa con la partita iva inserita presente negli altri cavalieri.</span> Eseguire un Import i nuova Anagrafica</b>: questo messaggio appare se lo stabilimento che si sta cercando di anagrafare esiste gi&agrave; in altri cavalieri.</li>
+<li><span style="color: #ff0000;"><b>Attenzione! L'attivit&agrave; specificata come pregresso esiste in anagrafica stabilimenti. La funzione Aggiungi pregresso serve per inserire attivit&agrave; non presenti nel sistema antecedenti il DL318/11</b></span>: L'attivit&agrave; produttiva indicata dall'utente &egrave; gia presente sullo stabilimento.</li>
+</ul>
+<p><strong><span style="font-size: 14pt;"><a id="scia_semplificate"></a>Operazioni di modifica stabilimento </span><br /></strong></p>
+<p style="text-align: justify;">Al fine di velocizzare l'inserimento delle richieste di variazioni su stabilimenti esistenti, sono state messe a disposizione degli utenti le seguenti due funzionalit&agrave;:</p>
+<ul style="text-align: justify;">
+<li>SCIA semplificata per stabilimento registrato</li>
+<li>Modifica stabilimento riconosciuto</li>
+</ul>
+<p style="text-align: justify;"><span style="text-decoration: underline;"><span style="font-size: 12pt;">SCIA semplificata per stabilimento registrato</span></span></p>
+<p style="text-align: justify;">Queta operazione &egrave; messa a disposizione SOLO degli utenti Veterinari (Semplici e/o Responsabili). E' accessibile a partire dalla maschera di dettaglio di uno stabilimento presente nel cavaliere "Anagrafica Stabilimenti", mediante apposito pulsante.</p>
+<p><img src="images/scia_semplificata.png" width="1050" height="416" /></p>
+<p style="text-align: justify;">L'utente utilizzer&agrave; la funzione qualora voglia inserire una richiesta di modifica sullo stabilimento. Le operazioni di modifica previste dipendono dal tipo di attivit&agrave; (Fissa o mobile) che caratterizza lo stabilimento. In particolare saranno visibili le seguenti tipologie di modifiche per:</p>
+<ul>
+<li style="text-align: justify;">Attivit&agrave; Fissa</li>
+<ul style="text-align: justify;">
+<li>Ampliamento</li>
+<li>Cessazione (di tutto lo stabilimento o solo di una parte)</li>
+<li>Variazione di titolarit&agrave;</li>
+<li>Modifica stato dei luoghi</li>
+<li>Sospensione (solo nel caso della funzione Modifica stabilimento riconosciuto)</li>
+</ul>
+</ul>
+<ul>
+<li style="text-align: justify;">Attivit&agrave; Mobili</li>
+<ul>
+<li style="text-align: justify;">Cessazione (di tutto lo stabilimento o solo di una parte)</li>
+</ul>
+</ul>
+<p><img src="images/Fig1_Scia-sempl.png" width="1050" height="416" /></p>
+<p>L'utente, dopo aver scelto il tipo di modifica, verr&agrave; reindirizzato alla maschera di inserimento della richiesta. La machera sar&agrave; autocompletata, per cui in questa gestione l'utente non dovr&agrave; piu reinserire tutti i dati dello stabilimenti, ma dovr&agrave; compilare solo i campi necessari per indicare i cambiamenti da apportare allo stabilimento:</p>
+<ol style="list-style-type: lower-alpha;">
+<li>Nel caso dell'ampliamento, dovr&agrave; indicare le attivit&agrave; produttive con cui desidera ampliare lo stabilimento.</li>
+<li>Nel caso della cessazione potr&agrave; spuntare il flag "cessa tutto lo stabilimento", o indicare le linee di attivita da cessare.</li>
+<li>Nel caso della variazione di titolarit&agrave;, dovr&agrave; apportare le modifiche desiderate sui dati dell'impresa.</li>
+<li>Nel caso di modifica stato dei luoghi, dovr&agrave; specificare solo la nuova planimetria.</li>
+</ol>
+<p>All'interno della maschera inoltre &egrave; disponibile un pannello laterale che mostra i dati dello stabilimento che si &egrave; scelto di modificare.</p>
+<p><img src="images/Anagraf_9.png" width="1050" height="416" /></p>
+<p></p>
+<p style="text-align: justify;"><span style="text-decoration: underline;"><span style="font-size: 12pt;">Modifica stabilimento riconosciuto</span></span></p>
+<p>Queta operazione &egrave; messa a disposizione SOLO degli utenti Regionali. E' accessibile a partire dalla maschera di dettaglio di uno stabilimento presente nel cavaliere "Anagrafica Stabilimenti", mediante apposito pulsante. Il comportamento di questa funzione &egrave; analogo a quello descritto nel paragrafo precedente "SCIA semplificata per stabilimento registrato".</p>
+<p><img src="images/scia_semplificata_ric.png" width="1050" height="416" /></p>
+<p>La differenza sta nel fatto che, mentre il primo viene attivato su stabilimenti che svolgono attivit&agrave; produttive di tipo registrabili, la modifica dello stabilimento riconosciuto viene attivitato su quelli che svolgono attivit&agrave; produttive di tipo ricnoscibili. Il salvataggio della richiesta deve avvenire mediante il pulsante "Salva Pratica" presente in basso a destra.</p>
+<p>In entrambi i tipi di operazione, la pratica deve seguire il processo di "VALIDAZIONE" dal cavaliere "PRATICHE SUAP" (vedi "VALIDAZIONE" descritta nel precedente capitolo)</p>
+<p><strong><span style="font-size: 14pt;">Elimina stabilimento</span> <br /></strong></p>
+<p>Questa funzione consente di eliminare uno stabilimento esistente. Lafunzione &egrave; disponibile nel&nbsp; dettaglio di uno stabilimento, solo in caso di mancanza CU associati allo stabilimento.</p>
+<p><img src="images/elimina_stab.png" width="1050" height="416" /></p>
+<p>Cliccando sul pulsante "Elimina Anagrafica Stabilimento", viene chiesto all'utente se ? sicuro di volerlo eliminare;qualora l'utente clicca sul pulsante [OK], il sistema provvede ad eliminarlo, e per cui non sar&agrave; piu ricercabile.Cliccando su Annulla, si annulla l'operazione.L'utente verr&agrave; rediretto nella maschera di ricerca dopo che lo stabilimento sar&agrave; stato eliminato.</p>
+<p><strong><span style="font-size: 14pt;">Riattivazione stabilimento sospeso</span> </strong></p>
+<p>E' possibile riattivare le linee di attivit&agrave; sospese di uno stabilimento cliccando sul pulsante "riattivazione"&nbsp; presente nel dettaglio dell'impresa di riferimento.Come mostrato in figura.</p>
+<p><img src="images/pulsante_riattivazione.PNG" width="1056" height="263" /></p>
+<p>Compilando i dati obbligatori e spuntando la linea che si intende riattivare basta cliccare su "RIATTIVA" e la linea che precedentemente era sospesa risulter&agrave; ATTIVA nella scheda di dettaglio dello stabilimento.</p>
+<p><img src="images/scheda_riattivazione.PNG" width="734" height="430" /></p>
+<p>&nbsp;</p>
+<p><a name="convergenza"></a></p>
+<h1 style="text-align: left;">FUNZIONE DI CONVERGENZA</h1>
+<p>La funzione di Convergenza &egrave; disponibile a partire dal dettaglio di uno stabilimento, mediante il bottone CONVERGENZA (Figura 1).</p>
+<p><img src="images/Fig1_convergenza.png" width="734" height="430" /></p>
+<p>L'obiettivo della funzione, come spiegato in precedenza &egrave; quello di eliminare le schede duplicate presenti, convergendo i controlli ufficiali, la categorizzazione e le attivit&agrave; svolte da uno stabilimento di origine verso uno stabilimento di destinazione.</p>
+<p>Attaulmente &egrave; diponibile nelle seguenti tipologie di anagrafiche (con Sede Fissa):</p>
+<table border="1">
+<tbody>
+<tr>
+<th colspan="2">Convergenza da - a</th>
+</tr>
+<tr>
+<th>Origine</th>
+<th>Destinazione</th>
+</tr>
+<tr>
+<td>Stabilimenti 852</td>
+<td>Stabilimenti 852</td>
+</tr>
+<tr>
+<td>Stabilimenti 852</td>
+<td>Anagrafica stabilimenti</td>
+</tr>
+<tr>
+<td>Anagrafica stabilimenti</td>
+<td>Anagrafica stabilimenti</td>
+</tr>
+</tbody>
+</table>
+<p>Cliccando sul bottone Convergenza il sistema eseguir&agrave; le seguenti azioni:</p>
+<ul>
+<li>il sistema mostrer&agrave; in una finestra (popup) la maschera di ricerca per individuare lo stabilimento di destinazione</li>
+<li>nella maschera risulteranno bloccati i filtri su Partita iva e comune della sede produttiva.</li>
+</ul>
+<p><img src="images/Fig2_convergenza.png" width="598" height="187" /></p>
+<ul>
+<li>Trovato lo stabilimento verso cui convergere, l'utente lo dovr&agrave; selezionare tramite il pulsate "SELEZIONA".</li>
+</ul>
+<p><img src="images/Fig3_convergenza.png" width="636" height="199" /></p>
+<ul>
+<li>Selezionato lo stabilimento di destinazione, il sistema mostrer&agrave; il riepilogo dello stabilimento origine, di destinazione e la conseguenza dell'operazione di convergenza (cosi come illutrato nelle immagini sottostanti).</li>
+</ul>
+<p><img src="images/Fig4_1_convergenza.png" width="784" height="459" /></p>
+<p>I tipi di convergenza applicate sono:</p>
+<ul>
+<li><b>Convergenza delle linee di Attivit&agrave;:</b> tutte le attivit&agrave; produttive dello stabilimento di origine verranno aggiunte a quello di destinazione qualora non siano presenti.</li>
+<li><b>Convergenza dei Controlli ufficiali: i </b>controlli ufficiali eseguiti sullo stabilimento di origine saranno spostati sullo stabilimento di destinazione (riportando anche le attivit&agrave; sottopota a controllo). Come conseguenza, i controlli che si aggiungeranno all'anagrafica di destinazione concorreranno al punteggio storico delle non conformit&agrave; per la prossima categorizzazione.</li>
+<li><b>Convergenza Categorizzazione:</b> La categoria di rischio riportata sullo stabilimento di destinazione sar&agrave; quella maggiore tra lo stabilimento di origine e quella di destinazione.</li>
+</ul>
+<p>In tutti i casi, si provveder&agrave; all'eliminazione dello stabilimento di origine.</p>
+<p>Nel caso in cui si esegue la convergenza da uno stabilimento presente nel cavaliere Stabilimenti 852 verso uno presente in Anagrafica stabilimenti, Il sistema proporr&agrave; un' attivit&agrave; produttiva di terzo livello (presente nella master list) per ogni attivit&agrave; (composta dall'ATECO) relativa allo stabilimento di origine. Qualora siano previsti livelli aggiuntivi, l'utente sar&agrave; obbligato a selezionarli per portare a termine l'operazione di convergenza.</p>
+<p>NOTA : dal momento che esistono alcuni codici istat per cui il sistema non &egrave; a conoscenza dell'attivita produttiva presente in master list, l'utente dovr&agrave; comunicare l'associazione istat- linea di attivit&agrave; master list al servizio di help-desk di primo livello, per poter eseguire la convergenza.</p>
+   
+      
+      <hr>
+      <h2> Customizing Opineo</h2>
+      <p> Before you make any cusomization or even start using Opineo create a 'div' element
+        and assign it some id. Now add references to necessary Javascrip files e.g.</p>
+      <ul>
+        <li>A reference to latest jQuery library </li>
+        <li>A reference to Opineo script file sudo nano opineo.js</li>
+      </ul>
+      <p> The following customization options are available in Opineo:</p>
+      <h3 id="view_type"> View Type</h3>
+      <ul>
+        <li>Detailed View</li>
+      </ul>
+     
+      <pre class="prettyprint">&lt;script&gt;
+      	$(document).ready(function (){
+        $('#DefaultOptions').opineo('results.php', {curvalue:3,
+            view: 'detailed',
+            animation_speed: 'super',
+            show_total_votes_counter: false,
+            show_overall_rating: true});
+         })
+&lt;/script&gt;</pre>
+      <ul>
+        <li>Compact View</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+	$(document).ready(function (){
+	$('#CompactView').opineo('results.php',
+    	    {curvalue:3, view: 'compact',
+    	    animation_speed: 'super'});
+	})
+&lt;/script&gt;</pre>
+      <ul>
+        <li>Mini View</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#MiniView').opineo('results.php', {curvalue:0, view: 'mini', callback: myCallback});
+    })	
+&lt;/script&gt;</pre>
+      <h3 id="animation_style"> Animation Style</h3>
+      <ul>
+        <li>Slow</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'slow'});
+    })	
+&lt;/script&gt; </pre>
+      <ul>
+        <li>Medium</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'mild'});
+    })	
+&lt;/script&gt; </pre>
+      <ul>
+        <li>Fast</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'fast'});
+    })	
+ &lt;/script&gt;</pre>
+      <ul>
+        <li>Super Fast</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'super'});
+    })	
+&lt;/script&gt;</pre>
+      <ul>
+        <li>Ultra Fast</li>
+      </ul>
+      <pre class="prettyprint"> &lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'ultra fast'});
+    })	
+&lt;/script&gt; </pre>
+      <h3 id="bars_text"> Bars Text</h3>
+      <ul>
+        <li>Show</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', votes_label:true});
+    })	
+&lt;/script&gt;</pre>
+      <ul>
+        <li>Hide</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', votes_label:false});
+    })	
+ &lt;/script&gt;</pre>
+      <h3 id="vote_counter"> Vote Counter</h3>
+      <ul>
+        <li>Show</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', show_votes_counter:true});
+    })	
+&lt;/script&gt; </pre>
+      <ul>
+        <li>Hide</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', votes_label:false});
+    })	
+&lt;/script&gt;</pre>
+      <h3 id="rating_icons"> Rating Icons</h3>
+      <ul>
+        <li>Colored</li>
+        <li>Grey</li>
+      </ul>
+      <h3 id="rating_titles"> Rating Titles</h3>
+      <ul>
+        <li>Text For First Star</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Hate It'});
+    })	
+&lt;/script&gt;</pre>
+      <ul>
+        <li>Text For Second Star</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_2_text:'Don't Like It'});
+    })	
+&lt;/script&gt; </pre>
+      <ul>
+        <li>Text For Third Star</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Its OK'});
+    })	
+&lt;/script&gt;</pre>
+      <ul>
+        <li>Text For Fourth Star</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Like It'});
+    })	
+&lt;/script&gt;</pre>
+      <ul>
+        <li>Text For Fifth Star</li>
+      </ul>
+      <pre class="prettyprint">&lt;script&gt;
+    $(document).ready(function (){
+    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Love It'});
+    })	
+&lt;/script&gt;</pre>
+      <h3 id="bar_colors"> Bar Colors</h3>
+      <ul>
+        <li>Colors of Red Bar</li>
+        <li>Colors of Yellow Bar</li>
+        <li>Colors of Green Bar</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="vibrant centered">
+  <div class="">
+    <h4>GISA -  Gestione Integrata Servizi e Attività</h4>
+  </div>
+</section>
+<footer>
+  <div class="">
+    <p> &copy; Copyright. All Rights Reserved.</p>
+  </div>
+</footer>
+</div>
+<script src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/prettify/prettify.js"></script> 
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
+<script src="js/layout.js"></script>
+</body>
+</html>

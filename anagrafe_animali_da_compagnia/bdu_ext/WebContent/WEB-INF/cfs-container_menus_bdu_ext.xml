@@ -1,0 +1,22 @@
+<application>
+  <!-- Submenu used in the Accounts module -->
+  <container name="accounts">
+    <properties>
+      <icon>images/icons/stock_account-16.gif</icon>
+      <label>${name}</label>
+    </properties>
+    <submenu name="details">
+      <long_html value="Details"/>
+      <permission value=""/>
+      <link value="Accounts.do?command=Details&amp;orgId=${orgId}"/>
+    </submenu>
+   
+  </container>
+  
+ 
+  <container name="communicationitemdetails">
+  <properties>
+    <label>${description}</label>
+  </properties>
+  </container>
+</application>

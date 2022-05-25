@@ -1,0 +1,109 @@
+<%--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.--%>
+<%-- 
+  - Copyright Notice: (C) 2000-2004 Team Elements, All Rights Reserved.
+  - License: This source code cannot be modified, distributed or used without
+  -          written permission from Team Elements. This notice must remain in
+  -          place.
+  - Author(s): Matt Rajkowski
+  - Version: $Id: projects_center_news_by_article.jsp 15115 2006-05-31 16:47:51Z matt $
+  - Description:
+  --%>
+<%@ taglib uri="/WEB-INF/zeroio-taglib.tld" prefix="zeroio" %>
+<%@ taglib uri="/WEB-INF/dhv-taglib.tld" prefix="dhv" %>
+<%@ page import="java.util.*,com.zeroio.iteam.base.*" %>
+<jsp:useBean id="Project" class="com.zeroio.iteam.base.Project" scope="request"/>
+<jsp:useBean id="newsList" class="com.zeroio.iteam.base.NewsArticleList" scope="request"/>
+<jsp:useBean id="projectNewsInfo" class="org.aspcfs.utils.web.PagedListInfo" scope="session"/>
+<jsp:useBean id="newsArticleCategoryList" class="com.zeroio.iteam.base.NewsArticleCategoryList" scope="request"/>
+<jsp:useBean id="taskCategoryList" class="org.aspcfs.modules.tasks.base.TaskCategoryList" scope="request"/>
+<%@ include file="../initPage.jsp" %>
+<%-- Initialize the drop-down menus --%>
+<%@ include file="initPopupMenu.jsp" %>
+<%@ include file="projects_center_news_email_menu.jsp" %>
+<%-- begin articles --%>
+<%
+  Iterator i = newsList.iterator();
+  while (i.hasNext()) {
+    NewsArticle thisArticle = (NewsArticle) i.next();
+%>
+<table cellpadding="4" cellspacing="0" width="100%" style="border: 1px solid #000;">
+  <tr class="newsArticle">
+    <th width="100%">
+      <img alt="" src="images/icons/stock_news-16.gif" align="absmiddle" />
+      <font size="2"><%= toHtml(thisArticle.getSubject()) %></font>
+      <font color="red">
+      <dhv:evaluate if="<%= thisArticle.getStatus() == NewsArticle.DRAFT %>"><dhv:label name="project.Draft.brackets">(Draft)</dhv:label></dhv:evaluate>
+      <dhv:evaluate if="<%= thisArticle.getStatus() == NewsArticle.UNAPPROVED %>">(Unapproved)</dhv:evaluate>
+      </font>
+    </th>
+  </tr>
+  <tr class="row1">
+    <td valign="middle" nowrap style="border-bottom: 1px solid #000">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" class="empty">
+        <tr>
+          <td width="100%">
+            <dhv:label name="project.By">By</dhv:label>
+            <dhv:username id="<%= thisArticle.getEnteredBy() %>"/>
+            -
+            <dhv:label name="project.postedOn">Posted on</dhv:label>
+            <zeroio:tz timestamp="<%= thisArticle.getStartDate() %>"/>
+          </td>
+          <td align="right" nowrap valign="top">
+            <dhv:evaluate if="<%= !Project.isTrashed() %>" >
+            <zeroio:permission name="project-news-edit">
+              <%-- send email to team members --%>
+              <img src="images/icons/stock_mail-16.gif" border="0" align="absmiddle">
+              <a href="javascript:displayMenu('select_<%= thisArticle.getId() %>', 'menuItem', <%= thisArticle.getId() %>);" name="select_<%= thisArticle.getId() %>" id="select_<%= thisArticle.getId() %>"><dhv:label name="reports.email">Email</dhv:label></a>
+              <%-- edit message --%>
+              <img src="images/icons/stock_edit-16.gif" border="0" align="absmiddle">
+              <a href="ProjectManagementNews.do?command=Edit&pid=<%= Project.getId() %>&id=<%= thisArticle.getId() %>"><dhv:label name="accounts.accounts_contacts_oppcomponent_list.Edit">Edit</dhv:label></a>
+            </zeroio:permission>
+            <zeroio:permission name="project-news-delete">
+              <%-- delete message --%>
+              <img src="images/icons/stock_delete-16.gif" border="0" align="absmiddle">
+              <a href="javascript:confirmDelete('ProjectManagementNews.do?command=Delete&pid=<%= Project.getId() %>&id=<%= thisArticle.getId() %>');"><dhv:label name="global.button.delete">Delete</dhv:label></a>
+            </zeroio:permission>
+            </dhv:evaluate>
+            &nbsp;
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+<dhv:evaluate if="<%= thisArticle.getCategoryId() > -1 %>">
+  <tr class="row1">
+    <td>
+      Category: <%= toHtml(newsArticleCategoryList.getValueFromId(thisArticle.getCategoryId())) %>
+    </td>
+  </tr>
+</dhv:evaluate>
+  <tr class="row2">
+    <td>
+      <%= thisArticle.getIntro() %>
+      <dhv:evaluate if="<%= thisArticle.getMessage() != null && thisArticle.getMessage().length() > 0 %>">
+        <br>
+        <img src="images/icons/stock_zoom-page-16.gif" border="0" align="absmiddle">
+        <a href="javascript:popURL('ProjectManagementNews.do?command=Details&pid=<%= Project.getId() %>&id=<%= thisArticle.getId() %>&popup=true','News_Details','600','500','yes','yes');">Read more</a>
+      </dhv:evaluate>
+    </td>
+  </tr>
+<%-- attachments --%>
+<dhv:evaluate if="<%= thisArticle.getTaskCategoryId() > -1 %>">
+  <tr class="row2">
+    <td>
+      Linked List: <a href="ProjectManagement.do?command=ProjectCenter&section=Lists&pid=<%= thisArticle.getProjectId() %>&cid=<%= thisArticle.getTaskCategoryId() %>"><%= toHtml(taskCategoryList.getValueFromId(thisArticle.getTaskCategoryId())) %></a>
+    </td>
+  </tr>
+</dhv:evaluate>
+</table>
+<br />
+<%
+  }
+%>

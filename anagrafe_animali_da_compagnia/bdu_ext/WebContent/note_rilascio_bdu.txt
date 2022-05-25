@@ -1,0 +1,70 @@
+<strong>Note di rilascio versione del 23 aprile 2019 </strong> 
+<br/>
+<li><font style="color:#339900">Stampa certificato di trasferimento fuori regione</font></li>
+<li><font style="color:#339900">Aggiunta informazione 'veterinari asl' nella registrazione di sterilizzazione</font></li>
+</br>
+
+<strong>Note di rilascio versione del 14 gennaio 2016 </strong> 
+<br/>
+<li><font style="color:#339900">Ricerca Proprietario per LLPP</font></li>
+</br>
+
+<strong>Note di rilascio versione del 25 maggio 2015 </strong> 
+<br/>
+<li><font style="color:#339900">Aggiunta informazioni municipalit&agrave; in inserimento prima cattura e successive</font></li>
+<li><font style="color:#339900">Upload foto animali in adozione</font></li>
+</br>
+
+<strong>Note di rilascio versione del 05 marzo 2015 </strong> 
+<br/>
+<li><font style="color:#339900">Banca dati passaporti a priori</font></li>
+<li><font style="color:#339900">Nuova possibilit&agrave; di inserire informazioni su attivit&agrave; di anagrafe svolte in ambito itinerante</font></li>
+<li><font style="color:#339900">Gestione controllo occupazione canili</font></li>
+<li><font style="color:#339900">Gestione registrazione di "Movimentazione di massa animali circuito commerciale"
+</font></li>
+<li><font style="color:#339900">Nuove registrazioni di apertura e chiusura canili e operatori commerciali
+</font></li>
+<li><font style="color:#339900">Blocco aggiunta registrazioni a carico di animali ricoverati in VAM (con cartella clinica aperta)
+</font></li>
+</br>
+
+
+<strong>Note di rilascio versione del 31 ottobre 2014 </strong> 
+<br/>
+<li><font style="color:#339900">Generazione file xls riassuntivo situazione cani in canile, modulo Barcode Cani In Canile</font></li>
+</br>
+<strong>Note di rilascio versione del 14 luglio 2014 </strong> 
+<br/>
+<li><font style="color:#339900">Nuova registrazione di Prelievo campioni leishmania per animali di specie Cane</font></li>
+<li><font style="color:#339900">Nuovo sottomodulo in Anagrafe Animali per la ricerca degli esiti esami Leishmania</font></li>
+<li><font style="color:#339900">Aggiunta possibilità di inserimento delle seguenti registrazioni anche per animali fuori il proprio dominio asl:
+<ul style="color:#339900; list-style-type:circle;">
+<li style="color:#339900">Sterilizzazione</li>
+<li style="color:#339900">Rilascio/Rinnovo Passaporto</li>
+<li style="color:#339900">Prelievo DNA</li>
+<li style="color:#339900">Prelievo Campioni Leishmania</li>
+<li style="color:#339900">Inserimento vaccinazioni</li>
+
+
+</font></li>
+</br>
+<strong>Note di rilascio versione del 20 gennaio 2014 </strong> 
+<br/>
+<li><font style="color:#339900">Nuova registrazione di Prelievo Dna per i cani padronali</font></li>
+<li><font style="color:#339900">Identificazione sistema di origine in inserimento anagrafiche / registrazioni</font></li>
+</br>
+<strong>Note di rilascio versione del 07 gennaio 2014 </strong> 
+<br/>
+<li><font style="color:#339900">Correzione malfunzionamento utenti con ruolo "Utente comune"</font></li>
+<li><font style="color:#339900">Veterinari privati: possibilità di accedere alla lista dei cani registrati a un proprietario per i quali hanno effettuato l'inserimento in Banca Dati</font></li>
+<li><font style="color:#339900">Veterinari privati: possibilità di accedere alla lista delle registrazioni che hanno inserito per i cani che hanno anagrafato in Banca Dati </font></li>
+<li><font style="color:#339900">Nuovo filtro di ricerca animali: "Viventi/Deceduti"</font></li>
+<li><font style="color:#339900">Nuovi campi obbligatori per la registrazione di Decesso</font></li>
+<li><font style="color:#339900">Modulo Proprietari/Detentori: nuovo sottomodulo "Registrazioni modifica residenza in ingresso"</font></li>
+</br>
+<strong>Note di rilascio versione del 03 ottobre 2013 </strong> 
+<br/>
+<li><font style="color:#339900">Primo rilascio</font></li>
+<br/>
+
+</ul>

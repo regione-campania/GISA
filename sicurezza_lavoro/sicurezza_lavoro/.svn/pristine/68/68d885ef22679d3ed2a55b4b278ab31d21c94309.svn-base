@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+<body>
+  <label>Verbale da scaricare:</label>
+  <input type="text" id="verbale" value="verbale1"><br>
+  <label>JSON:</label><br>
+  <textarea id="json" rows="4" cols="50">
+    {
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone": "0652455478",
+        "description": "New Website"
+    }
+  </textarea><br>
+  <button onclick="scaricaVerbale()">SCARICA</button>
+
+
+</body>
+</html>
+
+<script>
+
+    function scaricaVerbale(){
+
+        let verbale = document.getElementById("verbale").value;
+        let json = document.getElementById("json").value.trim();
+
+        location.href = `/verbali/getVerbaleCompilato?descrizioneVerbale=${verbale}&valori=${json}`;
+    
+    }
+</script>

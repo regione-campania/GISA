@@ -1,0 +1,6 @@
+alter table mu_macellazioni
+add data_ricezione_comunicazioni_esterne timestamp without time zone,
+add note_ricezione_comunicazioni_esterne text,
+add data_comunicazioni_esterne timestamp without time zone,
+add descrizione_non_conformita_comunicazioni text,
+add note_provvedimento_adottato text

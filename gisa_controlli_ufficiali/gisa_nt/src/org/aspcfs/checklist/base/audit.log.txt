@@ -1,0 +1,2 @@
+
+Revizione rev1 | autore Giuseppe Balzano | data 23/11/2011 | modificato il metodo update in modo da fare rollback qualora venga generato un errore.

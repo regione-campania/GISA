@@ -1,0 +1,247 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+/* INIZIO BOTTONI */
+ 
+.newButtonClass {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #003399), color-stop(1, #468ccf) );
+	background:-moz-linear-gradient( center top, #003399 5%, #468ccf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#003399', endColorstr='#468ccf');
+	background-color:#003399;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0;
+	border:1px solid #3866a3;
+	display:inline-block;
+	color:#c7c7c7;
+	 text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	font-family:Trebuchet MS;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:190px;
+	text-decoration:none;
+	text-align:center;
+	/* text-shadow:1px 1px 0px #7cacde;*/
+}
+.newButtonClass:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #468ccf), color-stop(1, #003399) );
+	background:-moz-linear-gradient( center top, #468ccf 5%, #003399 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#003399');
+	background-color:#468ccf;
+}.newButtonClass:active {
+	position:relative;
+	top:1px;
+}
+
+/* FINE BOTTONI */
+
+/* INIZIO CHECKBOX */  
+
+label {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+input[type=checkbox].css-checkbox {
+	  position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    margin:-1px; 
+    padding:0;
+    border:0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+	padding-left:20px;
+	height:15px; 
+	display:inline-block;
+	line-height:15px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:15px;
+	vertical-align:middle;
+	cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+	background-position: 0 -15px;
+}
+
+.css-label{
+	background-image:url(../images/checkbox/dark-check-green.png);
+}
+
+.lite-blue-check{background-image:url(../images/checkbox/lite-blue-check.png);}
+
+.lite-x-blue{background-image:url(../images/checkbox/lite-x-blue.png);}
+
+.elegant{background-image:url(../images/checkbox/elegant.png);}
+
+
+input[type=checkbox].css-checkbox.med + label.css-label.med {
+	padding-left:22px;
+    height:17px; 
+	display:inline-block;
+	line-height:17px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:15px;
+	vertical-align:middle;
+    cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox.med:checked + label.css-label.med {
+
+    background-position: 0 -17px;
+}
+input[type=checkbox].css-checkbox.sme + label.css-label.sme {
+	padding-left:22px;
+    height:16px; 
+	display:inline-block;
+	line-height:16px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:15px;
+	vertical-align:middle;
+    cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox.sme:checked + label.css-label.sme{
+
+    background-position: 0 -16px;
+}
+input[type=checkbox].css-checkbox.lrg + label.css-label.lrg {
+	padding-left:22px;
+    height:20px; 
+	display:inline-block;
+	line-height:20px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:15px;
+	vertical-align:middle;
+    cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox.lrg:checked + label.css-label.lrg{
+
+    background-position: 0 -20px;
+}
+
+/* FINE BOTTONI */ 
+
+/* INIZIO INPUT TEXT */ 
+
+  input[type="text"] { 
+/*     border: 1px solid #c4c4c4;  */
+    height: 25px; 
+    
+   
+/*     border-radius: 4px;  */
+    -moz-border-radius: 4px; 
+    -webkit-border-radius: 4px; 
+    box-shadow: 0px 0px 8px #d9d9d9; 
+    -moz-box-shadow: 0px 0px 8px #d9d9d9; 
+    -webkit-box-shadow: 0px 0px 8px #d9d9d9; 
+} 
+
+
+ 
+input[type="text"]:focus { 
+    outline: none; 
+    border: 1px solid #2184be; 
+    box-shadow: 0px 0px 8px #2184be; 
+    -moz-box-shadow: 0px 0px 8px #2184be; 
+    -webkit-box-shadow: 0px 0px 8px #2184be; 
+} 
+
+/* FINE INPUT TEXT */
+
+/*INIZIO RADIO BUTTON */
+
+input[type=radio].css-radio {
+							position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+						}
+
+						input[type=radio].css-radio + label.css-radiolabel {
+							padding-left:24px;
+							height:19px; 
+							display:inline-block;
+							line-height:19px;
+							background-repeat:no-repeat;
+							background-position: 0 0;
+							font-size:19px;
+							vertical-align:middle;
+							cursor:pointer;
+
+						}
+
+						input[type=radio].css-radio:checked + label.css-radiolabel {
+							background-position: 0 -19px;
+						}
+						label.css-radiolabel {
+				background-image:url(../images/checkbox/csscheckbox_dd3e038dccc871154644f9532709297d.png);
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+/*FINE RADIO BUTTON */
+
+/* INIZIO SELECT*/
+
+select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
+   
+   select {
+   width: 240px;
+   height: 34px;
+   overflow: hidden;
+   background: url(../images/checkbox/down_arrow_select.jpg) no-repeat right #ddd;
+   border: 1px solid #ccc;
+   }
+   
+  
+
+/*FINE SELECT*/
+
+
+ 

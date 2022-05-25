@@ -1,0 +1,1 @@
+alter table ticket add partitavoltura text;

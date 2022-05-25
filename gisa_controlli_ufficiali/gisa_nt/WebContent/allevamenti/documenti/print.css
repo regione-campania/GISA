@@ -1,0 +1,157 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+@CHARSET "ISO-8859-1";
+
+	@page { size: landscape;
+ margin-top: 1cm ;
+ margin-bottom: 2cm ;
+  @bottom-center {
+    content: counter(page) " su " counter(pages);
+    }
+    }
+    
+body {
+	margin:0; 
+	padding:0; 
+	line-height: 0.8em; 
+	word-spacing:1px; 
+	letter-spacing:0.2px; 
+font-family:  Arial, Helvetica, sans-serif;
+	color:#000000; 
+}
+
+
+/* .footer { */
+/* 	position: fixed; */
+/* 	bottom: 10px; */
+/* } */
+
+
+td {
+	  page-break-inside: avoid;
+	  /*text-align:center;*/
+	  word-wrap:break-word;
+	  	font-size:10px;
+	  	text-align: center;
+	}
+table { 
+            -fs-table-paginate: paginate;
+            border-spacing: 0;
+            table-layout:fixed; width:100%;
+             word-wrap:break-word;
+             font-size:10px;
+            
+        }
+        
+   th {
+	background-color: #BDCFFF;
+	border-bottom: 1px solid #888888;
+	border-right: 1px solid #888888;
+	color: #000;
+	text-align: center;
+		font-size:10px;
+}
+
+ .boxOrigineDocumento {
+ 	left: 5px;
+	width: 300px;
+	height: 15px;
+	margin-top: 1px;
+	text-align: left;
+	padding-top: 1px;
+	font-size: 10px;
+	
+}
+.boxIdDocumento {
+	left: 5px;
+	border: 0.5px solid black;
+	width: 100px;
+	height: 30px;
+	margin-top: 1px;
+	text-align: center;
+	padding-top: 1px;
+	font-size: 10px;
+}
+
+.titolo{
+		font-size:13px;
+}
+.titolo2{
+		font-size:13px;
+		color:blue;
+		font-style: italic;
+		text-align: left;
+	}
+.piccolo{
+		font-size:8px;
+}
+
+.cerchio {
+   border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+  	 width: 36px;
+    height: 36px;
+     padding: 8px;
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+  
+ 
+}
+
+.rettangolo {
+   border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+  	 width: 150px;
+    height: 10px;
+     padding: 8px;
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+}
+
+.bollo {
+   border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+  	 width: 36px;
+    height: 36px;
+     padding: 8px;
+    background: #fff;
+    border: 1px solid #000;
+    text-align:center;
+    color: #000;
+  
+}
+
+.fondo {
+	display: block; 
+    position:fixed;
+    bottom:-10px;
+}
+
+.row1 {
+	background: #EDEDED;
+}
+
+.testoMedio{
+		font-size:12px;
+	}
+	
+	.image { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+   top: 20px;
+   right: 40px;
+}
+
+.testoInImage { 
+   position: absolute; 
+   top: 20px;
+   right: 30px; 
+}

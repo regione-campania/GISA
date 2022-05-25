@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping
+   PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<database-object>
+		<create>
+			CREATE OR REPLACE VIEW permessi_gui_view AS 
+				SELECT f.id_funzione, f.nome AS nome_funzione, f.descrizione AS descrizione_funzione, 
+					s.id_subfunzione, s.nome AS nome_subfunzione, s.descrizione AS descrizione_subfunzione, 
+					g.id_gui, g.nome AS nome_gui, g.descrizione AS descrizione_gui 
+				FROM (( permessi_funzione f JOIN permessi_subfunzione s ON ((f.id_funzione = s.id_funzione))) 
+					JOIN permessi_gui g ON ((s.id_subfunzione = g.id_subfunzione)))
+		</create>
+		<drop>DROP VIEW permessi_gui_view</drop>
+		<dialect-scope name='org.hibernate.dialect.PostgreSQLDialect' />
+	</database-object>
+	<database-object>
+		<create>
+			CREATE OR REPLACE VIEW sync_registrazioni_canina AS
+SELECT
+id AS id_cane,
+mc AS identificativo,
+data_decesso IS NULL
+   AND (stato_attuale ilike '%senza%vincolo%sanitario%' OR stato_attuale ilike '%registrato%')
+   AND proprietario_tipo != 19
+   AND detentore_tipo != 19 AS furto,
+data_decesso IS NULL
+   AND (stato_attuale ilike '%senza%vincolo%sanitario%' OR stato_attuale ilike '%registrato%')
+   AND detentore_tipo != 19 AS smarrimento,
+data_decesso IS NULL
+   AND (stato_attuale ilike '%senza%vincolo%sanitario%' OR stato_attuale ilike '%registrato%') AS decesso,
+data_decesso IS NULL
+   AND (stato_attuale ilike '%smarrimento%' OR stato_attuale ilike '%furto%')
+   AND proprietario_tipo != 19
+   AND detentore_tipo != 19 AS ritrovamento,
+data_decesso IS NULL
+   AND (stato_attuale ilike '%registrato%')
+   AND proprietario_tipo != 19
+   AND detentore_tipo != 19 AS ritrovamento_smarr_non_denunciato,
+(stato_attuale ilike '%smarrimento%' OR stato_attuale ilike '%furto%' OR stato_attuale ilike '%decesso%' OR stato_attuale ilike '%trasf%fuori%regione%' OR stato_attuale ilike '%registrato%')
+   AND circuito_commerciale = false AS controlli,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND circuito_commerciale = false
+   AND detentore_tipo != 19 AS trasferimento,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND circuito_commerciale = false
+   AND proprietario_tipo != 19
+   AND detentore_tipo != 19 AS cessione,
+data_decesso IS NULL
+   AND stato_attuale ilike '%cessione%'
+   AND circuito_commerciale = false
+   AND ( id_proprietario = 0 OR ( id_proprietario != 0 AND proprietario_tipo != 19 ) )
+   AND ( id_detentore = 0 OR ( id_detentore != 0 AND detentore_tipo != 19 ) )
+   AND asl_destinazione_cane > 0
+   AND cessione_aperta = true AS presa_cessione,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND circuito_commerciale = false
+   AND proprietario_tipo != 19
+   AND detentore_tipo != 19 AS trasf_regione,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND catturato = true
+   AND circuito_commerciale = false
+   AND proprietario_tipo = 19
+   AND detentore_tipo = 11 AS reimmissione,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND catturato = true
+   AND circuito_commerciale = false
+   AND proprietario_tipo = 19
+   AND detentore_tipo = 11 AS adozione,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND catturato = true
+   AND circuito_commerciale = false
+   AND proprietario_tipo = 19
+   AND detentore_tipo = 11 AS trasf_canile,
+data_decesso IS NULL
+   AND stato_attuale ilike '%trasf%fuori%regione%'
+   AND circuito_commerciale = false AS rientro,
+data_decesso IS NULL
+   AND circuito_commerciale = false
+   AND reimmesso = true
+   AND catturato = true AS ricattura,
+data_decesso IS NULL   
+   AND (stato_attuale ilike '%senza%vincolo%sanitario%' OR stato_attuale ilike '%blocco%' OR stato_attuale ilike '%respingimento%' OR stato_attuale ilike '%registrato%')
+   AND circuito_commerciale = true AS controll_comm,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND sterilizzato = false
+   AND circuito_commerciale = false
+   AND proprietario_tipo != 19
+   AND detentore_tipo != 19 AS sterilizzazione,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND passaporto = false
+   AND circuito_commerciale = false
+   AND detentore_tipo != 19 AS passaporto,
+data_decesso IS NULL
+   AND stato_attuale ilike '%cessione%'
+   AND circuito_commerciale = false
+   AND id_proprietario != 0
+   AND id_detentore != 0
+   AND asl_destinazione_cane = 0 AS gest_cessione,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND catturato = false
+   AND circuito_commerciale = false
+   AND tipo_proprietario_originario = 17
+   AND tipo_detentore_originario = 17 AS trasf_prop_canile,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND catturato = false
+   AND circuito_commerciale = false
+   AND tipo_proprietario_originario = 17
+   AND tipo_detentore_originario = 17 AS cambio_detentore,
+data_decesso IS NULL
+   AND stato_attuale ilike '%registrato%'
+   AND circuito_commerciale = false
+   AND detentore_tipo = 11
+   AND ritrovato_da_canile = true AS restituisci   
+  FROM sync_cane;
+ALTER TABLE sync_registrazioni_canina
+ OWNER TO postgres;
+		</create>
+		<drop>DROP VIEW sync_registrazioni_canina</drop>
+		<dialect-scope name='org.hibernate.dialect.PostgreSQLDialect' />
+	</database-object>
+	<database-object>
+		<create>
+	CREATE OR REPLACE VIEW sync_registrazioni_felina AS
+	SELECT
+		id AS id_gatto,
+		mc AS identificativo,
+		data_decesso IS NULL AND stato_attuale ilike '%registrato%' AND proprietario_tipo != 16 AND detentore_tipo != 16 AS furto,
+		data_decesso IS NULL AND stato_attuale ilike '%registrato%' AND detentore_tipo != 16 AS smarrimento,
+		data_decesso IS NULL AND stato_attuale ilike '%registrato%' AS decesso,
+		data_decesso IS NULL AND (stato_attuale ilike '%smarrimento%' OR stato_attuale ilike '%furto%') AND proprietario_tipo != 16
+			AND detentore_tipo != 16 AS ritrovamento,
+		data_decesso IS NULL AND (stato_attuale ilike '%registrato%') AND proprietario_tipo != 16
+			AND detentore_tipo != 16 AS ritrovamento_smarr_non_denunciato,
+		data_decesso IS NULL AND reimmesso = true AND catturato = true AS ricattura,
+		data_decesso IS NULL AND stato_attuale ilike '%registrato%' AND detentore_tipo != 16 AS trasferimento,
+		data_decesso IS NULL AND stato_attuale ilike '%registrato%' AND proprietario_tipo = 18 AND detentore_tipo = 18 AS adozione,
+		data_decesso IS NULL AND stato_attuale ilike '%registrato%'	AND sterilizzato = false AND proprietario_tipo != 16 AND detentore_tipo != 16 AS sterilizzazione,
+		data_decesso IS NULL AND stato_attuale ilike '%registrato%' AND passaporto = false AND detentore_tipo != 16 AS passaporto
+	FROM sync_gatto;
+	ALTER TABLE sync_registrazioni_felina
+	OWNER TO postgres;
+</create>
+		<drop>DROP VIEW sync_registrazioni_felina</drop>
+		<dialect-scope name='org.hibernate.dialect.PostgreSQLDialect' />
+	</database-object>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<div class="a-table-date-filter">
+    <div class="wrapper">
+        <select class="form-select" name="select-mode" #selectMode>
+            <option value="exact-date" selected>data esatta</option>
+            <option value="from-date">da</option>
+            <option value="till-date">fino a</option>
+            <option value="range">intervallo</option>
+        </select>
+    </div>
+    <div class="wrapper" id="range-wrapper" *ngIf="selectMode.value === 'range'; else singleDate">
+        <label for="start-date" class="form-label">Da</label>
+        <input #startDate type="date" class="form-control" name="start-date">
+        <label for="end-date" class="form-label">A</label>
+        <input #endDate type="date" class="form-control" name="end-date">  
+    </div>
+    <ng-template #singleDate>
+        <div class="wrapper">
+            <input #date type="date" class="form-control" name="date">
+        </div>
+    </ng-template>
+</div>

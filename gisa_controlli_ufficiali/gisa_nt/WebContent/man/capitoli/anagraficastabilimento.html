@@ -1,0 +1,130 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="opu"></a>
+<h3 id="opu">Anagrafica Stabilimenti</h3>
+
+In questo cavaliere e' possibile ricercare qualsiasi tipologia di stabilimento/Operatore sottoposto a controllo inserito nel Sistema.</p>
+<p>Le prime operazioni che si possono effettuare sono:</p>
+<ul>
+<li>Ricerca</li>
+<li><a name="Recupero"></a>Aggiungi Stabilimento Pregresso<s></s></li>
+</ul>
+<p><img src="./images/Home.png" width="1050" height="344" /></p>
+<p><span style="font-size: 14pt;"><strong>RICERCA</strong></span></p>
+<p style="text-align: justify;"><a name="#anagraficastabilimentiRicerca"></a></p>
+<p>L'utente ha la possibilita' di eseguire due tipi di ricerche:</p>
+<ul>
+<li><span style="text-decoration: underline;"><strong>Ricerca Rapida</strong></span>: e' stata pensata per consentire delle ricerche veloci basate su pochissime informazioni chiave quali:
+<ul>
+<li>Norma di Riferimento: rappresenta il regolamento secondo cui &egrave; classificata un'attivita produttiva.
+I valori disponibili per il campo "Norma" sono:
+<ul> 
+<li>Altra normativa</li>
+<li>D.L.vo 26-14</li>
+<li>L. 362-91 FARMACIE</li>
+<li>D.L.vo 193-06</li>
+<li>DGRC 459-06</li>
+<li>REG CE 853-04</li>
+<li>L. 30-91 ed altre norme</li>
+<li>D.L.vo 219-06</li>
+<li>REG 1069-09</li>
+<li>REG CE 183-05</li>
+<li>REG CE 852-04</li>
+<li>REG CE 1069-09</li>
+</ul>
+<li>Cerca In: consente di restringere la ricerca ad un sottoinsieme che può essere:
+<ul>
+<li>PRATICHE IN ITINERE: esegue la ricerca solo nelle pratiche SCIA inserite dall'utente ASL o provenienti dal SUAP che si trovano nello stato In Itinere o Respinto,</li>
+<li>VECCHIA ANAGRAFICA OPERATORI NON SOGGETTI A SCIA: Esegue la ricerca SOLO nelle anagrafiche che fanno parte del cavaliere "Altri stabilimenti" (Es. Molluschicoltura,Operatori, Abusivi..) o di tutti gli altri cavalieri diversi da Anagrafica Stabilimenti (Stabilimenti 852, Stabilimenti 853,Canili,Colonie,OSM)</li>
+</ul>
+</li>
+<li>NUOVA ANAGRAFICA: Esegue la ricerca SOLO degli stabilimenti che sono stati inseriti tramite una SCIA o come PREGRESSO (o tramite funzione "Aggiungi stabilimento pregresso" o tramite il bottone "importa in anagrafica stabilimenti")</li>
+</ul>
+</li>
+<li><span style="text-decoration: underline;">STABILIMENTI ARCHIVIATI:</span> esegue la ricerca SOLO degli stabilimenti che si trovano nel cavaliere Stabilimenti Archiviati.
+(qui si trovano stabilimenti cessati prima del 1 gennaio 2015 con Controlli e stabilimenti con i seguenti ATECO:
+01.41.00 - 01.42.00 - 01.49.90 - 10.11.00 - 10.41.30 - 10.51.10 - 10.86.00 - 10.89.09 - 56.10.50 - 82.92.10)
+</li>
+<li>Nota: la ricerca degli Operatori Privati &egrave; possibile senza indicare alcun filtro in questo campo</li>
+<li><span style="text-decoration: underline;">ASL:</span> asl di competenza dello stabilimento</li>
+<li><span style="text-decoration: underline;">Nome/Ditta/Ragione Sociale</span>: denominazione dello stabilimento</li>
+<li><span style="text-decoration: underline;">Descrizione Attivit&agrave; Produttiva:</span> attivit&agrave; produttiva svolta nello stabilimento. Non occorre indicare l'intera descrizione della linea di attivit&agrave; ma basta indicare le parole chiave che la descrivono.</li>
+</ul>
+<p style="text-align: justify;"><img src="./images/Fig1_ricercaAnagrafica.png" width="750" height="220" /></p>
+<ul>
+<li><span style="text-decoration: underline;"><strong>Ricerca Avanzata</strong>:</span> questa maschera consente di specificare pi&ugrave; informazioni di ricerca rispetto a quella precedente. I filtri sono raggruppati nel seguente modo:
+<ul>
+<li><span style="text-decoration: underline;">Ricerca Per Norma di Riferimento/Descrizione attivit&agrave;</span>: oltre i campi di ricerca specificati in precedenza, consente di ricercare uno stabilimento mediante il Numero di riconoscimento o Codice Azienda</li>
+<li><span style="text-decoration: underline;">Ricerca per Impresa:</span> consente di ricercare uno stabilimento tramite la denominazione e partita iva</li>
+<li><span style="text-decoration: underline;">Ricerca per Stabilimento (Sede Operativa):</span> consente di ricercare uno stabilimento tramite la sede produttiva</li>
+<li><span style="text-decoration: underline;">Ricerca Per Altri Campi:</span> consente di specificare come filtri di ricerca il tipo di attivit&agrave; mobile. Selezionando il tipo di attivit&agrave; mobile, il sistema mostrer&agrave; il campo targa, utile nella ricerca di un determinato autoveicolo. Oltre al tipo di attivita &egrave; possibile ricercare tutte le Anagrafiche che sono state sottoposte a Controlli Ufficiali per una particolare Allerta<img src="./images/Fig2_ricercaAnagrafica.png" width="900" height="402" /></li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p></p>
+<p>Qualora non vengano specificati filtri di ricerca, il sistema mostrer&agrave; la lista di tutte le Anagrafiche presenti nel sistema, 10 per volta.</p>
+<p>(Nota): Qualsiasi sia la tipologia di ricerca effettuata il sistema propone lo stabilimento tante volte quante solo le attivit&agrave; produttive che svolge, raggruppandole per norma.</p>
+<p id="scarica_xml_anag">Ai ruoli HD, &egrave; associato il permesso per scaricare le anagrafiche in formato XML partendo dagli stabilimenti presenti nella lista dei risultati ricerca, tramite il bottone <b>SCARICA IN FORMATO XML</b> (presente in alto/basso a destra). Cliccando sul bottone viene scaricato un archivio contenente un file .xml per ciascuno degli stabilimenti, ed un file .xml riepilogativo di tutti i risultati dalla ricerca.</p>
+<p><img src="./images/xml_anag.png" width="900" height="120" /></p>
+<p></p>
+
+</p>
+<u>Importa in Anagrafica Stabilimenti</u>
+<p>L'operazione di trasferimento di uno stabilimento in nuova anagrafica pu&ograve; essere fatta SOLO dagli utenti HD, fatta eccezione per gli OSM che sono carico dei funzionari regionali.
+Per individuare gli stabilimenti soggetti ad import, accanto al cavaliere sar&agrave; presente il carattere (*).</p>
+<u>NOTA per 852:</u> Se uno stabilimento 852 ha piu' codici istat, avente almeno uno compreso tra:
+<ul>
+<li>'56.10.42'</li>
+<li>'47.81.01'</li>
+<li>'47.89.09'</li>
+<li>'47.81.02'</li>
+<li>'47.81.03'</li>
+<li>'47.81.09'</li>
+</ul>
+l'import in Anagrafica Stabilimenti non sara' possibile.<br>
+Se il codice istat è unico e rientra in quelli elencati l'import sara' consentito e il tipo di attivita' settata nella maschera di import dovrà essere mobile.<br>
+Inoltre, in caso di stabilimento 852 mobile con più linee, l'import è bloccato.
+<br>
+<p><img src="./images/importAnag.png" width="1050" height="316" /></p>
+<p>Cliccando sul bottone Importa in Anagrafica Stabilimenti, verr&agrave; presentata all'utente la maschera da compilare con i dati mancanti. Per inserire gli indirizzi cliccare nella casella di testo del comune e compilare i dati nella popup che si apre.</p>
+<p></p>
+<p><img src="./images/Stab_pregresso.png" width="1050" height="441" /></p>
+<p></p>
+<p>Completando la compilazione (baster&agrave; proseguire digitando sul tasto "avanti") si prosegue con le schermate relative alle linee di attivit&agrave;: anche in questo caso ci sar&agrave; un aiuto in quanto si potranno leggere le linee di attivit&agrave;&nbsp; "Vecchie" (se esistenti) ed inserire le linee "Nuove".</p>
+<p><img src="./images/Linee.png" width="1050" height="341" /></p>
+<p style="text-align: justify;"><b>NOTA: Con il termine "LINEA VECCHIA" si vuole indicare l'attivita' dello stabilimento da importare secondo la classificazione PRE-MASTER LIST (es. ATECO per gli 852, CATEGORIA E IMPIANTO per gli 853 etc...), mentre con "LINEA NUOVA" si vuole indicare la linea di attivit classificata secondo la Master List.</b></p>
+<p>Per ogni linea sar&agrave; possibile indicare un CODICE NAZIONALE. L'inserimento del codice sar&agrave; invece obbligatorio nei casi in cui esso &egrave; previsto dalla Master List. <br/> </p>
+
+<p>Si salveranno i dati dell'impresa cliccando su "Salva Pratica" e da questo momento l'impresa sar&agrave; riportata nel cavaliere "Anagrafica Stabilimenti"</p>
+<p></p>
+
+<p><strong><span style="font-size: 14pt;"><a id="scia_semplificate"></a>Completa scheda anagrafica</span><br /></strong></p>
+<p style="text-align: justify;">
+Il link, posto sotto al tasto 'Modifica dati scheda', permette di completare la scheda anagrafica con i dati mancanti. Il modulo da compilare si presenta come nell'immagine sottostante.<br/> 
+<img src="./images/completadati1.jpg" width="1050" height="485" /><br/>
+Nel riquadro 'Dati stabilimento' viene data la possibilit&agrave; di inserire la data di inizio attivit&agrave;, qualora questa non sia presente nello stabilimento della vecchia anagrafica.<br/>
+Il tasto 'aggiorna linee' pu&ograve; essere usato qualora lo stabilimento abbia almeno una linea incompleta. Se le linee sono tutte mappate, queste saranno salvate automaticamente. <br/>L'aggiornamento linee non &egrave; obbligatorio ai fini del salvataggio delle informazioni anagrafiche relative allo stabilimento.<br/>
+Cliccando su aggiorna linee si aprir&agrave; la stessa finestra presente negli stabilimenti di nuova angrafica.<br/>
+<img src="./images/completadati2.jpg" width="1050" height="485" /><br/>
+Cliccando sul tasto giallo 'Aggiorna linee' il sistema memorizzer&agrave; le modifiche fatte e le render&agrave; effettive quando si salveranno i dati nel modulo 'completa scheda anagrafica'.
+
+</p>
+
+
+<p><strong><span style="font-size: 14pt;">Elimina stabilimento</span> <br /></strong></p>
+<p>Questa funzione consente di eliminare uno stabilimento esistente. La funzione &egrave; disponibile nel&nbsp; dettaglio di uno stabilimento, solo in caso di mancanza CU associati allo stabilimento.</p>
+<p><img src="./images/elimina_stab.png" width="1050" height="416" /></p>
+<p>Cliccando sul pulsante "Elimina", viene chiesto all'utente se &egrave; sicuro di volerlo eliminare;qualora l'utente clicca sul pulsante [OK], il sistema provvede ad eliminarlo, e per cui non sar&agrave; piu ricercabile. Cliccando su Annulla, si annulla l'operazione.
+L'utente verr&agrave; rediretto nella maschera di ricerca dopo che lo stabilimento sar&agrave; stato eliminato.</p>
+
+Per le imprese con targhe o matricole associate e' disponibile la funzionalita' di "Stampa scheda specifica", tramite la quale e' possibile indicare una targa o una matricola in particolare e stampare una scheda riepilogativa dell'anagrafica che riporti anche i dati dell'informazione specifica selezionata.<br/>
+<img src="./images/stampaschedaspecifica.png" width="1050" height="416" />
+
+

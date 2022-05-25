@@ -1,0 +1,7 @@
+export const environment = {
+  production: true,
+  protocol: 'https',
+  host: '131.1.255.87',
+  port: 443,
+  ambiente: "collaudo",
+};

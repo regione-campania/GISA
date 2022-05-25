@@ -1,0 +1,6 @@
+Nome Classe: <nome-classe>
+
+rev.: <rev> | data: <aaaammgg> | auth.: <nome-cognome> | desc.: <descrizione della modifica, problema, soluzione, locazione, ...>
+
+
+rev.: rev1 | data: <20111201> | auth.: <Giuseppe-Balzano> | desc.: <Classe TicketList modifica nel metodo buildlistcuwithfollowup>

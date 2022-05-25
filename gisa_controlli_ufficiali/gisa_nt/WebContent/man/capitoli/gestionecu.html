@@ -1,0 +1,596 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="controlli"></a>
+<h3 id="controlli">Gestione Controlli Ufficiali</h3>
+
+L'accesso alla gestione dei controlli ufficiali in GISA non e' diretto, ma e' legato all'entita' a cui il controllo deve essere associato. 
+Infatti se si vuole, ad esempio, aggiungere un nuovo controllo allo stabilimento "Mario Rossi s.a.s" o si vuole 
+prendere visione di tutti i controlli ufficiali gia' avuti, occorre anzitutto ricercarlo.<br> 
+Una volta effettuato l'accesso alla scheda del dettaglio, occorre cliccare sulla voce "Controlli Ufficiali" dal menu' in visione verticale. 
+In questo modo si accede alla gestione dei controlli ufficiali relativi all'impresa "Mario Rossi s.a.s".<br /> 
+<br /><br /><img src="./images/lista_CU.png" /><br clear="LEFT" /><br /><br /></p>
+<h2>Aggiunta di un Controllo ufficiale</h2>
+<p align="justify"><br />L'inserimento di un nuovo controllo ufficiale avviene cliccando sul link "Aggiungi Nuovo Controllo Ufficiale". Tra i dati da inserire per ogni nuovo controllo ce ne sono alcuni (quelli contrassegnati da *) che vanno necessariamente compilati per poter salvare il controllo nel sistema. <br /></p>
+<p style="border: solid;"><b>N.B.: ATTENDERE IL CARICAMENTO COMPLETO DELLA PAGINA, PRIMA DI PROVARE AD EDITARE O SALVARE I CONTENUTI DEL CONTROLLO UFFICIALE. TALVOLTA, INFATTI, CAPITA DI AVERE LA SENSAZIONE CHE LA LISTA RELATIVA AI MOTIVI DELL'ISPEZIONE NON ESCA, IN REALTA' BISOGNA ATTENDERE IL COMPLETO CARICAMENTO DI TUTTE LE VOCI. ASSICURARSI QUINDI CHE LA SCHEDA DEL BROWSER SIA FERMA E NON IN CARICAMENTO.</b></p>
+I controlli ufficiali si distinguono in tre tipologie: <br />
+<ul>
+<li><u>Audit</u></li>
+Si tratta degli audit eseguiti dalle AASSLL sulle imprese. L'oggetto del controllo e' previsto nel caso in cui l'audit sia stato inserito dopo il 8/7/2020. <br/>
+Inoltre per i controlli inseriti dal 1/1/2020 sono gestiti i motivi audit presi direttamente dagli indicatori del DPAT.
+</ul>
+</ul>
+<br /><br />
+<ul>
+<ul>
+<li><u>Audit di Follow Up (valido per Autorita' Competenti)</u></li>
+Tale tipologia di controllo e' inseribile ESCLUSIVAMENTE nel cavaliere delle Autorita' Competenti. La gestione e' la stessa dei controlli di tipo Audit, l'utente puo' scegliere tra "ORSA" o "INTERNO". Anche per AUDIT di Follow Up e' possibile effettuare una selezione multipla dell'oggetto dell'audit stesso. Anche per questo tipo di controllo, e' contemplato l'inserimento delle Osservazioni/Raccomandazioni, che deve essere la stessa delle non conformita', inoltre e' possibile inserirne N in ogni controllo. In fase di inserimento/modifica di Osservazioni/Raccomandazioni, oltre al normale funzionamento riguardo alla selezione multipla dell'oggetto dell'audit e delle osservazioni, e' stata gestita una sezione "Dettagli Risoluzione", in cui sono presenti i campi: "Data Risoluzione" che e' un campo data, "Risolto" che e' SI-NO, "Descrizione" che e' un campo di testo, tutti non obbligatori. Questa sezione "Dettagli Risoluzione" e' comune alle Osservazioni, Raccomandazioni Significative e Gravi.</ul>
+</ul>
+<br /><br />
+<ul>
+<ul>
+<li><u>Ispezione semplice</u></li>
+piani di monitoraggio, reclamo, rilascio certificazioni, ecc Inoltre consentito di selezionare i motivi dell'ispezione e, a seconda della scelta, viene visualizzata la sottosezione di riferimento, rispettando i vincoli di obbligatorieta' gestiti opportunamente a livello software tramite messaggi prima del salvataggio.</ul>
+</ul>
+<br /><br />
+<ul>
+<ul>Per i controlli in PIANO DI MONITORAGGIO occorre specificare, per ogni piano selezionato, la struttura a cui il controllo per quel piano deve essere attribuito. In questo modo il controllo in oggetto viene scalato dal totale dei controlli programmati dall'ASL per le proprie strutture di livello inferiore.</ul>
+</ul>
+<br /><br />
+<ul>
+<ul>Per i controlli ufficiali con motivo di ispezione "ATTIVITA B46: SOSPETTO DI PRESENZA N.C.--&gt;ATT B46" e' prevista la caratterizzazione:
+<ul>
+<li>Per Emergenza Ambientali</li>
+<li>Per Altro Motivo</li>
+</ul>
+</ul>
+</ul>
+<img src="./images/carat_d15.png" width="1050" /><br /><br />
+<ul>
+<ul>Nel caso si seleziona dall'apposita combo "Per emergenza ambientale", sara' visualizzata la lista dei Buffer da cui ne sara' selezionato uno da associare al CU;</ul>
+</ul>
+<img src="./images/buffer_emergenza.png" width="1050" />
+<ul>
+<ul>altrimenti, selezionando "Per altro motivo", non occorre specificare alcuna informazione aggiuntiva.</ul>
+</ul>
+<br /><br />
+
+Per i controlli ufficiali con motivo ispezione "B65_A N. ISPEZIONI NEGLI APIARI STANZIALI PER LA VERIFICA DELLA PRESENZA DELL AETHINA T" e' prevista la caratterizzazione:<br/>
+<ul>
+<li>Random</li>
+<li>Con criteri di rischio</li>
+</ul>
+Sara' obbligatorio indicare il motivo (solo per Criteri di rischio), il numero di alveari controllati e l'esito.<br/>
+<img src="./images/aggiungi_stato_sanitario_apiari.PNG" width="1050" />
+
+
+<ul>
+<ul>
+<li><u>Ispezione con la tecnica di Sorveglianza</u></li>
+
+Si tratta dei Controlli di categorizzazione degli OSA.<br/>
+ A ciascun Controllo Ufficiale di questo tipo deve essere associata almeno una checklist. <br/>
+Non e' possibile inserire per questa tipologia di tecnica l'oggetto del Controllo. <br/>
+Una volta compilata la checklist e inseriti tutti i dati sul Controllo Ufficiale e' possibile aggiornare la categoria di rischio cliccando sul pulsante 'Aggiorna Categoria'.<br/>
+Effettuando l'aggiornamento della categoria di rischio il Controllo Ufficiale sara' chiuso automaticamente.<br/>
+Per questa tipologia di Controllo non e' previsto un punteggio per le non conformita' in quanto contenuto nelle checklist. <br/>
+La funzione di eliminazione controllo e' disponibile solo per l'Help Desk e solo nel caso in cui la categoria di rischio non sia stata ancora aggiornata. 
+In caso di controllo in sorveglianza per il quale la categoria di rischio e' stata aggiornata non e' possibile aggiungere nuove checklist. <br/>
+La modifica del controllo consente solo di modificare i campi che non incidono sul calcolo della categoria di rischio (es. nucleo, per conto di).<br/><br/>
+
+Oltre al tipo di controllo e' obbligatorio specificare anche la data inizio controllo sulla quale esistono i seguenti vincoli:</ul>
+</ul>
+<br /><br />
+<ul>
+<ul>1. non e' possibile inserire nuovi controlli con data successiva alla data corrente</ul>
+</ul>
+<br />
+<ul>
+<ul>2. non e' possibile inserire controlli con data antecedente di piu' di un mese dalla data corrente.</ul>
+</ul>
+<br /><br />
+<ul>Questo vincolo e' valido per tutte le tipologie di controllo tranne quelli in piano di monitoraggio per i quali questo vincolo di quindici giorni dalla data corrente. Il campo data fine controllo non e' un campo obbligatorio ma qualora la data fine controllo non venga settata il sistema la setta in automatico uguale a quella di inizio controllo; inoltre e' possibile inserire un massimo di dieci componenti per il nucleo ispettivo.</ul>
+<br /><br /> Tra i campi obbligatori vi sono anche: <br /><br />
+<ul>
+<ul>
+<li><u>Oggetto del Controllo</u>:
+<p align="justify">Tale campo compare e va compilato solo per controlli di tipo ispezione semplice.</p>
+</li>
+</ul>
+</ul>
+<br />
+<ul>
+<li><u>Linea Attivita' Sottoposta a Controllo</u>: Tale campo e' una lista contenente tutte le linee di attivita' dell'impresa e tra esse occorre selezionare quella a cui il controllo fa riferimento. In caso di sorveglianza non esiste il concetto di linea attivita' sottoposta a controllo mentre in caso di audit e' possibile selezionare piu' linee di attivita'.</li>
+</ul>
+<br /><br /><img src="./images/add_cu_impresa.PNG" /><br clear="LEFT" /><br /><br /> Dal momento che ogni controllo ufficiale e' legato alla linea di attivita' a cui si riferisce, al momento del click sul tasto "Inserisci" viene mostrato il messaggio che ricorda all'utente che vanno aggiunti piu' controlli ufficiali qualora siano state controllate piu' linee di attivita' per una stessa impresa. Questo vale per tutti i tipi di controllo ufficiale tranne le ispezioni in sorveglianza. <br /><br />
+
+<strong>Aggiungi motivo posticipato</strong><br/>
+Per i controlli ufficiali di tipo ISPEZIONE SEMPLICE, nello stato APERTO o RIAPERTO, per i ruoli e nei cavalieri abilitati e' disponibile la funzionalita' di aggiunta motivo posticipato, tramite il bottone "Aggiungi piano/attivita'" nel dettaglio del controllo ufficiale.<br/>
+<img src="./images/aggiungimotivocu.PNG" /><br/>
+All'utente viene presentata una lista di piani/attivita' selezionabili (non vengono mostrati quelli gia' presenti nel controllo ufficiale). In seguito alla selezione, e' necessario indicare il "Per conto di" su ogni elemento selezionato.<br/>
+<img src="./images/aggiungimotivoculista.PNG" /><br/>
+Al salvataggio, i motivi selezionati saranno aggiunti forzatamente al controllo e l'informazione sull'utente che ha svolto questa operazione sara' tracciata nel sistema.<br/><br/>
+
+
+
+
+<h2>Gestione Progressivo</h2>
+<br /><br /> Per ciascun documento, viene gestito un progressivo generato dal sistema che unico per ASL (del macello) e si azzera ogni anno. <br /> Sara' quindi nel formato: NUMERO/ASL/ANNO; se il documento viene generato piu' volte, tale progressivo non cambiera' ad eccezione del caso in cui siano state apportate modifiche al documento (es. modifica razza/specie di uno dei capi coinvolti, modifica del nome speditore, ecc): in tal caso il sistema si "accorge" della modifica e genera un nuovo progressivo, indicando che il documento attuale sostituisce il documento con il vecchio progressivo. <br /><br />
+<p style="text-align: justify;"></p>
+<h2>Funzionalita' di Dettaglio</h2>
+<br /><br />
+<p align="justify">Una volta inserito il controllo ufficiale, viene visualizzata la scheda di dettaglio dalla quale e' possibile compiere le seguenti azioni:<br /><br /></p>
+<ul>
+<ul>
+<li>Aprire il controllo in modifica (cliccando sul bottone "Modifica") qualora ci siano ulteriori campi da compilare o modificare.</li>
+</ul>
+</ul>
+<br />
+<ul>
+<ul>
+<li>Aggiungere al controllo eventuali campioni e/o tamponi prelevati nel corso dello stesso cliccando sugli appositi link (operazione non prevista per operatori di trasporto animali).</li>
+</ul>
+</ul>
+<br />
+<ul>
+<ul>
+<li>Aggiungere al controllo eventuali non conformita' riscontrate nel corso del controllo cliccando sull'apposito link. Dal momento che e' possibile cliccare una sola volta sul link "Inserisci non Conformita' Rilevate", tutte le non conformita' riscontrate nel corso del controllo vanno descritte in un unico "contenitore" delle non conformita'</li>
+</ul>
+</ul>
+<br />
+<ul>
+<ul>
+<li>Chiudere il controllo (cliccando sul bottone "chiudi") "se e solo se" completo di tutti i dati necessari; questo perche' una volta chiuso non e' piu' possibile riaprirlo (a meno che non si contatti l'Help Desk). Infatti il sistema chiede la conferma visualizzando il seguente messaggio. Inoltre, non e' possibile chiudere un controllo se non vengono chiusi prima tutti i campioni, tamponi, ecc. ad esso associati, infatti qualora si tenti di farlo il sistema non consente di farlo e fornisce un messaggio all'utente.</li>
+</ul>
+</ul>
+<br />
+<ul>
+<ul>
+<li>Chiudere il controllo (cliccando sul bottone "chiusura cu pregresso" - per CU Pregressi si intende tutti i CU con l'anno della data inizio controllo antecedente a quello corrente). Tale funzionalita' gestisce tutti gli scenari di chiusura ad oggi previsti (ispezioni semplici con e senza sottoattività, ispezioni in sorveglianza e audit) anche se riferito agli anni precedenti</li>
+</ul>
+</ul>
+<br />
+<ul>
+<li>Stampare il Modello 5 - Verbale Ispezione.</li>
+</ul>
+
+La compilazione del Modello 5 è possibile solo se il controllo risulta nello stato chiuso.<br/>
+La stampa del Modello 5 è possibile solo se esso è stato salvato in maniera definitiva.<br/><br/>
+
+Con la Rev. 7 del 31/12/2015 il modello 5 e' stato modificato nelle voci che lo compongono.<br /> In particolare:
+<ul>
+<ul>
+<li>Motivi di ispezione:visualizzabili non piu' come checkbox ma come descrizione per ogni singola motivazione.("Attivita'"-"Piano di monitoraggio")</li>
+<li>Oggetto del controllo:sostituito il termine "Settori" con "Macroaree".</li>
+Per la Macroarea "Benessere animale durante il trasporto" sono state eliminate le voci:</ul>
+</ul>
+<br />
+<ul>
+<ul>"Partenza" e relative voci.</ul>
+</ul>
+<br />
+<ul>
+<ul>"Destinazione" e relative voci.</ul>
+</ul>
+<br />
+<ul>"Certificato sanitario n." e relative voci.
+<li>Non conformita' rilevate:sostituito il punteggio della "non conformita' grave" da 25 a 50 punti.</li>
+</ul>
+<br />
+Per i controlli ufficiali con data inizio controllo successiva al 5/2/2020 e' prevista invece la Rev. 8 A/B del 22/12/19. L'utente avra' la possibilita' di stampare sia la versione 5/A (con informazioni sulle non conformita') che la versione 5/B (senza informazioni sulle non conformita').<br /> 
+<h2>Inserimento Diffida/Sanzione</h2>
+<br /> Per inserire una diffida ad un controllo ufficiale basta cliccare su Non conformita' grave e successivamente su Inserisci diffida. A questo punto si aprira' una finestra contenente le informazioni da inserire. <br /><img src="./images/inserimento_diffida.PNG" /><br /><br /> 
+Al momento della selezione nella lista delle norme, il sistema impedirà di selezionare:
+<ul>
+<li> Norme non selezionabili come diffida. In questo caso l'utente sara' avvisato di inserire direttamente la sanzione</li>
+</ul>
+Sara' possibile inserire piu' diffide attive sulla stessa norma.<br/>
+
+Successivamente,il dettaglio delle norme in diffida inserite e' possibile visualizzarlo nella lista delle non conformita'. Come mostrato in figura: <br /><img src="./images/dettaglio_diffida_conformita.PNG" /><br /> Oppure nel dettaglio dell'OSA (se le stesse norme non vengono inserite anche per una sanzione): <img src="./images/dettaglio_diffida_operatore.PNG" /><br /> 
+Se uno stabilimento subisce una variazione di titolarità in cui viene modificata la partita iva, le eventuali diffide vengono annullate e saranno visualizzate nella scheda impresa come 'pregresse'. Nel dettaglio della diffida, vengono visualizzate come scadute d'ufficio (data scadenza d'ufficio impostata uguale alla data variazione titolarita'). Inoltre, nel dettaglio della relativa non conformità, viene mostrato, accanto allo stato pratica diffida (aperta o chiusa), una dicitura che indica che è scaduta d'uffico per cambio titolarità.<br/>
+Per inserire una Sanzione,invece , basta cliccare su Sanzione e inserire le informazioni. <br /><img src="./images/inserimento_sanzione.PNG" /><br /> Se vengono inserite norme che risultano gia' precedentemente inserite in diffida, un messaggio avvisa l'utente senza impedirne l'inserimento. Salvando la sanzione, tutte le diffide attive su quella norma verranno annullate. <br/>
+(Si ricorda che l'annullamento delle diffide <strong>non</strong> e' previsto in caso di non conformita' a carico di terzi)<br /> <br/>
+Sara' possibile visualizzare il dettaglio delle sanzioni nella lista delle non conformita'.<br/>
+Sulle sanzioni sara' obbligatorio il caricamento dell'allegato "Processo Verbale". L'assenza di questo allegato impedira' la chiusura del controllo ufficiale.<br/>
+Sulle sanzioni sara' facoltativo il caricamento degli allegati "Altri". L'assenza di questi allegati non impedira' la chiusura del controllo ufficiale.<br/>
+<h2>Definizione dei vincoli di inserimento e modifica CU</h2>
+<br /><br /> In GISA e' nata la necessita' di rivedere e quindi ridefinire i vincoli per l'inserimento e i controlli ufficiali, introducendo il concetto di blocco laddove sono in corso delle rendicontazioni sui CU per evitare di alterare i dati ed introdurre incongruenze. La regola intorno alla quale ruotano tutti i vincoli per l'inserimento e la modifica di un controllo e' la seguente: <u>"Per l'anno n si possono inserire e modificare i CU dell'anno n fino al 10 Gennaio dell'anno n+1"</u><br /><br />
+<ul type="square">
+<ul type="square">
+<li><b>Vincolo 1: Inserimento di un controllo successivo alla data corrente</b></li>
+</ul>
+</ul>
+<br />
+<ul type="square">
+<ul type="square">Tale vincolo indica che non e' possibile inserire controlli ufficiali con data successiva alla data corrente.</ul>
+</ul>
+<br /><br />
+<ul type="square">
+<ul type="square">
+<li><b>Vincolo 2: Inserimento/Modifica di due controlli con la stessa "Data inizio controllo"</b></li>
+</ul>
+</ul>
+<br />
+<ul type="square">
+<ul type="square">Quando si vuole inserire un controllo con la stessa Data inizio controllo di un altro, il sistema mostrera' un messaggio di questo tipo ATTENZIONE! Risulta che in questo stabilimento e' stato gia' effettuato un controllo in questa data. Sei sicuro di continuare; se l'utente clicca su OK, allora sara' possibile concludere l'inserimento, viceversa, se clicca su ANNULLA, no. Lo stesso funzionamento avviene per l'operazione di modifica.</ul>
+</ul>
+<br /><br />
+<ul type="square">
+<ul type="square">
+<li><b>Vincolo 3: Inserimento/Modifica di un controllo in presenza di blocchi </b></li>
+</ul>
+</ul>
+<br />
+<ul type="square">
+<ul type="square">Per l'anno n sono previsti 4 blocchi trimestrali durante i quali non potranno essere fatti inserimenti e modifiche dei controlli. La situazione sara' la seguente:</ul>
+</ul>
+<br /><br />
+<dl>
+<dd></dd>
+</dl>
+</li>
+<li>[Primo blocco] dal 01/01 al 31/03;</li>
+<li>[Secondo blocco] dal 01/04 al 30/06;</li>
+<li>[Terzo blocco] dal 01/07 al 30/09;</li>
+<li>[Quarto blocco] dal 01/10 al 31/12;</li>
+</ul>
+<p></p>
+<dl>
+<dd></dd>
+</dl>
+<p></p>
+<ul type="square">
+<ul type="square">L'attivazione/disattivazione dei blocchi sara' una azione regolata da opportuni permessi e sara' disponibile solo al ruolo "ORSA DIREZIONE".</ul>
+</ul>
+<p></p>
+<ul type="square">
+<ul type="square">In particolare e' possibile,cliccando sul cavaliere "Home - "Blocco Controlli" - "Aggiungi blocco", limitare la modifica/inserimento di Controlli ufficiali.</ul>
+</ul>
+<p></p>
+<ul type="square">
+<ul type="square">Nello specifico selezionando:
+<ul>
+<li>Consentita modifica/inserimento di controlli con data compresa in dal - al<br /> Si possono inserire o modificare controlli ufficiali con data compresa tra le date selezionate.</li>
+<li>Non consentita modifica/inserimento di controlli con data compresa in dal - al<br /> Non e' possibile inserire o modificare controlli ufficiali con data compresa tra le date selezionate.<br /> Per entrambe le restrizioni inserite e' possibile motivare il blocco inserendo una nota nel campo Note.<br /><br /></li>
+</ul>
+</ul>
+</ul>
+<p><u>Nello stato "blocco":</u><br /><br /></p>
+<ul type="square">
+<ul type="square">
+<ol>
+<li>non sara' possibile inserire e modificare i controlli che hanno una data che ricade nel blocco di riferimento. (ovvero CU le cui date di inizio controllo ricadono nell'intervallo "data blocco-data fine blocco"). Il sistema in questo caso mostrera' il seguente messaggio: ATTENZIONE! Il controllo in questo momento non puo' essere inserito/modificato in GISA perche' attualmente in vigore un blocco temporaneo per i controlli dal [DATA INIZIO BLOCCO] AL [DATA FINE BLOCCO] ai fini della rendicontazione trimestrale."</li>
+</ol>
+</ul>
+</ul>
+<p></p>
+<ul type="square">
+<ul type="square">
+<ol>
+<li>non dovra' comparire nessun bottone che alteri lo stato di tutti quei controlli la cui "data inizio controllo" ricade nel range del blocco di riferimento. Nel dettaglio dei CU non modificabili, comparira' il messaggio riportato al punto 1.</li>
+</ol>
+</ul>
+</ul>
+<p></p>
+<ul type="square">
+<ul type="square">
+<ol>
+<li>non dovra' comparire nessun bottone che alteri lo stato delle sottoattivita' legate al controllo la cui data inizio controllo ricade nel range del blocco di riferimento.</li>
+</ol>
+</ul>
+</ul>
+<p></p>
+<ul type="square">
+<ul type="square">
+<ol>
+<li>Nel dettaglio dei controlli ufficiali, la cui data inizio controllo rientra nell'anno n-1, comparira' il seguente messaggio: "ATTENZIONE! La modifica ad un controllo dell'anno precedente puo' avvenire solo tramite richiesta all'Help Desk".</li>
+</ol>
+</ul>
+</ul>
+<p><br /><u>Nello stato di "sblocco"</u></p>
+<ul type="square">
+<ul type="square">non ci saranno limiti per l'anno n sulle operazioni di inserimento e modifica CU, ovvero sara' possibile inserire e modificare i controlli ufficiali per tutto l'anno n.</ul>
+</ul>
+<p><br /><br /></p>
+<ul type="square">
+<ul type="square">
+<li><b>Vincolo 4: Inserimento/Modifica di un controllo in Sorveglianza</b></li>
+</ul>
+</ul>
+<p></p>
+<ul type="square">
+<ul type="square">Per i controlli di tipo "Sorveglianza" si aggiungono anche i seguenti vincoli:</ul>
+</ul>
+<p><br /><br /></p>
+<ul type="square">
+<ul type="square">
+<ul type="disc">
+<li>Non e' possibile inserire una sorveglianza se ne esiste un'altra aperta per lo stesso stabilimento. In questo caso, il sistema restituira' un messaggio del tipo ATTENZIONE : non e' possibile inserire un nuovo controllo in Sorveglianza. Esistono controlli ufficiali in sorveglianza ancora aperti. Chiudere prima i seguenti controlli: [id_controllo];</li>
+<li>L'inserimento dei controlli in sorveglianza basato sulla categoria di rischio (CDR). In particolare, i controlli andranno effettuati secondo questa regola con una tolleranza di giorni pari circa al 20% del limite superiore:</li>
+<ul type="circle">
+<li>se la CDR = 5 1 anno</li>
+<li>se la CDR = 4 2 anni</li>
+<li>se la CDR = 3 3 anni</li>
+<li>se la CDR = 2 4 anni</li>
+<li>se la CDR = 1 5 anni</li>
+</ul>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul type="square">
+<ul type="square">
+<li><b>Vincolo 5: Campi modificabili in un CU</b></li>
+</ul>
+</ul>
+<p></p>
+<ul type="square">
+<ul type="square">I CU possono essere modificati direttamente dall'utente solo nelle seguenti condizioni:
+<ul>
+<li>stato APERTO</li>
+<li>assenza di campioni</li>
+<li>anno corrente</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul type="square">
+<ul type="square">In ogni caso non potra' MAI essere modificata la "Tecnica del controllo"</ul>
+</ul>
+<p><br /><br /></p>
+<ul type="square">
+<ul type="square">
+<li><b>Vincolo 6: Controlli Pregressi Anni precedenti</b></li>
+</ul>
+</ul>
+<p></p>
+<ul type="square">Le straordinarie operazioni di modifica CU per gli anni precedenti saranno possibili solo ed esclusivamente all'HD I livello, su esplicita richiesta, a partire dal 16 giorno del nuovo anno e naturalmente in assenza di blocchi. (Es. Si conclude l'anno 2014. L'utente ha tempo fino al 15 Gennaio 2015 per recuperare dati su CU dell'anno precedente. Se si va oltre questo limite, bisognera' fare la richiesta all'HD).</ul>
+<p></p>
+<h2> ATTIVITA DI MACELLAZIONE DI ANIMALI A DOMICILIO - ATT AO11 >> N. ISPEZIONI</h2>
+<p></p>
+<p align="justify">Nell'ambito di un controllo ufficiale, quando si seleziona come tipo di Ispezione 'Ispezione Semplice' e motivo dell'ispezione 'ATT. AO11: ATTIVITA' DI MACELLAZIONE DI SUINI A DOMICILIO: N.ISPEZIONI', saranno gestiti due campi aggiuntivi non obbligatori, da flaggare :</p>
+<ul>
+<li>1. Prelievo campione per ricerca trichine;</li>
+<li>2. Prelievo coagulo per MVS.</li>
+</ul>
+<p><br /><br /><img src="./images/mac1.png" width="1050" /><br clear="LEFT" /><br /><br /> Nel caso in cui l'utente selezioni entrambi i punti di cui sopra, verranno automaticamente inseriti due campioni separati, oltre al controllo ufficiale.<br /><br /> Per il punto 1, di default il campione avra' la matrice di Organi e Tessuti vari -&gt; Diaframma e analita di tipo Parassitologico -&gt; Parassiti -&gt; Trichinella. <br /> Se invece viene selezionato il punto 2, allora di default la matrice sara'; Sangue -&gt; Sangue Coagulato -&gt; Suini e lanalita Virologico -&gt; Anticorpi -&gt; Malattia vescicolare suina. <br /> Il campione, per essere inserito necessita anche delle seguenti informazioni:</p>
+<ul>
+<li>Data del prelievo, che in questo caso sara' valorizzata con la data del controllo ufficiale inserito;</li>
+<li>Laboratorio di destinazione, settato per default diventa IZSM.</li>
+<li>Un numero di verbale che verrà generato automaticamente.</li>
+</ul>
+<p></p>
+<p>Per concludere correttamente l'inserimento del CU di questo tipo, e' necessario completare i dati tramite un nuovo bottone DATI ESTESI PER ATT. AO11: ATTIVITA' DI MACELLAZIONE DI SUINI A DOMICILIO: N.ISPEZIONI. una volta cliccato si potranno settare le seguenti informazioni: <br /><br /><img src="./images/dom1.png" width="1050" /><br clear="LEFT" /><br /><br /> Controllo documentale effettuato:</p>
+<ul>
+<li>SI - Viene attivato il campo 'numero capi' nel quale si possono scegliere 1, 2, 3 o 4 ed in base a questa scelta si devono editare i campi 'DATA ACQUISTO n' (ovvero data Mod.4 acquisto) ed 'ALLEVAMENTO ORIGINE n' dove n e' il numero dei relativi capi.</li>
+<li>NO - I restanti campi non sono obbligatori</li>
+</ul>
+<p><br /> Concluso l'inserimento il dettaglio del controllo ufficiale 
+si presentera' come in figura seguente. 
+<br /><br /><img src="./images/dom2.png" width="1050" /><br clear="LEFT" /><br /><br /> 
+Naturalmente dopo il salvataggio del controllo ufficiale si potra' tornare nel suddetto in modalita' modifica per completare o integrare le info mancanti. 
+<br /><br /></p>
+<br><br>
+
+<h2> ATTIVITA PER CANI MORSICATORI/AGGRESSORI - ATT AO9_B, AO9_C e B52</h2>
+<p>
+
+Nell'aggiunta e modifica di un controllo ufficiale per canili e proprietari di animali, se si seleziona come motivo di ispezione una delle attività tra AO9_B, AO9_C e B52, il sistema visualizza nella form 
+una sezione dover poter selezionare uno o più microchip tra quelli di proprietà della persona o detenuti nel canile.<br/>
+Questa sezione è da compilare obbligatoriamente.<br/>
+Qualora l'animale soggetto a controllo non è presente nella lista occorre prima anagrafarlo in BDU.<br/>
+I controlli inseriti con questi motivi di ispezione, una volta chiusi, possono essere usati per inserire la relativa registrazione di aggressione (se attività B52) o morsicatura (se attività AO9_B o AO9_C).<br/>
+Una volta che il controllo è stato usato in bdu per associarlo ad una registrazione, questo non sarà più riapribile e modificabile.
+</p>
+<br><br>
+
+<h2>Vincoli sui Controlli Ufficiali in Sorveglianza</h2>
+<p></p>
+<p align="justify">Al fine di garantire una corretta gestione della categorizzazione del rischio si reso necessario porre dei vincoli sulla gestione dei controlli ufficiali in sorveglianza. I vincoli sono necessari poichall'inserimento della prima checklist viene calcolato e inserito il punteggio pregresso. Se la situazione non dovesse essere "congelata" (o a causa di controlli aperti e quindi modificabili o a causa di nuovi controlli precedenti) si darebbe origine ad incongruenze sui dati non facilmente gestibili.<br /><br /> Supponendo, ad esempio, di voler attribuire all'impresa "Mario Rossi s.a.s." un nuovo controllo <br /><br /></p>
+<ul>
+<ul>
+<li>se su tale impresa esistono gia' dei controlli ufficiali non in sorveglianza ancora aperti ed antecedenti al controllo in sorveglianza che si sta inserendo non sara' possibile inserire alcuna checklist. Fanno eccezione tutti i controlli non in sorveglianza ancora aperti in quanto in attesa di esito di campioni o tamponi e quelli eseguiti nell'ultima settimana a partire dalla data del controllo. Nel caso in cui tale vincolo non viene rispettato il sistema fornisce il seguente messaggio e non consente di andare avanti.</li>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>
+<li>se il controllo in sorveglianza viene normalmente inserito completo delle eventuali checklist, non pipossibile inserire nuovi controlli ufficiali non in sorveglianza con data antecedente al controllo in oggetto. Fanno eccezione tutti i controlli non in sorveglianza eseguiti nell'ultima settimana a partire dalla data del controllo. Nel caso in cui tale vincolo non viene rispettato il sistema fornisce il seguente messaggio e non consente di andare avanti.</li>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>
+<li>se per l'impresa esiste un controllo ufficiale in sorveglianza aperto, non si potra' inserirne un altro fin quando l'ultimo non stato chiuso. Nel caso in cui tale vincolo non viene rispettato il sistema fornisce il seguente messaggio e non consente di andare avanti.</li>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>
+<li>deve essere evitato l'inserimento di due controlli di sorveglianza troppo ravvicinati. Quindi non potra' esser inserito il controllo in sorveglianza se ne esiste un altro antecedente rispetto al quale non passato un intervallo di tempo minimo, quantificato in: <intervallo attribuito="" dalla="" categoria="" di="" rischio="" -="" 20=""></intervallo></li>
+</ul>
+</ul>
+<p><br /><b>NOTA 1</b> : se un controllo non in sorveglianza stato gia' incorporato in un calcolo di punteggio precedente viene comunque riutilizzato qualora rientri nell'intervallo di 5 anni di picontrolli in sorveglianza.<br /><br /><b>NOTA 2</b> : se un controllo viene tenuto aperto oltre la settimana (a parte quelli composti da campioni e/o tamponi) alla login dell'operatore la cosa sara' segnalata con un messaggio nella HOME-PAGE.<br /><br /><b>NOTA 3</b> : i controlli non in sorveglianza aperti (e l'unico motivo valido deve essere perchin attesa di esito campione e/o tampone) non vengono utilizzati nel computo del punteggio fino a quando non vengono chiusi. <br /><br /></p>
+<h2>Gestione evento Blocco/Sblocco Modifica CU</h2>
+<p><br /> Nel sistema possibile modificare alcuni dati del CU per lanno corrente purchnon esista un evento di blocco che impedisce tale azione.<br /> In particolare, potranno essere modificati i tipi e le motivazione dei CU solo nelle seguenti condizioni:</p>
+<ul>
+<li>Si possono modificare i controlli se non vi alcun evento di blocco modifica.</li>
+<li>Si possono modificare i controlli che non hanno campioni associati: in questo caso il sistema avvisa l'utente con un messaggio che ricorda la dipendenza del motivo di ispezione del CU con quella del campione gia' presente e gli impedisce di proseguire.</li>
+<li>Si possono modificare i controlli che hanno data inizio controllo maggiore della data di evento blocco.</li>
+</ul>
+<p>La gestione degli eventi di blocco e sblocco della modifica CU regolata da un opportuno permesso, attribuito per ora al ruolo di "Responsabile Regione".<br /><br /><br /></p>
+<h2>Gestione non conformita'</h2>
+<p align="justify"><br /> Nel corso di un controllo ufficiale possono essere riscontrate delle non conformita' formali, significative o gravi da cui possono scaturire dei follow up ( sanzioni, sequestri, notizie di reato o altri follow up). In GISA le non conformita' riscontrate nel corso di un controllo sono accessibili dal dettaglio del controllo cliccando sull'apposito link. <br /><br /><img src="./images/nc_rilevate.PNG" /><br clear="LEFT" /><br /></p>
+<h2>Funzionalita' inserimento</h2>
+<p align="justify"><br /> In GISA l'inserimento delle non conformita' avviene cliccando sul link "Inserisci Non Conformita' Rilevate" dal dettaglio del controllo ufficiale a cui vanno associate.<br /><br /><img src="./images/nc_rilevate2.PNG" /><br clear="LEFT" /><br /><br /> previsto l'inserimento di almeno un tipo di non conformita': formali, significative o gravi e nel caso in cui tale requisito non venga rispettato il sistema rispondera' con il seguente messaggio bloccante.<br /><br /></p>
+<h2>Inserimento di un tipo di non conformita'</h2>
+<p align="justify"><br /> Per inserire una tipologia di non conformita' (formali, significative o gravi) basta selezionare il tab corrispondente. Per ogni non conformita' riscontrata occorre specificare:</p>
+<ul>
+<li>una descrizione</li>
+<li>il settore a cui la non conformita' si riferisce (es. alimenti per il consumo umano). La lista delle voci selezionabili per tale campo corrisponde alla lista delle voci selezionate come "oggetto del controllo" nel controllo ufficiale corrispondente.</li>
+<li>in caso di selezione di "Benessere animale durante il trasporto" o "Benessere animale durante la macellazione" sara' possibile la selezione (non obbligatoria) di un ulteriore livello di dettaglio. Inoltre in fase di inserimento FollowUp saranno presenti, come provvedimenti, le voci dell'art 138.</li>
+<li>la linea sottoposta a non conformita' (in caso di ispezione semplice o audit saranno selezionabili solo le linee del CU; in caso contrario sara' selezionabile una qualsiasi linea dell'anagrafica )</li>
+</ul>
+<p><br /><img src="./images/nc_rilevate3.PNG" /><br clear="LEFT" /><br /><br /> Nel caso in cui siano state riscontrate pidi una non conformita', l'utente potra' aggiungerne altre cliccando semplicemente sul pulsante "Inserisci NC". L'aggiunta di una nuova non conformita' sara' possibile solo se i campi della precedente sono stati inseriti, altrimenti il sistema avverte che non possibile aggiungerne una nuova finchnon sono stati completati i campi precedenti. Inoltre ogni volta che viene aggiunta una non conformita' le precedenti non sono pimodificabili. Il numero massimo di non conformita' che possono essere inserite sono 25 per le formali e significative, 15 per le gravi. Qualora l'utente si accorgesse di dover eliminare una non conformita' lo pufare cliccando sul bottone "Elimina NC". Inoltre mediante il tasto "Reset NC" possibile azzerare il lavoro svolto eliminando le non conformita' e i follow up inseriti, riportando lo stato del tab a quello iniziale. Il campo "Valutazione del Rischio" (presente in alto) globale per ogni tipologia di non conformita' (non esiste per le gravi). Il punteggio viene incrementato automaticamente dal sistema ogni volta che una nuova non conformita' viene aggiunta. Per le non conformita' formali il punteggio incrementato di 1 punto, per le significative di 7 punti per le gravi di 25 punti(controlli ufficiali inseriti con data antecedente al 31/12/2014),o 50 punti(controlli ufficiali dell'anno corrente). Di volta in volta varia anche il punteggio totale della non conformita' che viene aggiornato comunque in automatico. <br /><br /> Per completare l'inserimento e abilitare il tasto di inserimento globale della non conformita', oppure per aggiungere un'altra tipologia di non conformita' (formali, significative, gravi), dopo aver aggiunto le non conformita' di una certa tipologia obbligatorio l'inserimento di almeno un follow up corrispondente. Nel caso delle non conformita' gravi obbligatorio l'inserimento di almeno una delle seguenti attivita': sanzione, nota di reato o sequestro, mentre per le formali e significative altri follow up. <br /><br /><img src="./images/follow_up.PNG" /><br clear="LEFT" /><br /> E' possibile l'aggiunta dei follow up mediante gli appositi bottoni. Cliccando si apre la maschera di inserimento e finche' l'utente non esce dall'aggiunta del follow up (sanzione, sequestro, notizia di reato) non pueffettuare altre operazioni nel sistema. Dopo aver inserito il follow up (sanzione, sequestro, notizia di reato), la finestra verra' chiusa e l'utente vede apparire il follow up inserito nella tabella in basso e pucontinuare o con l'inserimento degli altri tipi di non conformita' o con l'inserimento globale. Non sara' possibile accedere al dettaglio dei follow up aggiunti se non si inserisce prima il contenitore globale delle non conformita' (cosa possibile solo se si clicca sul bottone "Inserisci&gt;"). <br /><br /><b>IMPORTANTE : Si ricorda che per poter spostarsi da una tipologia all'altra di non conformita' l'utente dovra' aver inserito almeno una non conformita' e almeno una attivita' per il tab in cui si trova, oppure non aver inserito niente. Solo quando i tre tab sono stati completati sara' possibile l'intera non conformita'.</b><br /><br /> Alle non conformita' aggiunte il sistema attribuisce in automatico un identificativo che le rende univoche in GISA. <br /><br /></p>
+<h2>Modifica di un tipo di non conformita'</h2>
+<p><br /> Cliccando sul tasto modifica appare la pagina di modifica della non conformita' con i dati inseriti in fase di inserimento. Per ogni tipologia di non conformita' inserita (formale, significativa e/o grave) consentita la modifica dei campi descrizione e oggetto delle non conformita' riscontrate, con la possibilita' di aggiungerne altre. <br /><br /> Le non conformita' di una certa tipologia registrate in fase di inserimento non potranno essere eliminate ma solamente modificate. Stesso discorso per i follow up (sanzioni, sequestri, ecc. ): i follow up registrati in fase di inserimento non possono essere cancellati possibile solo aggiungerne altri. Il pulsante "Inserisci NC" permette l'inserimento di una nuova non conformita' mentre il pulsante "Elimina NC" permette di eliminare le non conformita' inserite in fase di modifica e non quelle registrate in fase di inserimento. Il pulsante "Reset NC" azzera il lavoro svolto in fase di modifica, lasciando inalterati i dati registrati in fase di inserimento.</p>
+<h2>Inserisci Non conformita' non a carico del soggetto ispezionato</h2>
+<p><br /> Successivamente all'inserimento di un controllo ufficiale e' possibile anche inserire una "non conformita' non a carico del soggetto ispezionato" cliccando sull'apposito bottone.<br /> Come mostrato in figura:<br /><img src="./images/nc_non_a_carico.png" /><br clear="LEFT" /><br /><br /> Successivamente si aprira' una scheda nella quale ,cliccando su "seleziona da GISA" ,e' possibile ricercare in GISA l'OSA a cui attribuire il provvedimento. <br /><img src="./images/ricerca_gisa.png" /><br clear="LEFT" /><br /><br /><br /> Nel caso in cui la ricerca non dia risultati, sar&agrave; possibile aggiungere manualmente il soggetto dalla pagina del risultati ricerca. <br/>Come possiamo notare nell'immagine precedente:<br /> e' possibile inserire esclusivamente Non conformita' gravi.<br /> In particolare i provvedimenti che si possono inserire sono Sanzione , Sequestro ,Notizie di reato ed Altri follow up.<br /> Inoltre per quanto riguarda le "non conformita' non a carico del soggetto ispezionato" non viene attribuito alcun punteggio come accade invece nelle "Non conformita' a carico del soggetto ispezionato."<br /> Per quanto riguarda le limitazioni e vincoli valgono le stesse regole riportate precedentemente nelle "Non conformita' a carico del soggetto ispezionato"con l'unica eccezione per quanto riguarda la possibilita' di inserire piu' "Non Conformita' non a carico del soggetto ispezionato" nello stesso controllo a differenza delle "Non conformita' a carico del soggetto ispezionato" che possono essere inserite solo una volta per ogni controllo ufficiale.<br /><br /><br /></p>
+<h2>Funzione di inserimento di sanzioni posticipate (fuori tempo massimo) per l'aggiornamento del Registro Trasgressori</h2>
+<p>Poiche' esistono dei vincoli temporali sull'inserimento dei controlli ufficiali (attualmente sui primi 15 gg dell'anno successivo), anche allo scopo di garantire la completezza del Registro Trasgressori si e' reso necessario derogare alla regola consentendo l'inserimento di eventuali sanzioni "sfuggite". <br /><br /> Di seguito i tre scenari in cui e' possibile effettuare l'operazione:<br /><br /><u>Scenario 1</u><br /> Inserimento di una sanzione "fuori tempo massimo" dovuta a un esito non favorevole di un campione noto in un istante successivo alla scadenza dei termini di modificabilita' dei controlli.<br /><u>Azione</u><br /> Sicuramente e' gia' presente nella scheda dello stabilimento controllato il CU con relativo campione. Nel dettaglio del controllo sara' disponibile il link "Aggiungi sanzione posticipata per esito campione non favorevole".<br /><img src="./images/nc_post_nonfavorevole.PNG" /><br clear="LEFT" /><br /> N.B./Possibili criticita':</p>
+<ul>
+<li>Le sanzioni relative agli anni precedenti verranno messe in coda al registro di quell'anno</li>
+</ul>
+<ul>
+<li>Nel registro trasgressori, il campo "data accertamento" e' posto uguale al campo "Data esecuzione attivita'" della sanzione che a sua volta posta uguale alla "Data inizio controllo" (come in tutti i casi gestiti dal registro trasgressori)</li>
+</ul>
+<ul>
+<li>Allo scopo di non alterare l'attuale meccanismo di gestione delle NC, utilizzando la funzionalita' descritta nello scenario 1, sara' possibile inserire non solo la sanzione ma pi&ugrave; in generale qualsiasi follow up di qualsiasi NC</li>
+</ul>
+<p><u>Scenario 2</u><br /> Inserimento di una sanzione "fuori tempo massimo" dovuta ad un errata operazione utente che ha tralasciato l'inserimento della sanzione entro la scadenza dei termini di modificabilita' dei controlli. <u>Azione</u><br /> Sicuramente e' gia' presente nella scheda dello stabilimento controllato il CU nel quale viene descritta la NC grave. Nel dettaglio del controllo sara' disponibile il link "Aggiungi sanzione posticipata". <br /><br /><img src="./images/sanzioni_posticipate.PNG" /><br clear="LEFT" /><br /><u>Scenario 3</u><br /> Inserimento di un CU "fuori tempo massimo" con una NC e relativa sanzione.<br /><u>Azione</u><br /> Sara' possibile inserire il CU fittizio con le seguenti caratteristiche:</p>
+<ul>
+<li>Tecnica del controllo: CU PER NON CONFORMITa' POSTICIPATA</li>
+<li>Nucleo ispettivo settato in automatico:
+<ul>
+<li>qualifica: SANZIONI POSTICIPATE RUOLO FITTIZIO.</li>
+<li>nominativo: SANZIONI POSTICIPATE UTENTE FITTIZIO</li>
+</ul>
+</li>
+<li>Oggetto del controllo: specificato dall'utente</li>
+<li>Data inizio controllo: specificata dall'utente (data relativa ad anno precedente)</li>
+</ul>
+<p><br /><br /> Completato l'inserimento del controllo, nel dettaglio sara' disponibile il link "Inserisci non conformita' rilevata".<br /> Operazione consentita a tutti gli utenti. <img src="./images/nc_post.PNG" /><br clear="LEFT" /><br /><br /> N.B./Possibili criticita':</p>
+<ul>
+<ul>
+<li>Tutte le sanzioni posticipate saranno presenti nel registro trasgressori se la data del controllo sara' successiva o uguale alla data di istituzione del registro.(01.03.2015).</li>
+<li>Tutte le sanzioni posticipate e gli eventuali controlli inseriti attraverso queste funzioni saranno identificabili univocamente nella reportistica.</li>
+</ul>
+</ul>
+<p><br /><br /></p>
+<h2>Gestione stati nei Controlli ufficiali e nuovi vincoli su non conformita' e sanzioni</h2>
+<p align="justify"><br /> Lo stato del controllo ufficiale puo' assumere i seguenti valori:</p>
+<ul>
+<ul>
+<ol>
+<li>APERTO</li>
+<li>CHIUSO</li>
+<li>RIAPERTO</li>
+</ol>
+Appena dopo l'inserimento il controllo si trovera' nello stato APERTO e le azioni possibili saranno:</ul>
+</ul>
+<ol>
+<li>Chiudi</li>
+<li>Modifica</li>
+<li>Cancella</li>
+</ol>
+<ul>
+<ul>In caso di chiusura del controllo ufficiale, le azioni possibili saranno:</ul>
+</ul>
+<ol>
+<li>Apri di nuovo</li>
+</ol>
+<ul>
+<ul>In caso di inserimento di una Non conformita' con sanzioni (ovviamente in caso di stato non CHIUSO) le azioni possibili saranno:</ul>
+</ul>
+<ol>
+<li>Chiudi</li>
+<li>Modifica</li>
+</ol>
+<ul>
+<ul>Se la non conformita' viene chiusa le azioni possibili saranno:</ul>
+</ul>
+<ol>
+<li>Apri di nuovo</li>
+</ol>
+<ul>
+<ul>L'azione Cancella non risultera' possibile. Lo sara' solo in presenza di N.C senza sanzioni.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>In caso di inserimento di sanzioni, le azioni possibili dipenderanno dallo stato del controllo. Se quest'ultimo e' CHIUSO oppure RIAPERTO, non sara' possibile cancellare la sanzione.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Se lo stato del controllo e' APERTO, invece, sara' possibile fare:</ul>
+</ul>
+<ol>
+<li>Cancella</li>
+</ol>
+<h2>Funzione di inserimento di sanzioni posticipate (fuori tempo massimo) per l'aggiornamento del Registro Trasgressori</h2>
+<p><br /><br /></p>
+<ul>
+<ul>Allo scopo di garantire la completezza del Registro Trasgressori e' possibile inserire sanzioni relative a CU aggiunti nell'anno 2015.</ul>
+</ul>
+<p><br /><br /></p>
+<ul>
+<ul>Di seguito i due scenari in cui e' possibile effettuare l'operazione:</ul>
+</ul>
+<p><br /><u>Scenario 1</u></p>
+<ul>
+<ul>La necessite' dell'inserimento di una sanzione "fuori tempo massimo" nasce da un procedimento a cavallo tra anni diversi, nel caso di un campione il cui esito non favorevole risulta noto in un istante successivo alla chiusura del controllo.</ul>
+</ul>
+<p><br /><u>Azione</u></p>
+<ul>
+<ul>Nel dettaglio del controllo, si attiva il link "Aggiungi Nc posticipate per esito non conforme", visibile all'ASL di competenza. Le sanzioni 2015 inserite nell'anno corrente verranno messe in coda al registro del 2015.</ul>
+</ul>
+<p><br /><u>Scenario 2</u></p>
+<ul>
+<ul>La necessita' dell'inserimento di una sanzione "fuori tempo massimo" nasce da un errata operazione utente che ha inserito, completato e chiuso il CU tralasciando l'inserimento della sanzione.</ul>
+</ul>
+<p><br /><u>Azione</u></p>
+<ul>
+<ul>Nel dettaglio del controllo, si attiva il link "Aggiungi Nc posticipata", nel caso in cui non esista alcuna gia' presente oppure "Modifica Nc posticipata", nel caso in cui esiste gia' una non conformita' ma senza provvedimenti. Il permesso per utilizzare queste ultime due funzioni e' concessa unicamente agli utenti con ruolo HD.</ul>
+</ul>
+<p><br /><br /><br /><br /></p>
+
+<strong>Sorveglianza SOA</strong><br/><br/>
+In caso di controllo ufficiale eseguito in ispezione tecnica della sorveglianza su uno stabilimento con almeno una linea SOA, è disponibile una gestione semplificata del punteggio.<br/>
+L'utente infatti non deve compilare alcuna checklist, ma solo indicare il punteggio finale tramite il bottone "Inserisci dati punteggio" nel dettaglio del controllo.<br/>
+<img src="./images/inserisci_dati_punteggio.png" /><br clear="LEFT" />
+Al clic del pulsante si apre una pop up nel quale è possibile specificare:
+<p><br /><u>Tipo Checklist</u></p>
+<ul>
+Campo di testo obbligatorio nel quale è possibile inserire informazioni sulle checklist.
+</ul>
+<p><br /><u>Punteggio Checklist</u></p>
+<ul>
+Campo numerico obbligatorio nel quale è possibile inserire il punteggio totale delle checklist.
+</ul>
+<img src="./images/punteggio_checklist.png" /><br clear="LEFT" />
+
+La categoria di rischio sar&agrave; convertita a seconda del punteggio in "Basso" (fino a 29), "Medio" (da 30 a 44) o "Alto" (da 45 in poi) .<br/>
+
+
+<p><br /><br /><br /><br /></p>
+
+<strong>Checklist Macelli</strong><br/><br/>
+In caso di controllo ufficiale eseguito per il piano <i>A13_U</i> su una linea attivita' compresa tra:<br/><br/>
+<ul>
+<li>PRODUZIONE E TRASFORMAZIONE DI ALIMENTI IN 	STABILIMENTI RICONOSCIUTI  AI SENSI DEL REG (CE) 853/2004 -> 1 - CARNE DEGLI UNGULATI DOMESTICI -> SH MACELLO</li>
+<li>ALIMENTI DI ORIGINE ANIMALE - IMPRESE REGISTRATE PER 	PRODUZIONE, TRASFORMAZIONE E CONFEZIONAMENTO -> MACELLAZIONE DI AVICUNICOLI PRESSO AZIENDE 	AGRICOLE -> MACELLAZIONE DI AVICUNICOLI PRESSO AZIENDE 	AGRICOLE E AGRITURISTICHE</li> 
+</ul>
+Nel dettaglio e' disponibile un bottone per allegare la checklist macelli (obbligatoriamente in formato PDF). La chiusura del CU sara' possibile solo dopo aver allegato il file.<br/><br/>
+<img src="./images/checklistmacelli.png" /><br clear="LEFT" />
+
+<br/><br/>
+<a name="inserimentob29"></a>
+<strong> INSERIMENTO CONTROLLI E ATTIVITA' B29, D19, D23</strong><br/>
+Qualora l'utente voglia inserire un controllo ufficiale, che abbia come motivo del controllo una delle seguenti attività : B29, D19, D23 deve seguire le seguenti istruzioni di inserimento.<br/>
+<mark>ATTIVITA' B29 : "ATTIVITÀ DI DOCENZA IN CORSI DI FORMAZIONE PER EMERGENZE EPIDEMICHE".</mark><br/>
+L'utente dovrà inserire se stesso nel cavaliere "altri stabilimenti", sezione "privati" specificando nel campo note, editabile liberamente, la qualifica e il dipartimento di appartenenza.<br/>
+Si ricorda che non è prevista alcuna obbligatorietà di campi, se non per i dati  anagrafici, essenziali per l'estrazione del dato, qualora ce ne fosse l'esigenza.<br/>
+Tuttavia si consiglia in fase di inserimento di anteporre al proprio nome la dicitura della propria qualifica, es. "medico veterinario"<br/> 
+Una volta inserito se stesso, l'utente potrà aggiungere il controllo ufficiale come qualsiasi altra scheda, attraverso il tasto a destra della scheda " AGGIUNGI CONTROLLO UFFICIALE".<br/>
+<mark>ATTIVITA' D19 : "INTERVENTI DI EDUCAZIONE ALLA SALUTE".</mark><br/>
+Per inserire un controllo avente come motivo l'attività D19 è necessario inserire l'istituto o comprensorio scolastico presso i quali si effettuano queste attività.<br/>
+Gli istituti verranno inseriti dall'ORSA nel cavaliere operatori non presenti altrove attraverso la funzione descritta nel dettaglio del cavaliere stesso.<br/>
+La scheda adeguatamente compilata, una volta mandata via e mail, verrà inserita in "altri stabilimenti", "operatori non presenti altrove" con l'adeguato suffisso del tipo di istituto da inserire.<br/>
+ es: "istituto comprensivo...." Si consiglia di inserire nel campo indicato  come "numero registrazione" un numero identificativo dell'istituto per rendere la ricerca più immediata.<br/>
+<mark>ATTIVITA' D23 : " ATTIVITA' DI DOCENZA IN CORSI DI FORMAZIONE/ INFORMAZIONE".</mark><br/>
+L'inserimento dei controlli che hanno come motivo del controllo l'attività D23 seguono le stesse modalità dell'inserimento dei controlli ufficiali dell'attività B29.<br/> 
+Si inserisce il singolo che ha effettuato tale attività e si procede con l'inserimento del controllo.<br/>

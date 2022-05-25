@@ -1,0 +1,97 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+label.invalid {
+    background-image : url(../images/icon-error.gif);
+    background-position : left center;
+    background-repeat : no-repeat;
+    color : #ff0000;
+  }
+
+
+#system-message dt {
+    font-weight: bold;
+  }
+
+
+#system-message dd {
+    margin: 0;
+    font-weight: bold;
+    text-indent: 0px;
+    background:#fff;
+    padding:0;
+  }
+
+
+#system-message dd ul {
+    color: #93246F;
+    margin-bottom: 10px;
+    list-style: none;
+    padding: 0px;
+    border-top: 3px solid #93246F;
+    border-bottom: 3px solid #93246F;
+  }
+
+/* System Standard Messages */
+
+#system-message dt.message {
+    display: none;
+  }
+
+
+#system-message dd.message {
+  }
+
+
+#system-message dd.message ul {
+    background: #F2E3ED;
+  }
+
+/* System Error Messages */
+
+#system-message dt.error {
+    display: none;
+  }
+
+
+#system-message dd.error {
+  }
+
+
+#system-message dd.error ul {
+    color: #93246F;
+    background: #F2E3ED ;
+    border-top: 3px solid #93246F;
+    border-bottom: 3px solid #93246F;
+    margin:0;
+  }
+
+/* System Notice Messages */
+
+#system-message dt.notice {
+    display: none;
+  }
+
+
+#system-message dd.notice {
+  }
+
+
+#system-message dd.notice ul {
+    color: #93246F;
+    background: #F2E3ED;
+    border-top: 3px solid #93246F;
+    border-bottom: 3px solid #93246F;
+  }
+
+
+#stamp_us{
+
+text-align:center;
+
+}

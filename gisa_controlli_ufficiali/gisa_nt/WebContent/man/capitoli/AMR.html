@@ -1,0 +1,62 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="amr"></a>
+<h3 id="amr">Invio Campioni AMR (Piano di monitoraggio C39)</h3>
+<p>I campioni prelevati per il "Piano di monitoraggio AMR" su carne fresca refrigerata possono essere inseriti in GISA rispettando le seguenti condizioni:
+</br>
+Il luogo del prelievo deve corrispondere ad uno degli OSA segnalati.<br/><br/>
+Invio campioni AMR intestino cieco:<br/>
+<ul>
+<li>OSA: Macelli avicoli</li>
+<li>matrice: intestino cieco</li>
+<li>motivo campione: C39 - PIANO DI MONITORAGGIO AMR >> C39_E - N. CAMPIONI AL MACELLO DI INTESTINO DI POLLI DA CARNE</li>
+</ul>
+Invio campioni AMR carni refrigerate:<br/>
+<ul>
+<li>OSA: stabilimenti registrati 852-04 di commercio a ingrosso e dettaglio di carni polli e tacchini</li>
+<li>matrice: carni refrigerate</li>
+<li>motivo campione: C39 - PIANO DI MONITORAGGIO AMR >> C39_F - CAMPIONI DI CARNE REFRIGERATA DI POLLO NELLA FASE DI COMMERCIALIZZAZIONE AL DETTAGLIO</li>
+<li>oppure: C39 - PIANO DI MONITORAGGIO AMR >> C39_G - CAMPIONI DI CARNE REFRIGERATA DI TACCHINO NELLA FASE DI COMMERCIALIZZAZIONE AL DETTAGLIO</li>
+</ul>
+
+Il lotto di produzione del campione prelevato deve essere obbligatoriamente inserito nel campo "NOTE".<BR/>
+
+Si ricorda che il passaggio delle informazioni da Gisa a SINVSA avverra' automaticamente, tuttavia e' importante il rispetto delle condizioni 
+sopra  descritte affinche' la trasmissione non venga respinta.<br/>
+Una volta inviato, il campione non puo' essere piu' cancellato da Gisa.
+</p>
+
+<strong>Estensione dati</strong><br/>
+<!-- La lista dei CUN e' la seguente: <br/><br/> -->
+<!-- AA000700008BNIT, AA000012006NAIT, AA000748060NAIT, AA000061073NAIT, AA000596005CEIT, AA000093052CEIT, AA000486008BNIT, AA000072074BNIT, AA000082052CEIT, AA000053046CEIT, AA000126015CEIT, AA001034022CEIT, AA000215005CEIT, AA000852022CEIT, AA000065008BNIT, AA000172075CEIT, AA000033009CEIT, AA000049015AVIT, AA000011029AVIT, AA000004007BNIT, AA000033043BNIT, AA000026001BNIT, AA000017001BNIT, AA000415008BNIT, AA000526008AVIT, AA000107063NAIT, AA000100062NAIT, AA000036067NAIT, AA000535084NAIT, AA007845049NAIT, AA007313049NAIT, AA000620034NAIT, AA000066084NAIT, AA000139064NAIT, AA000195064NAIT, AA000365058NAIT, AA001220116SAIT, AA000001056BNIT, AA000339049NAIT, AA000265064NAIT, AA001991116SAIT, AA000441014SAIT, AA005847049NAIT, AA000123048NAIT, AA000334023NAIT, AA000110045NAIT, AA000242037SAIT, AA000326014SAIT, AA000226014SAIT, AA000506078SAIT, AA000014121AVIT, AA000124037SAIT, AA000409050SAIT, AA000112078SAIT, AA001137022CEIT, AA006410049NAIT, AA005485049NAIT, AA000198008BNIT, AA000026030BNIT, AA002973049NAIT, AA007169049NAIT, AA000062049AVIT, AA000208079NAIT, AA000319014SAIT, AA000258002SAIT, AA000048027CEIT, AA000222002SAIT, AA003627049NAIT, AA002803049NAIT, AA000436060NAIT, AA000804060NAIT, AA000066049AVIT, AA000046044BNIT, AA000005050BNIT, AA000158027CEIT, AA000111007CEIT, AA006798049NAIT, AA000068027CEIT, AA000002026AVIT, AA000021034AVIT, AA000313008AVIT, AA000042046AVIT, AA000006113AVIT, AA000195083NAIT, AA000377034NAIT, AA000036047NAIT, AA000125063NAIT, AA000078060NAIT, AA000474008BNIT, AA000201050SAIT, AA001457116SAIT, AA000036054AVIT, AA000559008AVIT, AA000037054AVIT, AA007712049NAIT, AA005626049NAIT, AA006282049NAIT, AA006484049NAIT, AA000226008AVIT, AA000035040BNIT<br/><br/> -->
+
+<img src="${pageContext.request.contextPath}/guida_2016/images/amr_ricerca_cu.png" /><br/><br/>
+
+Una ricerca generica per piano AMR e' disponibile in Home page - Ricerca CU AMR. La ricerca restituisce esclusivamente i controlli ufficiali svolti per il piano AMR, senza controllare l'eventuale presenza del campione.<br/>
+Accedendo al dettaglio di un CU che rispetti tutte le condizioni, sara' disponibile il link "Gestione Dati AMR"<br/>
+<img src="${pageContext.request.contextPath}/guida_2016/images/amr_gestione_dati.png" /><br/><br/>
+L'utente potrà quindi compilare il modulo con i dati richiesti. Si ricorda che il campo "codice fiscale veterinario" e' selezionabile solo dalla lista dei codici fiscali accreditati all'avvio della gestione AMR ed attivi nel sistema. Eventuali aggiunte/mancanze andranno comunicate all'Help Desk.<br/>
+<img src="${pageContext.request.contextPath}/guida_2016/images/invioAMR.png" /><br/>
+E' necessario che la terna  'NUM REGISTRAZIONE PROVENIENZA' , 'DATA DI ACCASAMENTO' ,'CAPACITA DI MACELLAZIONE' sia valida.
+<br/>
+Selezionando l'invio dei dati sara' effettuato un tentativo di invio a SINVSA.<br/><br/>
+
+<strong>Operativit&agrave;</strong><br/>
+Le operazioni da svolgere per la compilazione e l'invio del campione AMR sono le seguenti:<br/>
+
+<ul>
+<li>Inserimento del controllo ufficiale</li>
+<li>Inserimento del campione</li>
+<li>Ritorno al dettaglio del controllo ufficiale</li>
+<li>Accesso alla funzione di "Gestione dati AMR"</li>
+<li>Compilazione dei dati AMR ed eventuale invio</li>
+<li>Stampa del verbale AMR</li>
+</ul>
+
+<mark>ATTENZIONE! Si ricorda che la gestione AMR &egrave; separata e non sostituisce quella classica dei campioni (per cui sar&agrave; comunque disponibile tutta la modulistica standard)</mark>

@@ -1,0 +1,107 @@
+var conf = {
+  dev: {
+    "httpPort": 88,
+    "httpsPort": 443,
+    
+    "staticAngularAppPath": "../AngularClient/dist/fe-gesdasic/",
+    "tokenSecret": "92b6facdac0538b2c445746b07e531d2355071295dd68b5c391c0d84c3a36dcd",
+
+    "sslPrivateKeyLocation": "./utils/ssl/privatekey.pem",
+    "sslPublicCertLocation": "./utils/ssl/publiccert.pem",
+
+    "dbUser": "postgres",
+    "dbHost": "131.1.255.87",
+    "dbName": "gesdasic",
+    "dbPassword": "postgres",
+    "dbPort": 5432,
+
+    "mailHost": "sendm.cert.legalmail.it",
+    "mailFrom": "gisasuap@cert.izsmportici.it",
+    "mailUsername": "M3023707",
+    "mailPassword": "US9560031.1a",
+    "mailPort": 465,
+    "mailCcnTest": "g.paolocci@usmail.it, a.ferraro@usmail.it, c.rongo@usmail.it",
+    "mailToInvalidator": "_elimina",
+    "mailSecure": true,
+
+    "hereMapsHost": "geocode.search.hereapi.com",
+    "hereMapsApiKey": "6srlTViBcy-X5DQCD_mkpfQ877rowH_EIOF4G-oJ5tI",
+    "hereMapsGeocodingService": "/v1/geocode?apiKey=[KEY]&q=[ADDRESS]",
+
+    "ispezioniEnabled": true
+  },
+  collaudo: {
+    "httpPort": 80,
+    "httpsPort": 443,
+    
+    "staticAngularAppPath": "../AngularClient/dist/fe-gesdasic/",
+    "tokenSecret": "92b6facdac0538b2c445746b07e531d2355071295dd68b5c391c0d84c3a36dcd",
+
+    "sslPrivateKeyLocation": "./utils/ssl/privatekey.pem",
+    "sslPublicCertLocation": "./utils/ssl/publiccert.pem",
+
+    "dbUser": "postgres",
+    "dbHost": "localhost",
+    "dbName": "gesdasic",
+    "dbPassword": "postgres",
+    "dbPort": 5432,
+
+    "mailHost": "mail.usmail.it",
+    "mailFrom": "segnalazioni@gisacampania.it",
+    "mailUsername": "segnalazioni@gisacampania.it",
+    "mailPassword": "US9560031.2021",
+    "mailPort": 465,
+    "mailCcnTest": "g.paolocci@usmail.it, a.ferraro@usmail.it, c.rongo@usmail.it",
+    "mailToInvalidator": "_elimina",
+    "mailSecure": true,
+
+    "hereMapsHost": "geocode.search.hereapi.com",
+    "hereMapsApiKey": "6srlTViBcy-X5DQCD_mkpfQ877rowH_EIOF4G-oJ5tI",
+    "hereMapsGeocodingService": "/v1/geocode?apiKey=[KEY]&q=[ADDRESS]",
+
+    "ispezioniEnabled": false
+  },
+  production: {
+    "httpPort": 80,
+    "httpsPort": 443,
+    
+    "staticAngularAppPath": "../AngularClient/dist/fe-gesdasic/",
+    "tokenSecret": "92b6facdac0538b2c445746b07e531d2355071295dd68b5c391c0d84c3a36dcd",
+
+    "sslPrivateKeyLocation": "./utils/ssl/privatekey.pem",
+    "sslPublicCertLocation": "./utils/ssl/publiccert.pem",
+
+    "dbUser": "postgres",
+    "dbHost": "localhost",
+    "dbName": "gesdasic",
+    "dbPassword": "postgres",
+    "dbPort": 5432,
+
+    "mailHost": "smtp.pec.actalis.it",
+    "mailFrom": "notificapreliminare@pec.regione.campania.it",
+    "mailUsername": "notificapreliminare@pec.regione.campania.it",
+    "mailPassword": "Notifica?2",
+    "mailPort": 465,
+    "mailCcnTest": "g.paolocci@usmail.it, a.ferraro@usmail.it, c.rongo@usmail.it",
+    "mailToInvalidator": "",
+    "mailSecure": true,
+
+    "hereMapsHost": "geocode.search.hereapi.com",
+    "hereMapsApiKey": "6srlTViBcy-X5DQCD_mkpfQ877rowH_EIOF4G-oJ5tI",
+    "hereMapsGeocodingService": "/v1/geocode?apiKey=[KEY]&q=[ADDRESS]",
+
+    "ispezioniEnabled": false
+  }
+}
+
+const env = process.argv[2];
+console.log("########## AMBIENTE: " + env + "##########");
+//env = "production" //per prodduzione
+if (env == undefined) { //carico dev
+  conf = conf.dev;
+} else { //carico il conf passato come primo parametro
+  conf = conf[env];
+}
+
+module.exports = conf;
+

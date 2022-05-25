@@ -1,0 +1,282 @@
+#################################################################
+####         CONFIGURAZIONE APPLICAZIONE IN LOCALE          #####
+#################################################################
+
+#DB 
+DATABASE= #nome db 
+USERNAME= #username db
+PASSWORD= #password db
+
+DATABASECANINA= #nome db
+USERNAMECANINA= #username db
+PASSWORDCANINA= #password db
+
+DATABASEGISAREPORTS= #nome db
+USERNAMEGISAREPORTS= #username db
+PASSWORDGISAREPORTS= #password db
+
+
+
+numeroAnniTestBse = 6
+visibilita_link_macelli = no
+numero_date_macellazione_combo = 15
+#urlArt17Servlet = 
+NUM_RIGHE_ALTRE_SPECIE = 10
+NUM_COLONNE_ALTRE_SPECIE = 8
+USERNAME_WS_BDN = #username ws
+PASSWORD_WS_BDN = #password ws
+#END_POINT_ANAGRAFICA_CAPO_BDN = 
+#END_POINT_AZIENDE_BDN = 
+#END_POINT_SIN_BDN =
+#END_POINT_BA_BDN =
+#END_POINT_ANAGRAFICA_CAPO_BDN = 
+#END_POINT_AZIENDE_BDN = 
+#END_POINT_SIN_BDN =
+#END_POINT_BA_BDN =  
+#END_POINT_IBR_BDN_UFFICIALE=
+
+#per sviluppo
+
+#END_POINT_SIN_BDN =
+#END_POINT_BA_BDN =
+
+#URL_SERVIZIO_INFOPROPRIETARIO = 
+flagbacheca = si
+TEMPLATE_MOD5 = template_ispezione.pdf
+TEMPLATE_MOD5_DEF = template_ispezione_def.pdf
+#valori possibili per HTML_PDF sono HTML oppure PDF
+HTML_PDF = HTML
+#valori possibili per MOD_SIN sono OLD oppure NEW
+MOD_SIN = NEW
+#Dal livello piu alto al piu basso: SEVERE WARNING INFO CONFIG FINE FINER FINEST
+livelloLOG = INFO
+loginSospeso = no
+timesleeping=15000
+### INIZIO DOCUMENTALE ###172.16.3.189
+## DATI GISA ##
+APP_NAME_GISA=gisa_nt
+APP_PORTA_GISA=:8090
+TABELLA_LISTA_TIPI_DOCUMENTI=tipi_documenti
+MAX_SIZE_ALLEGATI=4194304
+## DATI CONNESSIONE A SERVER DOCUMENTALE ##
+# STANDARD
+APP_NAME_DOCUMENTALE=serverDocumentale
+APP_PORTA_DOCUMENTALE=:8089
+APP_DOCUMENTALE_CODIFICA=serverDocumentale/newCodificaServlet
+APP_DOCUMENTALE_DOWNLOAD_SERVICE=serverDocumentale/DownloadService
+APP_DOCUMENTALE_DOWNLOAD_SERVICE_TIPO=serverDocumentale/DownloadServiceByTipo
+APP_DOCUMENTALE_LISTA_DOCUMENTI=serverDocumentale/ListaDocs
+APP_DOCUMENTALE_NO_CODIFICA=serverDocumentale/noCodificaServlet
+APP_DOCUMENTALE_SOSTITUISCI_CALLER=SI
+# DPAT
+APP_DOCUMENTALE_CODIFICA_DPAT=serverDocumentale/newCodificaServlet
+APP_DOCUMENTALE_DOWNLOAD_SERVICE_DPAT=serverDocumentale/DownloadService
+APP_DOCUMENTALE_LISTA_DOCUMENTI_DPAT=serverDocumentale/ListaDocs
+# ALLEGATI
+APP_DOCUMENTALE_ALLEGATI_CARICATI=serverDocumentale/UploadFile
+APP_DOCUMENTALE_LISTA_ALLEGATI=serverDocumentale/ListaAlls
+APP_DOCUMENTALE_GESTIONE_ALLEGATI=serverDocumentale/GestioneAllegati
+APP_DOCUMENTALE_ALLEGATI_CONTROLLO=serverDocumentale/CheckFile
+#BACHECA
+APP_DOCUMENTALE_BACHECA_CARICA=serverDocumentale/UploadBacheca
+APP_DOCUMENTALE_GESTIONE_BACHECA=serverDocumentale/GestioneBacheca
+APP_DOCUMENTALE_LISTA_BACHECA=serverDocumentale/ListaBacheca
+APP_DOCUMENTALE_LISTA_BACHECA_FILTRI=serverDocumentale/ListaBachecaFiltri
+# REGISTRO TRASGRESSORI
+APP_DOCUMENTALE_TRASGRESSORI_CARICA=serverDocumentale/UploadFileTrasgressori
+# RIUNIONI
+APP_DOCUMENTALE_RIUNIONI_CARICA=serverDocumentale/UploadFileRiunioni
+APP_DOCUMENTALE_LISTA_ALLEGATI_RIUNIONI=serverDocumentale/ListaAllsRiunioni
+APP_DOCUMENTALE_LISTA_ALLEGATI_RIUNIONI_REVISIONI=serverDocumentale/ListaAllsRiunioniRevisioni
+# INVII ESITI
+APP_DOCUMENTALE_INVII_CARICA=serverDocumentale/UploadFileInvii
+APP_DOCUMENTALE_LISTA_ALLEGATI_INVII=serverDocumentale/ListaAllsInvii
+# INVII SINTESIS
+APP_DOCUMENTALE_SINTESIS_CARICA=serverDocumentale/UploadFileSintesis
+APP_DOCUMENTALE_LISTA_ALLEGATI_SINTESIS=serverDocumentale/ListaAllsSintesis
+# MODULI SVILUPPO
+APP_DOCUMENTALE_MODULI_CARICA=serverDocumentale/UploadFileModuli
+APP_DOCUMENTALE_LISTA_ALLEGATI_MODULI=serverDocumentale/ListaAllsModuli
+# TEST
+APP_DOCUMENTALE_TEST=ServletTestDocumentale
+# SOLA LETTURA (Parametro booleano)
+DOCUMENTALE_DISPONIBILE=true
+DOCUMENTALE_DISPONIBILE_MESSAGGIO=SERVER DOCUMENTALE NON DISPONIBILE PER QUESTA OPERAZIONE. RIPROVARE TRA QUALCHE MINUTO.
+APP_DOCUMENTALE_RIUNIONI_CARICA=serverDocumentale/UploadFileRiunioni
+APP_DOCUMENTALE_LISTA_ALLEGATI_RIUNIONI=serverDocumentale/ListaAllsRiunioni
+APP_DOCUMENTALE_LISTA_ALLEGATI_RIUNIONI_REVISIONI=serverDocumentale/ListaAllsRiunioniRevisioni
+APP_DOCUMENTALE_IBR_CARICA=serverDocumentale/UploadFileIBR
+APP_DOCUMENTALE_LISTA_ALLEGATI_IBR=serverDocumentale/ListaAllsIBR
+# ALLEGATI GINS
+APP_NAME_GINS=gins
+APP_DOCUMENTALE_GINS_CARICA=serverDocumentale/UploadFileGins
+APP_DOCUMENTALE_LISTA_ALLEGATI_GINS=serverDocumentale/ListaAllsGins
+APP_DOCUMENTALE_GESTIONE_ALLEGATI_GINS=serverDocumentale/GestioneAllegatiGins
+### FINE DOCUMENTALE ###
+
+#################################################################
+#### Ambiente : ufficiale - demo - sviluppo - cloud            ##
+#################################################################
+ambiente=collaudo
+
+
+#################################################################
+####          CONFIGURAZIONE APPLICAZIONE IN DEMO           #####
+#################################################################
+
+#visibilita_link_macelli = no
+#numero_date_macellazione_combo = 5
+#urlArt17Servlet = 
+#NUM_RIGHE_ALTRE_SPECIE = 10
+#NUM_COLONNE_ALTRE_SPECIE = 8
+#USERNAME_WS_BDN = 
+#PASSWORD_WS_BDN = 
+#END_POINT_AZIENDE_BDN = 
+#END_POINT_ANAGRAFICA_CAPO_BDN =
+
+#URL_SERVIZIO_INFOCANE = 
+#URL_SERVIZIO_INFOPROPRIETARIO = 
+#URL_SERVIZIO_INFOCANECANILE = 
+#URL_SERVIZIO_ELENCO_DOCUMENTI_PER_CANILE = 
+#URL_SERVIZIO_ELENCO_MICROCHIP_PER_DOCUMENTO = 
+#URL_SERVIZIO_ABILITA_FLAG_CONTROLLI_PER_DOCUMENTO = 
+
+#TEMPLATE_MOD5 = template_ispezione_demo.pdf
+#TEMPLATE_MOD5_DEF = template_ispezione_def_demo.pdf
+##Dal livello piu alto al piu basso: SEVERE WARNING INFO CONFIG FINE FINER FINEST
+#livelloLOG = WARNING
+
+
+#################################################################
+####       CONFIGURAZIONE APPLICAZIONE IN PRODUZIONE        #####
+#################################################################
+
+#visibilita_link_macelli = no
+#numero_date_macellazione_combo = 10
+#urlArt17Servlet = 
+#NUM_RIGHE_ALTRE_SPECIE = 10
+#NUM_COLONNE_ALTRE_SPECIE = 8
+#USERNAME_WS_BDN = 
+#PASSWORD_WS_BDN = 
+#END_POINT_ANAGRAFICA_CAPO_BDN = 
+#END_POINT_AZIENDE_BDN = 
+
+#TEMPLATE_MOD5 = template_ispezione.pdf
+#TEMPLATE_MOD5_DEF = template_ispezione_def.pdf
+##Dal livello piu alto al piu basso: SEVERE WARNING INFO CONFIG FINE FINER FINEST
+#livelloLOG = WARNING
+
+
+
+#################################################################
+####         DESCRIZIONE REPORT PER MONITORAGGIO CU         #####
+#################################################################
+
+
+
+#################################################################
+####        QUERY CANI PADRONALI         #####
+#################################################################
+ID_TIPOISPEZIONE_CAMPIONE_AUTOMATICO=14
+ID_MATRICE_TIPO_CAMPIONE_TRICHINE=1575
+ID_ANALITA_TIPO_CAMPIONE_TRICHINE=3392
+ID_MATRICE_TIPO_CAMPIONE_MVS=1952
+ID_ANALITA_TIPO_CAMPIONE_MVS=3494
+ENABLEDGOOGLESERVICE=si
+GET_PROPRIETARIO=select distinct o.org_id,o.tipo_proprietario , oa.address_id as id_address,oa.city as citta_proprietario,oa.addrline1 as indirizzo_proprietario,oa.state as provincia_proprietario,oa.postalcode as cap_proprietario,o.org_id_canina,o.name as nominativo , o.nome_rappresentante as nome ,o.cognome_rappresentante as cognome , o.codice_fiscale_rappresentante as cf_prop ,data_nascita_rappresentante as data_nascita_prop , luogo_nascita_rappresentante as luogo_nascita_prop,o.documento,o.site_id as id_asl_prop from organization o left join organization_address oa on (oa.org_id = o.org_id) where 1=1 and o.org_id =?
+
+#################################################################
+####         CONFIGURAZIONE DPAT           #####
+#################################################################
+NR_INDICATORI_PER_SEZIONE = 10
+GET_LISTA_CANI=select a.asset_id_canina, a.taglia,a.mantello, a.asset_id as id_cane ,a.account_id as id_prop , a.serial_number as mc , a.description as dett_add , a.po_number as tatu , a.data_nascita as data_nascita_cane , a.razza , a.sesso from asset a where account_id = ? and idControllo = ?
+
+#################################################################
+#### Storico Operazioni Utente                                 ##
+#################################################################
+abilitaStoricoOperazioniUtente=no
+abilitaUpdateAccess=no
+cleancache_time_interval_1=0 0/5 6-20 ? * 2,3,4,5,6
+cleancache_time_interval_2=0 0/20 0,1,2,3,4,5,21,22,23 ? * *
+cleancache_time_interval_3=0 0/10 6-20 ? * 1,7
+
+ambiente_sirv=127.0.0.1
+timeout=6
+
+#####################################################################
+####         CONFIGURAZIONE MAIL PEC							#####
+#####################################################################
+mail.smtp.starttls.enable = true
+mail.smtp.auth = true
+#mail.smtp.host = 
+mail.smtp.port = 25
+mail.smtp.ssl.enable = true
+#username = 
+#password = 
+
+
+
+#DEST_EMAIL_FLUSSO_SVILUPPO=
+#DEST_EMAIL_ERRATA_CORRIGE=
+OGGETTO_EMAIL_ERRATA_CORRIGE=## TEST SVILUPPO ## ERRATA CORRIGE ##
+
+#DEST_EMAIL_TRASFERIMENTO_SEDE_OPERATIVA=
+OGGETTO_EMAIL_TRASFERIMENTO_SEDE_OPERATIVA=## TEST SVILUPPO ## TRASFERIMENTO SEDE OPERATIVA STABILIMENTO ##
+#DEST_EMAIL_CAMBIO_SEDE_LEGALE=
+OGGETTO_EMAIL_CAMBIO_SEDE_LEGALE=## TEST SVILUPPO ## CAMBIO SEDE LEGALE ##
+#PEC_ASL_201=
+#PEC_ASL_202=
+#PEC_ASL_203=
+#PEC_ASL_204=
+#PEC_ASL_205=
+#PEC_ASL_206=
+#PEC_ASL_207=
+
+#PREACCETTAZIONE_PORT=
+#PREACCETTAZIONE_HOST=
+
+#GESTIONE LOCK
+threshold = 30
+messageAlert =Attenzione!!! Il sistema � in fase di riavvio, riprova tra poco
+
+USERNAME_INSERT_SCORTA_BDN = #username bdn
+PASSWORD_INSERT_SCORTA_BDN = #password bdn
+#END_POINT_INSERT_SCORTA_BDN = 
+#END_POINT_UPDATE_SCORTA_BDN = 
+#END_POINT_SEARCH_SCORTA_BDN = 
+#END_POINT_UPSERT_SCORTA_BDN = 
+#END_POINT_INSERT_SCORTA_VETERINARIO_BDN = 
+#END_POINT_UPDATE_SCORTA_VETERINARIO_BDN = 
+#END_POINT_SEARCH_SCORTA_VETERINARIO_BDN = 
+
+#URL_TOKEN_ELICICOLTURA_BDN = 
+#URL_SEARCH_AZIENDE_ELICICOLTURA_BDN = 
+#USERNAME_ELICICOLTURA_BDN = 
+#PASSWORD_ELICICOLTURA_BDN = 
+
+#END_POINT_OSM_PERSONE = 
+#END_POINT_OSM_SEZIONI_ATTIVITA_IMPRESA = 
+#END_POINT_OSM_REGISTRAZIONI_IMPRESE = 
+#END_POINT_OSM_IMPRESE = 
+
+###### PAGOPA ######
+#END_POINT_PAGOPA = 
+#USERNAME_WS_PAGOPA = 
+#PASSWORD_WS_PAGOPA = 
+GESTIONE_PAGOPA = si
+
+
+
+comuneDestinazioneApiarioCompravendita=true
+
+##### SINAAF #####
+#USERNAME_WS_SINAAF=
+#PASSWORD_WS_SINAAF=
+#END_POINT_SINAAF_TOKEN=
+#END_POINT_SINAAF=
+### AUTHORIZATION_METHOD_SINAAF = "client_id:client_secret" --> Il risultato � codificato con base64
+### client_id = , client_secret = 
+#AUTHORIZATION_METHOD_SINAAF = 
+
+
+

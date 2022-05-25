@@ -1,0 +1,15 @@
+**/config/*.json
+**/*.pdf
+**/*.doc
+**/*.docx
+**/giava_2021/README*
+**/giava_2021/LICENSE*
+**/*.odt
+**/tmp_img
+
+
+
+**/logo.mp4
+
+
+

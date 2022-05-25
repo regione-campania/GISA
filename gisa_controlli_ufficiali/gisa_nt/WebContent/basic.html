@@ -1,0 +1,45 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Basic ComboGrid - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="css/themes/easyui.css">
+	<link rel="stylesheet" type="text/css" href="css/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="css/themes/demo.css">
+	<script type="text/javascript" src="javascript/jquery.min.js"></script>
+	<script type="text/javascript" src="javascript/jquery.easyui.min.js"></script>
+	
+	<script   src="javascript/jquery-ui.js"></script>
+	
+</head>
+<body>
+	<h2>Basic ComboGrid</h2>
+	<p>Click the right arrow button to show the DataGrid.</p>
+	<div style="margin:20px 0"></div>
+	<select class="easyui-combogrid" style="width:250px" data-options="
+			panelWidth: 500,
+			idField: 'itemid',
+			textField: 'productname',
+			url: 'datagrid_data1.json',
+			method: 'get',
+			columns: [[
+				{field:'itemid',title:'Item ID',width:80},
+				{field:'productname',title:'Product',width:120},
+				{field:'listprice',title:'List Price',width:80,align:'right'},
+				{field:'unitcost',title:'Unit Cost',width:80,align:'right'},
+				{field:'attr1',title:'Attribute',width:200},
+				{field:'status',title:'Status',width:60,align:'center'}
+			]],
+			fitColumns: true
+		">
+	</select>
+</body>
+</html>

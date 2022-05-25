@@ -1,0 +1,2 @@
+﻿insert into lookup_norme(description,default_item,level,enabled,gruppo,view_diffida) values('L.R. 11/04/19, n. 3',false,38,true,false,true);
+insert into lookup_norme(description,default_item,level,enabled,gruppo,view_diffida) values('L.R. 11/04/19, n. 3',false,98,true,false,true);

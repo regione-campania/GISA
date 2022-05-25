@@ -1,0 +1,31 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<div class="a-multi-select">
+    <div class="form-select" #control>
+        <ul class="selected-options">
+            <div class="wrapper">
+                <li class="option" *ngFor="let opt of selectedOptions; index as i"
+                    [hidden]="i > 0">
+                    {{opt}}
+                </li>
+                <span class="more-than-one-counter" *ngIf="selectedOptions.length> 1">
+                    +{{selectedOptions.length-1}}
+                </span>
+            </div>
+        </ul>
+    </div>
+    <ul class="options-list" hidden #optionsList>
+        <li class="option" *ngFor="let opt of options">
+            <div class="wrapper input-group">
+                <input type="checkbox" [value]="opt">
+                <label class="option-label">{{opt}}</label>
+            </div>
+        </li>
+    </ul>
+</div>

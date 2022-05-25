@@ -1,0 +1,1 @@
+﻿update role_permission_ext set role_add = false where permission_id = 1308;

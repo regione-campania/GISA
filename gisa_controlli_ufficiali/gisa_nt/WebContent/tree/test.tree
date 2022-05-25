@@ -1,0 +1,181 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<%@page import="org.aspcfs.modules.controller.base.Tree"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.aspcfs.modules.controller.base.Nodo"%><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>jQuery treeview</title>
+
+	  
+ 	
+	<script src="javascript/jquery.js" type="text/javascript"></script>
+	<script src="javascript/jquery.cookie.js" type="text/javascript"></script>
+	<script src="javascript/jquery.jstree.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+			$(function () {
+			$("#tree").jstree({ 
+				"plugins" : [ "themes", "html_data" ]
+			}).bind("loaded.jstree", function (event, data) { });
+		});
+
+				
+		function showPath(pathDesc,pathId,idNodo,livello)
+		{
+			
+			document.getElementById("idPadre").value =  idNodo;
+			document.getElementById("padre").innerHTML=pathDesc ;
+			document.getElementById("livello").value=livello ;
+				
+			
+		}
+		function addItem()
+		{
+			
+				document.getElementById("formPadre").style.display="" ;
+			
+
+
+		}
+
+		function checkAddItem()
+		{
+			if(document.getElementById("idPadre").value == "-1" || document.getElementById("newItem").value=="")
+			{
+				alert('Seleziona il nodo padre e la descrizione del nuovo elemento');
+				return ;
+			}
+			else
+			{
+				document.addItemForm.submit() ;
+			}
+		}
+
+
+</script>
+
+
+	<script type="text/javascript" src="http://static.jstree.com/v.1.0pre/jquery.jstree.js"></script>
+
+
+		
+
+		
+
+</head>
+
+
+<%
+ArrayList<Nodo> listaNodi = (ArrayList<Nodo> ) request.getAttribute("ListaNodi");
+
+%>
+
+<br><br><br>
+<div id = "path">
+
+
+</div>
+<br><br>
+
+
+<div id="mmenu" style="height:30px; overflow:auto;">
+<input type="button" id="add_item" value="Aggiungi Elemento" style="display:block; float:left;" onclick="javascript:addItem();"/>
+<input type="button" id="delete_item" value="Rimuovi Elemento" style="display:block; float:left;" onclick="deleteItem()"/>
+</div>
+
+<div>
+<form method="post" action = "Tree.do?command=DettaglioTree" style="display:block; float:right;" >
+<table>
+<tr><td>
+
+<select name = "nodo">
+<option value = "-1"><%=request.getAttribute("nomeTabella") %></option>
+<%
+for(Nodo nodo : listaNodi)
+{
+%>
+<option value = "<%=nodo.getId() %>"><%=nodo.getDescrizione() %></option>
+<%	
+}
+%>
+</select>
+</td>
+
+<td><input type = "submit" value = "Ricarica"/></td></tr>
+<input type = "hidden" name = "campoId" value = "<%=request.getAttribute("campoId") %>" />
+<input type = "hidden" name = "campoPadre" value = "<%=request.getAttribute("campoPadre") %>"/>
+<input type = "hidden" name = "campoDesc" value = "<%=request.getAttribute("campoDesc") %>"/>
+<input type = "hidden" name = "campoLivello" value = "<%=request.getAttribute("campoLivello") %>"/>
+<input type = "hidden" name = "nomeTabella" value = "<%=request.getAttribute("nomeTabella") %>"/>
+
+
+
+</table>
+
+
+</form>
+<br/><br/><br/>
+<div style="display:none; float:right;" id = "formPadre">
+<form name = "addItemForm" method = "post" action="Tree.do?command=AggiungiLivello" >
+<table border = "1">
+<input type = "hidden" name = "idPadre" id = "idPadre"	value = "-1"/>
+<input type = "hidden" name = "livello" id = "livello"/>
+<tr><td>Padre</td><td><div id = "padre"></div></td></tr>
+<tr><td>Elemento</td><td><input type = "text" name = "newItem"></td></tr>
+<input type = "hidden" name = "campoId" value = "<%=request.getAttribute("campoId") %>" />
+<input type = "hidden" name = "campoPadre" value = "<%=request.getAttribute("campoPadre") %>"/>
+<input type = "hidden" name = "campoDesc" value = "<%=request.getAttribute("campoDesc") %>"/>
+<input type = "hidden" name = "campoLivello" value = "<%=request.getAttribute("campoLivello") %>"/>
+<input type = "hidden" name = "nomeTabella" value = "<%=request.getAttribute("nomeTabella") %>"/>
+<input type = "button" value = "Inserisci" onclick="checkAddItem()">
+</table>
+
+</form>
+</div>
+
+</div>
+
+  <div id = "tree">
+  <ul>
+<%
+	
+if (request.getAttribute("Tree")!=null)
+{
+	Tree tree = (Tree)request.getAttribute("Tree");
+ArrayList<Nodo> listanodi = tree.getListaNodi();
+for(Nodo nodo : listanodi)
+{
+	Nodo.tab = "" ;
+	String riga = "" ;
+	out.print(Nodo.getHtmlData(nodo,tree.getNomeTabella()));
+	
+}
+}
+
+
+%>
+</ul>
+	</div>
+
+</html>
+
+	
+
+		
+	
+
+		
+	
+
+	
+
+		
+	
+
+
+

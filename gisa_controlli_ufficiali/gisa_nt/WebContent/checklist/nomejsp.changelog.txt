@@ -1,0 +1,3 @@
+Nome Classe: checklist_modify.jsp
+
+rev.: rev1 | data: 22/11/2011 | auth.: Blanzao Giuseppe | desc.: ho modificato la visualizzazzione del punteggio storico. Se il num di checklist è 0 viene visualizzato il punteggio storico altrimenti il punteggio delle checklist precedenti

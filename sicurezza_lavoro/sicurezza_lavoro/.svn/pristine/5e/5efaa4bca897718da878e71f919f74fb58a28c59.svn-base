@@ -1,0 +1,36 @@
+<div class="form-wrapper">
+    <form [formGroup]="formSupporto" (ngSubmit)="onSubmit()">
+        <table class="table-mail">
+            <tr>
+                <td class="input-label"><b> Nome e Cognome:</b></td>
+                <td><input type=text formControlName="nomeSegnalante"></td>
+            </tr>
+            <tr>
+                <td class="input-label"><b>Email di ricontatto:</b></td>
+                <td><input type=text formControlName="emailSegnalante"></td>
+            <tr>
+                <td class="input-label"><b>Telefono di ricontatto:</b></td>
+                <td><input type=tex formControlName="telefonoSegnalante"></td>
+            </tr>
+            <br>
+            <br>
+            <tr>
+                <td>
+                    <b>Titolo problema:</b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type=text formControlName="titolo" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td><b>Descrizione problema:</b></td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea style="width: 100%" rows="5" formControlName="messaggio"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="Submit" value="Invia"></td>
+            </tr>
+        </table>
+    </form>
+</div>

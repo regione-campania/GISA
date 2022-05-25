@@ -1,0 +1,87 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+.filterable {
+    margin-top: 15px;
+}
+/* .filterable .panel-heading .pull-right {
+    margin-top: -20px;
+} */
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+    word-wrap: break-word;
+    font-size:small;
+}
+
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
+}
+
+.details {
+	border-top: 1px solid #888888;
+	border-left: 1px solid #888888;
+}
+
+.details th {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background-color: #BDCFFF;
+	border-bottom: 1px solid #888888;
+	border-right: 1px solid #888888;
+	color: #000;
+	text-align: left;
+}
+
+.details td {
+	background-image: url(../images/layout/dot-h.gif);
+	background-position: bottom left;
+	background-repeat: repeat-x;
+	border-right: 1px solid #888888;
+}
+
+.details th a:link,.details th a:visited {
+	color: #FFF;
+}
+
+.footer {
+	
+	position: inherit;
+	bottom: 0;
+	width: 100%;
+	color: white;
+}
+
+
+/* .modal-dialog{
+    overflow-y: initial !important
+} */
+.modal-dialog
+{
+    /* 80% of window height */
+    height: 80%;
+    width: 100% !important;
+}
+
+.modal-body{
+    overflow-y: auto;
+    max-height:500px;
+    max-width:100% !important;
+}

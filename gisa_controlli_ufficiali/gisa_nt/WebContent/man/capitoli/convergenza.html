@@ -1,0 +1,77 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="convergenza"></a>
+<h3 id="convergenzafunzione">Funzione di convergenza</h3>
+
+La funzione di Convergenza &egrave; disponibile a partire dal dettaglio di uno stabilimento, mediante il bottone CONVERGENZA (Figura 1).</p>
+<p><img src="./images/Fig1_convergenza.png" width="734" height="430" /></p>
+<p>L'obiettivo della funzione, come spiegato in precedenza &egrave; quello di eliminare le schede duplicate presenti, convergendo i controlli ufficiali, la categorizzazione e le attivit&agrave; svolte da uno stabilimento di origine verso uno stabilimento di destinazione.</p>
+<p>Attaulmente &egrave; diponibile nelle seguenti tipologie di anagrafiche (con Sede Fissa):</p>
+<table border="1">
+<tbody>
+<tr>
+<th colspan="2">Convergenza da - a</th>
+</tr>
+<tr>
+<th>Origine</th>
+<th>Destinazione</th>
+</tr>
+<tr>
+<td>Stabilimenti 852</td>
+<td>Stabilimenti 852</td>
+</tr>
+<tr>
+<td>Stabilimenti 852</td>
+<td>Anagrafica stabilimenti</td>
+</tr>
+<tr>
+<td>Anagrafica stabilimenti</td>
+<td>Anagrafica stabilimenti</td>
+</tr>
+</tbody>
+</table>
+<p>Cliccando sul bottone Convergenza il sistema eseguir&agrave; le seguenti azioni:</p>
+<ul>
+<li>il sistema mostrer&agrave; in una finestra (popup) la maschera di ricerca per individuare lo stabilimento di destinazione</li>
+<li>nella maschera risulteranno bloccati i filtri su Partita iva e comune della sede produttiva.</li>
+</ul>
+<p><img src="./images/Fig2_convergenza.png" width="598" height="187" /></p>
+<ul>
+<li>Trovato lo stabilimento verso cui convergere, l'utente lo dovr&agrave; selezionare tramite il pulsate "SELEZIONA".</li>
+</ul>
+<p><img src="./images/Fig3_convergenza.png" width="636" height="199" /></p>
+<ul>
+<li>Selezionato lo stabilimento di destinazione, il sistema mostrer&agrave; il riepilogo dello stabilimento origine, di destinazione e la conseguenza dell'operazione di convergenza (cosi come illutrato nelle immagini sottostanti).</li>
+</ul>
+<p><img src="./images/Fig4_1_convergenza.png" width="784" height="459" /></p>
+<p>I tipi di convergenza applicate sono:</p>
+<ul>
+<li><b>Convergenza delle linee di Attivit&agrave;:</b> tutte le attivit&agrave; produttive dello stabilimento di origine verranno aggiunte a quello di destinazione qualora non siano presenti.</li>
+<li><b>Convergenza dei Controlli ufficiali: i </b>controlli ufficiali eseguiti sullo stabilimento di origine saranno spostati sullo stabilimento di destinazione (riportando anche le attivit&agrave; sottopota a controllo). Come conseguenza, i controlli che si aggiungeranno all'anagrafica di destinazione concorreranno al punteggio storico delle non conformit&agrave; per la prossima categorizzazione.</li>
+<li><b>Convergenza Categorizzazione:</b> La categoria di rischio riportata sullo stabilimento di destinazione sar&agrave; quella maggiore tra lo stabilimento di origine e quella di destinazione.</li>
+</ul>
+<p>In tutti i casi, si provveder&agrave; all'eliminazione dello stabilimento di origine.</p>
+<p>Nel caso in cui si esegue la convergenza da uno stabilimento presente nel cavaliere Stabilimenti 852 verso uno presente in Anagrafica stabilimenti, Il sistema proporr&agrave; un' attivit&agrave; produttiva di terzo livello (presente nella master list) per ogni attivit&agrave; (composta dall'ATECO) relativa allo stabilimento di origine. 
+<p>NOTA : dal momento che esistono alcuni codici istat per cui il sistema non &egrave; a conoscenza dell'attivita produttiva presente in master list, l'utente dovr&agrave; comunicare l'associazione istat- linea di attivit&agrave; master list al servizio di help-desk di primo livello, per poter eseguire la convergenza.</p>
+
+<P><u>Punteggio storico delle non conformità</u>
+<br>
+In fase di compilazione Checklist principale di una Ispezione in Sorveglianza, 
+il punteggio storico delle non conformità comprende la somma dei punteggi accumulati 
+delle Ispezioni Semplici ed Audit (derivanti da Campioni e Non conformità associate al Cu) 
+inserite entro i 5 anni precedenti e nello stato Chiuso o Chiuso in attesa di esito.
+<br>
+In figura un esempio del punteggio della checklist prima della compilazione delle domande:
+<img src="images/punteggio1.png" name="punteggio1.png" height="367" width="637" align="LEFT" border="0"><br clear="LEFT"><br><br>
+
+Successivamente, rispondendo alle singole domande si sommerà il punteggio della checklist
+che si sta inserendo, con il punteggio Punteggio storico delle non conformità.
+<img src="images/punteggio2.png" name="punteggio2.png" height="367" width="637" align="LEFT" border="0"><br clear="LEFT"><br><br>
+
+</P>

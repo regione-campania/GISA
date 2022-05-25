@@ -1,0 +1,368 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="PRATICHESUAP20"></a>
+
+<a href="#" style="font-size:40px;color:red"; onclick=window.open("../mycfs/SUAP_GUIDA.pdf");loadModalWindowUnlock2();><h3 id="PRATICHESUAP20">PRATICHE SUAP 2.0</h3></a>
+<!-- 
+Dal cavaliere PRATICHE SUAP 2.0 &egrave; possibile effettuare quello che prima veniva fatto in
+&apos;&apos;gestione scia&apos;&apos; del cavaliere &apos;&apos;PRATICHE SUAP&apos;&apos;.<br>
+<img src="./images/pratichesuap20/homepratichesuap20.png"/>
+<br>
+E&apos; possibile:
+<ul>
+	<li>Tramite il tasto &apos;&apos;GESTIONE ATT. FISSE, MOBILI E RICONOSCIMENTO&apos;&apos;, gestire le
+	pratiche suap per le attivit&agrave; fisse, mobili e riconoscimento, tale gestione &egrave; stata
+	migliorata rispetto a quelle presenti in &apos;&apos;gestione scia&apos;&apos; del 
+	cavaliere &apos;&apos;PRATICHE SUAP&apos;&apos; (questa nuova gestione viene opportunamente 
+	documentata di seguito nella guida).
+	</li>
+	<li>La gestione dell&apos;attuale funzionalit&agrave; dell&apos;apicoltura (APICOLTURA)</li>
+</ul>
+n.b. la gestione APICOLTURA non ha subito modifiche rispetto al solito funzionamento.
+<br><br>
+<b>GESTIONE ATT. FISSE, MOBILI E RICONOSCIMENTO</b><br>
+Cliccando sul tasto &apos;&apos;GESTIONE ATT.FISSE, MOBILI E RICONOSCIMENTO&apos;&apos; 
+verr&agrave; visualizzata la lista delle ultime 100 pratiche suap inserite nel sistema<br>
+<img src="./images/pratichesuap20/listapratiche.png"/><br>
+In questa pagina è possibile:
+<ul>
+	<li>
+		Inserire una nuova pratica suap (tasto NUOVA PRATICA)
+	</li>
+	<li>
+		Ricercare una pratica suap (tasto RICERCA IN TUTTE LE PRATICHE)
+	</li>
+	<li>
+		Completare l&apos;operazione sulla scheda dello stabilimento per le pratiche 
+		che presentano il link &apos;&apos;SCHEDA DA COMPLETARE&apos;&apos; 
+		nella colonna &apos;&apos;STABILIMENTO COLLEGATO&apos;&apos;
+	</li>
+	<li>
+		Visualizzare la scheda dello stabilimento a cui quella pratica 
+		fa riferimento per le pratiche che presentano il 
+		link &apos;&apos;SCHEDA COMPLETA&apos;&apos; 
+		nella colonna &apos;&apos;STABILIMENTO COLLEGATO&apos;&apos;
+	</li>
+</ul>
+<br><br>
+<b>NUOVA PRATICA</b><br>
+Cliccando sul tasto &apos;&apos;NUOVA PRATICA&apos;&apos; apparir&agrave; 
+la scheda per l&apos;inserimento di una pratica suap<br>
+<img src="./images/pratichesuap20/nuovapratica.png"/><br>
+In questa pagina inserendo le informazioni relative alla pratica quali:
+<ul>
+	<li>
+		Numero pratica (se l&apos;utente non lo inserisce il sistema ne genera uno in automatico, il
+		numero pratica deve essere univoco a parità di comune, se si inserisce un numero pratica gi&agrave;
+		utilizzato per quel comune si avr&agrave; un messaggio d&apos;errore)
+	</li>
+	<li>
+		Comune (obbligatorio, la lista dei comuni dipende dall&apos;ASL di competenza dell&apos;utente,
+		oppure se si viene dal dettaglio di uno stabilimento &egrave; precompilato con il comune dello stabilimento: sede
+		operativa per i sede fissa, sede legale per i senza sede fissa)
+	</li>
+	<li>
+		Data PEC (obbligatoria)
+	</li>
+	<li>
+		Tipo pratica (la descrizione di ogni tipo pratica &egrave; illustrata in seguito in questo documento)
+		<ul>
+			<li>AVVIO DELL&apos;ATTIVITA&apos;</li>
+			<li>AGGIUNZIONE LINEA D&apos;ATTIVITA&apos;</li>
+			<li>CESSAZIONE</li>
+			<li>SUBINGRESSO</li>
+			<li>SOSPENSIONE TEMPORANEA</li>
+			<li>VARIAZIONI SIGNIFICATIVE ALLO STATO DEI LUOGHI</li>
+			<li>TRASFERIMENTO DI SEDE</li>
+			<li>RIATTIVAZIONE DELLE ATTIVITA&apos; TEMPORANEAMENTE SOSPESE</li>
+			<li>VARIAZIONI INFORMAZIONI SCHEDE SUPPLEMENTARI</li>
+			<li>AMPLIAMENTO</li>
+			<li>TRASFORMAZIONE</li>
+			<li>VARIAZIONE SEDE LEGALE</li>
+		</ul>
+	</li>
+	<li>
+		aggiungere dei file allegati con un dato &apos;&apos;oggetto&apos;&apos; in base ad un elenco fornito dai referenti
+	</li>
+</ul>
+&egrave; possibile:
+<ul>
+	<li>
+		tramite il tasto &apos;&apos;SALVA TEMPORANEO&apos;&apos;, inserire nel sistema solo la pratica suap; se si
+		sceglie questa opzione, la pratica viene inserita e si ritorna alla lista delle ultime 100 pratiche
+		suap inserite nel sistema dove la pratica appena salvata potr&agrave; essere completata in qualsiasi momento
+	</li>
+	<li>
+		tramite il tasto &apos;&apos;SALVA E CONTINUA&apos;&apos;, inserire nel sistema la pratica suap e proseguire
+		per completare l&apos;inserimento anagrafico; se si sceglie questa opzione ci sono due scenari: (di
+		seguito nella guida questi due scenari sono descritti dettagliatamente)
+	</li>
+	<ul>
+		<li>
+			La pratica viene inserita nel sistema e se il tipo pratica suap &egrave; AVVIO DELL&apos; ATTIVITA&apos;
+			appare la scheda per l&apos;inserimento di un nuovo stabilimento
+		</li>
+		<li>
+			La pratica viene inserita nel sistema e se il tipo pratica suap &egrave; diverso da AVVIO
+			DELL&apos; ATTIVITA&apos; appare una pagina che consente di selezionare/ricercare lo stabilimento su cui
+			effettuare l&apos;operazione di modifica scheda anagrafica
+		</li>
+	</ul>
+	<li>
+		Annullare l&apos;inserimento tramite il tasto &apos;&apos;ANNULLA&apos;&apos;
+	</li>
+</ul>
+<u>Tipologie pratiche suap</u><br>
+Prima di descrivere i tipi di pratica suap precisiamo che le operazioni di modifica sull&apos;anagrafica, i
+controlli di validit&agrave; e il permesso ad effettuare l&apos;operazione (es. alcune operazioni non sono
+consentite se si &egrave; scelto uno stabilimento senza sede fissa, oppure il tipo impresa &egrave; &apos;&apos;impresa individuale&apos;&apos;,
+ecc..) avvengono dopo l&apos;inserimento della pratica suap e solo dopo il completamento della modifica
+anagrafica la pratica viene associata allo stabilimento.
+Premesso ci&ograve;, i vari tipi di pratica suap hanno le seguenti funzionalit&agrave;:
+<ul>
+	<li>
+		&apos;&apos;AVVIO DELL&apos;ATTIVITA&apos; &apos;&apos;; dopo l&apos;inserimento della pratica l&apos;utente inserisce un nuovo stabilimento
+	</li>
+	<li>
+		&apos;&apos;AGGIUNZIONE LINEA D&apos;ATTIVITA&apos; &apos;&apos;; dopo l&apos;inserimento della pratica, sullo stabilimento
+		scelto &egrave; possibile aggiungere una o pi&ugrave; linee di attivit&agrave;. (solo per stabilimenti a sede fissa)
+	</li>
+	<li>
+		&apos;&apos;CESSAZIONE&apos;&apos;; dopo l&apos;inserimento della pratica, sullo stabilimento scelto &egrave; possibile cessare una
+		o pi&ugrave; linee di attivit&agrave; oppure l&apos;intero stabilimento.
+	</li>
+	<li>
+		&apos;&apos;SUBINGRESSO&apos;&apos;; dopo l&apos;inserimento della pratica, sullo stabilimento scelto &egrave; possibile
+		modificare l&apos;impresa compilando i dati per le sezioni IMPRESA, RAPPRESENTANTE
+		LEGALE e SEDE LEGALE (la sede legale &egrave; prevista per le imprese che non sono di tipo
+		&apos;&apos;impresa individuale&apos;&apos;); per stabilimenti senza sede fissa &egrave; possibile modificare soltanto il
+		RAPPRESENTANTE LEGALE, per stabilimenti senza sede fissa e tipo impresa = &apos;&apos;impresa individuale&apos;&apos; 
+		non &egrave; possibile nemmeno questa operazione per cui verr&agrave; generato un
+		messaggio che avvisa che l&apos;operazione non &egrave; consentita e il sistema poi rimanda al
+		dettaglio dello stabilimento scelto.
+	</li>
+	<li>
+		&apos;&apos;SOSPENSIONE TEMPORANEA&apos;&apos;; dopo l&apos;inserimento della pratica, sullo stabilimento scelto &egrave;
+		possibile attuare una sospensione volontaria di una o più linee di attivit&agrave; oppure di tutte le
+		linee dello stabilimento.
+	</li>
+	<li>
+		&apos;&apos;VARIAZIONI SIGNIFICATIVE ALLO STATO DEI LUOGHI&apos;&apos;; si inserisce solo la
+		pratica (a cui l&apos;utente allega la nuova planimetria) e dopo aver scelto lo stabilimento avviene
+		l&apos;associazione tra pratica e stabilimento.
+	</li>
+	<li>
+		&apos;&apos;TRASFERIMENTO DI SEDE&apos;&apos;; dopo l&apos;inserimento della pratica, sullo stabilimento scelto &egrave;
+		possibile modificare la sede operativa (l&apos;indirizzo dello stabilimento) nell&apos;ambito dello
+		stesso comune; tale operazione &egrave; prevista solo per gli stabilimenti a sede fissa.
+	</li>
+	<li>
+		&apos;&apos;RIATTIVAZIONE DELLE ATTIVITA&apos; TEMPORANEAMENTE SOSPESE&apos;&apos;; dopo
+		l&apos;inserimento della pratica, sullo stabilimento scelto &egrave; possibile riattivare una o pi&ugrave; linee oppure
+		tutte le linee che erano state sospese con sospensione volontaria.
+	</li>
+	<li>
+		&apos;&apos;VARIAZIONI INFORMAZIONI SCHEDE SUPPLEMENTARI&apos;&apos;; si inserisce solo la
+		pratica (a cui l&apos;utente allega la scheda supplementare) e dopo aver scelto lo stabilimento avviene
+		l&apos;associazione tra pratica e stabilimento.
+	</li>
+	<li>
+		&apos;&apos;AMPLIAMENTO&apos;&apos;; dopo l&apos;inserimento della pratica, sullo stabilimento scelto &egrave; possibile
+		aggiungere un nuovo civico all&apos;indirizzo dello stabilimento lasciando invariato quello
+		attuale; tale operazione &egrave; prevista solo per gli stabilimenti a sede fissa.
+	</li>
+	<li>
+		&apos;&apos;TRASFORMAZIONE&apos;&apos;; si inserisce solo la pratica e dopo aver scelto lo stabilimento avviene
+		l&apos;associazione tra pratica e stabilimento.
+	</li>
+	<li>
+		&apos;&apos;VARIAZIONE SEDE LEGALE&apos;&apos;; dopo l&apos;inserimento della pratica, sullo stabilimento scelto &egrave;
+		possibile modificare i dati della sede legale; tale operazione non &egrave; consentita per gli stabilimenti
+		che hanno come tipo impresa = &apos;&apos;impresa individuale&apos;&apos;, inoltre per gli stabilimenti a sede fissa non
+		c&apos;&egrave; vincolo sull&apos;indirizzo da inserire mentre per gli stabilimenti senza sede fissa la modifica
+		dell&apos;indirizzo &egrave; consentita solo nell&apos;ambito dello stesso comune.
+	</li>
+</ul>
+<u>Scenari dopo &apos;&apos;salva e continua&apos;&apos; pratica</u> <br>
+Precisazione: dopo aver cliccato su &apos;&apos;salva e continua&apos;&apos; si lascia la parte di competenza delle pratiche
+suap e si passa alla parte di competenza anagrafica; in sostanza la pratica suap viene salvata in
+banca dati indipendentemente da come proseguir&agrave; l&apos;operazione anagrafica.
+<ul>
+	<li>
+		Se il tipo pratica suap &egrave; AVVIO DELL&apos; ATTIVITA&apos; viene mostrata la maschera di
+		inserimento di un nuovo stabilimento a partire dalla selezione del tipo di linee che si inseriscono
+		(con sede fissa o senza sede fissa e riconoscimento o meno, nel caso di senza sede fissa &egrave;
+		possibile aggiungere solo una linea), dopo aver selezionato la tipologia di linee si passa alla
+		scelta delle linee di attivit&agrave; con alcuni dati base (data inizio, eventuale data fine, eventuale
+		cun), confermata la scelta delle linee appare il form di inserimento dei dati anagrafici
+		dello stabilimento:
+		<ul>
+			<li>
+				In caso di inserimento di uno stabilimento a sede fissa il comune della sede operativa risulta
+				precompilata con quello riportato nella pratica suap
+			</li>
+			<li>
+				In caso di inserimento di uno stabilimento senza sede fissa
+				<ul>
+					<li>
+						Se tipo impresa è diverso da &apos;&apos;impresa individuale&apos;&apos; il comune della sede legale
+						risulta precompilato con quello riportato nella pratica suap
+					</li>
+					<li>
+						Se il tipo impresa è uguale ad &apos;&apos;impresa individuale&apos;&apos; 
+						(e dunque non appare la sezione sede legale) il comune di residenza del 
+						&apos;&apos;imprenditore impresa individuale&apos;&apos; risulta
+						precompilato con quello riportato nella pratica suap
+					</li>
+				</ul>
+			</li>
+		</ul>
+		(Nota: per alcune linee del tipo &apos;&apos;sede fissa&apos;&apos; non &egrave; possibile aggiungere 
+		ulteriori linee di attivit&agrave; perch&egrave; tali linee non possono coesistere nello stesso stabilimento.)<br><br>
+		<img src="./images/pratichesuap20/inserisciosa01.png"/><br>
+		(si seleziona il tipo di linee da inserire)<br><br>
+		<img src="./images/pratichesuap20/inserisciosa02.png"/><br>
+		(cliccando su &apos;&apos;aggiungi linea/e di attivit&agrave;&apos;&apos; &egrave; possibile aggiungere le linee da inserire)<br><br>
+		<img src="./images/pratichesuap20/inserisciosa03.png"/><br>
+		(oltre alla terna della linea di attivit&agrave; si inserisce &apos;&apos;data inizio&apos;&apos; 
+		ed eventualmente i campi &apos;&apos;data fine&apos;&apos; e/o &apos;&apos;cun&apos;&apos;)<br><br>
+		<img src="./images/pratichesuap20/inserisciosa04.png"/><br>
+		(aggiunta la linea/e desiderata/e, cliccando su prosegui, appare 
+		la scheda di inserimento dei dati anagrafici)<br><br>
+		Nella scheda di inserimento &egrave; possibile riutilizzare un&apos;impresa gi&agrave; presente in GISA tramite il
+		campo &apos;&apos;dati impresa&apos;&apos; oppure tramite il campo &apos;&apos;partita iva&apos;&apos;; 
+		la scelta di uno dei possibili risultati mostrati nella popup non &egrave; ne obbligatoria ne 
+		bloccante, infatti l&apos;utente &egrave; libero di non scegliere
+		nessuno dei risultati mostrati ed usare lo stesso la partita iva desiderata.<br>
+		<img src="./images/pratichesuap20/inserisciosa05.png"/><br><br>
+	</li>
+	<li>
+		Se il tipo pratica suap &egrave; diverso da AVVIO DELL&apos; ATTIVITA&apos; viene mostrata una maschera
+		che consente di ricercare/selezionare lo stabilimento su cui completare l&apos;operazione anagrafica. Il
+		risultato della ricerca mostrer&agrave; per la partita IVA/codice fiscale inserita quegli stabilimenti che si
+		trovano nel comune indicato nella pratica suap. Una volta selezionato lo stabilimento di interesse e
+		cliccato su prosegui si passa alla gestione dell&apos;evento (n.b. Alcuni tipi di pratica suap
+		potrebbero non avere uno specifico evento anagrafico per cui avverrà solo un’associazione
+		tra stabilimento e pratica suap). Se non viene selezionato nessuno stabilimento il sistema chiede all&apos;utente se
+		vuole inserire un nuovo stabilimento su cui poter poi completare (in un secondo momento) il
+		processo della pratica per cui lo stabilimento non è stato trovato.<br>
+		<img src="./images/pratichesuap20/completapratica.png"/><br>	
+		Dopo aver selezionato lo stabilimento e cliccato su prosegui, se quello stabilimento non prevede il tipo di
+		operazione indicato nella pratica suap il sistema blocca l&apos;operazione e con un messaggio
+		segnala all&apos;utente che l&apos;operazione non &egrave; consentita, l&apos;utente viene rimandato al dettaglio
+		dello stabilimento selezionato e la pratica suap non viene associata allo stabilimento in questione. La pratica
+		suap risulter&agrave; nell&apos;elenco delle pratiche suap con la dicitura &apos;&apos;scheda da completare&apos;&apos;
+		nell&apos;ultima colonna &apos;&apos;STABILIMENTO COLLEGATO&apos;&apos;.
+	</li>
+</ul>
+<br>
+<b>Inserimento anagrafiche dal cavaliere Anagrafiche stabilimenti</b><br>
+Per l&apos;inserimento di uno stabilimento &egrave; disponibile anche una strada alternativa, infatti potrebbero esserci
+stabilimenti non presenti in GISA, ma che sono operativi da anni. (Caso analogo a quello descritto
+in precedenza, ossia il voler completare una pratica suap &apos;&apos;di modifica&apos;&apos; 
+senza aver selezionato alcuno stabilimento in quanto non trovato).
+Per fare ci&ograve; &egrave; possibile utilizzare la funzione &apos;&apos;Inserisci stabilimento&apos;&apos; accedendo al 
+cavaliere &apos;&apos;Anagrafica stabilimenti&apos;&apos;.<br><br>
+Dal momento che una anagrafica potrebbe anche non essere generata da una SCIA si richiede
+all&apos;utente di specificare anche la causale dell&apos;inserimento<br>
+<img src="./images/pratichesuap20/selezionecausale01.png"/><br>	
+<img src="./images/pratichesuap20/selezionecausale01.png"/><br>	
+cliccando su prosegui si viene ricondotti al caso d&apos;uso precedente, ovvero l&apos;utente 
+dovr&agrave; specificare la tipologia di attivit&agrave; (con sede fissa o senza sede fissa) e 
+proseguire nel processo di inserimento del nuovo stabilimento. Nel caso non si tratti di
+una pratica suap:
+<ul>
+	<li>
+		in caso di inserimento di uno stabilimento a sede fissa il comune dello stabilimento non risulta
+		precompilato e l&apos;unico vincolo per l&apos;inserimento dell&apos;indirizzo &egrave; 
+		l&apos;asl di competenza dell&apos;utente.
+	</li>
+	<li>
+		in caso di inserimento di uno stabilimento senza sede fissa
+		<ul>
+			<li>
+				se tipo impresa &egrave; diverso da &apos;&apos;impresa individuale&apos;&apos; il comune della sede legale non
+				risulta precompilato e l&apos;unico vincolo per l&apos;inserimento dell&apos;indirizzo &egrave; l&apos;asl di
+				competenza dell&apos;utente.
+			</li>
+			<li>
+				se il tipo impresa &egrave; uguale ad &apos;&apos;impresa individuale&apos;&apos; (e dunque non appare la sezione
+				sede legale) il comune di residenza del &apos;&apos;imprenditore impresa individuale&apos;&apos; non
+				risulta precompilato e l&apos;unico vincolo per l&apos;inserimento dell&apos;indirizzo &egrave; l&apos;asl di
+				competenza dell&apos;utente.
+			</li>
+		</ul>
+	</li>
+</ul>
+<br>
+<br>
+<b>Scheda Anagrafica stabilimento</b><br>
+Dal dettaglio dello stabilimento sono disponibili le seguenti funzionalit&agrave;:<br>
+<img src="./images/pratichesuap20/schedadettaglio01.png"/><br><br>	
+<u>Storico Pratiche amministrative</u><br>
+Questa scheda mostra la lista di tutte le pratiche suap associate allo stabilimento 
+con la possibilit&agrave; di vederne il dettaglio (compresi gli allegati), cliccando 
+sull&apos;icona dell&apos;allegato è possibile vedere gli allegati di una specifica pratica suap 
+e nel caso aggiungerne altri.<br>
+<img src="./images/pratichesuap20/storicopraticheamministrative.png"/><br>
+<br>
+<u>Modifica dati scheda</u><br>
+Tale funzionalità consente di effettuare delle operazioni di modifica sulla 
+scheda dello stabilimento; la lista delle modifiche possibili su uno stabilimento dipende 
+dalle caratteristiche dello stabilimento stesso, ossia:
+<ul>
+	<li>
+		dal tipo (con o senza sede fissa)
+	</li>
+	<li>
+		dal suo stato (cessato, attivo)
+	</li>
+	<li>
+		dal tipo di impresa (impresa individuale o altro)
+	</li>
+</ul>
+Oppure dai permessi dell&apos;utente (es. alcune operazioni sono consentite solo al ruolo HD).<br><br>
+Tutte quelle operazioni di modifica sui dati della scheda dello stabilimento, che avevano ognuna un proprio
+tasto, ora sono state raggruppate/integrate/aggiornate nella lista di operazioni sotto il tasto
+&apos;&apos;modifica dati scheda&apos;&apos;.<br>
+<img src="./images/pratichesuap20/schedadettaglio02.png"/>
+(esempio di lista operazioni in &apos;&apos;modifica dati scheda&apos;&apos; 
+per uno stabilimento a sede fissa)<br><br>
+<img src="./images/pratichesuap20/schedadettaglio03.png"/>
+(esempio di lista operazioni in &apos;&apos;modifica dati scheda&apos;&apos; 
+per uno stabilimento senza sede fissa)<br><br>
+Esempio di operazione sotto il tasto &apos;&apos;modifica dati scheda&apos;&apos;:
+<ul>
+	<li>
+		operazione aggiunzione linea (consente l&apos;aggiunta di una o più linee di attivit&agrave;; 
+		n.b. solo per stabilimenti a sede fissa).<br>
+		<img src="./images/pratichesuap20/aggiunzionelinea01.png"/><br><br>
+		Step 1: dopo aver cliccato sulla specifica operazione, si inserisce la causale per cui essa viene
+		effettuata (es. presa visione diretta)
+		<img src="./images/pratichesuap20/aggiunzionelinea02.png"/><br><br>
+		Step 2: si effettua l&apos;operazione di modifica
+		<img src="./images/pratichesuap20/aggiunzionelinea03.png"/><br><br>
+		Dopo aver effettuato l&apos;operazione di modifica si torna alla scheda di dettaglio dello stabilimento.
+	</li>
+</ul>
+<u>Storico operazioni stabilimento</u><br>
+Questa scheda mostra la lista delle operazioni effettuate sullo stabilimento 
+<img src="./images/pratichesuap20/storicooperazioniosa01.png"/><br>
+cliccando sul link nella colonna tipo operazione &egrave; possibile
+vedere il dettaglio dello stabilimento prima e dopo l&apos;evento (nel caso
+di avvio dell&apos;attivit&agrave; c&apos;&egrave; solo la scheda inserita la prima volta nel sistema).
+<img src="./images/pratichesuap20/storicooperazioniosa02.png"/><br>
+
+<br><br><br>
+
+ -->
+
+
+
+

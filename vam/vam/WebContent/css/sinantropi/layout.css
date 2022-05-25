@@ -1,0 +1,680 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+/** Main blocks and floats */
+
+body {
+border:1px solid #E5EAE7;
+background-color:#338733;
+margin:0;
+padding:0;
+}
+
+
+body#mainbody {
+    text-align: center;
+    margin: 0;
+    /* to avoid margins */
+  }
+
+
+body div#wrapper {
+    min-width: 760px;
+    max-width: 100% /*960px*/;
+    width: auto !important;
+    width: 100%;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+    text-align: left;
+  }
+
+
+.hidden {
+    font-size:0.1em;
+    height:1px;
+    line-height:0.1em;
+    margin:0pt;
+    padding:0pt;
+    position:absolute;
+    top:-10000px;
+    width:1px;
+  }
+
+.clr {
+    clear: both;
+  }
+
+div.padding {
+    padding: 0.5em;
+  }
+
+
+div#sidebar-left {
+	background-image:url("../../images/sinantropi/sidelBK.jpg");
+	background-repeat:repeat-y;
+    float: left;
+    width: 215px;
+    /*overflow: hidden;*/
+    /*margin: 0.5% 0% 0.5% 0%;*/
+    /*padding-right:30px;*/
+
+  }
+
+div#sidebar-left div.padding {
+    padding-left: 0;
+
+  }
+
+
+div#sidebar-right div.padding {
+    padding-right: 0;
+
+  }
+
+
+div#menu-top div.padding {
+    padding-left: 0;
+  }
+
+
+div#sidebar-right {
+    float: right;
+    width: 202px /*23%*/;
+    overflow: hidden;
+
+  }
+
+
+div#main-1 {
+    overflow:hidden;
+    width:100%;
+  }
+
+
+div#main-2 {
+    float:left;
+    overflow:hidden;
+    width:77%;
+	min-height:600px;
+  }
+
+
+div#main-3 {
+    /*float: left;*/
+   /* width: 60%/*54%*/;
+    overflow: hidden;
+	min-height:650px;
+	margin:0px;
+	padding:0px;
+
+  }
+
+
+div#user12
+, div.userfull {
+    float: left;
+    width: 100%;
+  }
+
+div.column_left {
+    float: left;
+    width: 49%;
+  }
+
+div.column_right {
+    float: right;
+    width: 49%;
+  }
+
+
+div#accessibility-links {
+    text-align:right;
+  	float:right;
+  }
+
+
+div#menu-top {
+    width: 100%;
+  }
+
+div#banner .padding {
+    padding:0;
+    text-align:center;
+  }
+
+
+div.article_column {
+    float: left;
+    overflow: hidden;
+  }
+
+
+div.column_separator .contentpaneopen {
+    padding-left: 4%;
+  }
+
+
+div.blog {
+    width: 100%;
+  }
+
+iframe {
+	text-align:left;
+}
+
+.us_tabelle {
+	width:100%;
+
+/*	border-right: 1px solid #072A9C;
+	border-bottom: 1px solid #072A9C;
+	border-left: 1px solid #072A9C;
+	*/
+}
+.us_tabelle td{
+	border: 1px solid #A8C4DC;
+
+}
+
+body.white .us_riga_intestazione{
+	background:#A8C4DC;
+	color:#000044;
+	font-weight:bold;
+	text-align:center;
+}
+
+body.black .us_riga_intestazione{
+	background:#555555;
+	color:white;
+	font-weight:bold;
+	text-align:center;
+}
+
+
+
+
+body.white .us_cella_intestazione{
+	background:#A8C4DC;
+	color:#000044;
+	font-weight:bold;
+	text-align:left;
+}
+
+body.black .us_cella_intestazione{
+	background:#555555;
+	color:white;
+	font-weight:bold;
+	text-align:left;
+}
+
+.us_riga_alternata{
+	background:#EFEFFF;
+}
+
+.us_no_bordi td{
+	border:none;
+}
+
+#top .moduletable{
+	border:none;
+}
+
+#validw3c{
+	clear:both;
+	text-align:center;
+	width:200px;
+	padding-right:10px;
+	float:right;
+
+	}
+.insertResponse{
+	color:RED;
+}
+
+.us_right{
+	text-align:right;
+
+}
+
+body.white #pathway{
+	background-color:#388538;
+	color:white;
+	}
+
+body.black #pathway{
+	background-color:black;
+	color:white;
+	}
+
+.moduletablefine_colonna{
+height:62px;
+}
+
+body.white div#wrapper div.sidebar_pom div#sidebar-left {
+	margin-top:10px;
+  }
+
+body.white div#wrapper div.sidebar_pom div#sidebar-left div.padding {
+
+padding-top:0px;
+
+  }
+
+
+body.white div#wrapper div.sidebar_pom div#sidebar-right div.padding {
+
+
+  }
+
+
+
+body.white div#wrapper div.sidebar_pom div#sidebar-right {
+
+
+  }
+
+caption{
+text-align:left;
+}
+
+
+body.white .mymoduletable{
+/*background-color:#E5EAE7;*/
+font-size:14px;
+padding-bottom:0;
+padding-left:0;
+padding-right:0;
+padding-top:0;
+/*margin:0.5%;*/
+width:215px;
+}
+
+body.white .mymoduletable label{
+display:none;
+}
+
+
+
+body.white ul.mymenu {
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin-bottom:0;
+margin-left:0;
+margin-right:0;
+margin-top:0;
+padding-bottom:0;
+padding-left:0;
+padding-right:0;
+padding-top:0;
+position:relative;
+width:15%;
+}
+
+
+
+body.white .mymenu li{
+
+float:left;
+position:relative;
+/*white-space:nowrap;*/
+z-index:1;
+position:relative;
+/*white-space:nowrap;*/
+display:block;
+border-right: 1px solid #388538;
+border-left: 1px solid #388538;
+width:202px;
+}
+
+body.white .mymenu a{
+
+background-color:#BED0B6;
+border-bottom-color:#698A59;
+border-bottom-style:solid;
+border-bottom-width:1px;
+border-top-color:#698A59;
+border-top-style:solid;
+border-top-width:1px;
+color:#000000;
+font-family:Arial;
+font-size:14px;
+margin-bottom:0;
+margin-left:0;
+margin-right:0;
+margin-top:-1px;
+padding-bottom:6px;
+padding-left:8px;
+padding-top:6px;
+text-align:left;
+text-decoration:none;
+display:block;
+margin-right:14px;
+
+}
+
+body.white .mymenu a:hover{
+background-color:#E5EAE7;
+text-decoration:underline;
+}
+
+body.white .mymoduletable h3{
+color:#000000;
+font-size:12px;
+font-style:normal;
+font-variant:normal;
+font-weight:bold;
+font-family:Arial;
+padding-left:8px;
+}
+
+
+
+body.white .mymoduletable input[type="text"],body.white .mymoduletable input[type="password"] {
+font-size:11px;
+width:150px;
+
+}
+
+
+
+body.white .mymoduletable  form
+{
+margin-left:5px;
+}
+
+input[type="submit"], input[type="button"] {
+
+background-attachment:scroll;
+background-color:#4477AA;
+background-image:none;
+background-position:0 0;
+background-repeat:repeat;
+border-bottom-color:gray;
+border-top-color:gray;
+color:white;
+}
+
+body.white #banner .moduletable {
+
+background-image:url("../../../images/stories/custom/pathway.jpg");
+
+}
+
+#banner .moduletable a{
+
+color:white;
+}
+
+#banner .moduletable {
+margin-bottom:4px;
+padding-left:10px;
+text-align:left;
+color:white;
+}
+
+body.white .box1_ts {
+
+background-attachment:scroll;
+background-color:#388538;
+background-image:none;
+background-position:0 0;
+background-repeat:repeat;
+color:#FFFFFF;
+font-size:14px;
+font-weight:bold;
+padding-left:10px;
+}
+
+body.white .box1 {
+
+background-attachment:scroll;
+background-color:#F6FCEC;
+background-image:none;
+background-position:0 0;
+background-repeat:repeat;
+border-bottom-color:#388538;
+border-bottom-style:solid;
+border-bottom-width:medium;
+border-left-color:#388538;
+border-left-style:solid;
+border-left-width:medium;
+border-right-color:#388538;
+border-right-style:solid;
+border-right-width:medium;
+
+border-top-color:#388538;
+border-top-style:solid;
+border-top-width:medium;
+font-size:14px;
+margin-bottom:0;
+margin-left:0;
+margin-right:0;
+margin-top:0;
+padding-bottom:10px;
+padding-left:10px;
+padding-right:10px;
+padding-top:10px;
+}
+
+body.white .titolo8 {
+color:#000000;
+font-size:12px;
+font-style:normal;
+font-variant:normal;
+font-weight:bold;
+}
+
+
+body.white .box2_ts {
+
+background-attachment:scroll;
+background-color:#388538;
+background-image:none;
+background-position:0 0;
+background-repeat:repeat;
+color:#FFFFFF;
+font-size:14px;
+font-weight:bold;
+padding-left:10px;
+}
+
+
+body.black .moduletablelinkufficiale{
+margin-top:60px;
+}
+
+
+.listHome li {
+list-style-image:url("../../../images/stories/custom/check.png");
+
+
+}
+
+
+#footer .moduletable p {
+
+padding-top:3px;
+}
+
+.contentpaneopen p {
+text-align:justify;
+}
+
+
+
+.contentpaneopen .us_img {
+text-align:center;
+}
+
+
+
+div.header {
+width:100%;
+height:185px;
+background-position:left;
+background-image:url("../../images/sinantropi/testataSinantropi.png");
+/*margin: 0.5% 0% 0.5% 0.5%*/;
+}
+
+#logoregione{
+	padding-top:20px;
+	padding-right:10px;
+	}
+
+div.menu {
+border-top:red 1px solid;
+width:15%;
+position:absolute;
+background-color:#338733;
+height:70%;
+color:#093655;
+margin:0;
+top:19%;
+}
+
+#sidebarL{
+	width:215px;
+	background-image:url("../../images/sinantropi/sidelBK.jpg");
+	background-repeat:repeat-y;
+	}
+
+#h3_my{
+	color:green;
+	font-weight:bold;
+	width:188px;
+	}
+	
+#p3_my{	
+	border-bottom:3px solid #999999;
+	border-top:3px solid #999999;
+	background-color:#0066FF;
+	color:white;
+	font-size:12px;
+	font-weight:bold;
+	margin-right:26px;
+	padding-left:2px;
+	}	
+	
+#finemenu{
+	height:112px;
+	width:215px;
+	background-color:#A9c6c4;
+	background-image:url("../../images/sinantropi/finemenu.jpg");
+	background-repeat:no-repeat;
+	vertical-align:bottom;
+	}	
+
+div.body
+{
+border:1px solid #388538;
+position:absolute;
+width:85%;
+height:70%;
+background-color:#636d73;
+margin:0 0 0 15%;
+padding:0;
+top:19%;
+}
+
+div.footer
+{
+border-left:red 1px #338733;
+position:absolute;
+width:85%;
+height:11%;
+background-color:#636d73;
+border-top:#8c9294 1px solid;
+margin:0 0 0 15%;
+padding:0;
+top:89%;
+text-align:center;
+}
+
+h4.titolopagina{
+background-color:#0066FF;
+font-size:14px;
+padding-bottom:0;
+padding-left:0;
+padding-right:0;
+padding-top:0;
+margin:0.5%;
+width:94%;
+color:white;
+}
+
+.sezionepagina{
+background-color:#338733;
+font-size:14px;
+padding-bottom:0;
+padding-left:0;
+padding-right:0;
+padding-top:0;
+margin:0.5%;
+width:83.7%;
+color:white;
+}
+
+div.margine{
+padding:20px;
+margin-left:220px;
+}
+
+form.marginezero
+{
+	margin:0px;
+}
+
+table.tabella
+{
+	background-color:#E5EAE7;
+	font-size:14px;
+	padding-bottom:0;
+	padding-left:0;
+	padding-right:0;
+	padding-top:0;
+	margin:0.5%;
+	width:94%;	
+	border-collapse: collapse;
+	
+}
+
+th
+{
+	background:#A8C4DC;
+	color:#000044;
+	font-weight:bold;
+	text-align:center;
+	padding: 0px;
+	border: none;	
+}
+
+
+
+tr.odd {background-color: #FFFFFF}
+tr.even {background-color: #E5EAE7;}
+
+.errore {
+font-size:11px;
+color:#FF0000;
+font-family:verdana, arial, helvetica, sans-serif;
+text-decoration:none;
+}
+
+.messaggio {
+font-size:11px;
+color:#00C000;
+font-family:verdana, arial, helvetica, sans-serif;
+text-decoration:none;
+}
+
+#contentBody {
+font-family : Trebuchet MS, Verdana, Helvetica, Arial, san-serif;
+padding-right:30px
+  }

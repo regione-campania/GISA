@@ -1,0 +1,8 @@
+#user-dashboard {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#welcome-message {
+    text-transform: capitalize;
+}

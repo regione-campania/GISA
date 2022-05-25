@@ -1,0 +1,8 @@
+<div id="login-container">
+    <div class="box-3d" id="login-box">
+        <h3>Benvenuto!</h3>
+        <button class="btn spid-button" id="spid-button" (click)="entraConSpid($event)">
+            <span class="btn-text">Accedi con Spid/CIE</span>
+        </button>
+    </div>
+</div>

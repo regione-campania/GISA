@@ -1,0 +1,246 @@
+    <project basedir="." default="build" name="bdu" xmlns:if="ant:if" xmlns:unless="ant:unless">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <property name="war" value="bdu.war"/>
+   
+    <path id="Web App Libraries.libraryclasspath">
+        <pathelement location="WebContent/WEB-INF/lib/DaffodilDB_402_Common.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/DaffodilDB_402_Embedded.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/activation-1.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/aspcfs.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/asterisk-java-0.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/axis.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/barbecue-1.5-beta1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/batik-all.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/bcprov-jdk14-121.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/bsh-2.0b2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/castor-0.9.5.3.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-beanutils.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-codec-1.3.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-collections-3.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-digester-1.7.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-discovery-0.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-email-1.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-fileupload-1.3.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-httpclient-3.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-io-2.4.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-lang-2.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-logging-api.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-logging.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/cos.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/derby-10.2.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/dwr.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/gson-1.7.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/iText-2.1.3.jar"/>
+       <!-- <pathelement location="WebContent/WEB-INF/lib/iTextAsian.jar"/> -->
+        <pathelement location="WebContent/WEB-INF/lib/interclient.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/isavvix.jar"/>
+       <!-- <pathelement location="WebContent/WEB-INF/lib/itext-1.3.jar"/> -->
+        <pathelement location="WebContent/WEB-INF/lib/itextpdf-5.1.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jasperreports-3.0.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javamail-dsn-1.4.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javamail-imap-1.4.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javamail-mail-1.4.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javamail-mailapi-1.4.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javamail-pop3-1.4.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javamail-smtp-1.4.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jaxrpc.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jaybird-full-2.1.0.jar"/>
+
+        <pathelement location="WebContent/WEB-INF/lib/WrapperLibreriaJunrar.jar"/>
+
+        <pathelement location="WebContent/WEB-INF/lib/aopalliance-repackaged-2.4.0-b31.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/asm-debug-all-5.0.4.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hk2-api-2.4.0-b31.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hk2-locator-2.4.0-b31.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/hk2-utils-2.4.0-b31.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javassist-3.18.1-GA.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.annotation-api-1.2.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.inject-2.4.0-b31.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.servlet-api-3.0.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/javax.ws.rs-api-2.0.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jaxb-api-2.2.7.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-client.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-common.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-container-servlet.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-container-servlet-core.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-guava-2.22.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-media-jaxb.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-media-multipart-2.22.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jersey-server.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/mimepull-1.9.3.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/org.osgi.core-4.2.0.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/osgi-resource-locator-1.0.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/persistence-api-1.0.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
+
+       <pathelement location="WebContent/WEB-INF/lib/xstream-1.4.9.jar"/>
+
+
+ <pathelement location="WebContent/WEB-INF/lib/jexcel-2.6.6.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jmesa-snapshot.jar"/>
+        <!--<pathelement location="WebContent/WEB-INF/lib/json-rpc-1.0.jar"/>-->
+        <pathelement location="WebContent/WEB-INF/lib/jsr173_1.0_api.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jxl.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/log4j-1.2.9.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/lucene-1.4.3.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-commercial-5.0.7-bin.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/oracle-10.2.0.1.0-jdbc14.jar"/>
+        <!--pathelement location="WebContent/WEB-INF/lib/poi-3.0.1-FINAL-20070705.jar"/-->
+           <pathelement location="WebContent/WEB-INF/lib/quartz-1.5.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/slf4j-api-1.4.3.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/slf4j-log4j12-1.4.3.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/smack-2.0.0.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/wsdl4j.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/xercesImpl-2.8.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/xml-apis-2.8.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/zeroio-iteam.jar"/>
+    </path>
+    <path id="Apache Tomcat v7.0 [Apache Tomcat v7.0].libraryclasspath">
+        <pathelement location="${tom.dir}/lib/annotations-api.jar"/>
+        <pathelement location="${tom.dir}/lib/catalina-ant.jar"/>
+        <pathelement location="${tom.dir}/lib/catalina-ha.jar"/>
+        <pathelement location="${tom.dir}/lib/catalina-tribes.jar"/>
+        <pathelement location="${tom.dir}/lib/catalina.jar"/>
+        <pathelement location="${tom.dir}/lib/ecj-4.4.jar"/>
+        <pathelement location="${tom.dir}/lib/el-api.jar"/>
+        <pathelement location="${tom.dir}/lib/jasper-el.jar"/>
+        <pathelement location="${tom.dir}/lib/jasper.jar"/>
+        <pathelement location="${tom.dir}/lib/json-rpc-1.0.jar"/>
+        <pathelement location="${tom.dir}/lib/jsp-api.jar"/>
+        <pathelement location="${tom.dir}/lib/postgresql-9.4-1206-jdbc4.jar"/>
+        <pathelement location="${tom.dir}/lib/servlet-api.jar"/>
+        <pathelement location="${tom.dir}/lib/tomcat-api.jar"/>
+        <pathelement location="${tom.dir}/lib/tomcat-coyote.jar"/>
+        <pathelement location="${tom.dir}/lib/tomcat-dbcp.jar"/>
+        <pathelement location="${tom.dir}/lib/tomcat-i18n-es.jar"/>
+        <pathelement location="${tom.dir}/lib/tomcat-i18n-fr.jar"/>
+
+ <pathelement location="${tom.dir}/lib/xstream-1.4.9.jar"/>
+
+        <pathelement location="${tom.dir}/lib/tomcat-i18n-ja.jar"/>
+        <pathelement location="${tom.dir}/lib/tomcat-jdbc.jar"/>
+        <pathelement location="${tom.dir}/lib/tomcat-util.jar"/>
+        <pathelement location="${tom.dir}/lib/tomcat7-websocket.jar"/>
+        <pathelement location="${tom.dir}/lib/websocket-api.jar"/>
+        <pathelement location="${tom.dir}/lib/poi-3.13-beta1-20150723.jar"/>
+         <pathelement location="${tom.dir}/lib/poi-examples-3.13-beta1-20150723.jar"/>
+         <pathelement location="${tom.dir}/lib/poi-excelant-3.13-beta1-20150723.jar"/>
+         <pathelement location="${tom.dir}/lib/poi-ooxml-3.13-beta1-20150723.jar"/>
+         <pathelement location="${tom.dir}/lib/poi-ooxml-schemas-3.13-beta1-20150723.jar"/>
+         <pathelement location="${tom.dir}/lib/poi-scratchpad-3.13-beta1-20150723.jar"/>
+         <pathelement location="${tom.dir}/lib/xmlbeans-2.3.0.jar"/>
+
+
+
+    </path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <path id="bdu.classpath">
+        <pathelement location="build/classes"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="Apache Tomcat v7.0 [Tomcat v7.0].libraryclasspath"/>
+    </path>
+
+<target name="SceltaTomcat" depends="SceltaTomcat-check, SceltaTomcat-fail" if="SceltaTomcat-check-property">
+	<property name="tom.dir" value="/usr/share/apache-tomcat-7.0.55"/>
+        <echo message="Eseguo una build per il seguente Tomcat: ${tom.dir}" />
+    </target>
+
+    <target name="SceltaTomcat-fail" unless="SceltaTomcat-check-property">
+	<property name="tom.dir" value="/usr/share/apache-tomcat-8.0.33"/>
+	<echo message="Eseguo una build per il seguente Tomcat:  ${tom.dir}" />
+    </target>
+
+    <target name="SceltaTomcat-check">
+        <condition property="SceltaTomcat-check-property">
+            <equals arg1="${TOMCAT_VERSION}" arg2="Tomcat7" trim="true"/>
+        </condition>
+    </target>
+
+
+    <target name="init" depends="SceltaTomcat">
+        <mkdir dir="build/classes"/>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="setDemoProp">
+        <delete file="src/org/aspcfs/utils/application.properties"/>
+        <copy file="src/org/aspcfs/utils/application.propertiesDEMO" tofile="src/org/aspcfs/utils/application.properties" />
+    </target>
+
+    <target name="clean" depends="clean-war">
+        <delete dir="build/classes"/>
+    </target>
+
+    <target name="clean-war">
+        <delete file="${war}"/>
+    </target>
+
+    <target depends="clean" name="cleanall"/>
+
+    <target name="build" depends="init" >
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" nowarn="true" destdir="build/classes" includeantruntime="false" source="${source}" target="${target}" encoding="iso-8859-1">
+        	<src path="src" />
+        	<classpath refid="bdu.classpath" />
+        	<compilerarg line="-XDignore.symbol.file " />
+        </javac>
+    </target>
+
+    <target depends="clean-war" name="build-war">
+        <war destfile="${war}" webxml="WebContent/WEB-INF/web.xml" update="true">
+              <classes dir="build\classes"/>
+              <fileset dir="WebContent" />
+        </war>
+    </target>
+
+        <target  name="war-only">
+            <war destfile="${war}" webxml="WebContent/WEB-INF/web.xml" update="true">
+              <classes dir="build\classes"/>
+              <fileset dir="WebContent" />
+            </war>
+        </target>
+
+        <target depends="setDemoProp,build" name="build-war-demo">
+            <war destfile="${war}" webxml="WebContent/WEB-INF/web.xml" update="true">
+              <classes dir="build\classes"/>
+              <fileset dir="WebContent" />
+            </war>
+        </target>
+
+</project>
+
+

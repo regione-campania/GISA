@@ -1,0 +1,40 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="ConfigurazioneDPAT"></a>
+<h3 id="ConfigurazioneDPAT">DPAT - Configurazione</h3>
+
+
+
+<p style="text-align: justify;">Facendo accesso con utenza ORSA e' possibile all'interno del cavaliere DPAT inserire o modificare i piani e i sottopiani di monitoraggio ed inserire le UI per i sottopiani e le sottoattivita'. Entrando nel modulo della pagina nella parte in alto a sinistra della schermata e' presente il link 'Configura Piani Dpat'. <br /><img src="./images/piani1.png"/><br clear="left" /> Di seguito una leggenda delle possibili operazioni effettuabili sui vari piani di monitoraggio e le relative icone corrispondenti.<br /><img src="./images/piani3.png" /><br clear="left" /><br /><br /></p>
+<h2>Aggiungere un piano di monitoraggio</h2>
+Per aggiungere un piano di monitoraggio dopo aver individuato la posizione attraverso l'icona <br /><img src="./images/piani4.png" /><br clear="left" /><br /> e' possibile inserire il piano sopra al piano padre individuato mentre utilizzando l'icona <br /><img src="./images/piani5.png" /><br clear="left" /><br /> si inserisce il piano sotto al piano padre individuato.<br /> In entrambi i casi la maschera di inserimento di un piano padre di monitoraggio e' la stessa. <br /><br /> In seguito all'utilizzo di una delle icone per l'aggiunta di un piano padre si apre la finestra per la compilazione del nuovo piano,<br /><img src="./images/piani8.png" /><br clear="left" /> all'interno della quale si inserisce un codice univoco, l'alias,  si inserisce il tipo di attivita' tra quelle elencate, il codice esame che si vuole associare al piano che si sta creando, la descrizione del piano.(NOTA BENE : non e' possibile inserire un codice univoco gia' presente.Se presente, invece, il sistema propone un codice univoco libero). Dopo aver compilato le sezioni descritte cliccando sul bottone INSERISCI si inserisce il piano di monitoraggio nella posizione richiesta.<br /><br /> Per aggiungere un piano di monitoraggio figlio dopo aver individuato la posizione attraverso l'icona <br /><img src="./images/piani6.png" /><br clear="left" /> e' possibile inserire il piano sopra al piano figlio individuato mentre utilizzando l'icona <br /><img src="./images/piani7.png" /><br clear="left" /> si inserisce il piano sotto al piano figlio individuato.<br /> In entrambi i casi la maschera di inserimento di un piano di monitoraggio e' la stessa. <br /><br /> In seguito all'utilizzo di una delle icone per l'aggiunta di un sottopiano si apre la finestra per la compilazione del nuovo piano figlio,<br /><img src="./images/piani9.png" /><br clear="left" /> all'interno della quale si inserisce un codice univoco, l'alias, il codice esame che si vuole associare all'indicatore che si sta creando, la descrizione dell'indicatore.(NOTA BENE : Anche in questo caso non e' possibile inserire un codice univoco gia' presente.Se presente, invece, il sistema propone un codice univoco libero). Dopo aver compilato le sezioni descritte cliccando sul bottone INSERISCI si inserisce il piano di monitoraggio figlio nella posizione richiesta. <br /><br />
+<h2>Aggiungere un Sottopiano</h2>
+Per aggiungere un sottopiano ad un piano padre che non ha sottopiani figli cliccare sull'icona<br /><img src="./images/piani10.png" /><br clear="left" /> Nella finestra che si apre e' possibile inserire la descrizione del nuovo sottopiano di monitoraggio ma non e' possibile inserire la sezione in quanto essa viene ereditata dal piano padre.Anche in questo caso se il codice univoco inserito e' gia' presente il sistema propone un coidice univoco libero. Cliccando su INSERISCI viene salvato il nuovo sottopiano che viene inserito nella posizione scelta. <br /><br />
+<h2>Eliminare un Piano/Sottopiano</h2>
+Per eliminare un piano oppure un sottopiano basta cliccare sull'icona <br /><img src="./images/piani11.png" /><br clear="left" /> Corrispondete al piano/sottopiano da eliminare. Se l'utente desidera eliminare il Piano di monitoraggio comprensivo di tutti i sottopiani appartenenti al piano padre basta cliccare sul bottone per l'eliminazione corrispondente al piano ed in automatico si elimineranno tutti i sottopiani legati al piano padre corrispondente. <br /><br />
+<h2>Modificare un Piano/Sottopiano</h2>
+Per modificare un piano oppure un sottopiano basta cliccare sull'icona <br /><img src="./images/piani12.png" /><br clear="left" /><br /> Cliccando sulla matita (Fig. 1) in corrispondenza di un piano padre , si aprira' la finestra tramite cui possono essere apportate le modifiche al piano. Per un piano padre il tipo di modifiche previste sono :
+<ul>
+<li>Modifica attivita'</li>
+<li>Spostamento Attivita'</li>
+</ul>
+<br /><br /> e' possibile decidere quindi il tipo di operazione che si intende eseguire ( di default e' MODIFICA PIANO-ATTIVITA') cosi' come mostrato in figura.Se invece si clicca su SPOSTA PIANO-ATTIVITA' non si puo' tornare al check precedente. <img src="./images/modifica_attivita.PNG" /><br clear="left" /><br /><br /> Si puo' modificare la descrizione del piano e il codice univoco. Cliccando su aggiorna viene disabilitato il piano corrente e inserito il nuovo piano , mantenendo la relazione con i figli gia' esistenti.<br /> Nello spostamento dell'attivita' oltre a poter modificare piano e il codice univoco,viene abilitata la modifica del campo sezione.
+ L'utente puo' scegliere la sezione in cui spostare il piano e la posizione all'interno della sezione. Cliccando su aggiorna viene disabilitato il piano corrente e creato il piano nella posizione scelta dall'utente.<br /><img src="./images/sposta_attivita.PNG" /><br clear="left" /><br /> Allo stesso modo avvengono le modifiche sugli indicatori.Se viene spostato in una sezione/piano diversa dall'origine  il codice padre resta invariato e cambia la desinenza finale..<br /> Cliccando sulla matita si aprira' la finestra tramite la quale e' possibile apportare le modifiche agli indicatori. <br /> I tipi di modifiche previsti per gli indicatori sono:
+<ul>
+<li>Modifica Indicatore</li>
+<li>Spostamento Indicatore</li>
+</ul>
+<img src="./images/modifica_indicatore.PNG
+  " /><br clear="left" /><br /> Modifica Indicatore consente di variare la descrizione dell'indicatore mantenendo la storia con le precedenti versioni dello stesso.<br /><br /> Spostamento indicatore consente di spostare l'indicatore da un piano/attivita a un altro, mantenendo la storia con il pregresso. L'utente scegliera' in quale sezione e quale piano vuole spostare l'indicatore, e in quale posizione inserirlo prestando pero' attenzione all'univocita' del codice univoco.
+<h3>Importante:</h3>
+Le modifiche ai piani e agli indicatori del DPAT, possono essere sempre fatte, sia nel caso in cui il DPAT risulta CONGELATO (salvato in maniera definitiva), sia se ancora risulta salvato in maniera temporanea, pero' c'e' da dire che si verificano due situazioni diverse, ovvero :<br /><br />
+CASO 1 - Se il DPAT non e' salvato definitivamente, le modifiche apportate ai piani e agli indicatori,
+ a seconda della data inizio validita' della modifica fatta, non devono riflettersi nella lista dei Piani, presenti nel Controllo Ufficiale.<br /><br />
+CASO 2 - Se il DPAT e' salvato definitivamente, le modifiche apportate ai piani e agli indicatori,
+a seconda della data inizio validita' della modifica fatta devono comparire nella lista dei Piani, presenti nel Controllo Ufficiale .

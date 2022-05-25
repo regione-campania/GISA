@@ -1,0 +1,47 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="izsmolluschi"></a>
+<h3 id="izsmolluschi">IZSM-Esiti-Molluschi</h3>
+Tramite questo cavaliere e' possibile inviare i campioni sui molluschi bivalvi in BDN.
+<p><img src="./images/izsm_esiti_molluschi1.png" width="496" height="510" /></p>
+Il file da caricare dovrà essere in formato XLS o XLSX e dovra' contenere, in quest'ordine, i seguenti campi (tutti obbligatori):
+<ul>
+<li>pianoCodice: campo di testo</li>
+<li>PRELIEVI.numeroSchedaPrelievo: campo di testo</li>
+<li>DATAPREL: campo di testo</li>
+<li>luogoPrelievoCodice: campo di testo</li>
+<li>metodoCampionamentoCodice: campo di testo</li>
+<li>motivoCodice: campo di testo</li>
+<li>prelNome: campo di testo</li>
+<li>PrelCognome: campo di testo</li>
+<li>prelCodFiscale: campo di testo</li>
+<li>sitoCodice: campo di testo</li>
+<li>comuneCodiceIstatParziale: campo di testo</li>
+<li>siglaProvincia: campo di testo</li>
+<li>laboratorioCodice: campo di testo</li>
+<li>latitudine: campo di testo</li>
+<li>longitudine: campo di testo</li>
+<li>PRELIEVI.codiceContaminante: campo di testo</li>
+<li>CAMPIONI MOLLUSCHI.numeroSchedaPrelievo: campo di testo</li>
+<li>progressivoCampione	: campo di testo</li>
+<li>foodexCodice: campo di testo</li>
+<li>CAMPIONI MOLLUSCHI.ProfFondale.ProfFondale: campo di testo</li>
+<li>classificazioneDellaZonaDiMareCe8542004: campo di testo</li>
+</ul>
+Il ruolo abilitato all'utilizzo del cavaliere sarà ORSA. Caricato il file, il sistema:
+<ul>
+<li>provvedera' ad elaborarlo</li>
+<li>ricerchera' eventuali errori</li>
+<li>in assenza di errori effettuera' l'invio tramite WS alla BDN</li>
+<li>produrra' un log per ogni invio effettuato con gli esiti OK e KO</li>
+</ul>
+</p>
+<p><img src="./images/izsm_esiti_molluschi2.png" width="496" height="510" /></p>
+
+<p></p>

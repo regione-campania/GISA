@@ -1,0 +1,105 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="pratichesuap"></a>
+<h3 id="pratichesuap">Gestione Stabilimenti</h3>
+Prima di descrivere le funzionalit&agrave; dei nuovi cavalieri che consentono la gestione degli stabilimenti, segue una tabella con alcune definizioni di base.</strong>
+<table style="width: 624px; height: 1570px;" border="2">
+<tbody>
+<tr style="height: 15px;">
+<td style="width: 115.35px; height: 15px;">
+<p>ML</p>
+</td>
+<td style="width: 491.65px; height: 15px;">
+<p align="JUSTIFY">La master list &egrave; il sistema di classificazione delle attivit&agrave; di origine ministeriale (vedi ad esempio "Master List Reg CE 852 2004"). Si basa su una gerarchia di livelli (struttura ad albero) i cui primi tre sono Macroarea, Aggregazione, Linea di attivit&agrave;.</p>
+</td>
+</tr>
+<tr style="height: 15px;">
+<td style="width: 115.35px; height: 15px;">
+<p>OPU</p>
+<p></p>
+</td>
+<td style="width: 491.65px; height: 15px;">
+<p align="JUSTIFY">Modello di rappresentazione di entit&agrave; anagrafiche (in generale gli OSA) in cui si distingue la componente amministrativa detta "impresa" e identificata da PIVA, dalla componente operativa detta "stabilimento" e identificata dalla dislocazione geografica (indirizzo) delle attivit&agrave;.</p>
+</td>
+</tr>
+<tr style="height: 15px;">
+<td style="width: 115.35px; height: 15px;">
+<p>Relazione OPU-ML</p>
+<p></p>
+</td>
+<td style="width: 491.65px; height: 15px;">
+<p align="JUSTIFY">Di norma, in un'entit&agrave; anagrafica, le attivit&agrave; sono identificate tramite un ramo di ML (possibile eccezione: operatori abusivi)</p>
+</td>
+</tr>
+<tr style="height: 4px;">
+<td style="width: 115.35px; height: 4px;">
+<p>Adeguamento entit&agrave; anagrafica (ex import)</p>
+<p></p>
+</td>
+<td style="width: 491.65px; height: 4px;">
+<p align="JUSTIFY">Procedura di pulizia e completamento dei dati anagrafici allo scopo di rendere l'entit&agrave; conforme ai vincoli OPU e ML.</p>
+In GISA, tale procedura descritta nel paragrafo <a href="#import">Importa in Anagrafica Stabilimenti</a></td>
+</tr>
+<tr style="height: 5.75px;">
+<td style="width: 115.35px; height: 5.75px;">
+<p>Recupero pregresso</p>
+<p></p>
+</td>
+<td style="width: 491.65px; height: 5.75px;">
+<p>Procedura di aggiornamento BD Gisa riguardo un'entit&agrave; anagrafica gi&agrave; esistente ma mai inserita nel sistema.</p>
+<p>In GISA possibile recuperare il pregresso, utilizzando la funzione <a href="#Recupero">Anagrafica Stabilimenti -&gt; Aggiungi stabilimento pregresso</a></p>
+</td>
+</tr>
+<tr style="height: 5.75px;">
+<td style="width: 115.35px; height: 5.75px;">
+<p>Cessazione OSA</p>
+</td>
+<td style="width: 491.65px; height: 5.75px;">
+<p>Procedura di aggiornamento BD Gisa riguardo un'entit&agrave; anagrafica gi&agrave; esistente ed inserita come pregressa nel sistema. 
+Per maggiori dettagli sulle funzioni disponibili, si prega di consultare le <a href="GestioneBacheca.do?command=DownloadPDF&amp;codDocumento=GB16-000478&amp;idDocumento=5643&amp;tipoDocumento=pdf&amp;nomeDocumento=FAQ_CESSAZIONE.pdf">FAQ CESSAZIONE</a> disponibili anche in bacheca.
+</td>
+</tr>
+<tr style="height: 15px;">
+<td style="width: 115.35px; height: 15px;">
+<p align="JUSTIFY">Errata corrige</p>
+</td>
+<td style="width: 491.65px; height: 15px;">
+<p>Procedura di aggiornamento tramite help desk di dati anagrafici che risultano errati.</p>
+<p>In GISA, il modulo disponibile in bacheca (<a href="../GestioneBacheca.do?command=DownloadPDF&amp;codDocumento=GB16-000105&amp;idDocumento=5266&amp;tipoDocumento=pdf&amp;nomeDocumento=GB15-00836_ModelloErrataCorrige_Stabilimento_rev2_02032016.pdf">MODELLO ERRATA CORRIGE rev 2).</a></p>
+</td>
+</tr>
+<tr style="height: 15px;">
+<td style="width: 115.35px; height: 15px;">
+<p align="JUSTIFY">
+Convergenza (duplicazione di imprese, o di stabilimenti)</p>
+</td>
+<td style="width: 491.65px; height: 15px;">
+<p align="JUSTIFY">Procedura di raggruppamento di entit&agrave; anagrafiche o componenti di entit&agrave; (linee di attivit&agrave;).</p>
+<p align="JUSTIFY">Pu&ograve; essere legata ad aspetti di pulizia dei dati per eliminazione dei doppioni (la cosiddetta deduplicazione) oppure al cambio di modello anagrafico: quelli che nella vecchia anagrafica risultavano essere OSA diversi, nell'OPU diventano linee di attivit&agrave; diverse dello stesso stabilimento qualora condividano la stessa PIVA e lo stesso indirizzo.</p>
+Per i dettagli si veda il paragrafo <a href="#convergenzafunzione">Funzioni di convergenza </a>.
+</td>
+</tr>
+</tbody>
+</table>
+<p><br/>Per la gestione delle anagrafiche, in GISA sono presenti tre cavalieri: </p>
+<ul>
+<li>PRATICHE SUAP</li>
+<li>Anagrafica Stabilimenti</li>
+<li>Altri Stabilimenti<a><br /><img src="./images/scia_01.png" width="1050" /><br clear="left" /><br /></a>
+Accedendo al cavaliere, sono disponibili le funzioni :</li>
+<li><span style="text-decoration: underline;">SCIA da validare:</span> e' presente il bottone "APRI SCHEDA" per aprire il dettaglio della scheda e proseguire con la validazione.</li>
+<li><span style="text-decoration: underline;">Ricerca:</span> e' possibile cercare solo nelle richieste.</li>
+<li><span style="text-decoration: underline;">Gestione SCIA:</span> per inserire nuove attivit&agrave; fisse, mobili e di apicoltura.</li>
+</ul>
+<p>Lateralmente a destra si evidenziano tre sezioni:</p>
+<ul>
+<li><span style="text-decoration: underline;">Pratiche da validare</span> per evidenziare l'elenco delle pratiche inserite&nbsp; che devono avere una validazione per essere spostate e viste nel cavaliere "Anagrafica Stabilimenti".</li>
+<li><span style="text-decoration: underline;">Pratiche non accolte</span> che evidenziano la lista delle pratiche che per qualche motivo non sono state accolte e sono archiviate per avere comunque la possibilit&agrave; di consultarle.</li>
+<li><span style="text-decoration: underline;">Pratiche evase: </span>evidenzia le ultime 100 pratiche lavorate che possono essere consultate, tramite il tasto "apri". </li>
+</ul>

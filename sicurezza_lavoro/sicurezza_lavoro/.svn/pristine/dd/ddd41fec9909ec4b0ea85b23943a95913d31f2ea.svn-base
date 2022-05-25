@@ -1,0 +1,15 @@
+#lista-ispezioni {
+    .table-controls {
+        margin-bottom: .5rem;
+    }
+}
+
+.modal-section {
+    .label, .value {
+        flex-basis: 50%;
+    }
+    .label {
+        font-weight: 600;
+    } 
+}
+

@@ -1,0 +1,13 @@
+**/.svn
+sca**/*properties/application.properties*
+**/*.pdf
+**/*.doc
+**/*.docx
+**/sca/README*
+**/sca/LICENSE*
+**/sca/build7*
+**/sca/build8*
+
+**/tmp_img
+
+**/pets_clinic_01.gif

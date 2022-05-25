@@ -1,0 +1,179 @@
+<mvc-app>
+  
+
+  
+  
+  <!-- Aggiunta action al modulo Hot Configuration -->  
+  <action name="HotConfiguration" class="org.aspcfs.modules.hotConfiguration.actions.HotConfiguration">
+       <forward name="ConfigOK" resource="/hot_configuration/config.jsp" layout="nav"/>
+  
+  </action>
+  
+  <!-- Aggiunta action al modulo Messaggio Home Page -->  
+  <action name="MessaggioHomePage" class="org.aspcfs.modules.messaggioHomePage.actions.MessaggioHomePage">
+       <forward name="MessaggioOK" resource="/messaggioHomePage/message.jsp" layout="suap"/>
+  
+  </action>
+  
+  
+   <action name="SchedaCentralizzataAction" class="org.aspcfs.modules.schedeCentralizzate.actions.SchedaCentralizzataAction">
+     <bean name="SchedaCentralizzata" class="org.aspcfs.modules.schedeCentralizzate.base.SchedaCentralizzata" scope="request"/>
+	<forward name="SchedaOperatoreOk" resource="/schede_centralizzate/scheda.jsp" layout="style" />
+	<forward name="SchedaOperatoreError" resource="/schede_centralizzate/error.jsp" layout="style" />
+	<forward name="DettaglioGestioneSchedaOperatoreOk" resource="/schede_centralizzate/gestione_dettaglio.jsp" layout="nav" />
+	<forward name="ModificaGestioneSchedaOperatoreOk" resource="/schede_centralizzate/gestione_modifica.jsp" layout="nav" />
+	<forward name="ClonaGestioneSchedaOperatoreOk" resource="/schede_centralizzate/gestione_clona.jsp" layout="style" />
+	</action>
+ 
+<action name="GestioneDocumenti" class="org.aspcfs.modules.gestioneDocumenti.actions.GestioneDocumenti">
+	<forward name="timbraOK" resource="/gestione_documenti/codifica_output.jsp" layout="style" />
+	<forward name="recuperaOk" resource="/gestione_documenti/codifica_output.jsp" layout="style" />
+	<forward name="timbraERROR"	resource="/gestione_documenti/codifica_output_errore.jsp" layout="style" />
+	<forward name="verificaOk" resource="/gestione_documenti/paginaVerifica.jsp" layout="style" />
+	<forward name="listaDocOK" resource="/gestione_documenti/listaDocumenti.jsp" layout="nav" />
+	<forward name="listaDocTipoOK" resource="/gestione_documenti/listaDocumentiTipo.jsp" layout="style" />
+	<forward name="listaUltimoPdfOk" resource="/gestione_documenti/listaUltimoDocumenti.jsp" layout="style" />
+	<forward name="documentaleError" resource="/gestione_documenti/documentale_errore.jsp" layout="style"/>
+	<forward name="documentaleAllegatiError" resource="/gestione_documenti/documentale_allegati_errore.jsp" layout="style"/>
+	<forward name="popupError" resource="/errors/error_popup.jsp" layout="style"/>
+	</action>
+	
+<action name="Login" class="org.aspcfs.modules.login.actions.Login">
+    <bean name="LoginBean" class="org.aspcfs.modules.login.beans.LoginBean"
+          scope="request"/>
+     <bean name="LoginBeanSuap" class="org.aspcfs.modules.login.beans.LoginBeanSuap"
+          scope="request"/>		          
+    <forward name="LoginOK" resource="/MyCFS.do?command=Home"/>
+        <forward name="LoginOKSuap" resource="/OpuSuapStab.do?command=Info" layout="suap"/>
+         <forward name="RedirectURLSuap" resource="/OpuSuapStab.do?command=Info" />
+             <forward name="LoginRetrySuap" resource="/loginSuap.jsp"/>
+        <forward name="IndexPageSuapOK" resource="/loginSuap.jsp"/>
+	
+    <forward name="LoginVerifyOK" resource="/mycfs/mycfs_verify.jsp"
+             layout="style"/>
+	<forward name="LoginRetryMobile" resource="/loginMobile.jsp"/>
+    <forward name="LoginRetry" resource="/loginOK.jsp"/>
+     
+    
+  </action>
+ 
+
+   <action name="OpuSuapStab" class="org.aspcfs.modules.opu.actions.StabilimentoAction">
+		<bean name="Stabilimento" class="org.aspcfs.modules.opu.base.Stabilimento"
+			scope="request" />
+			<bean name="Operatore" class="org.aspcfs.modules.opu.base.Operatore"
+			scope="request" />
+	
+	
+	<forward name="SuapKO" resource="/suap/ko.jsp" layout="suap"/>
+	<forward name="infoOK" resource="/suap/info.jsp" layout="suap"/>
+	<forward name="ModifyLpOK" resource="/opu/opu_modify_linee_attivita.jsp" layout="suap"/>
+			<forward name="SearchLpOK" resource="/opu/linea_produttiva_search.jsp" layout="style"/>
+			<forward name="SearchLpPopupOK" resource="/opu/linea_produttiva_search.jsp" layout="style"/>
+	<forward name="ClosePopupLpOK" resource="/opu/closePopupLineaProduttiva.jsp" layout="style"/>
+		
+		<forward name="ModifySLOK" resource="/opu/reload_stabilimento.jsp" layout="style"/>
+  	<forward name="ModifySedeLegaleOK" resource="/opu/operatore_modify_sede_legale.jsp" layout="suap"/>
+  	<forward name="ModifySoggettoFisicoOK" resource="/opu/operatore_modify_soggetto_fisico.jsp" layout="suap"/>
+  	<forward name="ModifyDatiOK" resource="/opu/operatore_modify_dati.jsp" layout="suap"/>
+  
+  <forward name="ViewVigilanzaOK" resource="/opu/accounts_vigilanza_list.jsp"
+             layout="suap"/>
+		<forward name="DashboardOK" resource="/opu/stabilimento_add2.jsp"
+			layout="suap" />
+		<forward name="AddStabilimentoOK" resource="/opu/stabilimento_add2.jsp"
+			layout="suap" />
+		<forward name="InsertOK" resource="/javascript/go_to_detail.jsp"
+			layout="style" />
+		<forward name="SearchOK" resource="/opu/stabilimento_search.jsp"
+			layout="suap" />
+		<forward name="ListOK" resource="/opu/stabilimento_list.jsp"
+			layout="suap" />
+		<forward name="DetailsOK" resource="/opu/stabilimento_details.jsp"
+			layout="suap" />
+		<forward name="DetailsOperatoreOK" resource="/opu/operatore_details.jsp"
+			layout="" />
+		<forward name="DetailsOperatorePopupOK" resource="/opu/operatore_details.jsp"
+			layout="style" />
+		<forward name="ClosePopupOK" resource="/AnimaleAction.do?command=ScegliOperatore" />
+
+		<forward name="ModifyOK" resource="/opu/stabilimento_modify.jsp"
+			layout="suap" />
+			
+		<forward name="ViewCessazionevariazioneOK" resource="/opu/accounts_cessazionevariazione_list.jsp"
+             layout="suap"/>
+
+		<!--
+			<forward name="InsertIter" resource="/OperatoreIter.do?command=Add"/>
+		-->
+	</action>
+   <action name="OpuSuap" class="org.aspcfs.modules.opu.actions.OperatoreAction" >
+  	<bean name="Operatore" class="org.aspcfs.modules.opu.base.Operatore" scope="request"/>
+  	<forward name="DashboardOK" resource="/opu/operatore_add.jsp" layout="suap"/>
+  	<forward name="AddOK" resource="/opu/operatore_add.jsp" layout="suap"/>
+  	<forward name="AddPopupOK" resource="/opu/operatore_add.jsp" layout="style"/>
+  	
+  		<forward name="AddStabilimentoOK" resource="/opu/stabilimento_add.jsp"
+			layout="suap" />
+  	<forward name="InsertOK" resource="/OperatoreAction.do?command=Dashboard" layout="suap"/>
+  	<forward name="InsertIter" resource="/opu/iter_add.jsp"/>
+  	<forward name="SearchOK" resource="/opu/operatore_search.jsp" layout="suap"/>
+  	
+  	<forward name="ModifySLOK" resource="/opu/reload_stabilimento.jsp" layout="style"/>
+  	<forward name="ModifySedeLegaleOK" resource="/opu/operatore_modify_sede_legale.jsp" layout="suap"/>
+  	<forward name="ModifySoggettoFisicoOK" resource="/opu/operatore_modify_soggetto_fisico.jsp" layout="suap"/>
+  	<forward name="ModifyDatiOK" resource="/opu/operatore_modify_dati.jsp" layout="suap"/>
+  	
+  	
+  	<forward name="ViewStoricoImpresaOK" resource="/opu/view_storico_impresa.jsp" layout="suap"/>
+  	 <forward name="SearchPopupOK" resource="/opu/operatore_search.jsp" layout="style"/>
+  	 <forward name="ViewDiaOK" resource="/opu/dia_list.jsp" layout="suap"/>
+  	<forward name="ViewRaggruppamentiOpuOK" resource="/opu/raggruppamenti_operatore_list.jsp" layout="style"/>
+
+<forward name="ClosePopupOK" resource="/opu/closePopupAddOperatore.jsp" layout="style"/>
+ 
+  	<forward name="ListOK" resource="/opu/operatori_list.jsp" layout="suap"/>
+  	  	<forward name="ListPopupOK" resource="/opu/operatori_list.jsp" layout="style"/>
+  	
+  	<forward name="DetailsOK" resource="/opu/operatore_details.jsp" layout="suap"/>
+  	<forward name="ModifyOK" resource="/opu/operatore_modify.jsp"
+             layout="suap"/>
+  </action>
+  
+  
+  
+
+	<action name="GestioneAllegatiUpload"
+		class="org.aspcfs.modules.gestioneDocumenti.actions.GestioneAllegatiUploadSuap">
+		<forward name="allegaOk"
+			resource="/gestione_documenti/codifica_output.jsp" layout="style" />
+			<forward name="listaAllegatiOk"
+			resource="/gestione_documenti/allegati/listaAllegati.jsp" layout="style" />
+			<forward name="AllegaFileSuapToOK"
+			resource="/gestione_documenti/allegati/uploadFileSuap.jsp" layout="style" />
+			
+			<forward name="newCartellaOk"
+			resource="/gestione_documenti/allegati/newCartella.jsp" layout="nav" />
+			<forward name="rinominaCartellaOk"
+			resource="/gestione_documenti/allegati/rinominaCartella.jsp" layout="nav" />
+			<forward name="documentaleAllegatiError"
+			resource="/gestione_documenti/documentale_allegati_errore.jsp" layout="nav"/>
+			
+			<!-- CHIUSURA AUTORITA COMPETENTI -->
+			<forward name="DettaglioOK" resource="/oia/vigilanza_detailsAttivita_ispettiva_rilascioautorizzazioni_e_vigilanza.jsp" layout="nav"/>
+			
+			<forward name="SuapAllegatiOK" resource="/gestione_documenti/allegati/uploadSuapOk.jsp" layout="nav"/>
+			
+			<forward name="prepareUploadListaOk"
+			resource="/gestione_documenti/allegati/uploadLista.jsp" layout="style"/>
+			<forward name="allegaListaOk"
+			resource="/gestione_documenti/codifica_output_successo_lista_distribuzione.jsp" layout="style"/>
+			<forward name="allegaVerbaleOk"
+			resource="/gestione_documenti/codifica_output_successo_verbale.jsp" layout="style"/>
+			</action>
+
+
+
+
+</mvc-app>
+  

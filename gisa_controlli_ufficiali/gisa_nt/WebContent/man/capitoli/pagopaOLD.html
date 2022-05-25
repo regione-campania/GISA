@@ -1,0 +1,363 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="pagopa"></a>
+<h3 id="pagopa">1. Gestione PagoPA e Avvisi di Pagamento</h3>
+
+La funzione di <strong>Gestione PagoPA</strong> in GISA &egrave; consentita solo per i tributi 2040 e 2003 relativi a sanzioni con non conformit&agrave; gravi aventi come beneficiario dei pagamenti la <i>UOD 01</i> della <i>Direzione Generale per la Tutela della Salute ed il Coordinamento del Sistema Sanitario</i> della Giunta della Regione Campania.<br/><br/>
+
+Tale funzione genera gli Avvisi di pagamento direttamente in MyPay/PagoPa per i Processi Verbali (P.V.) di Illecito Amministrativo redatti con il <strong>Modello 7A</strong>.<br/><br/>
+
+<strong><i>Questi ultimi saranno l'unica modalit&agrave; di pagamento consentita per trasgressore/obbligato in solido.</i></strong><br/><br/>
+
+
+<strong>1.1 Processo Verbale di illecito amministrativo e pagamento sanzione</strong><br/><br/>
+
+Quando un operatore aggiunge un Controllo Ufficiale (C.U.) in GISA pu&ograve; inserire, se presenti, le non conformit&agrave; rilevate tramite la sezione <i>"INSERISCI NON CONFORMITA' RILEVATE"</i> (vedi Figura PAGOPA_F1).<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/aggiunta_nc.png" /><br/><img src="./images/pagopa/inserimento_nc.png" /></td></tr>
+<tr><td>Figura PAGOPA_F1 (Inserimento di un Controllo Ufficiale)</td></tr>
+</table>
+
+<br/>
+
+Dopo che l'operatore ha completato la scheda "NON CONFORMITA' GRAVI", deve completare l'inserimento della sanzione cliccando su "<i>INSERISCI SANZIONE</i>".<br/>
+A questo punto si aprir&agrave; la finestra "AGGIUNGI SANZIONE AMMINISTRATIVA" (Figura PAGOPA_F2).<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/inserimento_sanzione.png" /></td></tr>
+<tr><td>Figura PAGOPA_F2 (Aggiungi sanzione amministrativa)</td></tr>
+</table>
+
+<br/>
+
+In fase di inserimento sanzione l'utente &egrave; tenuto ad indicare se &egrave; prevista o meno la possibilit&agrave; di pagamento ridotto o ultraridotto (Sezione 1 in Figura PAGOPA_F2). Inoltre, dovr&agrave; riportare i dati del trasgressore e, se presente, quelli dell'obbligato in solido (Sezione 2 in Figura PAGOPA_F2).<br/><br/>
+
+<strong><i>Si precisa che i dati anagrafici dei pagatori (ad eccezione di telefono ed email) dopo l'inserimento della sanzione non saranno pi&ugrave; modificabili perci&ograve; &egrave; necessario prestare attenzione in questa fase di compilazione.</i></strong><br/><br/>
+
+Per il Trasgressore il campo "Tipo Pagatore" sar&agrave; a scelta tra: "Persona fisica", "Societ&agrave; di persone/Associazioni". Per l'Obbligato in solido sar&agrave; possibile selezionare: "Persona fisica", "Persona giuridica".<br/>
+
+In caso di selezione "Altro" sar&agrave; disponibile un modulo di ricerca tramite il bottone "Cerca" ove, indicando una ragione sociale/denominazione o una partita iva/codice fiscale, verr&agrave; eseguita una ricerca sia tra le anagrafiche GISA che tra le anagrafiche pagatori precedentemente inserite. I dati verranno precompilati con quelli dell'anagrafica selezionata e potranno essere eventualmente modificati (Figura PAGOPA_F3).<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/cerca.png" width="" /></td></tr>
+<tr><td>Figura PAGOPA_F3 (Ricerca pagatore)</td></tr>
+</table>
+
+<br/>
+
+Nel blocco sezione 3 della Figura PAGOPA_F2 l'utente deve indicare la norma violata per cui viene elevata la sanzione. Si precisa che se essa non &egrave; di competenza della UOD 01, l'utente dovr&agrave; indicare l'Autorit&agrave; Competente e non sar&agrave; possibile la Gestione PagoPA. Si veda Figura PAGOPA_F4.<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/inserimento_no_competenza.PNG" /></td></tr>
+<tr><td>Figura PAGOPA_F4 (Norma non di competenza UOD01)</td></tr>
+</table>
+
+<br/>
+
+Per completare l'inserimento in GISA della sanzione amministrativa (Figura PAGOPA_F2) &egrave; necessario cliccare sul bottone "Inserisci".<br/>
+Una volta terminato l'inserimento della sanzione, l'utente <strong>obbligatoriamente</strong> deve caricare in GISA il Processo verbale scannerizzato mediante "Allega PDF Processo Verbale".<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/allega_pv.png" /></td></tr>
+<tr><td>Figura PAGOPA_F5 (Allega processo verbale/1)</td></tr>
+</table>
+
+<br/>
+
+Comparir&agrave; la finestra in Figura PAGOPA_F6 dove dovr&agrave; essere specificato l'oggetto ovvero una descrizione del contenuto del P.V. e dovr&agrave; essere caricato il P.V., esclusivamente in formato pdf, tramite il bottone "UPLOAD". Sar&agrave; possibile opzionalmente allegare ulteriori file inerenti al P.V. mediante "Allega altri documenti".<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/allega_pv_upload.png" /></td></tr>
+<tr><td>Figura PAGOPA_F6 (Allega processo verbale/2)</td></tr>
+</table>
+
+<br/> 
+
+Successivamente l'operatore dovr&agrave; cliccare sul bottone "GESTIONE PAGOPA" in Figura PAGOPA_F7 per visualizzare la sezione di generazione degli Avvisi di Pagamento PagoPA (Figura PAGOPA_F8).<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/bottone_gestione_pagopa.PNG" /></td></tr>
+<tr><td>Figura PAGOPA_F7 (Gestione PagoPA/1)</td></tr>
+</table>
+
+<br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/pagamento_add_pv.PNG" /></td></tr>
+<tr><td>Figura PAGOPA_F8 (Gestione PagoPA/2)</td></tr>
+</table>
+
+<br/>
+
+Una volta aperta la maschera, viene presentato un riepilogo dei dati gi&agrave; inseriti nella sanzione, ossia: <br/>
+
+<ul>
+<li>Dati anagrafici dell'eventuale Trasgressore</li>
+<li>Dati anagrafici dell'eventuale Obbligato in solido</li>
+<li>Importo eventuale pagamento in misura ridotta</li>
+<li>Importo eventuale pagamento in misura ultraridotta</li>
+</ul>
+
+Nella sezione "Informazioni soggetto pagatore" l'operatore pu&ograve; inserire/modificare i campi "email" e "telefono". Inoltre, deve <strong>obbligatoriamente</strong> scegliere la "modalit&agrave; di contestazione/notifica" che adotter&agrave; per l'invio del P.V. e dei relativi Avvisi di pagamento a Trasgressore e Obbligato in solido, se presente.<br/>
+
+Solo se in fase di inserimento sanzione l'operatore ha selezionato il pagamento ridotto, allora le regole implementate in GISA saranno le seguenti (Tabella PAGOPA_T1), altrimenti si emetter&agrave; direttamente l'ordinanza come mostrato nel sottoparagrafo sez. ordinanza.<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<col width="100%">
+<tr><td>
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<col width="30%"><col width="70%">
+<tr><th>TIPO DI NOTIFICA</th> <th>DATA DI NOTIFICA</th></tr>
+<tr><td>Contestazione<br/> immediata</td> <td>Viene valorizzata la "Data di contestazione immediata" bloccata a Data Fine Controllo Ufficiale se presente, altrimenti a Data Inizio Controllo Ufficiale.</td></tr>
+<tr><td>PEC</td> <td>Viene richiesta la "Data presunta di invio PEC" compilabile a mano (maggiore o uguale a Data Fine Controllo Ufficiale se presente, altrimenti a Data Inizio Controllo Ufficiale). Nota: in caso di doppia notifica PEC, sar&agrave; possibile indicare una sola data che sar&agrave; utilizzata per entrambi i pagatori.</td></tr>
+<tr><td>Raccomandata A/R<br/> oppure consegna a mano</td> <td>Viene valorizzata la "Data presunta di notifica" bloccata a Data Fine Controllo Ufficiale se presente, altrimenti a Data Inizio Controllo Ufficiale, +160 giorni.</td></tr>
+</table>
+</td></tr>
+<tr><td>Tabella PAGOPA_T1 (Gestione della data di notifica)</td></tr>
+</table>
+
+<br/>
+
+Tramite il bottone "SALVA E INVIA" della Figura PAGOPA_F8 vengono effettuati gli invii in cooperazione applicativa a MyPay/PagoPA e, se tutti gli invii vanno a buon fine, nel riepilogo vengono resi disponibili:
+
+<ul>
+<li>L'Identificativo Univoco Versamento (IUV) assegnato da MyPay/PagoPA</li> 
+<li>gli Avvisi di Pagamento (Figura PAGOPA_F12) scaricabili in pdf</li> 
+</ul>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/pagopa_pv_generato_ok.png" /></td></tr>
+<tr><td>Figura PAGOPA_F9 (Generazione Avvisi di Pagamento per Processo Verbale)</td></tr>
+</table>
+
+<br/>
+
+In particolare, in questa fase:
+
+<ul>
+<li>Viene generato l'Identificativo Univoco Versamento (IUV) del pagamento ridotto e, se precedentemente selezionato, anche del pagamento ultraridotto.</li> 
+<li>Viene generato l'Identificativo Univoco Dovuto (IUD) del pagamento ridotto e, se precedentemente selezionato, anche del pagamento ultraridotto.</li> 
+<li>Viene visualizzato lo stato della generazione dell'Avviso di pagamento che pu&ograve; essere: "GENERATO CON SUCCESSO", "NON GENERATO". Se la generazione di uno degli avvisi di pagamento non va a buon fine (a causa di errori sui dati, o di problemi nella cooperazione), il processo si ferma e il sistema tenta un annullamento massivo automatico degli Avvisi di pagamento gi&agrave; generati con l'obiettivo di ripristinare i dati e consentire un nuovo invio.</li>
+<li>Viene inviata una richiesta di generazione degli Avvisi di pagamento per l'importo ridotto e, se presente, ultraridotto, a carico del Trasgressore e/o Obbligato in solido, se presente, con data scadenza calcolata come riportato in seguito (Tabella PAGOPA_T2).</li>
+</ul>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<col width="100%">
+<tr><td>
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<col width="20%"><col width="40%"><col width="40%">
+<tr><th>TIPO DI NOTIFICA</th> <th>DATA DI SCADENZA PAGAMENTO ULTRARIDOTTO</th> <th>DATA DI SCADENZA PAGAMENTO RIDOTTO</th></tr>
+<tr><td>Contestazione immediata</td> <td>Data contestazione immediata + 5 giorni</td> <td>Data contestazione immediata + 60 giorni</td> </tr>
+<tr><td>PEC</td> <td>Data presunta di invio PEC + 5 giorni</td> <td>Data presunta di invio PEC + 60 giorni</td> </tr>
+<tr><td>Raccomandata A/R oppure consegna a mano</td> <td>Data presunta di notifica + 5 giorni</td> <td>Data presunta di notifica + 60 giorni</td> </tr>
+</table>
+</td></tr>
+<tr><td>Tabella PAGOPA_T2 (Gestione della data di scadenza per Processo Verbale)</td></tr>
+</table>
+
+<br/>
+
+Nella scheda di PagoPa/MyPay raggiungibile mediante il bottone "<i>GESTIONE PAGOPA</i>" sono inoltre disponibili le seguenti funzionalit&agrave;:
+
+<ul>
+<li>"ANNULLA AVVISI DI PAGAMENTO": cliccando tale pulsante presente nella sezione "<i>INFORMAZIONI SANZIONE</i>" le richieste di pagamento vengono cancellate in GISA e annullate in MyPay/PagoPA. L'annullamento non pu&ograve; avvenire se MyPay/PagoPA restituisce errore nella cooperazione o se uno dei pagamenti risulta gi&agrave; in uno stato con "Pagamento in corso" e/o "Pagamento completato". </li>
+<li>AGGIORNA DATA DI NOTIFICA": successivamente all'inserimento di una data di notifica e cliccando sul pulsante di riferimento nella sezione "<i>INFORMAZIONI MODALITA' DI CONTESTAZIONE/NOTIFICA</i>", verranno aggiornate massivamente le date di scadenza di tutte le richieste di pagamento a carico di quel pagatore (Trasgressore e/o Obbligato in solido). La funzione di aggiornamento &egrave; disponibile solo per pagatori presenti e notificati tramite "Raccomandata A/R" oppure "PEC". Successivamente all'aggiornamento, la Data di Notifica non riporter&agrave; pi&ugrave; la parola "<i>PRESUNTA</i>" e le date di scadenza verranno calcolate secondo lo schema classico.<ul><li>La Data Notifica del Pagamento UltraRidotto + 5 giorni (se presente)</li><li>La Data Notifica del Pagamento Ridotto + 60 giorni</li>
+<li>Inoltre, la data di notifica sar&agrave; sempre modificabile finch&egrave; almeno uno Stato di Pagamento &egrave; nello stato di "Pagamento Completato" e/o "Pagamento in Corso". </ul></li>
+<li>"VERIFICA STATO DI PAGAMENTO": mediante tale pulsante presente in ogni IUV generato per ogni pagatore e presente nella sezione "<i>INFORMAZIONI VERSAMENTO</i>", avviene l'aggiornamento dello "<i>Stato della Richiesta di Pagamento</i>" verificando in MyPay/PagoPA lo stesso ed eventualmente aggiornato.</li>
+</ul>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/dettaglio.png" /></td></tr>
+<tr><td>Figura PAGOPA_F10 (Dettaglio PagoPA/1)</td></tr>
+</table>
+
+<br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/dettaglio1.png" /></td></tr>
+<tr><td>Figura PAGOPA_F11 (Dettaglio PagoPA/2)</td></tr>
+</table>
+
+<br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/dettaglio2.png" /></td></tr>
+<tr><td>Figura PAGOPA_F12 (Dettaglio PagoPA/3)</td></tr>
+</table>
+
+<br/>
+
+<strong>Stato richiesta di pagamento</strong><br/>
+Le richieste di pagamento generate mediante la cooperazione con MyPay/PagoPa, possono avere tre tipi di "Stati di Pagamento" che variano in base al processo di pagamento. Essi sono: 
+
+<ul>
+<li>"PAGAMENTO NON INIZIATO": in questo stato, non &egrave; stato effettuato nessun pagamento. Qui, &egrave; possibile scaricare "l'Avviso di Pagamento" in PDF tramite il link "<i>download</i>" presente in ogni IUV generato nella sezione "<i>INFORMAZIONI VERSAMENTO</i>".</li>
+<li>"PAGAMENTO IN CORSO": in questo stato, l'operazione di pagamento &egrave; stata avviata, ma la piattaforma MyPay/PagoPA non ha ancora concluso la transazione. In questo stato, non &egrave; possibile procedere a nessuna modifica sull'Avviso di Pagamento in quanto quest'ultimo pu&ograve; essere aggiornato successivamente con stato "positivo" o "negativo" del pagamento.</li>
+<li>"PAGAMENTO COMPLETATO": in questo stato l'operazione di pagamento &egrave; andato a buon fine, &egrave; stato accettato da MyPay/PagoPa e dunque, &egrave; stato completato. Nel dettaglio sono mostrate informazioni aggiuntive sulla ricevuta di pagamento. &egrave; possibile scaricare la Ricevuta di Pagamento mediante il link "<i>download</i>" presente nell'IUV con stato "Pagato" presente nella sezione "<i>INFORMAZIONI VERSAMENTO</i>".</li>
+</ul>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/stato_pagamento.PNG" /></td></tr>
+<tr><td>Figura PAGOPA_F13 (Stato pagamento)</td></tr>
+</table>
+
+<br/>
+
+Nel caso in cui il procedimento di pagamento su uno degli Avvisi di Pagamento viene effettuato ed accettato correttamente (stato dello IUV: "PAGAMENTO COMPLETATO"), <strong>TUTTI</strong> gli altri avvisi generati sia per il Trasgressore e sia per l’Obbligato in solido saranno annullati.<br/>
+Nel caso in cui sulla sanzione abbiano gi&agrave; lavorato i Funzionari Regionali e siano quindi presenti Avvisi di Pagamento generati per "<i>Numero Ordinanza</i>", sar&agrave; possibile solo consultare il dettaglio della Sanzione e verificare lo Stato del Pagamento nel dettaglio del Controllo Ufficiale (per Processo Verbale).<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/dettaglio_no.png" /></td></tr>
+<tr><td>Figura PAGOPA_F14 (Dettaglio PagoPA per Numero Ordinanza)</td></tr>
+</table>
+
+<br/>
+
+<strong>1.2 Numero Ordinanza di illecito amministrativo e pagamento sanzione</strong><br/><br/>
+
+Dal cavaliere "<i>REGISTRO TRASGRESSORI</i>" presente in piattaforma GISA e prendendo in considerazione sanzioni che hanno norme violate con la Competenza UOD, &egrave; disponibile la gestione degli Avvisi di Pagamento in cooperazione con MyPay/PagoPA tramite il pulsante "GESTIONE PAGOPA".<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/inserimento_registro.png" /></td></tr>
+<tr><td>Figura PAGOPA_F15 (Registro Trasgressori)</td></tr>
+</table>
+
+<br/>
+
+Se sulla stessa sanzione sono stati gi&agrave; generati Avvisi di Pagamento per "<i>Processo Verbale</i>" (P.V.), &egrave; possibile consultarli ed annullarli (tramite il bottone "Annulla avvisi di pagamento") in modo da poterli rigenerare per "<i>Numero Ordinanza</i>" (N.O.).<br/><br/>
+A differenza dall'inserimento per "Processo Verbale" (P.V.), quando si procede alla cooperazione con MyPay/PagoPa di una sanzione per "Numero Ordinanza", &egrave; <strong>obbligatorio</strong> indicare l'Importo del Versamento da richiedere, il Tipo di Notifica non avendo la possibilit&agrave; di selezionare come tipo notifica, "Contestazione Immediata".<br/><br/>
+&Egrave; inoltre possibile gestire la rateazione, indicando se il pagamento deve essere eseguito in 1, 5 o 10 rate.<br/>
+Selezionando un numero di rate maggiore di 1, "IMPORTO TOTALE VERSAMENTO" verr&agrave; diviso tra tutte le rate arrotondando all'euro inferiore. La differenza sar&agrave; recuperata sulla rata finale.<br/><br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/pagamento_add_no.PNG" /></td></tr>
+<tr><td>Figura PAGOPA_F16 (Generazione IUV per Numero Ordinanza)</td></tr>
+</table>
+
+<br/>
+
+La cooperazione con MyPay/PagoPa di una sanzione con norma violata di competenza UOD, avviene dopo aver cliccato sul bottone "SALVA E INVIA".
+<ul>
+<li>Viene generato l'Identificativo Univoco Versamento (IUV) del pagamento</li> 
+<li>Viene generato l'Identificativo Univoco Dovuto (IUD) del pagamento</li> 
+<li>Viene inviata una richiesta di generazione avviso di pagamento per ogni singola rata a carico a carico del Trasgressore con data scadenza calcolata come riportato in seguito</li>
+</ul>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<col width="100%">
+<tr><td>
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<col width="20%"><col width="40%"><col width="40%">
+<tr><th>TIPO DI NOTIFICA</th> <th>DATA DI SCADENZA RATA 1</th> <th>DATA DI SCADENZA RATE SUCCESSIVE</th></tr>
+<tr><td>Qualsiasi</td> <td>Data notifica + 30 giorni</td> <td>Data scadenza rata precedente + 30 giorni</td> </tr>
+</table>
+</td></tr>
+<tr><td>Tabella PAGOPA_T3 (Gestione della data di scadenza per Numero Ordinanza)</td></tr>
+</table>
+
+<br/>
+
+Il tutto viene ripetuto a sua volta sull'Obbligato in solido, se presente, arrivando quindi a generare fino a 20 richieste di pagamento sulla singola sanzione.<br/>
+Se la generazione di uno degli Avvisi di Pagamento non va a buon fine (a causa di errori sui dati, o di problemi nella cooperazione), il processo si ferma e il sistema tenta un annullamento massivo degli avvisi gi&agrave; generati con l'obiettivo di ripristinare i dati e consentire un nuovo invio.
+
+Se tutti gli invii vanno a buon fine, nel riepilogo vengono resi disponibili:
+
+<ul>
+<li>L'Identificativo Univoco Versamento (IUV) assegnato da MyPay/PagoPA</li> 
+<li>Il PDF scaricabile dell'Avviso di Pagamento</li>
+</ul> 
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<tr><td><img src="./images/pagopa/pagopa_no_generato_ok.png" /></td></tr>
+<tr><td>Figura PAGOPA_F17 (Generazione Avvisi di Pagamento per Numero Ordinanza)</td></tr>
+</table>
+
+<br/>
+
+Nel caso in cui il procedimento di pagamento su un Avviso di Pagamento viene effettuato ed accettato da MyPay/PagoPa correttamente. (stato: "PAGAMENTO COMPLETATO"), l'altro avviso sullo stessa rata (eventualmente presente) sar&agrave; annullato.<br/><br/>
+
+Le funzionalit&agrave; disponibili dopo l'invio sono le stesse gi&agrave; descritte per "Processo Verbale" (P.V.).<br/><br/>
+
+<strong>Automatismi</strong> <br/><br/>
+
+Sono previsti cinque tipi di automatismi.
+
+<ol>
+
+<li>Aggiornamento automatico dello stato dell'avviso di pagamento tramite RT Push
+<ul><li>A seguito della ricezione dell'esito di un pagamento (sia positivo che negativo), GISA recepir&agrave; una notifica RT Push da MyPay/PagoPA in modo da aggiornare i dati dell'avviso di pagamento collegato (ripristinando lo stato a PAGAMENTO NON INIZIATO in caso di esito negativo o portandolo a PAGAMENTO COMPLETATO con i dati del pagamento in caso di esito positivo.)</li></ul>
+</li>
+
+<li>Annullamento automatico degli avvisi di pagamento a seguito di un pagamento completato
+<ul><li>A seguito del completamento di un pagamento (stato "PAGAMENTO COMPLETATO"), tutti gli altri eventuali avvisi di pagamento sulla stessa sanzione (se Processo Verbale) o solo l'altro eventuale avviso di pagamento sulla stessa rata (se Numero Ordinanza) verranno annullati.</li></ul>
+</li>
+
+<li>Aggiornamento automatico dello stato degli avvisi di pagamento
+<ul><li>Ogni notte verr&agrave; eseguito un tentativo di allineamento con MyPay/PagoPA di tutti gli avvisi di pagamento nello stato "PAGAMENTO NON INIZIATO" (nel caso in cui qualche aggiornamento automatico fosse fallito durante la giornata)</li></ul>
+</li>
+
+<li>Proroga/annullamento automatici degli avvisi di pagamento in scadenza
+<ul><li>Ogni notte verranno coinvolti gli avvisi di pagamento con le seguenti caratteristiche: per Processo Verbale, stato "PAGAMENTO NON INIZIATO", Data scadenza = Data corrente; e verranno applicate le operazioni come da tabella seguente: <br/>
+
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+<col width="100%">
+<tr><td>
+<table class="grid" style="border-collapse: collapse;" cellpadding="20" cellspacing="20" width="100%">
+
+<tr><th style="border: 1px solid black" align="center">Scenario</th><th colspan="2" style="border: 1px solid black" align="center">Pagatore 1</th><th colspan="2" style="border: 1px solid black" align="center">Pagatore 2</th></tr>
+<tr><th style="border: 1px solid black"></th><th style="border: 1px solid black" align="center">Tipo notifica</th><th style="border: 1px solid black" align="center">La data &egrave; stata aggiornata</th><th style="border: 1px solid black" align="center">Tipo notifica</th><th style="border: 1px solid black" align="center">La data &egrave; stata aggiornata</th></tr>
+
+<tr><td style="border: 1px solid black" align="center">1</td><td colspan="2" style="border: 1px solid black" align="center">Qualsiasi</td><td colspan="2" style="border: 1px solid black" align="center">Assente</td></tr>
+<tr><td colspan="5" align="center" style="border: 1px solid black">Non succede nulla.</td></tr>
+
+<tr><td style="border: 1px solid black" align="center">2</td><td colspan="2" style="border: 1px solid black" align="center">Contestazione immediata</td><td colspan="2" style="border: 1px solid black" align="center">Contestazione immediata</td></tr>
+<tr><td colspan="5" align="center">Non succede nulla.</td></tr>
+
+<tr><td style="border: 1px solid black" align="center">3</td><td colspan="2" style="border: 1px solid black" align="center">Contestazione immediata</td><td colspan="2" style="border: 1px solid black" align="center">PEC</td></tr>
+<tr><td colspan="5" align="center" style="border: 1px solid black">Non succede nulla.</td></tr>
+
+<tr><td style="border: 1px solid black" align="center">4</td><td colspan="2" style="border: 1px solid black" align="center">Contestazione immediata</td><td style="border: 1px solid black" align="center">Raccomandata</td><td style="border: 1px solid black" align="center">SI</td></tr>
+<tr><td colspan="5" align="center" style="border: 1px solid black">Non succede nulla.</td></tr>
+
+<tr><td style="border: 1px solid black" align="center">5</td><td colspan="2" style="border: 1px solid black" align="center">Contestazione immediata</td><td style="border: 1px solid black" align="center">Raccomandata</td><td style="border: 1px solid black" align="center">NO</td></tr>
+<tr><td colspan="5" align="center" style="border: 1px solid black">La data di notifica del pagatore 2 viene valorizzata con la data di notifica del Pagatore 1 + 100 giorni.<br/><br/> Le date di scadenza degli avvisi del Pagatore 2 vengono ricalcolate a partire dalla nuova data di notifica ed aggiornate.</td></tr>
+
+<tr><td style="border: 1px solid black" align="center">6</td><td colspan="2" style="border: 1px solid black" align="center">PEC</td><td colspan="2" style="border: 1px solid black" align="center">PEC</td></tr>
+<tr><td colspan="5" align="center" style="border: 1px solid black">Non succede nulla.</td></tr>
+
+<tr><td style="border: 1px solid black" align="center">7</td><td colspan="2" style="border: 1px solid black" align="center">PEC</td><td style="border: 1px solid black" align="center">Raccomandata</td><td style="border: 1px solid black" align="center">SI</td></tr>
+<tr><td colspan="5" align="center" style="border: 1px solid black">Non succede nulla.</td></tr>
+
+<tr><td style="border: 1px solid black" align="center">8</td><td colspan="2" style="border: 1px solid black" align="center">PEC</td><td style="border: 1px solid black" align="center">Raccomandata</td><td style="border: 1px solid black" align="center">NO</td></tr>
+<tr><td colspan="5" align="center" style="border: 1px solid black">La data di notifica del pagatore 2 viene valorizzata con la data di notifica del Pagatore 1 + 100 giorni.<br/><br/> Le date di scadenza degli avvisi del Pagatore 2 vengono ricalcolate a partire dalla nuova data di notifica ed aggiornate.</td></tr>
+
+<tr><td style="border: 1px solid black" align="center">9</td><td style="border: 1px solid black">Raccomandata</td><td style="border: 1px solid black">SI<td style="border: 1px solid black">Raccomandata</td><td style="border: 1px solid black" align="center">SI</td></tr>
+<tr><td colspan="5" align="center">Non succede nulla.</td></tr>
+
+<tr><td style="border: 1px solid black" align="center">10</td><td style="border: 1px solid black" align="center">Raccomandata</td><td style="border: 1px solid black" align="center">NO<td style="border: 1px solid black" align="center">Raccomandata</td><td style="border: 1px solid black" align="center">NO</td></tr>
+<tr><td colspan="5" align="center" style="border: 1px solid black">La data di notifica di ogni pagatore viene valorizzata con la sua precedente data di notifica + 100 giorni.<br/><br/>Le date di scadenza degli avvisi di ogni pagatore vengono ricalcolate a partire dalla nuova data di notifica ed aggiornate.</td></tr>
+
+<tr><td style="border: 1px solid black" align="center">11</td><td style="border: 1px solid black" align="center">Raccomandata</td><td style="border: 1px solid black" align="center">SI<td style="border: 1px solid black">Raccomandata</td><td style="border: 1px solid black" align="center">NO</td></tr>
+<tr><td colspan="5" align="center" style="border: 1px solid black">Gli avvisi di pagamento del Pagatore 2 vengono annullati.</td></tr>
+
+</table>
+</td></tr>
+<tr><td>Tabella PAGOPA_T4 (Gestione degli automatismi per proroga/annullamento avvisi in scadenza)</td></tr>
+</table>
+
+</li></ul></li>
+
+<li>Annullamento automatico degli avvisi di pagamento scaduti
+<ul><li>Ogni notte verranno coinvolti gli avvisi di pagamento con le seguenti caratteristiche: per Processo Verbale, stato "PAGAMENTO NON INIZIATO", Data scadenza < Data corrente; e verranno annullati.</li></ul>
+</li>
+
+</ol>
+
+

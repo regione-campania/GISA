@@ -1,0 +1,24 @@
+<div class="a-navigator" #mainContainer *ngIf="initialized" [ngClass]="{'no-header': !header}">
+    <nav class="a-navigator-breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" *ngFor="let v of viewsPath" [ngClass]="{'active': v === activeView}"
+             (click)="v === activeView ? '' : openView(v.label);">
+                <span role="link">{{v.label}}</span>
+            </li>
+        </ol>
+        <button *ngIf="isModal" type="button" class="btn-close ms-auto" aria-label="Close" (click)="dismiss.emit()"></button>
+    </nav>
+    <div class="a-navigator-header" *ngIf="header">
+        <ng-template [viewRender]="header.content"></ng-template>
+    </div>
+    <div class="a-navigator-body">
+        <div class="view-container">
+            <div class="view" *ngFor="let v of viewsPath" [@flyInOut]="v.state"
+            [ngClass]="{ 'active': v === activeView }">
+                <ng-template [viewRender]="v.content" (viewChange)="log($event)"></ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+

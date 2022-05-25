@@ -1,0 +1,1 @@
+update evento_html_fields set javascript_function = 'popUp(''OperatoreAction.do?command=SearchForm&tipologiaSoggetto=1&popup=true&tipoRegistrazione=46&idLineaProduttiva1=1'')' where id = 264;

@@ -1,0 +1,62 @@
+/*
+ * This script reads the specified database's workflow.xml file and either:
+ *   - Imports the workflow into a new database, or
+ *   - Merges the workflow into an existing database
+ *   
+ * This script is used by build.xml when installing a new database.
+ *
+ *@author     matt rajkowski
+ *@created    August 11, 2003
+ *@version    $Id: workflow-delete.bsh 15115 2006-05-31 16:47:51Z matt $
+ */
+import java.sql.*;
+import java.io.File;
+
+import org.aspcfs.apps.workFlowManager.*;
+import org.aspcfs.controller.objectHookManager.*;
+
+try{
+  PreparedStatement pst = db.prepareStatement(
+      "DELETE from business_process_events ");
+  pst.executeUpdate();
+  print("All business_process_events entries have been deleted");
+  pst.close();
+
+  BusinessProcessList processList = new BusinessProcessList();
+  processList.setBuildScheduledEvents(true);
+  processList.buildList(db);
+  processList.delete(db);
+
+  pst = db.prepareStatement(
+      "DELETE FROM business_process_hook_triggers ");
+  pst.executeUpdate();
+  print("All business_process_hook_triggers entries have been deleted");
+  pst.close();
+
+  pst = db.prepareStatement(
+      "DELETE from business_process_hook_library ");
+  pst.executeUpdate();
+  print("All business_process_hook_library entries have been deleted");
+  pst.close();
+
+  pst = db.prepareStatement(
+      "DELETE FROM business_process_parameter_library ");
+  pst.execute();
+  print("All business_process_parameter_library entries have been deleted");
+  pst.close();
+
+  pst = db.prepareStatement(
+      "DELETE FROM business_process_component_result_lookup ");
+  pst.execute();
+  print("All business_process_component_result_lookup entries have been deleted");
+  pst.close();
+
+  pst = db.prepareStatement(
+      "DELETE FROM business_process_component_library ");
+  pst.execute();
+  print("All business_process_component_library entries have been deleted");
+  pst.close();
+
+} catch (e){
+  print(e);
+}

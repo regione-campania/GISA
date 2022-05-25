@@ -1,0 +1,16 @@
+<div class="a-table-text-filter">
+    <div class="wrapper">
+        <div class="input-group search-group">
+            <span class="input-group-text"><i class="icon fa fa-search"></i></span>
+            <input #textControl type="text" class="form-control" name="filter-value">
+        </div>
+    </div>
+    <div class="wrapper">
+        <select class="form-select" name="select-mode" #selectMode>
+            <option value="contains" selected>contiene</option>
+            <option value="not-contains">non contiene</option>
+            <option value="starts-with">inizia con</option>
+            <option value="ends-with">termina con</option>
+        </select>
+    </div>
+</div>

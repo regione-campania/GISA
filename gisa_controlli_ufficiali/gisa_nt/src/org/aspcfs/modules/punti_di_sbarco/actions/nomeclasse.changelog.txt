@@ -1,0 +1,6 @@
+Nome Classe: <nome-classe>
+
+rev.: <rev> | data: <aaaammgg> | auth.: <nome-cognome> | desc.: <descrizione della modifica, problema, soluzione, locazione, ...>
+
+PuntiSbarcoVigilanza.java
+rev:  1 | 17/01/2012 | Autore Rita Mele	| modifica gestione C.U. Punti di Sbarco

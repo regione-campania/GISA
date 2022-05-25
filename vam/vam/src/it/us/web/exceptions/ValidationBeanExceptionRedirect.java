@@ -1,0 +1,45 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+package it.us.web.exceptions;
+
+import it.us.web.action.Action;
+
+public class ValidationBeanExceptionRedirect extends Exception{
+
+	private static final long serialVersionUID = -2403325587841993550L;
+	private String message;
+	private String url;
+	
+	public ValidationBeanExceptionRedirect( String message, String url) 
+	{
+		this.message = message;
+		this.url = url;
+	}
+	
+	public String getMessage()
+	{
+		return message;
+	}
+	
+	public void setMessage( String message )
+	{
+		this.message = message;
+	}
+	
+	public String getUrl()
+	{
+		return url;
+	}
+	
+	public void setUrl( String url )
+	{
+		this.url = url;
+	}
+
+}

@@ -1,0 +1,296 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="apiari"></a>
+<h3 id="apiari">Apicoltura</h3>
+
+A partire da questo modulo e' possibile ricercare gli apiari presenti sul territorio regionale. Il modulo consente di :</a></p>
+<ul>
+<li>Gestire Deleghe</li>
+<li>Gestione Richieste</li>
+<li>Gestire le Anagrafiche Apiari</li>
+<li>Gestire Operazioni Apiari</li>
+<li>Ricercare apiari</li>
+<li>Getire Controlli Ufficiali</li>
+</ul>
+<p>Nell'ambito GISA l'attivita' di apicoltura puo' essere:
+<ul>
+<li>per autoconsumo [non soggetta a SCIA ma solo a  BDAR]</li>
+<li>per commercializzazione [soggetta a SCIA e BDAR]</li>
+</ul>
+Flusso gestito: per l&apos;inserimento di una scia apicoltura consultare la guida utente di &apos;PRATICHE SUAP 2.0&apos;.</p> <br />
+<h2>Ricercare apiari</h2>
+
+<p><br /><img src="./images/ricerca_api2.png" width="1050" /><br clear="left" /></p>
+<p>  Cliccando sul modulo apicoltura, il sistema permettera' la ricerca degli apicoltori con i relativi apiari associati (una riga per apiario)</p>
+<p>  A seconda del tipo di ricerca scelto (Ricerca Per) e' possibile applicare le seguenti restrizioni all'apicoltore o all'apiario</p>
+
+<ul>
+
+<li>Comune : condizione applicabile esclusivamente all'apicoltore, a patto di non ricercare per asl fuori regione. Nel caso in cui si ricerchi per una specifica ASL, il comune selezionato deve corrispondere all'ASL scelta.</li>
+<li>Asl di Competenza : permette di ricercare per tutte le asl nazionali, solo campane, solo extra-campane, per asl specifica.</li>
+<li>Denominazione (solo per apicoltore)</li>
+<li>Codice Fiscale Proprietario (solo per apicoltore)</li>
+<li>Cun (solo per apicoltore)</li>
+</ul>
+
+<br>
+<center>
+<table border="1">
+	<tr><th>&nbsp;</th><th>Tutte Asl Campane ed Extra Campane</th><th>Tutte Asl Campane</th><th>Fuori Regione</th><th>Asl Specifica</th> 
+	<tr><td>Apicoltore</td> <td>Apicoltori campani ed extra campani (con apiari in regione)</td> <td> Apicoltori della Campania</td> <td> Apicoltori non campani ma con apiari campani</td><td> Apicoltori di una data ASL campana</td></tr> 
+	<tr><td>Apiario</td><td> Apiari del territorio nazionale </td><td> Apiari della regione campana (di apicoltori campani o extra regione)</td><td>Apiari locati fuori regione, di apicoltori campani </td><td>Apiari di una specifica ASL campana</td></tr>
+
+</table>
+</center>
+
+
+<h2>Gestione Deleghe</h2>
+<p><br /> Il modulo Gestione Deleghe consente all'asl di eseguire determinate operazioni su apiari per conto di un delegante. Cliccando su Gestione Deleghe si accede alla sezione dove vengono elencate tutte le deleghe in carico all'operatore ASL loggato. <img src="./images/gestione_deleghe.PNG" width="1050" /><br clear="left" /> Cliccando su "Nuova Delega" si puo' inserire una nuova delega compilando gli appositi campi all'interno della finestra mostrata nel seguito. <br /><img src="./images/nuova_delega.PNG" /><br clear="left" /><br /> Dopo aver compilato tutti i campi, cliccando sul pulsante Salva il sistema ricarichera' la pagina mostrando la delega inserita. Cliccando sul pulsante "Seleziona Codice Fiscale Corrente" e' possibile eseguire le operazioni sugli apiari dell'apicoltore di cui l'asl e' delegata : in particolare se esiste l'attivita' associata all'apicoltore il sistema mostrera' la maschera di dettaglio con la lista degli apiari presenti. Nel caso in cui l'attivita' non e' presente nel sistema , viene mostrata la maschera di aggiunta. <br /><br /></p>
+<h2>Aggiungi Impresa</h2>
+<p><br /> Cliccando sul link AGGIUNGI, dopo aver selezionato la delega, il sistema ci guida nella finestra per l'inserimento dei dati della nuova impresa. Dopo aver compilato tutti campi cliccando sul tasto "salva", il sistema ci guida alla schermata riepilogativa dell'impresa di apicoltura. <br /><img src="./images/DettaglioImpresa.png" width="1050" /><br clear="left" /> Nel dettaglio si presta particolare attenzione allo stato sincronizzazione che restera' di colore rosso fino a che l'impresa non verra' validata dal personale ASL. <br />
+Qualora i dati del proprietario dell'attivit&agrave; di apicoltura inserita in Gisa non coincidano con quelli in BDA-N l'utente dovr&agrave; procedere prima all'aggiornamento dei dati anagrafici in BDN.<br /><br /></p>
+<h2>Scheda Impresa</h2>
+<p>Nel dettaglio scheda impresa sono visualizzati i dati dell'impresa e l'elenco degli apiari collegati.<br/>
+Accanto al nome del proprietario è disponibile, solo all'Help Desk, tasto 'Modifica titolare'.</br>
+Cliccando sul tasto si apre una popup in cui inserire obbligatoriamente la data di modifica titolarit&agrave;.<br>
+Il proprietario &egrave; selezionabile inserendo il cf nel campo preposto e cliccando su 'Ricerca'. Se con il cf dato in input il sistema trova una 
+persona, i dati vengono mostrati nel riquadro accanto al campo insieme ad una checkbox per poterlo selezionare. Se la ricerca non trova risultati viene mostrato il messaggio 'nessun risultato trovato' e nessuna checkbox disponibile.
+Se si spunta la checkbox 'Usa questo Proprietario' sarà associato come nuovo proprietario quello trovato altrimenti vengono usati i dati inseriti nei campi presenti nella form (nome, cognome, indirizzo, ...). I dati per anagrafe il proprietario sono tutti obbligatori.
+In fase di inserimento viene fatto il seguente controllo: comune nuovo proprietario uguale al precedente. Nel caso di soggetto giuridico viene valutata la sede legale, se soggetto fisico la residenza.
+</br>
+L'inserimento consiste in:</br>
+- aggiornamento dati titolare;</br>
+- storicizzazione precedente proprietario;</br>
+- aggiornamento bdn: inserimento o aggiornamento personae e storicizzazione proprietario azienda.
+</p>
+<h2>Report attività apicoltura</h2>
+<p>In questo sottomenu è disponibile un elenco riportante il numero totale di apiari collegati ad:<br/>
+- attività di apicoltura se utente apicoltore;<br/>
+- attività per cui si è in possesso della delega se utente delegato.<br/>
+</p>
+<h2>Report Censimenti Apicoltore</h2>
+<p>Nella scheda impresa e' disponibile un pulsante che permette la creazione di un report in formato Excel di tutti i censimenti per gli apiari associati all'impresa di apicoltura.<br>I censimenti sono raggruppati per
+apiario e ordinati per data.
+<img src="./images/reportcensimentiapicoltore.png" width="1195" height="827" />
+</p>
+<h2>Cessazione Impresa</h2>
+<p>Nella scheda impresa è disponibile un tasto 'Cessazione Attività' che darà origine alle seguenti azioni:<br/>
+cessazione intera attività di apicoltura (compresi tutti gli apiari di appartenenza)<br/>
+disabilitazione delle credenziali dell'utente (in caso di apicoltore accreditato in Gisa) o di interruzione della delega (in caso di delegato).<br/>
+Cliccando sul tasto 'Cessazione Impresa' si apre una popup nella quale è possibile selezionare la data di cessazione<br/>
+Ad inserimento completato lo stato dell'attività degli apiari collegati passerà a 'Cessato non sincronizzato'.<br/>
+Per sincronizzare la cessazione con La BDA-N deve essere validata la cessazione dall'ASL. Per fare ciò è disponiile nel modulo APICOLTURA la funzione 'VALIDAZIONE CESSAZIONE' che elenca tutte le cessazione richieste su imprese della propria Asl.<br/>
+Cliccando sul pulsante 'Cessa in Bdn' posto su ogni riga è possibile validare la cessazione e inviare i dati in BDA-N.<br/>
+Lo stato dell'attività di apicoltura e degli apiari passa a 'Cessato Sincronizzato'.<br/>
+In entrambi i casi, all'atto della Cessazione Attività, all'ASL arriverà una notifica del tipo "CONFERMA E PRESA VISIONE". Nel momento in cui l'ASL conferma partirà la sincronizzazione automatica con la BDN.
+NOTE: 
+per apiari e apicoltori cessati e non ancora sincronizzati con BDN bisogna gestire lo stato "Cessato non sincronizzato" [colore grigio chiaro]
+per apiari e apicoltori cessati e sincronizzati con BDN bisogna gestire lo stato "Cessato sincronizzato" [colore grigio scuro]</p>
+<h2>Aggiungi Apiario</h2>
+<p><br /> Sia per una nuova impresa di apicoltura sia per una contenente gia' n apiari, la procedura per l'inserimento di un nuovo apiario e' la stessa: cliccando su NUOVO APIARIO si aprira' la finestra per la compilazione dei dati dell'apiario. <br /><br /><img src="./images/NuovoApiario.png" width="1050" /><br clear="left" /><br />Per un detentore gia' anagrafato, il codice fiscale puo' essere selezionato da una lista che lo recupera; viceversa, cliccando sul tasto "Inserisci persona" e compilando tutti i dati richiesti, il sistema ci permette di registrare i dati del detentore come nuovi. <br /><br /></p>
+<p><br/>  Poichè per l'invio dei dati in BDA-N risulta obbligatorio il recapito telefonico dell'apicoltore, per le attività di commercio l'apicoltore/delegato deve specificare il numero di telefono in fase di inserimento del primo apiario inserendolo nel campo raffigurato nell'immagine sottostante <br/> <img src="./images/add_apiario_telefono.jpg" /> <br /><br />
+Inoltre, se il comune &egrave; Roma, in BDN risulta obbligatoria l'asl, quindi anche in BDA-R questa informazione &egrave; obbligatoria in questo caso.<br/>
+Nel caso le coordinate calcolate non siano quelle desiderate, e' possibile inserirle manualmente tramite l'apposito bottone. Nel caso il formato non venga accettato dalla BDA-N, l'inserimento sara' impedito.<br/>
+Contestualmente all'operazione di inserimento, il sistema controlla se per l'apiario appena inserito è stato creato in BDN un censimento ufficiale 
+con data uguale alla data apertura apiario. Se è stato inserito, il censimento viene importato anche in BDA-R. Per cui si potranno avere casi di apiari inseriti con già un censimento associato.<br/>
+Se l'apiario inserito è il primo per un'attività di autoconsumo, sarà generato un CUN automatico e saranno inviati in BDN i dati relativi ad azienda e apiario.<br/>
+Se l'invio in BDN da esito 'KO', l'apiario viene salvato solo in BDA-R con stato 'Da validare'.
+</p>
+
+<h2>Cancella Apiario</h2>
+E' permesso cancellare l'apiario nel caso in cui ad esso non siano associati controlli ufficiali. Nel caso sia sincronizzato con la BDN, sara' effettuato prima un tentativo di cancellazione da essa. In caso positivo, l'apiario sara' cancellato anche in GISA.<br/>
+<h2>Cessazione Apiario</h2>
+Il delegato e l'apicoltore hanno a disposizione il tasto 'Cessazione Apiario' mediante il quale possono cessare immediatamente l'apiario in BDA-R <br/>
+propagando automaticamente  l'aggiornamento in  BDA-N. La cessazione sarà subordinata alla verifica del corretto funzionamento dei WS dedicati.<br/>
+Il tasto è presente nella lista di apiari che compare nella maschera di Scheda Impresa. Cliccando si apre una popup in cui specificare la data di cessazione.
+<h2>Gestione Richieste</h2>
+<p><br /> Tutte le pratiche inserite dagli apicoltori in BD-api Regionale all'atto della validazione saranno dotate di codice univoco nazionale attribuito dall'ASL di competenza (asl del comune di residenza dell'apicoltore) e scelto a partire da quelli che i servizi BDN daranno disponibili sul comune di competenza.
+<br/> Se un apicoltore cambia comune di residenza si deve procedere alla cessazione dell'attività corrente per iniziarne una nuova dal momento che il CUN è legato proprio al comune di residenza.
+<br/>Contestualmente alla validazione mediante attribuzione CUN avverra' inserimento dell'azienda apiaria in BDN. Le imprese con almeno un apiario vengono inserite nell'elenco gestioni richieste, come mostrato nella figura sottostante. <br /><br /><img src="./images/GestioneRichieste.png" width="1050" /><br clear="left" /><br />L'operatore ASL di competenza puo' validare le imprese visibili in elenco cliccando sul tasto VALIDA Apri modello A". Si ricorda che l'impresa comparira' nell'elenco delle imprese da validare solo se essa ha almeno un apiario collegato. Nella popup per la validazione, cliccando sul tasto VERIFICA ESISTENZA IN BDN si puo' verificare se esiste gia' un codice azienda assegnato in precedenza per il codice fiscale del delegante. <br /><br /><img src="./images/ValidaImpresa.png" /><br clear="left" /><br />Se per il codice fiscale selezionato non esiste un codice azienda associato, e' possibile assegnarne uno nuovo a scelta tra un elenco selezionabile all'interno della sezione DAMMI UN NUOVO CODICE. All'atto dell'assegnazione del CUN, sara' messo a disposizione del Servizio Veterinario l'eventuale codice azienda assegnato in precedenza e recuperato da BDN e/o GISA in base alla corrispondenza con il COMUNE di residenza del PROPRIETARIO. 
+<br/> Si ricorda che se un apicoltore cambia comune di residenza si deve procedere alla cessazione dell'attività corrente per iniziarne una nuova dal momento che il CUN è legato proprio al comune di residenza.
+<br/>A quel punto il Servizio Veterinario potra' scegliere di confermare il precedente codice come CUN. <br /><br /><img src="./images/VerificaEsistenzaBDN.png" /><br clear="left" /><br />Cliccando quindi nel campo in corrispondenza di SELEZIONA CODICE DA LISTA comparira' una lista di codici che e' possibile assegnare alla data azienda. <br /><br /><img src="./images/SelezionaCodiceNazionale.png" /><br clear="left" /><br /> Cliccando sul codice desiderato e quindi poi su SALVA, il sistema riporta al riepilogo delle informazioni dell'impresa appena validata. Si ricorda in particolare che gli apicoltori a cui in BD-api Regionale e' stato gia' attribuito un codice regionale dovranno essere di nuovo validati, allo stesso modo dei nuovi inserimenti, allo scopo di eseguire l'attribuzione anche a loro del codice univoco nazionale. Inoltre, le aziende di apicoltura, gia' presenti in Gisa, poiche' derivano da un recupero dati che ha generato informazioni parziali e incomplete, saranno messe in uno stato cosiddetto "off-line" e si dovra' per loro reinserire a carico dell'apicoltore o del suo delegato mediante la procedura standard basata sulla richiesta tramite Modello A inoltrata via BD-api Regionale. <br /><br /></p>
+<p>
+<h2>Modalita' di allevamento</h2>
+In caso di attività per autoconsumo, l'unica modalità di allevamento prevista sarà "Convenzionale".<br/>
+In caso di attività per commercio, nel dettaglio dell'apiario sara' possibile modificare la modalita' di allevamento tramite il bottone "Modifica modalita' di allevamento".<br/> 
+
+<h2>Gestione Laboratori Smielatura</h2>
+Premesso che le SCIA di apicoltura non possono avere linee di attività ulteriori, 
+i laboratori di smielatura [anche] per conto terzi devono presentare una SCIA a parte rispetto all'eventuale attivita' di apicoltura.
+Nel caso in cui l'apicoltore sia dotato di laboratorio con lavorazione solo del proprio miele, sara' sufficiente la SCIA per l'apicoltura con 
+l'apposita linea di attivita'.
+Allo scopo di identificare il laboratorio annesso come destinatario di un CU, sara' necessario inserire il laboratorio stesso in fase di 
+completamento della scheda in BDAR da parte dell'apicoltore specificando i dettagli relativi all'ubicazione laboratorio. 
+Sul laboratorio potranno essere effettuati i controlli ufficiali come su un apiario.
+</br>
+Per inserire un laboratorio di smielatura, cliccare sul pulsante 'Aggiungi Laboratorio' posto nella pagina di dettaglio dell'impresa. 
+Il pulsante è disponibile solo se l'impresa ha il flag 'laboratorio annesso' settato.<br/>
+<img src="./images/aggiungi_laboratorio.jpg"  /><br/>
+Dopo aver cliccato sul pulsante si apre una popup in cui inserire i dati(vedi foto seguente).<br/>
+<img src="./images/smielatura.jpg"  /><br/>
+Dopo aver salvato, i dati del laboratorio di smielatura sono visualizzabili nella pagina di dettaglio dell'impresa. A questo punto il pulsante 'Aggiungi Laboratorio' non sarà piu disponibile e i
+dati riguardanti il laboratorio non più modificabili.<br/>
+<h2>Gestione Presenza laboratori</h2>
+Per gli utenti abilitati e' possibile gestire la presenza o meno del laboratorio di smielatura tramite il bottone "Gestione presenza laboratorio" nel dettaglio dell'attivita' di apicoltura. La gestione e' prevista solo per il tipo attività "Commercio".<br/>
+
+<h2>Gestione Movimentazioni</h2>
+Le movimentazioni si dividono in:
+<ul>
+<li>nomadismo (spostamento di arnie da un apiario A ad un apiario B di proprietà dello stesso apicoltore) </li>
+<li>compravendita(spostamento di arnie da un apiario A ad un apiario B di proprietà di un altro apicoltore). </li>
+<li>compravendita api regine(spostamento di api regine da un'azienda A ad un'azienda B di proprietà di un altro apicoltore). </li>
+<li>e impollinazione (spostamento di alveari e sciami da un apiario A ad un'azienda B di proprietà di un agricoltore). </li></ul>
+Nei primi due casi la movimentazione in GISA sara' possibile solo se l'apiario di destinazione risulta gia' esistente e saranno inviate alla BDA-N sempre con la precondizione che l'apiario di destinazione esista. 
+Nel caso di movimentazione per impollinazione non è prevista la selezione di un apiario ma basta fornire le informazioni riguardanti la società agricola di destinazione( denominazione, codice fiscale/partita iva, indirizzo sede legale), nel caso di movimentazione di api regine basta selezionare il codice azienda.  
+Non e' prevista una funzionalita' di 'chiusura' apiario A in caso di trasferimento di tutte le arnie all'apiario B.</br></br>
+
+Le consistenze degli apiari non vengono modificate dai movimenti (mai!): tali informazioni vengono gestite nelle movimentazioni ma non impattano sulla consistenza dell'apiario. Non è possibile per due motivi:
+<ul>
+<li>Il censimento è l'unica fonte attendibile per la consistenza di un apiaro (Il censimento potra' essere aggiornato mediante l'apposita funzione dal 1 novembre al 31 dicembre. 
+Negli altri mesi dell'anno risultera' bloccato.)</li>
+<li>Non tutti i movimenti (reali) vengono registrati e quindi non c'è modo di garantire una consistenza coerente tramite la registrazione dei movimenti.
+</li></ul>
+
+NOTE:
+<ul>
+<li>qualora l'apiario non risulti ancora registrato la movimentazione non sara' possibile(solo per compravendita e nomadismo);</li>
+<li>al momento non esiste una funzione di chiusura/eliminazione apiario sincronizzato in BDA-N</li></ul>
+</P>
+<p></p>
+<h3>GESTIONE RICHIESTE MOVIMENTAZIONI</h3>
+<p>A partire da questo sottomodulo vengono visualizzate tutte le richieste di movimentazioni per l'asl di competenza. <br/>
+Per le richieste di movimentazioni verso un apiario in regione, il flusso di validazione non è previsto e all'atto dell'inserimento della movimentazione questa viene inviata direttamente in BDN e messa nello stato 'Validazione della movimentazione non richiesta'.<br/>
+Per le movimentazioni con destinazione altre regioni, poiché non tutte le regioni richiedono la validazione dell'asl, all'atto dell'inserimento della movimentazione deve essere spuntato il flag 'Richiesta validazione ASL' se la validazione è richiesta o meno.<br/>
+Se viene richiesta la validazione, la movimentazione non sarà inviata in BDN e sarà messa nello stato 'Movimentazione in attesa di validazione''. <br/>
+Viceversa viene inviata in BDN e messa nello stato 'Validazione della movimentazione non richiesta'.<br/>
+Le movimentazioni nello stato 'Movimentazione in attesa di validazione' vengono visualizzate nel modulo 'Richieste movimentazioni'.<br/>
+Tramite il pulsante valida, le movimentazioni vengono inserite nella banca dati nazionale e passate allo stato 'Movimentazione validata'. 
+NOTA. ogni tipo di movimentazione non aggiorna la consistenza degli apiari. La consistenza viene aggiornata una volta l'anno mediante la funzione Censimento. <br />
+Nello storico movimentazioni di un apiario e' disponibile il bottone "Stampa" (con i dati relativi alla movimentazione selezionata) e "Allegato C".
+
+<h4>NOMADISMO</h4>
+L'operazione di nomadismo consente di eseguire gli spostamenti di alveari da un apiario verso un altro appartenente allo stesso apicoltore. 
+Cliccando sul pulsante nomadismo il sistema presentera' la maschera di inserimento. 
+Nella prima parte della maschera viene chiesto all'utente la data di uscita degli alveari e la data del modello di accompagnamento. 
+Nella seconda parte vengono visualizzati i dati dell'apiario da cui gli alveari escono. 
+L'apiario di destinazione viene ricercato tramite il comune. 
+N.B. L'apiario di destinazione deve esistere nel sistema e deve essere sincronizzato con la banca dati nazionale. 
+Se l'apiario di destinazione non &egrave; nella stessa provincia dell'apiario di origine, la movimentazione non &egrave; obbligatoria. In tal caso il sistema blocca mostrando il messaggio sottostante.</br>
+<img src="./images/apiari_movimentazioni_controllo_provincia_destinazione.jpg"  /></br>
+Ogni movimentazione di nomadismo deve essere validata. <br />
+<img src="./images/nomadismo.PNG" width="1189" height="750" />
+
+<h4>COMPRAVENDITA</h4>
+L'operazione di compravendica consente di eseguire spostamenti di alveari di un apicoltore verso un apiario 
+appartenente a un altro apicoltore. L'apicoltore di destinazione deve essere presente nel sistema e deve essere identificato mediante il codice azienda.
+Ogni movimentazione di tipo compravendita deve essere validata. <br />
+<img src="./images/compravendita.png" width="1195" height="827" /> <br />
+L'elenco delle movimentazioni è visualizzabile cliccando sul link 'Elenco movimentazioni' presente nella pagina di dettaglio dell'apiario. 
+<br/><br/>
+
+<h4>COMPRAVENDITA API REGINE</h4>
+L'operazione di compravendica api regine consente di eseguire spostamenti di api regine di un apicoltore verso un'azienda appartenente a un altro apicoltore. L'apicoltore di destinazione deve essere presente in BDN e deve essere identificato mediante il codice azienda.
+Le movimentazioni fuori regione, laddove richiesto in fase di inserimento, devono essere validate <br />
+Per inserire le movimentazioni &egrave; possibile usare la funzione di inserimento massivo tramite file oppure la funzione di inserimento singola compravendita usando i tasti 'Movimentazione massiva api regine' e 'Compravendita api regine' presenti nella scheda impresa.
+Per usare la funzione massiva, cliccare l'apposito pulsante e selezionare il file excel nella popup che si apre e cliccare su 'Salva'. Dalla popup è possibile scaricare un file excel di esempio. Le colonne di cui deve essere composto il file sono:<br/>
+- Data movimentazione;<br/>
+- Codice azienda destinazione;<br/>
+- Numero api regine;<br/>
+- Flag validazione asl (non obbligatoria) se apicoltore fuori regione;<br/>
+Per ogni record del file sarano effettuati i seguenti controlli:<br/>
+- data movimentazione deve far riferimento al mese precedente alla data odierna;<br/>
+- data movimentazione compresa tra data inizio e data cessazione (se azienda cessata);<br/>
+- codice azienda di destinazione deve essere un codice azienda presente in BDN.<br/>
+Ogni file caricato viene salvato in uno storico consultabile tramite apposita funzione 'Storico Upload File Api Regine' disponibile nella scheda azienda di apicoltura.
+Per usare la funzione di inserimento singola compravendita cliccare l'apposito pulsante e compilare i campi nella schermata che viene mostrata.<br/>
+<img src="./images/compravendita_api_regine.jpg" width="600" height="400" /> <br />
+Sia tramite la funzione massiva che singola, se l'invio in BDN fallisce, la movimentazione sarà inserita con flag 'non sincronizzato con bdn'.
+L'elenco delle movimentazioni di un'azienda è visualizzabile cliccando sul link 'Elenco movimentazioni' presente nella pagina di dettaglio di qualsiasi apiario dell'azienda apistica. Accanto ad ogni movimento sono disponibili i tasti 'Modifica' e 'Storico'.
+Per le compravendite di api regine non è prevista la stampa dell'Allegato C. 
+Il tasto 'Modifica' viene mostrato nei 7 giorni successivi all'inserimento del movimento. <br/>
+Accedendo alla maschera di modifica si possono variare data movimento, data modello, numero api regine e codice azienda destinazione.<br/>
+Se la movimentazione &egrave; validata, la modifica sar&agrave; inviata anche in BDN.
+
+<h4>IMPOLLINAZIONE</h4>
+L'operazione di impollinazione consente di eseguire spostamenti di alveari e sciami di un apicoltore verso un agricoltore che non è necessario sia presente nel sistema. Per identificare l'agricoltore basta fornire i seguenti dati:<br/>
+- Denominazione; <br/>
+- Codice fiscale/partita iva; <br/>
+- Indirizzo sede legale; <br/>
+Se il codice fiscale o partita iva inserito esiste in Gisa come azienda apistica, il sistema propone i dati dell'azienda come da immagine seguente.
+<img src="./images/apicoltura_impollinazione_cf_presente.jpg" width="1195" height="827" />
+Se si selezionano i dati proposti, vengono riempiti in automatico i relativi campi che saranno comunque modificabili. All'atto dell'inserimento non sarà mantenuto alcun riferimento all'azienda trovata in Gisa e i quattro campi relativi all'azienda di destinazione saranno salvati come semplice elenco di informazioni.
+La movimentazione deve essere validata se l'agricoltore di destinazione è fuori regione e se richiesto in fase di inserimento spuntando l'apposito check. <br/>
+Nell'immagine succesiva viene mostrata la pagina di inserimento di una movimentazione per impollinazione.<br/>
+<img src="./images/apicoltura_impollinazione.jpg" width="1195" height="827" /> <br />
+<br /><br />
+L'elenco delle movimentazioni è visualizzabile cliccando sul link 'Elenco movimentazioni' presente nella pagina di dettaglio dell'apiario. Accanto ad ogni movimento sono disponibili i tasti 'Modifica' e 'Storico'.
+Il tasto 'Modifica' viene mostrato nei 7 giorni successivi all'inserimento del movimento. <br/>
+Accedendo alla maschera di modifica si possono variare data movimento, data modello, numero alveari, sciami, pacchi e api regine e apiario di destinazione.<br/>
+Se la movimentazione &egrave; validata, la modifica sar&agrave; inviata anche in BDN.
+<br /><br />
+In fase di inserimento viene controllato che i dati immessi non sono già presenti nel sistema. La lista di campi che compongono il vincolo che stabilisce se la movimentazione esiste già è la seguente:<br/>
+- Tipologia movimentazione;<br>
+- Data movimentazione;<br/>
+- Apiario di partenza;<br/>
+- Apiario di destinazione (non considerato in caso di impollinazione);<br/>
+- Numero alveari, sciami, nuclei e pacchi d'api;<br/>
+<br/>
+
+<h4>ACCETTAZIONE MOVIMENTAZIONE IN INGRESSO</h4>
+Esiste un meccanismo di invio e accettazione movimenti tramite la gestione di uno stato i cui valori sono:<br/>
+- Inviato;<br/>
+- Accettato invio;<br/>
+- Accettazione non necessaria.<br/>
+Le compravendite vengono inserite con stato 'Inviato' se apicoltore in regione. Se apicoltore fuori regione lo stato &egrave; 'Accettazione non necessaria'. Quando i movimenti vengono accettati dall'apicoltore di destinazione lo stato passa a 'Accettato invio'.
+Per il nomadismo, impollinazione e api regine questo meccanismo non viene applicato e i movimenti vengono inseriti con stato 'Accettazione non necessaria'.
+L'apicoltore/delegato ha a disposizione una funzione che mostra la lista dei movimenti in ingresso verso la propria azienda. Accanto ai movimenti in ingresso con stato 'Inviato' è disponibile un tasto per accettare la movimentazione. L'accettazione della movimentazione prevede il passaggio del flag da 'Inviato' a 'Accettato invio' e l'invio della movimentazione in ingresso in bdn.
+<br/><br/>
+
+<h4>MODIFICA MOVIMENTAZIONE</h4>
+Nella lista di movimentazioni visualizzabile cliccando sul link 'Elenco Movimentazioni' presente nella scheda apiario, accanto ad ogni movimento, sono disponibili i tasti 'Modifica' e 'Storico'.
+La movimentazione NON è modificabile se &egrave; richiesta l'attestazione sanitaria e validata o se &egrave; stata presa in carico dal destinatario. Non è modificabile anche se sono trascorsi 7 giorni dall'inserimento.<br/>
+Accedendo alla maschera di modifica si possono variare data di uscita, numero alveari, sciami, pacchi e api regine (laddove il dato è gestito in base alla tipologia di movimentazione), azienda di destinazione e apiario di destinazione(solo per nomadismo).<br/>
+Se la movimentazione &egrave; stata inviata in bdn, tutte le modifiche saranno inviate anche in BDN.
+Il tasto 'Storico' mostra tutte le modifiche apportate al movimento.
+<br/><br/>
+
+<h4>CENSIMENTI APIARI</h4>
+<p>L'utente asl dopo aver selezionato una delega dal modulo gestione deleghe, puo' variare la consistenza del numero di alveari presenti in un apiario (l'apiario deve essere stato validato a partire dal modulo gestione richieste). Il censimento e' attivo solo in alcuni periodi dell'anno (dal 1 novembre al 31 dicembre) <br /><img src="./images/operazioni_apicoltori.PNG" width="1211" height="184" />
+Nella maschera che si apre è possibile specificare i seguenti dati: numero alveari, numero sciami/nuclei, numero pacchi d'api, numero api regine. Il campo data censimento è compilato in automatico alla data attuale e non modificabile.
+<br/>Una volta inserito il censimento, il numero di alveari, sciami/nuclei, pacchi e api regine aggiornati sono visualizzabili nel dettaglio dell'apiario.
+<br/>I censimenti inseriti sono visualizzati nel tab <b>Storico Variazioni</b>.
+<br/>Ogni censimento inserito viene inviato alla BDN. 
+<br/>Nello storico variazioni di un apiario è disponibile il bottone "Stampa" per stampare un riepilogo dei dati anagrafici dell'apiario e dei dati relativi al censimento selezionato.
+<br/>N.B.: Tra i dati inviati NON sono inclusi il numero pacchi e il numero di api regine.
+</p>
+<p>
+E' possibile eliminare il censimento fino a 14 giorni dopo l'inserimento. La modifica di un censimento viene effettuata eseguendo una eliminazione e reinserimento del censimento. 
+<br/>L'operazione di eliminazione del censimento andrà a buon fine solo se la risposta della Banca Dati Nazionale sarà positiva. Se i termini lo consentono, dopo una cancellaione sarà possibile inserire un nuovo censimento. In tal caso la 'data ultimo censimento' della scheda di dettaglio sarà opportunamente aggiornata.
+<br/>Dopo l'eliminazione del censimento, la consistenza dell'apiario sarà aggiornata con i dati inseriti nell'ultimo censimento.
+ 
+</p>
+<p>Accedendo al dettaglio di un apiario , e' possibile tramite il bottone "Report XLS Censimenti Apiario" scaricare un report Excel contenente i censimenti per l'apiario selezionato <br>
+<img src="./images/reportcensimentiapiario.png" width="1195" height="827" />
+</p>
+
+<h4>MOVIMENTAZIONE MASSIVA API REGINE</h4>
+<p>La funzione di 'Inserimento Massivo di api regine' &egrave; disponibile cliccando sul tasto omonimo posto accanto ad ogni apiario.<br/>
+Cliccando sul tasto si apre una pop-up in cui selezionare il file da importare. Il file deve essere in formato xls e deve contenere obbligatoriamente le seguenti informazioni:<br/>
+- Data movimentazione (del mese precedente alla data attuale);<br/>
+- Data Modello;<br/>
+- Numero api regine da spostare: non maggiore del numero di api regine attualmente presente sul'apiario;<br/>
+- Codice azienda apiario di destinazione;<br/>
+- Progressivo apiario di destinazione;<br/>
+- Comune apiario di destinazione;<br/>
+- Provincia apiario di destinazione;<br/>
+- Indirizzo apiario di destinazione<br/>
+Contestualmente all'inserimento in BDA-R, le movimentazioni vengono inviate anche in BDN.<br/>
+La procedura si occupa anche di aggiornare il numero di api regine effettive sull'apiario di origine.
+</p>
+

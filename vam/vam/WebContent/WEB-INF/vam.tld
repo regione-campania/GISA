@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+                        "http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+<tlib-version>1.0</tlib-version>
+<jsp-version>1.2</jsp-version>
+<short-name>VAM</short-name>
+<description>
+	gestione TAG per VAM
+</description>
+<tag>
+	<name>checked</name>
+	<tag-class>it.us.web.tag.vam.Checked</tag-class>
+	<body-content>JSP</body-content>
+	<description>
+		Controlla se un'opzione è selezionata, in tal caso stampa: checked="checked".
+		Utilizzato per la modifica dell'accettazione.
+	</description>
+	<attribute>
+		<name>idLookupOperazione</name>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>idAccettazione</name>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+</tag>
+<tag>
+	<name>soglie</name>
+	<tag-class>it.us.web.tag.vam.Soglie</tag-class>
+	<body-content>JSP</body-content>
+	<description>
+		Bla bla
+	</description>
+	<attribute>
+		<name>animale</name>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>esame</name>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+</tag>
+<tag>
+	<name>soglieoutput</name>
+	<tag-class>it.us.web.tag.vam.SoglieOutput</tag-class>
+	<body-content>JSP</body-content>
+	<description>
+		Bla bla
+	</description>
+	<attribute>
+		<name>proprieta</name>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+</tag>
+</taglib>

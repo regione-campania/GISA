@@ -1,0 +1,3 @@
+Nome Classe: <nome-classe>
+
+rev.: <rev> | data: <aaaammgg> | auth.: <nome-cognome> | desc.: <descrizione della modifica, problema, soluzione, locazione, ...>

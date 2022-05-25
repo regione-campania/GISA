@@ -1,0 +1,37 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<div class="a-table-filter">
+    <div #hitArea class="hit-area" [ngClass]="{'filter-visible': !filterWrapper.hidden, 'filter-active': isActive}" (click)="toggle()">
+        <i class="icon fa-solid fa-filter"></i>
+    </div>
+    <div #filterWrapper class="wrapper filter-wrapper box box-3d" (keydown)="onKeyDown($event)" hidden>
+        <div [ngSwitch]="type">
+            <div *ngSwitchCase="'text'">
+                <a-table-text-filter #filter></a-table-text-filter>
+            </div>
+            <div *ngSwitchCase="'date'">
+                <a-table-date-filter #filter></a-table-date-filter>
+            </div>
+            <div *ngSwitchCase="'selection'">
+                <a-table-selection-filter #filter [values]="values"></a-table-selection-filter>
+            </div>
+        </div>
+        <div class="wrapper buttons">
+            <button type="button" class="button reset-all-button" title="Rimuovi Tutti" (click)="resetAll(); hide()">
+                <span>rimuovi tutti</span>
+            </button>
+            <button type="button" class="button reset-button" title="Resetta" (click)="reset(); hide()">
+                <i class="icon fa-solid fa-rotate-left"></i>
+            </button>
+            <button type="button" class="button apply-button" title="Applica" (click)="apply(); hide()">
+                <span class="icon">ok</span>
+            </button>
+        </div>
+    </div>
+</div>

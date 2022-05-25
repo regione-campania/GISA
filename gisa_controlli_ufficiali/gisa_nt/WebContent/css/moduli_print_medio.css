@@ -1,0 +1,177 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+@page { margin: 5px 5px 5px}
+body {
+    font-size: 13px;
+}
+
+span.checkedItem{
+font-size: 13px;
+}
+
+
+span.NocheckedRadio:before {
+content: '';
+font-size:13px;
+font-weight: bold;
+}
+span.checkedItem:before {
+content: '[X]';
+font-size:13px;
+font-weight: bold;
+}
+
+span.NocheckedItem:before {
+content: '[  ]';
+font-size:13px;
+font-weight: bold;
+}
+
+TABLE
+{
+border-collapse:collapse;
+}
+
+div.fine {
+	page-break-after: always;
+}
+
+TABLE, TD, TH, LI, P, UL, OL, TEXTAREA, INPUT, SELECT, A {
+    color: #000000;
+    font-family: 'serif', 'Times New Roman', serif;
+    font-size: 13px; 
+   
+}
+
+td{
+    word-wrap:break-word
+}
+
+.tableClass {
+    color: #000000;
+    font-family: 'serif', 'Times New Roman', serif;
+    font-size: 13px; 
+   
+}
+
+
+
+P.main {
+ font-family:'serif', 'Times New Roman'; 
+ font-size:13px; 
+ font-style:normal;
+ 
+}
+
+.textDim{
+  width: 600px; height: 101px;
+  background: #FFFFFF;
+  border-style: solid;
+  border-color: #000000;
+}
+
+.textDim2{
+  width: 600px; height: 101px;
+  background: #FFFFFF;
+  border-style: solid;
+  border-color: #000000;
+  resize:none;
+}
+
+.editField{
+  background-color : #CCCCFF;
+  border-top-style:none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color:#000000;
+  border-bottom-style:solid;
+   text-transform:uppercase;
+}
+
+.layout{
+  border-top-style:none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color:#000000;
+ text-decoration:underline;
+  text-transform:uppercase;
+  }
+  
+P.underline{text-decoration:underline;}
+h3 {text-decoration:underline; text-align:center;}
+
+
+/*IMG {
+ width: 250px;
+}*/
+
+/*PROBLEMA GENERAPDF*/
+
+/*.codeOsa{
+	width: 250px;
+	height: 50px;
+}*/
+
+.buttonClass {
+	background-color:#d5cfd6;
+	border-radius:6px;
+	border:1px solid #ffffff;
+	display:none;
+	color:#000000;
+    font-family: serif','Times New Roman;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+}
+
+input.css-checkbox[type="checkbox"] {
+    border: 0 none;
+    clip: rect(0px, 0px, 0px, 0px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+input.css-checkbox.lrg[type="checkbox"] + label.css-label.lrg {
+    background-position: 0 -20px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 22px;
+    vertical-align: middle;
+}
+input.css-checkbox.lrg[type="checkbox"]:checked + label.css-label.lrg {
+    /*background-position: 0 -20px;*/
+    background-position: 0 0px;
+}
+.vlad {
+    background-image: url("http://csscheckbox.com/checkboxes/vlad.png");
+}
+.boxIdDocumento {
+	position: relative;
+	left: 5px;
+	top: 1px;
+	border: 0.5px solid black;
+	width: 60px;
+	height: 20px;
+	margin-top: 0px;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 8px;
+}
+.boxOrigineDocumento {
+	text-align: left;
+	font-size: 9px;
+}

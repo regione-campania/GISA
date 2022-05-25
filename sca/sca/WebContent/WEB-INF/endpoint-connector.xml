@@ -1,0 +1,165 @@
+<root>
+  
+<endpoint name="Gisa" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_datasource>jdbc/gisaS</db_datasource><db_host>dbGISAL</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+		          <db_datasource>jdbc/gisaS</db_datasource><db_host>dbGISAL</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);
+		</query>
+	</operation>
+	
+</endpoint>
+
+<endpoint name="RSF" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_datasource>jdbc/gins</db_datasource>
+		<db_host>dbGINSL</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+		<db_datasource>jdbc/gins</db_datasource>
+		<db_host>dbGINSL</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);
+		</query>
+	</operation>
+	
+</endpoint>
+
+
+<endpoint name="Gisa_ext" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_datasource>jdbc/gisa_extS</db_datasource><db_host>dbGISA_EXTL</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente_ext();
+		</query>
+	</operation>
+	
+   <operation name="CheckEnableUtente" type="Sql">
+		<db_datasource>jdbc/gisa_extS</db_datasource><db_host>dbGISA_EXTL</db_host>
+		<db_name>gisa</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_check_last_login_ext(?,?::timestamp);
+		</query>
+	</operation>
+</endpoint>
+
+<endpoint name="Digemon" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_datasource>jdbc/DiGeMon</db_datasource><db_host>dbDIGEMONL</db_host>
+		<db_name>DiGeMon</db_name>
+		<db_user>admin</db_user>
+		<db_pwd>admin</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+			<db_datasource>jdbc/DiGeMon</db_datasource><db_host>dbDIGEMONL</db_host>
+		<db_name>DiGeMon</db_name>
+		<db_user>admin</db_user>
+		<db_pwd>admin</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);
+		</query>
+	</operation>
+
+</endpoint>
+
+<endpoint name="Importatori" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_datasource>jdbc/importatori</db_datasource><db_host>dbIMPORTATORIL</db_host>
+		<db_name>importatori_demo</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+		select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+		<db_datasource>jdbc/importatori</db_datasource><db_host>dbIMPORTATORIL</db_host>
+		<db_name>importatori_demo</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);
+		</query>
+	</operation>
+</endpoint>
+
+<endpoint name="bdu" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_datasource>jdbc/bduS</db_datasource><db_host>dbBDUL</db_host>
+		<db_name>bdu</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+		<db_datasource>jdbc/bduS</db_datasource><db_host>dbBDUL</db_host>
+		<db_name>bdu</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);
+		</query>
+	</operation>
+
+</endpoint>
+
+<endpoint name="Vam" >
+	<operation name="GetRuoliUtente" type="Sql">
+		<db_datasource>jdbc/vamS</db_datasource><db_host>dbVAML</db_host>
+		<db_name>vam</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_get_ruoli_utente();
+		</query>
+	</operation>
+	
+	<operation name="CheckEnableUtente" type="Sql">
+		<db_datasource>jdbc/vamS</db_datasource><db_host>dbVAML</db_host>
+		<db_name>vam</db_name>
+		<db_user>postgres</db_user>
+		<db_pwd>postgres</db_pwd>
+		<query>
+			select * from dbi_check_last_login(?,?::timestamp);		
+		</query>
+	</operation>
+
+</endpoint>
+
+</root> 

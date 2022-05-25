@@ -1,0 +1,17 @@
+/.svn
+**/base/conf_PEC.xml
+**/utils/application.properties*
+**/*.pdf
+**/*.doc
+**/*.docx
+**/bdu_ext/README*
+**/bdu_ext/LICENSE*
+**/bdu_ext/build7*
+**/bdu_ext/build8*
+
+
+
+
+**/bdu_sviluppo.png
+**/bdu_ufficiale.png
+**/bdu_ufficialeOLD.png

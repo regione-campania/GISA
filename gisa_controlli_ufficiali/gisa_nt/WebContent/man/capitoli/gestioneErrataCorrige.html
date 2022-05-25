@@ -1,0 +1,88 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="gestioneErrataCorrige"></a>
+<h3 >Anagrafica Stabilimenti - Gestione Errata Corrige</h3>
+<h1>Tale gestione è disponibile a partire dalla scheda di dettaglio di uno stabilimento.
+<p>Per tutte le modifiche su stabilimenti gestiti nel nuovo cavaliere "Anagrafica stabilimenti", è richiesto di compilare il modulo di Errata Corrige disponibile in bacheca nella sezione NUOVA DELIBERA REGISTRAZIONE RICONOSCIMENTO STABILIMENTI - REGISTRAZIONE E RICONOSCIMENTO - MODELLO ERRATA CORRIGE rev 2.<br>
+Compilata l'ER, viene inviata una segnalazione all'Help Desk per richiedere l'intervento.
+<u>Gestione Errata Corrige Soggetto Fisico</u>
+<p style="text-align: justify;">
+Nella scheda di dettaglio di uno stabilimento è disponibile il link "Gestione Errata Corrige Soggetto Fisico" a partire dal menu laterale destro.
+Cliccando sul link, verrà mostrata all'utente la maschera (precompilata) che consente di variare i dati del soggetto fisico legato allo stabilimento.
+I campi che contribuiscono a identificare univocamente un soggetto fisico (nome,cognome,comune nascita,data nascita,sesso e codice fiscale) 
+possono essere modificati solo se non presenti.
+Un campo non presente (Es. data di nascita,nome,comune nascita) sarà accettato dal sistema solo se non crea variazioni sul codice fiscale.</p>
+<p><img src="./images/ecg1.png" width="953" height="345" /></p>
+<p>
+L'indirizzo di residenza è un'informazione sempre modificabile se non genera cambiamenti sullo stabilimento: dal momento che per gli stabilimenti mobili con impresa individuale,
+il comune di residenza è fondamentale per la determinazione dell'ASL, la modifica di questa informazione non deve generare un'incongruità nel sistema.
+Per questo motivo se nel caso descritto viene selezionato un comune di residenza la cui asl di afferenza è diversa da quello dello stabilimento, il sistema non accetta i dati inseriti impedendo di completare l'operazione.
+</p>
+<p>
+Dopo aver apportato le modifiche cliccando sul pulsante continua, il sistema verifica se esistono altri stabilimenti legati al soggetto fisico 
+(verifica eseguita utilizzando come chiave di ricerca il codice fiscale) che si sta variando.
+La lista di stabilimenti viene mostrata all'utente cosi come propone l'immagine sottostante
+</p>
+<p><img src="./images/ecg2.png" width="953" height="345" /></p>
+<p>
+Nella prima tabella la riga gialla presenta i dati dello stabilimento prima della modifica, la riga rossa presenta i dati modificati e che dovranno essere salvati nel sistema.
+La seconda tabella mostra i dati di altri stabilimenti (se esistenti) associati al soggetto fisico.
+L'utente potrà selezionare o meno tutti quelli su cui intende propagare la modifica.
+Cliccando sul pulsante "Applica modifiche al Soggetto Fisico"  verranno apportate le modifiche su tutti gli stabilimenti selezionati, e alla fine dell'operazione verrà aperta la maschera di dettaglio dello stabilimento di partenza presentando i dati variati.
+</p>
+<br><br><br>
+<u>Gestione Errata Corrige Impresa</u>
+<p style="text-align: justify;">
+Nella scheda di dettaglio di uno stabilimento è disponibile il link "Gestione Errata Impresa" a partire dal menu laterale destro.
+Cliccando sul link, verrà mostrata all'utente la maschera (precompilata) che consente di variare i dati dell'impresa.<br/>
+La modifica alla partita iva sar&agrave; SEMPRE consentita anche se la partita iva nuova &egrave; già presente. <br/>
+In tal caso i dati potranno essere sistemati tramite convergenza.<br/>
+Il sistema controlla che la partita iva &egrave; nel formato consentito di 11 cifre e in accordo con il CRC.
+
+<p>
+L'indirizzo della sede legale è un'informazione sempre modificabile se non genera cambiamenti sullo stabilimento: dal momento che per gli stabilimenti mobili con impresa NON individuale,
+il comune della sede legale è fondamentale per la determinazione dell'asl, la modifica di questa informazione non deve generare un'incongruità nel sistema.
+Per questo motivo se nel caso descritto viene selezionato un comune la cui asl di afferenza è diversa da quello dello stabilimento, il sistema non accetta i dati inseriti impedendo di completare l'operazione.
+
+Anche per i cambiamenti del campo Tipo Impresa vengono eseguiti controlli per mantenere i dati puliti nel sistema: 
+se si sta variando il tipo di impresa da una società SPA a una ditta individuale per uno stabilimento mobile, viene verificato che il comune di residenza
+del soggetto fisico sia congruo con l'asl di appartenenza dello stabilimento; qualora non lo fosse il sistema non accetta i dati e non consente di proseguire con le modifiche richieste.
+</p>
+
+<p>
+Dopo aver apportato le modifiche cliccando sul pulsante continua, il sistema verifica se esistono altri stabilimenti legati all'impresa
+(verifica eseguita utilizzando come chiave di ricerca la partita iva) che si sta variando. La lista di stabilimenti viene mostrata all'utente cosi come propone l'immagine sottostante
+</p>
+<p><img src="./images/ecg2.png" width="953" height="345" /></p>
+
+<p>
+Nella prima tabella la riga gialla presenta i dati dello stabilimento prima della modifica, la riga rossa presenta i dati modificati e che dovranno essere salvati nel sistema.
+La seconda tabella mostra i dati di altri stabilimenti (se esistenti) associati all'impresa.
+L'utente potrà selezionare o meno tutti quelli su cui intende propagare la modifica.
+Cliccando sul pulsante "Applica modifiche"  verranno apportate le modifiche su tutti gli stabilimenti selezionati, e alla fine dell'operazione verrà aperta la maschera di dettaglio dello stabilimento di partenza presentando i dati variati.
+</p>
+<u>Gestione Errata Corrige Linee di Attivita</u>
+<p style="text-align: justify;">
+Nella scheda di dettaglio di uno stabilimento è disponibile il link "Gestione Errata Corrige Linee di Attivita" a partire dal menu laterale destro.
+Cliccando sul link, verrà mostrata all'utente la maschera (precompilata) che consente di variare le linee di attività esistenti in uno  stabilimento.
+Come mostrato nella figura sottostante vengono proposte nella mschera le linee di attivita' presenti sullo stabilimento.
+<p>
+<p><img src="./images/ecg3.png" width="953" height="345" /></p>
+<p style="text-align: justify;">
+Cliccando sul checkBox "Seleziona", viene chiesto all'utente di indicare la nuova linea di attività che sostituirà quella corrispondente attualmente presente nello stabilimento.
+Qualora sulla linea variata siano presenti controlli ufficiali, l'utente viene informato sui controlli che saranno automaticamente spostati sulla nuova linea di attività.
+
+<p>
+<p><img src="./images/ecg4.png" width="953" height="345" /></p>
+
+Cliccando sul pulsante "Continua", se i dati della maschera sono stati completati (ovvero è stata scelta la nuova linea di attività indicando tutti i livelli che la compongono)
+il sistema disabilita la linea variata e inserisce la nuova, spostando su di essa eventuali controlli presenti, invia inoltre una mail contentente i dati prima e dopo della modifica per tenere traccia dell'operazione.
+Dopo l'operazione di aggiornamento verrà mostrata all'utente la scheda di detttaglio dello stabilimento con i dati variati.
+
+

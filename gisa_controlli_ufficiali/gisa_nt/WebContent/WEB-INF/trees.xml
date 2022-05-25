@@ -1,0 +1,27 @@
+<trees>
+	<tree name = "analiti">
+		<id>analiti_id</id>
+		<padre>id_padre</padre>
+		<descrizione>nome</descrizione>
+		<livello>livello</livello>
+		<enabled>nuova_gestione</enabled>
+		<selezione>multipla_sel</selezione>
+		<tablemappingpiani>associazione_analiti_piani</tablemappingpiani>
+		<colonnatablemappingpiani>id_analiti_foglia</colonnatablemappingpiani>
+		<codiceesame>codice_esame</codiceesame>
+
+	</tree>
+	
+	<tree name = "matrici">
+		<id>matrice_id</id>
+		<padre>id_padre</padre>
+		<descrizione>nome</descrizione>
+		<livello>livello</livello>
+		<enabled>nuova_gestione</enabled>
+		<selezione>multipla_sel</selezione>
+		<codiceesame>codice_esame</codiceesame>
+		<tablemappingpiani>associazione_matrici_piani</tablemappingpiani>
+		<colonnatablemappingpiani>id_matrice_foglia</colonnatablemappingpiani>
+	</tree>
+	
+</trees>

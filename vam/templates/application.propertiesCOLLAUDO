@@ -1,0 +1,85 @@
+#################################################################
+####           CONFIGURAZIONE VAM e Sinagr                  #####
+#################################################################
+#
+# Chiave per comunicazione con anagrafi in formato esadecimale
+#KEY=
+#
+#Cartella salvataggio immagini caricate in necroscopia
+UPLOAD_ROOT_FOLDER=/usr/uploadTest
+UPLOAD_TMP_FOLDER=/usr/uploadTemp
+#
+#Percorso del manuale(a partire dalla root del progetto)
+DOCS_ROOT_FOLDER=documentazione/ManualeUtente.html
+#
+#################################################################
+#### Configurazione Sezione EMAIL                            ####
+#################################################################
+#
+#MAIL_HOST=
+#
+#MAIL_SENDER_ADDRESS=
+#
+MAIL_SENDER_NAME=Segnalazioni Vam
+
+#MAIL_DESTINATION_ADDRESS=
+
+#MAIL_USERNAME=
+
+#MAIL_PASSWORD=
+
+#MAIL_PORT=
+#
+#################################################################
+#### Configurazione connessione alle applicazioni              ##
+#################################################################
+#
+BDU_URL_PUBLIC=demo.anagrafecaninacampania.it
+#
+BDU_PORT=80
+#
+BDU_APPLICATION_NAME=bdu
+#
+DOCUMENTALE_URL=hostAppDocumentale
+#
+DOCUMENTALE_PORT=80
+#
+DOCUMENTALE_APPLICATION_NAME=serverDocumentale
+#
+DOCUMENTALE_DISPONIBILE=true
+DOCUMENTALE_DISPONIBILE_MESSAGGIO=SERVER DOCUMENTALE NON DISPONIBILE IN INSERIMENTO. RIPROVARE TRA QUALCHE MINUTO.
+MAX_SIZE_ALLEGATI=3145728
+#
+VAM_URL_PUBLIC=hostAppVamPublic
+#
+VAM_PORT=80
+#
+DIGEMON_URL_PUBLIC=col2.gisacampania.it
+#
+DIGEMON_PORT=80
+#
+DIGEMON_APPLICATION_NAME=DiGeMon
+
+
+#################################################################
+#### Chiamata a funzioni DBI                                   ##
+#################################################################
+modalita_comunicazione_vam_bdr=jdbc
+
+#################################################################
+#### Ambiente : ufficiale - demo - sviluppo - cloud            ##
+#################################################################
+ambiente=demo
+
+#################################################################
+#### Storico Operazioni Utente                                 ##
+#################################################################
+abilitaStoricoOperazioniUtente=si
+cleancache_time_interval_1=0 0/5 6-20 ? * 2,3,4,5,6
+cleancache_time_interval_2=0 0/20 0,1,2,3,4,5,21,22,23 ? * *
+cleancache_time_interval_3=0 0/10 6-20 ? * 1,7
+
+ambiente_sirv=demo.gisacampania.it
+
+#####################	QUERY OBSOLESCENZA ACCESSI ##############
+timeout=6

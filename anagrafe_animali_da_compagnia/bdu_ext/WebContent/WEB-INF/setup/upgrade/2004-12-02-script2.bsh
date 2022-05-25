@@ -1,0 +1,48 @@
+/*
+  This is a beanshell script that performs maintenance on a given database 
+  connection (db) from ant upgradedb
+  
+  Assets module
+*/
+import java.sql.*;
+import org.aspcfs.modules.admin.base.Permission;
+import org.aspcfs.modules.admin.base.PermissionCategory;
+
+String module = "Documents";
+int level = 1650;
+boolean hasFolders = false;
+boolean hasLookups = false;
+boolean hasViewpoints = false;
+boolean hasCategories = false;
+boolean hasScheduledEvents = false;
+boolean hasObjectEvents = false;
+boolean hasReports = false;
+boolean hasWebDAV = true;
+boolean enabled = true;
+boolean active = true;
+
+print("Adding " + module + " module if it doesn't exist");
+
+int moduleId = PermissionCategory.lookupId(db, PermissionCategory.PERMISSION_CAT_DOCUMENTS);
+if (moduleId == -1) {
+  print("Category not found, inserting...");
+  PermissionCategory thisCategory = new PermissionCategory();
+  thisCategory.setCategory(module);
+  thisCategory.setDescription(null);
+  thisCategory.setLevel(level);
+  thisCategory.setEnabled(enabled);
+  thisCategory.setActive(active);
+  thisCategory.setFolders(hasFolders);
+  thisCategory.setLookups(hasLookups);
+  thisCategory.setViewpoints(hasViewpoints);
+  thisCategory.setCategories(hasCategories);
+  thisCategory.setScheduledEvents(hasScheduledEvents);
+  thisCategory.setObjectEvents(hasObjectEvents);
+  thisCategory.setReports(hasReports);
+  thisCategory.setWebdav(hasWebDAV);
+  thisCategory.setConstant(PermissionCategory.PERMISSION_CAT_DOCUMENTS);
+  thisCategory.insert(db);
+  moduleId = thisCategory.getId();
+}
+
+print("Finished");

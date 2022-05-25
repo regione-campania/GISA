@@ -1,0 +1,100 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+BODY
+{
+  PADDING-RIGHT: 0px;
+  PADDING-LEFT: 2px;
+  FONT-SIZE: 9pt;
+  PADDING-BOTTOM: 0px;
+  MARGIN: 0px;
+  CURSOR: default;
+  COLOR: #303070;
+  PADDING-TOP: 2px;
+  FONT-FAMILY: tahoma,arial;
+  
+}
+A
+{
+  COLOR: #303070;
+  cursor: pointer; cursor: hand;
+  BORDER: none;
+  MARGIN: 0px;
+  PADDING: 0px;
+  TEXT-DECORATION: none
+}
+A:visited
+{
+  COLOR: #707090
+}
+IMG
+{
+  BORDER: none;
+  MARGIN: 0px;
+  PADDING: 0px;
+  cursor: pointer; cursor: hand;
+
+}
+A:hover
+{
+  COLOR: #b0b0d0
+}
+A.Current
+{
+  FONT-WEIGHT: bolder;
+  BACKGROUND-COLOR: #d0e0f0
+}
+IFRAME
+{
+  DISPLAY: none
+}
+UL
+{
+  MARGIN: 0px;
+  PADDING: 0px;
+  BORDER: none;
+  LIST-STYLE-TYPE: none
+}
+LI
+{
+  MARGIN: 0px;
+  BORDER: none;
+  PADDING: 0px
+}
+FONT.SELECTED
+{
+  BACKGROUND-COLOR: #fff7bd;
+  
+}
+LI UL, UL UL
+{
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  margin: 0px 0px 0px 16px;
+  padding-top: 0px;
+}
+UL.Shown
+{
+  DISPLAY: block
+}
+UL.Hidden
+{
+  DISPLAY: none
+}
+DIV.loadMsg
+{
+ 
+  BORDER: black 1px solid;
+  PADDING-LEFT: 4px;
+}
+UL#ULRoot
+{
+  WHITE-SPACE: nowrap;
+  BEHAVIOR: url('#default#saveSnapshot')
+}

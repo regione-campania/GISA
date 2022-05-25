@@ -1,0 +1,47 @@
+#user-notices {
+    display: block;
+    .table-controls {
+        justify-content: flex-start;
+        margin-bottom: 8px;
+    }
+    
+    .card-deck {
+        display: none;
+        .card {
+            margin: 20px 0;
+            .data-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .label {
+                    align-self: flex-start;
+                    text-align: end;
+                    font-weight: bold;
+                    flex-basis: 50%;
+                    padding-right: 4px;
+                }
+                .value {
+                    flex-basis: 50%;
+                    text-align: start;
+                    padding-left: 4px;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 991.98px) {
+    #user-notices {
+        background: none;
+        border: none;
+        box-shadow: none;
+        .card-deck {
+            display: block;
+            .actions-container {
+                margin: 10px 0;
+                .action {width: 100%;}
+            }
+        }
+    }
+}
+

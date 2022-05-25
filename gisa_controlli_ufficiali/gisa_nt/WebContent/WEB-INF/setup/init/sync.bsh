@@ -1,0 +1,46 @@
+/*
+ * This script is used by build.xml when installing a new database.
+ *
+ *@author     matt rajkowski
+ *@created    June 9, 2005
+ *@version    $Id: sync.bsh 22530 2007-08-30 03:34:05Z matt $
+ */
+import java.net.URL;
+import java.sql.*;
+import java.io.File;
+import org.aspcfs.utils.DatabaseUtils;
+import org.aspcfs.modules.service.base.*;
+
+print("Inserting sync API systems...");
+int systemId = -1;
+if (1==1) {
+  SyncSystem thisSystem = new SyncSystem();
+  thisSystem.setApplicationName("Deprecated");
+  thisSystem.setEnabled(false);
+  thisSystem.insert(db);
+}
+if (1==1) {
+  SyncSystem thisSystem = new SyncSystem();
+  thisSystem.setApplicationName("Auto Guide PocketPC");
+  thisSystem.setEnabled(false);
+  thisSystem.insert(db);
+}
+if (1==1) {
+  SyncSystem thisSystem = new SyncSystem();
+  thisSystem.setApplicationName("Deprecated");
+  thisSystem.setEnabled(false);
+  thisSystem.insert(db);
+}
+if (1==1) {
+  SyncSystem thisSystem = new SyncSystem();
+  thisSystem.setApplicationName("CFSHttpXMLWriter");
+  thisSystem.setEnabled(false);
+  thisSystem.insert(db);
+  systemId = thisSystem.getId();
+}
+if (1==1) {
+  SyncSystem thisSystem = new SyncSystem();
+  thisSystem.setApplicationName("Deprecated");
+  thisSystem.setEnabled(false);
+  thisSystem.insert(db);
+}

@@ -1,0 +1,64 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+.tableScheda {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tableScheda tr {
+  border: 1px solid #ddd;
+  padding: .35em;
+  page-break-inside:avoid;
+page-break-before:auto;	
+page-break-after:auto;	
+}
+
+.tableScheda th,
+.tableScheda td {
+  padding: .625em;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.65em;
+  line-height: 2.25;
+  text-transform: uppercase;
+  border: 1px solid black;
+  
+}
+
+.tableScheda th {
+  font-size: 0.65em;
+  letter-spacing: .1em;
+   background-color: #f8f8f8;
+  }
+
+
+.boxOrigineDocumento {
+ 	left: 5px;
+	width: 300px;
+	height: 15px;
+	margin-top: 0.5px;
+	text-align: left;
+	padding-top: 0.5px;
+	font-size: 8px;
+	
+}
+.boxIdDocumento {
+	left: 5px;
+	border: 0.5px solid black;
+	width: 100px;
+	height: 30px;
+	margin-top: 0.5px;
+	text-align: center;
+	padding-top: 0.5px;
+	font-size: 8px;
+}

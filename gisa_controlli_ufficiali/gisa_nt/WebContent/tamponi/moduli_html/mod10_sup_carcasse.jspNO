@@ -1,0 +1,347 @@
+<!-- INIT DOCUMENTALE -->
+	<%@ include file="/gestione_documenti/initDocumentale.jsp" %>
+<!-- FINE INIT DOCUMENTALE -->
+
+<!-- INIZIO HEADER -->
+	<%@ include file="/tamponi/moduli_html/header.jsp" %>
+<!-- FINE HEADER -->
+
+<table><tr>
+<TD>
+<div id="idbutn" style="display:block;">
+<%-- <input type="button" class = "buttonClass" value ="Salva in modalità definitiva" onclick="this.form.bozza.value='false';javascript:checkSubmit();"/>
+--%>
+</div>
+<input id="stampaId" type="button" class = "buttonClass" value ="Stampa" onclick="window.print();"/>
+<input type="hidden" id = "bozza" name = "bozza" value="">
+<dhv:permission name="server_documentale-view">
+<%if (definitivo!=null && definitivo.equals("true")){ %>
+<!--  BOX DOCUMENTALE -->
+	  <jsp:include page="../../gestione_documenti/boxDocumentale.jsp">
+    <jsp:param name="orgId" value="<%=request.getParameter("orgId") %>" />
+     <jsp:param name="ticketId" value="<%=request.getParameter("idCU") %>" />
+      <jsp:param name="tipo" value="<%=request.getParameter("tipo") %>" />
+       <jsp:param name="idCU" value="<%=request.getParameter("idCU") %>" />
+        <jsp:param name="url" value="<%=request.getParameter("url") %>" />
+</jsp:include>
+<!--  BOX DOCUMENTALE -->
+<% } else {%>
+<form method="post" name="form2" action="PrintModulesHTML.do?command=ViewModello10Macelli">
+<input id="salvaId" type="button" class = "buttonClass" value ="Genera PDF" onclick="if (confirm ('Nella prossima schermata sarà possibile recuperare l\'ultimo PDF generato a partire dal documento a schermo, \n oppure generarne uno nuovo.')){javascript:salva(this.form)}"/>
+<input type="hidden" id="documentale" name ="documentale" value="ok"></input>
+<input type="hidden" id="listavalori" name ="listavalori" value=""></input>
+ <input type="hidden" id ="orgId" name ="orgId" value="<%=request.getParameter("orgId") %>" />
+  <input type="hidden" id ="ticketId" name ="ticketId" value="<%=request.getParameter("idCU") %>" />
+   <input type="hidden" id ="comboDateMacellazione" name ="comboDateMacellazione" value="<%=request.getParameter("comboDateMacellazione") %>" />
+   <input type="hidden" id ="tipo" name ="tipo" value="<%=request.getParameter("tipo") %>" />
+    <input type="hidden" id ="idCU" name ="idCU" value="<%=request.getParameter("idCU") %>" />
+      <input type="hidden" id ="url" name ="url" value="<%=request.getParameter("url") %>" />
+</form>
+<% } %>
+</dhv:permission>
+</TD>
+</TABLE>
+<br>
+<P class="main">L'anno <label class="layout"><%= OrgOperatore.getAnnoReferto() %></label> addì <label class="layout"><%= OrgOperatore.getGiornoReferto()%></label> del mese di <label class="layout"><%= OrgOperatore.getMeseReferto()%></label> 
+alle ore <INPUT TYPE="text" class="editField" name="ore" id="ore" size="5" maxlength="5" value="<%=valoriScelti.get(z++)%>"/>
+i sottoscritti 
+<label class="layout"><%= OrgOperatore.getComponente_nucleo() %></label> <label class="layout"><%= OrgOperatore.getComponente_nucleo_due() %></label>  
+qualificandosi, si sono presentati presso:<br>
+<%-- <% System.out.println("Nome: "+OrgOperatore.getRagione_sociale()); %> --%>
+<U><b>Stabilimento/azienda/altro</b>(luogo del controllo):</U> Comune di <label class="layout"><%= (OrgOperatore.getComune() != null ) ? OrgOperatore.getComune() : VAL_VUOTO_LONG %></label>
+alla via <label class="layout"><%= (OrgOperatore.getIndirizzo() != null ) ? OrgOperatore.getIndirizzo() : VAL_VUOTO_LONG %></label> n° <input type="text" class="editField" size="3" maxlength ="6" value="<%=valoriScelti.get(z++)%>"> ric.CE n° <label class="layout"><%= (OrgOperatore.getApproval_number() != null && OrgOperatore.getApproval_number() != "") ? OrgOperatore.getApproval_number() : VAL_VUOTO_SHORT%></label> <br>
+regist./cod.az./targa/n.seriale <label class="layout"><%= (OrgOperatore.getN_reg() != null) ? OrgOperatore.getN_reg() : VAL_VUOTO_LONG %></label> linea di attività ispezionata <label class="layout"><%= (OrgOperatore.getTipologia_att() != null ) ? OrgOperatore.getTipologia_att() : VAL_VUOTO_LONG%></label>.<br>
+<U><b>Nome/ditta/ragione o denominazione sociale: </b></U><label class="layout"><%= (OrgOperatore.getRagione_sociale() != null) ? OrgOperatore.getRagione_sociale() : VAL_VUOTO_LONG%></label> 
+sede legale in <label class="layout"><%= ((String )OrgOperatore.getSede_legale()) != null ? OrgOperatore.getSede_legale() : VAL_VUOTO_LONG%></label> alla via <label class="layout"><%= ((String )OrgOperatore.getIndirizzo_legale()) != null ? OrgOperatore.getIndirizzo_legale() : VAL_VUOTO_LONG %></label> n° <input type="text" class="editField" size="3" maxlength="6" value="<%=valoriScelti.get(z++)%>"> 
+PI/CF <label class="layout"><%= (String )OrgOperatore.getCodice_fiscale()%></label> legale rappr. sig. <label class="layout"><%= ((String )OrgOperatore.getLegale_rapp()) !=null ? OrgOperatore.getLegale_rapp(): VAL_VUOTO_LONG %></label> 
+nato a <label class="layout"><%= ((String )OrgOperatore.getLuogo_nascita_rappresentante()) != null ? (String)OrgOperatore.getLuogo_nascita_rappresentante() :  VAL_VUOTO_LONG %></label> il 
+<label class="layout"><%= OrgOperatore.getGiornoNascita()%></label>/<label class="layout"><%= OrgOperatore.getMeseNascita()%></label>/<label class="layout"><%= OrgOperatore.getAnnoNascita()%></label> e residente in <label class="layout"><%=OrgUtente.getResidenza_legale()%></label> alla 
+via <label class="layout"><%= OrgUtente.getIndirizzo_legale()%></label> n° <label class="layout"><%=OrgUtente.getNumero_legale() %></label> domicilio digitale <label class="layout"><%=(OrgOperatore.getDomicilioDigitale() != null && !OrgOperatore.getDomicilioDigitale().equals("null")) ? OrgOperatore.getDomicilioDigitale() : VAL_VUOTO_LONG%></label> <br>
+<U><b>Presente all'ispezione:</b></U> sig. <label class="layout"><%=(OrgUtente.getNome_presente_ispezione()!="") ? OrgUtente.getNome_presente_ispezione() : VAL_VUOTO_LONG%></label>
+nato a <label class="layout"><%=(OrgUtente.getLuogo_nascita_presente_ispezione() != "" ) ? OrgUtente.getLuogo_nascita_presente_ispezione() : VAL_VUOTO_LONG%></label> il 
+<label class="layout"><%=(OrgUtente.getGiorno_presente_ispezione()!="") ? OrgUtente.getGiorno_presente_ispezione() : VAL_VUOTO_SHORT %></label>/<label class="layout"><%=(OrgUtente.getMese_presente_ispezione()!="") ? OrgUtente.getMese_presente_ispezione() : VAL_VUOTO_SHORT %></label>/<label class="layout"><%=(OrgUtente.getAnno_presente_ispezione()!="") ? OrgUtente.getAnno_presente_ispezione() : VAL_VUOTO_SHORT %></label> e residente in 
+<label class="layout"><%=(OrgUtente.getLuogo_residenza_presente_ispezione() != "" ) ? OrgUtente.getLuogo_residenza_presente_ispezione() : VAL_VUOTO_LONG%></label> alla via <label class="layout"><%=(OrgUtente.getVia_ispezione() != "") ? OrgUtente.getVia_ispezione() : VAL_VUOTO_LONG%></label> <br>
+n° <label class="layout"><%=(OrgUtente.getNum_civico_presente_ispezione() != "" ) ? OrgUtente.getNum_civico_presente_ispezione() : VAL_VUOTO_SHORT%></label> 
+doc.ident. <label class="layout"><%=(OrgUtente.getDoc_identita_presente_ispezione() != "") ? OrgUtente.getDoc_identita_presente_ispezione() : VAL_VUOTO_LONG%></label>.<br> 
+I sottoscritti hanno proceduto, in regime di asepsi, al prelievo di un campione per l'esame microbiologico delle superfici di carcasse come appresso specificato: <br>
+<TABLE rules="all" border="1px solid;">
+<tr>
+	<td style="text-align:left;">
+		<u>Carcasse</u> 
+	</td>
+	<td style="text-align:left; width:200px; height:100px;" colspan="6">
+	 <span class="NocheckedItem"> &nbsp;bovino<sup>*</sup></span>&nbsp;
+	 <span class="NocheckedItem"> &nbsp;ovino<sup>*</sup></span>&nbsp;
+	 <span class="NocheckedItem"> &nbsp;caprino<sup>*</sup></span>&nbsp;
+	 <span class="NocheckedItem"> &nbsp;equino<sup>*</sup></span>&nbsp;
+	 <span class="NocheckedItem"> &nbsp;suino<sup>*</sup></span>&nbsp;
+	 <span class="NocheckedItem"> &nbsp;broiler<sup>**</sup></span>&nbsp;
+	 <span class="NocheckedItem"> &nbsp;tacchino<sup>**</sup></span><br><br>
+	 *dopo la macellazione, ma prima del raffreddamento<br>
+	 **dopo il raffreddamento
+	</td>
+</tr>
+<tr>
+	<td style="text-align:left;">
+		<u>Ricerca</u> 
+	</td>
+	<td style="text-align:left;" colspan="5">
+		<span class="NocheckedItem"> &nbsp;<b>(A)</b> colonie aerobiche (no carni avicole)</span>&nbsp;&nbsp;
+		<span class="NocheckedItem"> &nbsp;<b>(B)</b> enterobatteriacee (no carni avicole)</span>				
+	</td>
+	<td style="text-align:left;">
+		<span class="NocheckedItem"> &nbsp;<b>(C)</b> salmonella spp.</span>					 
+	</td>
+</tr>
+<tr>
+	<td style="text-align:left;" rowspan="6">
+		<u>Metodo</u>	
+	</td>
+	<td style="text-align:left;" rowspan="2">
+		<span class="NocheckedItem"> &nbsp;<u>Non distruttivo</u></span><br>
+		volume diluente <input type="text" class="editField" size="3" value="<%=valoriScelti.get(z++)%>">ml<br>
+	</td>
+	<td style="text-align:left;" colspan="5">
+		<span class="NocheckedItem"> &nbsp;Per <b>(A) e (B): </b> n. 4 siti ognuno di <input type="text" class="editField" size="3" value="<%=valoriScelti.get(z++)%>">
+			di cm<sup>2</sup> (min.50 cm<sup>2</sup> piccoli ruminanti - min. 100 cm<sup>2</sup> <br>
+			bovini-equini-suini.) x n. 5 carcasse (scelte a caso) utilizzando 
+		</span> <span class="NocheckedItem"> &nbsp;SPUGNA</span> <span class="NocheckedItem"> &nbsp;GARZA</span>
+		<span class="NocheckedItem"> &nbsp;TAMPONE</span>
+	</td>
+</tr>
+<tr>
+	<td  style="text-align:left;" colspan="5"> 
+		<span class="NocheckedItem"> &nbsp;Per <b>(C)</b> n. 4 siti ognuno di <input type="text" class="editField" size="3" value="<%=valoriScelti.get(z++)%>">
+			di cm<sup>2</sup> (min.100 cm<sup>2</sup>) x n. 5 carcasse (scelte a caso) con SPUGNA ABRASIVA (non applicabile a broiler e tacchini) 
+		</span>
+	</td>	
+</tr>
+<tr>
+	<td style="text-align:left;" rowspan="3">
+		<span class="NocheckedItem"> &nbsp;<u>Distruttivo</u></span>
+	</td>	
+	<td style="text-align:left;" colspan="5">
+		<span class="NocheckedItem"> &nbsp;Per <b>(A) e (B): </b> n. 4 pezzi di tessuto ( ognuno di 5 cm<sup>2</sup> spessi almeno 2mm) x n.5 carcasse (scelte a caso)  
+	</td>
+	
+</tr>
+<tr>
+	<td  style="text-align:left;" colspan="5"> 
+		<span class="NocheckedItem"> &nbsp;Per <b>(C)</b> nel broiler e tacchini: n.1 frammento di pelle di collo di almeno 10 gr. x n.15 carcasse (scelte a caso)
+		</span>
+	</td>	
+	
+</tr>
+</table>
+<br>
+<P align="center"><b>PER RUMINANTI, EQUINI E SUINI: </b>IDENTIFICAZIONE DELLE CARCASSE PRESCELTE (I COLONNA) E DESCRIZIONE DEI SITI SCELTI PER IL METODO 
+		NON DISTRUTTIVO O DAI QUALI SONO STATI PRELEVATI I CAMPIONI DI TESSUTO CON IL METODO DISTRUTTIVO
+</P>		
+<br>	
+<TABLE rules="all" cellpadding="10" border="1px solid;">
+<tr>
+	<tr>
+	<td style="text-align:left; width:200px; height:100px;">
+		I CARCASSA N. 
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		1)
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		2)
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		3) 
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		4)
+	</td>
+</TR>
+<TR>
+	<td style="text-align:left; width:200px; height:100px;">
+		II CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		1)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		2)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		3)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		4)	
+	</td>
+</TR>
+<TR>
+	<td style="text-align:left; width:200px; height:100px;">
+		III CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		1)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		2)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		3)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		4)	
+	</td>
+</TR>
+<TR>
+	<td style="text-align:left; width:200px; height:100px;">
+		IV CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		1)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		2)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		3)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		4)	
+	</td>
+</TR>
+<TR>
+	<td style="text-align:left; width:200px; height:100px;">
+		V CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		1)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		2)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		3)	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		4)	
+	</td>
+</TR>
+</TABLE>
+<P align="center"><b>PER POLLAME </b> IDENTIFICAZIONE DELLE CARCASSE PRESCELTE<br></P>
+<TABLE rules="all" cellpadding="10" border="1px solid;">
+<tr>
+	<tr>
+	<td style="text-align:left; width:200px; height:100px;">
+		I CARCASSA N. 
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		II CARCASSA N.
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		III CARCASSA N.
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		IV CARCASSA N.
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		V CARCASSA N.
+	</td>
+</TR>
+<TR>
+	<td style="text-align:left; width:200px; height:100px;">
+		VI CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		VII CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		VIII CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		IX CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		X CARCASSA N.
+	</td>
+</TR>
+<TR>
+	<td style="text-align:left; width:200px; height:100px;">
+		XI CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		XII CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		XIII CARCASSA N.	
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		XIV CARCASSA N.
+	</td>
+	<td style="text-align:left; width:200px; height:100px;">
+		XV CARCASSA N.	
+	</td>
+</TR>
+</TABLE>
+<span class="NocheckedItem"> &nbsp;Le carcasse campionate sono le stesse di quelle campionate dall'OSA.</span>
+Le u.c sono state poste in <span class="NocheckedItem"> &nbsp;buste di plastica sterili</span> <span class="NocheckedItem"> &nbsp;recipienti di</span> <input type="text" class="editField" size="10" value="<%=valoriScelti.get(z++)%>"> sterili che vengono sigillati con piombini recanti la dicitura
+<input type="text" class="editField" size="10" value="<%=valoriScelti.get(z++)%>">  e muniti di cartellini controfirmati dal presente al campionamento. Esse sono inviate al <input type="text" class="editField" size="10" value="<%=valoriScelti.get(z++)%>"> . Le u.c. vengono
+conservate e trasferite alla temperatura di <input type="text" class="editField" size="3" value="<%=valoriScelti.get(z++)%>">  °C 
+Letto, confermato e sottoscritto, <br>
+<br>
+<P> IL RAPPRESENTANTE DELL'IMPRESA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLI OPERATORI DEL CONTROLLO UFFICIALE 
+<br>
+<br>
+<br>
+
+<div style="page-break-before:always"> 
+<!-- INIZIO HEADER -->
+	<%@ include file="/tamponi/moduli_html/header.jsp" %>
+<!-- FINE HEADER -->
+<TABLE rules="all" cellpadding="10">
+<tr>
+	<td style="text-align:center; width:200px; height:100px;">
+		<b>Codice<br>Quesito<br>Diagnostico</b> 
+	</td>
+	<td style="text-align:center; width:500px; height:100px;">
+		<% if(OrgTampone.getMotivazione() != null && !OrgTampone.getMotivazione().equals("") && 
+				 OrgTampone.getBarcodeMotivazione() != null){ %>
+			<img src="<%=createBarcodeImage(OrgTampone.getBarcodeMotivazione())%>" />
+			<% } else { %>
+				NON DISPONIBILE
+			<% } %>
+		
+	</td>
+</tr>
+<tr>
+	<td style="text-align:center; width:200px;height:100px;">
+		<b>Codice<br>OSA</b>
+	</td>
+	<td style="text-align:center; width:500px;height:100px;">
+		<% if( OrgTampone.getBarcodeOSA() != null){ %>
+		<img class="codeOsa" ="middle" src="<%=createBarcodeImage(OrgTampone.getBarcodeOSA())%>" />
+		<% } else { %>
+			NON DISPONIBILE
+		<% } %>	
+	</td>
+</tr>
+<tr>
+	<td style="text-align:center; width:200px; heigth:100px;">
+		<b>Codice<br>Matrice</b> 
+	</td>
+	<td style="text-align:center;width:500px; height:100px; ">
+	<%	
+		if(OrgTampone.getCodiciMatrice() != null && !OrgTampone.getCodiciMatrice().equals("")){
+			int k = 0;
+			StringTokenizer st = new StringTokenizer(OrgTampone.getCodiciMatrice(),";");
+			while(st.hasMoreTokens()){
+				++k;  %>
+				<img align="middle" src="<%=createBarcodeImage(st.nextToken())%>"/><br><br>
+				  
+			<% 
+			} 
+		}  else { %>
+			NON DISPONIBILE
+		<% } %>	
+		</td>   	
+</tr>
+</TABLE>
+</div>

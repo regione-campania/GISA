@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+
+	<xs:complexType name="tipo_con_attributo">
+		<xs:simpleContent>
+		  <xs:extension base="xs:string">
+			<xs:attribute use="required" name="code" type="xs:string">
+			</xs:attribute>
+		  </xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>	
+	
+
+	<xs:simpleType name="nonvuoto">
+		<xs:restriction base="xs:string">
+			<xs:pattern value=".+"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="numerico"> 
+			<xs:restriction base="xs:token"> 
+				<xs:pattern value="[0-9]*"/>
+			</xs:restriction>
+	</xs:simpleType>
+	
+	
+	<xs:simpleType name="numerico_nonvuoto"> 
+			<xs:restriction base="xs:token"> 
+				<xs:pattern value="[0-9]+"/>
+			</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="emailAddress"> 
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="254"/>
+			<xs:pattern value="[_\-a-zA-Z0-9\.\+]+@[a-zA-Z0-9](\.?[\-a-zA-Z0-9]*[a-zA-Z0-9])*"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="alfanumerico"> 
+		<xs:restriction base="xs:string"> 
+		  <xs:pattern value="[0-9a-zA-Z]*"/> 
+		</xs:restriction> 
+	</xs:simpleType>
+
+	<xs:simpleType name="numeroreg"> 
+		<xs:restriction base="xs:string"> 
+		  <xs:pattern value="[0-9a-zA-Z]{18}"/> 
+		</xs:restriction> 
+	</xs:simpleType>
+	
+	<xs:simpleType name="codfiscale"> 
+		<xs:restriction base="xs:string"> 
+		  <xs:pattern value="[0-9a-zA-Z]{16}"/> 
+		</xs:restriction> 
+	</xs:simpleType>
+
+	<xs:simpleType name="piva"> 
+		<xs:restriction base="xs:string"> 
+		  <xs:pattern value="[0-9]{11}" /> 
+		</xs:restriction> 
+	</xs:simpleType>
+	
+	
+	<xs:simpleType name="data">
+		<xs:restriction base="xs:string" >
+		  <xs:pattern value="([0-9]{2}/[0-9]{2}/[0-9]{4})*" />
+		</xs:restriction>
+		
+	</xs:simpleType>
+	
+	<xs:simpleType name="codice_e_stringa">
+		<xs:restriction base="xs:string" >
+		  <xs:pattern value="[0-9]+ {1}.+" />
+		</xs:restriction>
+		
+	</xs:simpleType>
+	
+	 
+	
+	
+	<xs:simpleType name="range_lat">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="39.988475"/>
+            <xs:maxInclusive value="41.503754"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
+	<xs:simpleType name="range_long">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="13.7563172"/>
+            <xs:maxInclusive value="15.8032837"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
+	
+	
+	
+
+
+<xs:element name="item">
+	<xs:complexType>
+		<xs:sequence>
+		
+			 <xs:element name="id_protocollo_origine" minOccurs="0" maxOccurs="1" type="xs:string" />
+			 <xs:element name="rev_ml" minOccurs="1" maxOccurs="1" type="numerico" />
+			 
+			 <xs:element name="tipo_attivita">
+						<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="fissa"/>
+							<xs:enumeration value="mobile"/> 
+							<xs:enumeration value="apicoltura"/>
+						</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				   
+				   <xs:element name="carattere">
+						<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="permanente"/>
+							<xs:enumeration value="temporanea"/>
+						</xs:restriction>
+						</xs:simpleType>
+					</xs:element> 
+				   
+				   
+				   <xs:element name="tipo_impresa_societa">
+					<xs:simpleType>
+						 <xs:restriction base="xs:string">
+						    <xs:enumeration value="associazione|"/>
+							<xs:enumeration value="cooperativa|cooperativa a responsabilita limitata"/>
+							<xs:enumeration value="cooperativa|cooperative per azioni"/>
+							<xs:enumeration value="ente pubblico|"/>
+							<xs:enumeration value="impresa individuale|"/>
+							<xs:enumeration value="societa di capitali|societa europea"/>
+							<xs:enumeration value="societa di capitali|srl semplificata"/>
+							<xs:enumeration value="societa di capitali|srl"/>
+							<xs:enumeration value="societa di capitali|sapa"/>
+							<xs:enumeration value="societa di capitali|spa"/>
+							<xs:enumeration value="societa di persone|societa semplice"/>
+							<xs:enumeration value="societa di persone|sas"/>
+							<xs:enumeration value="societa di persone|snc"/>
+						 </xs:restriction>
+					</xs:simpleType>
+				   </xs:element>
+				   
+ 
+				   <xs:element name="tipo_operazione">
+					<xs:simpleType>
+						 <xs:restriction base="xs:string">
+						  <xs:enumeration value="scia nuovo stabilimento"/>
+						  <xs:enumeration value="scia ampliamento"/>
+						  <xs:enumeration value="scia variazione di titolarita"/>
+						  <xs:enumeration value="scia cessazione"/>
+						  <xs:enumeration value="scia modifica stato dei luoghi"/>
+						 </xs:restriction>
+					</xs:simpleType>
+				   </xs:element>
+				  <xs:element minOccurs="0" maxOccurs="1" name="cessazione_globale">
+					<xs:simpleType>
+						 <xs:restriction base="xs:string">
+						  <xs:enumeration value="true"/>
+						  <xs:enumeration value="false"/>
+						 </xs:restriction>
+					</xs:simpleType>
+				   </xs:element>
+				   
+				   <xs:element name="partita_iva_variazione" minOccurs="0" maxOccurs="1" type="piva" />
+				   <xs:element name="numero_registrazione_variazione" minOccurs="0" maxOccurs="1" type="numeroreg" />
+				   <xs:element name="ragione_sociale" type="nonvuoto" />
+				   <xs:element name="partita_iva"  type="piva"/>
+				   
+				   
+				   
+				   <xs:element name="cf_impresa"   type="piva"/>
+				   
+				   <xs:element name="nome_rapp_sede_legale" type="nonvuoto" />
+				   <xs:element name="cognome_rapp_sede_legale" type="nonvuoto" />
+				   
+				    <xs:element name="sesso_rapp_sede_legale">
+					<xs:simpleType>
+						 <xs:restriction base="xs:string">
+						  <xs:enumeration value="m"/>
+						  <xs:enumeration value="f"/>
+						 </xs:restriction>
+					</xs:simpleType>
+				   </xs:element>
+				   
+				   <xs:element name="cf_rapp_sede_legale" type="codfiscale" />
+				   <xs:element name="data_nascita_rapp_sede_legale" type="data" />
+				   <xs:element name="nazione_nascita_rapp_sede_legale" type="nonvuoto" />
+				   <xs:element name="comune_nascita_rapp_sede_legale" type="nonvuoto" /> 
+				   <xs:element name="nazione_residenza_rapp_sede_legale" type="nonvuoto" />
+				   <xs:element name="provincia_residenza_rapp_sede_legale" type="nonvuoto" />
+				   <xs:element name="comune_residenza_rapp_sede_legale" type="nonvuoto" />
+				   <xs:element name="cap_residenza_rapp_sede_legale"   type="numerico_nonvuoto"/>
+				   <xs:element name="ind_rapp_sede_legale" type="nonvuoto" /> 
+				   <xs:element name="ind_sede_legale" type="nonvuoto" />
+				   <xs:element name="cap_sede_legale"   type="numerico_nonvuoto"/>
+				   <xs:element name="prov_sede_legale" type="nonvuoto" />
+				   <xs:element name="comune_sede_legale" type="nonvuoto" /> 
+				   <xs:element name="istat_legale"   type="alfanumerico"/>
+				   <xs:element name="ind_stab" type="nonvuoto" />
+				   <xs:element name="cap_stab"   type="numerico_nonvuoto"/>
+				   <xs:element name="prov_stab" type="nonvuoto" />
+				   <xs:element name="comune_stab" type="nonvuoto" />
+				   <xs:element name="istat_operativo"   type="alfanumerico"/> 
+				   <xs:element name="data_inizio_attivita" type="data" />
+				   <xs:element name="data_fine_attivita" type="data"/> 
+				   <xs:element name="domicilio_digitale"   type="emailAddress"/>
+					<xs:element name="latitudine" type="range_lat" />
+				   <xs:element name="longitudine" type="range_long" />
+			 
+			       <xs:element name="lista_linee" maxOccurs="1" minOccurs="1">
+				     <xs:complexType>
+						<xs:sequence> 
+								<xs:element name="linea" maxOccurs="unbounded" minOccurs="0">
+						 
+								  <xs:complexType>
+									<xs:sequence> 
+									   <xs:element name="numero_registrazione" maxOccurs="1"  minOccurs="1" type="xs:string" />
+									   <xs:element name="codice_nazionale" maxOccurs="1" minOccurs="1" type="xs:string" />
+									   
+									   <xs:element name="macroarea" maxOccurs="1" minOccurs="1"  type="tipo_con_attributo"/>
+									   <xs:element name="aggregazione" maxOccurs="1" minOccurs="1" type="tipo_con_attributo" />
+									   <xs:element name="attivita" maxOccurs="1" minOccurs="1" type="tipo_con_attributo" />
+									   <xs:element name="norma" type="xs:string" maxOccurs="1" minOccurs="0" />
+									   <xs:element name="data_modifica" type="data" maxOccurs="1" minOccurs="0" />
+									   <!--<xs:element name="macroarea" maxOccurs="1" minOccurs="1"  type="codice_e_stringa"/>
+									   <xs:element name="aggregazione" maxOccurs="1" minOccurs="1" type="codice_e_stringa" />
+									   <xs:element name="attivita" maxOccurs="1" minOccurs="1" type="codice_e_stringa" />-->
+										
+									</xs:sequence>
+								  </xs:complexType>
+								</xs:element> 
+						</xs:sequence>		
+					 </xs:complexType>
+					</xs:element>
+			
+				   <xs:element name="allegati" maxOccurs="1" minOccurs="1">
+				  <xs:complexType>
+					 <xs:choice maxOccurs="unbounded">
+					
+				 <xs:element name="a" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="b" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="c" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="d" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="e" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="f" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="g" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="h" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="i" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="j" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="k" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="l" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="m" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="n" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="r" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="s" type="nonvuoto" maxOccurs="1" minOccurs="0"/>
+				 <xs:element name="t" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="u" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="v" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="w" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="x" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="y" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="z" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="aa" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="ab" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="bb" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="cc" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="dd" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="ee" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="ff" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="gg" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="hh" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="ii" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="jj" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="kk" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="ll" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="mm" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="oo" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="pp" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="qq" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="rr" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="ss" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				 <xs:element name="tt" type="nonvuoto" maxOccurs="1" minOccurs="0" />
+				  <xs:element name="planimetria" type="xs:string" maxOccurs="1" minOccurs="0" />
+					 
+					
+				  </xs:choice>
+				  </xs:complexType>
+			</xs:element> 
+
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:element>
+</xs:schema>

@@ -1,0 +1,12 @@
+alter table mu_macellazioni
+add id_provvedimento_adottato_visita_am integer,
+add comunicazione_asl_origine_visita_am boolean,
+add comunicazione_proprietario_animale_visita_am boolean,
+add comunicazione_azienda_origine_visita_am boolean,
+add comunicazione_proprietario_macello_visita_am boolean,
+add comunicazione_pif_visita_am boolean,
+add comunicazione_uvac_visita_am boolean,
+add comunicazione_regione_visita_am boolean,
+add comunicazione_altro_visita_am boolean,
+add comunicazione_altro_testo_visita_am text,
+add note_visita_am text

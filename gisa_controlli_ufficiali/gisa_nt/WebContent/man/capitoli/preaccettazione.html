@@ -1,0 +1,70 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="ANAGRAFICASTABILIMENTIpreaccettazione"></a>
+<h3 id="ANAGRAFICASTABILIMENTIpreaccettazione">Preaccettazione</h3>
+
+	<p>La PREACCETTAZIONE e&apos; una procedura di interoperabilita&apos; fra il sistema informativo regionale GISA e 
+	   quello di laboratorio SIGLA dell&apos;IZSM per consentire il passaggio automatico di tutte le informazioni relative al campionamento.<br>
+	   Questo passaggio comporta due aspetti positivi importanti: </p> 
+	   
+	<ol>
+		<li>il perfetto allineamento delle anagrafiche degli operatori, delle matrici e degli analiti</li>
+		<li>il risparmio in termini di tempo dell’operazione di accettazione dei campioni</li>
+		<li>la riduzione degli errori umani in fase di accettazione</li> 
+	</ol>
+	<p>Con la PREACCETTAZIONE, all&apos;atto dell&apos;inserimento di un campione in GISA, l&apos;utente ASL attraverso una 
+	   funzione specifica può inviare, in tempo reale, le informazioni nel sistema SIGLA creando una preaccettazione del campione.
+	   Tale operazione verra&apos; richiamata in fase di consegna del campione alle sede accettante e le 
+	   informazioni presenti potranno essere completate se necessario.
+	   <br>Da ultimo, l&apos;alto livello di integrazione tra i due sistemi consentir&agrave; il passaggio
+	   inverso di informazione da GISA a SIGLA: il contenuto del Rapporti di prova finale emesso dall&apos;
+	   IZSM sar&agrave; trasferito da SIGLA a GISA.
+	   <br>Di seguito alcuni scenari d&apos;uso della PREACCETTAZIONE.</p>
+	 <p><i>Scenario 1 - Campione completamente pianificato.</i> In questo caso l&apos;addetto ASL e&apos; in grado di inserire un controllo
+	 ufficiale e stampare il verbale di accompagnamento completo di tutte le informazioni "prima" di andare presso l&apos;OSA. In questo scenario
+	 l&apos;utente, una volta inseriti i dati del campione, potra&apos; scegliere tra due opzioni:</p>
+	 <ul>
+	 	<li>salvare il campione senza preaccettazione mediante il bottone "Inserisci"</li>
+	 	<li>salvare il campione con preaccettazione mediante il bottone "Inserisci con Preaccettazione"</li>
+	 </ul>
+	 <img src="./images/preaccettazione/inserimento_campione.png">
+	 <p>Nel secondo caso, all&apos;atto del salvataggio del campione, il sistema proporra&apos; due scenari:</p>
+	 <ul>	
+	 	<li>utilizzare un codice preaccettazione precedentemente generato per la linea di attivita&apos; dell&apos;OSA di interesse;</li>
+	 	<li>generare un nuovo codice preaccettazione da associare al campione che si sta inserendo;</li>
+	 </ul>
+	 <img src="./images/preaccettazione/lista_preacc_campioni_generati.png">
+	 <br>
+	 <p><i>Scenario 2 - Campione parzialmente pianificato.</i></p>
+	 <img src="./images/preaccettazione/genera_preacc_dettag.png">
+	 <p>In questo caso l&apos;addetto ASL e&apos; in grado di stabilire solo parte dei dati del campione (ad esempio solo l&apos;OSA). 
+	 L&apos;utente potra&apos;:</p>
+	 <ul>
+	 	<li>generare un codice preaccettazione da associare alla linea dello stabilimento direttamente dalla scheda di dettaglio anagrafica;</li>
+	 	<li>visualizzare la lista dei codici preaccettazione prenotati per quell&apos;OSA e non ancora associati al campione.</li>
+	 </ul>
+	 <img src="./images/preaccettazione/lista_codici_prenotati.png">
+	 <p>Nel caso in cui l&apos;utente clicchi sul bottone "GENERA PREACCETTAZIONE SIGLA" il sistema mostrera&apos; la lista delle linee
+	 di attivita&apos; dello stabilimento. L&apos;utente selezionera&apos; la linea di attivita&apos; per la quale intende generare il codice
+	 preaccettazione e cliccando su "ASSOCIA" il sistema generera&apos; il codice per quella linea.</p>
+	 <img src="./images/preaccettazione/preacc_dettaglio_lista_codici.png">
+	 <p>Il codice preaccettazione sara&apos; da questo momento disponibile in fase di inserimento campione come codice preaccettazione
+	 precedentemente generato per una determinata linea di attivita&apos;.</p>
+  	 
+  	 <p><i>Scenario 3 - Recupero esito campione dai servizi SIGLA.</i></p>
+  	 <p>Quando l&apos;utente accede al dettaglio di un campione, laddove ci siano le condizioni, 
+  	 viene generata una chiamata al servizio SIGLA per recuperare il risultato del campione.</p>
+	 <img src="./images/preaccettazione/esito_da_sigla.png">
+	 <p>Soltanto in fase di accesso dettaglio campione per il quale sussistono le condizioni di 
+	 cooperazione applicativa si genera la chiamata al servizio per la ricezione del risultato da SIGLA. 
+	 Di conseguenza eventuali risultati disponibili in SIGLA per i quali nessuno avrà effettuato 
+	 l&apos;accesso al dettaglio del corrispondente campione in GISA non saranno disponibili in GISA.</p>
+	 
+  	 
+<br clear="left" /><br />

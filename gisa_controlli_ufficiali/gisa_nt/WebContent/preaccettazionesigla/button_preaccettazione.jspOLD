@@ -1,0 +1,382 @@
+<script type="text/javascript" src="dwr/interface/PopolaCombo.js"> </script>
+<script type="text/javascript" src="dwr/interface/DwrPreaccettazione.js"> </script>
+<%@ taglib uri="/WEB-INF/dhv-taglib.tld" prefix="dhv" %>
+
+
+ <% String numeroTdTableBottoni = request.getParameter("numeroTdTableBottoni");
+ 	String riferimento_id_preacc = request.getParameter("riferimentoIdPreaccettazione");
+ 	String riferimento_id_nome_preacc = request.getParameter("riferimentoIdNomePreaccettazione");
+ 	String riferimento_id_nome_tab_preacc = request.getParameter("riferimentoIdNomeTabPreaccettazione");
+ 	String userId_preacc = request.getParameter("userIdPreaccettazione");
+ 	%>
+ 
+<script type="text/javascript">
+
+function getListaLineeGisa(riferimento_id, riferimento_id_nome, riferimento_id_nome_tab)
+{
+	DwrPreaccettazione.Preaccettazione_GetListaLineeGisa(riferimento_id, riferimento_id_nome, riferimento_id_nome_tab, {callback:getListaLineeGisaCallBack,async:false});
+}
+function getListaLineeGisaCallBack(returnValue)
+{
+	document.getElementById("returnGetListaLineeGisa").value = returnValue;
+	return returnValue;
+}
+
+function getPreaccettazione(userId)
+{
+	DwrPreaccettazione.Preaccettazione_GetPreaccettazione(userId, {callback:getPreaccettazioneCallBack,async:false});
+}
+function getPreaccettazioneCallBack(returnValue)
+{
+	document.getElementById("returnGetPreaccettazione").value = returnValue;
+	return returnValue;
+}
+
+function setPreaccettazione(id, riferimento_id,riferimento_id_nome, riferimento_id_nome_tab, id_linea_materializzata, tipologia_operatore, userId){
+	DwrPreaccettazione.Preaccettazione_SetPreaccettazione(id, riferimento_id,riferimento_id_nome, riferimento_id_nome_tab, id_linea_materializzata, tipologia_operatore, userId, {callback:setPreaccettazioneCallBack,async:false});
+}
+function setPreaccettazioneCallBack(returnValue)
+{
+	document.getElementById("returnSetPreaccettazione").value = returnValue;
+	return returnValue;
+}
+
+function getElencoDaLinea(identificativo_linea)
+{
+	DwrPreaccettazione.Preaccettazione_GetElencoDaLinea(identificativo_linea, {callback:getElencoDaLineaCallBack,async:false});
+}
+function getElencoDaLineaCallBack(returnValue)
+{
+	document.getElementById("returnGetElencoDaLinea").value = returnValue;
+	return returnValue;
+}
+	
+
+function listaLineaAttivita(){
+	 
+	var codiceHtml = '';
+	loadModalWindow();
+	
+	getListaLineeGisa("<%=riferimento_id_preacc %>","<%=riferimento_id_nome_preacc %>", "<%=riferimento_id_nome_tab_preacc %>" );
+	var dati = document.getElementById("returnGetListaLineeGisa").value;
+	var obj;
+	obj = JSON.parse(dati);
+	
+	var len= obj.length;
+   	codiceHtml = codiceHtml + '<table width= 100% id="tabCodPreacc" border = "2" cellpadding="5" cellspacing="5" class="details">' +
+			'<tr>' +
+ 				//'<th>numero linea</th>' +
+				'<th>attivita</th> ' +
+				'<th align="center" width= 20%>seleziona</th>' +
+			'</tr>';
+   		
+	for( i = 0; i <len ; i++) {
+		codiceHtml = codiceHtml + '<tr>' +
+		//'<td>'+ obj[i].n_linea +'</td>' +
+		'<td>'+ obj[i].attivita +'</td>' +
+		'<td align="center"> <input type="radio" id="lineaSel" name="lineaSel"' +
+		'value="'+ obj[i].id_linea + " " + obj[i].tipologia_operatore +'"/></td>'+
+		'</tr>';
+	}
+	loadModalWindowUnlock();	
+    
+ 	codiceHtml = codiceHtml + '</table>';
+	return codiceHtml; 
+}
+
+function generaCodicePreaccettazione(){
+	var idPreacc = '';
+	loadModalWindow();
+	
+	getPreaccettazione("<%=userId_preacc %>");
+	var dati = document.getElementById("returnGetPreaccettazione").value;
+	var obj;
+	obj = JSON.parse(dati);
+	idPreacc = obj.idPreaccettazione;
+	document.getElementById("codicePreaccettazioneConferma").value = obj.codPreaccettazione;
+    loadModalWindowUnlock();
+  
+    return idPreacc;
+}
+
+function associaCodiceAllOsa(idCodicePreacc, idLinea, tipologiaOperatore){
+
+	var messaggio = '';
+	setPreaccettazione(idCodicePreacc, "<%=riferimento_id_preacc %>", "<%=riferimento_id_nome_preacc %>", "<%=riferimento_id_nome_tab_preacc %>", idLinea, tipologiaOperatore, "<%=userId_preacc %>");
+	var dati = document.getElementById("returnSetPreaccettazione").value;
+	var obj;
+	obj = JSON.parse(dati);
+	messaggio = obj.messaggio;
+    loadModalWindowUnlock();
+    return messaggio;
+}
+
+
+$(function() {
+	var Return;
+   $( "#dialogcodicipreaccettazione" ).dialog({
+   	autoOpen: false,
+       resizable: false,
+       closeOnEscape: false,
+       width:700,
+       height:350,
+       draggable: false,
+       modal: true,
+       open: function(){
+<%--     	   alert("<%=riferimento_id_preacc %>" + " " +
+				 "<%=riferimento_id_nome_preacc %>" + " " +
+				 "<%=riferimento_id_nome_tab_preacc %>" ); --%>
+    	   $(this).html(' ');
+       	   var codiceHtml;
+       	   codiceHtml = listaLineaAttivita();
+       	   
+       	   var codiceVuoto = '<table width= 100% id="tabCodPreacc" border = "2" cellpadding="5" cellspacing="5" class="details">' +
+								'<tr>' +
+								'<th>attivita</th> ' +
+								'<th align="center" width= 20%>seleziona</th>' +
+								'</tr>' + '</table>';
+       	   if (codiceVuoto == codiceHtml){
+       		   alert("ATTENZIONE! Ci sono linee di attivita' pregresse. Aggiornarle prima di generare un nuovo codice di preaccettazione!");
+       		   $( this ).dialog( "close" );
+               loadModalWindowUnlock();
+               return false
+       	   } else {
+       			$(this).html(codiceHtml);
+       	   }
+       	   
+       },
+       buttons: {
+           "ASSOCIA": function() {
+        	   
+        	   if (getRadioValue("lineaSel") != null){
+        		   var lineaEtipologiaOperatore = getRadioValue("lineaSel").split(' ');
+       			   
+       			   var lineaPreacc = lineaEtipologiaOperatore[0];
+       			   var tipologiaOperatorePreacc = lineaEtipologiaOperatore[1];
+       			   //generare il codice di preaccettazione
+       			   var id_preacc = generaCodicePreaccettazione();
+       			   //associare il codice all osa
+       			   var mess = associaCodiceAllOsa(id_preacc, lineaPreacc, tipologiaOperatorePreacc);
+       			   if(mess == 'ok')
+       				   alert('CODICE PREACCETTAZIONE\n ' + 
+       						   document.getElementById("codicePreaccettazioneConferma").value);
+       			   else 
+       				   alert('OPERAZIONE FALLITA');
+       			   $( this ).dialog( "close" );
+        	   }else {
+        		   alert('SELEZIONARE UNA LINEA DI ATTIVITA O ANNULLARE OPERAZIONE');
+        	   }
+
+               return true;
+           },
+           "ANNULLA": function() {
+               $( this ).dialog( "close" );
+               loadModalWindowUnlock();
+               return false
+           }
+       }
+   });
+});
+ 
+	function generaCodici(){
+	    $('#dialogcodicipreaccettazione').dialog('open');
+	}
+ 
+ 
+ 
+ function listaCodiciPreaccettazioneStabilimento(){
+	 
+	var codiceHtmlListaLine = '';
+	
+	
+	loadModalWindow();
+	
+	getListaLineeGisa("<%=riferimento_id_preacc %>","<%=riferimento_id_nome_preacc %>", "<%=riferimento_id_nome_tab_preacc %>" );
+	var dati = document.getElementById("returnGetListaLineeGisa").value;
+	var obj;
+	obj = JSON.parse(dati);
+	
+   		
+   		var len = obj.length;
+		
+   		codiceHtmlListaLine = codiceHtmlListaLine + '<table width= 100% id="tabCodPreacc" border = "2" cellpadding="5" cellspacing="5" class="details">' +
+		'<tr>' +
+			'<th>codice preaccettazione</th>' +
+			//'<th>numero linea</th>' +
+			'<th>attivita</th> ' +
+			'<th>data preaccettazione</th>' +
+			'<th>utente</th>' +
+		'</tr>';
+		for( i = 0; i <len ; i++) {
+   			
+   			codiceHtmlListaLine = listaCodiciPreaccettazione(
+   					codiceHtmlListaLine, 
+   					obj[i].n_linea, 
+   					obj[i].attivita, 
+   					obj[i].id_linea, 
+   					obj[i].tipologia_operatore
+   					);
+   		}
+		codiceHtmlListaLine = codiceHtmlListaLine + '</table>';
+
+   		loadModalWindowUnlock();
+    
+ 	
+ 	var listavuota = '<table width= 100% id="tabCodPreacc" border = "2" cellpadding="5" cellspacing="5" class="details">' +
+	'<tr>' +
+			'<th>codice preaccettazione</th>' +
+			//'<th>numero linea</th>' +
+			'<th>attivita</th> ' +
+			'<th>data preaccettazione</th>' +
+			'<th>utente</th>' +
+	'</tr>' + '</table>';
+	
+	if (codiceHtmlListaLine == listavuota ){
+		codiceHtmlListaLine = 'NON ESISTONO CODICI DI PREACCETTAZIONE PER QUESTO STABILIMENTO';
+	}
+ 	
+	return codiceHtmlListaLine;
+ 
+}
+ 
+ 
+ 
+ function listaCodiciPreaccettazione(codiceHtmlinput, nLineaAttivita, descAttivita, 
+		 							idLineaPreacc, tipologiaOperatorePreacc){
+     		var identificativoOSA = "<%=riferimento_id_preacc %>" +
+     								"<%=riferimento_id_nome_preacc %>" + 
+     								"<%=riferimento_id_nome_tab_preacc %>" +
+     								idLineaPreacc +
+     								tipologiaOperatorePreacc; 
+
+     		var codiceHtmlCodicePreac = codiceHtmlinput;
+     		loadModalWindow();
+     		
+     		getElencoDaLinea(identificativoOSA);
+    		var dati = document.getElementById("returnGetElencoDaLinea").value;
+    		var obj;
+    		obj = JSON.parse(dati);
+    		
+            		var len = obj.length;
+            		
+            		for( j = 0; j <len ; j++) {
+            			codiceHtmlCodicePreac = codiceHtmlCodicePreac + '<tr>' +
+     					'<td>'+ obj[j].codice +'</td>' +
+     					//'<td>'+ nLineaAttivita +'</td>' +
+     					'<td>'+ descAttivita +'</td>' +
+     					'<td>'+ obj[j].data +'</td>' +
+     					'<td>'+ obj[j].username +'</td>' +
+     					'</tr>';
+            		}
+            		loadModalWindowUnlock();
+           
+     		return codiceHtmlCodicePreac;
+     	 
+     }
+	
+	
+ $(function() {
+		var Return;
+	   $( "#dialoglistapreaccettazione" ).dialog({
+	   	autoOpen: false,
+	       resizable: true,
+	       closeOnEscape: false,
+	       width:900,
+	       height:300,
+	       draggable: false,
+	       modal: true,
+	       open: function(){
+	    	   $(this).html(' ');
+	          	var codiceHtmllista = '';
+	          	codiceHtmllista = listaCodiciPreaccettazioneStabilimento();
+	          	$(this).html(codiceHtmllista);
+	          },
+	       buttons: {
+	           "close": function(){	   			
+	               $( this ).dialog( "close" );
+	               loadModalWindowUnlock();
+	               return true;
+	           }
+	       }
+	   });
+	});
+ 
+    function apriListaCodici(){
+	    $('#dialoglistapreaccettazione').dialog('open');
+	}
+ 
+    function getRadioValue(theRadioGroup)
+    {
+        var elements = document.getElementsByName(theRadioGroup);
+        for (var i = 0, l = elements.length; i < l; i++)
+        {
+            if (elements[i].checked)
+            {
+                return elements[i].value;
+            }
+        }
+    }
+    
+</script>
+
+<input type="hidden" id ="returnGetListaLineeGisa" name="returnGetListaLineeGisa" value=""/>
+<input type="hidden" id ="returnGetElencoDaLinea" name="returnGetElencoDaLinea" value=""/>
+<input type="hidden" id ="returnGetPreaccettazione" name="returnGetPreaccettazione" value=""/>
+<input type="hidden" id ="returnSetPreaccettazione" name="returnSetPreaccettazione" value=""/>
+
+<input type="hidden" id="codicePreaccettazioneConferma" name="codicePreaccettazioneConferma" value=""/>
+
+<div id="dialogcodicipreaccettazione" title="GENERA CODICE PREACCETTAZIONE"></div>
+<div id="dialoglistapreaccettazione" title="LISTA CODICI PREACCETTAZIONE"></div>
+ 
+<dhv:permission name="campioni-campioni-preaccettazionesenzacampione-view"> 
+<%
+if(numeroTdTableBottoni!=null)
+{
+%>
+<td valign="top"> 
+				<center>
+<%
+}
+%>
+<input style="width:250px" type="button" id="generaPreacc" value="Genera Preaccettazione SIGLA" onclick="generaCodici();"/>
+<%
+if(numeroTdTableBottoni!=null)
+{
+%>
+</center>
+</td>
+<%
+}
+%>
+</dhv:permission>
+
+<%
+	if(numeroTdTableBottoni!=null && (numeroTdTableBottoni.equals("5") || numeroTdTableBottoni.equals("9") || numeroTdTableBottoni.equals("13") || numeroTdTableBottoni.equals("17")))
+	{
+		out.println("</tr><tr>");
+	}
+%>
+
+ 
+<dhv:permission name="campioni-campioni-listacodicipreaccettazione-view">
+<%
+if(numeroTdTableBottoni!=null)
+{
+%>
+<td valign="top"> 
+				<center>
+<%
+}
+%>
+<input style="width:250px" type="button" id="listaPreacc" value="Codici preaccettazione utilizzabili" onclick="apriListaCodici();"/>
+<%
+if(numeroTdTableBottoni!=null)
+{
+%>
+</center>
+</td>
+<%
+}
+%>
+</dhv:permission>

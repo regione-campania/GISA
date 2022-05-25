@@ -1,0 +1,155 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="allevamenti"></a>
+<h3 id="allevamenti">Aziende Zootecniche</h3>
+
+<h2>Gestione Campo Miscela</h2>
+<p style="text-align: justify;">
+	Il campo viene settato automaticamente a miscela in fase di import allevamento da BDN. Successivamente è possibile modificarlo direttamente dalla maschera di dettaglio.<br/>
+	Si precisa che la gestione dell'informazione è di tipo flag e non linea di attività. Di conseguenza in fase di controllo ufficiale non è possibile la selezione come "Linea di attività sottoposta a controllo".
+</p>
+
+
+<h2>Compara dati con bdn</h2>
+<p><br />Questa funzione, a disposizione solo per le aziende zootecniche, consente di allineare l'anagrafica con i dati presenti in bdn. Tale funzione non è disponibile se l'allevamento risulta non più presente in bdn: in tali casi, al posto del tasto, viene mostrato un messaggio che avverte l'utente.<br/>
+Se ci sono dati da allineare, viene mostrato un messaggio per avvertire.</p>
+
+
+<h2>Gestione condizionalita' nei Controllo Ufficiali per Aziende Zootecniche</h2>
+<p><br /> In fase di inserimento di un Controllo Ufficiale se si seleziona come tipologia Ispezione Semplice e piano di monitoraggio:&nbsp;<b> (PIANO B26 Piano di monitoraggio condizionalità CGO4 e CGO9 (ex Atto B11)</b> nel dettaglio del controllo ufficiale apparirà il link della scheda: <span style="color: blue;" color="blue">"Check-list controllo condizionalita'Atto B11-Sicurezza Alimentare"</span> che l'utente avrà l'obbligo di compilare e salvare in maniera definitiva prima di poter chiudere il Controllo Ufficiale.<br /><br /><br /><br /><img src="./images/checklistb26.PNG" width="1145" height="717" /><br /><br /></p>
+
+<br/><strong>Checklist Biosicurezza Suini</strong><br/>
+Sui controlli ufficiali svolti su allevamenti di suini e con motivazione il sottopiano "B2_A", e' disponibile la compilazione della checklist biosicurezza suini. La chiusura del controllo sara' subordinata alla compilazione e al salvataggio definitivo della checklist. Dopo la chiusura del controllo, sara' possibile eseguire l'invio a CLASSYFARM. Un eventuale KO causera' la riapertura della checklist.<br/>
+
+<br/><strong>Checklist Farmacosorveglianza</strong><br/>
+Sui controlli ufficiali svolti su allevamenti e con motivazione "Ispezione Semplice", sottopiani <br/>
+<ul>
+<li>	A14_A	</li>
+<li>	a14_AB	</li>
+<li>	A14_AC	</li>
+<li>	A14_AD	</li>
+<li>	A14_AE	</li>
+<li>	A14_AF	</li>
+<li>	a14_AG	</li>
+<li>	A14_AH	</li>
+<li>	A14_AI	</li>
+<li>	a14_AK	</li>
+<li>	A14_AL	</li>
+<li>	A14_AM	</li>
+<li>	A14_AN	</li>
+<li>	A14_AO	</li>
+<li>	A14_AQ	</li>
+<li>	A14_AR	</li>
+<li>	A14_AU	</li>
+<li>	A14_C	</li>
+<li>	a14_D	</li>
+<li>	a14_E	</li>
+<li>	A14_F	</li>
+<li>	A14_g	</li>
+<li>	A14_H	</li>
+<li>	A14_I	</li>
+<li>	A14_J	</li>
+<li>	A14_K	</li>
+<li>	A14_L	</li>
+<li>	A14_M	</li>
+<li>	a14_N	</li>
+<li>	A14_N	</li>
+<li>	A14_O	</li>
+<li>	a14_P	</li>
+<li>	A14_R	</li>
+<li>	A14_S	</li>
+<li>	a14_t	</li>
+<li>	a14_U	</li>
+<li>	A14_V	</li>
+<li>	A14_w	</li>
+<li>	A14_X	</li>
+<li>	A14_Y	</li>
+<li>	A14_Z	</li>
+</ul>
+e' disponibile ed obbligatoria la compilazione della checklist farmacosorveglianza. La chiusura del controllo sara' subordinata alla compilazione e al salvataggio definitivo della checklist. Dopo la chiusura del controllo, sara' possibile eseguire l'invio a CLASSYFARM. Un eventuale KO causera' la riapertura della checklist.<br/>
+<img src="./images/farmacosorveglianza_button.PNG" width="300px"/><br/>
+Non sono previsti blocchi o controlli sui dati inseriti dall'utente. Il salvataggio temporaneo consentira' di modificare la checklist, mentre quello definitivo ne impedira' la modifica e blocchera' i dati inseriti dall'utente.<br/>
+Dopo il salvataggio definitivo sara' possibile generarne il pdf.<br/>
+Sono presenti le seguenti gestioni particolari: <br/>
+<ul>
+<li>A - SCORTA DI MEDICINALI VETERINARI: Rispondendo "Non presente" verra' impedita la compilazione della sezione A.</li>
+<li>C - TRATTAMENTI ORMONALI (D.lgs 158/2006): Rispondendo "NA" alla prima domanda verra' impedita la compilazione della sezione C.</li>
+<li>D - VALUTAZIONE DEL RISCHIO ANTIBIOTICO-RESISTENZA: Ad ogni giudizio e' associato un punteggio e la selezione aggiornera' il valore del punteggio totale.</li>
+<li>VALUTAZIONE DEL RISCHIO: Ad ogni tipologia di allevamento e' associato un punteggio e la selezione aggiornera' sia il valore del punteggio aggiuntivo (riportato in questa stessa tabella) che quello del punteggio totale.</li>
+<li>La parte ANTIBIOTICORESISTENZA si valuta in base al punteggio totale raggiunto: Qui viene riportato il punteggio totale ottenuto dalla checklist (giudizi + punteggio aggiuntivo). Si ricorda che la scelta del rischio e' libera poiche' potrebbe dipendere da fattori esterni alla checklist, pertanto verra' solo riportato il punteggio raggiunto come indicazione per l'utente.</li>
+<li>Sono state assegnate prescrizioni?: Rispondendo "NO", verra' impedita la compilazione della sezione sulle prescrizioni e sulle verifiche.</li>
+</ul>
+
+<br/><strong>Gestione Scorta Farmaci</strong><br/>
+Tramite il bottone "Gestione scorta farmaci", presente sugli allevamenti attivi, e' possibile compilare i dati e procedere all'invio in BDN della scorta e dei veterinari. <br/>
+(Dal 19 maggio 2020 e' stato deciso di estendere la funzionalita' anche ai Medici Veterinari Responsabili di strutture semplici/complesse/dipartimentali).<br/>
+La scorta e i veterinari saranno condivisi tra tutti gli allevamenti con gli stessi codici azienda e fiscale.<br/>
+
+<u>Inserimento</u><br/>
+La maschera prevede i campi:<br/>
+<ul>
+<li>Tipologia della scorta: "Allevamento"</li>
+<li>Numero di registrazione: Automatizzato secondo il criterio seguente:<br/> AL, Codice ASL , C.ISTAT Comune Sede operativa, Numero unico regionale progressivo <br/> Esempio : AL20206400001</li>
+<li>Data di registrazione della scorta</li>
+<li>ASL Allevamento</li>
+<li>ID Fiscale Allevamento: Codice fiscale del proprietario</li>
+<li>Codice azienda</li>
+
+</ul>
+
+<img src="./images/scorta_add.png" width="1145" height="717" /><br/>
+
+Alla pressione del tasto "Salva e invia" viene eseguito subito l'invio della scorta.<br/>
+In caso di invio OK, viene presentato il dettaglio della scorta ed il dato viene memorizzato in GISA.<br/>
+In caso di invio KO, invece, il dato non viene memorizzato in GISA e all'utente viene restituito l'errore.<br/> 
+
+<img src="./images/scorta_detail.png" width="1145" height="717" /><br/>
+
+Dal dettaglio della scorta salvata (e quindi inviata) e' possibile fare "Aggiungi veterinario".<br/>
+<img src="./images/scorta_veterinario_add.png" width="1145" height="717" /><br/>
+Vengono fatti indicare il codice fiscale e il flag Responsabile/Delegato (default: Responsabile), e al salvataggio viene fatto l'invio con la stessa logica della scorta (un invio OK presentera' il dettaglio completo; un invio KO non fara' memorizzare il dato in GISA).<br/>
+<img src="./images/scorta_veterinario_detail.png" width="1145" height="717" /><br/>
+Nota: e' possibile aggiungere fino a 3 veterinari.<br/><br/>
+
+<u>Modifica</u><br/>
+
+La modifica sulla Scorta farmaci consente di modificare: Data Inizio, Data Fine (campo presente solo in modifica e non in aggiunta) ed e' sempre possibile.<br/>
+Al salvataggio viene subito fatto l'invio.<br/>
+La modifica sul Veterinario consente di modificare: Codice fiscale e flag responsabile.<br/> 
+Al salvataggio viene subito fatto l'invio.<br/>
+Anche in questi due casi la logica attuata e': in caso di invio OK, la modifica sara' salvata in GISA, altrimenti no.<br/>
+
+<br/>
+<strong>STIMA DEL PATRIMONIO DEL COLOMBO DI CITTA' NELLE AZIENDE AGRICOLE E/O ZOOTECNICHE</strong><br/><br/>
+L'aggiunta dei controlli ufficiali su un allevamento con specie allevata "Bovini" o "Bufalini" e' subordinato alla compilazione della scheda Censimento per il colombo di citta'.<br/>
+E' obbligatorio compilare la scheda prima di poter aggiungere un controllo. Il blocco vale solo per utenti ASL.
+<br/><br/>
+<img src="./images/scheda_piccioni.PNG" width="400"/><br/>
+<ul>
+<li>STIMA POPOLAZIONE COLOMBI: Obbligatorio</li>
+<li>UTILIZZO SISTEMI ECOLOGICI DI DISSASUASIONE O PREVENZIONE: obbligatorio</li>
+<li>SE SI, QUALI: Obbligatorio indicarne almeno uno solo se la risposta precedente e' "SI". </li>
+</ul>
+Una volta compilata, la scheda non sara' piu' modificabile e sara' consentita la sola visualizzazione dal dettaglio dell'anagrafica.<br/>
+<img src="./images/scheda_piccioni_2.PNG" width="400"/><br/>
+
+<br/>
+<strong>INFORMAZIONI IMPIANTO BIOGAS</strong><br/><br/>
+L'aggiunta dei controlli ufficiali su un allevamento o su una'anagrafica con linea "PRODUZIONE E TRASFORMAZIONE DI ALIMENTI IN STABILIMENTI RICONOSCIUTI AI SENSI DEL REG (CE) 853/2004 - 9 LATTE CRUDO E DERIVATI- PP STABILIMENTO DI TRASFORMAZIONE " e' subordinato alla compilazione della scheda Informazioni impianto Biogas.<br/>
+E' obbligatorio compilare la scheda prima di poter aggiungere un controllo. Il blocco vale solo per utenti ASL.
+<br/><br/>
+<img src="./images/biogas1.PNG" width="400"/><br/>
+<ul>
+<li>E' PRESENTE UN IMPIANTO BIOGAS: Obbligatorio</li>
+<li>TIPOLOGIA: Obbligatorio solo se la risposta precedente e' "SI". </li>
+</ul>
+Una volta compilata, la scheda non sara' piu' modificabile e sara' consentita la sola visualizzazione dal dettaglio dell'anagrafica.<br/>
+<img src="./images/biogas2.PNG" width="400"/><br/>
+
+

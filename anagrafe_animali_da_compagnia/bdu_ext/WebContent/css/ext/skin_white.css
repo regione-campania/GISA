@@ -1,0 +1,174 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+/** Define general colors */
+
+
+body.white {
+    background:white;
+}
+
+body.white h1,body.white h2{
+    color:#000044;
+    border-bottom: solid 1px #903;
+}
+
+/** Block styles */
+body.white div#wrapper {
+    background: white;
+    border: solid 2px gray;
+}
+
+body.white div#menu-top
+, body.white div#footer .padding
+, body.white div#banner
+, body.white .moduletable_menu h3
+, body.white .moduletable h3{
+    color: #000044;
+    }
+
+body.white div#menu-top a {
+    color: white;
+}
+
+body.white .menu a:hover
+{
+    color: white;
+    background-color: #072A9C;
+}
+
+body.white div#menu-top a:hover {
+    background-color: white;
+    color: #072A9C;
+}
+
+body.white .moduletable_menu
+, body.white .moduletable {
+   /* border: solid 1px #072A9C;*/
+}
+
+body.white div#footer a {
+    color: #000444;
+}
+
+body.white div.componentheading {
+    color: gray;
+    font-weight: bold;
+}
+
+body.white a.readon {
+    color: #000040;
+    font-weight: bold;
+}
+
+body.white a.readon:hover
+, body.white a.contentpagetitle:hover {
+    background: #903;
+    color: white;
+}
+
+body.white .button {
+	border: solid 1px #072A9C;
+	background: #000044;
+	color: white;
+}
+
+body.white .sectiontableentry1 {
+	background: #EEF7DF;
+}
+
+body.white div.pagenav {
+	background: #EEF2FF;
+	border: solid 1px #072A9C;
+}
+
+
+/* tags */
+
+body.white .poll-title {
+	color: black;
+	background: #EBEAD6;
+	font-weight: bold;
+	margin:0;
+}
+
+body.white div.tool-tip {
+	background: #FFF98C;
+	color: black;
+	border: solid 2px gray;
+	padding: 1em;
+}
+
+
+body.white .highlight {
+	background: yellow;
+}
+
+body.white .pageslinks
+, body.white .pagescounter  {
+	background:#F4F7EF none repeat scroll 0%;
+}
+
+body.white .pageslinks {
+	border-top:1px solid #BBBBBB;
+}
+
+body.white .pagescounter  {
+	border-bottom:1px solid #BBBBBB;
+}
+
+body.white .notice, body.white .message {
+background:#EEF7DF none repeat scroll 0%;
+border:2px solid #AAAAAA;
+font-size:110%;
+font-style:italic;
+padding:1em;
+}
+
+body.white form.editor a:hover
+,body.white .mceWrapper a:hover {
+	background:inherit;
+	color: black;
+}
+
+
+body.white .menu a{
+color:#000044;
+}
+
+body.white .menu a:visited{
+color:#000044;
+}
+
+body.white .latestnews a:visited{
+color:#000044;
+}
+
+body.white .latestnews a{
+color:#000044;
+}
+
+body.white .mostread a:visited{
+color:#000044;
+}
+
+body.white .mostread a{
+color:#000044;
+}
+
+
+body.white .myfooter{
+background-image:url("images/foot.jpg"); 
+height:30px;
+padding-bottom:0;
+padding-left:0;
+padding-right:0;
+padding-top:0;
+color:white;
+font-weight:bold;
+}

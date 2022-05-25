@@ -1,0 +1,516 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+@CHARSET "ISO-8859-1";
+
+@page { margin-top: 5px}
+
+.title1 {
+	font-size: 14px;
+	text-decoration: underline;
+	text-align: center;
+	margin-top: 70px;
+}
+
+.titleizsm {
+	font-size: 14px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.nodott {
+	margin-top: 0px;
+	margin-right: 4px;
+	float: left;
+}
+
+.Section1 {
+	color: black;
+	position: relative;
+	border: 0px solid red;
+}
+
+.dott {
+	width: 180px;
+	margin-top: 50px;
+	margin-left: 0px;
+	border-bottom: 1px dashed #000;
+	float: left;
+}
+
+/*.dott_long {
+	width: 380px;
+	margin-top: 50px;
+	margin-left: 0px;
+	border-bottom: 1px dashed #000;
+	float: left;
+}*/
+
+.nodott_margin_low {
+	margin-top: 10px;
+	margin-right: 4px;
+	float: left;
+	font-size: 14px;
+}
+
+.dott_margin_low {
+	width: 180px;
+	margin-top: 10px;
+	margin-left: 0px;
+	border-bottom: 1px dashed #000;
+	float: left;
+	/*font-size: 12px;*/
+	font-weight: lighter;
+}
+
+.dott_long_margin_low {
+	width: 380px;
+	margin-top: 10px;
+	margin-left: 0px;
+	border-bottom: 1px dashed #000;
+	float: left;
+	/*font-size: 12px;*/
+	font-weight: lighter;
+}
+
+.dott_long {
+	width: 380px;
+	margin-top: 50px;
+	margin-left: 0px;
+	border-bottom: 1px dashed #000;
+	float: left;
+	/*font-size: 12px;*/
+	font-weight: lighter;
+}
+.dott_short {
+	width: 50px;
+	margin-top: 50px;
+	margin-left: 0px;
+	border-bottom: 1px dashed #000;
+	float: left;
+	/*font-size: 12px;*/
+	font-weight: lighter;
+}
+.dott_short_margin_low {
+	width: 50px;
+	margin-top: 10px;
+	margin-left: 0px;
+	border-bottom: 1px dashed #000;
+	float: left;
+	/*font-size: 12px;*/
+	font-weight: lighter;
+}
+
+.nodott {
+	margin-top: 50px;
+	margin-right: 4px;
+	font-size: 14px;
+}
+
+.clear1 {
+	clear: both;
+}
+/*
+.firma {
+	position: absolute;
+	left: 25px;
+	font-size: 12px;
+	margin-top: 60px;
+}
+
+.firmavalore {
+	position: absolute;
+	left: 25px;
+	border-bottom: 1px dashed #000;
+	margin-top: 90px;
+	width: 150px;
+}*/
+
+.firma {
+	position: absolute;
+	right: 25px;
+	font-size: 12px;
+}
+
+.firmavalore {
+	position: absolute;
+	right: 25px;
+	border-bottom: 1px dashed #000;
+	margin-top: 15px;
+	width: 150px;
+}
+
+.firma_left {
+	position: absolute;
+	left: 25px;
+}
+
+.firmavalore_left {
+	position: absolute;
+	left: 80px;
+	border-bottom: 1px dashed #000;
+	width: 140px;
+}
+
+.firma_short {
+	position: absolute;
+	right: 110px;
+}
+
+.contenitore {
+	text-align: center;
+}
+
+.data {
+	position: absolute;
+	left: 25px;
+	font-size: 12px;
+}
+
+.datavalore {
+	position: absolute;
+	left: 25px;
+	border-bottom: 1px dashed #000;
+	margin-top: 30px;
+	width: 150px;
+}
+
+.imgAsl {
+	position: absolute;
+	right: 10px;
+	border: 0px solid black;
+	width: 80px;
+	height: 80px;
+	margin-bottom: 200px;
+}
+
+.imgRegione {
+	position: absolute;
+	left: 10px;
+	border: 0px solid black;
+	width: 80px;
+	height: 80px;
+	margin-bottom: 200px;
+}
+
+
+.boxIdDocumento {
+	position: absolute;
+	left: 100px;
+	border: 0.5px solid black;
+	width: 60px;
+	height: 20px;
+	margin-top: 20px;
+	text-align: center;
+	padding-top: 5px;
+	font-size: 8px;
+}
+.barcode {
+	position: absolute;
+	border: 1px solid black;
+	width: 180px;
+	height: 60px;;
+	right: 60px;
+	text-align: center;
+	padding-top: 30px;
+	margin-top: 10px;
+}
+
+.nodott_campioni {
+	margin-top: 6px;
+	margin-right: 4px;
+	float: left;
+	font-weight: 500;
+}
+
+.box1 {
+	font-size: 12px;
+	width: 100%;
+	border: 0px solid green;
+	float: left;
+	line-height: 0.8em;
+}
+
+.box2 {
+	font-size: 12px;
+	width: 100%;
+	border: 1px solid black;
+	float: left;
+	margin-top: 10px;
+}
+
+.box3 {
+	width: 100%;
+	border: 1px solid black;
+	float: left;
+	margin-top: 10px;
+}
+
+.rightSquare {
+	width: 49%;
+	border: 1px solid black;
+	float: left;
+	height: 160px;
+}
+
+.leftSquare {
+	width: 50%;
+	border: 1px solid black;
+	float: left;
+	border-right: 0px;
+	height: 160px;
+}
+
+.dott_campioni {
+	margin-top: 3px;
+	border-bottom: 1px dashed #000;
+	float: left;
+	width: 200px;
+}
+
+.dott2_campioni {
+	border-bottom: 1px dashed #000;
+	float: left;
+	width: 200px;
+	clear: both;
+}
+
+.esami {
+	font-size: 10px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+	float: left;
+	text-align: right;
+}
+
+.esami li { /*background-image: url(images/Immagine.png);
+background-repeat: no-repeat;
+background-position: 100% .4em;
+padding-right: 1.4em;*/
+	white-space: nowrap;
+	font-size: 10px;
+	font-weight: 300;
+}
+
+.esami li:after {
+	content: '[ ]';
+}
+
+.altriesami {
+	font-size: 10px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+}
+
+.altriesami li { /*background-image: url(images/Immagine.png);
+background-repeat: no-repeat;*/
+	float: left;
+	font-weight: 500;
+	/*background-position: 0 .4em;*/
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.altriesami li:before {
+	content: '[ ]';
+	float: left;
+}
+
+.altriesami div {
+	border-bottom: 1px dashed #000;
+	width: 140px;
+}
+
+.attitudine {
+	list-style-type: none;
+	padding: 0;
+	margin-top: 10px;
+	line-height: 1.5em;
+	float: left;
+	font-size: 12px;
+}
+
+.attitudine li { /*background-image: url(images/Immagine.png);
+background-repeat: no-repeat;*/
+	float: left;
+	font-weight: 500;
+	/*background-position: 0 .3em;*/
+	padding-left: 1.8em;
+	margin-left: 10px;
+	margin-bottom: 0px;
+}
+
+.attitudine div {
+	border-bottom: 1px dashed #000;
+	width: 120px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+.attitudine li:before {
+	content: '[ ]';
+	float: left;
+}
+
+.caratteristiche {
+	font-size: 14px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+}
+
+.caratteristiche {
+	font-size: 14px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+}
+
+.caratteristiche li { /*background-image: url(images/Immagine.png);
+background-repeat: no-repeat;*/
+	float: left;
+	/*background-position: 0 .4em;*/
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.caratteristiche li:after {
+	content: '[ ]';
+}
+
+.caratteristiche li:first-child:after {
+	content: '';
+}
+
+.classificazioneclinica {
+	font-size: 14px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.classificazioneclinica li {
+	/*background-image: url(images/Immagine.png);
+background-repeat: no-repeat;*/
+	float: left;
+	/*background-position: 0 .4em;*/
+	font-size: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	border-left: 1px solid black;
+	/*padding-left: 1px;*/
+}
+
+.classificazioneclinica li:before {
+	content: '[ ]';
+}
+
+/* .classificazioneclinica li:first-child:after {
+  content:''; 
+}
+
+.classificazioneclinica li:nth-child(2):after {
+  content:'[*]'; 
+}
+
+.classificazioneclinica li:nth-child(3):after {
+  content:'[**]'; 
+}
+
+.classificazioneclinica li:nth-child(4):after {
+  content:'[***]'; 
+}
+
+
+.classificazioneclinica li:last-child:after {
+  content:'[ ]'; 
+}
+
+*/
+.classificazioneclinica ul {
+	list-style-type: none;
+	padding: 0;
+	clear: both;
+}
+
+.classificazioneclinica ul li {
+	list-style-type: none;
+	padding: 0;
+	clear: both;
+	border-left: 0px solid black;
+	
+}
+
+.classificazioneclinica ul li: before {
+	content: '[ ]';
+}
+
+.esitoprecedente {
+	font-size: 14px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+}
+
+.esitoprecedente li {
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.esitoprecedente li:first-child :after {
+	content: '';
+}
+
+.esitoprecedente li:after {
+	content: '[ ]';
+}
+
+.esitoprecedente li:nth-child (4):after {
+	content: '';
+}
+
+.esitoprecedente li:nth-child (6):after {
+	content: '';
+}
+
+.esitoprecedente li:last-child :after {
+	content: '';
+}
+
+.buttonClass {
+	display: none;
+}
+.firma_left {
+	position: absolute;
+	left: 25px;
+}
+
+.firmavalore_left {
+	position: absolute;
+	left: 80px;
+	border-bottom: 1px dashed #000;
+	width: 140px;
+}
+.boxOrigineDocumento {
+	position: absolute;
+	left: 100px;
+	width: 160px;
+	height: 20px;
+	margin-top: 45px;
+	text-align: left;
+	padding-top: 10px;
+	font-size: 9px;
+}

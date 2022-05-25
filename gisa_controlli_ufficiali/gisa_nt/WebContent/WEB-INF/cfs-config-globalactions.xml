@@ -1,0 +1,23 @@
+<mvc-app>
+  <action name="GlobalActions">
+    <forward name="PermissionError" resource="/errors/error_permission.jsp" layout="nav"/>
+        <forward name="PermissionErrorOK" resource="/errors/error_permission.jsp" layout="nav"/>
+    
+        <forward name="PermissionErrortrasdistOK" resource="/errors/error_permission.jsp" layout="trasdist"/>
+        <forward name="PermissionError" resource="/errors/error_permission.jsp" layout="nav"/>
+        
+        <forward name="SystemErrorOK" resource="/errors/error_system.jsp" layout="nav"/>
+            <forward name="SystemErrortrasdistOK" resource="/errors/error_system.jsp" layout="trasdist"/>
+        
+    <forward name="SecurityCheck" resource="/Login.do?command=Default"/>
+    <forward name="SystemError" resource="/errors/error_system.jsp" layout="nav"/>
+    <forward name="GraphicsError" resource="/errors/error_graphics.jsp" layout="nav"/>
+    <forward name="UserError" resource="/errors/error_user.jsp" layout="nav"/>
+    <forward name="LicenseError" resource="/errors/error_license.jsp" layout="nav"/>
+    <forward name="SetupCompleteError" resource="/setup/setup_complete_error.jsp" layout="centric"/>
+    <forward name="UpgradeCheck" resource="/index.jsp" />
+     <forward name="go_to_error" resource="/javascript/go_to_error.jsp" />
+     <forward name="ActionPerforming" resource="/templates/action_performing.jsp"  layout="nav"/>
+    
+  </action>
+</mvc-app>

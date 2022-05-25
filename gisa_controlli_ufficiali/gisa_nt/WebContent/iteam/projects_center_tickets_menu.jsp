@@ -1,0 +1,103 @@
+<%--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.--%>
+<%-- 
+  - Copyright(c) 2004 Team Elements LLC (http://www.teamelements.com/) All
+  - rights reserved. This material cannot be distributed without written
+  - permission from Team Elements LLC. Permission to use, copy, and modify
+  - this material for internal use is hereby granted, provided that the above
+  - copyright notice and this permission notice appear in all copies. TEAM ELEMENTS
+  - LLC MAKES NO REPRESENTATIONS AND EXTENDS NO WARRANTIES, EXPRESS OR
+  - IMPLIED, WITH RESPECT TO THE SOFTWARE, INCLUDING, BUT NOT LIMITED TO, THE
+  - IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ANY PARTICULAR
+  - PURPOSE, AND THE WARRANTY AGAINST INFRINGEMENT OF PATENTS OR OTHER
+  - INTELLECTUAL PROPERTY RIGHTS. THE SOFTWARE IS PROVIDED "AS IS", AND IN NO
+  - EVENT SHALL TEAM ELEMENTS LLC OR ANY OF ITS AFFILIATES BE LIABLE FOR
+  - ANY DAMAGES, INCLUDING ANY LOST PROFITS OR OTHER INCIDENTAL OR CONSEQUENTIAL
+  - DAMAGES RELATING TO THE SOFTWARE.
+  - 
+  - Author(s): Matt Rajkowski
+  - Version: $Id: projects_center_tickets_menu.jsp 12404 2005-08-05 17:37:07Z mrajkowski $
+  - Description: 
+  --%>
+<%@ taglib uri="/WEB-INF/zeroio-taglib.tld" prefix="zeroio" %>
+<script language="javascript">
+  var thisItemId = -1;
+  var menu_init = false;
+  //Set the action parameters for clicked item
+  function displayMenu(loc, id, itemId, itemOffset, trashed) {
+    thisItemId = itemId;
+    thisItemOffset = itemOffset;
+    updateMenu(trashed);
+    if (!menu_init) {
+      menu_init = true;
+      new ypSlideOutMenu("menuItem", "down", 0, 0, 170, getHeight("menuItemTable"));
+    }
+    return ypSlideOutMenu.displayDropMenu(id, loc);
+  }
+  function updateMenu(trashed){
+    if (trashed == 'true'){
+      hideSpan('menuModify');
+      hideSpan('menuDelete');
+    } else {
+      showSpan('menuModify');
+      showSpan('menuDelete');
+    }
+  }
+  //Menu link functions
+  function viewItem() {
+    document.location.href='ProjectManagementTickets.do?command=Details&pid=<%= Project.getId() %>&id=' + thisItemId+'&offset='+ thisItemOffset;
+  }
+  function editItem() {
+    document.location.href='ProjectManagementTickets.do?command=Modify&pid=<%= Project.getId() %>&id=' + thisItemId + '&return=list&offset='+ thisItemOffset;
+  }
+  function deleteItem() {
+    confirmDelete('ProjectManagementTickets.do?command=Delete&pid=<%= Project.getId() %>&id=' + thisItemId+'&offset='+ thisItemOffset);
+  }
+</script>
+<%-- List Item Pop-up Menu --%>
+<div id="menuItemContainer" class="menu">
+  <div id="menuItemContent">
+    <table id="menuItemTable" class="pulldown" width="170" cellspacing="0">
+    <zeroio:permission name="project-tickets-view">
+      <tr id="menuView" onmouseover="cmOver(this)" onmouseout="cmOut(this)"
+          onclick="viewItem()">
+        <th valign="top">
+          <img src="images/icons/stock_zoom-page-16.gif" border="0" align="absmiddle" height="16" width="16"/>
+        </th>
+        <td width="100%">
+          <dhv:label name="project.ticket.viewTicket">View Ticket</dhv:label>
+        </td>
+      </tr>
+    </zeroio:permission>
+    <zeroio:permission name="project-tickets-edit">
+      <tr id="menuModify" onmouseover="cmOver(this)" onmouseout="cmOut(this)"
+          onclick="editItem()">
+        <th valign="top">
+          <img src="images/icons/stock_edit-16.gif" border="0" align="absmiddle" height="16" width="16"/>
+        </th>
+        <td width="100%">
+          <dhv:label name="project.ticket.editTicket">Edit Ticket</dhv:label>
+        </td>
+      </tr>
+    </zeroio:permission>
+    <zeroio:permission name="project-tickets-delete">
+      <tr id="menuDelete" onmouseover="cmOver(this)" onmouseout="cmOut(this)"
+          onclick="deleteItem()">
+        <th valign="top">
+          <img src="images/icons/stock_delete-16.gif" border="0" align="absmiddle" height="16" width="16"/>
+        </th>
+        <td width="100%">
+          <dhv:label name="project.ticket.deleteTicket">Delete Ticket</dhv:label>
+        </td>
+      </tr>
+    </zeroio:permission>
+    </table>
+  </div>
+</div>
+

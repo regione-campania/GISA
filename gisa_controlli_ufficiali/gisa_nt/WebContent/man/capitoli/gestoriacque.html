@@ -1,0 +1,172 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="gestoriacque"></a>
+<h3 id="gestoriacque">Gestori Acque di Rete</h3>
+
+Nel cavaliere <b>"Gestori Acque di Rete"</b> è disponibile la gestione dei controlli interni. Si tratta dei controlli 
+effettuati dagli enti gestori sulle acque di rete. 
+<br/><br/>
+
+Il modulo mette a disposizione diverse funzionalità:
+<ul>
+<li>Visualizzazione anagrafica del Gestore Acque associato all'utente</li>
+<li>Visualizzazione dei punti di prelievo per il dato Gestore</li>
+<li>Visualizzazione del dettaglio di ciascun punto di prelievo</li>
+<li>Visualizzazione dei controlli associati ad un punto di prelievo</li>
+<li>Inserimento tramite foglio excel di uno o piu' punti di prelievo per il gestore di competenza</li>
+<li>Inserimento tramite foglio excel di uno o piu' controlli interni per i punti di prelievo esistenti</li>
+</ul>
+
+<h2>Visualizzazione Anagrafica del Gestore Acque - pagina principale accessibile anche mediante il link "DATI GESTORE ACQUE" </h2>
+
+<img style="width:1000px;" src="./images/datigest.png"/><br clear="left" /><br />
+In questa pagina sono presenti le informazioni sul gestore acque associato all'utente attuale. 
+Tali informazioni possono essere integrate/modificate solo contattando l'help desk.
+
+<h2>Visualizzazione dei punti di prelievo per il dato Gestore - pagina accessibile mediante il link "ELENCO PUNTI PRELIEVO" </h2>
+
+<img src="./images/elencapp.png"/><br clear="left" /><br />
+Qui è possibile consultare la lista dei punti di prelievo associati al gestore di acque. Cliccando su uno dei punti di prelievo 
+è possibile accedere alla maschera di dettaglio del punto di prelievo.
+<br>
+<img src="./images/dettagliopp.jpg"/><br clear="left" /><br />
+Dalla maschera di dettaglio è possibile modificare lo stato del punto di prelievo tramite il tasto 'Modifica Stato PDP'.<br/>
+Inoltre, dal menu a destra, è possibile accedere alla lista dei controlli associati al punto di prelievo. La lista si divide in controlli per decreto 28 e controlli per decreto 31.<br>
+<img src="./images/elencocontrolli.png"/><br clear="left" /><br />
+Cliccando sul singolo controllo si accede alle informazione di dettaglio.
+
+<h2>Inserimento tramite foglio excel di uno o piu' punti di prelievo per il gestore di competenza - pagina accessibile mediante il link "AGGIUNTA PUNTI PRELIEVO" </h2>
+Tale funzione permette di effettuare il caricamento dei punti prelievo (a patto che questi appartengano al 
+Gestore di Acque associato all'utente). Il caricamento avviene mediante un file excel (di cui è disponibile il file di esempio da scaricare). 
+<br>I campi da compilare sono:
+<br>
+<ul>
+<li>Comune</li>
+<li>Indirizzo	</li>
+<li>Denominazione	</li>
+<li>Tipologia	</li>
+<li>Ente Gestore	</li>
+<li>Stato	</li>
+<li>Codice</li>
+</ul>
+<br>
+Di seguito si riportano i vincoli di obbligatorietà dei campi:<br/>
+- "Ente Gestore": deve contenere esattamente la denominazione dell'ente presente in GISA.<br/>
+- "Codice": deve essere obbligatorio e univoco per il gestore loggato poichè sar&agrave; usato per costruire il Codice Gisa univoco al quale associare i controlli in fase di import degli stessi. Il formato usato per costruire il Codice Gisa è id_gestore__&lt;codice_punto_fornito_da_ente&gt;<br/>
+<br>Per il nome del file da caricare dovrà essere utilizzata la seguente convenzione "punti_prelievo_datacaricamento"(es. punti_prelievo_05102017). Non esiste alcun controllo sui nomi di file gi&agrave; caricati in precedenza.
+Il file da caricare deve contenere solo i punti di prelievo non ancora caricati.
+<br>
+Il file scorre tutte le righe a partire dalla seconda (la prima &egrave; riservata all'intestazione) finch&egrave; non trova una riga vuota.<br>
+L'intestazione deve essere la stessa del file di esempio.<br>
+
+<img src="./images/importpp.png"/><br clear="left" /><br>
+
+<h2>Inserimento tramite foglio excel di uno o piu' controlli interni per i punti di prelievo esistenti - pagina accessibile mediante il link "AGGIUNTA CONTROLLI INTERNI"</h2>
+Tale funzione permette di effettuare il caricamento dei controlli interni relativi ai punti di prelievo di competenza. 
+Il caricamento avviene mediante un file excel (di cui è disponibile il file di esempio da scaricare). <br/>
+Il template del file è diverso a seconda del tipo di decreto per il quale si intende caricare il controllo.Per scaricare il file d'esempio per il 
+decreto 28, cliccare sul tasto "File esempio decreto 28/2017 (radioattività)". Per scaricare invece il file d'esempio per il decreto 31, cliccare sul 
+tasto "File esempio decreto 31/2001".<br/>
+<br>I campi da compilare per il decreto 31 sono:
+<br>
+<ul>
+<li>Codice Gisa [codice univoco generato dal sistema GISA automaticamente in fase di inserimento nuovo punto di prelievo e usato per l'associazione al punto di prelievo]</li>
+<li>Data Prelievo</li>
+<li>Ora	Prelievo</li>
+<li>Controllo di Routine(PARTE A)</li>
+<li>Controllo di Verifica(PARTE B)</li>
+<li>Controllo di Replica</li>
+<li>Controllo di Ricerca Fitosanitari</li>
+<li>Cloro</li>
+<li>Temperatura</li>
+<li>Esito [può essere conforme"" o "non conforme"]</li>
+<li>Parametri non conformi</li>
+<li>Note</li>
+</ul><br/>
+I campi obbligatori sono Codice gisa, Data prelievo, Temperatura, Cloro, Ora prelievo, Esito e almeno un protocollo.
+<br>I campi da compilare per il decreto 28 sono:
+<br>
+
+<strong>Identificativi del campione prelevato</strong>
+<ul>
+<li>Codice Gisa [codice univoco generato dal sistema GISA automaticamente in fase di inserimento nuovo punto di prelievo e usato per l'associazione al punto di prelievo] (obbligatorio)</li>
+<li>Data Prelievo (obbligatorio)</li>
+<li>Ora	Prelievo (obbligatorio)</li>
+<li>Finalita' della misura (obbligatorio)</li>
+<li>Nota su finalita' della misura (obbligatorio se Finalita' e' stato valorizzato con C -Altro-)</li>
+<li>Motivo del prelievo (obbligatorio)</li>
+<li>Nota sul motivo del prelievo (obbligatorio se Motivo e' stato valorizzato con D -Altro-)</li>
+</ul>
+<strong>Informazioni sulla zona di fornitura</strong>
+<ul>
+<li>Denominazione della zona di fornitura (obbligatorio)</li>
+<li>Gestore zona di fornitura (obbligatorio)</li>
+</ul>
+<strong>Informazioni sul punto di prelievo</strong>
+<ul>
+<li>Tipo di acqua (obbligatorio)</li>
+<li>Note</li>
+</ul>
+<strong>Informazioni sul campionamento</strong>
+<ul>
+<li>Numero di prelievi programmati all'anno (obbligatorio)</li>
+<li>Chi ha effettuato il prelievo (obbligatorio)</li>
+</ul>
+
+<strong>Parametri radiometrici</strong><br/>
+<strong>"Controllo Dose Indicativa (DI) screening basato sulla misura dell'attivita' alfa e beta totale (o, se necessario, beta residua)"</strong>
+<ul>
+<li>Attivita alfa totale (Bq/kg) (obbligatorio)</li>
+<li>Incertezza sull' Attivita' alfa totale (Bq/kg) (obbligatorio)</li>
+<li>Data della misura (obbligatorio)</li>
+<li>Laboratorio che ha effettuato la misura (obbligatorio)</li>
+<li>Metodo di prova utilizzato (obbligatorio)</li>
+<li>Attivita beta totale (Bq/kg) (obbligatorio)</li>
+<li>Incertezza sull' Attivita' beta totale (Bq/kg) (obbligatorio)</li>
+<li>Data della misura (obbligatorio)</li>
+<li>Laboratorio che ha effettuato la misura (obbligatorio)</li>
+<li>Metodo di prova utilizzato (obbligatorio)</li>
+<li>Attivita beta residua (Bq/kg) (obbligatorio)</li>
+<li>Incertezza sull' Attivita' beta residua (Bq/kg) (obbligatorio)</li>
+<li>Data della misura (obbligatorio)</li>
+<li>Laboratorio che ha effettuato la misura (obbligatorio)</li>
+<li>Metodo di prova utilizzato (obbligatorio)</li>
+</ul>
+<strong>Controllo della concentrazione di attivita' di radon</strong>
+<ul>
+<li>Concentrazione di 222Rn (Bq/l) (obbligatorio)</li>
+<li>Incertezza sulla concentrazione di 222Rn (Bq/l) (obbligatorio)</li>
+<li>Data della misura (obbligatorio)</li>
+<li>Laboratorio che ha effettuato la misura (obbligatorio)</li>
+<li>Metodo di prova utilizzato (obbligatorio)</li>
+</ul>
+<strong>Controllo della concentrazione di attivita' di trizio</strong>
+<ul>
+<li>Concentrazione di 3H (Bq/l)</li>
+<li>Incertezza sulla concentrazione di 3H (Bq/l)</li>
+<li>Data della misura</li>
+<li>Laboratorio che ha effettuato la misura</li>
+<li>Metodo di prova utilizzato</li>
+</ul>
+<br/>
+
+Le colonne riportate come "Inserire il risultato della misura se il valore è superiore alla MAR" non sono obbligatori come da conferma ricevuta il 25/01/21.<br/><br/>
+
+Il sistema controlla che la terna (Codice Gisa | Data Prelievo | Ora) non sia stata gi&agrave; caricata e che sia univoca nel file che si sta caricando.
+<br>Per il nome del file dovrà essere utilizzato il formato "controlli_interni_31_datacaricamento" (es. controlli_interni_31_05102017) per decreto 31 e 
+il formato "controlli_interni_28_datacaricamento" (es. controlli_interni_28_05102017) per decreto 28. Non esiste alcun controllo sui nomi di file gi&agrave; caricati in precedenza.<br/>
+Il file deve contenere solo i controlli interni non ancora caricati.<br>
+Prima di cliccare sul tasto "Upload" per caricare il file, accertarsi di aver selezionato il tipo di decreto esatto per il quale si intende effettuare il 
+caricamento dei controlli.<br/>
+Il file scorre tutte le righe a partire dalla seconda per il decreto 31 (la prima &egrave; riservata all'intestazione)  e a partire dalla quinta per il decreto 28 (le prime quattro sono riservate all'intestazione) finch&egrave; non trova una riga vuota.<br>
+L'intestazione deve essere la stessa del file di esempio.<br>
+ 
+
+
+

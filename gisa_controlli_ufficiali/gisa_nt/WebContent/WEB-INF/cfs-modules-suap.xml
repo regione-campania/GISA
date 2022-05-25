@@ -1,0 +1,45 @@
+<application>
+
+  <!-- Not used yet -->
+  <config>
+    <mainmenu>
+      <layout>horizontal</layout>
+      <long_css on="" off=""/>
+      <short_css on="" off=""/>
+    </mainmenu>
+    <submenu>
+      <layout>horizontal</layout>
+      <long_css on="rs" off="r"/>
+      <short_css on="rs" off="r"/>
+    </submenu>
+  </config>
+  
+ 
+  <menu>
+    <action name="OpuSuapStab"/>
+     
+    <page title="Home"/>
+    <long_html value="Home"/>
+    <short_html value="Home"/>
+    <link value="OpuSuapStab.do?command=Info"/>
+    <graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif" rollover=""/>
+    
+    
+  </menu>
+  
+  
+    <menu>
+    <action name="OpuSuapStab"/>
+     
+    <page title="scia"/>
+    <long_html value="Inserimento SCIA"/>
+    <short_html value="Inserimento SCIA"/>
+    <link value="OpuSuapStab.do?command=Add"/>
+        <graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif" rollover=""/>
+    
+  </menu>
+  
+    
+       
+       
+    </application>

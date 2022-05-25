@@ -1,0 +1,2 @@
+
+rev.: rev1 | data: 22/11/2011 | auth.: Giuseppe Balzano | desc.:Modifica nel command delete, ho modificato l'url di risposta da viewVigilanza a searchvigilanza

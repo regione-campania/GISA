@@ -1,0 +1,16 @@
+.a-table-date-filter {
+    select, option {text-transform: capitalize;}
+    .wrapper {
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+    }
+    .form-control, .form-select, #range-wrapper {
+        display: block;
+    }
+    .form-label {
+        font-weight: normal;
+        margin-bottom: 0.25rem;
+        font-size: .9rem;
+    }
+}

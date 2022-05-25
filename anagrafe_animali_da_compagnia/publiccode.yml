@@ -1,0 +1,146 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - warehouse-management
+  - document-management
+  - data-collection
+  - data-visualization
+  - data-analytics
+  - customer-service-and-support
+description:
+  it:
+    documentation: 'https://github.com/EcosistemaGISA/anagrafe_animali_da_compagnia/tree/main/docs'
+    features:
+      - Anagrafica animali
+      - Registrazioni animali
+      - Proprietari e Strutture di detenzione
+      - Banca dati MC  a priori
+      - Contributi/Sterilizzazione
+      - Documentale – Stampe nei moduli
+    genericName: soluzione applicativa sanitario
+    longDescription: |
+
+      ** DESCRIZIONE **
+
+    L' Anagrafe animali da compagnia è un framework applicativo basato su componenti open source best of breed che opportunamente personalizzato consente l'informatizzazione 
+    di servizi e attività in diversi ambiti tra cui: prevenzione e sanità pubblica veterinaria, sicurezza alimentare.
+
+    Il modello tecnologico di riferimento è Java EE (Java Enterprise Edition) per componenti applicative distribuite sui tre livelli del pattern Model View Control. 
+    Il livello di front-end, la “presentation logic”, è implementata lato client ed è basata sugli strumenti offerti dal web-browser (XHTML, javascript, css) per la gestione dei controlli formali. 
+    Il livello intermedio, la “application logic”, è realizzato tramite i moduli (servlet) in esecuzione sull'application server. Il livello di back-end è costituito dal DBMS (Data Base Management System). 
+    Nel corso degli anni (a partire dal 2007), su mandato e indicazioni della Regione Campania, lo sviluppo del framework si è evoluto allo scopo di supportare l'attuale Ecosistema GISA.
+    L'attuale personalizzazione del sistema G.I.S.A. consente di gestire pienamente le attività relative al PCRP (Piano dei Controlli Regionale Pluriennale) della Regione Campania e la verifica dei LEA 
+    (Livelli Essenziali di Assistenza – DPCM 12 gennaio 2017). Inoltre, la reportistica G.I.S.A. è utile ai fini della valutazione di alcuni degli indicatori del NSG (Nuovo Sistema di Garanzia - DM 12 marzo 2019) relativi all’area della Prevenzione Collettiva e Sanità Pubblica.
+
+    Il sistema fornisce gli strumenti gestionali e il supporto informatico per la programmazione, la gestione, la rendicontazione e l’inoltro puntuale ai competenti uffici del Ministero della Salute dei flussi informativi in materia di sicurezza alimentare e sanità pubblica veterinaria. 
+
+
+    Questo modulo è della titolarità della Giunta Regione Campania.
+    
+     ** FUNZIONALITA' **
+
+       - ** Anagrafe animali da compagnia **
+
+        L'anagrafe animali da compagnia di cui l'anagrafe canina è il componente
+        principale, rappresenta il registro regionale dei cani/gatti/furetti identificati mediante microchip o tatuaggio, istituito con l’accordo Stato–Regioni del 6 febbraio 2003. Nasce con lo scopo di gestire l’identificazione dei cani, per ridurre
+        il fenomeno dell’abbandono e favorisce gli studi e gli interventi per la prevenzione e la cura delle malattie di animali.
+
+
+       - ** Registrazioni animali **
+
+          Il sistema copre interamente tutte le attività di gestione dello stato anagrafico degli animali da compagnia. In particolare sono supportati gli eventi di
+            • Attribuzione microchip e Inserimento in Anagrafe
+            • Sterilizzazione
+            • Cambio di residenza
+            • Trasferimento o cessione (cambio di proprietario o detentore)
+            • Furto/Smarrimento
+            • Ritrovamento
+            • Ritrovamento a seguito di smarrimento non denunciato
+            • Cattura
+            • Ricattura
+            • Reimmissione
+            • Adozione
+            • Adozione a distanza
+            • Trasferimento fuori regione
+            • Rientro in regione
+            • Rilascio Passaporto
+            • Decesso
+            • Vaccino
+            • Esami
+            • Morsicatore
+
+          Sono supportati tutti gli eventi del circuito commerciale che parte dagli importatori autorizzati e, tramite i grossisti, arriva alle rivendite.  
+
+       
+       - ** Proprietari e Strutture di detenzione **
+         
+         Gestione dei proprietari di animali e strutture di detenzione,
+            •     Privato
+            •     Sindaco
+            •      Operatore Commerciale/Importatore
+            •     Canile
+            •     Operatore Commerciale
+            •     Sindaco fuori regione
+            •     Colonia  
+
+       - ** Banca dati MC  a priori ** 
+
+         Il modulo consente di inserire i lotti di MC assegnati (all'ASL o al veterinario LP accreditato) allo scopo di consentirne il successivo utilizzo come MC di un animale anagrafato.
+         La BD dei MC a priori è unificata tra Anagrafe felina, canina e sinantropi consentendo di effettuare controlli di unicità globali all'atto dell'inserimento di un MC.
+         Il modulo consente di verificare la corretta assegnazione dei MC utilizzati dai veterinari LLPP.
+
+       - ** Contributi/Sterilizzazione **
+
+        Il modulo gestisce le pratiche dei contributi regionali per l’attuazione dei programmi di sterilizzazione con il seguenti passi,
+          • la Regione inserisce un progetto di finanziamento delle sterilizzazioni specificando range di date, contesto territoriale, numero di  sterilizzazioni                                          
+          • la ASL esegue le sterilizzazioni associando le
+                  operazioni al progetto
+          • la ASL chiede il pagamento dei contributi relativi
+                  alle sterilizzazioni relative a un progetto
+          • la Regione elabora la richiesta
+
+       - ** Documentale – Stampe nei moduli **
+
+            Gestione di un server Documentale che gestisce tutte le stampe presenti in anagrafe_animali_da_compagnia
+    shortDescription: |-
+      La soluzione applicativa di livello regionale nata per supportare gli
+
+      adempimenti in ambito sanità veterinaria e sicurezza alimentare
+developmentStatus: stable
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: true
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: true
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: true
+    pagopa: false
+    spid: true
+legal:
+  license: AGPL-3.0-only
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: true
+maintenance:
+  contacts:
+    - email: gisahelpdesk@usmail.it
+      name: U.S. s.r.l.
+  contractors:
+    - name: Istituto Zooprofilattico Sperimentale del Mezzogiorno
+      until: '31-12-2025'
+      website: 'https://www.izsmportici.it/portale/index.php'
+  type: internal
+name: anagrafe_animali_da_compagnia
+platforms:
+  - web
+releaseDate: '2022-02-28'
+softwareType: standalone/web
+softwareVersion: '1.0'
+url: 'https://github.com/EcosistemaGISA/anagrafe_animali_da_compagnia'

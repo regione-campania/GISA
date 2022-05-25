@@ -1,0 +1,40 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dialog Box Witout Close Button</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+</head>
+<body>
+<button id="dialog_trigger">open the dialog</button>
+<div id="dialog" style="display:none;" title="Dialog Title"><iframe frameborder="0" scrolling="no" width="700" height="700" src="http://google.about.com/b/2013/04/01/google-nose.htm"></iframe></div>
+<script>
+$( "#dialog_trigger" ).click(function() {
+$( "#dialog" ).dialog( "open" );
+});
+$("#dialog").dialog({
+    autoOpen: false,
+    position: 'center' ,
+    title: 'EDIT',
+    draggable: false,
+    width : 800,
+    height : 700, 
+    resizable : true,
+    modal : true,
+});
+
+
+</script>
+</body>
+</html>

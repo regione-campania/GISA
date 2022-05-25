@@ -1,0 +1,161 @@
+/*
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
+//rotta per notifiche
+var express = require('express');
+var router = express.Router();
+var conn = require('../db/connection');
+const mapUtilts = require("../utils/mapUtils");
+var auth = require('../utils/auth');
+
+router.get("/getNotifiche", auth.authenticateToken, function (req, res) {
+    console.log(req.authData);
+    const idNotificante = req.authData.idUtente;
+    const ruolo = req.authData.ruoloUtente;
+    const idAsl = req.authData.idAslUtente;
+
+    try {
+        var url = `select * from gds_srv.vw_notifiche_visibili where id_soggetto_notificante = ${idNotificante}`
+        if (ruolo == 'Profilo Amministratore'){ //vede le sue e le altre non in stato bozza
+            url += `or id_stato not in (1,5)`;
+        }
+        else if (ruolo != 'Profilo Notificatore') {
+            url = `select * from gds_srv.vw_notifiche_visibili_regione`;
+            if (idAsl != null && idAsl != '' && idAsl != -1) {
+                url += ` where codiceistatasl = ${idAsl}::text`;
+            }
+        }
+        console.log(url);
+        conn.client.query(url, (err, result) => {
+            if (err) {
+                console.log(err.stack)
+                res.writeHead(500).end();
+            } else {
+                res.json(result.rows).end();
+            }
+        })
+
+
+    } catch (e) {
+        console.log(e.stack);
+        res.writeHead(500).end();
+    }
+
+})
+
+router.get("/getNotificaInfo", auth.authenticateToken, async function (req, res) {
+
+    const idNotifica = req.query.idNotifica;
+    const idNotificante = req.authData.idUtente;
+
+    var response = {};
+    // async/await
+    try {
+
+        var url = `call gds.get_dati('get_notifica','{"id":"${idNotifica}"}', '${idNotificante}', null)`;
+        console.log(url);
+        result = await conn.client.query(url);
+        response = JSON.parse(result.rows[0].joutput.info);
+
+        result = await conn.client.query(`select * from gds_types.vw_nature_opera`);
+        response.nature_opera = result.rows;
+
+        result = await conn.client.query(`select * from gds_srv.vw_ruoli`);
+        response.ruoli = result.rows;
+
+        res.json(response).end();
+
+
+    } catch (err) {
+        console.log(err.stack)
+        res.writeHead(500).end();
+    }
+
+})
+
+router.post("/insertNotifica", auth.authenticateToken, function (req, res) {
+
+    const idNotificante = req.authData.idUtente;
+
+    // async/await
+    try {
+
+        var url = `call gds_srv.upd_dati('ins_notifica', '{"id_soggetto_notificante" : "${idNotificante}"}', ${idNotificante}, null)`;
+        console.log(url);
+        conn.client.query(url, (err, result) => {
+            if (err) {
+                console.log("error in query");
+                console.log(err.stack)
+                res.writeHead(500).end();
+            } else {
+                console.log(result.rows);
+                res.json(result.rows[0].joutput).end();
+            }
+        })
+
+
+    } catch (err) {
+        console.log(err.stack)
+        res.writeHead(500).end();
+    }
+
+})
+
+router.post("/updateNotificaInfo", auth.authenticateToken, async function (req, res) {
+
+    const idNotificante = req.authData.idUtente;
+    console.log(JSON.stringify(req.body.notifica));
+
+    try {
+
+        //geocode
+        try {
+
+            if (req.body.notifica.cantiere.lat == null && req.body.notifica.cantiere.lng == null) { //se lat e lng sono già valorizzati significa che è stata usata la localizzazione o il geocode già effettuato
+
+                var indirizzo = (req.body.notifica.cantiere.via == null ? '' : req.body.notifica.cantiere.via) + " " +
+                    (req.body.notifica.cantiere.civico == null ? '' : req.body.notifica.cantiere.civico) + " " +
+                    (req.body.notifica.cantiere.comune == null ? '' : req.body.notifica.cantiere.comune) + " " +
+                    (req.body.notifica.cantiere.cap == null ? '' : req.body.notifica.cantiere.cap);
+
+                geocodeVal = JSON.parse(await mapUtilts.geocode(indirizzo));
+
+                //dei possibili item ritornati seleziono solo quello con cap uguale (per evitare falsi positivi)
+                if (geocodeVal != null && geocodeVal.items != undefined) {
+                    geocodeVal.items.forEach(function (item) {
+                        if (item.address.postalCode == req.body.notifica.cantiere.cap.trim()) {
+                            console.log(item);
+                            req.body.notifica.cantiere.lat = item.position.lat;
+                            req.body.notifica.cantiere.lng = item.position.lng;
+                        }
+                    })
+                }
+            }
+
+        } catch (e) {
+            console.log(e.stack);
+        }
+
+        var url = `call gds.upd_dati('upd_notifica','${JSON.stringify(req.body.notifica).replace(/'/g, "''")}', '${idNotificante}', null)`;
+        console.log(url);
+        result = await conn.client.query(url);
+        console.log(result.rows[0].joutput);
+        res.json(result.rows[0].joutput)
+
+
+
+    } catch (err) {
+        console.log(err.stack)
+        await conn.client.query('ROLLBACK');
+        res.writeHead(500).end().end();
+    }
+
+})
+
+
+module.exports = router;

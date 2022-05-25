@@ -1,0 +1,77 @@
+#################################################################
+####         CONFIGURAZIONE APPLICAZIONE IN LOCALE          #####
+#################################################################
+
+#DB 
+
+DATABASE=guc
+USERNAME=postgres
+PASSWORD=postgres
+IP=10.1.15.100
+
+##################################################################
+####		CONFIGURAZIONE ENDPOINT							  ####
+##################################################################
+
+
+#DEMO
+AMBIENTE_SCA_GISA = col.gisacampania.it
+AMBIENTE_SCA_GISA_EXT = col.gisacampania.it
+AMBIENTE_SCA_BDU = col.gisacampania.it
+AMBIENTE_SCA_BDU_EXT = col.gisacampania.it
+AMBIENTE_SCA_REPORT = col.gisacampania.it
+AMBIENTE_SCA = col.gisacampania.it
+
+#UFFICIALE
+#AMBIENTE_SCA_GISA = srv.gisacampania.it
+#AMBIENTE_SCA_BDU = srv.anagrafecaninacampania.it
+#AMBIENTE_SCA_REPORT = report.gisacampania.it
+#AMBIENTE_SCA = sca.gisacampania.it
+
+USERNAME_STORICO=postgres
+PASSWORD_STORICO=postgres
+#ip_DEMO = 10.1.15.100
+#ip_ufficiale 10.1.15.144
+IP_STORICO=10.1.15.100
+DATABASE_STORICO=storico
+
+timeout=6
+loginInterval=3
+loginAttempt=3
+passwordInterval=180
+invioMailUtente=no
+
+#################################################################
+#### Storico Operazioni Utente                                 ##
+#################################################################
+abilitaStoricoOperazioniUtente=si
+
+#################################################################
+#### Storico Operazioni Utente                                 ##
+#################################################################
+abilitaStoricoOperazioniUtente=si
+cleancache_time_interval_1=0 0/5 6-20 ? * 2,3,4,5,6
+cleancache_time_interval_2=0 0/20 0,1,2,3,4,5,21,22,23 ? * *
+cleancache_time_interval_3=0 0/10 6-20 ? * 1,7
+
+#####################################################################
+####         CONFIGURAZIONE MAIL PEC							#####
+#####################################################################
+mail.smtp.starttls.enable = true
+mail.smtp.auth = true
+mail.smtp.host = sendm.cert.legalmail.it
+mail.smtp.port = 465
+mail.smtp.ssl.enable = true
+username = M3023707
+password = US9560031.1a
+mail.cc = gisadev@u-s.it
+mail.invio.utente=no
+
+
+login_spid=true
+
+bypass_username_login_spid=false
+
+SITO_GISA=https://spid.gisacampania.it
+SITO_GISA_DOCUMENTI=http://wwwcol.gisacampania.it
+TELEFONO_HD=800 810 137 / 0817865196

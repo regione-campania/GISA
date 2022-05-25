@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+  <display-name>V.A.M.</display-name>
+  
+  <servlet>
+    <servlet-name>Dispatcher</servlet-name>
+    <servlet-class>it.us.web.servlet.Dispatcher</servlet-class>
+  </servlet>
+  <!-- PEZZA PER LOGINNOPASSWORD CHIAMATA DA DAVIDE -->
+  <servlet>
+    <servlet-name>DispatcherCentric</servlet-name>
+    <servlet-class>it.us.web.servlet.DispatcherCentric</servlet-class>
+    <init-param>
+    	<param-name>isFromSca</param-name>
+    	<param-value>true</param-value>
+    </init-param>
+  </servlet>
+  <!-- PEZZA PER LOGINNOPASSWORD CHIAMATA DA DAVIDE -->
+  <servlet>
+    <servlet-name>dwr-invoker</servlet-name>
+    <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+	<init-param>
+    	<param-name>debug</param-name>
+    	<param-value>true</param-value>
+    </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Dispatcher</servlet-name>
+    <url-pattern>*.us</url-pattern>
+  </servlet-mapping>
+  <!-- PEZZA PER LOGINNOPASSWORD CHIAMATA DA DAVIDE -->
+  <servlet-mapping>
+    <servlet-name>DispatcherCentric</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <!-- FINE PEZZA PER LOGINNOPASSWORD CHIAMATA DA DAVIDE -->
+  <servlet-mapping>
+  	<servlet-name>dwr-invoker</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>SettaFileLogback</servlet-name>
+      <servlet-class>it.us.web.servlet.SettaFileLogback</servlet-class>
+      <load-on-startup>1</load-on-startup>
+ </servlet>
+ 
+ <servlet>
+	<servlet-name>InvalidaAllSessioni</servlet-name>
+	<servlet-class>it.us.web.servlet.InvalidaAllSessioni</servlet-class>
+</servlet>
+ 
+ <servlet>
+      <servlet-name>MessaggioHome</servlet-name>
+      <servlet-class>it.us.web.servlet.MessaggioHome</servlet-class>
+      <load-on-startup>1</load-on-startup>
+ </servlet>
+ 
+ <servlet>
+      <servlet-name>SettaMantelliRazzeTaglie</servlet-name>
+      <servlet-class>it.us.web.servlet.SettaMantelliRazzeTaglie</servlet-class>
+      <load-on-startup>3</load-on-startup>
+ </servlet>
+ 
+  <servlet>
+      <servlet-name>SettaComuni</servlet-name>
+      <servlet-class>it.us.web.servlet.SettaComuni</servlet-class>
+      <load-on-startup>4</load-on-startup>
+ </servlet>
+ 
+   <servlet>
+      <servlet-name>CronScheduler</servlet-name>
+      <servlet-class>it.us.web.servlet.CronSchedulerServlet</servlet-class>
+      <load-on-startup>5</load-on-startup>
+ </servlet>
+ 
+ <servlet>
+    <servlet-name>ConfiguratoreHosts</servlet-name>
+    <servlet-class>it.us.web.util.ConfiguratoreHosts</servlet-class>
+    <load-on-startup>6</load-on-startup>
+  </servlet>
+ 
+ <servlet-mapping>
+    <servlet-name>SettaFileLogback</servlet-name>
+    <url-pattern>/SettaFileLogback</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+  	<servlet-name>InvalidaAllSessioni</servlet-name>
+  	<url-pattern>/InvalidaAllSessioni</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>CronScheduler</servlet-name>
+  	<url-pattern>/CronScheduler</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>SettaFunzioniConcesse</servlet-name>
+      <servlet-class>it.us.web.servlet.SettaFunzioniConcesse</servlet-class>
+      <load-on-startup>2</load-on-startup>
+ </servlet>
+ 
+ <servlet-mapping>
+    <servlet-name>SettaFunzioniConcesse</servlet-name>
+    <url-pattern>/SettaFunzioniConcesse</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>SettaMantelliRazzeTaglie</servlet-name>
+    <url-pattern>/SettaMantelliRazzeTaglie</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+    <servlet-name>SettaComuni</servlet-name>
+    <url-pattern>/SettaComuni</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MessaggioHome</servlet-name>
+    <url-pattern>/MessaggioHome</url-pattern>
+  </servlet-mapping>
+  
+ <servlet-mapping>
+    <servlet-name>ConfiguratoreHosts</servlet-name>
+    <url-pattern>/ConfiguratoreHosts</url-pattern>
+  </servlet-mapping>
+   
+  
+  <listener>
+  	<listener-class>it.us.web.tiles.Listener</listener-class>
+  </listener>
+  
+  <listener>
+    <listener-class>it.us.web.listener.SessionListener</listener-class>
+  </listener>
+  
+  <welcome-file-list>
+  	<welcome-file>indexV.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <context-param>
+  		<param-name>logback.configurationFile_ufficiale</param-name>
+  		<param-value>logback_ufficiale.xml</param-value>
+  </context-param>
+  
+  <context-param>
+  		<param-name>logback.configurationFile_sviluppo</param-name>
+  		<param-value>logback_sviluppo.xml</param-value>
+  </context-param>
+  
+  <context-param>
+  		<param-name>logback.configurationFile_cloud</param-name>
+  		<param-value>logback_cloud.xml</param-value>
+  </context-param>
+  
+  <context-param>
+  		<param-name>logback.configurationFile_demo</param-name>
+  		<param-value>logback_demo.xml</param-value>
+  </context-param> 
+   <context-param>
+  		<param-name>logback.configurationFile_col</param-name>
+  		<param-value>logback_col.xml</param-value>
+  </context-param> 
+  
+  
+  <security-constraint>
+    <display-name>Restricted GET To checkUtenti</display-name>
+    <web-resource-collection>
+      <web-resource-name>Restricted Access - Get Only</web-resource-name>
+      <url-pattern>/checkUtenti.jsp</url-pattern>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>manager</role-name>
+      <role-name>manager-gui</role-name>
+    </auth-constraint>
+    <user-data-constraint>
+      <transport-guarantee>NONE</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>manager</realm-name>
+  </login-config>
+  
+</web-app>

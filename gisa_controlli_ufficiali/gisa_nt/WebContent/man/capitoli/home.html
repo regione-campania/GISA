@@ -1,0 +1,65 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="mycfs"></a>
+<h3 id="mycfs">Home</h3>
+<h1>La pagina che viene visualizzata all'atto dell'accesso al sistema.</h1>
+<br/><br/>
+<h2>Scadenzario Controlli Ufficiali</h2>
+<p style="text-align: justify;">Nella sezione home tramite il pulsante "Scadenziario controlli ufficiali" e' possibile visualizzare la lista dei controlli ufficiali aperti, chiusi e quelli in sorveglianza che stanno per scadere o che sono gia' scaduti. <br /> Attenzione! Nel caso in cui il pulsante lampeggia sara' possibile visualizzare anche la lista dei controlli che stanno per essere chiusi da ufficio. La chiusura da ufficio avviene nel caso in cui l'utente non avesse provveduto alla chiusura del controllo entro un mese dalla data di inserimento. Riepilogando, nello scadenzario e' presente l'elenco di tutti i controlli ufficiali inseriti dall'operatore loggato nel sistema, che si trovano nei seguenti stati:</p>
+<ul>
+<li>Controlli aperti</li>
+<li>Controlli chiusi</li>
+<li>Controlli (in sorveglianza) in scadenza</li>
+</ul>
+<p>Inoltre, solo coloro che hanno il ruolo "VETERINARI RESPONSABILI STRUTTURA" potranno visualizzare, cliccando sull'apposito pulsante "Controlli Unita' Operative", i 100 controlli ufficiali piu' vecchi aperti ed in sorveglianza, effettuati dall'asl a cui l'utente appartiene: nel dettaglio sara' riportata anche la colonna relativa all'Unita' Operativa. <br /><br /></p>
+<h2>Controlli Aperti</h2>
+<p><br /> Nella lista dei controlli aperti sono riportati tutti i controlli ufficiali inseriti dall'utente loggato nel sistema, che si trovano nello stato aperto. I controlli fanno riferimento agli stabilimenti (Imprese, Stabilimenti, ecc...) la cui attivita' non e' nello stato cessato o sospeso. Per ogni controllo aperto viene indicato se ci sono attivita' presenti. <br /><br /></p>
+<h2>Controlli Chiusi</h2>
+<p><br /> Nella lista dei controlli chiusi sono riportati tutti i controlli ufficiali con almeno un followup (Altri Followup), inseriti sempre dall'utente loggato nel sistema, che si trovano nello stato chiuso e la cui data di inizio attivita' ricade nell'ultimo mese a partire dalla data di odierna. I controlli fanno sempre riferimento agli stabilimenti (Imprese ,Stabilimenti,ecc...) la cui attivita' non e' nello stato cessato o sospeso. Esempio : <br /><br /> Cu : 15022 <br /> Data Inizio : 25/03/2012 <br /> Data corrente : 31/03/2012 <br /> Stato : chiuso <br /> Altri Followup : SI <br /><br /> Siccome la data inizio controllo e' compresa tra il 21/02/2012 e il 31/03/2012 il controllo viene visualizzato nello scadenzario. <br /> ----------------------------------------------- <br /> Cu : 15022 <br /> Data Inizio : 25/03/2012 <br /> Data corrente : 30/04/2012 <br /> Stato : chiuso <br /> Altri Followup : SI <br /><br /> Siccome la data inizio controllo non e' compresa tra il 31/03/2012 e il 31/03/2012 il controllo non viene visualizzato nello scadenzario. <br /><br /></p>
+<h2>Controlli (in sorveglianza) in scadenza</h2>
+<p><br /> Nella lista dei controlli in scadenza sono riportati tutti i controlli ufficiali di tipo Sorveglianza per i quali e' stata aggiornata la categoria di rischio, e la cui data prossimo controllo (assegnata dopo aver aggiornato la categoria di rischio) e' precedente alla data attuale (Controlli Scaduti), o e' compresa tra la data attuale e tre mesi successivi rispetto alla data attuale. Esempio: <br /><br /> Cu : 15025 <br /> Tipo Cu : Sorveglianza <br /> Data Inizio : 25/03/2008 <br /> Prossimo Cu : 27/03/2012 <br /> Data corrente : 31/03/2012 <br /><br /> Nel caso in cui la data del prossimo controllo e' precedente alla data attuale il controllo verra' visualizzato nello stato: Scaduto. <br /> ----------------------------------------------- <br /> Cu : 15025 <br /> Tipo Cu : Sorveglianza <br /> Data Inizio : 25/03/2008 <br /> Prossimo Cu : 27/04/2012 <br /> Data corrente : 31/03/2012 <br /><br /> Nel caso in cui, la data del controllo successivo ricade in un periodo temporale maggiore dei tre mesi dalla data attuale (tra il 31/03/2012 e il 31/06/2012) il controllo verra' visualizzato nello stato: Controllo prossimo alla scadenza. <br /> ----------------------------------------------- <br /> Cu : 15025 <br /> Tipo Cu : Sorveglianza <br /> Data Inizio : 25/03/2008 <br /> Prossimo Cu : 27/08/2012 <br /> Data corrente : 31/03/2012 <br /><br /> Siccome la data del prossimo controllo va oltre il 31/06/2012 il controllo non verra' visualizzato nello scadenzario <br /><br /></p>
+<h2>Chiusura D'Ufficio</h2>
+<p><br /> Cliccando sul bottone "Controlli che verranno chiusi d'Ufficio" verranno visualizzati tutti i controlli inseriti, dall'utente loggato nel sistema, che si trovano nello stato aperto e per cui non sono stati inseriti campioni e/o tamponi, o che sono stati inseriti ma risultano chiusi. I controlli visualizzati sono tutti quelli per cui e' trascorsa una settimana dalla data di inserimento e il sistema indica la data in cui provvedera' a chiuderli automaticamente, ovvero dopo un mese dalla data di inserimento. Nel caso in cui il controllo abbia una non conformita' associata , il sistema provvedera' a chiudere anche la non conformita' con i followup associati.</p>
+<p></p>
+<h2>Ricerca Globale</h2>
+<p>Tale funzionalit&agrave; utilizza un motore di ricerca per visualizzare le imprese tramite i controlli ufficiali o i campioni.</p>
+<p><img src="./images/Ricerca Globale.png" width="953" height="345" /></p>
+<p>I dati che possono aiutare nella ricerca sono: ASL, stato operatore (non cancellati/cancellati), tipo attivit&agrave; (campioni/controlli ufficiali/sanzioni/sequestri/notizie di reato ed altri folllowup), numero controllo ufficiale e numero di verbale. Si apre una ulteriore finestra di ricerca a secondo delle voci dell'attivit&agrave;.</p>
+<p>La ricerca porta ad un elenco dove &egrave; possibile evincere gi&agrave; a prima vista, alcune notizie.</p>
+<p><img src="./images/ricerca_globale.png" width="961" height="314" /></p>
+<p>Se si digita sul numero di identificativo controlli/campione, si apre la finestra relativa all'impresa nel cavaliere corrispondente.</p>
+
+<h2>Associazione Esiti-Campioni</h2>
+<p>Tra le funzionalit&agrave; presenti nella sezione Home, 
+&egrave; stato aggiunto il link "Associazione Esiti-Campioni". 
+Tale funzionalit&agrave; permetter&agrave; di ricercare i campioni senza esito presenti 
+su capi e/o partite per i quali &egrave; stato stampato l'articolo 17.
+I filtri di ricerca presenti nella maschera sono i seguenti:
+<ul>
+<li>Numero matricola/partita: [campo di testo libero]</li>
+<li> Data macellazione: [campo data]</li>
+</ul> 
+
+Effettuata la ricerca il sistema visualizzer&agrave; i campioni senza esito trovati, ovviamente in base ai filtri opportunamente specificati. I campi visualizzati saranno:
+<ul>
+<li>Tipo macellazione: (Bovini | Ovicaprini)</li>
+<li>    Numero matricola/partita</li>
+ <li>   Numero seduta</li>
+ <li>   Data Macellazione</li>
+ <li>   Impresa</li>
+<li>    Motivo campione</li>
+ <li>   Matrice</li>
+ <li>   Tipo analisi</li>
+ <li>   Molecole/a agente etiologico</li>
+ <li>   Esito</li>
+<li>    Data Esito</li>
+</ul>
+
+Dopo la ricerca, sar&agrave; presente una lista di record, a questo punto l'utente potr&agrave; attribuire al campione scelto un "esito" e una "data esito" e potr&agrave; associarlo al campione mediante il bottone [ASSOCIA], presente nella maschera.
+Tale esito messo per il campione, sar&agrave; visibile nel dettaglio del campione presente nel Controllo Ufficiale. 

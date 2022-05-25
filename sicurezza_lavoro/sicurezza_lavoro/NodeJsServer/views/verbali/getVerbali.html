@@ -1,0 +1,40 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<!DOCTYPE html>
+<html>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+<body>
+  <label>Verbale da scaricare:</label>
+  <input type="text" id="verbale" value="verbale1"><br>
+  <label>JSON:</label><br>
+  <textarea id="json" rows="4" cols="50">
+    {
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone": "0652455478",
+        "description": "New Website"
+    }
+  </textarea><br>
+  <button onclick="scaricaVerbale()">SCARICA</button>
+
+
+</body>
+</html>
+
+<script>
+
+    function scaricaVerbale(){
+
+        let verbale = document.getElementById("verbale").value;
+        let json = document.getElementById("json").value.trim();
+
+        location.href = `/verbali/getVerbaleCompilato?descrizioneVerbale=${verbale}&valori=${json}`;
+    
+    }
+</script>

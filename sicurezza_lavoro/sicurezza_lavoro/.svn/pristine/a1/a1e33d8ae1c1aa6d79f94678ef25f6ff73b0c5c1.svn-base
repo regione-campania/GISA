@@ -1,0 +1,311 @@
+<div class="container-lg" id="notice-editor" *ngIf="notice">
+    <form id="notice-form" [formGroup]="noticeForm" (ngSubmit)="onSubmit($event)" (keydown.enter)="$event.preventDefault()">
+        <div id="notice-status-info">
+            <div ngbDropdown id="next-states-wrapper" *ngIf="notice.stati_successivi.length > 0">
+                <button ngbDropdownToggle class="btn" type="button">
+                    <i class="icon fa fa-list-ul" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Gestione notifica</span>
+                </button>
+                <ul class="border-0" ngbDropdownMenu>
+                    <div *ngIf="role != 'Profilo Regione'">
+                            <button  ngbDropdownItem type="submit" class="btn" *ngFor="let s of notice.stati_successivi"
+                            [value]="s.id_stato_prossimo">
+                            {{s.label_bottone}}
+                        </button>
+                    </div>
+                    <button type="button" class="btn" ngbDropdownItem *ngIf="notice.cantiere.scaricabile" (click)="download(false)"> Scarica </button>
+                </ul>
+                <button type="button" class="btn" *ngIf="!readonly && notice.cantiere.lat == null && navigatorAvailable" (click)="getLocation()">
+                    <i class="icon fa fa-compass me-0 me-sm-2" aria-hidden="true"></i>
+                    <span class="d-none d-sm-inline">Geolocalizza cantiere</span>
+                </button>
+                <button type="button" class="btn" *ngIf="!readonly && notice.cantiere.lat != null && navigatorAvailable" (click)="getLocation()">
+                    <i class="icon fa fa-check me-0 me-sm-2" aria-hidden="true"></i>
+                    <span class="d-none d-sm-inline">Geolocalizza cantiere</span>
+                </button>
+            </div>
+            <div class="form-field-inline" id="status-display">
+                <label class="form-label" for="stato-attuale">Stato Attuale: </label>
+                <span id="stato-attuale">{{notice.cantiere.stato}}</span>
+            </div>
+            <div class="form-field-inline" id="other-buttons">
+                <button class="btn" (click)="indietro()"> Home </button>
+                <button type="button" *ngIf="!readonly" class="btn" (click)="annulla()"> Annulla </button>
+            </div>
+        </div>
+
+        <strong>* campi obbligatori</strong>
+        <div class="form-section" id="user-details" formGroupName="cantiere">
+            <div class="wrapper">
+                <span class="label">Il sottoscritto</span>
+                <input class="form-control" id="nome_notificante" formControlName="nome_notificante" placeholder="Nome"
+                    [readonly]="true">
+                <span style="margin: 0 4px;"></span>
+                <input class="form-control" id="cognome_notificante" formControlName="cognome_notificante"
+                    placeholder="Cognome" [readonly]="true">
+                <span class="label">C.F.</span>
+                <input class="form-control" id="cf_notificante" formControlName="cf_notificante" [readonly]="true">
+            </div>
+            <div class="wrapper">
+                <span class="label">residente in *</span>
+                <input class="form-control" id="via_notificante" formControlName="via_notificante" placeholder="Via">
+                <input class="form-control" id="civico_notificante" formControlName="civico_notificante"
+                    placeholder="Civico/Km">
+                <span class="virgola">,</span>
+                <input class="form-control" id="comune_notificante" formControlName="comune_notificante"
+                    placeholder="Comune" [autofiller]="anagrafica.comuni" autofillerKey="comune"  placeholder="Digitare comune e selezionarlo da lista"
+                    (valueChange)="setComuneNotificante(['cantiere'], $event)">
+                <span class="label">CAP *</span>
+                <input class="form-control" id="cap_notificante" formControlName="cap_notificante">
+            </div>
+        </div>
+        <h3 id="form-header">NOTIFICA</h3>
+        <p>
+            ai sensi e per gli effetti dell'art. 99 comma 1 del D. Lgs. 9 Aprile 2008 n.81,
+            l'apertura del cantiere
+        </p>
+        <div class="form-section">
+            <table class="form-table" formGroupName="cantiere">
+                <caption>Ubicazione del cantiere</caption>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_via">Indirizzo *</label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="cantiere_via" formControlName="via"
+                                [readonly]="readonlyCantiere">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_civico">Civico/KM *</label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="cantiere_civico" formControlName="civico"
+                                [readonly]="readonlyCantiere">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_comune">Comune *</label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="cantiere_comune" formControlName="comune"
+                                [autofiller]="anagrafica.comuniCantiere" autofillerKey="comune"
+                                (valueChange)="setComuneCantiere(['cantiere'], $event)" [readonly]="readonlyCantiere" placeholder="Digitare comune e selezionarlo da lista">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_cap">CAP *</label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="cantiere_cap" formControlName="cap"
+                                [readonly]="readonlyCantiere">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-section">
+            <table class="form-table" formGroupName="cantiere">
+                <caption>Informazioni supplementari</caption>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_denominazione">Denominazione *</label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="cantiere_denominazione" formControlName="denominazione" [readonly]="readonlyCantiere">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_natura_opera">Natura Opera *</label>
+                        </td>
+                        <td>
+                            <select class="form-select" id="cantiere_natura_opera" formControlName="id_natura_opera"
+                                (change)="changeNatura($event)" [attr.disabled]="readonlyCantiere ? true : null">
+                                <option  *ngIf="!readonlyCantiere" [attr.disabled]="true"  value="null">Seleziona...</option>
+                                <ng-container *ngFor="let opt of notice.nature_opera"> <!-- fix issue 6968, non setta altro sua annulla-->
+                                <option *ngIf="(readonlyCantiere && this.currNatura == opt.id_natura_opera) || !readonlyCantiere" value="{{opt.id_natura_opera}}">
+                                    {{opt.natura_opera}}</option>
+                                </ng-container>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr *ngIf="currNatura == 0">
+                        <td>
+                            <label class="form-label" for="altro">Specificare Natura Opera *</label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="altro" formControlName="altro" [readonly]="readonlyCantiere">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_data_presunta">Data presunta inizio lavori *</label>
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" id="cantiere_data_presunta"
+                                formControlName="data_presunta" [readonly]="readonlyCantiere">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_durata_presunta">
+                                Durata presunta lavori (in giorni) *
+                            </label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="cantiere_durata_presunta" formControlName="durata_presunta">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_numero_imprese">
+                                Numero previsto di imprese e di lavoratori autonomi sul cantiere *
+                            </label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="cantiere_numero_imprese" formControlName="numero_imprese">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_numero_lavoratori">
+                                Numero presunto dei lavoratori in cantiere *
+                            </label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="cantiere_numero_lavoratori"
+                                formControlName="numero_lavoratori">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="cantiere_ammontare">
+                                Ammontare complessivo presunto dei lavori (in €) *
+                            </label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="cantiere_ammontare" formControlName="ammontare">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-section">
+            <div class="imprese-scroller">
+                <table class="form-table table-striped" id="selected-enterprises" formArrayName="cantiere_imprese">
+                    <caption>
+                        Imprese già selezionate
+                        <button *ngIf="!readonly" type="button" class="btn btn-outline-blue" id="add-impresa"
+                            (click)="addImpresa()">
+                            <i class="icon fas fa-plus"></i>
+                            <span>Aggiungi Impresa</span>
+                        </button>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>P.IVA</th>
+                            <th>Ragione Sociale</th>
+                            <th>Codice Fiscale</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="notice.cantiere_imprese.length > 0">
+                        <tr *ngFor="let imp of notice.cantiere_imprese; index as i" [formGroupName]="i">
+                            <td>
+                                <input class="form-control" id="partita_iva_impresa->{{i}}"
+                                    formControlName="partita_iva" [autofiller]="anagrafica.imprese"
+                                    autofillerKey="partita_iva"
+                                    (valueChange)="setImpresa(['cantiere_imprese', i], $event, 'partita_iva')">
+                            </td>
+                            <td>
+                                <input class="form-control" id="ragione_sociale_impresa->{{i}}"
+                                    formControlName="ragione_sociale" [autofiller]="anagrafica.imprese"
+                                    autofillerKey="ragione_sociale"
+                                    (valueChange)="setImpresa(['cantiere_imprese', i], $event, 'ragione_sociale')">
+                            </td>
+                            <td>
+                                <input class="form-control" id="codice_fiscale_impresa->{{i}}"
+                                    formControlName="codice_fiscale" [autofiller]="anagrafica.imprese"
+                                    autofillerKey="codice_fiscale"
+                                    (valueChange)="setImpresa(['cantiere_imprese', i], $event, 'codice_fiscale')">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-section roles-form-section" formArrayName="persona_ruoli">
+            <table class="form-table" *ngFor="let role of notice.persona_ruoli; index as i" [formGroupName]="i">
+                <caption>{{role.ruolo}}</caption>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="ruolo_codice_fiscale->{{i}}">Codice Fiscale <span *ngIf="role.obbligatorio">*</span></label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="ruolo_codice_fiscale->{{i}}"
+                                formControlName="codice_fiscale"
+                                [autofiller]="anagrafica.soggettiFisici" autofillerKey="codice_fiscale"
+                                (valueChange)="setRuolo(['persona_ruoli', i], $event)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="ruolo_nome->{{i}}">Nome <span *ngIf="role.obbligatorio">*</span></label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="ruolo_nome->{{i}}" formControlName="nome">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="ruolo_cognome->{{i}}">Cognome <span *ngIf="role.obbligatorio">*</span></label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="ruolo_cognome->{{i}}" formControlName="cognome">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="ruolo_pec->{{i}}">PEC <span *ngIf="role.id_ruolo == 2">*</span></label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="ruolo_pec->{{i}}" formControlName="pec">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="ruolo_indirizzo->{{i}}">Indirizzo</label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="ruolo_indirizzo->{{i}}" formControlName="via">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="ruolo_comune->{{i}}">Comune</label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="ruolo_comune->{{i}}" formControlName="comune"
+                                [autofiller]="anagrafica.comuni" autofillerKey="comune"
+                                (valueChange)="setComune(['persona_ruoli', i], $event)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label" for="ruolo_cap->{{i}}">CAP</label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="ruolo_cap->{{i}}" formControlName="cap">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>

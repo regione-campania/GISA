@@ -1,0 +1,41 @@
+<application>
+
+  <!-- Not used yet -->
+  <config>
+    <mainmenu>
+      <layout>horizontal</layout>
+      <long_css on="" off=""/>
+      <short_css on="" off=""/>
+    </mainmenu>
+    <submenu>
+      <layout>horizontal</layout>
+      <long_css on="rs" off="r"/>
+      <short_css on="rs" off="r"/>
+    </submenu>
+  </config>
+  
+  <!-- Modules that appear in main menu, in order -->
+  <menu>
+    <action name="MyCFS"/>
+    <action name="MyCFSProfile"/>
+    <action name="MyCFSPassword"/>
+    <action name="MyCFSWebdav"/>
+    <action name="MyCFSSettings"/>
+    <action name="MyCFSInbox"/>
+    <action name="MyTasks"/>
+    <action name="MyTasksForward"/>
+    <action name="MyActionLists"/>
+    <action name="MyActionContacts"/>
+    <action name="MyActionPlans"/>
+    <page title="My Home Page"/>
+    <permission value="myhomepage-view"/>
+    <long_html value="My Home Page"/>
+    <short_html value="My&lt;br&gt;Home Page"/>
+    <link value="MyCFS.do?command=Home"/>
+    <graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif" rollover=""/>
+
+  
+   
+  </menu> 
+</application>
+  

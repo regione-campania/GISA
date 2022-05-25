@@ -1,0 +1,80 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+  <allow>
+  
+ 
+  
+   <create creator="new" javascript="DwrUtil">
+      <param name="class" value="org.aspcfs.utils.DwrUtil"/>
+      <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+   </create>
+       <convert converter="bean" match="org.aspcfs.utils.EsitoControllo"/>
+        <convert converter="bean" match="org.aspcfs.modules.opu.base.Circoscrizione"/>
+         <convert converter="bean" match="org.aspcfs.modules.opu.base.Municipalita"/>
+       
+ <create creator="new" javascript="PopolaCombo">
+      <param name="class" value="org.aspcfs.utils.PopolaCombo"/>
+        <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+   </create>
+   <convert converter="bean" match="org.aspcfs.modules.opu.base.SoggettoFisico"/>
+   <convert converter="bean" match="org.aspcfs.modules.opu.base.Indirizzo"/>
+
+    
+    <create creator="new" javascript="DwrCustomSatisfaction">
+      <param name="class" value="org.aspcfs.utils.DwrCustomSatisfaction"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+    <create creator="new" javascript="PraticaList">
+      <param name="class" value="org.aspcfs.modules.praticacontributi.base.PraticaList"/>
+        <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+    </create>
+    
+    <convert match="org.aspcfs.modules.praticacontributi.base.PraticaDWR" converter="bean"/>
+    
+     <create creator="new" javascript="LineaProduttiva">
+      <param name="class" value="org.aspcfs.modules.opu.base.LineaProduttiva"/>
+        <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+    </create>
+    
+    <create creator="new" javascript="Animale">
+      <param name="class" value="org.aspcfs.modules.anagrafe_animali.base.Animale"/>
+        <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+    </create>
+    
+    
+    <create creator="new" javascript="EventoRilascioPassaporto">
+      <param name="class" value="org.aspcfs.modules.registrazioniAnimali.base.EventoRilascioPassaporto"/>
+        <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+    </create>
+    
+    <create creator="new" javascript="Operatore">
+      <param name="class" value="org.aspcfs.modules.opu.base.Operatore"/>
+        <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+    </create>
+    
+    <create creator="new" javascript="Stabilimento">
+      <param name="class" value="org.aspcfs.modules.opu.base.Stabilimento"/>
+        <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+    </create>
+    
+    <convert match="org.aspcfs.modules.opu.base.Operatore" converter="bean"/>
+    
+    <convert converter="object" match="org.aspcfs.modules.login.beans.UserBean">
+ 	 <param name="force" value="true"/>
+	</convert>
+	
+	
+	
+    
+
+   <convert match="org.directwebremoting.extend.LoginRequiredException" converter="exception">
+      <param name="include" value="message,lineNumber"/>
+      </convert>
+  </allow>
+
+</dwr>

@@ -1,0 +1,42 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="ImportDistMassivo"></a>
+<h3 id="ImportDistMassivo">Import Massivo di Distributori</h3>
+Questa funzione consente di salvare una lista di distributori mediante il caricamento di un file.
+<p>
+La funzione è disponibile mediante il pulsante "GESTISCI DITRIBUTORI", raggiungibile  dalla scheda di dettaglio di uno stabilimento
+( avente linea di attivita' COMMERCIO-DISTRIBUTORI AUTOMATICI) mediante la voce di menu "GESTIONE AUTOVEICOLIE DISTRIBUTORI AUTOMATICI".
+</p>
+<p><img src="./images/importMassivoDistributori.png" width="496" height="510" /></p>
+
+Il file da caricare dovrà essere in formato txt o csv separato dalcarattere ";" e dovra' contenere i seguenti campi:
+<ul>
+<li>matricola: campo di testo</li>
+<li>data Inizio: campo di testo formato dd/MM/yyyy</li>
+<li>Ubicazione: campo di testo</li>
+<li>indirizzo: campo di testo</li>
+<li>comune: campo di testo</li>
+<li>cap: campo di testo</li>
+</ul>
+Dopo aver scelto il file cliccando sul pulsante salva il sistema eseguira' la seguente elaborazione:
+<ul>
+<li>Controllo validita' del file : se il file non è corretto viene segnalato all'utente</li>
+<li>Controllo Validita' del record : se i dati di un record non sono corretti, il record viene scartato</li>
+<li>Controllo Esistenza del record(per Matricola) : se il record non esiste viene inserito correttamente</li>
+<li>Controllo Esistenza del record: se il record esiste viene aggiornato se la data del distributore presente nel sistema è antecedente a quella letta dal file.</li>
+<li>Al termine dell'elaborazione viene ricaricata la pagina. </li>
+
+</ul>
+</p>
+<p>Il pulsante lista file caricati mostra la lista degli import eseguiti</p>
+<p><img src="./images/ListaImportEseguiti.png" width="496" height="510" /></p>
+<p>La lista mostra la data in cui è avvenuto il caricamento, l'esito dell'elaborazione e la possibilità di scaricare la lista di record elaboati indicando per ognuno l'esito dell'elaborazione</p>
+
+<strong>Gestione Autoveicoli</strong><br/>
+Per gli autoveicoli, sara' possibile aggiungere una stessa targa a piu' attivita' a parita' di impresa.<br/>

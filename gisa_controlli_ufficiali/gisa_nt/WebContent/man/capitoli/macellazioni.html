@@ -1,0 +1,656 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="macellazioni"></a>
+<h3 id="macellazioni">Macellazioni</h3>
+
+La gestione dei macelli nel sistema GISA, e' presente nella sottosezione"Macellazioni" degli Stabilimenti Riconosciuti 853. a'A'&acirc;&nbsp; possibile ricercare uno dei macelli presenti nel sistema selezionando nel campo categoria: 'CARNE DEGLI UGULATI DOMESTICI' ed impianto: ' SH-MACELLO'. L'utente pua' a questo punto accedere al dettaglio dello stabilimento e selezionare 'Macellazioni' tra le etichette laterali, a questo punto, selezionare la tipologia di macellazione desiderata cliccando sull'apposito pulsante, ovvero: "Bovini/Bufalini/Equidi" oppure ' Ovicaprini'.&nbsp;</p>
+<p style="text-align: justify;" dir="ltr"><br /><img src="./images/Macellazioni ovicaprini/ovicaprini_lookup.png" /><br clear="LEFT" /><br /></p>
+<h1>Macellazioni Ovicaprine</h1>
+<h2>Aggiunta/Modifica Partita</h2>
+<p>Le macellazioni ovicaprine sono gestite differentemente da quelle degli altri ungulati (bovini, bufalini, equini) per i quali i dati sono riferiti al singolo capo macellato/da macellare.</p>
+<p>Per le specie ovicaprine&nbsp; e' gestita la partita di animali e non il singolo capo. E' possibile inoltre dopo aver creato la partita che comprende tutti i capi da macellare inserire per la singola partita una o piu' sedute di macellazione che si sommano fino a raggiungere il numero di capi della partita</p>
+<p><span style="line-height: 115%;">Come per tutte le sezioni del sistema GISA, solo i </span> campi contrassegnati da asterisco rosso sono obbligatori. Gli altri, se inseriti, consentono una migliore gestione di tutte le informazioni relative alle macellazioni</p>
+<p>La maschera principale delle macellazioni ovicaprine mostra l'elenco delle partite macellate nell'ultima seduta eseguita in ordine temporale (vedi figura seguente). E' possibile filtrate le partite tra Macellate (sia completamente che parzialmente)in base alla date e partite Non Macellate usando gli appositi pulsanti. Il filtro sulla data prende tutte le partite che hanno almeno una seduta effettuata nella data scelta.</p>
+Nota: si ricorda che dal sistema GISA e' disponibile il dettaglio delle macellazioni dal 2016 in poi.<br/> 
+<p><br /><img src="./images/Macellazioni ovicaprini/elenco_partite.PNG" /><br clear="LEFT" /><br /> Il flag 'Stampa Art. 17' sara' visualizzato come segue:</p>
+<ul>
+<ul>
+<ul>
+<li>SI</li>
+<li>Parzialmente</li>
+<li>NO</li>
+</ul>
+</ul>
+</ul>
+<p>Quindi nel caso delle partite, la presenza della spunta nella colonna 'Stampato Art.17' indica che tutti gli animali della partita sono stati macellati in una o piu' sedute per le quali e' stato stampato l'art.17 a meno delle eccezioni (es. capi morti o rubati). La modifica sulla partita e' possibile fin quando lo stato del flag non si trova su 'SI', quindi quando non e' stato completamente stampato l'Art.17.</p>
+<p>Nella maschera delle macellazioni, e' presente il bottone [Aggiungi Partita] (vedi figura seguente)</p>
+<p>In fase di aggiunta partita, l'unico tab attivo sara' quello relativo al "Controllo documentale" nel quale l'utente pua' inserire molte informazioni relative alla partita e compilare obbligatoriamente i campi:</p>
+<ul>
+<ul>
+<ul>
+<li>Azienda di provenienza della partita</li>
+<li>Proprietario delle carni (che sara' riportato nella stampa dell'articolo 17);</li>
+<li>il codice della partita</li>
+<li>data arrivo al macello</li>
+<li>veterinari addetti al controllo</li>
+</ul>
+in mancanza dei quali, verra' opportunamente avvisato tramite messaggio.</ul>
+</ul>
+<p><br /><img src="./images/Macellazioni ovicaprini/Controllo_documentale_ovicaprini.png" /><br clear="LEFT" /><br /></p>
+<p>Il numero della partita, che rappresenta l'identificativo univoco della partita stessa, viene generato automaticamente dal sistema GISA, ma c'e' al momento l'opzione con campo a testo libero&nbsp; per contraddistinguerlo con numerazione propria, se utilizzato sistema interno gia' consolidato (opzione pera' che si tendera' a rendere disponibile solo in fase iniziale, in quanto tra gli obiettivi del sistema vi e' anche la sostituzione dei registri cartacei attualmente in uso con quelli informatici).</p>
+<p>Dopo questa prima fase del Controllo Documentale, si potra' proseguire alle fasi successive in due modi diversi, o cliccando sul bottone [Altre operazioni] o accedendo direttamente al [Libero consumo].</p>
+<p>Cliccando sul bottone [Altre operazioni], l'utente ha la possibilita' di compilare le sezioni successive al controllo documentale, ovvero: " Comunicazioni Esterne", "Morte antecedente macellazione", "Evidenza Visita Ante Mortem" e "Evidenza Visita Post Mortem". Si rammenta che queste operazioni non devono essere necessariamente compilate, ma sono utilizzate solo nel caso in cui deve essere registrato un evento (es. morte di animali in stalla, sull'automezzo, oppure rilievi particolari in fase di visita antemortem o post mortem, oppure se e' necessario fare comunicazioni a ditte o Enti esterni in relazione all'animale o partita di animali da macellare, ecc.).</p>
+<p>Invece cliccando sul bottone [Libero consumo], l'utente pua' accedere direttamente alla compilazione della sezione " Evidenza Visita Ante Mortem" e "Evidenza Visita Post Mortem", passando direttamente alla macellazione della partita o di parte di essa. Questo percorso, che rappresenta la quasi totalita' delle opzioni in corso di macellazione, deve essere seguito nel caso in cui le carni vanno al libero consumo con ("Evidenza Visita Post Mortem") oppure senza ("Evidenza Visita Ante Mortem" ) sequestro di organi.</p>
+<p>&nbsp;</p>
+<p>Si ricorda, inoltre, che il tasto "COMPLETA MACELLAZIONE E CLONA" (fino ad ora era "Salva e Clona") consente di salvare diverse informazioni invariate, utili per evitare di digitarle nuovamente nel caso in cui deve essere inserita una nuova partita o un nuovo animale proveniente dallo stesso speditore, azienda di origine, ecc.</p>
+<p dir="ltr"></p>
+<h2>Import Capi nei macelli</h2>
+<ul>
+<ul>Nella home page delle macellazioni bovine e' stato aggiunto il bottone IMPORTA DA FILE</ul>
+</ul>
+<p><br /><br /><img src="./images/importa_da_file.PNG" /><br clear="LEFT" /><br /></p>
+<ul>
+<ul>Tramite il bottone, e' possibile selezionare un file (in formato CSV), redatto secondo uno standard concordato. Il sistema provvede ad estrarre da ogni riga del file le informazioni relative al singolo capo ed inserire la componente di controllo documentale.</ul>
+</ul>
+<p><br /><br /></p>
+<ul>
+<ul>La nuova funzione permette di caricare un file CSV con i dati inseriti in questo modo:</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Riga 1: Intestazioni</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 1: COD.AZ.NASCITA</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 2: COD.AZ.PROVENIENZA</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 3: MATRICOLA</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 4: SPECIE</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 5: SESSO</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 6: DATA NASCITA</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 8: Categoria di rischio</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 9: Vincolo sanitario</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 11: Data Modello 4</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 14: Data arrivo Macello</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 15: Test BSE</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 16: Data prelievo BSE</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 17: Esito BSE</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Colonna 25: Veterinari addetto al controllo</ul>
+</ul>
+<p><br /><br /></p>
+<ul>
+<ul>Successivamente all'import nella lista dei capi non macellati, in caso di capo importato e' possibile macellarlo in libero consumo tramite un apposito bottone.</ul>
+</ul>
+<p><br /><img src="./images/controllo_documentale.PNG" /><br clear="LEFT" /><br /></p>
+<ul>
+<ul>Cliccando sul bottone, saranno prima effettuati i controlli minimi (Stato incompleto, data presente). il capo sara' poi macellato con i seguenti parametri:
+<ul>
+<li>Esito visita PM: Libero consumo carni e visceri</li>
+<li>Destinatario Carni 1: Macello corrente</li>
+<li>Destinatario Carni 2: Macello corrente</li>
+<li>Stato Macellazione: OK.</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>e' possibile inoltre verificare la lista degli import inseriti per uno stabilimento cliccando nel menu laterale</ul>
+</ul>
+<p><img src="./images/storico_macelli.PNG" /><br clear="LEFT" /><br /><img src="./images/lista_import.PNG" /><br clear="LEFT" /><br /></p>
+<h2>Altre Operazioni</h2>
+<p></p>
+<ul>
+<ul>Di seguito l'elenco delle sezioni compilabili a seguito della fase del "Controllo Documentale":&nbsp; Comunicazioni Esterne": i campi "comunicazione a", "data", "tipo non conformita'" e "provvedimenti adottati" verranno considerati come un blocco unico, per cui la valorizzazione di almeno uno di essi comportera' l'obbligatorieta' di valorizzare anche gli altri. A livello visivo cia' verra' evidenziato mediante la comparsa di asterischi. Come prima riferito, questa Sezione e' utilizzata solo se e' necessario fare comunicazioni a persone, ditte o Enti esterni in relazione all'animale o partita di animali da macellare.</ul>
+</ul>
+<p><br /><img src="./images/Macellazioni ovicaprini/comunicazioni%20esterne%20Ovicaprini.png" /><br clear="LEFT" /><br /></p>
+<ul>
+<ul>
+<ul>
+<li>"Morte antecedente macellazione": i campi "data", "luogo" e "causa" verranno considerati come un blocco unico, per cui la valorizzazione di almeno uno di essi comportera' l'obbligatorieta' di valorizzare anche gli altri. A livello visivo cia' verra' evidenziato mediante la comparsa di asterischi.</li>
+<li>Visita Ante Mortem": i campi "data" e "provvedimento adottato" verranno considerati come un blocco unico, per cui la valorizzazione di almeno uno di essi comportera' l'obbligatorieta' di valorizzare anche gli altri. A livello visivo cia' verra' evidenziato mediante la comparsa di asterischi.</li>
+<li>Visita Post Mortem": il campo "data" e' obbligatorio. E' possibile specificare il numero di capi inviati all' eventuale destinatario delle carni riempendo i campi obbligatori 'NUMERO CAPI OVINI' e 'NUMERO CAPI CAPRINI'. Ad ogni esito selezionato deve essere associato un numero capi nel campo di testo che compare cliccando una voce della lista.&nbsp;</li>
+<li>Nel libero consumo, se le date di "Visita Ante Mortem" e di "Visita Post Mortem" non sono state gia' valorizzate precedentemente, verranno automaticamente settate con la data di arrivo al macello e numero capi. I destinatari delle carni possono essere n, quindi si possono aggiungere altri, oltre i 4 di default.</li>
+</ul>
+</ul>
+</ul>
+<p><br /><br /></p>
+<ul>
+<ul>In caso di visita post mortem con sequestro organi, sara' possibile generare il Modello Echinococcosi da inviare al macello in caso di organo con lesione "Echinococco".</ul>
+</ul>
+<p><br /><img src="./images/modello_echinococco.png" /><br clear="LEFT" /><br /><br /><br /></p>
+<ul>
+<ul>In ognuno dei tab Comunicazioni Esterne , Morte Ant. Macellazioni , Evidenza visita AM , Evidenza visita PM esiste un controllo per cui il totale del numero capi specificato nelle sezioni della partita e delle eventuali sedute non deve superare il numero capi specificato nel controllo documentale.</ul>
+</ul>
+<p><br /><br /></p>
+<h1>Gestione Sedute</h1>
+<p><br /><br /></p>
+<ul>
+<ul>Tenuto conto che una partita di animali potrebbe essere macellata in piu' giornate, si e' ritenuto di gestire le sedute di macellazione per ogni partita.</ul>
+</ul>
+<p><br /><br /></p>
+<ul>
+<ul>Nell'elenco delle partite mostrato dopo la scelta del tipo macellazione "Ovicaprini" (vedi figura seguente), per ogni riga sono riportati lo stato (Aperta/Chiusa) e tre link corrispondenti ad altrettante operazioni:</ul>
+</ul>
+<p><br /><br /></p>
+<ul>
+<ul>
+<ul>
+<li>Aggiungi Seduta</li>
+<li>Lista Sedute</li>
+<li>Chiudi</li>
+</ul>
+</ul>
+</ul>
+<p><br /><img src="./images/Macellazioni ovicaprini/elenco_partite.PNG" /></p>
+<p></p>
+<p><br /><br /></p>
+<h1 dir="ltr">Aggiunta Seduta</h1>
+<p><br /><br /></p>
+<ul>
+<ul>E' possibile aggiungere sedute solo fino a quando la somma dei capi macellati e morti prima della macellazione risulta inferiore a quelli specificati nel controllo documentale.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Tuttavia, se questa somma e' ancora inferiore e' possibile bloccare l'inserimento di altre sedute chiudendo la partita come sara' spiegato nell'apposito paragrafo.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>La pagina che si apre cliccando "Aggiungi Seduta" mostra in sola lettura le sezioni "Controllo Documentale" e "Comunicazioni Esterne" popolate con i dati della partita di origine, i restanti tab, invece, andranno ripopolati con le informazioni relative alla seduta che si sta aggiungendo. In particolare se si popolano i campi data in una delle sezioni visita 'Evidenzia Visita AM'/'Evidenzia Visita PM' si attivera' il controllo su tutti i campi abblogatori delle due sezioni, in particolare saranno richiesti obbligatori i seguenti campi:</ul>
+</ul>
+<p><br /><br /></p>
+<ul>
+<ul>'Evidenzia Visita AM'
+<ul>
+<li>DATA</li>
+<li>NUMERO CAPI OVINI</li>
+<li>NUMERO CAPI CAPRINI</li>
+<li>PROVVEDIMENTO ADOTTATO</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>'Evidenzia Visita PM'
+<ul>
+<li>DATA MACELLAZIONE</li>
+<li>NUMERO CAPI OVINI IN DESTINATARI/ESERCENTI</li>
+<li>NUMERO CAPI CAPRINI IN DESTINATARI/ESERCENTI</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Anche per le sedute vi e' il bottone LIBERO CONSUMO con il quale l'utente pua' accedere direttamente alla compilazione della sezione "Evidenza Visita Ante Mortem" e "Evidenza Visita Post Mortem", passando direttamente alla macellazione della seduta. Questo percorso, che rappresenta la quasi totalita' delle opzioni in corso di macellazione, deve essere seguito nel caso in cui le carni vanno al libero consumo.</ul>
+</ul>
+<p><br /><br /></p>
+<h1>Lista Sedute</h1>
+<p><br /><br /></p>
+<ul>
+<ul>Per visualizzare le sedute di macellazione relative alla partita cliccare sul link "Lista Sedute". Sara' mostrato un elenco come quello in figura.</ul>
+</ul>
+<p><br /><br /><img src="./images/Macellazioni ovicaprini/elenco_sedute.png" /><br /><br /></p>
+<ul>
+<ul>Per visualizzare una seduta cliccare sul link presente nella colonna "Seduta". Sara' mostrata la pagina con i dati nella quale e' anche possibile stampare l'articolo 17 tramite apposito pulsante.</ul>
+</ul>
+<p><br /><br /></p>
+<ul>
+<ul>Il flag 'Stampa Articolo 17' indica se per quella seduta e' stato stampato il documento.</ul>
+</ul>
+<p><br /><br /><img src="./images/Macellazioni ovicaprini/dettaglio_seduta.png" /><br /><br /></p>
+<ul>
+<ul>Tramite il tasto "Modifica" sara' possibile accedere alla modifica.</ul>
+</ul>
+<p><br /><br /></p>
+<h1>Gestione sedute di macellazioni pregresse</h1>
+<p></p>
+<ul>
+<ul>Per quanto riguarda le macellazioni bovini e' possibile inserire una seduta di macellazione in data antecedente rispetto all'ultima seduta registrata.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Per inserirla basta scegliere la data di interesse e flaggare la check "SEDUTA PREGRESSA" presente nella scheda "aggiungi una seduta di macellazione".</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Come mostrato in figura:</ul>
+</ul>
+<p><br /><br /><img src="./images/macellazioni pregresse/macellazione_pregressa.PNG" /><br /><br /></p>
+<ul>
+<ul>Fatto questo basta cliccare su "AGGIUNGI A NUOVA DATA". Cosi facendo si aprira' la lista delle macellazioni pregresse nella data precedentemente settata, nella quale e' possibile inserire i relativi capi.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Come mostrato in figura:</ul>
+</ul>
+<p><br /><br /><br /><br /><img src="./images/macellazioni pregresse/lista_pregresse.PNG" /><br /><br /></p>
+<ul>
+<ul>N.B. Per tutte le sedute di macellazione inserite con questa gestione non e' possibile stampare alcun tipo di documento.</ul>
+</ul>
+<p></p>
+<h1>Chiusura Partite</h1>
+<p><br /><br /></p>
+<ul>
+<ul>Cliccando sul link "Chiudi" e' possibile chiudere la partita. Ne consegue che lo stato passera' da "Aperta" a "Chiusa" e da quel momento non sara' piu' possibile aggiungere altre sedute di macellazioni. Prima di chiudere la partita il sistema chiede di inserire delle note di chiusura tramite la seguente popup. Inoltre quando la partita viene chiusa tramite pulsante "Chiudi" e' possibile visualizzare le motivazioni inserite in fase di chiusura tramite un apposito link posto nella lista delle partite</ul>
+</ul>
+<p><br /><br /><img src="./images/Macellazioni ovicaprini/chiudi_partita.png" /><br /><br /></p>
+<h1>MACELLAZIONI BOVINI</h1>
+<p><br /><br /></p>
+<h2>Aggiungi Sessione Macellazione</h2>
+<p></p>
+<ul>
+<ul>Aggiunta nuova funzionalita' che permette di inserire una nuova sessione di macellazione per data e suddividere quest'ultima in piu' sessioni.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Il corretto funzionamento prevede che sia possibile effettuare due operazioni:
+<ul>
+<li>Selezionare una nuova data di macellazione: Per aggiungere un capo ad una nuova sessione(quindi nuova data di macellazione), aggiungere una nuova data utilizzando il bottone rosso in basso "Aggiungi a nuova data".</li>
+<li>Sessioni esistenti: Completato l'inserimento del capo e' possibile proseguire con ulteriori sessioni impostando la data della sessione di macellazione e cliccando su procedi nella schermata "Sessioni esistenti". Per aggiungere un ulteriore sessione di macellazione alla stessa data e' necessario completare la prima sessione e successivamente si potra' aggiungere la sessione 2.</li>
+</ul>
+</ul>
+</ul>
+<p><br /><br /><img src="./images/aggiungi_nuova_data.png" /><br clear="LEFT" /><br /><br /><img src="./images/aggiungi_sessione.png" /><br clear="LEFT" /><br /><br /></p>
+<ul>
+<ul>Per concludere definitivamente la sessione di macellazione occorre stampare l'articolo 17 e tutti i dati delle singole sessioni saranno riportati nel registro di macellazione.</ul>
+</ul>
+<p><br /><br /></p>
+<h2>Aggiunta/Modifica Capo</h2>
+<p></p>
+<ul>
+<ul>In fase di aggiunta capo, l'unico tab attivo sara' quello relativo al "Controllo documentale", gli altri tab verranno visualizzati su espressa richiesta dell'utente cliccando sul bottone "Altre operazioni" (che si trova vicino al bottone "Libero consumo"), a patto che siano stati compilati i dati obbligatori (provenienza dell'animale, matricola, data arrivo al macello, veterinari addetti al controllo), in mancanza dei quali, l'utente verra' opportunamente avvisato tramite messaggio. Invece nella fase di modifica, appariranno gia' tutti i tab attivi per cui non sara' presente il bottone "Altre operazioni".
+<ul>
+<li>Per settare la provenienza dell'animale, opportuno valorizzare il campo "Codice Azienda di provenienza" in cui indicare il riferimento BDN all'azienda di provenienza del capo.</li>
+<li>La data di arrivo al macello potra' essere settata (solo nel caso in cui non sia gia' stata valorizzata) con la data odierna semplicemente portando il cursore del mouse nella relativa casella di testo, per qualsiasi altra data si potra' continuare ad usare normalmente il calendario.</li>
+<li>Le date relative a "Comunicazioni Esterne", "Ricezione Comunicazioni Esterne", "Morte antecedente macellazione", "Visita Ante Mortem" e "Visita Post Mortem" (solo nel caso in cui non siano gia' state valorizzate) potranno essere settate alla data di arrivo al macello semplicemente portando il cursore del mouse nella relativa casella di testo, per qualsiasi altra data si potra' continuare ad usare normalmente il calendario.</li>
+<li>Verra' data la possibilita' di cancellare una determinata data cliccando su un'apposita icona posizionata vicino al calendario.</li>
+<li>Verra' gestita la categoria di rischio che verra' assegnata automaticamente dal sistema in funzione della compilazione dei dati relativi all'animale.<br /> La categoria dovra' comparire nei verbali di prelievo di tronco encefalico per test BSE e nel registro di macellazione per una delle seguenti categorie:
+<ul>
+<li>Bovini sani sopra i 72 mesi di eta'</li>
+<li>Macellazione in emergenza - &gt; test BSE se eta' BOVINI sopra i 48 mesi</li>
+<li>Macellazione differita in caso di Brucellosi, TBC, Leucosi se i bovini superano i 48 mesi di eta'.</li>
+<li>Bovini morti durante il trasporto (test BSE obbligatorio).</li>
+</ul>
+</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<h2>Altri Tab</h2>
+<p></p>
+<ul>
+<ul>Di seguito l'elenco dei tab presenti:</ul>
+</ul>
+<p></p>
+<ul>
+<ul>
+<ul>
+<li>"Comunicazioni Esterne": i campi "comunicazione a", "data", "tipo non conformita'" e "provvedimenti adottati" verranno considerati come un blocco unico, per cui la valorizzazione di almeno uno di essi comportera' l'obbligatorieta' di valorizzare anche gli altri. A livello visivo civerra' evidenziato mediante la comparsa di asterischi.</li>
+<li>"Morte antecedente macellazione": i campi "data", "luogo" e "causa" verranno considerati come un blocco unico, per cui la valorizzazione di almeno uno di essi comportera' l'obbligatorieta' di valorizzare anche gli altri. A livello visivo civerra' evidenziato mediante la comparsa di asterischi.</li>
+<li>"Visita Ante Mortem": i campi "data" e "provvedimento adottato" verranno considerati come un blocco unico, per cui la valorizzazione di almeno uno di essi comportera' l'obbligatorieta' di valorizzare anche gli altri. A livello visivo civerra' evidenziato mediante la comparsa di asterischi.</li>
+<li>"Visita Post Mortem": i campi "data" e "destinatario carni" verranno considerati come un blocco unico, per cui la valorizzazione di almeno uno di essi comportera' l'obbligatorieta' di valorizzare anche gli altri. A livello visivo civerra' evidenziato mediante la comparsa di asterischi.</li>
+<li>Nel libero consumo, se le date di "Visita Ante Mortem" e di "Visita Post Mortem" non sono state gia' valorizzate precedentemente, verranno automaticamente settate con la data di arrivo al macello.</li>
+<li>Il libero consumo, in fase di modifica, comportera' un aggiornamento dei dati del capo e non piil tentativo di inserire un nuovo capo, cosa che comportava un errore di matricola duplicata.</li>
+<li>Nel tab "Controllo Documentale" sara' modificata la gestione dei dati relativa alla provenienza dell'animale. Sara' data all'utente la possibilita' di selezionare lo speditore da una popup; nel caso in cui non fosse presente, potra' aggiungerlo con l'apposito link e se, necessario, potra' modificarlo e cancellarlo nella popup stessa.</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<h2>Tamponi di Macellazione</h2>
+<p></p>
+<ul>
+<ul>Di seguito l'elenco dei tab presenti:</ul>
+</ul>
+<p></p>
+<ul>
+<ul>
+<ul>
+<li>E' possibile inserire per ogni capo macellato un tampone. L'inserimento del tampone per i capi macellati avviene nella sezione visita "post moertem" , o nel percorso abbreviato "Libero consumo".<br /> Per ogni seduta di macellazione previsto un solo tampone che viene associato a tutti i capi di quella seduta di macellazione. Se si sta inserendo il primo capo di una seduta di macellazione , spuntando il check "Effettuato Tampone" , verranno visualizzati i campi relativi al tampone da inserire : piano (settato di default con il numero 83) , tipo di carcassa (di default bovino) , tipo di ricerca , metodo.<br /> Al prossimo capo inserito spuntanto il flag "Effettuato Tampone" , verranno visualizzati i dati del tampone inseriti precedentemente , con la possibilita di modifica. All'atto dell'inserimento verra' creata una nuova associazione tra il tampone inserito sul primo capo e il capo che si sta inserendo. In fase di modifica togliendo la spunta su un capo soggetto a tampone, verra eliminata logicamente l'associazione tra il tampone e il capo.</li>
+<li>Modello 10 : sara' possibile eseguire una stampa dei tampone per ogni seduta di macellazione tramite il link "Modello 10" presente nella maschera delle macellazioni ungulati e dopo aver specificato una data di macellazione: saranno mostrate nell'elenco solo le date in cui effettivamente stato registrato un tampone.<br /> </li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Nella maschera di inserimento di un capo, precisamente nella scheda relativa alla Visita Post Mortem, viene data la possibilita' di inserire un numero intero che identifichi quel capo all'interno della sessione di macellazione. Per tale motivo il campo stato chiamato "Progressivo Macellazione". Questi capi devono poter essere salvati in modalita' definitiva allo scopo di essere inclusi nel registro di macellazione (ovviamente non si deve precludere la possibilita' di inserire successivamente gli esiti).</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Nella gestione dei macelli viene introdotto il concetto di sessione di macellazione, in base al quale viene data la possibilita' di assegnare ad ogni capo di una sessione un numero (Progressivo di Macellazione) e di mostrare la lista di tutti i capi appartenenti ad una determinata sessione. Per sessione di macellazione si intende l'insieme di tutti i capi che sono stati macellati nella stessa giornata dallo stesso macello, pertanto, dato un macello, c'una corrispondenza biunivoca tra sessione di macellazione e la data di macellazione. In realta', nel registro di macellazione saranno visibili anche i capi morti prima della</ul>
+</ul><br>
+Nota : Per quanto riguarda i BOVINI/BUFALINI indipendentemente dal progressivo inserito in fase di aggiunta nuova macellazione, nel registro e nella stampa dell'Art.17 partir&agrave; sempre dal valore 1 per i nuovi inserimenti mentre per i dati pregressi i valori dei progressivi restano invariati.
+<p></p>
+<ul>
+<ul>macellazione e in attesa di esito per il test BSE.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Infine possibile avere pidi una seduta di macellazione nella stessa data. L'utente, infatti, nel dettaglio di un capo, ha la possibilita' di aggiungere una nuova seduta di macellazione, chiudendo implicitamente quella precedente.</ul>
+</ul>
+<p><br /><br /><img src="./images/progressivo_macellazione.png" /><br clear="LEFT" /><br /></p>
+<ul>
+<ul>Inoltre, quando si accede alla lista dei capi macellati da un determinato macello, non vengono pimostrati tutti i capi, bensquelli relativi all'ultima sessione (in altre parole tutti i capi con data di macellazione uguale a quella pirecente). Viene poi data la possibilita' di visualizzare i capi relativi ad altre sessioni, scegliendo una data tra quelle proposte nel mena tendina (dove vengono riportate le ultime date di macellazioni del macello in questione) oppure selezionandola con il calendario (la data scelta verra' in tal caso aggiunta nel mena tendina).</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Nella lista delle date di macellazione sara' inserita anche la voce "Capi non macellati" in modo da gestire quei capi che potrebbero non essere macellati ma di cui richiesta la visualizzazione nell'elenco.</ul>
+</ul>
+<p><br /><br /><img src="./images/capi_macellati_e_non.png" width="1050" /><br clear="LEFT" /><br /></p>
+<ul>
+<ul>Durante la compilazione della scheda "Aggiungi capo", "Modifica capo" o "Libero consumo", se l'utente clicca in un punto della pagina che comporta l'uscita dalla scheda stessa, verra' chiesto all'utente se vuole effettivamente abbandonare la pagina o se vuole provare a salvare i dati.</ul>
+</ul>
+<p><br /><br /></p>
+<h2>Articolo 17</h2>
+<p><br /><br /></p>
+<ul>
+<ul>Per quanto riguarda gli OVICAPRINI:</ul>
+</ul>
+<p></p>
+<ul>
+<ul>La stampa dell'Articolo 17, secondo R.D. n. 3298 del 20.12.1928, deve essere consegnata al proprietario che sara' riportato nel documento. Inoltre non e' necessario scegliere l'esercente per l'Art.17. Nella Visita PM vi e' la selezione multipla dei destinatari/esercenti ,selezionabili secondo la struttura seguente per i destinatari/esercenti in regione:</ul>
+</ul>
+<p></p>
+<ul>
+<ul>
+<ul>
+<li>'SELEZIONA IMPRESA'</li>
+<li>'SELEZIONA STABILIMENTO'</li>
+<li>'INSERISCI ESERCENTE NON IN G.I.S.A.'</li>
+<li>'MACELLO CORRENTE';</li>
+</ul>
+selezionabili secondo la struttura seguente per i destinatari/esercenti fuori regione:</ul>
+</ul>
+<p></p>
+<ul>
+<ul>
+<ul>
+<li>'INSERISCI ESERCENTE FUORI REGIONE'</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>E' stata aggiunto il bottone 'Stampato Articolo 17' anche sulle sedute quindi ne consegue che:
+<ul>
+<li>Dopo la stampa dell'Art. 17 la modifica per le SEDUTE non e' possibile mentre per la PARTITA,dato che nessun dato della partita va nel documento, risulta possibile modificarla.</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Nella stampa dell' Art.17 e' stato inserito in alto a sinistra il riferimento a partita, seduta, proprietario degli animali e destinatario\esercente. Al suo interno troveremo i seguenti campi:
+<ul>
+<li>Partita - numero associata alla partita di macellazione</li>
+<li>Seduta - numero di seduta se i capi sono inseriti in una seduta</li>
+<li>Ovini macellati - numero di ovini macellati nella partita\seduta</li>
+<li>Caprini macellati - numero di caprini macellati nella partita\seduta</li>
+<li>Categoria</li>
+<li>Mod 4 - Progressivo del modello 4 che accompagna l'animale</li>
+<li>Veterinari - L'elenco dei veterinari elencati nella sezione Visita Post Morte</li>
+<li>Esito Visita - L'esito della visita post Morte settato nella sezione medesima</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>L'identificativo del documento relativo all'articolo 17 sara' composto da 3 parti:</ul>
+</ul>
+<p></p>
+<ul>
+<ul>
+<ul>
+<li>Progressivo incrementato dal sistema, che sara' univoco per macello e si azzerera' ogni anno;</li>
+<li>L'anno relativo alla sessione di macellazione</li>
+<li>approval number del macello.</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Per quanto riguarda i bovini, una volta che per un determinato capo viene prodotto il pdf relativo all'articolo 17 (si pustampare solo quando eventuali prelievi hanno l'esito), tale capo non sara' pi modificabile, per cui nella scheda di dettaglio, al posto del tasto "Modifica", verra' presentato un messaggio del tipo "Capo non modificabile: per esso stato gia' stampato l'art. 17". Se per il capo in questione ci sono dei prelievi in attesa di esito, il capo deve essere apribile in modifica ma solo per l'inserimento degli esiti.</ul>
+</ul>
+<p><br /><br /></p>
+<h2>Errata corrige Art. 17</h2>
+<p></p>
+<ul>
+<ul>Dal momento che l'art.17 si riferisce da 1 a n capi, l'errata corrige e' generata nel dettaglio del singolo capo. Oltre all'attuale messaggio 'Capo non modificabile': per esso e' stato gia' stampato l'art. 17 o Modello 10', compare un bottone 'Errata Corrige' che consente all'utente di compilare il prestampato e di generarlo nel formato PDF.</ul>
+</ul>
+<p><br /><img src="./images/Art17/Erratta_corrige_Art_.png" /><br clear="LEFT" /><br /><br /></p>
+<ul>
+<ul>
+<ul>
+<li>I campi modificabili vengono visualizzati selezionando la relativa checkbox</li>
+<li>Nella modifica della matricola viene ricercato se la matricola appartiene gia' ad un capo in GISA(bloccante) o e' presente in BDN (non bloccante). In caso di matricola presente in BDN, gli altri campi vengono precompilati con quelli recuperati.</li>
+<li>Dopo il salvataggio del modello, si viene subito rimandati alla generazione automatica del documento.</li>
+<li>Per evitare l'abuso della funzione, e' stato settato a 10 il limite massimo di modelli Errata Corrige (e quindi conseguenti modifiche) generabili per un dato capo. Superato quel limite, il bottone "Errata corrige" viene nascosto.</li>
+<li>Lista Errata corrige: In caso di Errata Corrige modificabile e' visualizzabile un link 'Moduli EC generati' in cui e' possibile visualizzare tutti i pdf generati.</li>
+</ul>
+</ul>
+</ul>
+<p><br /><br /><img src="./images/Art17/EC_generati.png" /><br clear="LEFT" /><br /><br /></p>
+<ul>
+<ul>Per quanto riguarda le macellazioni ovicaprini il messaggio invece e' questo:</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Partita non modificabile: per essa e' stata gia' stampato l'art. 17 o Modello 10 ;</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Cliccando il bottone ERRATA CORRIGE ART.17 si apre una scheda contenente le informazioni modificabili.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>In particolare e' possibile:
+<ul>
+<li>Modificare il numero della partita.</li>
+<li>I dati del Mod.4.</li>
+<li>I veterinari che hanno effettuato il controllo.</li>
+<li>I destinatari delle carni.</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Nota:non e' possibile aggiungere ulteriori destinatari e modificare il numero dei capi.</ul>
+</ul>
+<p><br /><br /></p>
+<h2>Salva e Clona</h2>
+<p></p>
+<ul>
+<ul>A differenza del pulsante "Salva" che permette il salvataggio delle informazioni inserite sul capo e il ritorno alla lista dei capi macellati, "Salva e Clona" permette, una volta salvati i dati del capo, di ritornare alla schermata di inserimento mantenendo perprecompilati alcuni campi.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>In particolare si presentano gia' valorizzati il modello 4 con relativa data, i veterinari addetti al controllo, il codice azienda la data di arrivo al macello e, se eventualmente specificati, i campi relativi ai mezzi di trasporto. Nella lista dei capi macellati, invece, stata aggiunta una nuova colonna ("Clona") dove per ogni capo della lista presente un pulsante per effettuare l'operazione di "clonazione". Per clonazione si intende la possibilita' di inserire un nuovo capo avente dei campi precompilati con le informazioni relative al capo che si vuole duplicare.</ul>
+</ul>
+<p><br /><br /><img src="./images/clona.png" /><br clear="left" /><br /><br /></p>
+<h2>Stampa Moduli Macelli</h2>
+<p></p>
+<p align="justify">Stampe Moduli contiene la lista dei moduli disponibili, per ognuno dei quali previsto l'inserimento di una data nel campo apposito e un bottone Genera Modulo che permette di visualizzare il pdf.</p>
+<ul>
+<ul>Specifiche Modulo 1 - Modello Idatidosi:
+<ul>
+<li>Il modulo sara' cumulativo: raccogliera' i dati di tutti gli animali;</li>
+<li>Il modulo sara' compilato per gli animali di una singola azienda, passati in una seduta di macellazione, che risultano positivi all'Echinococco;</li>
+<li>Per animale positivo all'Echinococco verranno selezionati:</li>
+<ul>
+<li>"Libero consumo con sequestro organi" in "Evidenza Visita PM -&gt; Visita Post Mortem -&gt; Esito",</li>
+<li>"Fegato" in "Evidenza Visita PM -&gt; Visita Post Mortem -&gt; Organi -&gt; Organo",</li>
+<li>"Echinococco" in "Evidenza Visita PM -&gt; Visita Post Mortem -&gt; Organi -&gt; Lesione anatomopatologica".</li>
+</ul>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Specifiche Modulo 2 - Modello Marchi:
+<ul>
+<li>Il modulo sara' cumulativo: raccogliera' i dati di tutti gli animali;</li>
+<li>Il modulo sara' compilato per gli animali di una singola azienda arrivati al macello in una determinata data ed aventi "Tipo di non conformita'" rilevata in "Comunicazioni Esterne".</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Specifiche Modulo 3 - Modello Animali Infetti:
+<ul>
+<li>Il modulo sara' cumulativo: raccogliera' i dati di tutti gli animali;</li>
+<li>Il modulo sara' compilato per gli animali di una singola azienda, passati in una seduta di macellazione, e verra' replicato per ogni animale affetti da TBC o BRC;</li>
+<li>Il modulo sara' compilato per tutti gli animali per i quali in "Controllo Documentale -&gt; Animale" verra' selezionato TBC o BRC per "Controllo Documentale -&gt; Animale -&gt; Macellazione Differita piani risanamento".</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Specifiche Modulo 4 - Modello Animali Gravidi:
+<ul>
+<li>Il modulo sara' cumulativo: raccogliera' i dati di tutti gli animali;</li>
+<li>Il modulo sara' compilato per gli animali di una singola azienda, passati in una seduta di macellazione;</li>
+<li>Il modulo sara' compilato per tutti gli animali per i quali sara' selezionato "Utero Gravido" in "Evidenza Visita PM -&gt; Campioni -&gt; Matrice".</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Specifiche Modulo 5 - Modello TBC Rilevazione Macello:
+<ul>
+<li>Il modulo sara' cumulativo: raccogliera' i dati di tutti gli animali;</li>
+<li>Il modulo sara' compilato per gli animali con TCB di una singola azienda, passati in una seduta di macellazione e verra' replicato per ogni speditore;</li>
+<li>Il modulo verra' compilato nel caso in cui ci sia almeno un animale per il quale si sia selezionato "TBC" in "Controllo Documentale -&gt; Animale -&gt; Macellazione Differita piani risanamento";</li>
+<li>Gli organi colpiti corrisponderanno agli organi sequestrati(per inserire gli organi sequestrati bisogna selezionare "Evidenza Visita PM -&gt; Visita Post Mortem -&gt; Esito -&gt; Libero consumo con sequestro organi"). Nel modulo verranno inseriti solo gli organi sequestrati e aventi lesioni relative alla TBC;</li>
+<li>Organi/sangue prelevati corrisponderanno ai campioni (Evidenza Visita PM -&gt; Campioni). Nel modulo verranno inseriri solo i campioni con Molecole/Agente Etiologico relativo a TBC.</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Specifiche Modulo 6 - Modello BRC Rilevazione Macello:
+<ul>
+<li>Il modulo sara' cumulativo: raccogliera' i dati di tutti gli animali;</li>
+<li>Il modulo sara' compilato per gli animali con BRC di una singola azienda, passati in una seduta di macellazione e verra' replicato per ogni speditore;</li>
+<li>Il modulo verra' compilato nel caso in cui ci sia almeno un animale per il quale si sia selezionato "BRC" in "Controllo Documentale -&gt; Animale -&gt; Macellazione Differita piani risanamento";</li>
+<li>Organi/sangue prelevati corrisponderanno ai campioni (Evidenza Visita PM -&gt; Campioni). Nel modulo verranno inseriti solo i campioni con Molecole/Agente Etiologico relativo a BRC.</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Specifiche Modulo 7 - Modello TBC 10/33:
+<ul>
+<li>Il modulo sara' legato ad un singolo capo;</li>
+<li>Il modulo sara' compilato per l'animale con sequestro organi e organo con TBC di una singola azienda, passato in una seduta di macellazione;</li>
+<li>Il modulo verra' compilato per ogni capo dell'azienda nel caso in cui ci sia almeno un animale con "Evidenza Visita PM -&gt; Organi -&gt; qualsiasi" e Lesione anatomopatologica -&gt; TBC" dopo aver selezionato "Libero consumo con sequestro organi" in "Evidenza Visita PM -&gt; Visita Post Mortem -&gt; Esito".</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Specifiche Modulo 8 - Modello Evidenze Ante Mortem:
+<ul>
+<li>Il modulo sara' legato ad un singolo capo;</li>
+<li>Il modulo sara' compilato per l'animale di una singola azienda arrivato al macello in una determinata data ed aventi non conformita';</li>
+<li>Il modulo verra' compilato per ogni capo dell'azienda nel caso in cui ci sia almeno un animale con Non conformita' a cui potra'/potranno essere associato/i uno (o pi provvedimento (i) adottato/i in "Evidenza Visita AM" e relative note.</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Specifiche Modulo 9 - Modello Antecedente la Macellazione:
+<ul>
+<li>Il modulo sara' legato ad un singolo capo;</li>
+<li>Il modulo sara' compilato per l'animale di una singola azienda arrivato al macello in una determinata data e morto antecedentemente la macellazione;</li>
+<li>Il modulo verra' compilato per ogni capo dell'azienda nel caso in cui ci sia almeno un animale morto antecedentemente la macellazione per cui stata.</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Specifiche Modulo 10 - Modello LEB:
+<ul>
+<li>Il modulo sara' legato ad un singolo capo;</li>
+<li>Il modulo sara' compilato per gli animali con LEB di una singola azienda, passato in una seduta di macellazione;</li>
+<li>Il modulo verra' compilato per ogni capo dell'azienda nel caso in cui ci sia almeno un animale per il quale sia selezionato "LEB" in "Controllo Documentale -&gt; Animale -&gt; Macellazione Differita piani risanamento".</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Specifiche Modulo 11 - Modello Disinfezione Mezzi di Trasporto:
+<ul>
+<li>Il modulo sara' cumulativo: raccogliera' i dati di tutti gli animali;</li>
+<li>Il modulo sara' compilato per gli animali infetti da BRC/TBC di una singola azienda, passati in una seduta di macellazione;</li>
+<li>Il modulo verra' compilato nel caso in cui ci sia almeno un animale per il quale si sia selezionato "BRC" o "TBC" in "Controllo Documentale -&gt; Animale -&gt; Macellazione Differita piani risanamento" e conterra' le informazioni relative all'automezzo (tipo, targa e se si tratta di un trasporto superiore a 8 ore) se specificate in "Controllo Documentale -&gt; Identificazione Mezzo di Trasporto".</li>
+</ul>
+Gestione Progressivo</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Per ciascun documento, viene gestito un progressivo generato dal sistema che unico per ASL (del macello) e si azzera ogni anno.</ul>
+</ul>
+<p></p>
+<ul>
+<ul>Sara' quindi nel formato: NUMERO/ASL/ANNO; se il documento viene generato pi volte, tale progressivo non cambiera' ad eccezione del caso in cui siano state apportate modifiche al documento (es. modifica razza/specie di uno dei capi coinvolti, modifica del nome speditore, ecc...): in tal caso il sistema si "accorge" della modifica e genera un nuovo progressivo, indicando che il documento attuale sostituisce il documento con il vecchio progressivo.</ul>
+</ul>
+ 
+<h4> Cancellazione di capi e partite</h4>
+
+Nella pagina di dettaglio del singolo capo e della singola partita è disponibile il bottone rosso "Elimina".<br/><br/>
+<img src="./images/eliminacapo1.png" /><br/><br/>
+<b>Capo</b>: <i>Può essere cancellato se per esso non è stato già stampato l'articolo 17.</i><br/>
+<b>Partita</b>: <i>Può essere cancellata se nè per essa, nè per una qualsiasi delle sue sedute, è stato già stampato l'articolo 17.</i><br/><br/>
+Durante l'operazione è obbligatorio indicare le note di cancellazione..<br/><br/>
+
+<img src="./images/eliminacapo2.png" />
+<img src="./images/eliminacapo3.png" />
+
+<h4>Libero consumo massivo</h4>
+Per i capi, nella lista dei capi non macellati, e' disponibile il bottone "Libero consumo massivo".<br/>
+<img src="./images/lcmassivo1.png" />
+La funzionalita' permettera' di indicare un insieme di capi (tra quelli non macellati e con una data di arrivo al macello valorizzata) per cui procedere al libero consumo in modo massivo, indicando uno o piu' destinatari delle carni. Lo storico sara' visualizzabile tramite un link nel menu del cavaliere "Stabilimenti 853".
+<img src="./images/lcmassivo2.png" />
+

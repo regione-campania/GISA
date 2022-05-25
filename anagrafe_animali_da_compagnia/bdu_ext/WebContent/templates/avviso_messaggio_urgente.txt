@@ -1,0 +1,33 @@
+
+<script>
+function rosso(){
+
+	if(document.getElementById('lampeggio')!=null)
+	{
+document.getElementById('lampeggio').style.color='red';
+setTimeout("giallo()",800);
+}
+}
+function giallo(){
+	if(document.getElementById('lampeggio')!=null)
+	{
+document.getElementById('lampeggio').style.color='white';
+setTimeout("rosso()",800);
+	}
+}
+</script>
+
+<script>
+setTimeout( "rosso()",500);
+</script>
+
+
+<h1>
+
+<center>
+<font color = 'red'>
+</font>
+
+</center>
+
+</h1>

@@ -1,0 +1,62 @@
+
+<!-- saved from url=(0074)http://172.16.3.252/svn/reportistica_avanzata/trunk/resources/legenda.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+   .header {
+       top: 0px;
+       padding: 3px;
+       text-align: center;
+       margin-bottom: 10px;
+       background-image: linear-gradient(to bottom right, #80bfff, #0073e6);
+       color: white;
+       font-size: 6px;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+</style>
+</head><body>
+   <div class="header">
+     <h3>Manuale R.A.</h3>		
+   </div> 
+<link rel="stylesheet" href="./legenda_files/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<div style="padding: 5px">
+
+   In reportistica avanzata sono conteggiati tutte le ispezioni semplici (sia aperte che chiuse) e campioni (con esito 'Nessun esito', 'Non Conforme', 'Conforme', 'Conforme con Riserva') a partire dall'anno 2019.<br>
+   Sono conteggiati solo i cu/campioni fatti dal personale ASL. Sono esclusi dal calcolo i controlli effettuati esclusivamente da forze dell'ordine e quelli congiunti fatti da forze dell'ordine e personale ASL ma inseriti dalle forze dell'ordine. <br>
+   Per gli indicatori flaggati come 'conteggio campioni' non sono visualizzati il numero di CU, bensi' il numero di campioni, in quanto la loro programmazione e' avvenuta per numero di campioni da effettuare. Questi sono indicati con la dicitura [Campioni] dopo il nome dell'indicatore <br>
+   Nel conteggio sono esclusi gli indicatori non selezionabili come motivo ispezione e quindi non rendicontabili. <br>
+   Gli indicatori non piu' abilitati vengono comunque mostrati a fini di rendicontazione. <br>
+   <hr>
+   Ad attivita' che prevedono rendicontazioni ad-hoc sono applicate regole per il loro conteggio: <br>
+   <div style="padding-left: 15px">
+   - Sorveglianze B5: Sono conteggiati tutti i controlli in sorveglianza chiusi; <br>
+   - Supervisioni A3_C: Supervisioni documentali sia aperte che chiuse;<br>
+   - Supervisioni A3_D: Supervisioni mediante simulazione, sia aperte che chiuse;<br>
+   - Audit interni A4_B: Audit interni, sia aperti che chiusi;<br>
+   - Audit A1, anno 2019: Controlli Ufficiali con Tecnica di controllo Audit eseguiti su stabilimenti la cui norma e' 'REG CE 853-04'.
+   Il conteggio delle varie sottoattivita' e' stabilito in base al codice di aggregazione della linea sottoposta a controllo: <br>
+   <div style="padding-left: 15px">   MS.B00   &gt;      att a1_a <br>
+      MS.B10  &gt;      att a1_b <br>
+      MS.B20   &gt;      att a1_c <br>
+      MS.B30     &gt;    att a1_d <br>
+      MS.B40     &gt;    att a1_e <br>
+      MS.B50     &gt;    att a1_f <br>
+      MS.B60      &gt;   att a1_g<br>
+      MS.B70      &gt;   att a1_h<br>
+      MS.B80     &gt;    att a1_i<br>
+      MS.B90      &gt;   att a1_j<br>
+      MS.BA0     &gt;    att a1_k<br>
+      MS.BB0     &gt;    att a1_l<br>
+      MS.BC0      &gt;   att a1_m<br>
+      MS.BD0      &gt;   att a1_n<br>
+      MS.BE0     &gt;    att a1_o<br>
+      MS.BF0     &gt;    att a1_p;<br>
+   </div>
+   - Audit A1, dall'anno 2020: la sottoattivita' dipende dal motivo ispezione;
+   <br>
+   <br>
+   </div>
+   Si precisa che gli Audit interni, Sorveglianze e Supervizioni a livello ASL sono conteggiati per CU distinti.
+   <hr>
+   Le programmazioni sono ricavate dal sistema Matrix.
+   Il calcolo degli UPS e UBA avviene moltiplicando il numero di CU/Campioni per i fattori UPS/UBA settati nella configurazione del sistema Matrix.
+</div>
+</body></html>

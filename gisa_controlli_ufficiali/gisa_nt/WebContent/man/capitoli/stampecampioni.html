@@ -1,0 +1,84 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="stampeneicampioni"></a>
+<h3 id="stampeneicampioni">Stampe nei campioni</h3>
+
+Nel dettaglio di un campione sono gestiti i modelli di campionamento:
+<ul>
+<li>Mod. 1 Molluschi per campione di molluschi (presente sempre ed esclusivamente su campioni inseriti all'interno del cavaliere "Molluschi Bivalvi")</li>
+<li>Mod. 2 per campione su analiti: Analisi Genetica, Batteriologico, Virologico, Micologico</li>
+<li>Mod. 3 per campione su analiti: Altro, Chimico, Biotossicologico</li>
+<li>Mod. Fisico per campione su analiti: Fisico, Parassitologico</li>
+<li>Mod. PNAA per campioni su motivazione A12</li>
+<li>Mod. 14 Trichinella per campioni su motivazione B43_C. Il modello 14 e' esclusivo con i modelli 2, 3 e Fisico ed ha la priorita'.</li>
+</ul>
+
+Sara' possibile stampare direttamente il modello, che conterra':
+
+<ul>
+<li>Una serie di informazioni (recuperate dal sistema) relative ai dati anagrafici dell'OSA controllato</li>
+<li>Una serie di informazioni (recuperate dal sistema) relative ai dati del Controllo Ufficiale</li>
+<li>Una serie di informazioni (recuperate dal sistema) relative ai dati del Campione</li>
+<li>Una serie di informazioni specifiche modificabili manualmente dall'utente tramite il bottone "Modifica Dati"</li>
+<li>I barcode necessari alla condivisione con SIGLA</li>
+</ul>
+
+</ul>
+<p></p>
+<ul>
+<ul>Di seguito un esempio della creazione del Modello 1</ul>
+</ul>
+<p><img src="./images/pag_mod1.png" width="1050" /></p>
+<ul>
+<ul>Cliccando su STAMPA MOD.1 MOLLUSCHI il sistema produrra' il vero e proprio verbale come da esempio seguente.</ul>
+</ul>
+<p><img src="./images/modello1-1.png" width="1050" /><br clear="LEFT" /><img src="./images/modello1-2.png" width="1050" /><br clear="LEFT" /><br /></p>
+<ul>
+<ul>Di seguito un esempio della creazione del Modello 2</ul>
+</ul>
+<p><img src="./images/pag_mod2.png" width="1050" /></p>
+<ul>
+<ul>Cliccando su STAMPA MOD.2 il sistema produrra' il vero e proprio verbale come da esempio seguente.</ul>
+</ul>
+<p><img src="./images/modello2-1.png" width="1050" /><br clear="LEFT" /><img src="./images/modello2-2.png" width="1050" /><br clear="LEFT" /><br /></p>
+<ul>
+<ul>Di seguito un esempio della creazione del Modello 3</ul>
+</ul>
+<p><img src="./images/pag_mod3.png" width="1050" /></p>
+<ul>
+<ul>Cliccando su STAMPA MOD.3 il sistema produrra' il vero e proprio verbale come da esempio seguente.</ul>
+</ul>
+<p><img src="./images/modello3-1.png" width="1050" /><br clear="LEFT" /><img src="./images/modello3-2.png" width="1050" /><br clear="LEFT" /><br /></p>
+<ul>
+<ul>Di seguito un esempio della creazione del Modello PNAA</ul>
+</ul>
+<p><img src="./images/pag_modPNAA.PNG" width="1050" /></p>
+<ul>
+<ul>Cliccando su "Genera e stampa PDF" (disponibile a campione chiuso) il sistema consentira' di produrre un PDF.</ul>
+</ul>
+<p><img src="./images/modelloPNAA-1.PNG" width="1050" /><br clear="LEFT" /><img src="./images/modelloPNAA-2.PNG" width="1050" /><br clear="LEFT" /><br /></p>
+<ul>
+<ul>In particolare il modello conterra':
+<ul>
+<li>il barcode del numero del verbale, progressivo generato automaticamente dal sistema, e che si trova in alto a destra;</li>
+<li>il barcode del numero di registrazione dell'OSA, in basso,in corrispondenza della colonna "Codice OSA";</li>
+<li>il barcode del quesito diagnostico, ovvero della motivazione selezionata nell'ambito del campione, posizionato sempre in basso ed in corrispondenza della colonna "Codice Quesito diagnostico";</li>
+<li>il barcode della matrice selezionata nel campione. In realta', il numero dei barcode puvariare da 1 a 3 a seconda dei livelli della matrice.</li>
+</ul>
+</ul>
+</ul>
+<p></p>
+<ul>
+<ul>La descrizione dei barcode, fatta eccezione per il numero di registrazione e il progressivo del verbale, ricercabile nel modello HTML:
+<ul>
+<li>la motivazione si trova nella sezione in alto a sinistra "Campione effettuato per:"</li>
+<li>la matrice si trova in corrispondenza del rigo "al prelievo di un campione di"</li>
+</ul>
+</ul>
+</ul>

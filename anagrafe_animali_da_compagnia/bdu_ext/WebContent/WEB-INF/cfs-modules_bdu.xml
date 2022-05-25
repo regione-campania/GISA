@@ -1,0 +1,731 @@
+<application>
+
+	<!-- Not used yet -->
+	<config>
+		<mainmenu>
+			<layout>horizontal</layout>
+			<long_css on="" off="" />
+			<short_css on="" off="" />
+		</mainmenu>
+		<submenu>
+			<layout>horizontal</layout>
+			<long_css on="rs" off="r" />
+			<short_css on="rs" off="r" />
+		</submenu>
+	</config>
+
+	<!-- Modules that appear in main menu, in order -->
+	<menu>
+		<action name="MyCFS" />
+		<action name="MyCFSProfile" />
+		<action name="MyCFSPassword" />
+		<action name="MyCFSWebdav" />
+		<action name="MyCFSSettings" />
+		<action name="MyCFSInbox" />
+		<action name="MyTasks" />
+		<action name="MyTasksForward" />
+		<action name="MyActionLists" />
+		<action name="MyActionContacts" />
+		<action name="MyActionPlans" />
+		<action name="Reassignments" />
+		 <action name="MessaggioHomePage"/>
+		 <action name="PostIt"/>
+		<action name="Login" />
+		<page title="My Home Page" />
+		<permission value="myhomepage-view" />
+		<long_html value="My Home Page" />
+		<short_html value="My&lt;br&gt;Home Page" />
+		<link value="MyCFS.do?command=Home" />
+		<graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif"
+			rollover="" />
+
+		<submenu name="Home">
+			<permission value="myhomepage-view" />
+			<long_html value="Welcome" />
+			<short_html value="Welcome" />
+			<link value="MyCFS.do?command=Home" />
+		</submenu>
+
+		<submenu name="MyInbox">
+			<permission value="myhomepage-inbox-view" />
+			<long_html value="Mailbox" />
+			<short_html value="Mailbox" />
+			<link value="MyCFSInbox.do?command=Inbox&amp;return=1" />
+		</submenu>
+
+
+ 	<submenu name="Messaggio Home Page">
+      <permission value="hot-configuration-view"/>
+      <long_html value="Messaggio Home Page"/>
+      <short_html value="Messaggio Home Page"/>
+      <link value="MessaggioHomePage.do?command=Dashboard"/>
+    </submenu>
+    
+    <submenu name="Post-it">
+      <permission value="postit-view"/>
+      <long_html value="Post-it"/>
+      <short_html value="Post-it"/>
+      <link value="PostIt.do?command=Dashboard"/>
+    </submenu>
+    
+    <!-- Oscuro il link perchè quello corretto è il link 'Cessioni incompiute' che sta come cavaliere e non come sottomenu-->
+     	<!-- submenu name="Cessioni incompiute">
+      <permission value="myhomepage_cessioni_incompiute-view"/>
+      <long_html value="Cessioni incompiute"/>
+      <short_html value="Cessioni incompiute"/>
+      <link value="MyCFS.do?command=GetCessioniIncompiute"/>
+    </submenu -->
+    
+    
+		<!-- submenu name="My Tasks">
+			<permission value="myhomepage-tasks-view" />
+			<long_html value="Tasks" />
+			<short_html value="Tasks" />
+			<link value="MyTasks.do" />
+		</submenu-->
+
+		<!--
+			<submenu name="My Action Lists"> <permission
+			value="myhomepage-action-lists-view"/> <long_html value="Action
+			Lists"/> <short_html value="Action Lists"/> <link
+			value="MyActionLists.do?command=List&amp;linkModuleId=2"/> </submenu>
+		-->
+		<!-- submenu name="My Action Plans">
+			<permission value="myhomepage-action-plans-view" />
+			<long_html value="Action Plans" />
+			<short_html value="Action Plans" />
+			<link value="MyActionPlans.do?command=View" />
+		</submenu-->
+
+		<!-- submenu name="Reassign">
+			<permission value="myhomepage-reassign-view" />
+			<long_html value="Re-assignments" />
+			<short_html value="Re-assignments" />
+			<link value="Reassignments.do?command=Reassign" />
+		</submenu-->
+
+		<!-- submenu name="Customize Headlines">
+			<permission value="myhomepage-miner-view" />
+			<long_html value="Headlines" />
+			<short_html value="Headlines" />
+			<link value="MyCFS.do?command=Headline" />
+		</submenu-->
+
+		<!-- submenu name="MyProfile">
+			<permission value="myhomepage-profile-view" />
+			<long_html value="Settings" />
+			<short_html value="Settings" />
+			<link value="MyCFS.do?command=MyProfile" />
+		</submenu-->
+
+		<submenu name="Cambio Utente">
+			<permission value="myhomepage-cambio_utente-view" />
+			<long_html value="Cambio Utente" />
+			<short_html value="Cambio Utente" />
+			<link value="MyCFS.do?command=CambioUtente" />
+		</submenu>
+		
+		<submenu name="Lista LLPP">
+			<permission value="myhomepage_lista_llpp-view" />
+			<long_html value="Lista LLPP" />
+			<short_html value="Lista LLPP" />
+			<link value="MyCFS.do?command=ListaVeterinariPrivati" />
+		</submenu>
+		
+		<submenu name="Ricerca Proprietario">
+			<permission value="myhomepage_ricerca_proprietario_lp-view" />
+			<long_html value="Ricerca Proprietario" />
+			<short_html value="Ricerca Proprietario" />
+			<link value="MyCFS.do?command=ToRicercaProprietarioLP" />
+		</submenu>
+		
+		<!-- submenu name="Server Documentale">
+			<permission value="server_documentale-view" />
+			<long_html value="Server Documentale" />
+			<short_html value="Server Documentale" />
+			<link value="GestioneDocumenti.do?command=ServerDocumentaleHome" />
+		</submenu-->
+		
+		<submenu name="Gestione associazioni">
+			<permission value="associazioni-view" />
+			<long_html value="Gestione Associazioni" />
+			<short_html value="Gestione Associazioni" />
+			<link value="MyCFS.do?command=ListaAssociazioni" />
+		</submenu>
+		<submenu name="Estrazione animali anagrafati senza origine">
+			<permission value="estrazione_animali_anagrafati_senza_origine-view" />
+			<long_html value="Estrazione animali anagrafati senza origine" />
+			<short_html value="Estrazione animali anagrafati senza origine" />
+			<link value="MyCFS.do?command=EstrazioneAnimaliAnagrafatiSenzaOrigine" />
+		</submenu>
+	</menu>
+
+
+	<menu>
+		<action name="AnimaleAction" />
+		
+		<action name="GestioneDocumenti" />
+		<action name="GestioneAllegatiUpload" />
+				
+		<page title="Anagrafe animali" />
+		<permission value="anagrafe_canina-anagrafe_canina-view" />
+		<long_html value="Anagrafe animali" />
+		<short_html value="Anagrafe animali" />
+		<link value="AnimaleAction.do" />
+		<graphic width="83" height="36" on="menu-website-on.gif" off="menu-website-off.gif"
+			rollover="" />
+
+
+
+		<submenu name="Aggiungi animale">
+
+			<permission value="anagrafe_canina-add" />
+			<long_html value="Aggiungi Animale" />
+			<short_html value="Aggiungi Animale" />
+			<link value="AnimaleAction.do?command=Add" />
+
+		</submenu>
+
+		<submenu name="Ricerca animale">
+
+			<permission value="anagrafe_canina-view" />
+			<long_html value="Ricerca Animale" />
+			<short_html value="Ricerca Animale" />
+			<link value="AnimaleAction.do?command=SearchForm" />
+
+		</submenu>
+		
+		<submenu name="Gestisci Decessi">
+			<permission value="anagrafe_canina_registrazioni-add" />
+			<long_html value="Gestisci Decessi" />
+			<short_html value="Gestisci Decessi" />
+			<link value="AnimaleAction.do?command=GestisciDecessi" />
+
+		</submenu>
+
+		<submenu name="Pregresso">
+			<permission value="cani-regresso-view" />
+			<long_html value="Pregresso" />
+			<short_html value="Pregresso" />
+			<link value="AnimaleAction.do?command=Regresso" />
+		</submenu>
+		
+		<submenu name="Estrazione mensile cani in canile">
+			<permission value="estrazioneMensile-view" />
+			<long_html value="Estrazione mensile cani in canile" />
+			<short_html value="Estrazione mensile cani in canile" />
+			<link value="AnimaleAction.do?command=EstrazionePeriodicaCaniInCanile" />
+		</submenu>
+		
+		<submenu name="Verifica presenza microchip">
+			<permission value="verifica_presenza_microchip-view" />
+			<long_html value="Verifica presenza microchip" />
+			<short_html value="Verifica presenza microchip" />
+			<link value="AnimaleAction.do?command=LoadFileVerificaEsistenzaMicrochip" />
+		</submenu>
+		
+		<submenu name="Recupera esiti esami leishmaniosi">
+			<permission value="anagrafe_canina_registrazioni-view" />
+			<long_html value="Recupera esiti esami leishmaniosi" />
+			<short_html value="Recupera esiti esami leishmaniosi" />
+			<link value="AnimaleAction.do?command=SearchFormEisitLeish" />
+		</submenu>
+		<submenu name="REGISTRO UNICO CANI A RISCHIO ELEVATO DI AGGRESSIVITA'">
+			<permission value="registro_unico_aggressori-view" />
+			<long_html value="REGISTRO UNICO CANI A RISCHIO ELEVATO DI AGGRESSIVITA'" />
+			<short_html value="REGISTRO UNICO CANI A RISCHIO ELEVATO DI AGGRESSIVITA'" />
+			<link value="AnimaleAction.do?command=RegistroUnico" />
+
+		</submenu>
+		
+		<submenu name="Gestione file per commissione per i diritti degli animali d'affezione">
+			<permission value="file_commissione_diritti_animali-view" />
+			<long_html value="Gestione file per commissione per i diritti degli animali d'affezione" />
+			<short_html value="Gestione file per commissione per i diritti degli animali d'affezione" />
+			<link value="GestioneAllegatiUpload.do?command=ListaFileCommissione" />
+		</submenu>
+	</menu>
+
+	<menu>
+		<action name="RegistrazioniAnimale" />
+		<page title="Registrazioni" />
+		<permission value="anagrafe_canina_registrazioni-view" />
+		<long_html value="Registrazioni" />
+		<short_html value="Registrazioni" />
+		<link value="RegistrazioniAnimale.do" />
+		<graphic width="83" height="36" on="menu-website-on.gif" off="menu-website-off.gif"
+			rollover="" />
+			
+			<submenu name="Ricerca registrazioni">
+				<permission value="anagrafe_canina_registrazioni-view" />
+			<long_html value="Ricerca registrazioni" />
+			<short_html value="Ricerca registrazioni" />
+			<link value="RegistrazioniAnimale.do" />
+
+		</submenu>
+
+	</menu>
+<!--  DA ELIMINARE, INCLUSO IN MODULO PROFILASSI RABBIA
+<menu>
+<action name="RegistrazioniAnimale" />
+<page title="Modello trasmissione vaccinazioni antirabbiche" />
+<permission value="modello_12_registrazioni-view" />
+			<long_html value="Modello trasmissione vaccinazioni antirabbiche" />
+			<short_html value="Modello trasmissione vaccinazioni antirabbiche" />
+			<link value="RegistrazioniAnimale.do?command=SearchForm12" />
+			<graphic width="83" height="36" on="menu-website-on.gif" off="menu-website-off.gif"	
+			rollover="" />
+		</menu>
+		 -->
+
+	<!-- Anagrafica -->
+
+	<menu>
+
+		<action name="StabilimentoAction" />
+		<action name="LineaProduttivaAction" />
+		<action name="OperatoreAction" />
+		<action name="OperatoreAction" />
+		<action name="Soggetto" />
+		<action name="Sede" />
+		<action name="OperatoreIter" />
+		<page title="Anagrafica" />
+		<permission value="proprietari_detentori_modulo-view" />
+		<long_html value="Proprietari/Detentori" />
+		<short_html value="Proprietari/Detentori" />
+		<link value="OperatoreAction.do?command=SearchForm" />
+		<graphic width="83" height="36" on="menu-myhome-on.gif" off="menu-myhome-off.gif"
+			rollover="" />
+		<submenu name="Aggiungi">
+			<permission value="proprietari_detentori_modulo-add" />
+			<long_html value="Aggiungi" />
+			<short_html value="Aggiungi" />
+			<link value="OperatoreAction.do?command=Add" />
+		</submenu>
+		<submenu name="Ricerca">
+			<permission value="proprietari_detentori_modulo-view" />
+			<long_html value="Ricerca" />
+			<short_html value="Ricerca" />
+			<link value="OperatoreAction.do?command=SearchForm" />
+		</submenu>
+		<submenu name="Registrazioni modifica residenza in ingresso">
+			<permission value="proprietari_detentori_modulo-add" />
+			<long_html value="Registrazioni modifica residenza in ingresso" />
+			<short_html value="Registrazioni modifica residenza in ingresso" />
+			<link value="OperatoreAction.do?command=ListaModificheIndirizzoIngressoAsl" />
+		</submenu>
+	   <submenu name="Unificazione proprietari">
+			<permission value="anagrafe_canina_operazioni_hd-add" />
+			<long_html value="Unificazione proprietari" />
+			<short_html value="Unificazione proprietari" />
+			<link value="OperatoreAction.do?command=UnificazioneProprietari" />
+		</submenu>
+	</menu>
+	<!-- Fine anagrafica -->
+
+
+	<menu>
+
+		<action name="Microchip" />
+		<action name="MicrochipImports" />
+
+		<page title="Microchip" />
+		<permission value="microchip-view" />
+		<long_html value="Microchip" />
+		<short_html value="Microchip" />
+		<link value="Microchip.do" />
+		<graphic width="83" height="36" on="menu-reports-on.gif" off="menu-reports-off.gif"
+			rollover="" />
+
+		<submenu name="Microchip.search">
+			<permission value="microchip-view" />
+			<long_html value="Search" />
+			<short_html value="Search" />
+			<link value="Microchip.do?command=Search" />
+		</submenu>
+
+		<submenu name="Microchip.import">
+			<permission value="microchip-edit" />
+			<long_html value="Import" />
+			<short_html value="Import" />
+			<link value="MicrochipImports.do?" />
+		</submenu>
+
+		<submenu name="Scarico MC">
+			<permission value="microchip-delete" />
+			<long_html value="Scarico MC" />
+			<short_html value="Scarico MC" />
+			<link value="Microchip.do?command=Scarico" />
+		</submenu>
+
+		<submenu name="Carico MC">
+			<permission value="microchip-edit" />
+			<long_html value="Carico MC" />
+			<short_html value="Carico MC" />
+			<link value="Microchip.do?command=Carico" />
+		</submenu>
+		
+		<submenu name="Elimina MC">
+			<permission value="elimina-view" />
+			<long_html value="Elimina MC" />
+			<short_html value="Elimina MC" />
+			<link value="Microchip.do?command=Elimina" />
+		</submenu>
+		
+
+	</menu>
+
+
+
+	<!-- Integrazione pratica contributi -->
+	<!-- Modulo per la crezione delle pratiche dei contributi -->
+	<menu>
+		<action name="PraticaContributi" />
+		<page title="Pratica Contributi" />
+		<permission value="pratica-contributi-view" />
+		<long_html value="Pratica Contributi" />
+		<short_html value="Pratica Contributi" />
+		<link value="PraticaContributi.do?command=Dashboard" />
+		<graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif"
+			rollover="" />
+
+		<submenu name="Search">
+			<permission value="pratica-contributi-view" />
+			<long_html value="Ricerca Pratiche Contributi" />
+			<short_html value="Ricerca Pratiche Contributi" />
+			<link value="PraticaContributi.do?command=SearchForm" />
+		</submenu>
+		
+		<!-- Flusso 251  -->
+		<!-- submenu name="Search">
+			<permission value="pratica-contributi-view" />
+			<long_html value="Pratiche LP" />
+			<short_html value="Pratiche LP" />
+			<link value="PraticaContributi.do?command=SearchForm&amp;lp=true" />
+		</submenu -->
+		
+		<!-- Flusso 251: disabilitazione flusso. Mettere idTipologiaPratica=1-->
+		<submenu name="Aggiungi pratica contributi comuni">
+			<permission value="pratica-contributi-add" />
+			<long_html value="Aggiungi pratica contributi comuni" />
+			<short_html value="Aggiungi pratica contributi comuni" />
+			<link value="PraticaContributi.do?command=Add&amp;idTipologiaPratica=3" />
+		</submenu>
+
+		<submenu name="Aggiungi pratica contributi canili">
+			<permission value="pratica-contributi-add" />
+			<long_html value="Aggiungi pratica contributi canili" />
+			<short_html value="Aggiungi pratica contributi canili" />
+			<link value="PraticaContributi.do?command=Add&amp;idTipologiaPratica=2" />
+		</submenu>
+        
+       <!-- Flusso 251 --> 	
+		<!-- submenu name="Aggiungi pratica contributi LP">
+			<permission value="pratica-contributi-add" />
+			<long_html value="Aggiungi pratica contributi lp" />
+			<short_html value="Aggiungi pratica contributi lp" />
+			<link value="PraticaContributi.do?command=Add&amp;idTipologiaPratica=3" />
+		</submenu -->
+
+	</menu>
+
+
+	<!-- Modulo Contributi -->
+	<menu>
+		<action name="ContributiSterilizzazioni" />
+		<page title="ContributiSterilizzazioni" />
+		<permission value="contributi-view" />
+		<long_html value="Contributi Sterilizzazioni" />
+		<short_html value="Contributi Sterilizzazioni" />
+		<link value="ContributiSterilizzazioni.do" />
+		<graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif"
+			rollover="" />
+
+		<submenu name="Richiesta">
+			<permission value="richiesta-contributi-view" />
+			<long_html value="Richiesta Contributi" />
+			<short_html value="Richiesta Contributi" />
+			<link value="ContributiSterilizzazioni.do?command=AddRichiesta" />
+		</submenu>
+		<submenu name="Contributi da elaborare">
+			<permission value="approvazione-contributi-view" />
+			<long_html value="Contributi da elaborare" />
+			<short_html value="Contributi da elaborare" />
+			<link
+				value="ContributiSterilizzazioni.do?command=ViewRichiesteCatturati_Padronali" />
+		</submenu>
+		<submenu name="Contributi Elaborati">
+			<permission value="report-contributi-view" />
+			<long_html value="Contributi elaborati" />
+			<short_html value="Contributi elaborati" />
+			<link
+				value="ContributiSterilizzazioni.do?command=ViewContributi&amp;approvati=yes" />
+		</submenu>
+		<submenu name="Contributi Respinti">
+			<permission value="report-contributi-view" />
+			<long_html value="Contributi respinti" />
+			<short_html value="Contributi respinti" />
+			<link
+				value="ContributiSterilizzazioni.do?command=ViewContributi&amp;approvati=no" />
+		</submenu>
+		<submenu name="Elenco MC Contributi Approvati">
+			<permission value="report-contributi-view" />
+			<long_html value="Elenco MC Contributi Approvati" />
+			<short_html value="Elenco MC Contributi Approvati" />
+			<link value="ContributiSterilizzazioni.do?command=stampa_approvati" />
+		</submenu>
+
+	</menu>
+	<!-- Fine modulo contributi -->
+
+	<!-- Modulo partite commerciali -->
+	<menu>
+		<action name="PartiteCommerciali" />
+		<page title="PartiteCommerciali" />
+		<permission value="partite-commerciali-view" />
+		<long_html value="Partite commerciali" />
+		<short_html value="Partite commerciali" />
+		<link value="PartiteCommerciali.do?command=AggiungiPartita" />
+		<graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif"
+			rollover="" />
+
+		<submenu name="Nuova Partita commerciale">
+			<permission value="partite-commerciali-view" />
+			<long_html value="Nuova partita commerciale" />
+			<short_html value="Nuova partita commerciale" />
+			<link value="PartiteCommerciali.do?command=AggiungiPartita" />
+		</submenu>
+		<submenu name="Visualizza partite commerciali">
+			<permission value="partite-commerciali-view" />
+			<long_html value="Visualizza partite commerciali" />
+			<short_html value="Visualizza partite commerciali" />
+			<link value="PartiteCommerciali.do?command=ListaPartite" />
+		</submenu>
+
+		<submenu name="Richieste Importatori">
+			<permission value="partite-commerciali-view" />
+			<long_html value="Richieste Importatori" />
+			<short_html value="Richieste Importatori" />
+			<link value="PartiteCommerciali.do?command=ListaPartiteImportatori" />
+		</submenu>
+
+	</menu>
+	<!-- Fine modulo partite commerciali -->
+
+	<!-- Modulo MC Non Standard -->
+	<menu>
+		<action name="McNonStandard" />
+		<action name="McNonStandardList" />
+		<page title="McNonStandard" />
+		<permission value="mcNonStandard-view" />
+		<long_html value="McNonStandard" />
+		<short_html value="McNonStandard" />
+		<link value="McNonStandard.do" />
+		<graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif"
+			rollover="" />
+	</menu>
+
+
+	<!-- Barcode cani in canile per invio leishmaniosi -->
+	<menu>
+		<action name="BarcodeCanili" />
+		<page title="BarcodeCaniinCanile" />
+		<permission value="barcode-canili-view" />
+		<long_html value="Barcode Cani in Canile" />
+		<short_html value="Barcode Cani in Canile" />
+		<link value="BarcodeCanili.do?command=Default" />
+		<graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif"
+			rollover="" />
+
+	</menu>
+
+	<menu>
+		<action name="ElencoCaniInCanile" />
+		<page title="Elenco Cani in Canile" />
+		<permission value="lista-cani-canili-view" />
+		<long_html value="Elenco Cani in Canile" />
+		<short_html value="Elenco Cani in Canile" />
+		<link value="ElencoCaniInCanile.do?command=Dashboard" />
+		<graphic width="83" height="36" on="menu-accounts-on.gif" off="menu-accounts-off.gif"
+			rollover="" />
+
+	</menu>
+
+
+<!-- Modulo gestione presa cessioni automatica -->
+	<menu>
+		<action name="RegistrazioniAnimaleCessioni" />
+		<page title="Cessioni Incompiute" />
+		<permission value="anagrafe_canina_registrazioni-view" />
+		<long_html value="Cessioni incompiute" />
+		<short_html value="Cessioni incompiute" />
+		<link
+			value="RegistrazioniAnimaleCessioni.do?command=Search&amp;searchcodeidTipologiaEvento=7&amp;searchexacttype=in&amp;searchexactstato=opened" />
+		<graphic width="83" height="36" on="menu-reports-on.gif" off="menu-reports-off.gif"
+			rollover="" />
+
+<submenu name="Cessioni in ingresso">
+			<permission value="anagrafe_canina_registrazioni-view" />
+			<long_html value="Cessioni in ingresso" />
+			<short_html value="Cessioni in ingresso" />
+			<link value="RegistrazioniAnimaleCessioni.do?command=Search&amp;searchcodeidTipologiaEvento=7&amp;searchexacttype=in&amp;stato=opened" />
+		</submenu>
+		
+		<submenu name="Cessioni in uscita">
+			<permission value="anagrafe_canina_registrazioni-view" />
+			<long_html value="Cessioni in uscita" />
+			<short_html value="Cessioni in uscita" />
+			<link value="RegistrazioniAnimaleCessioni.do?command=Search&amp;searchcodeidTipologiaEvento=7&amp;searchexacttype=out&amp;stato=opened" />
+		</submenu>
+		
+		
+	</menu>
+	
+	<!-- Barcode -->
+		<menu>
+		<action name="GeneraBarCode" />
+		<page title="Stampa Barcode" />
+		<permission value="anagrafe_canina-add" />
+		<long_html value="Stampa Barcode" />
+		<short_html value="Stampa Barcode" />
+		<link value="GeneraBarCode.do" />
+		<graphic width="83" height="36" on="menu-website-on.gif" off="menu-website-off.gif"
+			rollover="" />
+	</menu>
+<!-- Profilassi rabbia -->
+	<menu>
+		<action name="ProfilassiRabbia" />
+		<page title="Profilassi rabbia" />
+		<permission value="profilassi_rabbia_modulo-view" />
+		<long_html value="Profilassi rabbia" />
+		<short_html value="Profilassi rabbia" />
+		<link value="ProfilassiRabbia.do" />
+		<graphic width="83" height="36" on="menu-website-on.gif" off="menu-website-off.gif"
+			rollover="" />
+			
+		<submenu name="Vaccinazione antirabbica">
+			<permission value="vaccinazione_anti_rabbia_inserimento-view" />
+			<long_html value="Vaccinazione antirabbica" />
+			<short_html value="Vaccinazione antirabbica" />
+			<link value="ProfilassiRabbia.do?command=Add" />
+		</submenu>
+		<submenu name="Generazione modulo Titolazione Anticorpi Rabbia">
+			<permission value="vaccinazione_anti_rabbia_titolazione_anticorpi-view" />
+			<long_html value="Generazione modulo Titolazione Anticorpi Rabbia" />
+			<short_html value="Generazione modulo Titolazione Anticorpi Rabbia" />
+			<link value="ProfilassiRabbia.do?command=PrepareGeneraTitolazioneAnticorpiRabbia" />
+		</submenu>		
+		<submenu name="Modello trasmissione vaccinazioni antirabbica">
+			<permission value="modello_12_registrazioni-view" />
+			<long_html value="Modello trasmissione vaccinazioni antirabbica" />
+			<short_html value="Modello trasmissione vaccinazioni antirabbica" />
+			<link value="ProfilassiRabbia.do?command=SearchForm12" />
+		</submenu>
+	</menu>
+	
+	
+	<!-- Profilassi leishmania -->
+	<menu>
+		<action name="ProfilassiLeishmania" />
+		<page title="Profilassi Leishmania" />
+		<permission value="profilassi_leishmania_modulo-view" />
+		<long_html value="Profilassi leishmania" />
+		<short_html value="Profilassi leishmania" />
+		<link value="ProfilassiLeishmania.do?command=Add" />
+		<graphic width="83" height="36" on="menu-website-on.gif" off="menu-website-off.gif"
+			rollover="" />
+			
+		<submenu name="Aggiungi registrazione prelievo campioni leishmania">
+			<permission value="registrazione_prelievo_campioni_leish_inserimento-view" />
+			<long_html value="Aggiungi registrazione prelievo campioni leishmania" />
+			<short_html value="Aggiungi registrazione prelievo campioni leishmania" />
+			<link value="ProfilassiLeishmania.do?command=Add" />
+		</submenu>
+		<submenu name="Recupera esiti esami leishmaniosi">
+			<permission value="visualizzazione_esiti_leishmania-view" />
+			<long_html value="Recupera esiti esami leishmaniosi" />
+			<short_html value="Recupera esiti esami leishmaniosi" />
+			<link value="ProfilassiLeishmania.do?command=SearchFormEisitLeish" />
+		</submenu>		
+	</menu>
+	
+	
+	
+	<!-- Sterilizzazione LP -->
+	<menu>
+		<action name="SterilizzazioniLP" />
+		<page title="Sterilizzazione" />
+		<permission value="sterilizzazioniLP-view" />
+		<long_html value="Sterilizzazione" />
+		<short_html value="Sterilizzazione" />
+		<link value="SterilizzazioneLP.do?command=Add" />
+		<graphic width="83" height="36" on="menu-website-on.gif" off="menu-website-off.gif"
+			rollover="" />
+	</menu>
+	
+	<!-- BANCA DATI A PRIORI PASSAPORTI -->
+	
+		<menu>
+
+		<action name="Passaporto" />
+		
+
+		<page title="Banca dati Passaporti" />
+		<permission value="passaporto-view" />
+		<long_html value="Banca dati Passaporti" />
+		<short_html value="Banca dati Passaporti" />
+		<link value="Passaporto.do" />
+		<graphic width="83" height="36" on="menu-reports-on.gif" 
+		off="menu-reports-off.gif"
+			rollover="" />
+
+		<submenu name="Ricerca Passaporti">
+			<permission value="passaporto-view" />
+			<long_html value="Search" />
+			<short_html value="Search" />
+			<link value="Passaporto.do?command=Search" />
+		</submenu>
+
+		<submenu name="Carico Passaporti da file">
+			<permission value="passaporto-edit" />
+			<long_html value="Carico Passaporti da file" />
+			<short_html value="Carico Passaporti da file" />
+			<link value="PassaportoImport.do?" />
+		</submenu>
+
+		<submenu name="Scarico singolo Passaporto">
+			<permission value="passaporto-edit" />
+			<long_html value="Scarico singolo Passaporto" />
+			<short_html value="Scarico singolo Passaporto" />
+			<link value="Passaporto.do?command=Scarico" />
+		</submenu>
+
+		<submenu name="Carico singolo Passaporto">
+			<permission value="passaporto-edit" />
+			<long_html value="Carico singolo Passaporto" />
+			<short_html value="Carico singolo Passaporto" />
+			<link value="Passaporto.do?command=Carico" />
+		</submenu>
+		
+		<submenu name="Distribuzione Passaporti">
+			<permission value="distribuzione_passaporti-view" />
+			<long_html value="Distribuzione Passaporti" />
+			<short_html value="Distribuzione Passaporti" />
+			<link value="Passaporto.do?command=ListUOS" />
+		</submenu>
+
+	</menu>
+	
+	<menu>
+		<action name="LogOperazioni" />
+		<page title="Log Operazioni" />
+		<permission value="log_operazioni-view" />
+		<long_html value="Log Operazioni" />
+		<short_html value="Log Operazioni" />
+		<link value="LogOperazioni.do?command=Home" />
+		<graphic width="83" height="36" on="menu-website-on.gif" off="menu-website-off.gif"
+			rollover="" />
+	</menu>
+	
+</application>
+  

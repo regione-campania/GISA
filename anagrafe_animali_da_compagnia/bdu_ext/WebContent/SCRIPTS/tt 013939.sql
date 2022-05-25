@@ -1,0 +1,1 @@
+﻿insert into registrazioni_wk(id_Stato,id_registrazione,id_prossimo_Stato,only_hd) values(19,31,19,false);

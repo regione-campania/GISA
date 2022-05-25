@@ -1,0 +1,205 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+  <allow>
+  
+  <create creator="new" javascript="ControlliUfficiali">
+      <param name="class" value="org.aspcfs.utils.ControlliUfficiali"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+   <create creator="new" javascript="ConvergenzaImprese">
+      <param name="class" value="org.aspcfs.utils.ConvergenzaImprese"/>
+      
+   </create>
+   
+   <create creator="new" javascript="DwrNonConformita">
+      <param name="class" value="org.aspcfs.utils.DwrNonConformita"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+    <create creator="new" javascript="DwrCustomSatisfaction">
+      <param name="class" value="org.aspcfs.utils.DwrCustomSatisfaction"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+  
+  
+   <create creator="new" javascript="PopolaCombo">
+      <param name="class" value="org.aspcfs.utils.PopolaCombo"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+    <create creator="new" javascript="Dpat">
+      <param name="class" value="org.aspcfs.utils.Dpat"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+   <create creator="new" javascript="DWRnoscia">
+      <param name="class" value="org.aspcfs.utils.DWRnoscia"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+    <create creator="new" javascript="DwrRole">
+      <param name="class" value="org.aspcfs.utils.DwrRole"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+   <create creator="new" javascript="ServiziRestJson">
+      <param name="class" value="org.aspcfs.utils.ServiziRestJson"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+        
+     <create creator="new" javascript="NucleoIspettivo">
+      <param name="class" value="org.aspcfs.utils.DwrNucleoIspettivo"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>      
+    </create>
+    
+     <create creator="new" javascript="ApicolturaRemote">
+      <param name="class" value="org.aspcfs.utils.DwrApicoltura"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>      
+    </create>
+    
+   <convert converter="bean" match="org.aspcfs.utils.Cane"/>
+   
+   <create creator="new" javascript="CountView">
+      <param name="class" value="org.aspcfs.utils.CountView"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+     
+  <create creator="new" javascript="SuapDwr">
+      <param name="class" value="org.aspcfs.modules.suap.utils.SuapDwr"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create> 
+    
+   <create creator="new" javascript="RetrieveBarcode">
+      <param name="class" value="org.aspcfs.utils.RetrieveBarcode"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create> 
+    
+      
+    <create creator="new" javascript="Geocodifica">
+      <param name="class" value="org.aspcfs.utils.AjaxCalls"/>
+                  <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+    </create>
+    
+    
+      <create creator="new" javascript="DwrFlussoSviluppo">
+      <param name="class" value="org.aspcfs.modules.devdoc.base.DwrFlussoSviluppo"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+   </create>
+   
+      <create creator="new" javascript="DwrTrasgressione">
+      <param name="class" value="org.aspcfs.modules.registrotrasgressori.base.DwrTrasgressione"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+   </create>
+   
+    <create creator="new" javascript="DwrSchedaCentralizzata">
+      <param name="class" value="org.aspcfs.modules.schedeCentralizzate.base.DwrSchedaCentralizzata"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+   </create>
+   
+     <create creator="new" javascript="DwrMolluschi">
+      <param name="class" value="org.aspcfs.modules.molluschibivalvi.base.DwrMolluschi"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+   </create>
+   
+     <create creator="new" javascript="DwrCapiPartita">
+      <param name="class" value="org.aspcfs.modules.mu.base.DwrCapiPartita"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+   </create>
+   
+        <create creator="new" javascript="Articolo17">
+      <param name="class" value="org.aspcfs.modules.mu.base.Articolo17"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+   </create>
+   
+    <create creator="new" javascript="DwrPreaccettazione">
+      <param name="class" value="org.aspcfs.utils.DwrPreaccettazione"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+   <create creator="new" javascript="DwrGiava">
+      <param name="class" value="org.aspcfs.utils.DwrGiava"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+    <create creator="new" javascript="DwrDocumentale">
+      <param name="class" value="org.aspcfs.utils.DwrDocumentale"/>
+            <filter class="org.aspcfs.utils.DwrSessionFilter"/>
+      
+   </create>
+   
+      <convert converter="bean" match="org.aspcfs.utils.PunteggiNonConformita"/>
+      <convert converter="bean" match="org.aspcfs.modules.contacts.base.Contact"/>
+      <convert converter="bean" match="sun.util.calendar.ZoneInfo"/>
+      <convert converter="bean" match="org.aspcfs.modules.dpat2019.base.DpatPiano"/>
+      <convert converter="bean" match="org.aspcfs.modules.dpat2019.base.DpatIndicatoreNewBean"/>
+      <convert converter="bean" match="org.aspcfs.modules.dpat2019.base.DpatPianoAttivitaNewBean"/>
+      <convert converter="bean" match="org.aspcfs.modules.dpat2019.base.DpatIndicatoreNewBeanPreCong"/>
+      <convert converter="bean" match="org.aspcfs.modules.dpat2019.base.DpatPianoAttivitaNewBeanPreCong"/> 
+      <convert converter="bean" match="org.aspcfs.modules.dpat2019.base.DpatAttivita"/>
+      <convert converter="bean" match="org.aspcfs.modules.dpat2019.base.DpatIndicatore"/>
+      <convert converter="bean" match="org.aspcfs.modules.dpat2019.base.DpatStrumentoCalcoloNominativi"/>
+      <convert converter="bean" match="org.aspcfs.modules.dpat2019.base.DpatAnagraficaNominativo"/>
+      <convert converter="bean" match="org.aspcfs.modules.oia.base.OiaNodo"/>   
+      <convert converter="bean" match="org.aspcfs.modules.dpat2019.base.oia.OiaNodo"/>  
+       <convert converter="bean" match="org.aspcfs.modules.admin.base.User"/> 
+       <converter converter="bean" match="org.json.JSONObject" />
+    <convert converter="bean" match="java.util.SimpleTimeZone"/>
+          <convert converter="bean" match="org.aspcfs.modules.admin.base.Suap"/> 
+    
+     <convert converter="bean" match="org.aspcfs.modules.suap.utils.TipoImpresaSuap"/>
+     
+      <convert converter="bean" match="org.aspcfs.modules.suap.utils.DocumentazioneAttivitaProduttive"/>
+     <convert converter="bean" match="org.aspcfs.modules.suap.utils.AttivitaProduttive"/>
+          <convert converter="bean" match="org.aspcfs.modules.suap.utils.Item"/>
+     
+         <convert converter="bean" match="org.aspcfs.modules.dpat.base.EsitoCall"/> 
+          
+     
+    <convert converter="bean" match="org.aspcfs.utils.RispostaDwrCodicePiano"/> 
+    
+      <convert converter="bean" match="org.aspcfs.modules.dpat.base.DpatAttivita"/> 
+    
+    <convert converter="bean" match="it.izs.bdn.bean.InfoAllevamentoBean"/> 
+        <convert converter="bean" match="org.aspcfs.modules.macellazioni.base.CapoAjax"/>   
+           <convert converter="bean" match="org.aspcfs.modules.macellazioninew.base.BeanAjax"/>
+                  <convert converter="bean" match="java.lang.Object[]"/>
+           
+           
+    <convert converter="bean" match="org.aspcfs.modules.macellazioni.base.Tampone"/>
+      <convert converter="bean" match="org.aspcfs.modules.opu.base.SoggettoFisico"/>
+   <convert converter="bean" match="org.aspcfs.modules.opu.base.Indirizzo"/>
+   <convert converter="bean" match="org.aspcfs.modules.opu.base.Operatore"/>
+    <convert converter="bean" match="org.aspcfs.modules.allevamenti.base.AllevamentoAjax"/>
+    <convert converter="exception" match="org.directwebremoting.extend.LoginRequiredException" >
+     <param name="include" value="message,lineNumber"/>
+    </convert>
+    
+    <convert converter="exception" match="java.lang.NumberFormatException" >
+     <param name="include" value="message,lineNumber"/>
+    </convert>
+    
+     <convert converter="bean" match="org.aspcfs.modules.mu.base.CapoUnivoco"/>
+
+     
+  </allow>
+
+</dwr>

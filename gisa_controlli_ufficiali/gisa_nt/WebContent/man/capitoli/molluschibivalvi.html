@@ -1,0 +1,169 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="molluschibivalvi"></a>
+<h3 id="molluschibivalvi">Molluschi Bivalvi</h3>
+
+Il cavaliere "molluschi bivalvi" consente di inserire nel sistema le zone di produzione di molluschi presenti nella regione campania e le aziende che hanno concessioni su di esse. <br />Una zona di produzione pu&ograve; essere di tipo : "Banco naturale", "Specchio acqueo in fase di prima classificazione", "Zone non in concessione / Impianti abusivi". <br /> Le operazioni che possono essere effettuate dall'utente sono:</p>
+<ul>
+<li>Ricerca Zona di produzione</li>
+<li>Ricerca di Concessionari</li>
+<li>Inserimento Zona di produzione</li>
+<li>Inserimento di Concessionari</li>
+</ul>
+<p>L'utente Veterinario potra' inserire nel sistema solo le zone di produzione di tipo "Specchio acqueo in fase di prima classificazione" e "Zone non in concessione / Impianti abusivi". I campi gestiti per il tipo di produzione "Specchio acqueo in fase di prima classificazione" sono i seguenti :</p>
+<ul>
+<li>Asl</li>
+<li>Tipo di Zona</li>
+<li>Specie molluschi (campo a selezione multipla)</li>
+<li>comune</li>
+<li>localita'</li>
+</ul>
+<br>
+
+<img src="./images/new_zona_produzione.PNG" /><br clear="LEFT" /><br /> 
+
+Il dettaglio di una zona di produzione contiene i pulsanti per l'utilizzo delle seguenti funzionalita':<br><br/>
+
+<strong>Gestione amministrativa</strong>
+<ul>
+<li>Gestione prima classificazione/riclassificazione</li>
+<li>Sospendi/Revoca/Attiva</li>
+<li>Modifica localit&agrave;</li>
+</ul>
+
+<strong>Gestione sanitaria</strong>
+<ul>
+<li>Gestisci provvedimenti</li>
+</ul>
+
+<strong>Concessionari</strong>
+<ul>
+<li>Gestione concessione</li>
+</ul>
+<br /><br /><img src="./images/dettaglio_zona.PNG" /><br clear="LEFT" /><br />
+
+<u>Gestione prima classificazione/riclassificazione</u><br>
+Ogni zona di produzione dovra' essere classificata dall'operatore Regione mediante il bottone "Gestione prima classificazione/Riclassificazione" presente nel dettaglio dello specchio acqueo. 
+Cliccando sul bottone si aprira' una nuova finestra in cui l'utente dovra' inserire i seguenti dati:</p>
+<ul>
+<li>Classe</li>
+<li>Numero decreto</li>
+<li>Data decreto</li>
+<li>Tipologia zona</li>
+<li>Specie molluschi</li>
+<li>CUN - (Solo in fase di prima classificazione. Una volta salvato, non sara' piu' possibile modificarlo.)</li>
+<li>Coordinate (sia del poligono, sia dei punti di prelievo)</li>
+</ul>
+
+<img src="./images/gest_classificazione.png" /><br clear="LEFT" /><br />
+<b>NOTA:</b> si ricorda che in fase di inserimento del campione le coordinate dei punti di prelievo verranno recuperate automaticamente dal sistema.
+</br>
+<u>Sospendi/revoca/attiva decreto</u><br>
+Ogni zona di produzione potrà essere sospesa/revocata cliccando sui bottoni "sospendi" o "revoca"". I campi previsti in questo caso sono:
+<ul>
+<li>Stato classificazione</li>
+<li>Data provvedimento</li>
+<li>Numero decreto</li>
+<li>Data sospensione / Data revoca (solo in caso di sospensione / revoca)</li>
+</ul>
+<br>
+<img src="./images/sosp_revoca.PNG" /><br clear="LEFT" /><br />
+
+<u>Modifica localita'</u><br>
+Cliccando sul bottone "Modifica localita'" consente di modificare la localia' della zona di produzione.
+<br>
+<img src="./images/mod_loc.png" /><br clear="LEFT" /><br />
+<br>
+
+<u>Gestisci provvedimenti</u><br>
+Cliccando sul bottone "Gestisci provvedimenti" è possibile specificare un provvedimento di sospensione/revoca per una data zona di produzione.
+I campi richiesti per completare l'operazione sono:
+<ul>
+<li>Sospensionre/Revoca</li>
+<li>Data provvedimento</li>
+</ul>
+<br>
+<img src="./images/gest_sanitaria.png" /><br clear="LEFT" /><br />
+<br>
+
+<u>Gestione concessione</u><br>
+Tramite il bottone "Gestione concessione" e' possibile aggiungere i concessionari alla zona di produzione.
+Per ogni concessionario, in corrispondenza della colonna "AZIONE" basta cliccare su AGGIUNGI. Il sistema mostrera'
+in una finestra alcuni campi da completare:
+<ul>
+<li>Numero concessione</li>
+<li>Data concessione</li>
+<li>Data scadenza</li>
+</ul>
+<br>
+<img src="./images/gest_concessione.png" /><br clear="LEFT" /><br />
+<br>
+Dal dettaglio della zona è possibile per ogni concessionario visualizzare il dettaglio dello stesso, eliminare oppure rinnovare la concessione tramite gli appositi link.
+<img src="./images/concessionario.png" /><br clear="LEFT" /><br />
+<%-- 
+I campi gestiti per il tipo di produzione "Zone non in concessione/Impianti abusivi" sono i seguenti :</p>
+<ul>
+<li>Asl</li>
+<li>tipo di mollusco (campo a selezione multipla)</li>
+<li>nome</li>
+<li>cognome</li>
+<li>note</li>
+<li>comune</li>
+<li>localita'</li>
+<li>coordinate</li>
+</ul>
+
+<p>Anche in questo caso, ogni zona di produzione pu&ograve; avere max 6 coppie di coordinate associate di cui una obbligatoria. <br /><br /><img src="./images/lista_coordinate.PNG" /><br clear="LEFT" /><br /><br /> 
+<ul>
+<li>numero concessione</li>
+<li>data concessione</li>
+<li>data scadenza concessione</li>
+</ul><br /><br /><table>
+<tr><td><img src="./images/concessionario1.PNG" /></td>
+<td><img src="./images/concessionario2.PNG" /></td></tr>
+</table><br clear="LEFT" /><br /> 
+ Mediante il link "Aggiungi Concessionario" (presente nel sottomen$ugrave; alto del modulo molluschi bivalvi). <br /> Per inserire nel sistema nuovi concessionari, bisogna compilare una scheda, in cui devono essere inseriti i seguenti dati:</p>
+<ul>
+<li>asl</li>
+<li>ragione sociale</li>
+<li>cf impresa</li>
+<li>legale rappresentante</li>
+<li>comune</li>
+<li>indirizzo</li>
+<li>cap</li>
+<li>provincia</li>
+<li>latitudine</li>
+<li>longitudine</li>
+</ul>
+<p><br /><img src="./images/aggiungi_concessionario.PNG" /><br clear="LEFT" /><br /><br /> Nella scheda di dettaglio di un concessionario, gia' presente nel sistema,&egrave; possibile visualizzare la lista di tutte le zone su cui ha una concessione. <br /><br /><img src="./images/dettaglio_concessionario.PNG" /><br clear="LEFT" /><br /> Per le zone di produzione sono gestiti:</p>
+<ul>
+<li>Documenti</li>
+--%>
+
+<h2><span style="font-size: 14pt;">Controlli Ufficiali per Molluschi Bivalvi</span></h2>
+<p>La gestione dei controlli ufficiali e' un'estensione di quella presente negli altri cavalieri. Infatti oltre ai campi normalmente gestiti ve ne sono alcuni aggiuntivi. Il controllo ufficiale puo' essere applicato alle zone di produzione (banchi naturali e zone in concessione). Tra le tecniche del controllo, oltre a quella gia' gestite (AUDIT, ispezione semplice) viene gestito il seguente elenco:</p>
+<ul>
+<li>Divieto di pesca</li>
+<li>Mancanza imbarcazione</li>
+<li>Condizioni meteo/marine avverse</li>
+<li>Prodotti di taglia non commerciale</li>
+<li>Altro con campo note</li>
+</ul>
+<p><br /> In caso di controlli di tipo "Ispezione Semplice" viene gestito un nuovo campo non obbligatorio "Verifica quantitativo prodotto raccolto" composto da:</p>
+<ul>
+<li>una lista a selezione singola contenente le voci: "I semestre" e "II semestre"</li>
+<li>un campo "quintali" di tipo numerico</li>
+</ul>
+<p></p>
+<h2><span style="font-size: 14pt;">Storia Classificazioni</span></h2>
+<p>Questa funzionalita' (accessibile dal menu' verticale 'Storia Classificazioni') mostra l'elenco dei provvedimenti a cui la zona in concessione e' sottoposta. Nella pagina sono presenti due tabelline:</p>
+<ul>
+<li>la prima contenente le informazioni relative ai decreti ovvero Numero Decreto|Data Classificazione|Data Fine Classificazione |Classe|Tipo Zona |Specie Molluschi;</li>
+<li>la seconda contenente le informazioni relative ai provvedimenti ovvero Data Inizio Provvedimento|Data Fine Provvedimento|Provvedimento.</li>
+</ul>

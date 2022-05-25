@@ -1,0 +1,23 @@
+<div class="a-multi-select">
+    <div class="form-select" #control>
+        <ul class="selected-options">
+            <div class="wrapper">
+                <li class="option" *ngFor="let opt of selectedOptions; index as i"
+                    [hidden]="i > 0">
+                    {{opt}}
+                </li>
+                <span class="more-than-one-counter" *ngIf="selectedOptions.length> 1">
+                    +{{selectedOptions.length-1}}
+                </span>
+            </div>
+        </ul>
+    </div>
+    <ul class="options-list" hidden #optionsList>
+        <li class="option" *ngFor="let opt of options">
+            <div class="wrapper input-group">
+                <input type="checkbox" [value]="opt">
+                <label class="option-label">{{opt}}</label>
+            </div>
+        </li>
+    </ul>
+</div>

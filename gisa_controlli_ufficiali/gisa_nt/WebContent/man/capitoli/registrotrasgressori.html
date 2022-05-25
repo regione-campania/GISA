@@ -1,0 +1,254 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<a name="registrotrasgressori"></a>
+<h3 id="registrotrasgressori">Registro Trasgressori</h3>
+
+E' possibile accedere tramite questo cavaliere al registro dei trasgressori di un anno in particolare, a seguito della selezione. <br /><br />
+Per semplificare la consultazione del registro, l'utente potra' innanzitutto selezionare l'anno e il trimestre di competenza.<br/>
+Dopo l'apertura sara' possibile la modifica puntuale di ogni elemento tramite il bottone "Modifica" su ogni riga (rappresentante una singola sanzione).<br/>
+I requisiti che un controllo deve rispettare affinche' figuri nel registro trasgressori sono:</p>
+<ul>
+<li>Presenza di una non conformita' grave con sanzione amministrativa o sequestro di tipo amministrativo</li>
+<li>Stato del controllo CHIUSO o RIAPERTO</li>
+<li>Data del controllo superiore al 31/03/15</li>
+</ul>
+<p><i></i>Alcuni campi vengono popolati automaticamente con i dati presenti nei controlli ufficiali, altri invece dovranno essere compilati manualmente.<br />Di seguito elencati i campi precompilati automaticamente dal controllo:</p>
+<table style="width: 624px; height: 1570px;" border="2">
+<tbody>
+<tr>
+<td>N. PROG.</td>
+<td>progressivo</td>
+</tr>
+<tr>
+<td>ID CONTROLLO</td>
+<td>Identificativo controllo ufficiale in GISA. Gli utenti appartenenti ai ruoli "Funzionari regionali addetti al Registro" vedranno l'id cliccabile per essere riportati direttamente al dettaglio del controllo.</td>
+</tr>
+<tr>
+<td>ASL DI COMPETENZA</td>
+<td>ASL del controllo ufficiale</td>
+</tr>
+<tr>
+<td>ENTE ACCERTATORE 1/2/3</td>
+<td>tipologia componente nucleo ispettivo 1/2/3(es. NAS, Servizio Veterinario, NA1C Ecc. raggruppati)</td>
+</tr>
+<tr>
+<td>P.V. N.</td>
+<td>contiene il valore del campo "numero processo verbale" presente nelle sanzioni in GISA</td>
+</tr>
+<tr>
+<td>NUM SEQUESTRO EVENTUALMENTE EFFETTUATO</td>
+<td>contiene il valore del campo "numero verbale" presente nei sequestri in GISA</td>
+</tr>
+<tr>
+<td>DATA ACCERTAMENTO</td>
+<td>contiene il valore del campo "data inizio controllo" presente nei controlli ufficiali in GISA</td>
+</tr>
+<tr>
+<td>TRASGRESSORE</td>
+<td>contiene il contenuto del campo " trasgressore" presente nelle sanzioni in GISA</td>
+</tr>
+<tr>
+<td>OBBLIGATO IN SOLIDO</td>
+<td>contiene il contenuto del campo "obbligato in solido" presente nelle sanzioni in GISA</td>
+</tr>
+<tr>
+<td>IMPORTO SANZIONE RIDOTTA</td>
+<td>contiene il contenuto del campo "importo sanzione ridotta" presente nelle sanzioni in GISA</td>
+</tr>
+<tr>
+<td>IMPORTO SANZIONE RIDOTTA DEL 30%</td>
+<td>contiene il contenuto del campo "importo sanzione ridotta del 30%" presente nelle sanzioni in GISA</td>
+</tr>
+<tr>
+<td>Allegato (Processo verbale)</td>
+<td>Possibilit&agrave; di scaricare documenti per Processo Verbale allegati alla sanzione.</td>
+</tr>
+<tr>
+<td>Allegato (Altri)</td>
+<td>Possibilit&agrave; di scaricare documenti per Altri allegati alla sanzione.</td>
+</tr>
+</tbody>
+</table>
+<p>Di seguito i campi compilabili dall'utente abilitato:</p>
+<table style="width: 624px; height: 1570px;" border="2">
+<tbody>
+<tr>
+<td>Data prot. in entrata in regione</td>
+<td></td>
+</tr>
+<tr>
+<td>Illecito di competenza UOD 01</td>
+<td>Preselezionato. Se viene deselezionato, la pratica viene chiusa ed i suoi campi sono resi non modificabili. Per rendere i campi nuovamente modificabili occorre riaprire la pratica e riselezionarlo.
+
+<br/><br/>
+Gli utenti del gruppo 1 possono selezionare/deselezionare il campo.<br/>
+<img src="images/uod_1_gruppo_1.png" /><br clear="LEFT" /><br/><br/>
+Gli utenti del gruppo 2 non possono selezionare/deselezionare il campo. Nel caso un utente del gruppo uno lo abbia deselezionato, quindi, la pratica non sara' lavorabile dal gruppo 2.<br/>
+<img src="images/uod_1_gruppo_2.png" /><br clear="LEFT" /><br/>
+
+</td>
+</tr>
+<tr>
+<td>Data ultima notifica</td>
+<td>Antecedente a Data pagamento</td>
+</tr>
+<tr>
+<td>PV oblato in misura ridotta</td>
+<td></td>
+</tr>
+<tr>
+<td>Importo effettivamente introitato</td>
+<td>Valore numerico intero.</td>
+</tr>
+<tr>
+<td>Data Pagamento</td>
+<td>Successiva a Data ultima notifica</td>
+</tr>
+<tr>
+<td>Pagamento effettuato nei termini</td>
+<td>SI se la differenza tra Data Pagamento e Data Ultima notifica e' inferiore a 62 giorni.</td>
+</tr>
+<tr>
+<td>Funzionario assegnatario</td>
+<td></td>
+</tr>
+<tr>
+<td>Presentati scritti difensivi</td>
+<td></td>
+</tr>
+<tr>
+<td>Presentata richiesta riduzione sanzione e/o rateizzazione</td>
+<td></td>
+</tr>
+<tr>
+<td>Presentata richiesta audizione</td>
+<td></td>
+</tr>
+<tr>
+<td>Ordinanza emessa</td>
+<td>
+<ul>
+<li>Ord. Archiviazione: Chiude automaticamente la pratica</li>
+<li>Ord. Ingiunzione</li>
+<li>Pratica non lavorata: Chiude automaticamente la pratica</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Num. ordinanza</td>
+<td></td>
+</tr>
+<tr>
+<td>Data emissione ordinanza</td>
+<td>Successiva alla Data Accertamento; Successiva alla Data Protocollo</td>
+</tr>
+<tr>
+<td>Giorni di lavorazione pratica</td>
+<td>Differenza in giorni tra Data prot. in entrata in regione e data emissione ordinanza.</td>
+</tr>
+<tr>
+<td>Importo sanzione ingiunta</td>
+<td></td>
+</tr>
+<tr>
+<td>Data ultima notifica ordinanza</td>
+<td>Antecedente a Data pagamento ordinanza</td>
+</tr>
+<tr>
+<td>Data pagamento ordinanza</td>
+<td>Successiva a data ultima notifica ordinanza</td>
+</tr>
+<tr>
+<td>Pagamento ordinanza effettuato nei termini</td>
+<td>SI se la differenza tra Data Pagamento ordinanza e Data Ultima notifica ordinanza ? inferiore a 32 giorni.</td>
+</tr>
+<tr>
+<td>Concessa rateizzazione dell'ordinanza-ingiunzione</td>
+<td>
+<ul>
+<li>SI: Abilita il campo "Rate pagate"</li>
+<li>NO: Disabilita il campo "Rate pagate"</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Rate pagate</td>
+<td></td>
+</tr>
+<tr>
+<td>Ordinanza ingiunzione oblata</td>
+<td></td>
+</tr>
+<tr>
+<td>Importo effettivamente introitato (2)</td>
+<td></td>
+</tr>
+<tr>
+<td>Presentata opposizione all'ordinanza-ingiunzione</td>
+<td></td>
+</tr>
+<tr>
+<td>Sentenza favorevole al ricorrente</td>
+<td>
+<ul>
+<li>SI: Nasconde i campi successivi</li>
+<li>NO: Mostra i campi successivi</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Importo stabilito dalla A.G.</td>
+<td></td>
+</tr>
+<tr>
+<td>Ordinanza-ingiunzione oblata secondo il dispositivo della sentenza</td>
+<td></td>
+</tr>
+<tr>
+<td>Importo effettivamente introitato (3)</td>
+<td></td>
+</tr>
+<tr>
+<td>Avviata per l'esecuzione forzata</td>
+<td></td>
+</tr>
+<tr>
+<td>Importo effettivamente introitato (4)</td>
+<td></td>
+</tr>
+<tr>
+<td>Note Gruppo 1</td>
+<td></td>
+</tr>
+<tr>
+<td>Note Gruppo 2</td>
+<td></td>
+</tr>
+<tr>
+<td>Allegato (Registro)</td>
+<td>Possibilit&agrave; di allegare documenti alla riga del registro.</td>
+</tr>
+<tr>
+<td>Pratica chiusa</td>
+<td>Blocca l'intera riga.</td>
+</tr>
+</tbody>
+</table>
+
+<br/>
+In fase di download, il nome degli allegati scaricabili dal registro rispetter&agrave; la seguente sintassi: <br/>
+
+<table border="1px solid black" cellpadding="10" cellspacing="10" style="border-collapse: collapse">
+<tr><td colspan="4" align="center">[Codice identificativo allegato]</td><td align="center">_</td><td align="center">[Oggetto allegato inserito dall'utente]</td></tr>
+<tr><td align="center">GT</td><td align="center">Ultime due cifre dell'anno di caricamento</td><td>-</td><td align="center">Progressivo interno</td><td colspan="2"></td></tr>
+</table>
+<br/>
+Es. (GT22-001216_TEST.pdf) <br/><br/>
+
+<p>Una volta compilati i campi e' possibile stampare il pdf relativo cliccando su "PDF registro per l'anno corrente".<br />Per visualizzare i registri trasgressori degli anni precedenti, cliccare su "archivio" e si aprir&agrave; una scheda come quella riportata in figura nella quale e' possibile scegliere l'anno di interesse, successivamente cliccare sul bottone "invia" per consultarlo, o sui bottoni PDF/Excel per esportarlo nel relativo formato. <br /><img src="./images/Registro_trasgr.PNG" width="595" height="222" name="Registro_trasgr.png" /><br />Un esempio di registro trasgressori e' possibile visualizzarlo cliccando sull'immagine qui sotto<br /><a href="#" onclick="openPopup('images/Registro trasgressori/Registro_trasgr_2.png') "><img src="./images/Registro_trasgr_2.PNG" width="300" name="Registro_trasgr_2.png" /></a></p>
