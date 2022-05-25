@@ -1,0 +1,88 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - warehouse-management
+  - document-management
+  - data-collection
+  - data-visualization
+  - data-analytics
+  - customer-service-and-support
+description:
+  it:
+    documentation: 'https://github.com/EcosistemaGISA/sicurezza_lavoro/tree/main/docs'
+    features:
+      - Unico punto di accesso centralizzato tramite credenziali SPID/CIE
+    genericName: soluzione applicativa sanitario
+    longDescription: |
+
+      ** DESCRIZIONE **
+
+Il servizio G.I.S.A. - Sicurezza e prevenzione sui luoghi di lavoro consta di due moduli software:
+
+ - Gestione delle notifiche dei cantieri e delle imprese per la prevenzione e sicurezza sui luoghi di lavoro.
+
+ - Gestione delle ispezioni effettuate su cantiere/imprese.
+
+Al momento è disponibile in riuso il modulo Gestione delle notifiche che entro giugno 2022 sarà rilasciato in riuso anche come app per IOS ed Android. Successivamente la Regione Campania forinirà in riuso anche il modulo di Gestione delle ispezioni
+
+    Il sistema è multi-browser e responsive quindi in grado di adattarsi graficamente in modo automatico al dispositivo con il quale viene utilizzato (computer con diverse risoluzioni, tablet, smartphone, ecc), riducendo al massimo la necessità dell'utente di ridimensionare e scorrere i contenuti.
+
+ecnicamente GISA - SICUREZZA LAVORO è un'applicazione in architettura web sviluppata con linguaggi Javascript/Typescript secondo il pattern MVC (model view controller).
+
+Come le applicazioni di questo genere GISA - SICUREZZA LAVORO è quindi composta da un back-end in funzione di Model (in questo caso l'RDBMS Postgresql) una serie di risorse di front-end web (Angular) in funzione di View e infine, lato back-end, un webserver NodeJS, con il suo framework Express.
+
+
+    Questo modulo è della titolarità della Giunta Regione Campania.
+
+      ** FUNZIONALITA' **
+
+       - ** Unico punto di accesso centralizzato tramite credenziali SPID/CIE **
+
+        La login nell’Ecosistema GISA è garantito e consentito esclusivamente con credenziali digitali SPID /CIE.
+
+       - ** Gestione notifiche preliminari **
+
+        Gestione delle notifiche dei cantieri e delle imprese per la prevenzione e sicurezza sui luoghi di lavoro.
+   
+    shortDescription: |-
+      La soluzione applicativa di livello regionale nata per supportare gli
+
+      adempimenti in ambito sicurezza sui luoghi di lavoro
+developmentStatus: stable
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: true
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: true
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: true
+    pagopa: false
+    spid: true
+legal:
+  license: AGPL-3.0-only
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: true
+maintenance:
+  contacts:
+    - email: gisahelpdesk@usmail.it
+      name: U.S. s.r.l.
+  contractors:
+    - name: Istituto Zooprofilattico Sperimentale del Mezzogiorno
+      until: '31-12-2025'
+      website: 'https://www.izsmportici.it/portale/index.php'
+  type: internal
+name: sicurezza lavoro
+platforms:
+  - web
+releaseDate: '2022-02-28'
+softwareType: standalone/web
+softwareVersion: '1.0'
+url: 'https://github.com/EcosistemaGISA/sicurezza_lavoro'

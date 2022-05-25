@@ -1,0 +1,55 @@
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'a-multi-select',
+  templateUrl: './a-multi-select.component.html',
+  styleUrls: ['./a-multi-select.component.scss']
+})
+export class AMultiSelectComponent implements OnChanges, AfterViewInit {
+
+  @ViewChild('control') control: any
+  @ViewChild('optionsList') optionsList: any
+  @Input() options: any
+  @Output('onChange') ee = new EventEmitter<any>()
+  private _optionsLoaded = false
+
+  selectedOptions: any[] = []
+
+  constructor(private elementRef: ElementRef) { 
+    this.elementRef.nativeElement.style.display = 'block'
+    this.elementRef.nativeElement.style.width = '100%'
+  }
+
+  @HostListener('click', ['$event']) onClick(e: any) {
+    e.stopPropagation()
+  }
+
+  ngOnChanges(_: SimpleChanges): void {
+    if(!this._optionsLoaded) {
+      if(!Array.isArray(this.options)) {
+        this.options = this.options.split(',').map((s: string) => s.trim())
+      }
+      if(this.options)
+        this._optionsLoaded = true
+    }
+  }
+
+  ngAfterViewInit(): void {
+    this.control.nativeElement.addEventListener('click', () => {
+      this.optionsList.nativeElement.hidden = !this.optionsList.nativeElement.hidden
+    })
+    this.optionsList.nativeElement.addEventListener('click', () => {
+      this.selectedOptions = Array.from(this.optionsList.nativeElement.querySelectorAll('input:checked'))
+        .map((i: any) => i.value)
+      this.ee.emit(this.selectedOptions)
+    })
+    window.addEventListener('click', () => this.optionsList.nativeElement.hidden = true)
+  }
+
+  reset() {
+    this.selectedOptions = []
+    this.optionsList.nativeElement.querySelectorAll('input[type="checkbox"]')
+      .forEach((i: any) => i.checked = false)
+  }
+
+}

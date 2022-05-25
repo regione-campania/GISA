@@ -1,0 +1,29 @@
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { AutofillerDirective } from "./directives/autofiller.directive";
+import { AMultiSelectComponent } from './components/a-multi-select/a-multi-select.component';
+import { ANavigatorModule } from "./modules/a-navigator/a-navigator.module";
+import { SandboxModule } from "./modules/_sandbox/sandbox.module";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
+
+@NgModule({
+    declarations: [
+        AutofillerDirective,
+        AMultiSelectComponent
+    ],
+    imports: [
+        CommonModule,
+        NgbModule,
+        ANavigatorModule,
+        SandboxModule
+    ],
+    exports: [
+        NgbModule,
+        AutofillerDirective,
+        AMultiSelectComponent,
+        ANavigatorModule,
+        SandboxModule
+    ]
+})
+export class UtilsModule { }

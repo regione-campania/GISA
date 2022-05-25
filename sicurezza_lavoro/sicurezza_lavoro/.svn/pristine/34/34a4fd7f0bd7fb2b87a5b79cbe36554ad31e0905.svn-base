@@ -1,0 +1,13 @@
+table, tr, td {
+    border: none;
+}
+
+.input-label {
+    text-align: end;
+}
+
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

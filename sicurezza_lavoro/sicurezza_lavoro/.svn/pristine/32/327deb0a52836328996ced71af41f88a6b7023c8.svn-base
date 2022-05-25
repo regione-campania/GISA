@@ -1,0 +1,55 @@
+.editor-verbale-generico {
+
+    input[type=text]{
+        width: -webkit-fill-available;
+    }
+
+    textarea {
+        width: -webkit-fill-available;
+    }
+    
+    label,
+    input[type=radio] {
+        margin-right: 8px;
+    }
+    
+    .header-verbale {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @for $i from 1 through 6 {
+        h#{$i} {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    
+    .wrapper {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        .form-field {
+            margin: 0 .5rem;
+        }
+        .form-field:first-child {margin-left: 0;}
+        .form-field:last-child {margin-right: 0;}
+    }
+
+    .body-verbale {
+        section:first-child {
+            .wrapper:not(:first-child) {
+                .form-field:first-child{
+                    flex-basis: 40%;
+                    label {width: 30%;}
+                    input,
+                    select {width: calc(70% - .5rem)}
+                }
+                .form-field:nth-child(2) {
+                    flex-basis: 60%;
+                }
+            }
+        }
+    }
+}

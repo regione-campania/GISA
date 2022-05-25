@@ -1,0 +1,11 @@
+npm install -g @angular/cli
+npm install @angular-devkit/build-angular
+npm install @angular/core
+npm install bootstrap
+npm install @fortawesome/fontawesome-free
+npm install @angular/forms
+npm install @angular/common
+npm install @angular/router
+npm install @angular/platform-browser-dynamic
+npm install @ng-bootstrap/ng-bootstrap
+npm install spinners-angular

@@ -1,0 +1,90 @@
+.a-table-filter {
+    position: relative;
+    &, .hit-area {display: inline-block;}
+    .hit-area {
+        padding: 2px 6px;
+        border-radius: 50%;
+        transition: .4s cubic-bezier(0.22, 1, 0.36, 1);
+        &:hover,
+        &:active,
+        &.filter-visible,
+        &.filter-active {
+            color: var(--blue);
+        }
+        &:active,
+        &.filter-visible {
+            box-shadow: var(--blue-outline);
+        }
+    }
+    .wrapper{
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+        &.filter-wrapper {
+            display: block;
+            position: absolute;
+            min-width: max-content;
+            padding: 8px 10px;
+            margin: 0;
+            opacity: 1;
+            animation: fade-in .4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            &[hidden] {animation: none;}
+        }
+        &.buttons {
+            justify-content: flex-end;
+            .button {
+                min-width: 30px;
+                border-radius: var(--border-radius);
+                &:not(:last-child) {
+                    margin: 0 8px;
+                }
+                .icon {margin: 0}
+                &.apply-button {
+                    border: 1px solid var(--blue);
+                    background-color: white;
+                    color: var(--blue);
+                    padding: 1px 2px;
+                    text-align: center;
+                    &:hover, &:active, &:focus {
+                        box-shadow: var(--blue-outline);
+                        background-color: var(--blue);
+                        color: white;
+                    }
+                    &:hover {
+                        .icon {
+                            animation: flip .5s;
+                        }
+                    }
+                }
+                &.reset-button {
+                    border: 1px solid var(--orange);
+                    background-color: white;
+                    color: var(--orange);
+                    &:hover, &:active, &:focus {
+                        box-shadow: var(--orange-outline);
+                        background-color: var(--orange);
+                        color: white;
+                    }
+                    &:hover {
+                        .icon {
+                            animation: rotate360 .5s;
+                        }
+                    }
+                }
+                &.reset-all-button {
+                    width: 100%;
+                    margin: 0;
+                    text-transform: capitalize;
+                    border: 1px solid var(--red);
+                    background-color: white;
+                    color: var(--red);
+                    &:hover, &:active, &:focus {
+                        box-shadow: var(--red-outline);
+                        background-color: var(--red);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

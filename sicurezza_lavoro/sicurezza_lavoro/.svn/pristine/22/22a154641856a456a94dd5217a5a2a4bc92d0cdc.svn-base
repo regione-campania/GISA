@@ -1,0 +1,13 @@
+#footer {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+    background-color: var(--light-gray-plus);
+}
+
+.footer-element {
+    padding: 8px 10px 0px 30px;
+}
