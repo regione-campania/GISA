@@ -1,0 +1,137 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<!DOCTYPE html>
+<script>
+	var currTplName = "main.html";
+</script>
+
+<html lang="it">
+<head>
+  <title>Settore Alimentare e Veterinario – Autovalutazione</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+<script src="http://www.gisacampania.it/js/GisaSpid.js?v12"></script>
+
+  <style>
+.active {
+    color: #37a0e6;
+    background-color: #f0e0a0;
+}
+  
+.fill { 
+	min-height:90vh;
+}
+
+.nav-tabs .nav-link.active {
+    color: #37a0e6;
+    background-color: #f0e0a0;
+}
+
+body {
+  margin-bottom: 40px; /* Margin bottom by footer height */
+  overflow: hidden;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20px; /* Set the fixed height of the footer here */
+  background-color: #f5f5f5;
+}
+  </style>
+</head>
+<script>
+
+var home="/home";
+var selectedCL;
+
+function loadUrl(url, id) {
+     document.getElementById(id).src=url;
+}
+
+function setFld(fld, val) {
+     document.getElementById(fld).innerText =  val ;
+}
+
+
+function getFld(fld) {
+  return document.getElementById(fld).innerText;
+}
+
+function setCL(cl) {
+  selectedCL = cl;
+}
+
+function getCL(){
+  return selectedCL;
+}
+
+
+var last = null;
+
+document.addEventListener("DOMContentLoaded", function(){
+    last = document.getElementById("firstActive");
+})
+function setActive(t) {
+  console.log(t);
+  if (last!=null) {
+	last.classList.remove("active");
+  }
+  last=t;
+  last.classList.add("active");
+};
+
+</script>
+<body class="fill">
+  <div style="float: right; cursor: pointer; margin-right: 20px; display: inline;" onclick="GisaSpid.logoutSpid('/logout')">Logout<img src="/static/img/closeBtn.png" alt="" style="width:20px; height:20px" /></div>
+  <div style="float: right; margin-right: 20px; display: inline;">[{{.Username}} - {{.Ragione_Sociale}}]</div>
+  <div style="cursor: pointer; margin-left: 20px;" onclick="window.open('/static/Manuale_Giava.pdf')"><img src="/static/img/user-manual.png" alt="" style="width:25px; height:25px" /> Manuale</div>
+
+  <ul class="nav nav-tabs auto nav-dark" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#" onclick="setActive(this);loadUrl(home, 'mainOut');" id="firstActive">Home</a>
+    </li>
+	<li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#" onclick="setActive(this);loadUrl('/ml_base', 'mainOut');">Autovalutazione</a>
+    </li>
+	<!--<li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#" onclick="setActive(this);loadUrl('/ml', 'mainOut');">Autovalutazione attività ML 10 per Norma </a>
+  </li>-->
+	<!--
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#" onclick="setActive(this);loadUrl('/cl', 'mainOut');">Navigazione Checklist/Capitoli/Domande</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#" onclick="setActive(this);loadUrl('/cl_1', 'mainOut');">Simulazione Punteggio</a>
+    </li>  
+
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#" onclick="setActive(this);loadUrl('/doc', 'mainOut');">Technicalities</a>
+    </li>  
+	-->
+  </ul>
+  
+  <!-- Tab panes -->
+
+  <div class="tab-content fill">
+   	<iframe name="mainOut" id="mainOut" width="100%" class="fill" frameborder="0" src="/home"> </iframe>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+      <div class="container">
+        	<p class="border border-info" style="font-size:10px;"> <span id='norma'></span> &nbsp; <span id='macro'></span> &nbsp;>&nbsp; <span id='aggre'></span> &nbsp;>&nbsp; <span id='linea'></span></p>
+	  </div>
+    </footer>
+</body>
+</html>

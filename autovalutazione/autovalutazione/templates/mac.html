@@ -1,0 +1,101 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<!DOCTYPE html>
+<script>
+	var currTplName = "mac.html";
+</script>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mac</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<style>
+.active {
+  color: #37a0e6;
+  background-color: #f0e0a0 !important;
+}
+ 
+</style>
+</head>
+<script>  
+var last;
+function setActive(t) {
+  if (last!=null) {
+	last.classList.remove("active");
+  }
+  last=t;
+  last.classList.add("active");
+}
+
+function clearLogicalChild(iName) {
+
+	var iframe = window.parent.document.getElementById(iName);
+	var html = "";
+
+	iframe.contentWindow.document.open();
+	iframe.contentWindow.document.write(html);
+	iframe.contentWindow.document.close();
+}
+
+
+
+</script>
+
+<body>
+<div class="table-responsive" >
+
+  <table class="table table-striped table-bordered table-sm table-condensed">
+
+    <thead>
+      <tr>
+        <th>Macroarea</th>
+      </tr>
+    </thead>
+
+    <tbody>
+ {{range $i, $mac :=   .Macs }}
+	<tr onclick="setActive(this);">
+        <td class="small"><a onclick="window.top.setFld('macro', '{{ $mac.M_desc }}')" href="/get_agg/{{$mac.M_id }}" target="agg">{{ $mac.M_desc }}</a></td>
+    </tr>
+ {{end}}
+	</tbody>
+	</table>
+</div>
+</body>
+
+<script>
+clearLogicalChild('agg');
+clearLogicalChild('lda');
+window.top.setFld('macro', '')
+window.top.setFld('aggre', '')
+window.top.setFld('linea', '')
+
+checkNoMacro({{.Macs}});
+
+function checkNoMacro(macs){ //se ottenfo una sola riga con M_id == -1 non si deve visualizzare la checklist, salto direttamente alla checklist
+  
+  if(macs.length == 1){
+    if(macs[0].M_id == -1){
+      console.log("CHECKLIST DIRETTA");
+      window.top.setFld('macro', 'N.D.')
+      window.top.setFld('aggre', 'N.D.')
+      window.top.setFld('linea', 'N.D.')
+      var anchor = document.createElement('a');
+      anchor.href = '/cl_1';
+      anchor.target="_parent";
+      anchor.click();
+    }
+  }
+}
+
+</script>
+
+</html>

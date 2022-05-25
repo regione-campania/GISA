@@ -1,0 +1,669 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<!DOCTYPE html>
+<script>
+	var currTplName = "chpqst.html";
+</script>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script src="../static/js/utils.js?v4"></script>
+
+<script>
+
+function _h2p(pdfcontent) {
+//-- usa ajax per inviare il contenuto html e per ricevere
+//-- il pdf corrispondente simulando click su link
+
+	console.log(pdfcontent);
+	let url="/h2p";
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+
+     xhr.responseType = "blob";
+     xhr.onload = function (event) {
+         var blob = xhr.response;
+		 blob.text().then(text =>
+			sendFile(text, blob)
+		 )
+     };
+
+	xhr.send('<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">' + pdfcontent);
+}
+
+function sendFile(t, b){
+	console.log("sendFile");
+	var selectedCl = window.top.getCL().innerText;
+	selectedCl = selectedCl.replace(" ", "_")
+	var d = new Date().yyyymmdd(); //in utils.js
+	var fileName = "Giava_Autovalutazione_"+selectedCl+"_"+d+".pdf";
+	var link=document.createElement('a');
+	link.href=window.URL.createObjectURL(b);
+	link.download=fileName;
+	link.click();
+}
+
+
+
+function h2p() {
+
+	/*var numberOfChecked = $('input:radio:checked').length;
+	var totalCheckboxes = $('input:radio:enabled').length / 2;*/
+
+	var noRisp = "";
+
+	jsonContent.forEach(function(d, i){
+		$('#tr_'+d.N).removeClass('tr_hover');
+		var q = d.N - 1;
+		if($('input[name="q'+q+'"][data-risposta="SI"]:checked').length == 0 && $('input[name="q'+q+'"][data-risposta="NO"]:checked').length == 0 
+			&& $('input[name="q'+q+'"][data-risposta="NO"]').is(':enabled') ) { //se non è selezionato nè si, nè no e non abilitato
+				noRisp += d.N + ', '; 
+				$('#tr_'+d.N).addClass('tr_hover');
+		}
+	})
+	noRisp = noRisp.slice(0,-2);
+
+	//if(numberOfChecked < totalCheckboxes){
+	if(noRisp.length > 0){
+		alert("Per il salvataggio definitivo rispondere alle domande: " + noRisp);
+		return;
+	}
+//-- trasforma il json che rappresenta la check list  
+//-- in html table usando il div fisico #pdfdiv
+		saveToDb();
+
+		var content=jsonContent;
+        //Convert JSON to HTML Table.
+		
+		var dvTable=document.getElementById("pdfdiv");
+		
+        var table = document.createElement("TABLE");
+        table.border = "1";
+		table.rules="all";
+		
+        table.Id = "tblcontent";
+
+		var table2 = document.createElement("TABLE");
+        table2.border = "1";
+		table2.rules="all";
+        table2.Id = "tblcontent";
+		table2.style.marginBottom = "10px";
+ 
+        //Get the count of columns.
+        var columnCount = 6;
+ 
+		var topHeader = table2.insertRow(-1);
+
+		headerCell = document.createElement("TH");
+		headerCell.innerHTML = "Macroarea";
+		headerCell.style.backgroundColor = 'lightgrey';
+		topHeader.appendChild(headerCell);
+
+		headerCell = document.createElement("TH");
+		headerCell.innerHTML = "Aggregazione";
+		headerCell.style.backgroundColor = 'lightgrey';
+		topHeader.appendChild(headerCell);
+
+		headerCell = document.createElement("TH");
+		headerCell.innerHTML = "Linea di attivita'";
+		headerCell.style.backgroundColor = 'lightgrey';
+		topHeader.appendChild(headerCell);
+
+		headerCell = document.createElement("TH");
+		headerCell.innerHTML = "Checklist";
+		headerCell.style.backgroundColor = 'lightgrey';
+		topHeader.appendChild(headerCell);
+
+		headerCell = document.createElement("TH");
+		headerCell.innerHTML = "Punteggio";
+		headerCell.style.backgroundColor = 'lightgrey';
+		topHeader.appendChild(headerCell);
+
+		var topRow = table2.insertRow(-1);
+
+		var topCell = document.createElement("TD");
+		topCell.innerHTML = window.top.getFld("macro");
+		topRow.appendChild(topCell);
+
+		topCell = document.createElement("TD");
+		topCell.innerHTML = window.top.getFld("aggre");
+		topRow.appendChild(topCell);
+
+		topCell = document.createElement("TD");
+		topCell.innerHTML = window.top.getFld("linea");
+		topRow.appendChild(topCell);
+
+		topCell = document.createElement("TD");
+		topCell.innerHTML = window.top.getCL().innerText;
+		topRow.appendChild(topCell);
+
+		topCell = document.createElement("TD");
+		topCell.innerHTML = document.getElementById("tot").innerText;
+		topCell.style.textAlign = "right";
+		topRow.appendChild(topCell);
+
+        //Add the header row.
+        var row = table.insertRow(-1);
+        for (var i = 1; i <= columnCount; i++) {
+            var headerCell = document.createElement("TH");
+            headerCell.innerHTML = Object.keys(content[0])[i];
+			headerCell.style.backgroundColor = 'lightgrey';
+			row.style.padding.top = "10px";
+            row.appendChild(headerCell);
+        }
+ 
+        //Add the data rows.
+        for (var i = 0; i < content.length; i++) {
+
+			row = table.insertRow(-1);
+            cell = row.insertCell(-1);
+            cell.innerHTML = content[i].N;
+
+            //row = table.insertRow(-1);
+            cell = row.insertCell(-1);
+            cell.innerHTML = content[i].Capitolo;
+			
+			cell = row.insertCell(-1);
+            cell.innerHTML = content[i].Domanda;
+			
+			cell = row.insertCell(-1);
+            cell.innerHTML = content[i].SottoDomanda;
+
+			cell = row.insertCell(-1);
+            cell.innerHTML = content[i].Punti_Risposta;
+			cell.style.textAlign = "right";
+
+			cell = row.insertCell(-1);
+            cell.innerHTML = content[i].Risposta;
+        }
+ 
+        //Append the Table to the HTML DIV.
+        dvTable.innerHTML = "";
+		dvTable.appendChild(table2);
+        dvTable.appendChild(table);
+
+		var divText = dvTable.innerHTML;
+/*
+		var myWindow = window.open();
+		var wdoc = myWindow.document;
+		wdoc.open();
+		wdoc.write(divText);
+		wdoc.close();
+*/		
+	_h2p(divText);
+}
+
+</script>
+<title>ML10 CL</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="/static/js/FileSaver.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
+
+<style>
+
+.xs-text{
+	font-size:0.8rem;
+}
+ 
+.chphdr{
+  color: #a0afa0;
+  background-color: #806080;
+  border-color: #FF8888;
+}
+
+.active {
+    color: #37a0e6;
+	font-weight: bold;
+    background-color: #f0e0a0  !important ;
+}
+
+div.sticky {
+
+  position: sticky;
+  bottom: 0;
+
+  padding: 5px;
+  background-color: #cae8cf;
+  border: 1px solid #4CAF50;
+}
+
+#loader {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: 150px;
+	height: 150px;
+	margin: -75px 0 0 -75px;
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+	width: 120px;
+	height: 120px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+	position: relative;
+	-webkit-animation-name: animatebottom;
+	-webkit-animation-duration: 1s;
+	animation-name: animatebottom;
+	animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+	from { bottom:-100px; opacity:0 }
+	to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+	from{ bottom:-100px; opacity:0 }
+	to{ bottom:0; opacity:1 }
+}
+
+.tr_hover {
+	background-color: #eeff00; 
+}
+
+.ui-dialog-titlebar{
+	background-color: darkblue !important;
+	color: rgb(245, 245, 245) !important;
+}
+
+.ui-dialog-titlebar-close {
+  background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_888888_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
+  border: medium none;
+}
+.ui-dialog-titlebar-close:hover {
+  background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_222222_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
+}
+
+</style>
+</head>
+<script>
+'use strict';
+
+var jsonContent=[
+ {{range $i, $qst := .Qsts_1 }} {{if gt $i 0}} , {{end}} {"Id_Domanda": "{{$qst.Q_id}}","N":{{$qst.Row_Number}}, "Capitolo": "{{$qst.C_desc}}", "Domanda":"{{$qst.Domanda}}", "SottoDomanda":"{{$qst.SottoDomanda}}","Punti_Risposta":{{$qst.Punti_Risposta}},"Risposta":"{{$qst.Risposta}}","Id_Cl":{{$qst.Id_Cl}}}
+ {{end}}
+];
+console.log(jsonContent);
+
+
+document.addEventListener("DOMContentLoaded", function(){
+	var tot = 0;
+    jsonContent.forEach(function(d){
+		if(d.Punti_Risposta != 0){
+			tot = tot + d.Punti_Risposta;
+		}
+		document.getElementById("tot").innerText=String(tot).padStart(3, '0');
+	})
+	updMancanti();
+});
+
+
+
+function exportjson() {
+
+	var j=JSON.stringify(jsonContent, null, 2);
+	var ar=[];
+	ar.push(j);
+	var blob = new Blob(ar, {type: "text/plain;charset=utf-8"});
+
+	if (confirm(ar)) {
+		saveAs(blob, "json.txt");
+	}
+}
+
+
+function saveToDb() {
+	document.getElementById("loader").style.display = "";	
+	setTimeout(function(){
+		console.log(window.parent.lastLda);
+		console.log(jsonContent);
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/save_cl", false);
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+		xhr.onload = function (event) {
+			console.log(event);
+			console.log(xhr.response);
+			alert("Salvataggio effettuato!");
+			document.getElementById("loader").style.display = "none";	
+			//parent.document.getElementById('chpqst').contentWindow.location.reload(true);
+		};
+		xhr.send(JSON.stringify(jsonContent));
+	},1)
+	
+
+}
+
+function azzera(){
+	//if (confirm("Azzerare la simulazione corrente per la checklist corrente?", 'azzera')) {
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/delete_cl", false);
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+		xhr.onload = function (event) {
+			console.log(event);
+			console.log(xhr.response);
+			parent.document.getElementById('chpqst').contentWindow.location.reload(true);
+		};
+		xhr.send(JSON.stringify(jsonContent)); 
+	//}
+}
+
+function updJsonContent(q_id, currpv, risposta) {
+	//--aggiorna oggetto json che rappresenta la cl 
+	//--al record q_id, punteggio (currpv) e risposta
+	
+	for(let i=0; i<jsonContent.length; i++) {
+
+		if (jsonContent[i].Id_Domanda==q_id) {  // trovato il record
+			// in caso di punteggio==-1 svuotamento di punti_risposta e risposta
+			//jsonContent[i].Punti_Risposta = parseInt(currpv)>=0 ? currpv : "";
+			jsonContent[i].Punti_Risposta = parseInt(currpv)>=0 ? +currpv : 0;
+
+			jsonContent[i].Risposta = parseInt(currpv)>=0 ? risposta : "";
+			return;
+		}
+	}
+}
+
+function switchSD(t) { 
+
+//--aggiorna stato sottodomande
+  
+  var myid=t.dataset.id;
+  var d_parent = 'input[data-idparent="' + myid +'"]';
+  var sds = document.querySelectorAll(d_parent);  //tutte le sottomande hanno idparent==id  riga corrente 
+    
+  var rbAr=document.getElementsByName(t.name);  //current radiobutton array  
+  
+  if (rbAr[0].checked) {//SI
+	for (let i=0; i<sds.length; i++) {    //abilita sottodomande
+		//console.log("enabling: " + sds[i].name);
+		sds[i].disabled=false;
+	}
+  } else { //disabilita sottodomande, rendi not active, azzera check, sottrai punteggi e  aggiorna json obj
+	for (let i=0; i<sds.length; i++) {
+		if  (sds[i].checked) {
+		
+			//set rb not active
+			sds[i].parentElement.classList.remove("active");
+			
+			//set rb not checked
+			sds[i].checked = false;
+			
+			// upd tot
+			let p=parseInt(sds[i].value);
+			updTot(-p);
+
+			// upd json record
+			updJsonContent(sds[i].dataset.q_id, -1, "");
+		}
+		//disable row
+		sds[i].disabled=true;
+
+		const nRow = parseInt(sds[i].name.substring(1)) + 1;
+  		$('#tr_'+nRow).removeClass('tr_hover');
+	}  
+  }
+  updMancanti();							
+
+}
+
+function updMancanti(){
+	var replied = 0;
+	var toReply = 0;
+	$('input[data-risposta="SI"]').each(function(i){
+		if(!$( this )[0].disabled)
+			toReply++
+	})
+	$('input[data-risposta="SI"]').each(function(i){
+		if($( this )[0].checked)
+			replied++;
+	})
+	$('input[data-risposta="NO"]').each(function(i){
+		if($( this )[0].checked)
+			replied++;
+	})
+	document.getElementById("mancanti").innerText=String(toReply - replied)//.padStart(3, '0');
+}
+
+function updTot(v) {
+//--aggiorna il campo punteggio (span #tot)
+
+	var i_tot=parseInt(document.getElementById("tot").innerText); //totale punteggio
+	var new_tot=i_tot + v;
+	document.getElementById("tot").innerText=String(new_tot).padStart(3, '0');
+}
+
+function upState(t) {  
+//-- aggiorna stato lista in particolare:
+//--aggiorna totale punteggio
+//--aggiorna rb attivo domanda corrente 
+//--aggiorna stato sottodomande
+//--aggiorna json obj
+
+  const nRow = parseInt(t.name.substring(1)) + 1;
+  $('#tr_'+nRow).removeClass('tr_hover');
+
+  var rbAr=document.getElementsByName(t.name);  //current radiobutton array
+  
+  var i_currpv=parseInt(t.value)  //punteggio correntea
+  
+  updJsonContent(t.dataset.q_id, i_currpv, t.dataset.risposta) //aggiorna record corrispondente in json obj
+
+  if (t.dataset.sottodomanda !== 'SI') { //non è una sottodomanda
+	switchSD(t); // cambia stato alle eventuali sottodomande
+  }
+
+  for (let i=0; i<rbAr.length; i++) {  //poll radio button array (SI, NO)
+	if (rbAr[i].parentElement.classList.contains("active")) { // se il rb-i è attivo...
+		if(rbAr[i]!=t) { //... e diverso da quello corrente... 
+			rbAr[i].parentElement.classList.remove("active"); //...lo rende non attivo 
+			let i_oldv=parseInt(rbAr[i].value);                 //  e sottrae il suo valore...   
+			updTot(-i_oldv);                                      // al tot
+			updTot(i_currpv);									// e aggiunge il nuovo
+			t.parentElement.classList.add("active");
+			return;
+		} else {   //risulta già selezionato il rb clickato...
+			return;// niente altro da fare
+		}
+    }
+  }
+  // seleziona il radiob. corrente e aggiunge punti a tot nel caso in cui nessuno dei due era selezionato
+	updTot(i_currpv);		
+	updMancanti();							
+	t.parentElement.classList.add("active");  
+}
+
+
+$(function() {
+	$( "#dialog" ).dialog({
+      autoOpen: false,
+	  width: 400
+	})
+} );
+
+function alert(text){
+	console.log(text);
+	$( "#dialog" ).dialog( "open" );
+	document.getElementById("dialogText").innerText = text;
+}
+
+function confirm(text, callback){
+	$( function() {
+	document.getElementById("confirmText").innerText = text;
+    $( "#dialog-confirm" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+	  text: "proca",
+      buttons: {
+        "OK": function() {
+		  window[callback](arguments)
+          $( this ).dialog( "close" );
+        },
+        "Annulla": function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+  } );
+}
+
+
+</script>
+<body>
+
+<div id="dialog" title="Settore Alimentare e Veterinario – Autovalutazione">
+	<p id=dialogText></p>
+</div>
+
+<div id="dialog-confirm" title="Settore Alimentare e Veterinario – Autovalutazione" style="display: none;">
+<p id="confirmText"><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span></p>
+</div>
+
+<div  class="table-responsive " >
+<div id="loader" class="loader" style="display: none;"></div>
+
+  <table class="table table-striped table-bordered table-sm table-condensed">
+        
+    <thead>
+      <tr>
+        <th width="3%" class="small font-weight-bold">N.</th>
+        <th width="43%" class="small font-weight-bold">Domanda</th>
+        <th width="40%" class="small font-weight-bold">Sottodomanda</th>
+        <th width="7%" class="small font-weight-bold">&nbsp;</th>
+        <th width="7%" class="small font-weight-bold">&nbsp;</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+  {{$chp:=""}}  {{$dprec:=""}}  {{$idparent:=""}}  {{$rprec:=""}} 
+  {{range $i, $qst := .Qsts_1 }}
+
+  	{{ if eq $qst.SottoDomanda "-" }}
+  		{{$rprec = $qst.Risposta}} 	{{/* memorizzo la risposta quando cambia la domanda principale (se NO disabilito il radiobutton). */}}
+	{{end}}
+
+	{{ if ne $chp  $qst.C_desc }} {{$chp = $qst.C_desc}} 
+		<tr> <td class="text-center chphdr" colspan="5"> {{$qst.C_desc}}</td>  </tr>	<!-- capitolo -->
+	{{end}}
+
+		<tr id="tr_{{$qst.Row_Number}}">
+			<td class="small">{{$qst.Row_Number}}</td>
+			<td class="small {{ if eq $dprec $qst.Domanda }} font-weight-light font-italic {{end}}">
+			{{ if ne $dprec $qst.Domanda }} {{/* una sottodomanda ha la caratteristica di avere la stessa domanda della riga prec. */}}
+				{{ $qst.Domanda }}  <!-- il testo della domanda viene riportato solo per le non-sottodomande -->
+			{{else}}
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lsquo; &lsquo;
+			{{end}}
+			</td>
+			<td class="small">{{ $qst.SottoDomanda }}</td>
+			<td class="small xs-text text-center {{ if eq "SI" $qst.Risposta }} active {{end}}" >
+				
+					<input onclick="upState(this)" type="radio" name="q{{$i}}" value="{{ $qst.Punti_si }}" data-q_id="{{$qst.Q_id}}"  data-risposta="SI" 
+					{{ if eq $dprec $qst.Domanda }} {{/* una sottodomanda ha la caratteristica di avere la stessa domanda della riga prec. */}}
+					{{ if ne $qst.SottoDomanda "" }}
+						{{ if ne "SI" $rprec }}
+							disabled  {{/* se è una sottodomanda e la precedente domanda non era sì disabilito. */}}
+						{{end}}
+					{{end}}
+					data-idparent='{{ $idparent }}' data-sottodomanda='SI' 
+					{{else}} 
+						{{$idparent = $i}} data-id="{{$i}}" {{/* questa riga è una domanda: aggiornamento idparent solo sul "SI"  */}}
+					{{end}}
+					{{ if eq "SI" $qst.Risposta }}
+						checked="checked"
+					{{end}}
+					 > <label> SI: {{$qst.Punti_si|printf "%03d"}}
+				</label>
+			</td>
+			<td class="small xs-text text-center {{ if eq "NO" $qst.Risposta }} active {{end}}">
+				
+					<input onclick="upState(this);" type="radio" name="q{{$i}}" value="{{ $qst.Punti_no }}" data-q_id="{{$qst.Q_id}}" data-risposta="NO"
+					{{ if eq $dprec $qst.Domanda }} {{/* una sottodomanda ha la caratteristica di avere la stessa domanda della riga prec. */}}
+					{{ if ne $qst.SottoDomanda "" }}
+						{{ if ne "SI" $rprec }}
+							disabled  {{/* se è una sottodomanda e la precedente domanda non era sì disabilito. */}}
+						{{end}}
+					{{end}}
+					data-idparent='{{ $idparent }}' data-sottodomanda='SI' 
+					{{else}} 
+						data-id="{{$i}}" 
+					{{end}}
+					{{ if eq "NO" $qst.Risposta }}
+						checked="checked"
+					{{end}}
+					> <label> NO: {{$qst.Punti_no|printf "%03d"}}
+				</label>
+			</td>
+		</tr>
+	{{$dprec = $qst.Domanda}} 	
+
+ {{end}}
+	</tbody>
+	
+	</table>
+</div>
+
+<div class="sticky text-center">
+	{{if eq .UserId 1}}
+	<!--solo admin-->
+	<button type="button" class="btn btn-outline-light btn-sm" onclick="exportjson()">Esporta checklist compilata in
+		JSON</button>
+	{{end}}
+	<button type="button" class="btn btn-outline-light btn-sm" onclick="h2p()"
+		style="color:#37a0e6; border-color: #37a0e6;">Salva definitivo</button>
+	{{if gt .UserId 0}}
+	<!--mostro il bottone salva solo agli utenti registrati id>0-->
+	<button type="button" class="btn btn-outline-light btn-sm" onclick="saveToDb()"
+		style="color:#37a0e6; border-color: #37a0e6;">Salva temporaneo </button>
+	{{end}}
+	<button type="button" class="btn btn-outline-light btn-sm" onclick="confirm('Azzerare la simulazione corrente per la checklist corrente?', 'azzera')"
+		style="color:#37a0e6; border-color: #37a0e6;">Nuova simulazione</button>
+	<div class="text-right" style="color:#37a0e6;  border-color: #37a0e6;">Risposte mancanti: &nbsp; <span
+			id="mancanti" class=" badge badge-info" style="color:#37a0e6; padding:0; padding-right: 50px;">000</span>&nbsp;
+	Punteggio totale: &nbsp; <span
+				id="tot" class=" badge badge-info" style="color:#37a0e6; padding:0;">000</span>&nbsp;
+		
+	</div>
+
+<!--<div class="sticky text-center">
+	
+</div>-->
+
+<div id="pdfdiv" style="display: none;"></div>
+</body>
+</html>
+ 

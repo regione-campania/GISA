@@ -1,0 +1,1280 @@
+[
+   {
+      "Q_id":410495,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Il canile e' regolarmente autorizzato ex art. 24 del Regolamento di Polizia Veterinaria?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":400
+   
+},
+   {
+      "Q_id":410496,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Presso tale canile vengono esercitate attivita' di commercio di animali da compagnia (ad es. pensione per piu' di 5 soggetti, allevamento, addestramento, toelettatura, etc) ex DGRC n. 593/06 ?",
+      "SottoDomanda":"-",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410497,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Presso tale canile vengono esercitate attivita' di commercio di animali da compagnia (ad es. pensione per piu' di 5 soggetti, allevamento, addestramento, toelettatura, etc) ex DGRC n. 593/06 ?",
+      "SottoDomanda":"L'autorizzazione sanitaria e' aggiornata ex art. 5 DGRC 593/06?",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410498,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"L'impresa e' dotato di uno o piu' box?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":70
+   
+},
+   {
+      "Q_id":410499,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono sufficienti per il numero di animali ricoverati?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410500,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono dotati di una zona coperta utilizzabile dagli animali come riparo dagli agenti atmosferici?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410501,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono dotati di una zona coperta utilizzabile dagli animali come riparo dagli agenti atmosferici?",
+      "SottoDomanda":"Le zone coperte sono sufficienti per il numero degli animali ivi presenti?",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410502,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono dotati di una zona coperta utilizzabile dagli animali come riparo dagli agenti atmosferici?",
+      "SottoDomanda":"Le zone coperte sono sufficientemente pulite?",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410503,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono dotati di una zona coperta utilizzabile dagli animali come riparo dagli agenti atmosferici?",
+      "SottoDomanda":"Sono riscaldate?",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410504,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono dotati di una zona coperta utilizzabile dagli animali come riparo dagli agenti atmosferici?",
+      "SottoDomanda":"Sono adeguatamente aerate?",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410505,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono dotati di una zona aperta?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410506,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono dotati di una zona aperta?",
+      "SottoDomanda":"Tale zona e' parzialmente coperta?",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410507,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono dotati di una zona aperta?",
+      "SottoDomanda":"La zona aperta e' sufficientemente ampia da permettere la deambulazione a tutti gli animali ivi presenti?",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410508,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Le pareti sono facilmente lavabili e disinfettabili?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":6
+   
+},
+   {
+      "Q_id":410509,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"I pavimenti sono facilmente lavabili e disinfettabili?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":6
+   
+},
+   {
+      "Q_id":410510,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"I pavimenti hanno una inclinazione tale da far defluire le deiezioni?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":10
+   
+},
+   {
+      "Q_id":410511,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"I pavimenti hanno una inclinazione tale da far defluire le deiezioni?",
+      "SottoDomanda":"I pavimenti sono dotati di griglie di raccolta sifonate?",
+      "Punti_si":0,
+      "Punti_no":10
+   
+},
+   {
+      "Q_id":410512,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"I box sono in contatto tra di loro?",
+      "SottoDomanda":"-",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410513,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"I box sono in contatto tra di loro?",
+      "SottoDomanda":"Esistono soluzioni di continuita' che potrebbero permettere il contatto tra gli animali di due box attigui e quindi attaccarsi a vicenda?",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410514,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Nei box sono presenti accessori di conforto o di arricchimento ambientale? ",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":5
+   
+},
+   {
+      "Q_id":410515,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"I box si presentano sporchi per la presenza di deiezioni recenti o meno, tanto da far presumere una insufficiente procedura di pulizia?",
+      "SottoDomanda":"-",
+      "Punti_si":25,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410516,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti box dedicati esclusivamente alla quarantena in ingresso?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":20
+   
+},
+   {
+      "Q_id":410517,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti box dedicati esclusivamente alla quarantena in ingresso?",
+      "SottoDomanda":"Sono ben identificati?",
+      "Punti_si":0,
+      "Punti_no":20
+   
+},
+   {
+      "Q_id":410518,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti box dedicati esclusivamente all'isolamento di animali ammalati?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":20
+   
+},
+   {
+      "Q_id":410519,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti box dedicati esclusivamente all'isolamento di animali ammalati?",
+      "SottoDomanda":"Sono ben identificati?",
+      "Punti_si":0,
+      "Punti_no":20
+   
+},
+   {
+      "Q_id":410520,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti box dedicati esclusivamente agli animali aggessivi?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":20
+   
+},
+   {
+      "Q_id":410521,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti box dedicati esclusivamente agli animali aggessivi?",
+      "SottoDomanda":"Sono ben identificati?",
+      "Punti_si":0,
+      "Punti_no":20
+   
+},
+   {
+      "Q_id":410522,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti aree per l'esercizio fisico dei soggetti stabulati (c.d. sgambamento)?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410523,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti aree per l'esercizio fisico dei soggetti stabulati (c.d. sgambamento)?",
+      "SottoDomanda":"Sono di dimensioni adeguate alla funzione da svolgere?",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410524,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti aree per l'esercizio fisico dei soggetti stabulati (c.d. sgambamento)?",
+      "SottoDomanda":"Si evidenzia che gli animali potrebbero facilmente fuggire da tale zona?",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410525,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti aree per l'esercizio fisico dei soggetti stabulati (c.d. sgambamento)?",
+      "SottoDomanda":"Sono agevolmente accessibili dai box dove sono stabulati gli animali?",
+      "Punti_si":0,
+      "Punti_no":25
+   
+},
+   {
+      "Q_id":410526,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"E' presente in situ una medicheria?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":20
+   
+},
+   {
+      "Q_id":410527,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"E' presente in situ una medicheria?",
+      "SottoDomanda":"La medicheria e' sita nell'ambito di un ambulatorio veterinario?",
+      "Punti_si":0,
+      "Punti_no":20
+   
+},
+   {
+      "Q_id":410528,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"E' presente un locale adibito esclusivamente per i temporaneo stoccaggio delle spoglie di animali morti in attesa della visita del veterinario?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":8
+   
+},
+   {
+      "Q_id":410529,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"E' presente un locale adibito esclusivamente per i temporaneo stoccaggio delle spoglie di animali morti in attesa della visita del veterinario?",
+      "SottoDomanda":"E' ben identificato?",
+      "Punti_si":0,
+      "Punti_no":8
+   
+},
+   {
+      "Q_id":410530,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"E' presente un frigorifero adibito esclusivamente per lo stoccaggio delle spoglie di animali morti?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":8
+   
+},
+   {
+      "Q_id":410531,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"E' presente un frigorifero adibito esclusivamente per lo stoccaggio delle spoglie di animali morti?",
+      "SottoDomanda":"E' ben identificato?",
+      "Punti_si":0,
+      "Punti_no":8
+   
+},
+   {
+      "Q_id":410532,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Il canile e' dotato di un registro relativo ai soggetti in entrata ed in uscita dall'impianto?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":9
+   
+},
+   {
+      "Q_id":410533,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Il canile e' dotato di un registro relativo ai soggetti in entrata ed in uscita dall'impianto?",
+      "SottoDomanda":"E' regolarmente aggiornato?",
+      "Punti_si":0,
+      "Punti_no":9
+   
+},
+   {
+      "Q_id":410534,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Il canile, in modo continuo o saltuario,  utilizza acqua prelevata da fonti diverse dalla rete pubblica (pozzi, sorgenti, cisterne , ecc.) ?",
+      "SottoDomanda":"-",
+      "Punti_si":4,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410535,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Il canile, in modo continuo o saltuario,  utilizza acqua prelevata da fonti diverse dalla rete pubblica (pozzi, sorgenti, cisterne , ecc.) ?",
+      "SottoDomanda":"Nell'applicazione di Buone Prassi Igieniche, sono previsti campionamenti dell'acqua per esami chimici e/o microbiologici ?",
+      "Punti_si":4,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410536,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"L'azienda si avvale di un Medico Veterinario aziendale ?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":7
+   
+},
+   {
+      "Q_id":410537,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"L'azienda si avvale di un Medico Veterinario aziendale ?",
+      "SottoDomanda":"Opera con atto formale ( contratto, convenzione, ecc ) ?",
+      "Punti_si":0,
+      "Punti_no":7
+   
+},
+   {
+      "Q_id":410538,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"E' presente un locale chiuso adibito ad ufficio?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":4
+   
+},
+   {
+      "Q_id":410539,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"L'impresa prevede un orario di apertura al pubblico?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":6
+   
+},
+   {
+      "Q_id":410540,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"L'impresa prevede un orario di apertura al pubblico?",
+      "SottoDomanda":"Tale orario e' esposto al pubblico?",
+      "Punti_si":0,
+      "Punti_no":6
+   
+},
+   {
+      "Q_id":410541,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti servizi igienici?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":6
+   
+},
+   {
+      "Q_id":410542,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"Sono presenti servizi igienici?",
+      "SottoDomanda":"I servizi igienici sono facilmente raggiungibili dagli operatori?",
+      "Punti_si":0,
+      "Punti_no":6
+   
+},
+   {
+      "Q_id":410543,
+      "C_desc":"CAPITOLO I: LOCALI, IMPIANTI ED ATTREZZATURE",
+      "Domanda":"E' presente un locale adibito a spogliatoio?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":4
+   
+},
+   {
+      "Q_id":410545,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Prendendo a campione un numero significativo di animali, risultano tutti regolarmente microchippati?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":50
+   
+},
+   {
+      "Q_id":410546,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Esiste una precisa correlazione tra gli animali identificati e le strutture di ricovero?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":7
+   
+},
+   {
+      "Q_id":410547,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"L'azienda si avvale di un Manuale di corretta prassi igienica ?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":12
+   
+},
+   {
+      "Q_id":410548,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Si nota la presenza di roditori o loro tracce?",
+      "SottoDomanda":"-",
+      "Punti_si":8,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410549,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"In ogni caso, si rileva la presenza di mezzi di lotta ai roditori?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":7
+   
+},
+   {
+      "Q_id":410550,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Sono stati rilevati animali che presentano sintomi di malattie infettive (ad esclusione della leishmaniosi)?",
+      "SottoDomanda":"-",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410551,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"L'azienda possiede mezzi, locali e attrezzature per un corretto isolamento e per la gestione dei capi infetti  o malati?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":12
+   
+},
+   {
+      "Q_id":410552,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"L'azienda possiede mezzi, locali e attrezzature per un corretto isolamento e per la gestione dei capi infetti  o malati?",
+      "SottoDomanda":"Gli animali si trovano in isolamento ?",
+      "Punti_si":0,
+      "Punti_no":12
+   
+},
+   {
+      "Q_id":410553,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Sono presenti cani affetti da leishmaniosi?",
+      "SottoDomanda":"-",
+      "Punti_si":4,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410554,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Sono presenti uno o piu' box o strutture dove sono ricoverati esclusivamente tali cani?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":15
+   
+},
+   {
+      "Q_id":410555,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Sono presenti uno o piu' box o strutture dove sono ricoverati esclusivamente tali cani?",
+      "SottoDomanda":"Sono presenti sistemi di protezione collettivi e/o individuali contro i flebotomi?",
+      "Punti_si":0,
+      "Punti_no":15
+   
+},
+   {
+      "Q_id":410556,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Gli animali sono regolarmente trattati contro gli endo ed ecto parassiti?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":10
+   
+},
+   {
+      "Q_id":410557,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Gli animali si presentano tutti sufficientemente puliti?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":8
+   
+},
+   {
+      "Q_id":410558,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Vi e' la presenza di animali non sterilizzati?",
+      "SottoDomanda":"-",
+      "Punti_si":10,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410559,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Vi e' la presenza di animali non sterilizzati?",
+      "SottoDomanda":"Si evidenzia la presenza di cagne in estro tenute in promiscuita' con maschi interi?",
+      "Punti_si":10,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410561,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Gli animali sono accuditi da un numero sufficiente di addetti?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410562,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Gli animali sono ispezionati almeno due volte al giorno?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410563,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"E' disponibile una adeguata illuminazione che consente l'ispezione completa degli animali?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410564,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Gli animali malati o feriti vengono isolati e ricevono immediatamente un trattamento appropriato?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410565,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"In caso di necessita' viene consultato un veterinario?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410566,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Lo spazio a disposizione di ogni animale e' sufficiente per consentirgli un'adeguata liberta' di movimenti ed e' tale da non causargli inutili sofferenze o lesioni?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410567,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"I materiali di costruzione, i recinti e le attrezzature con i quali gli animali possono venire a contatto non sono nocivi per gli animali stessi, non vi sono spigoli taglienti o sporgenze, tutte le superfici sono facilmente lavabili e disinfettabili?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410568,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Le apparecchiature e gli impianti elettrici sono costruiti in modo da evitare scosse elettriche e sono conformi alle norme vigenti in materia?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410569,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"La circolazione dell'aria, la quantita' di polvere, la temperatura, l'umidita' relativa dell'aria e le concentrazioni di gas sono mantenute nei limiti non dannosi per gli animali e sono adeguate all'esigenze etologiche della specie ed all'eta' degli animali?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410570,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"I pavimenti non sono sdrucciolevoli e non hanno asperita' tali da provocare lesioni, sono costruiti e mantenuti in maniera tale da non arrecare sofferenza o lesioni alle zampe?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410571,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"L'alimentazione e' adeguata in rapporto all'eta', al peso ed alle esigenze comportamentali e fisiologiche degli animali?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410572,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"E' assicurato l'accesso agli alimenti a tutti gli animali contemporaneamente per evitare competizioni?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410573,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"La modalita' di somministrazione dell'acqua consente una adeguata idratazione degli animali anche nei periodi di intenso calore?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410574,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"I fabbricati, i recinti, le attrezzature e gli utensili sono puliti e disinfettati regolarmente?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410575,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali stabulati in modo da non poter avere interazioni con altri animali o persone (al di fuori dei casi di animali aggressivi o sottoposti a profilassi rabbia)?",
+      "SottoDomanda":"-",
+      "Punti_si":5,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410576,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali con stereotipie (rincorrersi la coda, leccamenti, ecc)?",
+      "SottoDomanda":"-",
+      "Punti_si":4,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410577,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali che vocalizzano in assenza di stimoli?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410578,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali iperattivi?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410579,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali iporeattivi con depressione del sensorio/sonnolenza?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410580,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali con automutilazioni?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410581,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali con tremori muscolari, minzione emotiva?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410582,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali con manifestazioni d'ansia (pacing, sbadigli, leccamenti)?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410583,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali eccessivamente paurosi?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410584,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animalicon deficit di socializzazione?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410585,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali con manifestazioni  di aggressivita'?",
+      "SottoDomanda":"-",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410586,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Tale aggressivita' e' interspecifica (uomo)?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410587,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali con dimagramento cronico?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410588,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali obesi?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410590,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Si rileva la presenza di scorte di farmaci all'interno dell'azienda?",
+      "SottoDomanda":"-",
+      "Punti_si":5,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410591,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"L'azienda e' munita dell'autorizzazione dell'ASL competente per detenere scorte di farmaci (ex articolo 80/193)?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":50
+   
+},
+   {
+      "Q_id":410592,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Il carico dei farmaci registrati coincide con quello presente in armadietto?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":9
+   
+},
+   {
+      "Q_id":410593,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Le scorte di medicinali  sono custodite in idonei locali/armadi chiudibili a chiave?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":17
+   
+},
+   {
+      "Q_id":410594,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Le scorte di medicinali  sono custodite in idonei locali/armadi chiudibili a chiave?",
+      "SottoDomanda":"Al momento dell'ispezione risultano aperti e/o incustoditi?",
+      "Punti_si":0,
+      "Punti_no":17
+   
+},
+   {
+      "Q_id":410595,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"La quantita' di medicinali veterinari prescritti e' limitata al minimo necessario per il trattamento o la terapia?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410596,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":" Sono presenti le documentazioni di acquisto dei farmaci?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":30
+   
+},
+   {
+      "Q_id":410597,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Dalla visione a campione delle confezioni di farmaci detenuti, risulta che vi sia qualcuna con il termine di conservazione scaduto?",
+      "SottoDomanda":"-",
+      "Punti_si":30,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410598,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"L'impresa somministra farmaci utilizzabili anche negli animali produttori di alimenti? ",
+      "SottoDomanda":"-",
+      "Punti_si":5,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410599,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"L'impresa somministra farmaci utilizzabili anche negli animali produttori di alimenti? ",
+      "SottoDomanda":"E' presente un registro dove vengono annotati i trattamenti di tali farmaci?",
+      "Punti_si":5,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410600,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Sono detenuti o si evince che sono stati effettuati trattamenti vaccinali?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":12
+   
+},
+   {
+      "Q_id":410601,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Si rinvengono farmaci ad uso umano?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410602,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Si rinvengono farmaci ad uso umano?",
+      "SottoDomanda":"Sono farmaci per i quali esiste il corrispettivo veterinario?",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410603,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Si rinvengono farmaci ad uso umano?",
+      "SottoDomanda":"Sono farmaci prescrivibili solo da uno specialista?",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410604,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Si rinvengono farmaci ad uso umano?",
+      "SottoDomanda":"Sono farmaci cedibili solo ad ospedali e case di cura?",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410606,
+      "C_desc":"CAPITOLO V : ALIMENTAZIONE ANIMALE",
+      "Domanda":"E' presente un locale per la conservazione degli alimenti?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":8
+   
+},
+   {
+      "Q_id":410607,
+      "C_desc":"CAPITOLO V : ALIMENTAZIONE ANIMALE",
+      "Domanda":"E' definita una zona o locale dove vengono preparati i pasti?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":5
+   
+},
+   {
+      "Q_id":410608,
+      "C_desc":"CAPITOLO V : ALIMENTAZIONE ANIMALE",
+      "Domanda":"E' definita una zona o locale dove vengono preparati i pasti?",
+      "SottoDomanda":"I locali adibiti alla preparazione/conservazione di alimenti sono adeguatamente separati e soddisfano i requisiti minimi dal punto di vista igienico-sanitario?",
+      "Punti_si":0,
+      "Punti_no":5
+   
+},
+   {
+      "Q_id":410609,
+      "C_desc":"CAPITOLO V : ALIMENTAZIONE ANIMALE",
+      "Domanda":"Il canile per la preparazione dei pasti utilizza anche SOA cat. 3?",
+      "SottoDomanda":"-",
+      "Punti_si":5,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410610,
+      "C_desc":"CAPITOLO V : ALIMENTAZIONE ANIMALE",
+      "Domanda":"Il canile per la preparazione dei pasti utilizza anche SOA cat. 3?",
+      "SottoDomanda":"L'impresa annota su un registro il carico di tali SOA?",
+      "Punti_si":5,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410611,
+      "C_desc":"CAPITOLO V : ALIMENTAZIONE ANIMALE",
+      "Domanda":"Si rileva la presenza di avanzi di cibo non rimossi da giorni?",
+      "SottoDomanda":"-",
+      "Punti_si":4,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410613,
+      "C_desc":"CAPITOLO VI: PERSONALE",
+      "Domanda":"Il personale addetto agli animali dimostra di aver ricevuto istruzioni pratiche sulle pertinenti disposizioni normative?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":5
+   
+},
+   {
+      "Q_id":410614,
+      "C_desc":"CAPITOLO VI: PERSONALE",
+      "Domanda":"Il personale dimostra di aver partecipato a corsi di formazione specifici in materia incentrati in particolare sul benessere degli animali per il personale addetto agli animali?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":5
+   
+},
+   {
+      "Q_id":410615,
+      "C_desc":"CAPITOLO VI: PERSONALE",
+      "Domanda":"Il personale dispone delle attrezzature e misure di sicurezza idonee a prevenire gli infortuni?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":4
+   
+},
+   {
+      "Q_id":410616,
+      "C_desc":"CAPITOLO VI: PERSONALE",
+      "Domanda":"Il canile e' assistito anche da volontari?",
+      "SottoDomanda":"-",
+      "Punti_si":0,
+      "Punti_no":3
+   
+},
+   {
+      "Q_id":410618,
+      "C_desc":"CAPITOLO VII: ENTITA' E CARATTERISTICHE DELLA STRUTTURA",
+      "Domanda":"Nel canile sono presenti meno di 20 cani (di qualsiasi eta')?",
+      "SottoDomanda":"-",
+      "Punti_si":30,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410619,
+      "C_desc":"CAPITOLO VII: ENTITA' E CARATTERISTICHE DELLA STRUTTURA",
+      "Domanda":"Nel canile sono presenti da 21 a 50 cani (di qualsiasi eta')?",
+      "SottoDomanda":"-",
+      "Punti_si":60,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410620,
+      "C_desc":"CAPITOLO VII: ENTITA' E CARATTERISTICHE DELLA STRUTTURA",
+      "Domanda":"Nel canile sono presenti da 51 a 100 cani (di qualsiasi eta')?",
+      "SottoDomanda":"-",
+      "Punti_si":90,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410621,
+      "C_desc":"CAPITOLO VII: ENTITA' E CARATTERISTICHE DELLA STRUTTURA",
+      "Domanda":"Nel canile sono presenti piu' di 100 cani (di qualsiasi eta')?",
+      "SottoDomanda":"-",
+      "Punti_si":120,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410622,
+      "C_desc":"CAPITOLO VII: ENTITA' E CARATTERISTICHE DELLA STRUTTURA",
+      "Domanda":"Nel canile vengono custoditi anche altri animali?",
+      "SottoDomanda":"-",
+      "Punti_si":30,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410623,
+      "C_desc":"CAPITOLO VII: ENTITA' E CARATTERISTICHE DELLA STRUTTURA",
+      "Domanda":"Nel canile vengono ricoverati anche cani randagi?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410624,
+      "C_desc":"CAPITOLO VII: ENTITA' E CARATTERISTICHE DELLA STRUTTURA",
+      "Domanda":"Nel canile vengono ricoverati anche cani randagi?",
+      "SottoDomanda":"Esiste una distinzione netta tra la zona adibita a pensione per animali di proprieta' e quella adibita a ricovero di cani randagi?",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410625,
+      "C_desc":"CAPITOLO VII: ENTITA' E CARATTERISTICHE DELLA STRUTTURA",
+      "Domanda":"L'azienda effettua anche l'attivita' di addestramento?",
+      "SottoDomanda":"-",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410626,
+      "C_desc":"CAPITOLO VII: ENTITA' E CARATTERISTICHE DELLA STRUTTURA",
+      "Domanda":"L'azienda effettua anche l'attivita' di addestramento?",
+      "SottoDomanda":"L'addestramento riguarda anche cani da difesa e/o da guardia?",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410628,
+      "C_desc":"CAPITOLO VIII: PROVVEDIMENTI ADOTTATI",
+      "Domanda":"Le non conformita' riscontrate durante la presente ispezione comportano l'imposizione della chiusura del canile?",
+      "SottoDomanda":"-",
+      "Punti_si":250,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410629,
+      "C_desc":"CAPITOLO VIII: PROVVEDIMENTI ADOTTATI",
+      "Domanda":"Gli ispettori procederanno alla redazione di pp.vv. di illecito amministrativo?",
+      "SottoDomanda":"-",
+      "Punti_si":25,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410630,
+      "C_desc":"CAPITOLO VIII: PROVVEDIMENTI ADOTTATI",
+      "Domanda":"Gli ispettori procederanno al sequestro di merce e/o attrezzature e/o documenti?",
+      "SottoDomanda":"-",
+      "Punti_si":25,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":410631,
+      "C_desc":"CAPITOLO VIII: PROVVEDIMENTI ADOTTATI",
+      "Domanda":"In seguito alla presente ispezione, si procedera' alla trasmissione di notizie di reato alla Procura per comportamenti penalmente rilevanti?",
+      "SottoDomanda":"-",
+      "Punti_si":25,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420831,
+      "C_desc":"CAPITOLO II: IGIENE E STATO SANITARIO",
+      "Domanda":"Sono presenti uno o piu' box o strutture dove sono ricoverati esclusivamente tali cani?",
+      "SottoDomanda":"I dispositivi di protezione individuale sono applicati anche ai cani non infetti?",
+      "Punti_si":0,
+      "Punti_no":15
+   
+},
+   {
+      "Q_id":420832,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali che si rincorrono la coda?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420833,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali con leccamenti maniacali?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420834,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animalicon deficit di socializzazione?",
+      "SottoDomanda":"Il titolare pua' dimostrare di mettere in atto usualmente procedure volte ad attenuare le stereotipie?",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420835,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Tale aggressivita' e' intraspecifica?",
+      "SottoDomanda":"-",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420836,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Tale aggressivita' e' interspecifica (uomo)?",
+      "SottoDomanda":"Il titolare puo' dimostrare di mettere in atto usualmente procedure volte ad attenuare tali aggressivita'?",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420837,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali con disturbi della massa corporea?",
+      "SottoDomanda":"-",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420838,
+      "C_desc":"CAPITOLO III: BENESSERE",
+      "Domanda":"Si rileva la presenza di animali obesi?",
+      "SottoDomanda":"Il titolare puo' dimostrare di mettere in atto usualmente procedure volte ad attenuare tali scompensi?",
+      "Punti_si":1,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420839,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Si rileva la presenza di rimanenza di farmaci?",
+      "SottoDomanda":"-",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420840,
+      "C_desc":"CAPITOLO IV : FARMACOSORVEGLIANZA ",
+      "Domanda":"Si rileva la presenza di rimanenza di farmaci?",
+      "SottoDomanda":"Sono presenti le relative ricette d'acquisto?",
+      "Punti_si":3,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420841,
+      "C_desc":"CAPITOLO V : ALIMENTAZIONE ANIMALE",
+      "Domanda":"Dalla visione a campione delle confezioni di mangimi detenuti, risulta che vi sia qualcuna con il termine di conservazione scaduto?",
+      "SottoDomanda":"-",
+      "Punti_si":12,
+      "Punti_no":0
+   
+},
+   {
+      "Q_id":420842,
+      "C_desc":"CAPITOLO VII: ENTITA' E CARATTERISTICHE DELLA STRUTTURA",
+      "Domanda":"Viene effettuata l'attivita' di pensione per animali di proprieta' di terzi?",
+      "SottoDomanda":"-",
+      "Punti_si":3,
+      "Punti_no":0
+   
+}
+]

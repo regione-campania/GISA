@@ -1,0 +1,225 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<!DOCTYPE html>
+<script>
+	var currTplName = "chpqst.html";
+</script>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ML10 CL</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  
+  <script src="/static/js/FileSaver.js"></script>
+<!--
+-->
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<style>
+
+.xs-text{
+	font-size:0.8rem;
+}
+ 
+.chphdr{
+  color: #abafab;
+  background-color: #826282;
+  border-color: #FF8888;
+}
+.active {
+    color: #37a0e6;
+    background-color: #f0e0a0;
+}
+
+div.sticky {
+
+  position: sticky;
+  top: 0;
+
+  padding: 5px;
+  background-color: #cae8cf;
+  border: 1px solid #4CAF50;
+}
+</style>
+</head>
+<script>
+'use strict';
+
+function save2pdf() {
+
+	
+	window.print();
+}
+
+var jsonContent=[
+ {{range $i, $qst :=   .Qsts_1 }} {{if gt $i 0}} , {{end}} {"Id_Domanda": "{{$qst.Q_id}}", "Capitolo": "{{$qst.C_desc}}", "Domanda":"{{$qst.Domanda}}", "SottoDomanda":"{{$qst.SottoDomanda}}","Punti_Risposta":0,"Risposta":""}
+ {{end}}
+];
+
+function exportjson() {
+
+	var j=JSON.stringify(jsonContent, null, 2);
+	var ar=[];
+	ar.push(j);
+	var blob = new Blob(ar, {type: "text/plain;charset=utf-8"});
+
+	if (confirm(ar)) {
+		saveAs(blob, "json.txt");
+	}
+}
+
+function switchSD(t) { //abilitazione sottodomande
+  
+  var myid=t.dataset.id;
+  var query = 'input[data-idparent="' + myid +'"]';
+  var sds = document.querySelectorAll(query);  //tutte le sottomande hanno "data-idparent"=="data-id" riga corrente 
+  console.log(query);
+  console.log(JSON.stringify(sds));
+    
+  var rbAr=document.getElementsByName(t.name);  //current radiobutton array  
+  if (rbAr[0].checked) {//SI
+	for (let i=0; i<sds.length; i++) {    //abilita sottodomande
+		//console.log("enabling: " + sds[i].name);
+		sds[i].disabled=false;
+	}
+  } else {
+	for (let i=0; i<sds.length; i++) {
+		sds[i].disabled=true;
+	}  
+  }
+}
+
+function updJsonContent(q_id, currpv, risposta) {
+
+	console.log("updJsonContent: " + q_id + " , val=" + currpv);
+	for(let i=0; i<jsonContent.length; i++) {
+		console.log(jsonContent[i].Id_Domanda +"-"+q_id );
+		if (jsonContent[i].Id_Domanda==q_id) {
+			let tmp=jsonContent[i].Punti_Risposta;
+			jsonContent[i].Punti_Risposta= parseInt(tmp)+parseInt(currpv);
+			jsonContent[i].Risposta = risposta;
+			return;
+		}
+	}
+}
+
+function updTot(t) {  //aggiorna punteggi
+
+  var rbAr=document.getElementsByName(t.name);  //current radiobutton array
+
+  var tot=parseInt(document.getElementById("tot").innerText); //totale punteggio corrente
+console.log("tot:"+tot);
+  var currpv=parseInt(t.value)  //current points
+  updJsonContent(t.dataset.q_id, currpv, t.dataset.risposta)
+  
+  for (let i=0; i<rbAr.length; i++) {  //radio button array (SI, NO)
+
+	if (rbAr[i].parentElement.classList.contains("active")) { // c'è uno dei due rb selezionato
+		if(rbAr[i]!=t) { //risulta selezionato il radiobutton duale di quello cliccato
+			rbAr[i].parentElement.classList.remove("active"); //deseleziona il non cliccato 						// 
+			let oldv=parseInt(rbAr[i].value);                                //  sottrai il suo valore...   
+			tot -= oldv;                                            // al tot
+			  updJsonContent(t.dataset.q_id, -oldv, t.dataset.risposta)
+		} else {   //risulta già selezionato il rb corrente...
+			return;// niente altro da fare
+		}
+    }
+  }
+  tot+=currpv; 
+  document.getElementById("tot").innerText=String(tot).padStart(3, '0')
+  t.parentElement.classList.add("active");  // seleziona il radiob. corrente
+  
+  if (t.dataset.sottodomanda !== 'SI') { //non è una sottodomanda
+	console.log("going to enable sds" );
+	switchSD(t);
+  }
+}
+
+</script>
+<body>
+<div class="sticky text-center">
+ <button type="button" class="btn btn-outline-light btn-sm" onclick="exportjson()">Esporta checklist compilata in JSON</button> 
+ <button type="button" class="btn btn-outline-light btn-sm" onclick="save2pdf()">Salva in formato pdf</button> 
+</div>
+<div id="content">
+<div class="sticky text-center">
+<div class="text-right" >Punteggio totale: &nbsp; <span id="tot" class=" badge badge-info">000</span>&nbsp;</div>
+</div>
+
+<div  class="table-responsive " >
+
+
+  <table class="table table-striped table-bordered table-sm table-condensed">
+        
+    <thead>
+      <tr>
+
+        <th width="43%" class="small font-weight-bold">Domanda</th>
+        <th width="43%" class="small font-weight-bold">Sottodomanda</th>
+        <th width="7%" class="small font-weight-bold">&nbsp;</th>
+        <th width="7%" class="small font-weight-bold">&nbsp;</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+  {{$chp:=""}}  {{$dprec:=""}}  {{$idparent:=""}} 
+  {{range $i, $qst := .Qsts_1 }}
+	{{ if ne $chp  $qst.C_desc }} {{$chp = $qst.C_desc}} 
+		<tr> <td class="text-center chphdr" colspan="4"> {{$qst.C_desc}}</td>  </tr>	<!-- capitolo -->
+	{{end}}
+
+		<tr>
+			<td class="small {{ if eq $dprec $qst.Domanda }} font-weight-light font-italic {{end}}">
+			{{ if ne $dprec $qst.Domanda }} {{/* una sottodomanda ha la caratteristica di avere la stessa domanda della riga prec. */}}
+				{{ $qst.Domanda }}  <!-- il testo della domanda viene riportato solo per le non-sottodomande -->
+			{{else}}
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lsquo; &lsquo;
+			{{end}}
+			</td>
+			<td class="small">{{ $qst.SottoDomanda }}</td>
+			<td class="small xs-text text-center " >
+				
+					<input onclick="updTot(this)" type="radio" name="q{{$i}}" value="{{ $qst.Punti_si }}" data-q_id="{{$qst.Q_id}}"  data-risposta="SI" 
+					{{ if eq $dprec $qst.Domanda }} {{/* una sottodomanda ha la caratteristica di avere la stessa domanda della riga prec. */}}
+						disabled data-idparent='{{ $idparent }}' data-sottodomanda='SI' 
+					{{else}} 
+						{{$idparent = $i}} data-id="{{$i}}" {{/* questa riga è una domanda: aggiornamento idparent solo sul "SI"  */}}
+					{{end}}
+					 > <label> SI: {{$qst.Punti_si|printf "%03d"}}
+				</label>
+			</td>
+			<td class="small xs-text text-center ">
+				
+					<input onclick="updTot(this);" type="radio" name="q{{$i}}" value="{{ $qst.Punti_no }}" data-q_id="{{$qst.Q_id}}" data-risposta="NO"
+					{{ if eq $dprec $qst.Domanda }} {{/* una sottodomanda ha la caratteristica di avere la stessa domanda della riga prec. */}}
+						disabled data-idparent='{{ $idparent }}' data-sottodomanda='SI' 
+					{{else}} 
+						data-id="{{$i}}" 
+					{{end}}
+					> <label> NO: {{$qst.Punti_no|printf "%03d"}}
+				</label>
+			</td>
+		</tr>
+	{{$dprec = $qst.Domanda}} 	
+
+ {{end}}
+	</tbody>
+	
+	</table>
+</div>
+</div>
+</body>
+</html>
+ 

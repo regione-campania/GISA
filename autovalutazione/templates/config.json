@@ -1,0 +1,10 @@
+{
+    "port":"",
+    "dbUrl":"",
+    "dbName":"",
+    "dbPort":"",
+    "dbPasswd":"",
+    "dbUser":"",
+    "endPointDocumentale":"http://<inserireHost>/serverDocumentale/UploadFile",
+    "endPointLogin":"http://<inserireHost>/ServiziTrasversali/All/Utenti/Validategiava"
+}

@@ -1,0 +1,59 @@
+<!--
+Copyright (C) AGPL-3.0  
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>chapters</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<style>
+.active {
+  color: #37a0e6;
+  background-color: #f0e0a0 !important;
+}
+ 
+</style>
+</head>
+<script>  
+var last;
+function setActive(t) {
+  if (last!=null) {
+	last.classList.remove("active");
+  }
+  last=t;
+  last.classList.add("active");
+}
+
+</script>
+
+<body>
+<div class="table-responsive" >
+
+  <table class="table table-striped table-bordered table-sm table-condensed">
+
+    <thead>
+      <tr>
+        <th>Capitolo</th>
+      </tr>
+    </thead>
+
+    <tbody>
+ {{range $i, $chp :=   .Chps }}
+	<tr onclick="setActive(this);">
+        <td class="small"><a href="/get_qst/{{$chp.C_id }}" target="qst">{{ $chp.C_desc }}</a></td>
+    </tr>
+ {{end}}
+	</tbody>
+	</table>
+</div>
+
+</body>
+</html>
