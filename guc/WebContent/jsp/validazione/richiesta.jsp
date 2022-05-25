@@ -189,7 +189,7 @@ function nascondiRifiuta(){
 		<tr><th>Flag aggiuntivi</th> <td>
 				
 		<% if (dettaglioRichiesta.getIdTipologiaUtente() == 1 || dettaglioRichiesta.getIdTipologiaUtente() == 2 || dettaglioRichiesta.getIdTipologiaUtente() == 15 || dettaglioRichiesta.getIdTipologiaUtente() == 19) {%>
-		<input type="checkbox" id="inNucleo" name="inNucleo" value="true" <%=dettaglioRichiesta.getStato() != Richiesta.STATO_DA_VALIDARE ? "disabled" : "" %> <%=Boolean.TRUE.equals(dettaglioRichiesta.getInNucleo()) ? "checked" : "" %>/> Il nominativo può essere selezionato nel Nucleo Ispettivo?	<br/>
+		<input type="checkbox" id="inNucleo" name="inNucleo" value="true" <%=dettaglioRichiesta.getStato() != Richiesta.STATO_DA_VALIDARE ? "disabled" : "" %> <%=Boolean.TRUE.equals(dettaglioRichiesta.getInNucleo()) ? "checked" : "" %> <%=(dettaglioRichiesta.getIdTipologiaUtente() == 15) ? "checked onClick='return false';" : "" /* CENTRI DI RIFERIMENTO: HANNO SEMPRE NUCLEO ISPETTIVO = TRUE*/ %>/> Il nominativo può essere selezionato nel Nucleo Ispettivo?	<br/>
 		<% } %>
 		
 		<% if (dettaglioRichiesta.getIdTipologiaUtente() == 1) {%>

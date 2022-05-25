@@ -65,9 +65,12 @@ function mostraProcessa(numeroRichiesta, idTipoOperazione, idTipologiaUtente, ha
 		
 		if (idTipologiaUtente == 1 || idTipologiaUtente == 2 || idTipologiaUtente == 15 || idTipologiaUtente == 19){
 			$("#inNucleoTemp_Label").show();
-			//$("#inNucleoTemp").prop('checked', true); 
-			//$("#inNucleo").prop('checked', true); 
-		}
+			if (idTipologiaUtente == 15){ // CENTRI DI RIFERIMENTO: HANNO SEMPRE NUCLEO ISPETTIVO = TRUE
+				$("#inNucleoTemp").prop('checked', true); 
+				$("#inNucleo").prop('checked', true); 
+				$("#inNucleoTemp_Label").hide();
+			}
+			}
 		else
 			$("#inNucleoTemp_Label").hide();
 	}
