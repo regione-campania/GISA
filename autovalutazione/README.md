@@ -43,7 +43,7 @@ verrebbero controllati.
 
 
 <p align="left">
-<img src="https://github.com/regcampania/GISA/autovalutazione/blob/main/docs/autovalut.png" width="75%">
+<img src="https://github.com/regcampania/GISA/blob/main/autovalutazione/docs/autovalut.png" width="75%">
 </p>
 
 
