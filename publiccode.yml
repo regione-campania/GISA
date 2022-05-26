@@ -12,42 +12,64 @@ categories:
   - customer-service-and-support
 description:
   it:
-    documentation: 'https://github.com/regcampania/GISA'
+    documentation: 'https://github.com/regcampania/GISA/docs'
     features:
-      - Unico punto di accesso centralizzato tramite credenziali SPID/CIE
-      - Pratiche Suap 2.0
-      - Anagrafiche NO SCIA
-      - Controlli Ufficiali
-      - Registro Trasgressori
-      - Allerte Alimentari
-      - Preaccettazione SIGLA/ARPAC
-      - Gestore Norme
-      - Gestione Avvisi di pagamento Sanzioni PagoPa/MyPay
-      - DPAT
-      - Dpat – configuratore piani/attività
-      - Sintesis / Macellazioni
-      - Apicoltura
-      - Aziende zootecniche
-      - cooperazione con BDN
-      - Documentale – Stampe nei moduli
-      - ' Portale di autovalutazione per OSA registrati – Login gestita con         Spid/CIE'
-      - |-
-        Portale di autovalutazione per Utenti NON Registrati – Accesso
-        come         Ospite
-      - Anagrafica animali
-      - Registrazione animali
-      - Proprietari e Strutture di detenzione
-      - Banca dati MC  a priori
-      - Contributi/Sterilizzazione
-      - Documentale – Stampe nei moduli
-      - Gestione utenti
-      - Registrazione utenti
-      - Dpar - Dpat
-      - |-
-        "Programmazione” e “Distribuzione” in UPS ed UBA distribuite par ASL
-        –         Modello 4
-      - Repo Avanzata
-      - Formule
+        GISA CONTROLLI UFFICIALI
+        - Unico punto di accesso centralizzato tramite credenziali SPID/CIE
+        - Pratiche Suap 2.0
+        - Anagrafiche NO SCIA
+        - Controlli Ufficiali
+        - Registro Trasgressori
+        - Allerte Alimentari
+        - Preaccettazione SIGLA/ARPAC
+        - Gestore Norme
+        - Gestione Avvisi di pagamento Sanzioni PagoPa/MyPay
+        - DPAT
+        - Dpat – configuratore piani/attività
+        - Sintesis / Macellazioni
+        - Apicoltura
+        - Aziende zootecniche
+        - cooperazione con BDN
+        - Documentale – Stampe nei moduli
+	  
+        AUTOVALUTAZIONE
+        - Portale di autovalutazione per OSA registrati – Login gestita con Spid/CIE'
+        - Portale di autovalutazione per Utenti NON Registrati – Accesso
+        come Ospite
+		
+        ANAGRAFE ANIMALI DA COMPAGNIA
+        - Anagrafica animali
+        - Registrazione animali
+        - Proprietari e Strutture di detenzione
+        - Banca dati MC  a priori
+        - Contributi/Sterilizzazione
+        - Documentale – Stampe nei moduli
+	  
+        GUC
+        - Gestione utenti
+        - Registrazione utenti
+	  
+        MATRIX
+        - "Programmazione” e “Distribuzione” in UPS ed UBA distribuite par ASL–Modello 4
+        - Dpar - Dpat
+        - Formule
+	  
+	  
+        REPORTISTICA AVANZATA
+        - Rendicontazione controlli ufficiali e campioni eseguiti.
+        - Rendicontazione per controlli su TSE 
+        - Rendicontazione per controlli IUV
+	  
+	 
+        SCA	
+        - Sistema centralizzato degli accessi per tutti i sottosistemi dell'Ecosistema GISA
+      
+        SICUREZZA LAVORO
+        - Gestione delle notifiche dei cantieri e delle imprese per la prevenzione e sicurezza sui luoghi di lavoro
+        - Gestione delle ispezioni effettuate su cantiere/imprese
+	  
+        MODULO SPID CIE
+        - Modulo di richiesta di registrazione all'Ecosistema GISA tramite credenziali SPID/CIE
     genericName: soluzione applicativa sanitario
     longDescription: |
       L’\*\*\*Ecosistema\*\*\* \*\*\*GISA\*\*\* è composto da diversi componenti
