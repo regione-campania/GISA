@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/anagrafe_animali_da_compagnia/docs/logo-regione-campania.png">
+<img src="https://github.com/regione-campania/GISA/blob/main/anagrafe_animali_da_compagnia/docs/logo-regione-campania.png">
 </p>
 
 # Anagrafe animali da compagnia
