@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/gisa_controlli_ufficiali/docs/logo-regione-campania.png">
+<img src="https://github.com/regione-campania/GISA/blob/main/gisa_controlli_ufficiali/docs/logo-regione-campania.png">
 </p>
 
 # ECOSISTEMA GISA
