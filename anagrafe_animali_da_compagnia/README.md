@@ -148,7 +148,7 @@ Figura 2. Schematizzazione dei moduli dell’Ecosistema G.I.S.A.
 
 
 <p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/anagrafe_animali_da_compagnia/docs/bdu-img.png" width="75%">
+<img src="https://github.com/regione-campania/GISA/blob/main/anagrafe_animali_da_compagnia/docs/bdu-img.png" width="75%">
 </p>
 
 
@@ -293,7 +293,7 @@ Eseguire il seguente comando:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set anagrafe_animali_da_compagnia
@@ -401,7 +401,7 @@ Prerequisiti:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set anagrafe_animali_da_compagnia

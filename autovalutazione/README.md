@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/autovalutazione/docs/logo-regione-campania.png">
+<img src="https://github.com/regione-campania/GISA/blob/main/autovalutazione/docs/logo-regione-campania.png">
 </p>
 
 # AUTOVALUTAZIONE
@@ -43,7 +43,7 @@ verrebbero controllati.
 
 
 <p align="left">
-<img src="https://github.com/regcampania/GISA/blob/main/autovalutazione/docs/autovalut.png" width="75%">
+<img src="https://github.com/regione-campania/GISA/blob/main/autovalutazione/docs/autovalut.png" width="75%">
 </p>
 
 
@@ -295,7 +295,7 @@ Eseguire il seguente comando:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set autovalutazione
@@ -391,7 +391,7 @@ Prerequisiti:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set autovalutazione

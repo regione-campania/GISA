@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/sca/docs/logo-regione-campania.png">
+<img src="https://github.com/regione-campania/GISA/blob/main/sca/docs/logo-regione-campania.png">
 </p>
 
 # S C A - Sistema Centralizzato D'Accesso 
@@ -184,7 +184,7 @@ Eseguire il seguente comando:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set sca
@@ -288,7 +288,7 @@ Prerequisiti:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set sca

@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/matrix_reportistica_avanzata/docs/logo-regione-campania.png">
+<img src="https://github.com/regione-campania/GISA/blob/main/matrix_reportistica_avanzata/docs/logo-regione-campania.png">
 </p>
 
 # MATRIX & REPORTISTICA AVANZATA
@@ -262,7 +262,7 @@ Eseguire il seguente comando:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set matrix_reportistica_avanzata
@@ -351,7 +351,7 @@ Prerequisiti
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set matrix_reportistica_avanzata

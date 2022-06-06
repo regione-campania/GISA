@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/guc/docs/logo-regione-campania.png">
+<img src="https://github.com/regione-campania/GISA/blob/main/guc/docs/logo-regione-campania.png">
 </p>
 
 # G U C - Gestione Utenti Centralizzata 
@@ -190,7 +190,7 @@ Eseguire il seguente comando:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set guc
@@ -294,7 +294,7 @@ chown -R tomcat:tomcat /<tomcatDir> .
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set guc

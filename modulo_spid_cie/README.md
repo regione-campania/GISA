@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/modulo_spid_cie/docs/logo-regione-campania.png">
+<img src="https://github.com/regione-campania/GISA/blob/main/modulo_spid_cie/docs/logo-regione-campania.png">
 </p>
 
 # Modulo SPID/CIE 
@@ -164,7 +164,7 @@ Eseguire il seguente comando:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set modulo_spid_cie
@@ -258,7 +258,7 @@ Prerequisiti
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set modulo_spid_cie

@@ -1,5 +1,5 @@
-﻿<p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/gisa_controlli_ufficiali/docs/logo-regione-campania.png">
+<p align="center">
+<img src="https://github.com/regione-campania/GISA/blob/main/gisa_controlli_ufficiali/docs/logo-regione-campania.png">
 </p>
 
 
@@ -55,7 +55,7 @@ In ***GISA Controlli Ufficiali*** è implementato l’intero processo di attivaz
 
 
 <p align="center">
-<img src="https://github.com/regcampania/GISA/gisa_controlli_ufficiali/blob/main/docs/Aspose.Words.cf9e318a-c0df-40c2-8eee-7557ad70dba9.003.png">
+<img src="https://github.com/regione-campania/GISA/gisa_controlli_ufficiali/blob/main/docs/Aspose.Words.cf9e318a-c0df-40c2-8eee-7557ad70dba9.003.png">
 </p>
 
 
@@ -76,7 +76,7 @@ informazione da *GISA Controlli Ufficiali* a *SIGLA/LIMS*: il contenuto dei Rapp
 trasferito da *LIMS/SIGLA* e *GISA Controlli Ufficiali*.
 
 <p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/gisa_controlli_ufficiali/docs/preaccettazione.png">
+<img src="https://github.com/regione-campania/GISA/blob/main/gisa_controlli_ufficiali/docs/preaccettazione.png">
 </p>
 
 
@@ -583,7 +583,7 @@ Eseguire il seguente comando:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set gisa_controlli_ufficiali
@@ -697,7 +697,7 @@ git clone \
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set gisa_controlli_ufficiali

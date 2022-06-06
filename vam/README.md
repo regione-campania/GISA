@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/regcampania/GISA/blob/main/vam/docs/logo-regione-campania.png">
+<img src="https://github.com/regione-campania/GISA/blob/main/vam/docs/logo-regione-campania.png">
 </p>
 
 # V A M - Veterinary Activity Management 
@@ -275,7 +275,7 @@ Eseguire il seguente comando:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set vam
@@ -378,7 +378,7 @@ Prerequisiti:
 		  --depth 1  \
 		  --filter=blob:none  \
 		  --sparse \
-		  https://github.com/regcampania/GISA \
+		  https://github.com/regione-campania/GISA \
 		;
 		cd GISA
 		git sparse-checkout set vam
