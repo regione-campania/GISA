@@ -2,7 +2,20 @@
 # metadata file that makes public software easily discoverable.
 # More info at https://github.com/italia/publiccode.yml
 
-publiccodeYmlVersion: '0.2'
+publiccodeYmlVersion: "0.2"
+name: GISA
+applicationSuite: EcosistemaGISA
+platforms:
+  - web
+releaseDate: "2022-06-10"
+softwareType: "standalone/web"
+softwareVersion: "1.0"
+url: "https://sca.gisacampania.it/login/login.LogoutSca.us"
+isBasedOn: "https://github.com/regione-campania/GISA.git"
+usedBy:
+  - Regione Valle d'Aosta
+
+
 categories:
   - warehouse-management
   - document-management
@@ -12,7 +25,7 @@ categories:
   - customer-service-and-support
 description:
   it:
-    documentation: 'https://github.com/regione-campania/GISA/docs'
+    documentation: "https://github.com/regione-campania/GISA/docs"
     features:
         GISA CONTROLLI UFFICIALI
         - Unico punto di accesso centralizzato tramite credenziali SPID/CIE
@@ -33,7 +46,7 @@ description:
         - Documentale – Stampe nei moduli
         
         AUTOVALUTAZIONE
-        - Portale di autovalutazione per OSA registrati – Login gestita con Spid/CIE'
+        - Portale di autovalutazione per OSA registrati – Login gestita con Spid/CIE
         - Portale di autovalutazione per Utenti NON Registrati – Accesso
         come Ospite
         
@@ -50,7 +63,7 @@ description:
         - Registrazione utenti
         
         MATRIX
-        - "Programmazione" e "Distribuzione" in UPS ed UBA distribuite par ASL–Modello 4
+        - Programmazione e Distribuzione in UPS ed UBA distribuite par ASL–Modello 4
         - Dpar - Dpat
         - Formule
         
@@ -68,7 +81,7 @@ description:
         
         MODULO SPID CIE
         - Modulo di richiesta di registrazione all'Ecosistema GISA tramite credenziali SPID/CIE
-    genericName: soluzione applicativa sanitario
+    genericName: Ecosistema GISA
     longDescription:
       L'Ecosistema GISA è composto da diversi componenti
       tra cui:
@@ -219,35 +232,29 @@ description:
 developmentStatus: stable
 it:
   conforme:
-    gdpr: true
-    lineeGuidaDesign: true
-    misureMinimeSicurezza: true
-    modelloInteroperabilita: true
-  countryExtensionVersion: '0.2'
+    gdpr: yes
+    lineeGuidaDesign: no
+    misureMinimeSicurezza: yes
+    modelloInteroperabilita: no
+  countryExtensionVersion: "0.2"
   piattaforme:
-    anpr: false
-    cie: true
-    pagopa: true
-    spid: true
+    anpr: no
+    cie: yes
+    pagopa: yes
+    spid: yes
 legal:
   license: AGPL-3.0-only
 localisation:
   availableLanguages:
     - it
-  localisationReady: true
+  localisationReady: yes
 maintenance:
+  type: contract
   contacts:
     - email: gisadev@usmail.it
       name: US srl
   contractors:
     - name: Istituto Zooprofilattico Sperimentale del Mezzogiorno
-      until: '2025-12-31'
-      website: 'https://www.izsmportici.it/portale/index.php'
-  type: contract
-name: EcosistemaGISA
-platforms:
-  - web
-releaseDate: '2022-02-28'
-softwareType: standalone/web
-softwareVersion: '1.0'
-url: 'https://github.com/regione-campania/GISA'
+      until: "2025-12-31"
+      website: "https://www.izsmportici.it/portale/index.php"
+  
