@@ -34,8 +34,7 @@ description:
         - GISA CONTROLLI UFFICIALI - AUTOVALUTAZIONE - ANAGRAFE - MATRIX -
         REPORTISTICA - SICUREZZA LAVORO
     genericName: 'GISA Campania'
-    shortDescription: |-
-      Ecosistema software regionale per Sanità Veterinaria e Sicurezza Alimentare e Prevenzione luoghi di lavoro
+    localisedName: GISA Campania
     longDescription: |
       L'Ecosistema GISA è composto da diversi componenti tra cui 
         - Autenticazione tramite SPID/CIE
@@ -153,6 +152,7 @@ description:
          - Profilo Regione
          - Profilo Ispettore UPG
          - Profilo Ispettore non UPG
+    shortDescription: Ecosistema software regionale per Sanità Veterinaria e Sicurezza Alimentare e Prevenzione luoghi di lavoro
 developmentStatus: stable
 it:
   conforme:
