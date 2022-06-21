@@ -16,7 +16,7 @@ description:
       - |-
         - GISA CONTROLLI UFFICIALI - AUTOVALUTAZIONE - ANAGRAFE - MATRIX -
         REPORTISTICA - SICUREZZA LAVORO
-    genericName: GISA Campania
+    genericName: 'GISA Campania'
     longDescription: |
       L'Ecosistema GISA è composto da diversi componenti tra cui     
             - Autenticazione tramite SPID/CIE 
@@ -150,8 +150,7 @@ description:
             - Profilo Regione
             - Profilo Ispettore UPG
             - Profilo Ispettore non UPG    
-    shortDescription: |-
-      La soluzione applicativa di livello regionale e titolarità della Regione
+    shortDescription: La soluzione applicativa di livello regionale e titolarità della Regione
       CAMPANIA nata per sanità veterinaria sicurezza alimentare e prevenzione
 developmentStatus: stable
 it:
