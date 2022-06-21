@@ -12,12 +12,7 @@ categories:
   - customer-service-and-support
 dependsOn:
   open:
-    - name: Apache httpd
-      optional: false
-      version: ''
-      versionMax: ''
-      versionMin: ''
-    - name: RedHat JBOSS
+    - name: Apache Tomcat
       optional: false
       version: ''
       versionMax: ''
@@ -152,7 +147,10 @@ description:
          - Profilo Regione
          - Profilo Ispettore UPG
          - Profilo Ispettore non UPG
-    shortDescription: Ecosistema software regionale per Sanità Veterinaria e Sicurezza Alimentare e Prevenzione luoghi di lavoro
+    screenshots:
+     - |-
+       https://github.com/regione-campania/GISA/GisaLOGO.png
+    shortDescription: 'Ecosistema software regionale per Sanità Veterinaria e Sicurezza Alimentare e Prevenzione luoghi di lavoro'
 developmentStatus: stable
 it:
   conforme:
@@ -170,8 +168,7 @@ it:
     codiceIPA: r_campan
 landingURL: 'https://github.com/regione-campania/GISA.git'
 legal:
-  authorsFile: |-
-    https://raw.githubusercontent.com/regione-campania/GISA/master/Copyrights.txt
+  authorsFile: Copyrights.txt
   license: AGPL-3.0-only
   mainCopyrightOwner: Regione Campania
   repoOwner: Regione Campania
