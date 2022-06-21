@@ -10,6 +10,23 @@ categories:
   - data-visualization
   - data-analytics
   - customer-service-and-support
+dependsOn:
+  open:
+    - name: Apache httpd
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: ''
+    - name: RedHat JBOSS
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: ''
+    - name: PostgreSQL
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: ''
 description:
   it:
     features:
@@ -150,7 +167,7 @@ description:
             - Profilo Regione
             - Profilo Ispettore UPG
             - Profilo Ispettore non UPG    
-    shortDescription: La soluzione applicativa di livello regionale e titolarità della Regione
+    shortDescription: |- La soluzione applicativa di livello regionale e titolarità della Regione
       CAMPANIA nata per sanità veterinaria sicurezza alimentare e prevenzione
 developmentStatus: stable
 it:
