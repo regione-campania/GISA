@@ -2,7 +2,7 @@
 # metadata file that makes public software easily discoverable.
 # More info at https://github.com/italia/publiccode.yml
 
-publiccodeYmlVersion: '0.2'
+publiccodeYmlVersion: '0.3'
 applicationSuite: GISA Campania
 categories:
   - document-management
@@ -27,8 +27,9 @@ description:
     features:
       - |-
         - GISA CONTROLLI UFFICIALI - AUTOVALUTAZIONE - ANAGRAFE - MATRIX -
+
         REPORTISTICA - SICUREZZA LAVORO
-    genericName: 'GISA Campania'
+    genericName: GISA
     localisedName: GISA Campania
     longDescription: |
       L'Ecosistema GISA è composto da diversi componenti tra cui 
@@ -107,14 +108,16 @@ description:
        Banca dati apistica regionale integrata in cooperazione applicativa con la Banca dati apistica Nazionale BDA-N.
        - Sicurezza e prevenzione sui luoghi di lavoro: componente per
        la gestione delle notifiche relative ai cantieri e alle imprese in ambito della sicurezza sui luoghi di lavoro.
-      L'intero ecosistema prevede diverse tipologie di utenti che possono essere schematizzati nelle seguenti macrocategorie
+      L'intero ecosistema prevede diverse tipologie di utenti che possono essere
+      schematizzati nelle seguenti macrocategorie
          - Utenti istituzionali Regionali
          - Utenti istituzionali afferenti ai Dipartimenti di Prevenzione delle AA.SS.LL.
          - Utenti istituzionali non appartenenti alle AA.SS.LL. come Forze dell'ordine, Esercito, Università, CRIUV, ecc
          - Utenti liberi professionisti: Veterinari Liberi Professionisti o delegati apicoltori, ecc
          - Utenti imprenditori: apicoltori, trasportatori, ecc...
          - Privati cittadini: utenti che accedono alla componente di Autovalutazione.
-      Più precisamente le tipologie di utenti che possono registrarsi in GISA sono le seguenti
+      Più precisamente le tipologie di utenti che possono registrarsi in GISA
+      sono le seguenti
          - ASL
          - Regione
          - Centri Riferimento Regionali
@@ -134,10 +137,13 @@ description:
          - Medico Veterinario libero professionista
          - Operatore Settore Alimentare per autovalutazione
          - Direttore Sanitario Canile 
-      ​I Responsabili dei cantieri non necessitano della registrazione all'ecosistema GISA e possono inoltrare la notifica 
+      ​I Responsabili dei cantieri non necessitano della registrazione
+      all'ecosistema GISA e possono inoltrare la notifica 
       accedendo con SPID/CIE.               
-      Il totale stimato degli attuali utilizzatori è di circa 11.000 utenti (peraltro in continua crescita) distribuiti variamente sui
-      sottosistemi. Nell'estate 2022 saranno presenti in G.I.S.A. anche le tipologie di utenti della prevenzione e sicurezza sui luoghi di lavoro 
+      Il totale stimato degli attuali utilizzatori è di circa 11.000 utenti
+      (peraltro in continua crescita) distribuiti variamente sui
+      sottosistemi. Nell'estate 2022 saranno presenti in G.I.S.A. anche le
+      tipologie di utenti della prevenzione e sicurezza sui luoghi di lavoro 
       di seguito elencati
          - Profilo Notificatore
          - Profilo Ispettore SIML
@@ -147,10 +153,9 @@ description:
          - Profilo Regione
          - Profilo Ispettore UPG
          - Profilo Ispettore non UPG
-    screenshots:
-     - |-
-       https://github.com/regione-campania/GISA/GisaLOGO.png
-    shortDescription: 'Ecosistema software regionale per Sanità Veterinaria e Sicurezza Alimentare e Prevenzione luoghi di lavoro'
+    shortDescription: |-
+      Ecosistema software regionale per Sanità Veterinaria e Sicurezza
+      Alimentare e Prevenzione luoghi di lavoro
 developmentStatus: stable
 it:
   conforme:
@@ -168,7 +173,8 @@ it:
     codiceIPA: r_campan
 landingURL: 'https://github.com/regione-campania/GISA.git'
 legal:
-  authorsFile: Copyrights.txt
+  authorsFile: |-
+    https://raw.githubusercontent.com/regione-campania/GISA/master/Copyrights.txt
   license: AGPL-3.0-only
   mainCopyrightOwner: Regione Campania
   repoOwner: Regione Campania
@@ -202,3 +208,4 @@ usedBy:
   - ASL BN
   - ASL CE
   - ASL SA
+logo: 'https://raw.githubusercontent.com/regione-campania/GISA/master/GisaLOGO.png'
