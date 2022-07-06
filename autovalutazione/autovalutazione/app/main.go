@@ -35,34 +35,34 @@ var (
 var dbUrl = ""
 var dbPort = ""
 var dbName = ""
-var dbUser = ""
-var dbPasswd = ""
+var sslCert = ""
+var sslKey = ""
 var port = ""
+var isHttps = ""
 var endPointDocumentale = ""
 var endPointLogin = ""
-var connection = ""
+var endPointSpid = ""
+
 func main() {
 	setConfigFile("config/config.json");
 	dbUrl = getProperty("dbUrl")
 	dbPort = getProperty("dbPort")
 	dbName = getProperty("dbName")
-	dbUser = getProperty("dbUser")
-	if getProperty("dbPasswd") == "" {
-		dbPasswd = ""
-	}else{
-		dbPasswd = "password=" + getProperty("dbPasswd")
-	}
+	sslCert = getProperty("sslCert")
+	sslKey = getProperty("sslKey")
 	port = getProperty("port")
+	isHttps = getProperty("isHttps")
 	endPointDocumentale = getProperty("endPointDocumentale")
 	endPointLogin = getProperty("endPointLogin")
-	connection = "host="+dbUrl+" port="+dbPort+" user="+dbUser+" dbname="+dbName+" "+dbPasswd+" sslmode=disable"
+	endPointSpid = getProperty("endPointSpid")
+
 	db, err := gorm.Open(
 		"postgres",
-		connection,
+		"host="+dbUrl+" port="+dbPort+" user=postgres dbname="+dbName+" password=postgres sslmode=disable",
 	)
 
 	if err != nil {
-		panic(connection + " " + err.Error())
+		panic("could not connect to database")
 	}
 
 	defer func() {
@@ -77,7 +77,11 @@ func main() {
 	app.Logger().Infof("\n ========================== \n Config file %s ", getConfig())
 
 	// Start the web server on port ...
-	app.Run(iris.Addr(":"+port), iris.WithCharset("utf-8"), iris.WithoutServerError(iris.ErrServerClosed))
+	if isHttps == "true" {
+		app.Run(iris.TLS(":"+port, sslCert, sslKey), iris.WithCharset("utf-8"), iris.WithoutServerError(iris.ErrServerClosed));
+	} else {
+		app.Run(iris.Addr(":"+port), iris.WithCharset("utf-8"), iris.WithoutServerError(iris.ErrServerClosed));
+	}
 }
 
 
@@ -93,6 +97,7 @@ func newApp(db *gorm.DB) *iris.Application {
 
 	//app.StaticWeb("/static", "./static")
 	app.HandleDir("/static", iris.Dir("./static"))
+	app.HandleDir("/", iris.Dir("./templates"))
 
 	app.OnErrorCode(iris.StatusInternalServerError, func(ctx iris.Context) {
 
@@ -104,6 +109,11 @@ func newApp(db *gorm.DB) *iris.Application {
 
 		ctx.Writef("(Unexpected) internal server error")
 	})
+
+	app.OnErrorCode(iris.StatusNotFound, func(ctx iris.Context) {
+		ctx.Application().Logger().Infof("Not Found Handler for: %s", ctx.Path())
+	})
+
 	
 	app.Get("/home", func(ctx iris.Context) {
 		
@@ -114,7 +124,8 @@ func newApp(db *gorm.DB) *iris.Application {
 	app.Get("/", func(ctx iris.Context) {
 		
     //  ctx.View("main.html")
-      ctx.View("login.html")
+	  ctx.ViewData("EndpointSpid", endPointSpid)
+      ctx.View("/index.html")
 		
 	})
 	
@@ -172,7 +183,7 @@ func newApp(db *gorm.DB) *iris.Application {
 
 		//db.Raw("select id_macroarea m_id, macroarea || '-' || norma  m_desc from macroarea where id_norma like ? ", id).Find(&Macs)
 		//db.Raw("select distinct id_macroarea m_id, macroarea || ' (' || norma ||')' m_desc from ml10 where id_norma like ? ", id).Find(&Macs)
-		db.Raw("select distinct id_macroarea m_id, macroarea m_desc from ml10(?::text, ?::text) where id_norma like ? order by 2", session.GetString("osaId"), session.GetString("osaTab"), id).Find(&Macs)
+		db.Raw("select distinct id_macroarea m_id, macroarea m_desc, codice_macroarea as m_code from ml10(?::text, ?::text) where id_norma like ? order by 2", session.GetString("osaId"), session.GetString("osaTab"), id).Find(&Macs)
 		qry:= fmt.Sprintf("select distinct id_macroarea m_id, macroarea m_desc from ml10(%s::text, %s::text) where id_norma like '%s' order by 2", session.GetString("osaId"), session.GetString("osaTab"), id)
 		fmt.Println("###"+ qry)
 
@@ -191,7 +202,7 @@ func newApp(db *gorm.DB) *iris.Application {
 		
 		app.Logger().Infof(" Aggrs of M_id: %s", id)
 
-		db.Raw("select id_aggregazione a_id, aggregazione a_desc from aggregazione(?::text, ?::text) where id_macroarea=? ", session.GetString("osaId"), session.GetString("osaTab"), id).Find(&Aggs)
+		db.Raw("select id_aggregazione a_id, aggregazione a_desc, codice_aggregazione a_code from aggregazione(?::text, ?::text) where id_macroarea=? ", session.GetString("osaId"), session.GetString("osaTab"), id).Find(&Aggs)
 
 		ctx.ViewData("Aggs", Aggs)
 		ctx.View("agg.html")
@@ -208,7 +219,7 @@ func newApp(db *gorm.DB) *iris.Application {
 		
 		app.Logger().Infof(" Lda of A_id: %s", id)
 
-		db.Raw("select id_linea l_id, attivita l_desc from lda(?::text, ?::text) where id_aggregazione=? ", session.GetString("osaId"), session.GetString("osaTab"), id).Find(&Ldas)
+		db.Raw("select id_linea l_id, attivita l_desc, codice_attivita l_code from lda(?::text, ?::text) where id_aggregazione=? ", session.GetString("osaId"), session.GetString("osaTab"), id).Find(&Ldas)
 
 		ctx.ViewData("Ldas", Ldas)
 		ctx.View("lda.html")
@@ -222,7 +233,7 @@ func newApp(db *gorm.DB) *iris.Application {
 		app.Logger().Infof(" Cl of Lda_id: %s", idLda)
 
 		Cls := []Cl{}
-		db.Raw("select code as L_id, description as l_desc, versione as ver from public.get_checklist_by_idlinea(?)", idLda).Find(&Cls)
+		db.Raw("select code as L_id, description as l_desc, versione as ver, num_chk as num from public.get_checklist_by_idlinea(?)", idLda).Find(&Cls)
 
 		if (len(Cls) == 1){ //nuova gestione 
 			if(Cls[0].L_id == -1){ //una row con -1 (linea categorizzabile senza chklist associate)
@@ -240,6 +251,28 @@ func newApp(db *gorm.DB) *iris.Application {
 			ctx.View("cl_1.html")
 		}
 	})
+
+	app.Get("/get_cls_pre/{idlda:int}", func(ctx iris.Context) {
+
+		idLda,_ := ctx.Params().GetInt("idlda")
+
+		app.Logger().Infof(" Cl of Lda_id: %s", idLda)
+
+		Cls := []Cl{}
+		db.Raw("select code as L_id, description as l_desc, versione as ver from public.get_checklist_by_idlinea(?)", idLda).Find(&Cls)
+
+		options := iris.JSON{Indent: "    ", Secure: true}
+
+		if (len(Cls) == 1){ //nuova gestione 
+			if(Cls[0].L_id == -1){
+				Cls = []Cl{}
+			}
+		}
+		ctx.JSON(len(Cls), options)
+
+
+	})
+
 
 
 	app.Get("/cl", func(ctx iris.Context) {
@@ -419,7 +452,8 @@ app.Post("/login",  func(ctx iris.Context) {
 				errore = "Codice fiscale non registrato"
 			}
 			ctx.ViewData("Errore", errore)
-			ctx.View("login.html")
+			ctx.ViewData("EndpointSpid", endPointSpid)
+			ctx.View("index.html")
 			return
 		} else {
 			d := map[string]interface{}{}
@@ -441,7 +475,8 @@ app.Post("/login",  func(ctx iris.Context) {
 					errore = "Il codice fiscale " + cf + " non ha OSA associato"
 				}
 				ctx.ViewData("Errore", errore)
-				ctx.View("login.html")
+				ctx.ViewData("EndpointSpid", endPointSpid)
+				ctx.View("index.html")
 				return
 			}else{
 				session.Set("LoginData", dd)
@@ -470,6 +505,7 @@ app.Post("/login",  func(ctx iris.Context) {
 app.Get("/postLogin", func(ctx iris.Context) {
 
 	session := sess.Start(ctx)
+
 	app.Logger().Infof("DEBUG POSTLOGIN ---> %s %s %s",  ctx.URLParam("rif_id"),
 		ctx.URLParam("rif_nome"),
 		ctx.URLParam("rif_tab"))
@@ -538,19 +574,38 @@ app.Get("/public",  func(ctx iris.Context) {
 
 			Users := []User{}
 
-			db.Raw("select -nextval('public_user_id_seq') as id").Find(&Users)
+			app.Logger().Infof("OldId %s", session.Get("idUser"))
 
-			session.Set("idUser", Users[0].Id)
-			session.Set("username", strconv.Itoa(Users[0].Id))
+			//if (session.Get("idUser") == nil /*|| int(session.Get("idUser").(string)) > 0*/) { //sen non c'è un altro opsite loggato, o era loggato un osa, incremento contatore nuovo ospite
+			// if(session.GetInt("idUser") > 0){
 
-			app.Logger().Infof("Public user authenticated, ID: %s", Users[0].Id)
+				db.Raw("select -nextval('public_user_id_seq') as id").Find(&Users)
 
-			db.Exec("insert into log_access (id_utente, entered, id_asl, ip) values (?, current_timestamp, ?, ?)", session.Get("idUser"), idAsl, ctx.RemoteAddr())
-		//}
+				session.Set("idUser", Users[0].Id)
+				session.Set("username", strconv.Itoa(Users[0].Id))
+
+				app.Logger().Infof("Public user authenticated, ID: %s", Users[0].Id)
+			if (session.Get("idUser") == nil /*|| int(session.Get("idUser").(string)) > 0*/) { //sen non c'è un altro opsite loggato, o era loggato un osa, incremento contatore nuovo ospite
+
+				db.Exec("insert into log_access (id_utente, entered, id_asl, ip) values (?, current_timestamp, ?, ?)", session.Get("idUser"), idAsl, ctx.RemoteAddr())
+			//	}
+			}
 		
 		ctx.ViewData("Username", "Ospite: " + session.GetString("username"))
 		ctx.View("main.html")
 	})
+
+app.Get("/getContatoriAccessi", func(ctx iris.Context) {
+	
+	AccessCounters := AccessCounter{}
+	db.Raw("select ospiti.count ospiticounter, osa.count osacounter from (select count(*) from log_access where id_utente < 0) ospiti left join (select  count(*) from log_access where id_utente > 0) osa on 1=1").Find(&AccessCounters)
+
+	app.Logger().Infof("OspitiCounter: %", AccessCounters)
+
+	options := iris.JSON{Indent: "    ", Secure: true}
+	ctx.JSON(AccessCounters, options)
+
+})
 
 
 app.Get("/test", func(ctx iris.Context) {
@@ -568,7 +623,7 @@ app.Post("/h2p", func(ctx iris.Context ){
 
 		var clString = strings.Replace(session.GetString("selectedCl"), " ", "_", -1)
 
-		var filename = "Giava_Autovalutazione_"+clString+"_"+stringTime+".pdf"
+		var filename = "Autovalutazione_"+clString+"_"+stringTime+".pdf"
 		var filepdf ="/tmp/"+filename
 
 	//	htmlStr := ctx.PostValue("htmlStr") 
@@ -586,7 +641,9 @@ app.Post("/h2p", func(ctx iris.Context ){
 
 		//app.Logger().Info( "htmlStr\n", htmlStr, "\nend")
 
-		pdfg.AddPage(wkhtml.NewPageReader(strings.NewReader(htmlStr)))		
+		pageReader := wkhtml.NewPageReader(strings.NewReader(htmlStr))
+		pageReader.PageOptions.EnableLocalFileAccess.Set(true)
+		pdfg.AddPage(pageReader)		
 
 		// Create PDF document in internal buffer
 		err = pdfg.Create()
@@ -600,8 +657,9 @@ app.Post("/h2p", func(ctx iris.Context ){
 		ctx.SendFile(filepdf, filepdf)
 		*/
 
-		pdfg.AddPage(wkhtml.NewPageReader(strings.NewReader(htmlStr)))		
-
+		pageReader = wkhtml.NewPageReader(strings.NewReader(htmlStr))
+		pageReader.PageOptions.EnableLocalFileAccess.Set(true)
+		pdfg.AddPage(pageReader)
 		err = pdfg.WriteFile(filepdf) //scrivo file tpm da inviare a Documentale
 		if err != nil {
 		  log.Fatal(err)
@@ -638,6 +696,7 @@ app.Post("/h2p", func(ctx iris.Context ){
 					"fileDimension": {string(len(string(content)))},
 					"idUtente":{session.GetString("idUser")},
 					"ipUtente":{ctx.RemoteAddr()},
+					"baString": {string(content)},
 				}, "\nend")
 
 			resp, err := http.PostForm(endPointDocumentale, data)
@@ -658,11 +717,19 @@ app.Post("/h2p", func(ctx iris.Context ){
 	app.Get("/logout", func(ctx iris.Context) {
 		session := sess.Start(ctx)
 		session.Set("authenticated", false)
+		session.Set("idUser", nil)
 		var auth = false
 		auth, _ = session.GetBoolean("authenticated");
 		app.Logger().Infof("authenticated, %s", auth)
 		//  ctx.View("main.html")
 		ctx.Redirect("/")
+			
+	})
+
+	app.Get("/getSw", func(ctx iris.Context) {
+	
+		    ctx.SendFile("./static/js/sw.js", "sw.js")
+
 			
 	})
 		

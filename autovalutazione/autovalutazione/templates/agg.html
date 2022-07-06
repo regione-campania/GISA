@@ -59,8 +59,8 @@ function clearLogicalChild(iName) {
 
     <tbody>
  {{range $i, $agg :=   .Aggs }}
-	<tr onclick="setActive(this);">
-        <td class="small"><a onclick="window.top.setFld('aggre', '{{ $agg.A_desc }}')" href="/get_lda/{{$agg.A_id }}" target="lda">{{ $agg.A_desc }}</a></td>
+	<tr onclick="setActive(this); window.parent.parent.customNavigator.goForward()">
+        <td class="small"><a onclick="window.parent.parent.setFld('aggre', '{{ $agg.A_code }} - {{$agg.A_desc}}')" href="/get_lda/{{$agg.A_id }}" target="lda"><strong>{{ $agg.A_code }}</strong> - {{$agg.A_desc}}</a></td>
     </tr>
  {{end}}
 	</tbody>
@@ -70,7 +70,10 @@ function clearLogicalChild(iName) {
 </body>
 <script>
 clearLogicalChild('lda');
-window.top.setFld('aggre', '')
-window.top.setFld('linea', '')
+clearLogicalChild('cl');
+clearLogicalChild('chpqst');
+window.parent.parent.setFld('aggre', '')
+window.parent.parent.setFld('linea', '')
+window.parent.parent.setCLFooter('')
 </script>
 </html>

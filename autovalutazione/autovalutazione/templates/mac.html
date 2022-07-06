@@ -62,8 +62,8 @@ function clearLogicalChild(iName) {
 
     <tbody>
  {{range $i, $mac :=   .Macs }}
-	<tr onclick="setActive(this);">
-        <td class="small"><a onclick="window.top.setFld('macro', '{{ $mac.M_desc }}')" href="/get_agg/{{$mac.M_id }}" target="agg">{{ $mac.M_desc }}</a></td>
+	<tr onclick="setActive(this); window.parent.parent.customNavigator.goForward()">
+        <td class="small"><a onclick="window.parent.parent.setFld('macro', '{{ $mac.M_code }} - {{ $mac.M_desc }}')" href="/get_agg/{{$mac.M_id }}" target="agg"><strong>{{ $mac.M_code }}</strong> - {{ $mac.M_desc }}</a></td>
     </tr>
  {{end}}
 	</tbody>
@@ -74,9 +74,12 @@ function clearLogicalChild(iName) {
 <script>
 clearLogicalChild('agg');
 clearLogicalChild('lda');
-window.top.setFld('macro', '')
-window.top.setFld('aggre', '')
-window.top.setFld('linea', '')
+clearLogicalChild('cl');
+clearLogicalChild('chpqst');
+window.parent.parent.setFld('macro', '')
+window.parent.parent.setFld('aggre', '')
+window.parent.parent.setFld('linea', '')
+window.parent.parent.setCLFooter('')
 
 checkNoMacro({{.Macs}});
 
@@ -85,9 +88,9 @@ function checkNoMacro(macs){ //se ottenfo una sola riga con M_id == -1 non si de
   if(macs.length == 1){
     if(macs[0].M_id == -1){
       console.log("CHECKLIST DIRETTA");
-      window.top.setFld('macro', 'N.D.')
-      window.top.setFld('aggre', 'N.D.')
-      window.top.setFld('linea', 'N.D.')
+      window.parent.parent.setFld('macro', 'N.D.')
+      window.parent.parent.setFld('aggre', 'N.D.')
+      window.parent.parent.setFld('linea', 'N.D.')
       var anchor = document.createElement('a');
       anchor.href = '/cl_1';
       anchor.target="_parent";

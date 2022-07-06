@@ -13,40 +13,69 @@ You should have received a copy of the GNU Affero General Public License along w
 
 <html lang="it">
 <head>
-  <title>Settore Alimentare e Veterinario – Autovalutazione</title>
+  <title>GISA Autovalutazione</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="static/css/utils.css?v3" />
+<script src="https://gel.gisacampania.it/js/GisaSpid.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
-<script src="http://www.gisacampania.it/js/GisaSpid.js?v12"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 
   <style>
-.active {
-    color: #37a0e6;
-    background-color: #f0e0a0;
-}
   
 .fill { 
-	min-height:90vh;
+  min-height: calc(100vh - 147px); /*82px header (+25titolo), 20 footer, 20 spazio per iphone*/
+	/*min-height:90vh;*/
+}
+
+.nav{
+  align-items: center;
 }
 
 .nav-tabs .nav-link.active {
-    color: #37a0e6;
-    background-color: #f0e0a0;
+  color: white;
+  background-color: var(--blue-regione);
 }
 
 body {
   margin-bottom: 40px; /* Margin bottom by footer height */
   overflow: hidden;
 }
+
+#header {
+  height: 105px;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 20px; /* Set the fixed height of the footer here */
-  background-color: #f5f5f5;
+  background-color:  var(--blue-regione);
+  color: white;
 }
+
+.footer-ios {
+  margin-bottom: 20px;
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+#accetto {
+  position: fixed;
+  top: 130px;
+  margin: 0 auto;
+  color: white;
+  background-color: var(--blue-regione);
+}
+
   </style>
 </head>
 <script>
@@ -54,32 +83,53 @@ body {
 var home="/home";
 var selectedCL;
 
+console.log(sessionStorage.getItem('tipoUtente'));
+
 function loadUrl(url, id) {
-     document.getElementById(id).src=url;
+  document.getElementById("accetto").style.display = "none";
+  document.getElementById("firstActive").classList.add("active");
+  document.getElementById("firstActive").style.display = "";
+  document.getElementById(id).src=url;
 }
 
+var flds = [];
 function setFld(fld, val) {
-     document.getElementById(fld).innerText =  val ;
+     flds[fld] = val;
+     console.log(flds);
+     document.getElementById(fld).innerText =  val.split("-")[0];
 }
 
 
 function getFld(fld) {
-  return document.getElementById(fld).innerText;
+  return flds[fld];
 }
 
 function setCL(cl) {
   selectedCL = cl;
 }
 
+function setCLFooter(cl){
+  document.getElementById('cl').innerText =  cl ;
+}
+
 function getCL(){
   return selectedCL;
+}
+
+function getClFooter() {
+  return document.getElementById('cl').innerText;
 }
 
 
 var last = null;
 
 document.addEventListener("DOMContentLoaded", function(){
-    last = document.getElementById("firstActive");
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    if(/iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase()))
+      document.getElementsByTagName("footer")[0].classList.add("footer-ios")
+    //document.getElementById("mainOut").style.minHeight = `calc(100vh - ${header + footer + 20}px) !important`;
+  }
+  last = document.getElementById("firstActive");
 })
 function setActive(t) {
   console.log(t);
@@ -90,19 +140,154 @@ function setActive(t) {
   last.classList.add("active");
 };
 
-</script>
-<body class="fill">
-  <div style="float: right; cursor: pointer; margin-right: 20px; display: inline;" onclick="GisaSpid.logoutSpid('/logout')">Logout<img src="/static/img/closeBtn.png" alt="" style="width:20px; height:20px" /></div>
-  <div style="float: right; margin-right: 20px; display: inline;">[{{.Username}} - {{.Ragione_Sociale}}]</div>
-  <div style="cursor: pointer; margin-left: 20px;" onclick="window.open('/static/Manuale_Giava.pdf')"><img src="/static/img/user-manual.png" alt="" style="width:25px; height:25px" /> Manuale</div>
+$(function() {
+	$( "#dialog" ).dialog({
+      autoOpen: false,
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      buttons: {
+        "OK": function() {
+          $( this ).dialog( "close" );
+        },
+      }
+	})
+} );
 
-  <ul class="nav nav-tabs auto nav-dark" role="tablist">
+function alert(text){
+	console.log(text);
+  document.getElementById("dialogText").innerText = text;
+	$("#dialog").dialog("open");
+}
+
+function confirm(text, callback, callback2){
+  callbackName = callback
+  console.log(window)
+  if(window[callback] == null){
+      callback = window.frames[0][callback];
+  }
+  try{
+    if(callback == null){
+        callback = window[0][4][callbackName];
+    }
+  }catch{}
+  try{
+    if(callback == null){
+        callback = window[0][0][callbackName];
+    }
+  }catch{}
+  try{
+    if(callback == null){
+        callback = window[0][0][0][callbackName];
+    }
+  }catch{}
+  try{
+    if(window[callback2] == null){
+        callback2 = window.frames[0][callback2];
+    }
+  }catch{}
+	$( function() {
+	document.getElementById("confirmText").innerText = text;
+    $( "#dialog-confirm" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+	    text: "",
+      buttons: {
+        "OK": function() {
+		  callback(arguments)
+          $( this ).dialog( "close" );
+        },
+        "Annulla": function() {
+          if(callback2 != null)
+            callback2(arguments)
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+  } );
+}
+
+
+function confirmOK(text, callback, callback2){
+  callbackName = callback
+  console.log(window)
+  if(window[callback] == null){
+      callback = window.frames[0][callback];
+  }
+  try{
+    if(callback == null){
+        callback = window[0][4][callbackName];
+    }
+  }catch{}
+  try{
+    if(callback == null){
+        callback = window[0][0][callbackName];
+    }
+  }catch{}
+  try{
+    if(callback == null){
+        callback = window[0][0][0][callbackName];
+    }
+  }catch{}
+  try{
+    if(window[callback2] == null){
+        callback2 = window.frames[0][callback2];
+    }
+  }catch{}
+	$( function() {
+	document.getElementById("confirmText").innerText = text;
+    $( "#dialog-confirm" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      dialogClass: "no-close",
+	  text: "",
+      buttons: {
+        "OK": function() {
+		  callback(arguments)
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+  } );
+}
+
+
+
+</script>
+<body>
+  <button id="accetto" style="display: none;" onclick="setActive(this);loadUrl(home, 'mainOut');localStorage.setItem('informativaRead', 'true');">Accetto trattamento dati</button>
+  <!--<div class="fill">-->
+  <div id="header"> 
+    <h2 style="
+    height: 25px;
+    top: 0px;
+    margin: 0px !important;
+    padding: 3px;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, #0574d2, #00040a);
+    color: white;
+    font-size: large;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    ">GISA AUTOVALUTAZIONE
+    </h2>
+  <div style="float: right; cursor: pointer; margin-right: .5rem; display: inline;" onclick="sessionStorage.setItem('tipoUtente', 'null'); GisaSpid.logoutSpid('/logout')"><span id="logoutLabel" >Logout</span><img src="/static/img/closeBtn.png" alt="" style="width:20px; height:20px; margin-left: .25rem; vertical-align: bottom;" /></div>
+  <div style="float: right; margin-right: .5rem; display: inline;" id="userInfo">[{{.Username}} - {{.Ragione_Sociale}}]</div>
+  <ul class="nav nav-tabs auto nav-dark w-100" role="tablist">
+    <img src="/static/img/logo_regione.png" width="60px" style="margin-left: 5px;margin-right: 5px;"></img>
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#" onclick="setActive(this);loadUrl(home, 'mainOut');" id="firstActive">Home</a>
     </li>
-	<li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#" onclick="setActive(this);loadUrl('/ml_base', 'mainOut');">Autovalutazione</a>
+    <li class="nav-item d-flex align-items-center ms-auto me-2">
+      <div style="cursor: pointer;" onclick="window.open('https://sca.gisacampania.it/autovalutazione/collaudo/manuale_utente/Manuale_autovalutazione.pdf')"><img src="/static/img/user-manual.png" alt="" style="width:25px; height:25px" /> Manuale</div>
     </li>
+	<!-- <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#" onclick="setActive(this);loadUrl('/ml_base', 'mainOut');">Autovalutazione</a>
+    </li> -->
 	<!--<li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#" onclick="setActive(this);loadUrl('/ml', 'mainOut');">Autovalutazione attività ML 10 per Norma </a>
   </li>-->
@@ -118,20 +303,64 @@ function setActive(t) {
       <a class="nav-link" data-toggle="tab" href="#" onclick="setActive(this);loadUrl('/doc', 'mainOut');">Technicalities</a>
     </li>  
 	-->
-  </ul>
-  
+  </ul>  
+</div>
   <!-- Tab panes -->
 
-  <div class="tab-content fill">
-   	<iframe name="mainOut" id="mainOut" width="100%" class="fill" frameborder="0" src="/home"> </iframe>
-    </div>
-  </div>
+  <!--<div class="tab-content fill">-->
+   	<iframe name="mainOut" id="mainOut" class="fill" width="100%" frameborder="0" src="/home"> </iframe>
+    <!--</div>-->
+  <!--</div>-->
 </div>
 
 <footer class="footer">
       <div class="container">
-        	<p class="border border-info" style="font-size:10px;"> <span id='norma'></span> &nbsp; <span id='macro'></span> &nbsp;>&nbsp; <span id='aggre'></span> &nbsp;>&nbsp; <span id='linea'></span></p>
+        	<p class="border border-info" style="font-size:12px;"> <span id='norma'></span> &nbsp; <span id='macro'></span> &nbsp;>&nbsp; <span id='aggre'></span> &nbsp;>&nbsp; <span id='linea'></span> &nbsp;>&nbsp; <span id='cl'></span></p>
 	  </div>
     </footer>
+
+<div id="dialog" title="GISA Autovalutazione">
+  <p id=dialogText></p>
+</div>
+
+<div id="dialog-confirm" title="GISA Autovalutazione" style="display: none;">
+  <p id="confirmText"><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span></p>
+</div>
+</div>
 </body>
 </html>
+
+<script>
+
+if(sessionStorage.getItem("tipoUtente") != "ospite" && sessionStorage.getItem("tipoUtente") != "osa"){
+  confirmOK('Eseguire login!', 'goToLogin');
+}
+else {
+  if(sessionStorage.getItem('tipoUtente') != 'ospite'){
+    document.getElementById("logoutLabel").innerText = "Logout da SPID/CIE";
+    if(window.innerWidth <= 768){
+      document.getElementById("userInfo").innerText = ""
+    }
+  }else{
+    document.getElementById("logoutLabel").innerText = "Logout";
+    document.getElementById("userInfo").innerText = "[Ospite]";
+  }
+}
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log("calcolo height")
+    const header = document.getElementById('header').clientHeight;
+    const footer = document.getElementsByTagName('footer')[0].clientHeight;
+    console.log(`calc(100vh - ${header + footer + 20}px) !important`);
+    console.log(document.getElementById("mainOut"));
+    var mh = `calc(100vh - ${header + footer + 20}px)`;
+    //document.getElementById("mainOut").height = mh;
+    //document.getElementById("mainOut").style.minHeight = mh;
+})
+	
+
+
+
+
+
+</script>

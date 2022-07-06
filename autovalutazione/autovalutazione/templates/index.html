@@ -1,0 +1,94 @@
+<script> var filename="index.html";</script>
+
+<style>
+.header {
+    top: 0px;
+    padding: 3px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-image: linear-gradient(to bottom right, #0574d2, #00040a);
+    color: white;
+    font-size: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media(max-width: 768px) {
+    .login-form {
+        top: 0px !important;
+    }
+}
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="{{.EndpointSpid}}?v5"></script>
+
+    <title>GISA Autovalutazione</title>
+    <link rel="icon" href="../static/img/icon.png">
+    <link rel="manifest" href="static/manifest.json">
+
+</head>
+<body>
+    <div class="header">
+		<h3>GISA Autovalutazione</h3>		
+    </div> 
+    <div style="padding: 3px">
+    <div class="w3-modal-content  w3-animate-zoom login-form" style="max-width:400px; top:50px;">
+           <div class="w3-center">
+		   <video width="100%" playsinline autoplay loop muted> <source src="static/img/logo.mp4" type="video/mp4" /></video>
+        </div>
+		<div class="w3-container" style=" background: linear-gradient(to bottom, #0574d2 -3%, #00040a 94%);">
+            <div style="color: red; font-weight: bold;">{{.Errore}}</div>
+        <form class="w3-container" action="/login" method="post" id="loginForm">
+            <div class="w3-section">
+                <!--<input class="w3-input w3-border w3-margin-bottom w3-round" id="user" type="text" placeholder="Username"  name="user" required style="background:#e2e9ff;">
+                <input class="w3-input w3-border w3-round" id="password" type="password" placeholder="Password" name="password" required  style="background:#e2e9ff;">
+                <button class="w3-button w3-section w3-padding w3-border w3-round w3-right w3-text-white" type="submit">Login OSA registrati</button>
+                <input class="w3-input w3-border w3-margin-bottom w3-round" id="cfSpid" type="text" placeholder="cfSpid"  name="cfSpid" style="background:#e2e9ff;">
+                <button class="w3-button w3-section w3-padding w3-border w3-round w3-right w3-text-white" type="submit">Login TEST CF</button>-->
+                <button class="w3-button w3-section w3-padding w3-border w3-round w3-right w3-text-white" onclick="sessionStorage.setItem('tipoUtente', 'osa'); GisaSpid.entraConSpid(event, 'loginForm', null, null, null)">Accesso per gli OSA profilati in GISA</button>
+                <button class="w3-button w3-section w3-padding w3-border w3-round w3-right w3-text-white" onclick="accessoPubblico(event)">Accesso come Ospite</button>
+                <button class="w3-button w3-section w3-padding w3-round w3-right w3-text-white" onclick="openWindow(event, 'https://sca.gisacampania.it/autovalutazione/collaudo/manuale_utente/Manuale_autovalutazione.pdf')">Che cos'è l'Autovalutazione?</button>
+                <button class="w3-button w3-section w3-padding w3-round w3-right w3-text-white" onclick="openWindow(event, 'https://www.gisacampania.it/moduloSpid/ManualeModuloPre-reg_rev10.pdf')">Come profilarsi all’Ecosistema GISA</button>
+                <button class="w3-button w3-section w3-padding w3-round w3-right w3-text-white" onclick="openWindow(event, 'http://www.gisacampania.it/moduloSpid/')">Profilati all'Ecosistema GISA</button>
+            </div>
+        </form>
+    </div>
+	</div>
+
+</body>
+</html>
+<!-- login.html -->
+<script>
+
+function miaFunzione(data){
+    console.log(data);
+    alert(JSON.stringify(data));
+}
+
+function accessoPubblico(event){
+    event.preventDefault();
+    sessionStorage.setItem("tipoUtente", 'ospite');
+    location.href='public'
+}
+
+function openWindow(event, url){
+    event.preventDefault();
+    window.open(url);
+}
+
+function openWindow2(event, url){
+    event.preventDefault();
+    location.href = url;
+}
+
+if('serviceWorker' in navigator) {
+    console.log("registro worker");
+    navigator.serviceWorker.register('sw.js');
+}
+
+</script>

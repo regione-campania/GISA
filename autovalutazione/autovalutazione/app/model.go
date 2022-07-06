@@ -14,21 +14,25 @@ type Ml struct {
 }
 type Mac struct {
 	M_id 	int		`gorm:"type:varchar" json:"M_id"`
-	M_desc 	string 	`gorm:"type:varchar" json:"M_desc"`	
+	M_desc 	string 	`gorm:"type:varchar" json:"M_desc"`
+	M_code  string 	`gorm:"type:varchar" json:"M_code"`
 }
 type Agg struct {
 	A_id 	int		`gorm:"type:varchar" json:"A_id"`
 	A_desc 	string 	`gorm:"type:varchar" json:"A_desc"`	
+	A_code  string 	`gorm:"type:varchar" json:"A_code"`
 }
 type Lda struct {
 	L_id 	int		`gorm:"type:varchar" json:"L_id"`
 	L_desc 	string 	`gorm:"type:varchar" json:"L_desc"`	
+	L_code 	string 	`gorm:"type:varchar" json:"L_code"`	
 }
 
 type Cl struct {
 	L_id 	int		`gorm:"type:int" json:"L_id"`
 	L_desc 	string 	`gorm:"type:varchar" json:"L_desc"`	
 	Ver		string 	`gorm:"type:varchar" json:"Ver"	`
+	Num		string 	`gorm:"type:varchar" json:"Num"	`
 }
 
 type Chp struct {
@@ -96,5 +100,10 @@ type LoginData struct {
 	Dati_anag 			string		`gorm:"type:varchar" json:"dati_anag"`
 	Nome 				string		`gorm:"type:varchar" json:"nome"`
 	Cognome 			string		`gorm:"type:varchar" json:"cognome"`
+}
+
+type AccessCounter struct {
+	Ospiticounter 		int		`gorm:"type:int" json:"ospiticounter"`
+	Osacounter 			int		`gorm:"type:int" json:"osacounter"`
 }
 

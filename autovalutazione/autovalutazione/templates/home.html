@@ -15,6 +15,9 @@ You should have received a copy of the GNU Affero General Public License along w
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/css/utils.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
 <style>
 body, html {
   height: 100%;
@@ -22,38 +25,175 @@ body, html {
 }
 
 footer {
-  right: 0%;
+  /*right: 0;*/
   position: fixed;
-  bottom: 0;
-  float: right;
-  text-align: center;
+  bottom: 50px;
+  /*float: right;*/
+  width: 100%;
+  /*text-align: center;*/
   padding: 3px;
   color: black;
+  cursor: pointer;
 }
 
-.bg {
-  /* The image used */
+/*.bg {
   background-image: url("/static/img/giava.jpg?v2");
   
-  /* Full height */
   height: 100%; 
 
-  /* Center and scale the image nicely */
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
 }
+*/
+@media(max-width: 768px) {
+  footer {
+    /*position: relative;
+    top: -90px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    background: white;*/
+    bottom: 30px;
+  }
+  footer p {
+    margin: 0;
+  }
+}
+/*
+@media(max-width: 425px) {
+  .bg {
+    background-image: url("/static/img/giava_mini.png");
+    background-size: contain;
+    min-height: 200px;
+  }
+  footer {
+    position: initial;
+  }
+}*/
+
+.bg {
+  background-color: lightblue;
+  width: 100%;
+  height: 100%;
+}
+
+#top-layer {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*background-color: rgba(0, 0, 0, 0.05);*/
+  z-index: 1000;
+  width: 100%;
+  height: 80%;
+}
+
+#tasto-prosegui {
+  /*width: 200px;*/
+  font-size: 25px;
+}
+
+#titolo {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+#counters {
+      /* box-shadow: 10px 10px 5px blue; */
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    padding: 6px;
+    margin-top: 10px;
+    background-color: var(--blue-regione);
+    color: white;
+    text-align: center;
+}
+
 </style>
 </head>
 <body>
-
-<div class="bg"></div>
-<div>
-  <footer>
-    <p>Versione del codice sorgente reperibile nel repository per riuso al link:<br>
-    <a href="https://github.com/gisa-riuso-temp/modulo_spid">https://github.com/gisa-riuso-temp/modulo_spid</a></p>
-  </footer>
+<div class="bg" id="bg"></div>
+<div id="top-layer">
+  <div id="counters">
+    <p>Accessi Osa profilati: <span id="osa-counter"></span></p>
+    <p>Accessi pubblici: <span id="public-counter"></span></p>
+  </div>
+  <p id="titolo">GISA Autovalutazione</p>
+  <!--<img src="/static/img/logo_regione.png" width="200px" style="margin-bottom: 50px"></img>-->
+  <button type="button" class="btn active" id="tasto-prosegui" onclick="goToML()">Clicca qui per proseguire</button>
 </div>
+<footer>
+  <p onclick='window.open("https://developers.italia.it/it/software.html")'>GISA Autovalutazione è open source ed è di titolarità della Regione Campania.</p>
+  <p onclick='window.open("https://developers.italia.it/it/software.html")'>Esso è disponibile in riuso gratuito sul Catalogo Nazionale AGID al seguente link https://developers.italia.it/it/software.html</p>
+</footer>
+<div>
+  
+</div>
+
+<script>
+  /*function adjustBackground() {
+    const bg = document.getElementById('bg');
+    if(window.top.innerWidth <= 425) //mobile styles
+      bg.style.height = (window.top.innerHeight - 200) + 'px';
+    else
+      bg.style.height = '100%';
+  }
+  if(window.top.innerWidth <= 425)
+    adjustBackground();
+  window.top.addEventListener('resize', () => adjustBackground())
+*/
+  function goToML() {
+    window.parent.document.getElementById('mainOut').src = 'ml_base';
+  }
+
+  function goToLogin(){
+    window.parent.location.href = "/";
+  }
+
+  onload = function(){
+    if(sessionStorage.getItem("tipoUtente") != "ospite" && sessionStorage.getItem("tipoUtente") != "osa"){
+      window.parent.confirmOK('Eseguire login!', 'goToLogin');
+    }else{
+      proponiInformativa();
+    }
+  }
+
+  function proponiInformativa(){
+    var infor = localStorage.getItem('informativaRead');
+    if(infor == null || infor == "false"){
+      window.parent.confirmOK("Per proseguire la navigazione è necessario che tu legga l'Informativa alla privacy della Regione Campania", 'apriInformativa', 'proponiInformativa')
+    }else{
+      window.parent.confirm("Vuoi proseguire per compilare la tua autovalutazione?", 'goToML');
+    }
+  }
+
+  function apriInformativa(){
+      window.open("https://sca.gisacampania.it/informativaPrivacy/", "_self")
+      window.parent.document.getElementById("firstActive").style.display = "none";
+      window.parent.document.getElementById("accetto").style.display = "";
+      //window.parent.confirm("Vuoi proseguire per compilare la tua autovalutazione?", 'goToML');
+  }
+
+  $.getJSON(`getContatoriAccessi`, function( data ) {
+      console.log(JSON.stringify(data));
+      document.getElementById("osa-counter").innerText = data.osacounter;
+      document.getElementById("public-counter").innerText = data.ospiticounter;
+  })
+  
+
+window.parent.setFld('macro', '')
+window.parent.setFld('aggre', '')
+window.parent.setFld('linea', '')
+window.parent.setCLFooter('')
+
+</script>
 
 </body>
 </html>

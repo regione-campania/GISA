@@ -37,6 +37,8 @@ You should have received a copy of the GNU Affero General Public License along w
         text-align: center;
         display:block;
         cursor: pointer;
+        text-transform: uppercase;
+        font-size: 18px;
     }
     
     .clinicaSpanB {
@@ -64,11 +66,11 @@ You should have received a copy of the GNU Affero General Public License along w
     
     </style>
     
-    <title>Settore Alimentare e Veterinario – Autovalutazione</title>
+    <title>GISA Autovalutazione</title>
     <link rel="icon" href="../static/img/icon.png">
     
     <div class="header">
-		<h3>Settore Alimentare e Veterinario – Autovalutazione</h3>		
+		<h3>GISA Autovalutazione</h3>		
     </div>
     <h3 style="text-align: center">Scegli l'Osa</h3>
 
@@ -82,11 +84,11 @@ You should have received a copy of the GNU Affero General Public License along w
     </div>
             
             
-    <div style="width: 500px; margin: 40px auto;">
+    <div style="margin: 40px auto;">
       {{range $i, $qst := .LoginData }}
             <div class="clinicaDiv">
                 <a href="/postLogin?rif_id={{$qst.Riferimento_id}}&rif_nome={{$qst.Riferimento_id_nome}}&rif_tab={{$qst.Riferimento_id_nome_tab}}">
-                    <span class="clinicaSpanH"> {{$qst.Ragione_sociale}}</span>
+                    <strong><span class="clinicaSpanH"> {{$qst.Ragione_sociale}}</span></strong>
                     <span class="clinicaSpanB">
                         {{$qst.Dati_anag}}
                     </span>
@@ -94,3 +96,9 @@ You should have received a copy of the GNU Affero General Public License along w
             </div>
      {{end}}
     </div>
+
+    <script>
+        if(sessionStorage.getItem("tipoUtente") != "ospite" && sessionStorage.getItem("tipoUtente") != "osa"){
+            alert('Eseguire login!');
+        }
+    </script>
