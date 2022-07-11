@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/regione-campania/GISA/blob/main/autovalutazione/docs/logo-regione-campania.png">
+<img src="./docs/logo-regione-campania.png">
 </p>
 
 # AUTOVALUTAZIONE
@@ -42,13 +42,30 @@ verrebbero controllati.
 
 
 
-<p align="left">
-<img src="https://github.com/regione-campania/GISA/blob/main/autovalutazione/docs/autovalut.png" width="75%">
-</p>
+![screen](./docs/autovalut.png)
+
 
 
 Figura 1. Autovalutazione del rischio
 
+
+Come riportato nel P.C.R.P. 2020-2022, le tre classi di rischio previste dall’Accordo Stato-Regioni
+212/2014 e dalle altre norme ministeriali in merito, sono da ritenersi insufficienti a rimarcare la
+differenza di rating tra le linee d’attività in base al loro rischio “ipotetico”; a puro titolo d’esempio
+era necessario ampliare la forbice del rating tra un piccolo bar ed una grande industria che lavora
+alimenti per bambini. Pertanto, in applicazione della legittima autonomia gestionale, in Regione
+Campania il numero delle classi di rischio è ampliato a cinque.
+
+![screen](./docs/classi_rischio.png)
+
+Alle cinque classi di rischio corrispondono appropriate frequenze, modalità, tecniche ed intensità
+dei controlli ufficiali a farsi, secondo il criterio che ad un più alto rischio corrisponde una maggiore
+frequenza ed intensità di controllo.
+Nell’applicativo GISA Autovalutazione, ad ogni risposta viene
+assegnato un punteggio che verrà poi sommato con i punteggi relativi di ogni singola risposta per
+definire poi un punteggio finale, che attribuirà alla scheda di autovalutazione una classe di rischio.
+Nel caso di utenti profilati in Gisa, la classe di rischio calcolata, non terrà conto dello storico
+relativo alle schede precedentemente compilate dallo stesso utente profilato
 
 
 Questo strumento è stato riconosciuto come **best-practice** dall'**OCSE - Organizzazione per la cooperazione e lo sviluppo economico** ed è innanzitutto, una guida all'autovalutazione, che aiuterà le imprese a osservarsi, monitorarsi e valutarsi dandosi degli obiettivi di miglioramento [(OECD Report)](https://sca.gisacampania.it/qualita_ocse/OECD_report.pdf).
