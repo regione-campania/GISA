@@ -100,7 +100,8 @@ router.get("/getSoggettiFisici", function (req, res) {
 
     try {
 
-        conn.client.query(`select * from gds_srv.vw_soggetti_fisici`, (err, result) => {
+        conn.client.query(`select * from gds_srv.vw_soggetti_fisici s
+        where s.codice_fiscale not in (select c.codice_fiscale from contact_ c where c.codice_fiscale is not null)`, (err, result) => {
             if (err) {
                 console.log(err.stack)
                 res.writeHead(500).end();
@@ -225,6 +226,28 @@ router.get("/getEntiUnitaOperativeTree", function (req, res) {
                     console.log(err.stack)
                     res.writeHead(500).end();
                 }
+            }
+        })
+
+
+    } catch (e) {
+        console.log(e.stack);
+        res.writeHead(500).end();
+    }
+
+})
+
+router.get("/getStatiNotifica", async function (req, res) {
+
+    // async/await
+    try {
+
+        conn.client.query(`select * from gds_types.vw_stati_visibili`, (err, result) => {
+            if (err) {
+                console.log(err.stack)
+                res.writeHead(500).end();
+            } else {
+                res.json(result.rows).end();
             }
         })
 

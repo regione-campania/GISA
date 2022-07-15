@@ -49,13 +49,13 @@ export class BaseVerbaleComponent implements OnInit {
   onSubmit(): void {
     console.log(this.verbaleForm.value.verbale);
     const message = {idVerbale: this.ID_VERBALE, idModulo: this.ID_MODULO};
-      window.opener.postMessage(JSON.stringify(message), '*')
     this.vs.setJsonVerbale(this.verbaleForm.value.verbale).subscribe((res: any) => {
       console.log(res);
       if(!res.esito){
         alert("Errore in fase di salvataggio");
         return
       }
+      window.opener.postMessage(JSON.stringify(message), '*')
     })
   }
 

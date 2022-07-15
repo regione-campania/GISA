@@ -1,0 +1,17 @@
+#sanzione {
+  .form-section {
+    margin-bottom: 1rem;
+
+    .section-header {
+      background-color: var(--blue);
+      color: white;
+      padding: .25rem .15rem;
+      font-weight: 300;
+    }
+
+    [class^=col] > * {
+      margin: .5rem 0;
+    }
+  }
+}
+

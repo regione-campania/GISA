@@ -14,9 +14,9 @@ var auth = require('../utils/auth');
 var mail = require('../email/email')
 
 
-/*router.get("/testMail", function (req, res){
+router.get("/testMail", function (req, res){
     mail.testMail();
-})*/
+})
 
 router.post("/loginByCf", function (req, res) {
 
@@ -74,8 +74,10 @@ router.post("/sendEmailSupporto", function(req, res){
     const emailSegnalante = req.body.emailSegnalante;
     const titolo = req.body.titolo;
     const telefonoSegnalante = req.body.telefonoSegnalante;
+    const enteSegnalante = req.body.ente;
+    const tipo = req.body.tipo;
 
-    mail.sendEmailSupporto(nomeSegnalane, titolo, messaggio , emailSegnalante, telefonoSegnalante);
+    mail.sendEmailSupporto(nomeSegnalane, titolo, messaggio , emailSegnalante, telefonoSegnalante, enteSegnalante, tipo);
 
     res.end();
 

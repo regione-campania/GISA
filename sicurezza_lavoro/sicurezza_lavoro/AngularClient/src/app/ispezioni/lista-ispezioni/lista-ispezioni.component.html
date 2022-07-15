@@ -14,73 +14,76 @@ You should have received a copy of the GNU Affero General Public License along w
         <i class="icon fas fa-plus"></i>
         <span>Nuova Ispezione</span>
       </button>
-      <button type="button" class="btn btn-outline-green action" (click)="exportTable()">
+      <button type="button" class="btn btn-outline-green action" [ngbTooltip]="exportTemplate"
+        tooltipClass="table-export-tooltip" triggers="click" container="body">
         <i class="icon fa-regular fa-file-excel"></i>
         <span>Esporta</span>
       </button>
+      <ng-template #exportTemplate>
+        <div>
+          <button type="button" class="btn btn-outline-green action w-100 mb-1" (click)="exportTable()">
+            <span>Intera Tabella</span>
+          </button>
+          <button type="button" class="btn btn-outline-green action w-100" (click)="exportTable(false)">
+            <span>Pagina Corrente</span>
+          </button>
+        </div>
+      </ng-template>
     </div>
     <div class="table-wrapper">
-      <table class="table-striped y-borders" id="tabella-ispezioni" aSmartTable [paginator]="true">
-        <thead>
+      <a-smart-table class="table-blue table-striped-light no-borders" [data]="ispezioni" [paginator]="true"
+        id="tabella-ispezioni" #table>
+        <ng-template aTemplate="head">
           <tr>
             <th scope="col" width="10%">
-              <div class="wrapper" aTableSorter="text">
-                <span class="label">Codice</span>
-                <a-table-filter type="text"></a-table-filter>
-              </div>
+              <a-table-sorter type="text" key="codice_ispezione"></a-table-sorter>
+              <a-table-filter type="text" key="codice_ispezione"></a-table-filter>
+              <span class="label">Codice</span>
             </th>
             <th scope="col" width="15%">
-              <div class="wrapper" aTableSorter="text">
-                <span class="label">Descrizione</span>
-                <a-table-filter type="text"></a-table-filter>
-              </div>
+              <a-table-sorter type="text" key="descr_isp"></a-table-sorter>
+              <a-table-filter type="text" key="descr_isp"></a-table-filter>
+              <span class="label">Descrizione</span>
             </th>
             <th scope="col" width="10%">
-              <div class="wrapper" aTableSorter="text">
-                <span class="label">Ente</span>
-                <a-table-filter type="selection" [values]="entiDisponibili"></a-table-filter>
-              </div>
+              <a-table-sorter type="text" key="descr_ente_isp"></a-table-sorter>
+              <a-table-filter type="selection" key="descr_ente_isp" [values]="entiDisponibili"></a-table-filter>
+              <span class="label">Ente</span>
             </th>
             <th scope="col" width="10%">
-              <div class="wrapper" aTableSorter="text">
-                <span class="label">U.O.</span>
-                <a-table-filter type="text"></a-table-filter>
-              </div>
+              <a-table-sorter type="text" key="descr_uo_isp"></a-table-sorter>
+              <a-table-filter type="text" key="descr_uo_isp"></a-table-filter>
+              <span class="label">U.O.</span>
             </th>
             <th scope="col" width="15%">
-              <div class="wrapper" aTableSorter="text">
-                <span class="label">Motivo</span>
-                <a-table-filter type="selection" [values]="motiviDisponibili"></a-table-filter>
-              </div>
+              <a-table-sorter type="text" key="descr_motivo_isp"></a-table-sorter>
+              <a-table-filter type="selection" key="descr_motivo_isp" [values]="motiviDisponibili"></a-table-filter>
+              <span class="label">Motivo</span>
             </th>
             <th scope="col" width="10%">
-              <div class="wrapper" aTableSorter="text">
-                <span class="label">Tipo</span>
-                <a-table-filter type="selection" values="Cantiere, Impresa"></a-table-filter>
-              </div>
+              <a-table-sorter type="text" key="cantiere_o_impresa"></a-table-sorter>
+              <a-table-filter type="selection" key="cantiere_o_impresa" values="Cantiere, Impresa"></a-table-filter>
+              <span class="label">Tipo</span>
             </th>
             <th scope="col" width="10%">
-              <div class="wrapper" aTableSorter="date">
-                <span class="label">Data</span>
-                <a-table-filter type="date"></a-table-filter>
-              </div>
+              <a-table-sorter type="date" key="data_ispezione"></a-table-sorter>
+              <a-table-filter type="date" key="data_ispezione"></a-table-filter>
+              <span class="label">Data</span>
             </th>
             <th scope="col" width="10%">
-              <div class="wrapper" aTableSorter="text">
-                <span class="label">ASL</span>
-                <a-table-filter type="selection" [values]="aslDisponibili"></a-table-filter>
-              </div>
+              <a-table-sorter type="text" key="descr_ente"></a-table-sorter>
+              <a-table-filter type="selection" key="descr_ente" [values]="aslDisponibili"></a-table-filter>
+              <span class="label">ASL</span>
             </th>
             <th scope="col" width="10%">
-              <div class="wrapper" aTableSorter="text">
-                <span class="label">Stato</span>
-                <a-table-filter type="selection" [values]="statiDisponibili"></a-table-filter>
-              </div>
+              <a-table-sorter type="text" key="descr_stato_ispezione"></a-table-sorter>
+              <a-table-filter type="selection" key="descr_stato_ispezione" [values]="statiDisponibili"></a-table-filter>
+              <span class="label">Stato</span>
             </th>
           </tr>
-        </thead>
-        <tbody>
-          <tr class="clickable" *ngFor="let isp of buffer" (click)="openDettaglioIspezione(details, isp)">
+        </ng-template>
+        <ng-template aTemplate="body" let-isp #bodyTemplate>
+          <tr class="clickable" (click)="openDettaglioIspezione(details, isp)">
             <td>{{ isp.codice_ispezione }}</td>
             <td>{{ isp.descr_isp }}</td>
             <td>{{ isp.descr_ente_isp }}</td>
@@ -91,8 +94,8 @@ You should have received a copy of the GNU Affero General Public License along w
             <td>{{ isp.descr_ente }}</td>
             <td>{{ isp.descr_stato_ispezione }}</td>
           </tr>
-        </tbody>
-      </table>
+        </ng-template>
+      </a-smart-table>
     </div>
   </div>
 </div>
@@ -102,7 +105,8 @@ You should have received a copy of the GNU Affero General Public License along w
     (dismiss)="dettaglioIspezioneModal?.close()" [views]="[
       { label: 'Ispezione', content: ispezioneDetails },
       { label: 'Fase', content: faseDetails },
-      { label: 'Nuova Fase', content: formFase }
+      { label: 'Nuova Fase', content: formFase },
+      { label: 'Sanzione', content: formSanzione}
     ]">
   </a-navigator>
 
@@ -368,19 +372,18 @@ You should have received a copy of the GNU Affero General Public License along w
             </div>
           </div>
         </section>
-        <section class="modal-section" id="note-ispezione-fase"
-        *ngIf="faseAttiva.fase && faseAttiva.fase.note">
-        <div class="row modal-section-header">
-          <div class="col-lg">
-            <h5>Note</h5>
+        <section class="modal-section" id="note-ispezione-fase" *ngIf="faseAttiva.fase && faseAttiva.fase.note">
+          <div class="row modal-section-header">
+            <div class="col-lg">
+              <h5>Note</h5>
+            </div>
           </div>
-        </div>
-        <div class="row modal-section-body">
-          <div class="col-lg">
-            {{ faseAttiva.fase.note }}
+          <div class="row modal-section-body">
+            <div class="col-lg">
+              {{ faseAttiva.fase.note }}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
         <section class="modal-section" id="persone-sanzionate"
           *ngIf="faseAttiva.personeSanzionate && faseAttiva.personeSanzionate">
           <div class="row modal-section-header">
@@ -418,6 +421,17 @@ You should have received a copy of the GNU Affero General Public License along w
             </div>
           </div>
           <div class="row modal-section-body">
+            <div class="d-flex" *ngIf="faseAttiva.verbali.length > 0 ? false : true">
+              <select #m class="form-select" id="id_modulo" formControlName="id_modulo" (change)="currModulo = m.value"
+                [attr.disabled]="faseAttiva.verbali.length > 0 ? true : null">
+                <option [value]="null">Seleziona...</option>
+                <option *ngFor="let m of moduli" [value]="m.id">{{ m.descr }}</option>
+              </select>
+              <button (click)="compilaVerbale(currModulo)"
+                [attr.disabled]="faseAttiva.verbali.length > 0 ? true : null">
+                <i class="fa fa-pencil" aria-hidden="true"></i>Compila
+              </button>
+            </div>
             <div class="col-lg">
               <table class="table-blue no-borders">
                 <thead>
@@ -436,10 +450,31 @@ You should have received a copy of the GNU Affero General Public License along w
                         <i class="fa fa-download" aria-hidden="true"></i>
                         Scarica
                       </button>
+                      <button (click)="compilaVerbale(v.id_modulo)">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>Modifica
+                      </button>
+                      <button (click)="eliminaVerbale(v.id_verbale)">
+                        <i class="fa fa-eraser" aria-hidden="true"></i>Elimina
+                      </button>
                     </td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+        </section>
+        <section class="modal-section" id="sanzioni">
+          <div class="row modal-section-header">
+            <div class="col-lg">
+              <h5>Sanzioni</h5>
+            </div>
+          </div>
+          <div class="row modal-section-body">
+            <div class="col-lg">
+              <button type="button" class="btn btn-outline-blue" viewLink="Sanzione">
+                <i class="icon fas fa-plus"></i>
+                <span class="label">Aggiungi Sanzione</span>
+              </button>
             </div>
           </div>
         </section>
@@ -450,4 +485,8 @@ You should have received a copy of the GNU Affero General Public License along w
 
 <ng-template #formFase>
   <form-fase-ispezione [data]="ispezioneAttiva" (onSubmit)="insertFase($event)"></form-fase-ispezione>
+</ng-template>
+
+<ng-template #formSanzione>
+  <app-sanzione></app-sanzione>
 </ng-template>

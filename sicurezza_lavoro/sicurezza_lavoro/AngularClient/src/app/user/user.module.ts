@@ -18,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AnagraficaModule } from '../anagrafica/anagrafica.module';
 import { UtilsModule } from '../utils/utils.module';
 import { VerbaliModule } from '../verbali/verbali.module';
-import { ATableModule } from '../utils/modules/a-table/a-table.module';
+import { ASmartTableModule } from '../utils/modules/a-smart-table/a-smart-table.module';
+import { ADataDeckModule } from '../utils/modules/a-data-deck/a-data-deck.module';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ATableModule } from '../utils/modules/a-table/a-table.module';
     AnagraficaModule,
     VerbaliModule,
     UtilsModule,
-    ATableModule
+    ASmartTableModule,
+    ADataDeckModule
   ],
   providers: [UserService]
 })

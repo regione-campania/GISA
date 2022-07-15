@@ -43,4 +43,8 @@ export class AnagraficaService {
     return this.http.get(`${environment.protocol}://${environment.host}:${environment.port}/anagrafiche/getImpreseSedi`)
   }
 
+  getStatiNotifica() {
+    return this.http.get(`${environment.protocol}://${environment.host}:${environment.port}/anagrafiche/getStatiNotifica`)
+  }
+
 }

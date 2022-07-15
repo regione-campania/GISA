@@ -7,9 +7,9 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
 <div class="a-multi-select">
-    <div class="form-select" #control>
+    <div class="form-select" #control (click)="optionsList.hidden = !optionsList.hidden">
         <ul class="selected-options">
-            <div class="wrapper">
+            <div class="wrapper selected-values-display">
                 <li class="option" *ngFor="let opt of selectedOptions; index as i"
                     [hidden]="i > 0">
                     {{opt}}
@@ -20,10 +20,10 @@ You should have received a copy of the GNU Affero General Public License along w
             </div>
         </ul>
     </div>
-    <ul class="options-list" hidden #optionsList>
+    <ul class="options-list rounded" hidden #optionsList>
         <li class="option" *ngFor="let opt of options">
             <div class="wrapper input-group">
-                <input type="checkbox" [value]="opt">
+                <input type="checkbox" [value]="opt" (change)="onChange($event)">
                 <label class="option-label">{{opt}}</label>
             </div>
         </li>

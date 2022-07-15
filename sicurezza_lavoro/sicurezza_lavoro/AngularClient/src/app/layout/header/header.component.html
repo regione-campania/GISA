@@ -22,13 +22,13 @@ You should have received a copy of the GNU Affero General Public License along w
       <div class="navbar-brand">
         <img src="../../assets/logoRegione.png" class="logo-regione">
         <span id="logo-description">
-          G.I.S.A. - Sicurezza e prevenzione sui luoghi di lavoro
+          G.I.S.A. - Sicurezza e Prevenzione sui luoghi di lavoro
         </span>
       </div>
-      <button class="navbar-toggler" id="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      <button class="navbar-toggler" id="navbar-toggler" type="button" (click)="collapse()">
         <span class="icon">&#9776;</span>
         <span class="label">Menu</span>
-        <span class="ms-auto">{{ app.pageName }}</span>
+        <!--<span class="ms-auto">{{ app.pageName }}</span>-->
       </button>
       <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
         <ul class="navbar-nav">
@@ -43,7 +43,7 @@ You should have received a copy of the GNU Affero General Public License along w
                     </a>
                   </li>-->
           <li class="nav-item">
-            <a class="nav-link" href="../assets/Manuale.pdf" target="_blank">
+            <a class="nav-link" href="https://sca.gisacampania.it/sicurezzalavoro/Manuale_GISA_Sicurezza_Lavoro.pdf?r{{randomParameterManuale}}" target="_blank">
               Manuale
             </a>
           </li>

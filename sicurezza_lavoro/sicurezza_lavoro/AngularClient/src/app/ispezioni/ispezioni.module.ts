@@ -14,11 +14,11 @@ import { ListaIspezioniComponent } from './lista-ispezioni/lista-ispezioni.compo
 import { ListaMacchinariComponent } from './lista-macchinari/lista-macchinari.component';
 import { IspezioniService } from './ispezioni.service';
 import { UtilsModule } from '../utils/utils.module';
-import { ATableModule } from '../utils/modules/a-table/a-table.module';
 import { AFormModule } from '../utils/modules/a-form/a-form.module';
 import { AnagraficaModule } from '../anagrafica/anagrafica.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NuovaIspezioneComponent } from './nuova-ispezione/nuova-ispezione.component';
+import { ASmartTableModule } from '../utils/modules/a-smart-table/a-smart-table.module';
+import { VerbaliModule } from '../verbali/verbali.module';
 
 
 @NgModule({
@@ -33,8 +33,9 @@ import { NuovaIspezioneComponent } from './nuova-ispezione/nuova-ispezione.compo
     IspezioniRoutingModule,
     AnagraficaModule,
     UtilsModule,
-    ATableModule,
-    AFormModule
+    ASmartTableModule,
+    AFormModule,
+    VerbaliModule
   ],
   providers: [
     IspezioniService

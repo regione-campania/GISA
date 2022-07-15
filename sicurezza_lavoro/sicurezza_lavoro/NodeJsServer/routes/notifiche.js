@@ -15,14 +15,14 @@ var auth = require('../utils/auth');
 
 router.get("/getNotifiche", auth.authenticateToken, function (req, res) {
     console.log(req.authData);
-    const idNotificante = req.authData.idUtente;
+    var idNotificante = req.authData.idUtente;
     const ruolo = req.authData.ruoloUtente;
     const idAsl = req.authData.idAslUtente;
 
     try {
         var url = `select * from gds_srv.vw_notifiche_visibili where id_soggetto_notificante = ${idNotificante}`
         if (ruolo == 'Profilo Amministratore'){ //vede le sue e le altre non in stato bozza
-            url += `or id_stato not in (1,5)`;
+            url += ` or id_stato not in (1,5)`;
         }
         else if (ruolo != 'Profilo Notificatore') {
             url = `select * from gds_srv.vw_notifiche_visibili_regione`;
@@ -51,13 +51,14 @@ router.get("/getNotifiche", auth.authenticateToken, function (req, res) {
 router.get("/getNotificaInfo", auth.authenticateToken, async function (req, res) {
 
     const idNotifica = req.query.idNotifica;
-    const idNotificante = req.authData.idUtente;
-
+    var idNotificante = req.authData.idUtente;
+    if(idNotificante == null)
+        idNotificante = 1;
     var response = {};
     // async/await
     try {
 
-        var url = `call gds.get_dati('get_notifica','{"id":"${idNotifica}"}', '${idNotificante}', null)`;
+        var url = `call gds.get_dati('get_notifica','{"id":"${idNotifica}"}', ${idNotificante}, null)`;
         console.log(url);
         result = await conn.client.query(url);
         response = JSON.parse(result.rows[0].joutput.info);
@@ -80,7 +81,9 @@ router.get("/getNotificaInfo", auth.authenticateToken, async function (req, res)
 
 router.post("/insertNotifica", auth.authenticateToken, function (req, res) {
 
-    const idNotificante = req.authData.idUtente;
+    var idNotificante = req.authData.idUtente;
+    if(idNotificante == null)
+        idNotificante = 1;
 
     // async/await
     try {
@@ -108,8 +111,10 @@ router.post("/insertNotifica", auth.authenticateToken, function (req, res) {
 
 router.post("/updateNotificaInfo", auth.authenticateToken, async function (req, res) {
 
-    const idNotificante = req.authData.idUtente;
+    var idNotificante = req.authData.idUtente;
     console.log(JSON.stringify(req.body.notifica));
+    if(idNotificante == null)
+        idNotificante = 1;
 
     try {
 
@@ -141,13 +146,37 @@ router.post("/updateNotificaInfo", auth.authenticateToken, async function (req, 
             console.log(e.stack);
         }
 
-        var url = `call gds.upd_dati('upd_notifica','${JSON.stringify(req.body.notifica).replace(/'/g, "''")}', '${idNotificante}', null)`;
+        var url = `call gds.upd_dati('upd_notifica','${JSON.stringify(req.body.notifica).replace(/'/g, "''")}', ${idNotificante}, null)`;
         console.log(url);
         result = await conn.client.query(url);
         console.log(result.rows[0].joutput);
         res.json(result.rows[0].joutput)
 
 
+
+    } catch (err) {
+        console.log(err.stack)
+        await conn.client.query('ROLLBACK');
+        res.writeHead(500).end().end();
+    }
+
+})
+
+
+router.post("/checkNotifica", auth.authenticateToken, async function (req, res) {
+
+    var idNotificante = req.authData.idUtente;
+    console.log(JSON.stringify(req.body.notifica));
+    if(idNotificante == null)
+        idNotificante = 1;
+
+    try {
+
+        var url = `call gds_srv.check_dati('check_notifica','${JSON.stringify(req.body.notifica).replace(/'/g, "''")}', ${idNotificante}, null)`;
+        console.log(url);
+        result = await conn.client.query(url);
+        console.log(result.rows[0].joutput);
+        res.json(result.rows[0].joutput)
 
     } catch (err) {
         console.log(err.stack)

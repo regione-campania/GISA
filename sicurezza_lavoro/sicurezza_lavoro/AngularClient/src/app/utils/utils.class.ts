@@ -1,18 +1,18 @@
-/*
-Copyright (C) AGPL-3.0  
+import {TableExport} from 'tableexport';
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
 export class Utils {
 
-    static showSpinner(show: boolean) {
-        if (show)
+
+
+    static showSpinner(show: boolean, text?: string) {
+        if (show){
             document.getElementById("spinner")!.style.display = "block";
-        else
+            if(text)
+                document.getElementById("spinner-label")!.innerHTML = text!.toString();
+        }else{
             document.getElementById("spinner")!.style.display = "none";
+            document.getElementById("spinner-label")!.innerHTML = "";
+        }
     }
 
     static min(args: any[]) {
@@ -76,9 +76,9 @@ export class Utils {
     }
 
     static exportTable(table: HTMLTableElement, options?: { filename?: string, predicate?: (el: HTMLTableRowElement) => boolean, skipColumns?: Array<number> }) {
+        console.log("r");
         let t = document.createElement('table')
         let tHead, tBody, tFoot: HTMLTableSectionElement
-
         if (table.tHead) {
             tHead = t.createTHead()
             extractSection(table.tHead, tHead)
@@ -196,5 +196,98 @@ export class Utils {
         return new Promise((res, rej) => {
             navigator.geolocation.getCurrentPosition(res, rej);
         });
+    }
+
+    static tableExportXlsx(table: HTMLTableElement, options?: { filename?: string, predicate?: (el: HTMLTableRowElement) => boolean, skipColumns?: Array<number> }){
+        Utils.showSpinner(true, 'Creazione report in corso');
+        let t = document.createElement('table')
+        t.classList.add("table")
+        t.classList.add("table-bordered")
+        let tHead, tBody, tFoot: HTMLTableSectionElement
+
+        if (table.tHead) {
+            tHead = t.createTHead()
+            extractSection(table.tHead, tHead)
+            let temp: any
+            tHead.querySelectorAll('td').forEach(td => {
+                temp = document.createElement('th')
+                temp.innerText = td.innerText
+                temp.style.border = '1px solid black'
+                td.replaceWith(temp)
+            })
+        }
+        if (table.tBodies[0]) {
+            tBody = t.createTBody()
+            extractSection(table.tBodies[0], tBody)
+        }
+        if (table.tFoot) {
+            tFoot = t.createTFoot()
+            extractSection(table.tFoot, tFoot)
+        }
+
+        let filename = options?.filename
+        if(!filename) {
+            const now = new Date()
+            filename = 'report-'
+            + (now.getDate() < 10 ? '0' + now.getDate() : now.getDate()) + '_'
+            + (now.getMonth() < 10 ? '0' + (now.getMonth()+1) : (now.getMonth()+1)) + '_'
+            + now.getFullYear() + '-'
+            + now.getHours() + '_'
+            + now.getMinutes()
+            //+ '.xls'
+        }
+
+        var istance = new TableExport(t, {
+            headers: true,                              // (Boolean), display table headers (th or td elements) in the <thead>, (default: true)
+            footers: true,                              // (Boolean), display table footers (th or td elements) in the <tfoot>, (default: false)
+            formats: ['xlsx'],            // (String[]), filetype(s) for the export, (default: ['xlsx', 'csv', 'txt'])
+            filename: filename,                             // (id, String), filename for the downloaded file, (default: 'id')
+            bootstrap: true,                           // (Boolean), style buttons using bootstrap, (default: true)
+            position: 'bottom',                         // (top, bottom), position of the caption element relative to table, (default: 'bottom')
+            //ignoreRows: null,                           // (Number, Number[]), row indices to exclude from the exported file(s) (default: null)
+            //ignoreCols: null,                           // (Number, Number[]), column indices to exclude from the exported file(s) (default: null)
+            trimWhitespace: true,                       // (Boolean), remove all leading/trailing newlines, spaces, and tabs from cell text in the exported file(s) (default: false)
+        });
+
+        var exportData:any = istance.getExportData();
+        var key = Object.keys(exportData)[0];
+        istance.export2file(exportData[key].xlsx.data, exportData[key].xlsx.mimeType, exportData[key].xlsx.filename, '.xlsx');
+        Utils.showSpinner(false);
+
+
+
+        //helper
+        function extractSection(source: HTMLTableSectionElement, target: HTMLTableSectionElement) {
+            let tempRow: HTMLTableRowElement
+            let tempCell: HTMLTableCellElement
+            Array.from(source.rows).forEach(r => {
+                if (options?.predicate && !options.predicate(r))
+                    return
+                tempRow = target.insertRow()
+                if (r.cells) {
+                    Array.from(r.cells).forEach(c => {
+                        if (options?.skipColumns?.includes(c.cellIndex))
+                            return
+                        tempCell = tempRow.insertCell()
+                        tempCell.innerText = c.innerText
+                        tempCell.style.border = '1px solid black'
+                        tempCell.classList.add('tableexport-string')
+                    })
+                }
+            })
+        }
+    }
+
+    static trimData(obj: any) {
+        if (obj && typeof obj === "object") {
+            Object.keys(obj).map(key => {
+              if (typeof obj[key] === "object") {
+                this.trimData(obj[key]);
+              } else if (typeof obj[key] === "string") {
+                obj[key] = obj[key].trim();
+              }
+            });
+          }
+          return obj;
     }
 }

@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         Continuando a navigare sul sito accetterai automaticamente i cookie necessari.
         </div>
         `,
-        footer: `<a href="informativa" target="_blank">Link all'informativa sui cookie</a>`,
+        footer: `<a href="informativa">Link all'informativa sui cookie</a>`,
         showConfirmButton: true,
         confirmButtonText: 'Ok, accetto',
         backdrop: true

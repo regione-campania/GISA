@@ -23,7 +23,9 @@ export class SupportoComponent implements OnInit {
     emailSegnalante: '',
     telefonoSegnalante: '',
     titolo: '',
-    messaggio: ''
+    messaggio: '',
+    tipo: '',
+    ente: ''
   });
 
   constructor(
@@ -45,12 +47,20 @@ export class SupportoComponent implements OnInit {
       Swal.fire({ text: "Valorizzare almeno uno tra email e telefono di ricontatto!", icon: 'warning' });
       return;    
     }
+    if(valori.tipo.trim() == ''){
+      Swal.fire({ text: "Valorizzare tipo problema!", icon: 'warning' });
+      return;    
+    }
     if(valori.titolo.trim() == ''){
       Swal.fire({ text: "Valorizzare titolo!", icon: 'warning' });
       return;    
     }
     if(valori.messaggio.trim() == ''){
       Swal.fire({ text: "Valorizzare descrizione problema!", icon: 'warning' });
+      return;    
+    }
+    if(valori.ente.trim() == ''){
+      Swal.fire({ text: "Valorizzare ente di appartenenza!", icon: 'warning' });
       return;    
     }
     try{

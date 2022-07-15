@@ -1,0 +1,6 @@
+<div class="a-deck-filter a-deck-selection-filter" *ngIf="filter">
+  <div class="form-group">
+    <span class="form-label">Seleziona uno o piu'</span>
+    <a-multi-select #ms [options]="filter.values" (onChange)="filter.valuesToFind = $event"></a-multi-select>
+  </div>
+</div>

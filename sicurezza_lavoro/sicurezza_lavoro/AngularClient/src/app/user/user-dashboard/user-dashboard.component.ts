@@ -23,7 +23,7 @@ export class UserDashboardComponent implements OnInit {
     private router: Router,
     private app: AppService
     ) {
-      this.app.pageName = 'Dashboard'
+      this.app.pageName = 'Gestione Notifiche'
     }
 
   user?: any

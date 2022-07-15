@@ -24,6 +24,8 @@ export class HeaderComponent implements OnInit {
 
   pageName = 'Da Definire';
 
+  randomParameterManuale = Math.floor(Math.random() * 1000);
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -51,5 +53,9 @@ export class HeaderComponent implements OnInit {
 
   goToIspezioni() {
     this.router.navigate(['ispezioni']);
+  }
+
+  collapse(){
+    this.isMenuCollapsed = !this.isMenuCollapsed
   }
 }

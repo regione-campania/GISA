@@ -21,7 +21,7 @@ export class AppComponent {
   constructor() {
     this.ambiente = environment.ambiente;
 
-    const dynamicScripts = ['https://gel.gisacampania.it/js/GisaSpid.js'];
+    const dynamicScripts = ['https://gel.gisacampania.it/js/GisaSpid.js', './../assets/js/FileSaver.js'];
     for (let i = 0; i < dynamicScripts.length; i++) {
       const node = document.createElement('script');
       node.src = dynamicScripts[i];

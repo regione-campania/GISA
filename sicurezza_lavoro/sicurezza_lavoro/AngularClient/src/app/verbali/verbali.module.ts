@@ -15,13 +15,15 @@ import { NotificaComponent } from './notifica/notifica.component';
 import { UtilsModule } from '../utils/utils.module';
 import { AnagraficaModule } from '../anagrafica/anagrafica.module';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { ATableModule } from '../utils/modules/a-table/a-table.module';
+import { ASmartTableModule } from '../utils/modules/a-smart-table/a-smart-table.module';
+import { SanzioneComponent } from './sanzione/sanzione.component';
 
 
 @NgModule({
   declarations: [
     VerbaleDiSopralluogoComponent,
-    NotificaComponent
+    NotificaComponent,
+    SanzioneComponent
   ],
   imports: [
     CommonModule,
@@ -29,11 +31,12 @@ import { ATableModule } from '../utils/modules/a-table/a-table.module';
     UtilsModule,
     AnagraficaModule,
     NgbDropdownModule,
-    ATableModule
+    ASmartTableModule
   ],
   providers: [VerbaliService],
   exports: [
-    NotificaComponent
+    NotificaComponent,
+    SanzioneComponent
   ]
 })
 export class VerbaliModule { }

@@ -1,0 +1,124 @@
+@use "~bootstrap/scss/bootstrap";
+@use "./animations";
+@use "./buttons";
+
+:root {
+  box-sizing: border-box;
+  --box-shadow: 0px 4px 5px -2px #9a9a9a;
+  --border-radius: .25rem;
+  --black: #212529;
+  --light-gray: #ced4da;
+  --light-grey: #ced4da;
+  --light-gray-plus: #f1f1f1;
+  --light-grey-plus: #f1f1f1;
+  --ms-blue: #00adff;
+  --blue: rgb(0, 85, 175);
+  --blue-outline: 0 0 0 0.17rem rgba(0, 85, 175, 0.3);
+  --light-blue: #499ef8;
+  --red: rgb(222, 35, 41);
+  --red-outline: 0 0 0 0.17rem rgba(222, 35, 41, 0.3);
+  --orange: rgb(255, 117, 24);
+  --orange-outline: 0 0 0 0.17rem rgba(255, 117, 24, 0.3);
+}
+
+.rounded {
+  border-radius: .25rem;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+
+.box {
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: .5rem;
+  background-color: white;
+  color: black;
+
+  &-3d {
+    @extend .box;
+    box-shadow: var(--box-shadow);
+  }
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  li {
+    padding: .25rem .375rem
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+[autoscroll]::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+[autoscroll] {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+[autoscroll] {
+  --transition-duration: 1s;
+  display: inline-flex;
+  white-space: nowrap;
+  overflow-y: auto;
+  overflow-x: hidden;
+  .inner-text {
+    position: relative;
+    left: 0;
+    transition: var(--transition-duration) linear;
+  }
+}
+
+//autofiller styles
+.autofiller-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.autofiller-list {
+  display: block;
+  position: absolute;
+  left: 0;
+  padding: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  color: var(--black);
+  border-color: transparent;
+  list-style: none;
+  text-align: start !important;
+  max-height: 200px;
+  overflow-y: auto;
+
+  li {
+    padding: 4px 8px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: var(--light-gray);
+    }
+
+    &:focus-visible {
+      border: none;
+      outline: none;
+    }
+  }
+
+  li:not(:last-child) {
+    border-bottom: 1px solid var(--light-gray);
+  }
+}

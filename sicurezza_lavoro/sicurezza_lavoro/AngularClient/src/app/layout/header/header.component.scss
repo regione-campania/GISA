@@ -9,7 +9,7 @@
   }
 
   .logo-regione {
-    max-width: 80px;
+    max-width: 100px;
   }
 }
 
@@ -75,6 +75,11 @@
   }
 }
 
+#logo-description {
+  color: black;
+  font-weight: bolder;
+}
+
 @media (max-width: 991.98px) {
   #sub-header {
     display: none;
@@ -102,6 +107,12 @@
     #logo-description {
       padding: 0 15px;
       font-size: smaller;
+      color: black;
+      font-weight: bolder;
+    }
+
+    .logo-regione {
+      max-width: 80px;
     }
 
     #navbar-toggler {

@@ -1,0 +1,58 @@
+@use "../../utils";
+
+.a-data-deck {
+  max-width: 512px;
+
+  .control-button {
+    background-color: white;
+    border: 1px solid var(--black);
+    color: var(--black);
+    width: 100%;
+    max-width: 136px;
+    line-height: 1;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  &.sorter-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  &.trash-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--red);
+    fill: var(--red);
+  }
+
+  svg {
+    width: inherit;
+    height: inherit;
+  }
+}
+
+.active-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.25rem 0;
+}
+
+.remove-button {
+  box-shadow: none !important;
+}
+
+.confirm-button-wrapper {
+  margin: 1rem 0;
+}
+
+.field-select-wrapper {
+  margin-bottom: .5rem;
+}

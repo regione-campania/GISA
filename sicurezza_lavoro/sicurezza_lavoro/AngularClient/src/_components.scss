@@ -1,0 +1,64 @@
+.a-data-deck {
+  &.container {
+    max-width: initial !important;
+    padding: 0 !important;
+  }
+
+  .a-deck-paginator {
+    background-color: var(--blue);
+    color: white;
+    padding: .25rem .375rem;
+    border-radius: .25rem;
+    font-weight: 300;
+
+    .control {
+      color: white;
+      fill: white;
+
+      &:hover {
+        color: var(--black);
+        fill: var(--black);
+      }
+    }
+  }
+
+  .card {
+    margin: 20px 0;
+
+    .data-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .label {
+        align-self: flex-start;
+        text-align: end;
+        font-weight: bold;
+        flex-basis: 50%;
+        padding-right: 4px;
+      }
+
+      .value {
+        flex-basis: 50%;
+        text-align: start;
+        padding-left: 4px;
+      }
+    }
+
+    .actions-container {
+      justify-content: center;
+    }
+  }
+
+  .control-button {
+    background-color: var(--blue) !important;
+    border-color: var(--blue) !important;
+    color: white !important;
+    fill: white;
+
+    .icon {
+      color: inherit;
+      fill: inherit;
+    }
+  }
+}

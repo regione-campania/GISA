@@ -1,0 +1,28 @@
+<table class="a-smart-table" [ngClass]="class ?? ''" #table>
+  <caption *ngIf="caption">
+    <ng-container [ngTemplateOutlet]="caption.templateRef"></ng-container>
+  </caption>
+  <caption class="paginator-wrapper top-paginator"
+    *ngIf="includePaginator && (paginatorSide === 'top' || paginatorSide === 'both')">
+    <a-table-paginator></a-table-paginator>
+  </caption>
+  <thead *ngIf="head">
+    <ng-container [ngTemplateOutlet]="head.templateRef"></ng-container>
+  </thead>
+  <tbody *ngIf="body && data">
+    <ng-container *ngIf="includePaginator; else elseBlock">
+      <ng-container *ngFor="let c of paginator.currentPage?.content" [ngTemplateOutlet]="body.templateRef"
+        [ngTemplateOutletContext]="{$implicit: data[c.p]}">
+      </ng-container>
+    </ng-container>
+    <ng-template #elseBlock>
+      <ng-container *ngFor="let c of content">
+        <ng-container *ngIf="c.v" [ngTemplateOutlet]="body.templateRef"
+          [ngTemplateOutletContext]="{$implicit: data[c.p]}"></ng-container>
+      </ng-container>
+    </ng-template>
+  </tbody>
+  <tfoot *ngIf="footer">
+    <ng-container [ngTemplateOutlet]="footer.templateRef"></ng-container>
+  </tfoot>
+</table>

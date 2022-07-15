@@ -1,0 +1,12 @@
+<div class="a-deck-filter a-deck-text-filter" *ngIf="filter">
+  <div class="form-group">
+    <span class="form-label">Modalita'</span>
+    <select class="form-select" #select (change)="filter.selectedOption = $any(select.value)">
+      <option *ngFor="let opt of filter.options" [value]="opt"> {{ getOptionLabel(opt) }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <span class="form-label">Valore</span>
+    <input type="text" class="form-control" [(ngModel)]="filter.pattern">
+  </div>
+</div>

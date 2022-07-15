@@ -7,155 +7,179 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.-->
 <div id="user-notices" *ngIf="userNotices">
-    <div class="actions-container table-controls">
-        <button *ngIf="role == 'Profilo Notificatore' || role == 'Profilo Amministratore'" class="btn btn-outline-blue action" id="nuova-notifica" (click)="insertNotifica()">
-            <i class="icon fas fa-plus"></i>
-            <span>Nuova Notifica</span>
+  <div class="actions-container table-controls">
+    <button *ngIf="role == 'Profilo Notificatore' || role == 'Profilo Amministratore'"
+      class="btn btn-outline-blue action" id="nuova-notifica" (click)="insertNotifica()">
+      <i class="icon fas fa-plus"></i>
+      <span>Nuova Notifica</span>
+    </button>
+    <button *ngIf="role != 'Profilo Notificatore'" type="button" class="btn btn-outline-green action"
+      (click)="exportTable()">
+      <i class="icon fa-regular fa-file-excel"></i>
+      <span>Esporta</span>
+    </button>
+    <!-- <button *ngIf="role != 'Profilo Notificatore'" type="button" class="btn btn-outline-green action"
+      [ngbTooltip]="exportTemplate" tooltipClass="table-export-tooltip" triggers="click" container="body">
+      <i class="icon fa-regular fa-file-excel"></i>
+      <span>Esporta</span>
+    </button>
+    <ng-template #exportTemplate>
+      <div>
+        <button type="button" class="btn btn-outline-green action w-100 mb-1" (click)="exportTable()">
+          <span>Intera Tabella</span>
         </button>
-        <button *ngIf="role != 'Profilo Notificatore'" class="btn btn-outline-green action" (click)="exportTable()">
-            <i class="icon fa-regular fa-file-excel"></i>
-            <span>Esporta</span>
+        <button type="button" class="btn btn-outline-green action w-100" (click)="exportTable(false)">
+          <span>Pagina Corrente</span>
         </button>
-    </div>
+      </div>
+    </ng-template> -->
+  </div>
 
-    <div class="table-wrapper" *ngIf="!mobileView">
-        <table class="table-striped y-borders" id="tabella-notifiche" #table
-            aSmartTable [paginator]="true">
-            <thead>
-                <tr>
-                    <th scope="col" width="10%">
-                        <div class="wrapper" aTableSorter="text">
-                            <span class="label">CUN</span>
-                            <a-table-filter type="text"></a-table-filter>
-                        </div>
-                    </th>
-                    <th scope="col" width="10%">
-                        <div class="wrapper" aTableSorter="text">
-                            <span class="label">CUC</span>
-                            <a-table-filter type="text"></a-table-filter>
-                        </div>
-                    </th>
-                    <th scope="col" width="20%">
-                        <div class="wrapper" aTableSorter="text">
-                            <span class="label">Denominazione</span>
-                            <a-table-filter type="text"></a-table-filter>
-                        </div>
-                    </th>
-                    <!--<th scope="col" width="10%">
-                        <div class="wrapper" aTableSorter="date">
-                            <span class="label">Data creazione</span>
-                            <a-table-filter type="date"></a-table-filter>
-                        </div>
-                    </th>-->
-                    <th *ngIf="role != 'Profilo Notificatore'" scope="col" width="10%">
-                        <div class="wrapper" aTableSorter="date">
-                            <span class="label">Anno notifica</span>
-                            <a-table-filter type="selection" [values]="anniDisponibili"></a-table-filter>
-                        </div>
-                    </th>
-                    <th scope="col" width="10%">
-                        <div class="wrapper" aTableSorter="date">
-                            <span class="label">Data ultima modifica</span>
-                            <a-table-filter type="date"></a-table-filter>
-                        </div>
-                    </th>
-                    <th *ngIf="role != 'Profilo Notificatore'" scope="col" width="15%">
-                        <div class="wrapper" aTableSorter="date">
-                            <span class="label">ASL</span>
-                            <a-table-filter type="selection" [values]="aslDisponibili"></a-table-filter>
-                        </div>
-                    </th>
-                    <th scope="col" width="15%">
-                        <div class="wrapper" aTableSorter="text">
-                            <span class="label">Stato</span>
-                            <a-table-filter type="selection" [values]="statiDisponibili"></a-table-filter>
-                        </div>
-                    </th>
-                    <th scope="col" width="15%"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let notice of userNotices">
-                    <td>{{notice.cun}}</td>
-                    <td>{{notice.cuc}}</td>
-                    <td>{{notice.denominazione}}</td>
-                    <!--<td>{{notice.data_notifica}}</td> | date:'dd/MM/yyyy HH:mm'}}</td> -->
-                    <td *ngIf="role != 'Profilo Notificatore'">{{notice.anno}}</td>
-                    <td>{{notice.data_modifica}}</td> <!-- | date:'dd/MM/yyyy HH:mm'}}</td> -->
-                    <td *ngIf="role != 'Profilo Notificatore'">{{notice.descr_asl}}</td>
-                    <td>{{notice.stato}}</td>
-                    <td>
-                        <div class="actions-container">
-                            <button *ngIf="notice.modificabile; else visualizzaButton" class="btn btn-primary action"
-                                (click)="goToNoticeEditor(notice.id_notifica, notice.modificabile, notice.modificabile_cantiere)">
-                                <i class="icon far fa-edit"></i>
-                                <span>Modifica</span>
-                            </button>
-                            <ng-template #visualizzaButton>
-                                <button class="btn btn-info action"
-                                    (click)="goToNoticeEditor(notice.id_notifica, notice.modificabile, notice.modificabile_cantiere)">
-                                    <i class="icon fas fa-search"></i>
-                                    <span>Visualizza</span>
-                                </button>
-                            </ng-template>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="table-wrapper" *ngIf="!mobileView">
+    <a-smart-table [data]="userNotices" [paginator]="true" class="table-blue table-striped-light no-borders"
+      id="tabella-notifiche" #table>
+      <ng-template aTemplate="head">
+        <tr>
+          <th scope="col" *ngIf="role != 'Profilo Notificatore'" width="10%">
+            <a-table-sorter type="text" key="cognome_notificante+nome_notificante"></a-table-sorter>
+            <a-table-filter type="text" key="cognome_notificante+nome_notificante"></a-table-filter>
+            <span class="label">Notificante</span>
+          </th>
+          <th scope="col" width="10%">
+            <a-table-sorter type="text" key="cun"></a-table-sorter>
+            <a-table-filter type="text" key="cun"></a-table-filter>
+            <span class="label">CUN</span>
+          </th>
+          <th scope="col" width="10%">
+            <a-table-sorter type="text" key="cuc"></a-table-sorter>
+            <a-table-filter type="text" key="cuc"></a-table-filter>
+            <span class="label">CUC</span>
+          </th>
+          <th scope="col" width="20%">
+            <a-table-sorter type="text" key="denominazione"></a-table-sorter>
+            <a-table-filter type="text" key="denominazione"></a-table-filter>
+            <span class="label">Denominazione</span>
+          </th>
+          <th *ngIf="role != 'Profilo Notificatore'" scope="col" width="10%">
+            <a-table-sorter type="text" key="anno"></a-table-sorter>
+            <a-table-filter type="selection" key="anno" [values]="anniDisponibili"></a-table-filter>
+            <span class="label" autoscroll="100%">Anno Notifica</span>
+          </th>
+          <th scope="col" width="10%">
+            <a-table-sorter type="date" key="data_modifica"></a-table-sorter>
+            <a-table-filter type="date" key="data_modifica"></a-table-filter>
+            <span class="label" autoscroll="100%">Data ultima modifica</span>
+          </th>
+          <th *ngIf="role != 'Profilo Notificatore'" scope="col" width="10%">
+            <a-table-sorter type="text" key="descr_asl"></a-table-sorter>
+            <a-table-filter type="selection" key="descr_asl" [values]="aslDisponibili"></a-table-filter>
+            <span class="label">ASL</span>
+          </th>
+          <th scope="col" width="15%">
+            <a-table-sorter type="text" key="stato"></a-table-sorter>
+            <a-table-filter type="selection" key="stato" [values]="statiDisponibili"></a-table-filter>
+            <span class="label">Stato</span>
+          </th>
+          <th scope="col" width="15%"></th>
+        </tr>
+      </ng-template>
+      <ng-template aTemplate="body" let-notice>
+        <tr>
+          <td *ngIf="role != 'Profilo Notificatore'">{{notice.cognome_notificante}} {{notice.nome_notificante}}</td>
+          <td>{{ notice.cun }}</td>
+          <td>{{ notice.cuc }}</td>
+          <td>{{ notice.denominazione }}</td>
+          <!--<td>{{notice.data_notifica}}</td> | date:'dd/MM/yyyy HH:mm'}}</td> -->
+          <td *ngIf="role != 'Profilo Notificatore'">{{ notice.anno }}</td>
+          <td>{{ notice.data_modifica }}</td>
+          <!-- | date:'dd/MM/yyyy HH:mm'}}</td> -->
+          <td *ngIf="role != 'Profilo Notificatore'">{{ notice.descr_asl }}</td>
+          <td>{{ notice.stato }}</td>
+          <td>
+            <div class="actions-container justify-content-center">
+              <button *ngIf="notice.modificabile" class="btn btn-primary action" [ngClass]="{'icon-only': true}"
+                (click)="goToNoticeEditor(notice.id_notifica, notice.modificabile, notice.modificabile_cantiere)">
+                <i class="icon far fa-edit"></i>
+                <!--<span *ngIf="role == 'Profilo Notificatore'">Modifica</span>-->
+              </button>
+              <!--<ng-template #visualizzaButton>-->
+              <button class="btn btn-info action" [ngClass]="{'icon-only': true}"
+                (click)="goToNoticeEditor(notice.id_notifica, false, false)">
+                <i class="icon fas fa-search"></i>
+                <!--<span *ngIf="role == 'Profilo Notificatore'">Visualizza</span>-->
+              </button>
+              <!--</ng-template>-->
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </a-smart-table>
+  </div>
 
-    <div class="card-deck" *ngIf="mobileView">
-        <div class="card" *ngFor="let notice of userNotices">
-            <div class="card-body">
-                <div class="data-wrapper">
-                    <span class="label">CUN</span>
-                    <span class="value">{{notice.cun}}</span>
-                </div>
-                <div class="data-wrapper">
-                    <span class="label">CUC</span>
-                    <span class="value">{{notice.cuc}}</span>
-                </div>
-                <div class="data-wrapper">
-                    <span class="label">Denominazione</span>
-                    <span class="value">{{notice.denominazione}}</span>
-                </div>
-                <!--<div class="data-wrapper">
+  <a-data-deck [data]="userNotices" [paginator]="true" [filters]="deckControlsConf" *ngIf="mobileView">
+    <ng-template aTemplate="card" let-notice>
+      <div class="card-body">
+        <div class="data-wrapper" *ngIf="role != 'Profilo Notificatore'">
+          <span class="label">Notificante</span>
+          <span class="value">{{ notice.nome_notificante }} {{ notice.cognome_notificante }}</span>
+        </div>
+        <div class="data-wrapper">
+          <span class="label">CUN</span>
+          <span class="value">{{ notice.cun }}</span>
+        </div>
+        <div class="data-wrapper">
+          <span class="label">CUC</span>
+          <span class="value">{{ notice.cuc }}</span>
+        </div>
+        <div class="data-wrapper">
+          <span class="label">Denominazione</span>
+          <span class="value">{{ notice.denominazione }}</span>
+        </div>
+        <!--<div class="data-wrapper">
                     <span class="label">Data Inoltro</span>
                     <span class="value">{{notice.data_notifica}}</span>
                 </div>-->
-                <div *ngIf="role != 'Profilo Notificatore'" class="data-wrapper">
-                    <span class="label">Anno notifica</span>
-                    <span class="value">{{notice.anno}}</span>
-                </div>
-                <div class="data-wrapper">
-                    <span class="label">Ultima modifica</span>
-                    <span class="value">{{notice.data_modifica}}</span>
-                </div>
-                <div *ngIf="role != 'Profilo Notificatore'" class="data-wrapper">
-                    <span class="label">Asl</span>
-                    <span class="value">{{notice.descr_asl}}</span>
-                </div>
-                <div class="data-wrapper">
-                    <span class="label">Stato</span>
-                    <span class="value">{{notice.stato}}</span>
-                </div>
-                <div class="actions-container">
-                    <button *ngIf="notice.modificabile; else visualizzaButton" class="btn btn-primary action"
-                        (click)="goToNoticeEditor(notice.id_notifica, notice.modificabile, notice.modificabile_cantiere)">
-                        <i class="icon far fa-edit"></i>
-                        <span>Modifica</span>
-                    </button>
-                    <ng-template #visualizzaButton>
-                        <button class="btn btn-info action"
-                            (click)="goToNoticeEditor(notice.id_notifica, notice.modificabile, notice.modificabile_cantiere)">
-                            <i class="icon fas fa-search"></i>
-                            <span>Visualizza</span>
-                        </button>
-                    </ng-template>
-                </div>
-            </div>
+        <div *ngIf="role != 'Profilo Notificatore'" class="data-wrapper">
+          <span class="label">Anno notifica</span>
+          <span class="value">{{ notice.anno }}</span>
         </div>
-    </div>
-
+        <div class="data-wrapper">
+          <span class="label">Ultima modifica</span>
+          <span class="value">{{ notice.data_modifica }}</span>
+        </div>
+        <div *ngIf="role != 'Profilo Notificatore'" class="data-wrapper">
+          <span class="label">ASL</span>
+          <span class="value">{{ notice.descr_asl }}</span>
+        </div>
+        <div class="data-wrapper">
+          <span class="label">Stato</span>
+          <span class="value">{{ notice.stato }}</span>
+        </div>
+        <div class="actions-container">
+          <button *ngIf="notice.modificabile;" class="btn btn-primary action" (click)="
+              goToNoticeEditor(
+                notice.id_notifica,
+                notice.modificabile,
+                notice.modificabile_cantiere
+              )
+            ">
+            <i class="icon far fa-edit"></i>
+            <!--<span>Modifica</span>-->
+          </button>
+          <!--<ng-template #visualizzaButton>-->
+          <button class="btn btn-info action" (click)="
+                goToNoticeEditor(
+                  notice.id_notifica,
+                  false,
+                  false
+                )
+              ">
+            <i class="icon fas fa-search"></i>
+            <!--<span>Visualizza</span>-->
+          </button>
+          <!--</ng-template>-->
+        </div>
+      </div>
+    </ng-template>
+  </a-data-deck>
 </div>

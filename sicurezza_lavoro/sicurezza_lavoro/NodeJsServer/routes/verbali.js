@@ -47,8 +47,9 @@ function angularParser(tag) {
 async function convertNotifica(valori, res, tipoDocumento, id) {
 
 	try {
-		result = await conn.client.query(`select filename from gds_ui.verbali_ui where descr = '${tipoDocumento}'`)
+		result = await conn.client.query(`select filename, email_creazione from gds_ui.verbali_ui where descr = '${tipoDocumento}'`)
 		let filename = result.rows[0].filename;
+		let sendMail = result.rows[0].email_creazione;
 
 		var opts = {}
 		opts.centered = false; //Set to true to always center images
@@ -100,7 +101,7 @@ async function convertNotifica(valori, res, tipoDocumento, id) {
 			compression: "DEFLATE",
 		});
 
-		const filenamePdf = `${valori.cantiere.cun}_${valori.cantiere.data_notifica}.pdf`;
+		const filenamePdf = `${tipoDocumento}_${valori.cantiere.cun}_${valori.cantiere.data_notifica}.pdf`;
 		let tmp = "static/verbali/tmp/";
 		let data = await libre.convertAsync(buf, ".pdf", undefined);
 		fs.writeFileSync(tmp + filenamePdf, data);
@@ -114,7 +115,8 @@ async function convertNotifica(valori, res, tipoDocumento, id) {
 			}
 
 
-		mail.sendEmailAttivazioneNotifica(filenamePdf, data, valori);
+		if(sendMail)
+			mail.sendEmailAttivazioneNotifica(filenamePdf, data, valori);
 
 		res.download(tmp + filenamePdf, filenamePdf, function (err) {
 			if (err) {
@@ -195,23 +197,28 @@ async function convertVerbale(valori, res, tipoDocumento, id) {
 async function getDocument(res, tipoDocumento, id) {
 	let query = `select dati, titolo from gds_notifiche.documenti where id_interno = ${id} and tipo = '${tipoDocumento}' order by id desc limit 1`;
 	console.log(query);
-	try {
 		conn.client.query(query, (err, result) => {
 			if (err) {
 				console.log(err.stack)
 				res.writeHead(500).end();
 			} else {
-				let tmp = "static/verbali/tmp/";
-				let data = result.rows[0].dati;
-				let filenamePdf = result.rows[0].titolo;
-				fs.writeFileSync(tmp + filenamePdf, base64url.toBuffer(result.rows[0].dati));
+				try {
 
-				res.download(tmp + filenamePdf, filenamePdf, function (err) {
-					if (err) {
-						console.log(err);
-						res.status(500).send(err).end();
-					}
-				});
+					let tmp = "static/verbali/tmp/";
+					let data = result.rows[0].dati;
+					let filenamePdf = result.rows[0].titolo;
+					fs.writeFileSync(tmp + filenamePdf, base64url.toBuffer(result.rows[0].dati));
+
+					res.download(tmp + filenamePdf, filenamePdf, function (err) {
+						if (err) {
+							console.log(err);
+							res.status(500).send(err).end();
+						}
+					});
+				} catch (e) {
+					console.log(e.stack);
+					res.end();
+				}
 				/*try{
 					console.log(result.rows[0].dati);
 					res.writeHead(200, {
@@ -225,10 +232,6 @@ async function getDocument(res, tipoDocumento, id) {
 				}*/
 			}
 		})
-	} catch (e) {
-		console.log(e.stack);
-		res.end();
-	}
 }
 
 router.post("/getNotificaCompilata", async function (req, res) {
@@ -243,7 +246,7 @@ router.post("/getNotificaCompilata", async function (req, res) {
 		if (isNew == "true")
 			convertNotifica(valori, res, descrizioneVerbale, valori.cantiere.id_notifica);
 		else
-			getDocument(res, "notificaPreliminare", valori.cantiere.id_notifica);
+			getDocument(res, descrizioneVerbale, valori.cantiere.id_notifica);
 	} catch (err) {
 		console.log(err);
 		res.status(500).send(err).end();

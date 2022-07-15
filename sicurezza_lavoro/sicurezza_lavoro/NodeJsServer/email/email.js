@@ -27,9 +27,10 @@ function sendEmailAttivazioneNotifica(filename, content, valori) {
 
   var transporter = nodemailer.createTransport(credentials);
 
-  const cun = filename.split("_")[0];
+  const cun = filename.split("_")[1];
 
   var to = '';
+  var destinatariRealiTxt = ''
   if (conf.mailToInvalidator == '') { //invio la mail agli effettivi destinatari solo se l'invalidator è vuoto (a scopo di test), in caso contrario lo invio ai tester
     to = valori.cantiere.indirizzo_mail + `${conf.mailToInvalidator}`; //indirizzo mail dell'asl
 
@@ -39,6 +40,19 @@ function sendEmailAttivazioneNotifica(filename, content, valori) {
     })
   } else {
     to = conf.mailCcnTest;
+
+    var destinatariReali = valori.cantiere.indirizzo_mail;
+    valori.persona_ruoli.forEach(function (persona) { // indirizzo mail del resposabile
+      if (persona.id_ruolo == 2)
+        destinatariReali += ", " + persona.pec;
+    })
+
+    destinatariRealiTxt = `
+    <p>---------</p>
+    <p><strong> Questa è una mail di test, i veri destinatari sarebbero stati ${destinatariReali}</strong></p>
+    `;
+
+
   }
 
 
@@ -49,7 +63,8 @@ function sendEmailAttivazioneNotifica(filename, content, valori) {
     bcc: conf.mailCcnTest,
     subject: `Gisa Sicurezza lavoro - Nuova notifica preliminare - CUN ${cun}`,
     html: `<p>Si allega quanto in oggetto</p>
-        <p><strong>GISA - Sicurezza e prevenzione sui luoghi di lavoro</strong></p>`,
+        <p><strong>GISA - Sicurezza e prevenzione sui luoghi di lavoro</strong></p>
+        ${destinatariRealiTxt}`,
     attachments: {
       filename: filename,
       content: content
@@ -67,7 +82,7 @@ function sendEmailAttivazioneNotifica(filename, content, valori) {
 }
 
 
-function sendEmailSupporto(nomeSegnalante, titolo, messaggio, emailSegnalante, telefonoSegnalante){
+function sendEmailSupporto(nomeSegnalante, titolo, messaggio, emailSegnalante, telefonoSegnalante, enteSegnalante, tipo){
 
   var credentials = {
     host: conf.mailHost,
@@ -82,15 +97,21 @@ function sendEmailSupporto(nomeSegnalante, titolo, messaggio, emailSegnalante, t
     }
   }
 
+  var to_ = '';
+  if(tipo == "tecnico")
+    to_ = conf.mailToSupportoTecnico;
+  else if (tipo == "funzionale")
+    to_ = conf.mailToSupportoFunzionale;
+
   var transporter = nodemailer.createTransport(credentials);
 
   var mailOptions = {
     from: conf.mailFrom,
-    to: conf.mailCcnTest,
+    to: to_,
     //bcc: conf.mailCcnTest,
     subject: `Gisa Sicurezza lavoro - SUPPORTO [${titolo}][${nomeSegnalante}]`,
     html: `<p>${messaggio}</p>
-          <p>Dati di ricontatto: ${emailSegnalante}  -  ${telefonoSegnalante}</p>`,
+          <p>Dati di ricontatto: ${emailSegnalante}  -  ${telefonoSegnalante}  -  ${enteSegnalante}</p>`,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
@@ -125,10 +146,10 @@ function testMail(){
 
   var mailOptions = {
     from: "notificapreliminare@pec.regione.campania.it",
-    to: conf.mailCcnTest,
-    //bcc: conf.mailCcnTest,
-    subject: ``,
-    html: ``,
+    to: "gianluca.paolocci@widipec.it",
+    bcc: conf.mailCcnTest,
+    subject: `email test rilascio gisa, senza cc`,
+    html: `test`,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

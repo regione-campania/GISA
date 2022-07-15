@@ -27,7 +27,7 @@ interface NavigatorView extends View {
   styleUrls: ['./a-navigator.component.scss'],
   animations: [
     trigger('flyInOut', [
-      state('in', style({ 
+      state('in', style({
         transform: 'translateX(0)'
        })),
       state('out-to-left', style({
@@ -43,17 +43,17 @@ interface NavigatorView extends View {
         transform: 'translateX(0)'
       })),
       transition('void => in', [
-        style({ 
+        style({
           opacity: 0,
           transform: 'translateX(100%)'
         }),
-        animate(TRANSITION_TIMING, style({ 
+        animate(TRANSITION_TIMING, style({
           opacity: 1,
           transform: 'translateX(0)'
          })),
       ]),
       transition('* => out-to-left', [
-        style({ 
+        style({
           opacity: 0.66,
           transform: 'translateX(0)'
          }),
@@ -63,7 +63,7 @@ interface NavigatorView extends View {
         }))
       ]),
       transition('* => out-to-right', [
-        style({ 
+        style({
           opacity: 0.66,
           transform: 'translateX(0)'
          }),
@@ -73,7 +73,7 @@ interface NavigatorView extends View {
         }))
       ]),
       transition('out-to-left => in', [
-        style({ 
+        style({
           opacity: 0,
           transform: 'translateX(-100%)'
          }),
@@ -83,7 +83,7 @@ interface NavigatorView extends View {
         }))
       ]),
       transition('out-to-right => in', [
-        style({ 
+        style({
           opacity: 0,
           transform: 'translateX(100%)'
          }),
@@ -103,7 +103,7 @@ export class ANavigatorComponent implements DoCheck, AfterViewInit {
   @Output() dismiss = new EventEmitter()
 
   isModal = false
-  
+
   private _activeView?: NavigatorView
   get activeView() { return this._activeView! ?? undefined }
   private set activeView(view: NavigatorView) { this._activeView = view }
@@ -111,7 +111,7 @@ export class ANavigatorComponent implements DoCheck, AfterViewInit {
   private _viewsPath: NavigatorView[] = []
   get viewsPath() { return this._viewsPath }
   private set viewsPath(views: NavigatorView[]) { this._viewsPath = views}
-  
+
 
   constructor(private elementRef: ElementRef) { }
 
@@ -140,11 +140,11 @@ export class ANavigatorComponent implements DoCheck, AfterViewInit {
   }
 
   @HostListener('click', ['$event']) onClick(event: any) {
-    event.preventDefault()
+    //event.preventDefault()
     event.stopPropagation()
     let eventPath = event.composedPath()
     let t = eventPath[0]
-    for(let i = 1; t !== this.mainContainer?.nativeElement && !(t.hasAttribute('viewLink')); i++) 
+    for(let i = 1; t !== this.mainContainer?.nativeElement && !(t.hasAttribute('viewLink')); i++)
       t = eventPath[i]
     if(t.hasAttribute('viewLink'))
       this.openView(t.getAttribute('viewLink'))

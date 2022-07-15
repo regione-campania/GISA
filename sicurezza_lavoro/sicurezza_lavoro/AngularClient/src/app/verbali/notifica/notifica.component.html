@@ -10,12 +10,12 @@ You should have received a copy of the GNU Affero General Public License along w
     <form id="notice-form" [formGroup]="noticeForm" (ngSubmit)="onSubmit($event)" (keydown.enter)="$event.preventDefault()">
         <div id="notice-status-info">
             <div ngbDropdown id="next-states-wrapper" *ngIf="notice.stati_successivi.length > 0">
-                <button ngbDropdownToggle class="btn" type="button">
+                <button ngbDropdownToggle class="btn" type="button" *ngIf="!readonly || notice.cantiere.scaricabile"> <!--se è una bozza e sono in modalità visualizza-->
                     <i class="icon fa fa-list-ul" aria-hidden="true"></i>
-                    <span class="d-none d-md-inline">Gestione notifica</span>
+                    <span class="d-none d-md-inline">Menu</span>
                 </button>
-                <ul class="border-0" ngbDropdownMenu>
-                    <div *ngIf="role != 'Profilo Regione'">
+                <ul class="border-0" ngbDropdownMenu> 
+                    <div *ngIf="role == 'Profilo Notificatore' || role == 'Profilo Amministratore'">
                             <button  ngbDropdownItem type="submit" class="btn" *ngFor="let s of notice.stati_successivi"
                             [value]="s.id_stato_prossimo">
                             {{s.label_bottone}}
@@ -33,7 +33,7 @@ You should have received a copy of the GNU Affero General Public License along w
                 </button>
             </div>
             <div class="form-field-inline" id="status-display">
-                <label class="form-label" for="stato-attuale">Stato Attuale: </label>
+                <label class="form-label" for="stato-attuale">Stato:</label>
                 <span id="stato-attuale">{{notice.cantiere.stato}}</span>
             </div>
             <div class="form-field-inline" id="other-buttons">
@@ -42,7 +42,6 @@ You should have received a copy of the GNU Affero General Public License along w
             </div>
         </div>
 
-        <strong>* campi obbligatori</strong>
         <div class="form-section" id="user-details" formGroupName="cantiere">
             <div class="wrapper">
                 <span class="label">Il sottoscritto</span>
@@ -78,7 +77,7 @@ You should have received a copy of the GNU Affero General Public License along w
                 <tbody>
                     <tr>
                         <td>
-                            <label class="form-label" for="cantiere_via">Indirizzo *</label>
+                            <label class="form-label" for="cantiere_via">Indirizzo **</label>
                         </td>
                         <td>
                             <input class="form-control" id="cantiere_via" formControlName="via"
@@ -87,7 +86,7 @@ You should have received a copy of the GNU Affero General Public License along w
                     </tr>
                     <tr>
                         <td>
-                            <label class="form-label" for="cantiere_civico">Civico/KM *</label>
+                            <label class="form-label" for="cantiere_civico">Civico/KM **</label>
                         </td>
                         <td>
                             <input class="form-control" id="cantiere_civico" formControlName="civico"
@@ -96,7 +95,7 @@ You should have received a copy of the GNU Affero General Public License along w
                     </tr>
                     <tr>
                         <td>
-                            <label class="form-label" for="cantiere_comune">Comune *</label>
+                            <label class="form-label" for="cantiere_comune">Comune **</label>
                         </td>
                         <td>
                             <input class="form-control" id="cantiere_comune" formControlName="comune"
@@ -106,7 +105,7 @@ You should have received a copy of the GNU Affero General Public License along w
                     </tr>
                     <tr>
                         <td>
-                            <label class="form-label" for="cantiere_cap">CAP *</label>
+                            <label class="form-label" for="cantiere_cap">CAP **</label>
                         </td>
                         <td>
                             <input class="form-control" id="cantiere_cap" formControlName="cap"
@@ -122,7 +121,7 @@ You should have received a copy of the GNU Affero General Public License along w
                 <tbody>
                     <tr>
                         <td>
-                            <label class="form-label" for="cantiere_denominazione">Denominazione *</label>
+                            <label class="form-label" for="cantiere_denominazione">Denominazione **</label>
                         </td>
                         <td>
                             <input class="form-control" id="cantiere_denominazione" formControlName="denominazione" [readonly]="readonlyCantiere">
@@ -130,7 +129,7 @@ You should have received a copy of the GNU Affero General Public License along w
                     </tr>
                     <tr>
                         <td>
-                            <label class="form-label" for="cantiere_natura_opera">Natura Opera *</label>
+                            <label class="form-label" for="cantiere_natura_opera">Natura Opera **</label>
                         </td>
                         <td>
                             <select class="form-select" id="cantiere_natura_opera" formControlName="id_natura_opera"
@@ -145,7 +144,7 @@ You should have received a copy of the GNU Affero General Public License along w
                     </tr>
                     <tr *ngIf="currNatura == 0">
                         <td>
-                            <label class="form-label" for="altro">Specificare Natura Opera *</label>
+                            <label class="form-label" for="altro">Specificare Natura Opera **</label>
                         </td>
                         <td>
                             <input class="form-control" id="altro" formControlName="altro" [readonly]="readonlyCantiere">
@@ -153,7 +152,7 @@ You should have received a copy of the GNU Affero General Public License along w
                     </tr>
                     <tr>
                         <td>
-                            <label class="form-label" for="cantiere_data_presunta">Data presunta inizio lavori *</label>
+                            <label class="form-label" for="cantiere_data_presunta">Data presunta inizio lavori **</label>
                         </td>
                         <td>
                             <input type="date" class="form-control" id="cantiere_data_presunta"
@@ -167,7 +166,7 @@ You should have received a copy of the GNU Affero General Public License along w
                             </label>
                         </td>
                         <td>
-                            <input class="form-control" id="cantiere_durata_presunta" formControlName="durata_presunta">
+                            <input class="form-control" id="cantiere_durata_presunta" formControlName="durata_presunta" maxlength="10">
                         </td>
                     </tr>
                     <tr>
@@ -177,7 +176,7 @@ You should have received a copy of the GNU Affero General Public License along w
                             </label>
                         </td>
                         <td>
-                            <input class="form-control" id="cantiere_numero_imprese" formControlName="numero_imprese">
+                            <input class="form-control" id="cantiere_numero_imprese" formControlName="numero_imprese" maxlength="10">
                         </td>
                     </tr>
                     <tr>
@@ -188,7 +187,7 @@ You should have received a copy of the GNU Affero General Public License along w
                         </td>
                         <td>
                             <input class="form-control" id="cantiere_numero_lavoratori"
-                                formControlName="numero_lavoratori">
+                                formControlName="numero_lavoratori" maxlength="10">
                         </td>
                     </tr>
                     <tr>
@@ -198,7 +197,7 @@ You should have received a copy of the GNU Affero General Public License along w
                             </label>
                         </td>
                         <td>
-                            <input class="form-control" id="cantiere_ammontare" formControlName="ammontare">
+                            <input class="form-control" id="cantiere_ammontare" formControlName="ammontare" maxlength="12">
                         </td>
                     </tr>
                 </tbody>
@@ -208,7 +207,7 @@ You should have received a copy of the GNU Affero General Public License along w
             <div class="imprese-scroller">
                 <table class="form-table table-striped" id="selected-enterprises" formArrayName="cantiere_imprese">
                     <caption>
-                        Imprese già selezionate
+                        Imprese
                         <button *ngIf="!readonly" type="button" class="btn btn-outline-blue" id="add-impresa"
                             (click)="addImpresa()">
                             <i class="icon fas fa-plus"></i>
@@ -249,7 +248,23 @@ You should have received a copy of the GNU Affero General Public License along w
         </div>
         <div class="form-section roles-form-section" formArrayName="persona_ruoli">
             <table class="form-table" *ngFor="let role of notice.persona_ruoli; index as i" [formGroupName]="i">
-                <caption>{{role.ruolo}}</caption>
+                <caption>
+                  <span>{{role.ruolo}}</span>
+                  <button type="button" class="btn btn-outline-blue"
+                  *ngIf="role.ruolo === 'Committente' && i === 0 && !readonly"
+                  (click)="addCommittente()"
+                  >
+                    <i class="icon fas fa-plus"></i>
+                    <span>Aggiungi</span>
+                  </button>
+                  <button type="button" class="btn btn-outline-red"
+                  *ngIf="role.ruolo === 'Committente' && i > 0 && !readonly"
+                  (click)="removeCommittente(i)"
+                  >
+                    <i class="icon fa-solid fa-xmark"></i>
+                    <span>Rimuovi</span>
+                  </button>
+                </caption>
                 <tbody>
                     <tr>
                         <td>
@@ -315,5 +330,8 @@ You should have received a copy of the GNU Affero General Public License along w
                 </tbody>
             </table>
         </div>
+        <strong>** sezioni/campi obbligatori</strong>
+        <br>
+        <strong>*  sezioni/campi obbligatori per invio</strong>
     </form>
 </div>

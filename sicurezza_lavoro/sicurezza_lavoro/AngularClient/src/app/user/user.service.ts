@@ -86,8 +86,14 @@ export class UserService {
     })
   }
 
-  downloadNotifica(notifica: any, nuovoPdf: boolean): Observable<Blob> {
-    return this.http.request<any>('POST', `${environment.protocol}://${environment.host}:${environment.port}/verbali/getNotificaCompilata?descrizioneVerbale=notificaPreliminare&nuovoPdf=${nuovoPdf}`, 
+  checkNotifica(notifica: any) {
+    return this.http.post<any>(`${environment.protocol}://${environment.host}:${environment.port}/notifiche/checkNotifica`, {
+      notifica: notifica
+    })
+  }
+
+  downloadNotifica(notifica: any, nuovoPdf: boolean, tipoDocumento: any): Observable<Blob> {
+    return this.http.request<any>('POST', `${environment.protocol}://${environment.host}:${environment.port}/verbali/getNotificaCompilata?descrizioneVerbale=${tipoDocumento}&nuovoPdf=${nuovoPdf}`, 
       { body: notifica, responseType: 'blob' as 'json'})
   }
 

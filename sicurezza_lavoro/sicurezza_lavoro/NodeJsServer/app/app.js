@@ -21,6 +21,7 @@ var notifiche = require('../routes/notifiche');
 var verbali = require('../routes/verbali');
 var anagrafiche = require('../routes/anagrafiche');
 var ispezioni = require('../routes/ispezioni');
+var sanzioni = require('../routes/sanzioni');
 
 var app = express();
 
@@ -46,7 +47,7 @@ app.set('view engine', 'ejs');
 //se sul server sono presenti le chiavi ssl per l https ridirigo il traffico https su https
 if (fs.existsSync(conf.sslPrivateKeyLocation) && fs.existsSync(conf.sslPublicCertLocation)) {
     app.all('*', function(req, res, next){
-        console.log('req start: ',req.secure, req.hostname, req.url);
+        console.log('req start: ',req.secure, `${req.protocol}://${req.get('host')}${req.originalUrl}`);
         if (req.secure) {
             return next();
         }
@@ -66,6 +67,7 @@ app.use('/notifiche', notifiche);
 app.use('/verbali', verbali);
 app.use('/anagrafiche', anagrafiche);
 app.use('/ispezioni', ispezioni);
+app.use('/sanzioni', sanzioni);
 
 
 //servo l app static angular

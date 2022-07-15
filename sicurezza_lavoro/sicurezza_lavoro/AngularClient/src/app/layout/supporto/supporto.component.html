@@ -9,19 +9,17 @@ You should have received a copy of the GNU Affero General Public License along w
 <div class="form-supporto">
     <form [formGroup]="formSupporto" (ngSubmit)="onSubmit()">
         <table class="table-mail">
-            <tr>
-                <td class="input-label"><b> Nome e Cognome:</b></td>
-                <td><input type=text formControlName="nomeSegnalante"></td>
-            </tr>
-            <tr>
-                <td class="input-label"><b>Email di ricontatto:</b></td>
-                <td><input type=text formControlName="emailSegnalante"></td>
-            <tr>
-                <td class="input-label"><b>Telefono di ricontatto:</b></td>
-                <td><input type=tex formControlName="telefonoSegnalante"></td>
-            </tr>
             <br>
             <br>
+            <tr>
+                <td class="input-label"><b>Tipo problema:</b></td>
+                <td>
+                    <select formControlName="tipo"> 
+                        <option value="tecnico">Tecnico</option>
+                        <option value="funzionale">Funzionale</option>
+                    </select>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <b>Titolo problema:</b>
@@ -36,8 +34,24 @@ You should have received a copy of the GNU Affero General Public License along w
             <tr>
                 <td colspan="2"><textarea style="width: 100%" rows="5" formControlName="messaggio"></textarea></td>
             </tr>
+            <tr><td><h4>Informazioni per il ricontatto</h4></td></tr>
             <tr>
-                <td colspan="2"><input type="Submit" value="Invia"></td>
+                <td class="input-label"><b>Nome e Cognome:</b></td>
+                <td><input type=text formControlName="nomeSegnalante"></td>
+            </tr>
+            <tr>
+                <td class="input-label"><b>E-mail:</b></td>
+                <td><input type=text formControlName="emailSegnalante"></td>
+            <tr>
+                <td class="input-label"><b>Telefono:</b></td>
+                <td><input type=tex formControlName="telefonoSegnalante"></td>
+            </tr>
+            <tr>
+                <td class="input-label"><b>Ente di appartenenza:</b></td>
+                <td><input type=tex formControlName="ente"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="Submit" value="Invia" class="btn action btn-supporto"></td>
             </tr>
         </table>
     </form>

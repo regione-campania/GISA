@@ -18,6 +18,7 @@ import { FormRicercaCantiereComponent } from './forms-prototypes/form-ricerca-ca
 import { FormRicercaImpresaComponent } from './forms-prototypes/form-ricerca-impresa/form-ricerca-impresa.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { ASmartTableModule } from '../a-smart-table/a-smart-table.module';
 
 
 
@@ -34,7 +35,8 @@ import { BrowserModule } from '@angular/platform-browser';
     ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
-    UtilsModule
+    UtilsModule,
+    ASmartTableModule
   ],
   providers: [
     AFormFactory

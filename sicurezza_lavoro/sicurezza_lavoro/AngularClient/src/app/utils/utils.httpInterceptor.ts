@@ -17,6 +17,7 @@ import {
 import { UserService } from '../user/user.service';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { Utils } from 'src/app/utils/utils.class';
 declare let Swal: any
 
 
@@ -42,6 +43,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
   private handleAuthError(err: HttpErrorResponse): Observable<any> {
     if (err.status === 401 || err.status === 403) {
+        Utils.showSpinner(false);
         Swal.fire({ text: "Sessione scaduta, eseguire login!", icon: 'warning' });
         this.router.navigateByUrl(`/login`);
     }

@@ -1,0 +1,85 @@
+@use "../../../../colors" as c;
+
+.a-deck-paginator {
+  $mainColor: c.$black;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+
+  .wrapper {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: .5rem 0;
+
+    &.select-wrapper {
+      justify-content: flex-start;
+
+      select {
+        max-width: max-content;
+        margin-left: .5rem;
+      }
+    }
+  }
+
+  .form-label {
+    margin: 0;
+  }
+
+  .control {
+    color: inherit;
+    font-weight: 600;
+    min-width: 0;
+    padding: 1px 6px;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    background-color: transparent;
+    transition: .15s ease-in-out;
+
+    &.prev-control,
+    &.next-control {
+      padding: 1px;
+      max-width: 24px;
+
+      .icon {
+        vertical-align: text-bottom;
+      }
+    }
+
+    &:hover,
+    &.page-control.active {
+      background-color: white;
+      color: $mainColor;
+    }
+
+    &.page-control.active {
+      border: 1px solid $mainColor;
+    }
+
+  }
+}
+
+@media(min-width: 768px) {
+  .a-deck-paginator {
+    flex-wrap: nowrap;
+
+    .wrapper {
+
+      &.select-wrapper {
+        flex-basis: 40%;
+        flex-grow: 0;
+        flex-shrink: 1;
+        margin-right: 0.5rem;
+      }
+
+      &.controls-wrapper {
+        flex-basis: 60%;
+        flex-grow: 1;
+        flex-shrink: 0;
+      }
+    }
+  }
+}

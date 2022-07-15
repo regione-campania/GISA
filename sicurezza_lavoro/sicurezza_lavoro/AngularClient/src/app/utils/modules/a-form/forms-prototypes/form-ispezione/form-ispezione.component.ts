@@ -23,7 +23,8 @@ export class FormIspezioneComponent extends AbstractForm implements OnInit {
 
     entiUopTree: any
     entiUopTreeChildren: any
-    entiPerContoDi: any
+    aslPerContoDi: any
+    aslPerContoDiChildren: any
     motivi: any
 
     constructor(private fb: FormBuilder, private anagrafiche: AnagraficaService, private ispezioni: IspezioniService) {
@@ -34,8 +35,16 @@ export class FormIspezioneComponent extends AbstractForm implements OnInit {
         console.log(this.data)
         this.anagrafiche.getEntiUnitaOperativeTree().subscribe(res => {
             this.entiUopTree = res
+            this.aslPerContoDi = res
+
+            this.entiUopTree = this.entiUopTree.filter((ente: any) => ente.id_asl === null)
             this.entiUopTreeChildren = this.entiUopTree.flatMap((ente: any) => ente.children)
-            this.entiPerContoDi = this.entiUopTree.filter((ente: any) => ente.id_asl !== null)
+
+            this.aslPerContoDi = this.aslPerContoDi.filter((ente: any) => ente.id_asl !== null)
+            this.aslPerContoDiChildren = this.aslPerContoDi.flatMap((ente: any) => ente.children)
+
+            console.log(this.aslPerContoDi)
+
         })
         this.ispezioni.getMotiviIspezione().subscribe(motivi => {
             this.motivi = motivi
