@@ -1,7 +1,0 @@
-<div class="a-deck-filter">
-  <ng-container [ngSwitch]="filter?.type">
-    <a-deck-text-filter *ngSwitchCase="'text'" [filter]="$any(filter)"></a-deck-text-filter>
-    <a-deck-date-filter *ngSwitchCase="'date'" [filter]="$any(filter)"></a-deck-date-filter>
-    <a-deck-selection-filter *ngSwitchCase="'selection'" [filter]="$any(filter)"></a-deck-selection-filter>
-  </ng-container>
-</div>

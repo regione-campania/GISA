@@ -1,6 +1,0 @@
-<div class="main-content" id="user-dashboard">
-    <h1 id="welcome-message">{{user?.nome}} {{user?.cognome}}</h1>
-    <h5 id="role-message">{{user?.ruolo}}</h5>
-    <app-user-notices></app-user-notices>
-</div>
-<!-- <app-sandbox></app-sandbox> -->

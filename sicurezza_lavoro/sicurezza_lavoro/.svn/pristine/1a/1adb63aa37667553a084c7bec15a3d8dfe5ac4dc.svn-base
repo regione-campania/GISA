@@ -1,8 +1,0 @@
-.a-table-text-filter {
-    select, option {text-transform: capitalize;}
-    .wrapper {
-        display: flex;
-        align-items: center;
-        margin: 8px 0;
-    }
-}

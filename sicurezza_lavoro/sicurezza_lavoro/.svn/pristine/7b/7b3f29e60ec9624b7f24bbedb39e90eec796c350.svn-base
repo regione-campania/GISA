@@ -1,7 +1,0 @@
-export const environment = {
-  production: false,
-  protocol: 'http',
-  host: '127.0.0.1',
-  port: 88,
-  ambiente: "dev"
-};
